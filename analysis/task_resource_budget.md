@@ -11,6 +11,8 @@
 
 SWE/ASI证据见[固定资源字段核验](task_resources_swe_asi.md)；TB见[固定Harbor核验](task_resources_terminal.md)。HLE固定参考：[生成客户端](https://github.com/centerforaisafety/hle/blob/22ed3074b1e7b134bcbc09028d0ba320839b0655/hle_eval/run_model_predictions.py)。
 
+关于30分钟/最多4CPU：见[原题与协议边界](budget_30min_4cpu_review.md)。SWE50分钟是当前官方locked protocol，而非题面直接写死；30分钟可作披露的自定义预算实验，不能称原locked protocol。TB3h/32CPU则为题面明确配置；ASI可提前固定30分钟；HLE不按每题独立CPU沙箱处理。本轮未修改正式预算。
+
 ## 纠正此前9路并发结论
 
 此前80可见128逻辑CPU÷32约4，加HPC当前account剩余180CPU÷32约5，合计约9，隐含每个环境同时独占满额CPU。**这是满额容量情景，不是最大软件并发数**。固定Harbor Docker默认CPU为limit，没有给每trial独占32核；48GB也不是启动即占满的实际RSS。等待模型/API时可以多开，因此不能据9路直接判定必然超时。

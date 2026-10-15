@@ -2,6 +2,8 @@
 
 状态：训练框架已确认采用 ms-swift + PEFT（BF16 LoRA），三专家划分与名称已确认；用户已授权按当前方向推进数据与工程准备，问题集中记录后讨论；正式训练和全量评测尚未启动，数据配方、训练超参数和评测执行条件仍需锁定。2026-10-15 用户明确要求先停止写代码与实验执行，先讨论数据、工程、算法、评测。以下数字均为初始设计和资源预算，不是吞吐实测或完成承诺。
 
+当前训练范围明确为**仅LoRA SFT，不做在线RL**，与原简化方案一致；保留三专家、同数据混训dev对照、AVG/TIES两个候选。用户新提议“每任务30分钟、最多4CPU”作为预算候选，见[逐项核验](analysis/budget_30min_4cpu_review.md)：ASI可预先统一冻结；SWE题面未写死50分钟，但30分钟会偏离当前官方locked protocol；TB原题明确3h/32CPU，30min/4CPU不能直接称题定主结果。HLE无逐题CPU沙箱。这轮只澄清与记录，不修改正式配置。
+
 最新数据与专家建议见[数据方案v3](analysis/data_expert_recommendation.md)：已确认按行为分为仓库修复专家（SWE）、交互执行专家（TB+ASI）、学术推理专家（HLE），替换早期把HLE+ASI放入同一科学专家的建议。候选主源为Open-SWE-Traces mini、Terminal skill-based、OpenScienceReasoning-2，数学少量补充。训练框架与专家分工已确认，数据配方仍待讨论；现已获准先下载固定版本候选数据，暂不做抽样复验；筛选/清洗与训练仍未执行。累计6M processed token、AVG/TIES两个起点/最多四候选的预算沿用[四卡简化方案v2](analysis/dressage_reuse_plan.md)；下文较早的12M/6候选及旧专家映射保留作历史，不作为当前建议。
 
 最新单任务CPU/时间见[资源预算](analysis/task_resource_budget.md)：32CPU是固定Docker默认容器上限，之前9路仅为同时满额情景，不是最大并发；真实耗时与有效并发未测。固定ASI60项metadata全部不要求GPU、无sidecar。
