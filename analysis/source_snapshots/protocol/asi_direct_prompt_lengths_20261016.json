@@ -1,0 +1,47 @@
+{
+  "scope": "CPU token counts only; fixed ASI agent-facing prompts plus direct_llm default system and fixed Qwen template; no answers, data files, model or task execution",
+  "dataset_revision": "0fa14219cafdbab634d8b3cfbce238a8735a214f",
+  "model_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "context_tokens": 32768,
+  "reserved_output_tokens": 8192,
+  "thinking": false,
+  "overall": {
+    "count": 240,
+    "min": 272,
+    "p50": 978.5,
+    "p95": 2830.5999999999967,
+    "max": 15229
+  },
+  "by_level": {
+    "b1": {
+      "count": 60,
+      "min": 716,
+      "p50": 1877.5,
+      "p95": 4413.049999999998,
+      "max": 15229
+    },
+    "b2": {
+      "count": 60,
+      "min": 288,
+      "p50": 812.5,
+      "p95": 2043.1499999999992,
+      "max": 3291
+    },
+    "b3": {
+      "count": 60,
+      "min": 272,
+      "p50": 681.5,
+      "p95": 1574.7499999999984,
+      "max": 2704
+    },
+    "b4": {
+      "count": 60,
+      "min": 319,
+      "p50": 1077.5,
+      "p95": 2339.1999999999985,
+      "max": 3961
+    }
+  },
+  "over_input_capacity": 0,
+  "note": "Initial text-only direct_llm input fit only; not evidence of solution quality, output sufficiency, image delivery or agent-history capacity"
+}

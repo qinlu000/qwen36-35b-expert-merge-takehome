@@ -576,3 +576,12 @@
 
 - 用户明确授权提高HPC任务优先级。核本人账号与分区ACL后，将后续Slurm默认分区从acd_u改为emergency_acd，PriorityTier/JobFactor=300（本轮此前实际用acd_ue=200）；仍用qinlucao账号/formal-user QoS，不设置管理员专用priority/负nice。脚本已同步HPC，sbatch --test-only预检查通过，不产生真实新作业。
 - 当前723727已在ACD1-7运行，不为调度优先级重启或重复申请；未操作其他项目原有722434。此前723706已经完整加载26分片，但FlashInfer首次编译耗尽私有/tmp而失败；新作业已挂项目独立/tmp并限制MAX_JOBS=4，保留失败证据，等待HTTP验收。140镜像缓存到90个、0失败，继续同步，未运行正式benchmark或训练。
+
+## 2026-10-16：联网核实四项上下文的实际运行证据
+
+- 用户要求上网查四项benchmark实际多大够用。使用research工作流并行读作者论文、官方源码/卡、实验作者报告；ego-browser实际核网页与SVG图表，web定位/交叉查证。新增context_evidence总报告、SWE/Terminal/HLE/ASI四份专项及无题面统计JSON，更新agent_resource_protocol首要结论，未改protocol_v1。
+- SWE找到旧Pro731题/Qwen3.6-27B+mini作者自报32K约9%、64K约24%、114K约28%，成功峰值context p90约67K/max约113K；后续更新和配置差异均披露，非本题V2 HARD51/35B直接消融。真正V2官方mini中位48–85步、累计输出26–28K，不混作单turn/output或瞬时context；建议SWE64K折中、128K更稳，不再一刀切32K。
+- Terminal找到AfterQuery一手报告：完整89题/五次均值/Terminus2+summary，max context32K、max output4096，GPT-OSS20B Base/SFT/RL=3.1/13.5/17.0。没有公开其P+O硬限实现，也非Qwen降窗对照。Nemotron作者Table8的32768是SFT而eval40960，13.0±2.2；64K设置10.3–11.9且训练/YaRN混杂，不说越短越好。TB32K/4K低预算有实跑依据，仍不能替代题定256K/80K要求。
+- HLE官方示例8192是输出，reasoning不建议低于8192，非思考无最低规定。未找到当前Qwen3.6非思考32K/4K无损对照或冻结2500题实际图文输入分布；32K待验，输出8K较稳、4K为进一步节省候选，不据模型卡thinking至少128K断言无工具非思考必须128K。
+- ASI论文百万token为多轮累计，B1/B2均时37.8/49.7min，不能推最小窗口或20min足够。仅CPU读取已下载240份官方原始prompt，加DirectLLM默认system和固定Qwen模板（thinking/preserve false，tokenizer无truncation/padding），不打印/保存正文、不读data/reference/answers：中位978.5、P95约2831、max15229；预留8192时240/240可装32K，max合计23421。只证明该文本组合输入容量，不证明8K程序足够、真实附加prompt、图片输入或多轮历史。原生单次adapter仍是候选。
+- 本轮未调用模型/付费API、跑程序/正式任务、安装依赖或调度GPU；只运行上述CPU tokenizer统计并保存摘要，无题面正文入Git。关闭自己的浏览器研究space，保留其他工作流镜像脚本/logs/WIP；运行准备状态以并行工作流最新回执为准。
