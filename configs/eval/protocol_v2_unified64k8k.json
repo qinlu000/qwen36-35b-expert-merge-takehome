@@ -2,6 +2,8 @@
   "protocol_id": "apex-eval-v2-unified64k8k",
   "status": "decisions_locked_runtime_acceptance_pending",
   "as_of": "2026-10-16",
+  "revision": "2026-10-16-resource-alignment-1",
+  "revision_note": "Align the project GPU authorization and completed synthetic acceptance evidence with the overall project thread. Solver semantics and the initial single-service scheduling limits are unchanged; multi-service expansion remains a proposal requiring acceptance and a frozen scheduling revision.",
   "scope": "Authoritative experiment specification, not native executable runner configuration. All evaluated-model main and helper calls use 65536 total context and 8192 output. No formal runs or training started under this protocol.",
   "model": {
     "repo_id": "Qwen/Qwen3.6-35B-A3B",
@@ -33,12 +35,12 @@
       "reasoning_parser": "qwen3",
       "runtime_lock": "scripts/requirements-base-runtime.lock",
       "runtime_lock_sha256": "632490600719f2eba07a6cf1a975d17da8b6356ce6b2d955ba66f0e3a3b142d3",
-      "verification": "TP2/BF16 short text/image/native-tool HTTP passed in job723821; unified64K/8K, long histories, concurrency and native benchmark agents still require acceptance.",
+      "verification": "Job723993 passed TP2/BF16 with65536 context and8192 output cap: synthetic text,32px image,native-tool round trip,57280-token input and over-budget HTTP400. Full8192-token decode,exact57344 boundary,long summary,4-sequence/8-solver concurrency and native benchmark agents remain unverified. See analysis/source_snapshots/base_gpu_smoke_v2_20261016.json.",
       "verified": false
     },
     "multimodal": true,
     "vision_processor": "fixed base processor; no language-model-only serving for HLE",
-    "deployment": "One TP2 service; all four benchmarks share the same 64K profile. At most four project H100 total. Training and evaluation run in separate phases; no assumed 2+2 overlap or untested second serving replica."
+    "deployment": "Initial runtime profile: one TP2 service shared across benchmark/model blocks, with training and evaluation in separate phases. Latest user authorization permits up to16 project H100 total, fragmented into groups of at most4. Independent TP2 replicas and training on another group are capacity proposals, not accepted throughput or an enabled scheduling policy. Freeze and validate an expanded scheduling revision before using it."
   },
   "generation_default": {
     "temperature": 0.7,
@@ -393,7 +395,7 @@
     "rng": "numpy.random.Generator(PCG64), seed20261015"
   },
   "remaining_execution_gates": [
-    "Run exact64K/8K text/image/native-tool and long-summary boundary acceptance with real requests; TP2 short smoke is not this test.",
+    "Extend job723993 synthetic64K/8K acceptance with exact input/visual guards,long-summary boundaries and full-output/long-history behavior; existing57280-token input and small-image/tool tests do not establish these.",
     "Enforce and verify per-taskCPU/RAM/network/score-material boundaries on the selected backend.",
     "Validate fixed whole input manifests, real image token coverage and all native prompt/tool hashes.",
     "Measure8 admitted solvers/4 model sequences without uncontrolled queue timeout orOOM; revisions occur before formal Base.",
@@ -454,6 +456,13 @@
     "reasoning_mode": "No hidden think generation; visible task explanation and Terminus analysis/plan fields remain valid output. Do not strip model output to conceal mode violations."
   },
   "scheduling": {
+    "policy_status": "Initial single-service policy retained. The16-H100 authorization is a resource ceiling; multi-service sharding and cross-group training/evaluation overlap require measured acceptance and a frozen scheduling revision before formal use.",
+    "project_resource_authorization": {
+      "max_h100": 16,
+      "max_h100_per_connected_group": 4,
+      "allocation_note": "An authorization ceiling, not an allocated or continuously available capacity; topology,CPU,RAM and account quotas must be checked.",
+      "priority": "User permits higher priority for this project when idle GPUs are scarce, using the current account's authorized partitions,QoS and scheduling capabilities."
+    },
     "serving_replicas": 1,
     "max_active_model_sequences": 4,
     "max_admitted_solver_tasks": 8,
@@ -472,7 +481,7 @@
       "gpus": 2,
       "cpus": 16,
       "memory_gib": 128,
-      "scope": "one serving allocation; independent CPU task environments separate; at most4 project H100 including all active jobs"
+      "scope": "one serving allocation; independent CPU task environments separate; all active project jobs together must remain within the16-H100 authorization and actual account allocation"
     }
   },
   "judge_policy": {

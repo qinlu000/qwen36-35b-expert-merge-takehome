@@ -1,6 +1,6 @@
 # 四项 Agent 评测协议 v2：统一 64K / 8K
 
-2026-10-16。当前有效的**实验设计**为 [protocol_v2_unified64k8k.json](../configs/eval/protocol_v2_unified64k8k.json)。参数已确定，原生 runner 的适配、长请求及并发验收尚未完成；本文件不代表已开始正式评测。旧版保存在 [v1 文档](evaluation_protocol_v1.md) 与 `configs/eval/protocol_v1.json`，仅供历史参照。
+2026-10-16。当前有效的**实验设计**为 [protocol_v2_unified64k8k.json](../configs/eval/protocol_v2_unified64k8k.json)，记录修订 `2026-10-16-resource-alignment-1`。参数已确定；合成64K长输入已通过，原生 runner、长摘要及并发仍待验收。本次只同步最新资源授权与验收证据，未改变解题协议或启用扩容调度；本文件不代表已开始正式评测。旧版保存在 [v1 文档](evaluation_protocol_v1.md) 与 `configs/eval/protocol_v1.json`，仅供历史参照。
 
 ## 范围与资源
 
@@ -14,6 +14,8 @@
 | HLE | 官方单次图文问答，无工具 | test 全部 2500 题，含 342 图像题，seed=0 | 5min／题 | 共享客户端 4 CPU／8GiB，非每题独占 |
 
 模型服务的 GPU／CPU／RAM 单独计入调度。镜像构建、输入准备、SWE verifier 与 fresh replay、独立判分不在解题墙钟内，分别记录耗时。所有来源 revision、任务 ID、主指标和依赖指纹见 JSON 与 `analysis/source_snapshots/protocol/`，不改用其他 split，不删除失败题。
+
+另一会话“整体推进”最新的数据建设目标为每benchmark独立val100、train约500，先按类型分层与任务族隔离。该目标不缩减本表的正式测试范围，也不等于训练数量及rank／窗口已经最终冻结。
 
 **Terminal 的本版本属于资源受限实验。** 题定要求为 256K context、80K 单次输出、3 小时、32 CPU、48GB、五组种子。本版本只保留完整任务集与五次重复，未满足前述资源配置，也未获得面试方例外许可，不能作为完全符合题定设置的成绩。SWE 的 30min 也区别所选上游 locked 配置的 50min；HLE／ASI 替换 Judge 的差异须一并报告。
 
@@ -52,9 +54,11 @@ HLE／ASI 选已有 DeepSeek 官方 deepseek-flash 作**本实验替代 Judge**�
 
 ## 部署与执行状态
 
-设计起点固定为单个 TP2 服务：vLLM0.20.2、Torch2.11.0+cu130、Transformers5.15.1、eager、Triton GDN／MoE、max_num_seqs=4、gpu_memory_utilization=0.85、chunked prefill、max_num_batched_tokens=8192。后者是调度分块额度，不是输入长度上限。服务单独申请 2×H100／16 CPU／128GiB，最多准入 8 个 solver；一次运行一个 benchmark／模型块，各比较模型相同。训练与评测分时，项目总 H100 不超过四张，不预设未经验证的第二副本或 2+2 并行训练。
+当前起点仍为单个 TP2 服务：vLLM0.20.2、Torch2.11.0+cu130、Transformers5.15.1、eager、Triton GDN／MoE、max_num_seqs=4、gpu_memory_utilization=0.85、chunked prefill、max_num_batched_tokens=8192。后者是调度分块额度，不是输入长度上限。服务单独申请 2×H100／16 CPU／128GiB，最多准入 8 个 solver；一次运行一个 benchmark／模型块，各比较模型相同；此起点保留训练与评测分时。
 
-作业723821已在 TP2/BF16 的 256K 服务上通过短文本、32px 图片、原生工具调用及反馈，并非长输入或并发验收。64K 通常增加的是允许的最长历史，并不让短请求自动变长；显存池也未必随名义 context 成比例变化。仍需按本版本真实请求验证长输入、视觉、摘要边界、四条活跃模型序列／八个 solver 的排队与峰值，以及任务 CPU／RAM／网络隔离。验收失败应在正式 Base 前修订版本，不能逐题临时改预算。
+用户最新授权为**项目总计最多16张H100，可能零散，同组最多4张**；这不是已获得的分配。空闲不足时可使用现账户已授权的队列／QoS等能力提高本题优先级。独立TP2服务分片、其他卡组训练与Base并行属于[扩容计划](overnight_execution_plan_20261016.md)，须核资源、CPU／RAM、排队与持续吞吐，并在正式使用前冻结调度修订；16卡授权不自动把副本数改为8，也不证明单卡TP1或跨节点TP可用。
+
+作业723993已按 TP2/BF16／65536 context／8192输出上限通过合成文本、32px图片、工具往返、57280-token长输入及越界HTTP400，见[验收回执](source_snapshots/base_gpu_smoke_v2_20261016.json)。实际输出未满8192，未覆盖精确57344输入边界、通用真实视觉计数、长摘要、四条活跃序列／八个solver的排队与峰值、持续吞吐及原生Agent。任务CPU／RAM／网络隔离还需各项端到端验收，不能将整体verified改为true。验收失败应在正式Base前修订版本，不能逐题临时改预算。
 
 本 JSON 是协议规范，未自动实现上述适配。正式启动前需完成薄适配、冻结实际 runner／依赖／镜像与线上请求指纹、通过独立 smoke；SFT 训练窗口与推理上限分别制定，不因单次输出 8K 就把训练标签直接裁到 8K。
 
