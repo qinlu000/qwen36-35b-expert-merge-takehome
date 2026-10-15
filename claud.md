@@ -640,3 +640,12 @@
 - 固定Qwen3.6配置为各MoE层256个routed专家、每token选8，另有shared。三个外部领域分支不会自动成为三个内部FFN；同结构AVG/TIES后仍约35B总参数，不变成105B。当前候选attention/shared-MLP LoRA可改变hidden state，所以冻结router权重不保证路由不变，此为源码函数推断。
 - 新查HARC研究同底座MoE分支合版的routing breakdown；其OLMoE全参微调和另Qwen3-30B设置不能直接外推当前冻结router的Qwen3.6 LoRA。路由重叠/概率可作解释性诊断，但变化不等于错误，不新增校准阶段或把复制Base路线设成优化目标。
 - 建议保持三专家SFT、同数据Mixed及AVG/TIES主线，将底座架构、领域分支训练、组合方式分别报告。动态adapter路由或重组MoE为后续独立结构实验，不替代本题静态参数合版。本轮无模型、任务、训练、评分API、容器或GPU执行，保留其他工作流WIP。
+
+## 2026-10-16：先按benchmark类型选独立val并清除教师思考
+
+- 用户明确先按四benchmark任务类型分布挑val，问train依据val还是正式Base选择；决定清除训练thinking与reasoning_content，LoRA rank等暂缓。本轮记录这些已确认决定，不擅定rank/alpha/训练窗口或配额，不开始清洗训练流水线。
+- 路线为公开benchmark元数据→独立val→Base在独立val上的聚合短板→train配比。train与val共享分类而非题目/模板族，跨任务包和旧轨迹先联合分组、留出全部val同源记录；正式四项Base逐题成败/答案/测试反馈不参与选训练样本或配比。正式Base可并行生成；val不是无偏test，限定选择次数。
+- 同伴在80仅读固定来源分类元数据：HLE id/category/raw_subject/answer_type并join已有image IDs，无question/answer/rationale/图正文；TB89份task.toml分类/难度；SWE51 ID到repo及分类字段；ASI按task ID前缀。HLE8类/数学1021(40.84%)/图像342(13.68%)，TB16类/软件工程26/89，ASI11域，SWE11repo且category/difficulty统一、无language字段，不能冒称真实bug难度分布。
+- 新增analysis/validation_selection.md与metadata-only validation_target_distribution_20261016.json，保存分类/模态计数与来源；旧70题val方案中的TB10/ASI10不足覆盖全类，数量暂不冻结，需按主要类别/长尾与吞吐预算重算。没有从正式题中抽val，也没有宣称已有最终val题目或验证器验收。
+- 清洗精确定义为删除assistant reasoning_content与明确教师think前缀，保留Terminus analysis/plan等必需协议、真实工具动作/反馈和可见答案。未闭合think/结构损坏隔离，空正文但有效tool_calls保留；清后重渲染、重算仅新增assistant监督mask，无目标排除，不递归删代码或工具数据中的同名字段。历史长度统计不重跑，清洗决定不等于已导出数据。
+- 更新dev_ablation_plan、readiness_training与trajectory_lengths的当前决策状态；未调用模型/评分API、运行任务、申请GPU或训练，保留其他工作流WIP，仅本轮文档/聚合快照入Git。

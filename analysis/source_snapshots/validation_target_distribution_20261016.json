@@ -1,0 +1,150 @@
+{
+  "as_of": "2026-10-16",
+  "scope": "Metadata-only fixed benchmark distribution for independent validation stratification; no policy predictions, questions, answers, rationales, instructions, solutions or tests used.",
+  "hle": {
+    "dataset_revision": "5a81a4c7271a2a2a312b9a690f0c2fde837e4c29",
+    "source_file_sha256": "6d0ee0602e8aea6b159509577e884f48ecac7b8e3f6822a35f51335a446c726a",
+    "columns_read": [
+      "id",
+      "category",
+      "raw_subject",
+      "answer_type"
+    ],
+    "image_flags": "Join existing fixed image_task_ids manifest; no image content decoded for this audit.",
+    "tasks": 2500,
+    "image_tasks": 342,
+    "category_counts": {
+      "Math": 1021,
+      "Biology/Medicine": 280,
+      "Computer Science/AI": 241,
+      "Other": 233,
+      "Physics": 230,
+      "Humanities/Social Science": 219,
+      "Chemistry": 165,
+      "Engineering": 111
+    },
+    "answer_type_counts": {
+      "exactMatch": 1909,
+      "multipleChoice": 591
+    },
+    "category_by_modality": {
+      "Math": {
+        "image": 45,
+        "text": 976
+      },
+      "Biology/Medicine": {
+        "image": 58,
+        "text": 222
+      },
+      "Computer Science/AI": {
+        "image": 17,
+        "text": 224
+      },
+      "Other": {
+        "image": 57,
+        "text": 176
+      },
+      "Physics": {
+        "image": 28,
+        "text": 202
+      },
+      "Humanities/Social Science": {
+        "image": 26,
+        "text": 193
+      },
+      "Chemistry": {
+        "image": 64,
+        "text": 101
+      },
+      "Engineering": {
+        "image": 47,
+        "text": 64
+      }
+    },
+    "answer_type_by_modality": {
+      "exactMatch": {
+        "image": 264,
+        "text": 1645
+      },
+      "multipleChoice": {
+        "image": 78,
+        "text": 513
+      }
+    },
+    "remote_source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/hle/5a81a4c7271a2a2a312b9a690f0c2fde837e4c29/test-00000-of-00001.parquet"
+  },
+  "terminal": {
+    "task_revision": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+    "metadata_only": "metadata.category and metadata.difficulty in 89 fixed task.toml files",
+    "tasks": 89,
+    "category_counts": {
+      "software-engineering": 26,
+      "system-administration": 9,
+      "security": 8,
+      "scientific-computing": 8,
+      "data-science": 8,
+      "debugging": 5,
+      "file-operations": 5,
+      "mathematics": 4,
+      "data-processing": 4,
+      "model-training": 4,
+      "machine-learning": 3,
+      "games": 1,
+      "personal-assistant": 1,
+      "optimization": 1,
+      "data-querying": 1,
+      "video-processing": 1
+    },
+    "difficulty_counts": {
+      "medium": 55,
+      "hard": 30,
+      "easy": 4
+    }
+  },
+  "swe": {
+    "task_manifest": "analysis/source_snapshots/protocol/swe_hard_task_ids.json",
+    "tasks": 51,
+    "repositories": 11,
+    "metadata_limitations": "Fixed task.toml category/difficulty are uniformly debugging/medium; no language field. These constants do not establish real bug type/difficulty distribution. Match independent repositories by audited language/ecosystem, never reuse formal repositories.",
+    "repository_counts": {
+      "ansible/ansible": 8,
+      "internetarchive/openlibrary": 8,
+      "flipt-io/flipt": 7,
+      "gravitational/teleport": 6,
+      "protonmail/webclients": 5,
+      "element-hq/element-web": 4,
+      "future-architect/vuls": 4,
+      "qutebrowser/qutebrowser": 4,
+      "navidrome/navidrome": 3,
+      "NodeBB/NodeBB": 1,
+      "tutao/tutanota": 1
+    }
+  },
+  "asi": {
+    "task_manifest": "analysis/source_snapshots/protocol/asi_task_ids.json",
+    "tasks": 60,
+    "levels": [
+      "b1",
+      "b2",
+      "b3",
+      "b4"
+    ],
+    "conditions": 240,
+    "discipline_count": 11,
+    "note": "Stratify independent task families by discipline and prompt-information level; never count four levels as four independent task families.",
+    "discipline_counts": {
+      "math": 12,
+      "computer_science": 9,
+      "physics": 8,
+      "robotics": 7,
+      "biology": 6,
+      "chemistry": 6,
+      "earth_science": 4,
+      "astronomy": 3,
+      "electrical_engineering": 2,
+      "materials": 2,
+      "biostat": 1
+    }
+  },
+  "selection_status": "Distribution audit only; no final validation task IDs or size locked."
+}

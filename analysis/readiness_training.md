@@ -2,6 +2,8 @@
 
 更新：2026-10-15。仅检查元数据和公开源码，未安装／修改环境、下载权重、导入 torch、运行 GPU 算子或申请作业。准确模型 revision `995ad96eacd98c81ed38be0c5b274b04031597b0`，架构 `Qwen3_5MoeForConditionalGeneration`。
 
+> 2026-10-16 用户决定：LoRA rank／alpha 等训练参数暂缓，本文 r16／alpha32 与目标范围仍是待审候选；不得当成已确认配方。训练中的显式教师 think 与 assistant reasoning_content 已决定清除，具体边界见 [独立 val 与清洗规则](dev_ablation_plan.md)。尚未批量清洗、训练或导出权重。
+
 ## 结论
 
 **ms-swift 有指定 Qwen3.6-35B-A3B 的明确注册和 PEFT LoRA 接口，因此路线有源码依据；本机／HPC 尚没有确认可直接运行的完整训练环境。** r16 语言侧 attention + shared MLP、冻结 routed experts/router/视觉，是比 `all-linear` 更明确且便于三专家合版的起点。实际四卡 H100 加载、反向、峰值显存、吞吐和导出仍未验证，不能把 Qwen3.5 的四卡示例当成本题性能证据。

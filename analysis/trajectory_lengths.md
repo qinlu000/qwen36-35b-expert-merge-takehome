@@ -10,7 +10,7 @@
 - D3：**2,153条全量**，静态题目＋程序答案，不是多轮Agent轨迹；临时映射instruction→system、input→user、output→assistant，仅用于长度计算。
 - 固定Qwen3.6-35B-A3B tokenizer/template revision `995ad96eacd98c81ed38be0c5b274b04031597b0`，不截断/不padding。完整序列计入system、user、assistant、工具定义/调用/观察和模板。raw保留公开teacher thinking；clean显式去除assistant公开think前缀/reasoning_content并使用非思考模板，保留JSON analysis/plan和可见解释。数值统计不等于已导出训练样本或确认训练监督mask。
 
-clean是用于比较长度的假设口径，尚未决定将所有teacher推理从最终训练数据删除。
+本次统计执行时，clean仅为比较长度的假设口径。2026-10-16后续用户已决定清除显式教师think与assistant reasoning_content，保留协议字段及正常答案。历史统计未重新运行，也不表示已导出清洗数据；统计里保留的未闭合think长尾，在最终清洗中应先隔离待审，不能当作已合格训练目标。
 
 ## 整条序列：去除显式思考后的长度
 
