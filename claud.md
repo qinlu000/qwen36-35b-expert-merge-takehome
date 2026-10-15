@@ -501,3 +501,19 @@
 - 重新浏览一手Open-SWE论文4.1/表5与固定Terminal-Corpus卡；论文确有跨harness代价，但旧数据/模型/框架与本项目不同，不能外推跌幅或据此要求全部重跑。更新harness_compatibility.md补来源链接及决策原则。
 - 建议先小批清洗和每类2–3个独立工具任务环境smoke并行；兼容来源扩大复用，环境不可恢复/依赖额外权限或语义不相容的部分排除或真实重采，ASI多轮优先补缺。回放不等于SFT收益，后者用独立dev比较Base/SFT；不按沉没成本或单题试点决定，不预设固定自采比例。本轮只研究/文档，无任务回放、模型API、训练或配置变更。
 - 观察到另一工作流正在修改ASI配置和模型smoke脚本，保留其所有修改；当前ASI候选已补attachment/modalities声明，真实图像工具链仍须端点验证，不将前轮发现写成修复已验收。
+
+## 2026-10-16：补查轨迹介绍中的sandbox来源与恢复路径
+
+- 用户要求重点查sandbox及轨迹介绍。并行补读固定数据卡、论文、上游任务schema与通用Docker/采集/启动源码，新建trajectory_sandbox总报告及SWE/Terminal/ASI三份专项；读取既有51+89任务environment/Dockerfile的FROM/WORKDIR/USER和资源元数据，保存target_sandbox_metadata及Terminal纯环境聚合快照。没有运行容器/任务/模型API、读正式题答案/参考程序/hidden tests、拉镜像层或安装依赖。
+- Open-SWE的hf_dataset_name+instance_id提供关联键；Scale-SWE有image_url/workdir/parent_commit/pre_commands，RebenchV2有image_name/base_commit/install_config及构建模板。固定mini发布没有完整collector配置，不能用旧论文其他agent或当前AweAgent默认网络/4CPU8Gi预算冒充。六例上游联表因远程投影延迟已停，未下整池；原镜像/<repo>与源提示/testbed等差异尚待恢复验证。
+- Terminal六包5,984份task.toml同型：1CPU/2G、agent/verifier900s、build600s；顶层Ubuntu24.04/Python3.12、/app、COPY files，引用内网registry latest且依赖无锁。默认值不能当原teacher实际参数，也不替代题定TB32CPU/48GiB/3h。当前NeMo共享镜像/SIF参考路线需逐题恢复files，不能据其初始化风险指控原教师数据。
+- D3论文Appendix E提供明确新依据：每模型每题采16条推理+完整程序、在对应环境执行silver evaluator后保留，32B为2,153条。区别任务构建Conda、teacher筛选、发布Docker三个阶段；可复用已有验证依据的静态程序，不要求全量重采。D3镜像含gold/eval，OpenCode自采需隔离及CLI/路径适配，现成程序没有多轮工具反馈。
+- 离线SFT不执行sandbox；Docker→SIF本身不要求重采，仍需核UID/网络/挂载/资源语义。目标TB89底层也非统一Ubuntu；本轮metadata仅包默认，另列协议草案覆盖，未改正式预算。固定Harbor源码checkout干净，Apptainer当前部署另工作流仍在验收，保留其全部WIP。
+- 更新harness/readiness交叉链接。当前倾向先复用可追溯SWE/Terminal小池，任务包用于恢复独立dev和明确缺口补采；最终收益仍用独立dev比较。新增审计脚本只读环境声明、不执行Dockerfile或任务内容。
+
+## 2026-10-16：Base完整校验与无sudo环境适配
+
+- 固定Base revision的40文件/71,926,865,825B已在80和HPC完整落盘，分别验证LFS SHA-256、小文件Git blob SHA-1，以及26个safetensors分片/1,045张量与固定index一致，failures为空。HPC最终回执00:25:55；关闭本次43873只读传输服务并清理6.66GB重复断点，保留失败日志。
+- 用户说明没有sudo；不再要求系统安装。80使用项目内Apptainer1.4.5，HPC使用集群模块。140个固定digest的SWE/TB镜像继续缓存与同步；CPU/RAM实测有余量后，预取已安全提升至8worker，保留旧日志与已完成layer/SIF。
+- ASI OpenCode模型配置原来默认无图片输入，已补attachment/modalities；断网真实OpenCode解析与官方adapter合并检查通过，无模型调用。SWE/TB真实镜像检查发现硬编码Python路径、apt的_apt降权和多UID ownership问题，正在使用只读启动hook与官方用户态fakeroot机制修复，不能把包安装或SIF缓存冒称完整正式runtime验收。
+- 修复GPU检查的Slurm CUDA序号/NVML物理序号混用，改用Torch设备UUID并记录映射；候选TP2/4参数的CPU解析通过。完整权重后已提交四卡/16CPU/192GiB/30min合成GPU作业723633，acd_ue，当前排队；未运行正式题或训练。详细状态见analysis/environment_setup_status.md。

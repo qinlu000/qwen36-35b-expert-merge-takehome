@@ -1,0 +1,264 @@
+{
+  "scope": "All six mixed training archives: task.toml and Dockerfile metadata/hashes only; no containers/tasks/API run; no instruction/test/asset/solution bodies. Defaults are packaged declarations, not verified teacher runtime configuration.",
+  "task_revision": "7e53648e183cee7bcb0aed623cc91a121d37fa38",
+  "corpus_revision": "a1667c4ffdadea02a89bffe4f1bb7ca2ff19f8d9",
+  "archives": [
+    {
+      "archive": "skill_based/mixed/data_processing.tar.gz",
+      "task_toml_count": 1000,
+      "dockerfile_count": 1000,
+      "unique_dockerfile_hashes": {
+        "5597d8f070c767568039da7f99272dce121190e79694a2bc337d4eaee2c23f74": 1000
+      },
+      "configurations": {
+        "{\"agent\": {\"timeout_sec\": 900.0}, \"environment\": {\"build_timeout_sec\": 600.0, \"cpus\": 1, \"docker_image\": \"gitlab-master.nvidia.com:5005/renjiep/datagen-flash-images/hb__datagen-flash-data-processing:latest\", \"memory\": \"2G\"}, \"verifier\": {\"timeout_sec\": 900.0}}": 1000
+      },
+      "from": {
+        "ghcr.io/laude-institute/t-bench/ubuntu-24-04:latest": 1000
+      },
+      "user": {},
+      "workdir": {
+        "/app": 1000
+      },
+      "copy": {
+        "files/ /app/": 1000
+      },
+      "setup_member_count": 0,
+      "container_def_count": 0,
+      "docker_compose_count": 0,
+      "environment_file_count": 2524,
+      "sample_files": {
+        "task.toml": {
+          "path": "./data_processing/data_processing_task_0459/task.toml",
+          "sha256": "73ef6a91d80f9c9cd813d214994a65c7e3d3ea4ca6aeaffb6a80ff4a2c4d9972"
+        },
+        "Dockerfile": {
+          "path": "./data_processing/data_processing_task_0459/environment/Dockerfile",
+          "sha256": "5597d8f070c767568039da7f99272dce121190e79694a2bc337d4eaee2c23f74"
+        }
+      },
+      "specific_examples": {
+        "./data_processing/data_processing_task_0459/task.toml": {
+          "sha256": "73ef6a91d80f9c9cd813d214994a65c7e3d3ea4ca6aeaffb6a80ff4a2c4d9972"
+        },
+        "./data_processing/data_processing_task_0459/environment/Dockerfile": {
+          "sha256": "5597d8f070c767568039da7f99272dce121190e79694a2bc337d4eaee2c23f74"
+        }
+      }
+    },
+    {
+      "archive": "skill_based/mixed/data_science.tar.gz",
+      "task_toml_count": 1000,
+      "dockerfile_count": 1000,
+      "unique_dockerfile_hashes": {
+        "427c7013129e37c4af5770c1b7ec59440a31b1f005203a390089ecb82a94aae6": 1000
+      },
+      "configurations": {
+        "{\"agent\": {\"timeout_sec\": 900.0}, \"environment\": {\"build_timeout_sec\": 600.0, \"cpus\": 1, \"docker_image\": \"gitlab-master.nvidia.com:5005/renjiep/datagen-flash-images/hb__datagen-flash-data-science:latest\", \"memory\": \"2G\"}, \"verifier\": {\"timeout_sec\": 900.0}}": 1000
+      },
+      "from": {
+        "ghcr.io/laude-institute/t-bench/ubuntu-24-04:latest": 1000
+      },
+      "user": {},
+      "workdir": {
+        "/app": 1000
+      },
+      "copy": {
+        "files/ /app/": 1000
+      },
+      "setup_member_count": 0,
+      "container_def_count": 0,
+      "docker_compose_count": 0,
+      "environment_file_count": 5515,
+      "sample_files": {
+        "task.toml": {
+          "path": "./data_science/data_science_task_0914/task.toml",
+          "sha256": "c07789383ce3ec9138c0f712248b66ecd758f7d8896538d974942df7c69557ef"
+        },
+        "Dockerfile": {
+          "path": "./data_science/data_science_task_0914/environment/Dockerfile",
+          "sha256": "427c7013129e37c4af5770c1b7ec59440a31b1f005203a390089ecb82a94aae6"
+        }
+      },
+      "specific_examples": {}
+    },
+    {
+      "archive": "skill_based/mixed/debugging.tar.gz",
+      "task_toml_count": 1000,
+      "dockerfile_count": 1002,
+      "unique_dockerfile_hashes": {
+        "b8457c9afead706f505c99bc76d2f76d1018e40d91cd63bde70ac35e5397ba4d": 1000,
+        "f85a8ebecbba79c2ff9342ece89350c63e9e1d2cb86b88c3462e4914a099b662": 1,
+        "59e92967bd03f2c3299b0778593d5a62aa729696c72e4f8c645dc3e20d76b713": 1
+      },
+      "configurations": {
+        "{\"agent\": {\"timeout_sec\": 900.0}, \"environment\": {\"build_timeout_sec\": 600.0, \"cpus\": 1, \"docker_image\": \"gitlab-master.nvidia.com:5005/renjiep/datagen-flash-images/hb__datagen-flash-debugging:latest\", \"memory\": \"2G\"}, \"verifier\": {\"timeout_sec\": 900.0}}": 1000
+      },
+      "from": {
+        "ghcr.io/laude-institute/t-bench/ubuntu-24-04:latest": 1001,
+        "ubuntu:24.04": 1
+      },
+      "user": {},
+      "workdir": {
+        "/app": 1002
+      },
+      "copy": {
+        "files/ /app/": 1001,
+        "requirements.txt .": 1,
+        "process_data.py .": 1
+      },
+      "setup_member_count": 1,
+      "container_def_count": 0,
+      "docker_compose_count": 2,
+      "environment_file_count": 10040,
+      "sample_files": {
+        "task.toml": {
+          "path": "./debugging/debugging_task_0602/task.toml",
+          "sha256": "dbb936269f9f022a79d4085ce944dda2b85375cedc54099f092350766d9febf3"
+        },
+        "Dockerfile": {
+          "path": "./debugging/debugging_task_0602/environment/Dockerfile",
+          "sha256": "b8457c9afead706f505c99bc76d2f76d1018e40d91cd63bde70ac35e5397ba4d"
+        }
+      },
+      "specific_examples": {}
+    },
+    {
+      "archive": "skill_based/mixed/file_operations.tar.gz",
+      "task_toml_count": 997,
+      "dockerfile_count": 997,
+      "unique_dockerfile_hashes": {
+        "4cb7cecb5267de4e7ad52225129d09ccc4c2c8fef9d4062f13b152d09150fc32": 997
+      },
+      "configurations": {
+        "{\"agent\": {\"timeout_sec\": 900.0}, \"environment\": {\"build_timeout_sec\": 600.0, \"cpus\": 1, \"docker_image\": \"gitlab-master.nvidia.com:5005/renjiep/datagen-flash-images/hb__datagen-flash-file-operations:latest\", \"memory\": \"2G\"}, \"verifier\": {\"timeout_sec\": 900.0}}": 997
+      },
+      "from": {
+        "ghcr.io/laude-institute/t-bench/ubuntu-24-04:latest": 997
+      },
+      "user": {},
+      "workdir": {
+        "/app": 997
+      },
+      "copy": {
+        "files/ /app/": 997
+      },
+      "setup_member_count": 0,
+      "container_def_count": 0,
+      "docker_compose_count": 0,
+      "environment_file_count": 5370,
+      "sample_files": {
+        "task.toml": {
+          "path": "./file_operations/file_operations_task_0767/task.toml",
+          "sha256": "bf56579f3cac05fe06888e1754c01f76fcf3069483c0b93a5c8b152eee1f73d9"
+        },
+        "Dockerfile": {
+          "path": "./file_operations/file_operations_task_0767/environment/Dockerfile",
+          "sha256": "4cb7cecb5267de4e7ad52225129d09ccc4c2c8fef9d4062f13b152d09150fc32"
+        }
+      },
+      "specific_examples": {}
+    },
+    {
+      "archive": "skill_based/mixed/scientific_computing.tar.gz",
+      "task_toml_count": 1000,
+      "dockerfile_count": 1000,
+      "unique_dockerfile_hashes": {
+        "2d3a8dd21254d533537d1fbf8bf5a06c49429459505b6002c6bd11e1ca0ca6e0": 1000
+      },
+      "configurations": {
+        "{\"agent\": {\"timeout_sec\": 900.0}, \"environment\": {\"build_timeout_sec\": 600.0, \"cpus\": 1, \"docker_image\": \"gitlab-master.nvidia.com:5005/renjiep/datagen-flash-images/hb__datagen-flash-scientific-computing:latest\", \"memory\": \"2G\"}, \"verifier\": {\"timeout_sec\": 900.0}}": 1000
+      },
+      "from": {
+        "ghcr.io/laude-institute/t-bench/ubuntu-24-04:latest": 1000
+      },
+      "user": {},
+      "workdir": {
+        "/app": 1000
+      },
+      "copy": {
+        "files/ /app/": 1000
+      },
+      "setup_member_count": 0,
+      "container_def_count": 0,
+      "docker_compose_count": 0,
+      "environment_file_count": 2081,
+      "sample_files": {
+        "task.toml": {
+          "path": "./scientific_computing/scientific_computing_task_0939/task.toml",
+          "sha256": "1d66ffaaed8d157ad595457a1d72db394377344b1fc0ca76720cd6b74777209b"
+        },
+        "Dockerfile": {
+          "path": "./scientific_computing/scientific_computing_task_0939/environment/Dockerfile",
+          "sha256": "2d3a8dd21254d533537d1fbf8bf5a06c49429459505b6002c6bd11e1ca0ca6e0"
+        }
+      },
+      "specific_examples": {
+        "./scientific_computing/scientific_computing_task_0939/task.toml": {
+          "sha256": "1d66ffaaed8d157ad595457a1d72db394377344b1fc0ca76720cd6b74777209b"
+        },
+        "./scientific_computing/scientific_computing_task_0939/environment/Dockerfile": {
+          "sha256": "2d3a8dd21254d533537d1fbf8bf5a06c49429459505b6002c6bd11e1ca0ca6e0"
+        }
+      }
+    },
+    {
+      "archive": "skill_based/mixed/security.tar.gz",
+      "task_toml_count": 987,
+      "dockerfile_count": 987,
+      "unique_dockerfile_hashes": {
+        "2eff5620543f5fe3d38155f39c7f1179fc5baf4a3cc0ee391d68b5db53c62424": 987
+      },
+      "configurations": {
+        "{\"agent\": {\"timeout_sec\": 900.0}, \"environment\": {\"build_timeout_sec\": 600.0, \"cpus\": 1, \"docker_image\": \"gitlab-master.nvidia.com:5005/renjiep/datagen-flash-images/hb__datagen-flash-security:latest\", \"memory\": \"2G\"}, \"verifier\": {\"timeout_sec\": 900.0}}": 987
+      },
+      "from": {
+        "ghcr.io/laude-institute/t-bench/ubuntu-24-04:latest": 987
+      },
+      "user": {},
+      "workdir": {
+        "/app": 987
+      },
+      "copy": {
+        "files/ /app/": 987
+      },
+      "setup_member_count": 3,
+      "container_def_count": 0,
+      "docker_compose_count": 2,
+      "environment_file_count": 5483,
+      "sample_files": {
+        "task.toml": {
+          "path": "./security/security_task_0732/task.toml",
+          "sha256": "752f80619fe9a58d183f06198171a5cf0882851fd0d4e937ede5cf37d97056e7"
+        },
+        "Dockerfile": {
+          "path": "./security/security_task_0732/environment/Dockerfile",
+          "sha256": "2eff5620543f5fe3d38155f39c7f1179fc5baf4a3cc0ee391d68b5db53c62424"
+        }
+      },
+      "specific_examples": {}
+    }
+  ],
+  "nemo_gym_reviewed_commit": "5ba257d4526b5d2a52ca47c9f5921e2d871abceb",
+  "nemo_harbor_dependency_commit": "9dddd797b57ab8a0f9d6352a20fce73abbb29573",
+  "public_base_source_commit": "d28711d0da2675d0bb1d56de45ae5df6082438a3",
+  "remote_source_hashes": {
+    "apex_nemo_singularity_20261016.py": "6f6d9c011050f96052f2f55dd7b18ea47a7700c58ea2b3aed73236e365824c43",
+    "apex_nemo_harbor_requirements_20261016.txt": "a3105f4bf177314e12ee9e670e38211882751e42e33be01082faf8bc5b2c41d4",
+    "apex_terminal_base_dockerfile_20261016.txt": "8665f6ab40b215e595b0b13021284091e7b653f4c73c0a083f381e0308e57a20"
+  },
+  "other_difficulty_packages_available_not_downloaded": [
+    [
+      "skill_based/easy.tar.gz",
+      110525687
+    ],
+    [
+      "skill_based/medium_shard1.tar.gz",
+      704025716
+    ],
+    [
+      "skill_based/medium_shard2.tar.gz",
+      188396953
+    ]
+  ]
+}
