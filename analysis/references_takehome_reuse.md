@@ -26,3 +26,13 @@ Occamy 的底层 [Dressage](https://github.com/Accio-Lab/Dressage) 提供多harn
 4. 评测直接沿用 [SWE Pro V2](https://github.com/scaleapi/SWE-bench_Pro-os/tree/v2.0.0/v2)、[Harbor/TB2](https://github.com/harbor-framework/harbor)、[HLE](https://github.com/centerforaisafety/hle)、[ASI-Bench](https://github.com/apexin-ai/ASI-Bench) 的固定官方入口。共享组件不等于四项可以套同一个agent或同一套预算，完整协议见此前专项笔记。
 
 本轮只补充参考资料，不改变已讨论的轻量SFT/AVG/TIES候选主线，不以外部benchmark表现选数据、checkpoint或合版参数；没有恢复实验执行。
+
+## Occamy代码开放到哪一层
+
+2026-10-15补查：
+
+- [Occamy本体](https://github.com/Accio-Lab/occamy)主要提供模型介绍、网站和[技术报告PDF](https://github.com/Accio-Lab/occamy/blob/main/report/occamy1.0.pdf)；本次report目录仅看到该PDF。
+- [Dressage](https://github.com/Accio-Lab/Dressage/tree/3e3142fe8ea07e4504c3b20a936a4c201a3de44c)是真实开源的agent RL基础设施，包含训练层、轨迹采集、沙箱和启动示例，基于slime。不能将“模型说明仓库”与“底层训练代码仓库”混称。
+- 找到准确目标模型的[Claw训练脚本](https://github.com/Accio-Lab/Dressage/blob/3e3142fe8ea07e4504c3b20a936a4c201a3de44c/examples/scripts/run_dressage_claw_qwen3.6_35b_a3b_sync_4_node.sh)，是4节点×8GPU=32卡的GRPO配置，不是4卡配置，也不是Occamy全部阶段的复现入口。
+- 本次README/目录与入口核验未找到Occamy Marathon/Sprint的SFT、HDPO、均匀合版、SAO整套专用脚本和配置；完整数据及端到端复现材料的公开程度仍未证实。结论是“有底层代码与可运行示例”，而非“完整Occamy配方已全部开放”。
+- 当前仍仅作为方法与实现参考，不安装或直接运行该脚本，不将其替换为本项目已讨论的轻量SFT主线。
