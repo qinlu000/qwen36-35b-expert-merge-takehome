@@ -677,3 +677,10 @@
 - 新核安全元数据：SWE95291行全为Qwen3.6-27B、thinking=false；Terminal139841行全DeepSeek-V3.2、thinking=true。SWE同4992样本97条含103个truthy reasoning字段，16仅空白、87去空白后非空（84条记录），其与非思考元数据并列、原wire归因未知；不凭有/无字段判定生成模式。D3导出器还可能补包装标签，保存格式不必等于原wire。
 - 候选Swift标准messages加载会过滤额外reasoning字段，不能把HF模板支持外推到训练loader；CLI hybrid通常ignore_empty_think，仅mask空块、不忽略非空全文。删除teacher思考与保留但mask不等价，后者答案仍以teacher思考为条件并耗上下文。最终训练input_ids/labels/loss_scale仍待合成验收，不擅定rank或修改部署协议。
 - 新增qwen_thinking_investigation总报告、vllm/data/training三专项与CPU聚合回执；validation_selection加暂停和最新证据入口。仅本轮文档/回执纳入Git，其他工作流环境与脚本WIP保留。浏览器只关闭本调研自己的task space。
+
+## 2026-10-16：核对两个轨迹教师是否强于题定Base
+
+- 用户问Qwen3.6-27B与DeepSeek-V3.2是否有Qwen3.6-35B-A3B强。本轮research/ego-browser核官方Qwen27B固定卡6a9e13bd6fc8f0983b9b99948120bc37f49c13e9及DeepSeek原论文，不拿Qwen3.5-27B或V3.2-Speciale冒充。
+- Qwen3.6-27B公开存在，官方同表35BA3B→27B：SWEVerified73.4→77.2、Pro49.5→53.5、Multilingual67.2→71.3、TB2 51.5→59.3、HLE21.4→24.0。27B是dense，Base35B总/3B激活MoE，参数数字不能直接比。公开相关能力有27B更强证据；源teacher非思考且精确revision/wire未知，没有本实验非思考64K8K师生直接对照。
+- 标准DeepSeekV3.2作者TB2 thinking/ClaudeCode46.4，另Terminus非思考39.3；Qwen51.5为另一预算/模式设置，不能精确排序或默认DeepSeek必强。SWEVerified73.1与73.4也跨harness；HLE模态/工具设置不同不排名。旧论文Terminus思考不兼容不代表后续Nemotron采集无效。
+- 新增teacher_strength_qwen_20261016与teacher_strength_deepseek_20261016报告。教师总体分数与单条数据资格分开，成功/协议兼容/独立来源及Base-SFT dev提升才是选轨迹依据；不因教师名字更大就用全量，亦不因此更换题定Base。未运行模型、API、任务、GPU或训练，val选题/清洗仍未恢复；仅文档入Git并保留其他工作流WIP。
