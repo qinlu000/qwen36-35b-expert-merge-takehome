@@ -1,0 +1,83 @@
+{
+  "data_ready": true,
+  "files": {
+    "train": {
+      "path": "artifacts/data/candidates/night_hle_20261016/swift_ready/train.messages.jsonl",
+      "rows": 500,
+      "bytes": 744826,
+      "sha256": "66dbd5012b560bc7b2358bdd05001fb0fa95e56f56498685288cb5ed7f649b38"
+    },
+    "train_provenance": {
+      "path": "artifacts/data/candidates/night_hle_20261016/swift_ready/train.provenance.jsonl",
+      "rows": 500,
+      "bytes": 783917,
+      "sha256": "b490c60ddbebc3907966418c1a1e93f1be15934f328b12df1cd1d8700788ba9b"
+    },
+    "val_loss": {
+      "path": "artifacts/data/candidates/night_hle_20261016/swift_ready/val.messages.jsonl",
+      "rows": 100,
+      "bytes": 56315,
+      "sha256": "dca83f108ab2d33b5d9ac6c308b09b673d588d5a5d5122e505fc0c5a6b6ff59d"
+    },
+    "val_tasks": {
+      "path": "artifacts/data/candidates/night_hle_20261016/swift_ready/val.tasks.jsonl",
+      "rows": 100,
+      "bytes": 67567,
+      "sha256": "b096203887a82b835da069f0162373e162bf4a89ebb3415f19910f3743dcd517"
+    },
+    "val_provenance": {
+      "path": "artifacts/data/candidates/night_hle_20261016/swift_ready/val.provenance.jsonl",
+      "rows": 100,
+      "bytes": 124171,
+      "sha256": "082b41e6c756a3a2d3ae9debc0e6304eeddd32bd1b075fa839388fb72773bbd6"
+    }
+  },
+  "train_categories": {
+    "Math": 204,
+    "Other": 47,
+    "Engineering": 22,
+    "Computer Science/AI": 48,
+    "Humanities/Social Science": 44,
+    "Biology/Medicine": 56,
+    "Physics": 46,
+    "Chemistry": 33
+  },
+  "train_sources": {
+    "Math-v4": 204,
+    "TIGER-Lab/MMLU-Pro": 296
+  },
+  "train_teacher_models": {
+    "publisher_DeepSeek-V4-Pro_High": 204,
+    "deepseek-v4-pro": 296
+  },
+  "training_role_pattern": [
+    "user",
+    "assistant"
+  ],
+  "training_hidden_reasoning_fields": 0,
+  "training_think_tags_in_messages": 0,
+  "train_lengths": {
+    "sum": 243140,
+    "max": 1531,
+    "mean": 486.28
+  },
+  "maximum_assistant_body_tokens_proxy": 1423,
+  "val_lengths": {
+    "sum": 16562,
+    "max": 582
+  },
+  "train_val_exact_prompt_overlap": 0,
+  "formal_and_val_13gram_check": "passed in materialization_summary.json",
+  "swift_loss_mask_validated": false,
+  "swift_loss_mask_required": "All user tokens masked; supervise only assistant answer. Verify with actual Swift template before GPU training.",
+  "validation_reference_policy": "Original expected_answer or option letter only; no fabricated explanation or teacher call.",
+  "science_publisher_only_135_policy": "Held separately; replaced by fresh independently-gold-matched teacher answers.",
+  "branch_api_budget_cny_conservative": 2.5820107200000013,
+  "training_started_by_this_script": false,
+  "limitations": [
+    "100-task dev is a coarse-category proxy: no images, 59 MCQ, different difficulty and Other subdomains.",
+    "Teacher gold match verifies the selected answer, not every explanatory claim.",
+    "Question/13-gram grouping does not guarantee semantic or source-exam-family independence.",
+    "Sequence token counts are fixed-template counts, not Swift processed training token counts."
+  ]
+}

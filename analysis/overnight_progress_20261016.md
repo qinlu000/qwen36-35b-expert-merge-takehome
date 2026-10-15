@@ -6,7 +6,7 @@
 
 - 用户已授权睡觉期间持续推进；SWE先用新版Qwen3.8-Flash-Next的9436个发布方标成功的修复候选。最终目标每项100个独立val、约500个train；优先按目标任务类型与生态覆盖选择并隔离任务族。
 - 训练数据全部使用本轮新版来源。删除此前旧教师原始数据和其可重下载副本；保留来源清单、审计、同族映射、代码、正式benchmark与模型。Terminal/HLE/ASI新版缺口集中记录，不能偷偷回退旧池或用其他类别凑数。
-- GPU本题最多16张H100，单组最多4张；只能用现账户已授权资源提高优先级，不改其他项目作业。rank/alpha/targets/训练窗口仍待定，暂不启动正式SFT或GPU反向。
+- GPU本题最多16张H100，单组最多4张；只能用现账户已授权资源提高优先级，不改其他项目作业。03:43用户已确认r16/alpha32/dropout0.05及语言侧attention＋sharedMLP，并授权数据验收完成即可正式SFT；先独立训练环境、目标/mask与四卡反向保存诊断，长窗口按实测冻结，不再因旧暂缓记录阻止训练。
 - Base评测沿用已冻结64K/8K、非thinking协议；各项原生链验收通过后可按完整固定分母启动。Terminal降配实验与题定设置的偏离继续披露。
 - API仅用于必要的小量核验/判分，夜间先采用总额人民币30元的运行上限；不批量重采2000条轨迹。未明确计价的校园API不扩量。
 - 夜间首段工作窗口至2026-10-16 11:30；届时形成交接，停止追加新的工作，保留已启动的有效远程作业。截止时间仍为10月18日14:20，最后12小时留作交付。
@@ -60,7 +60,7 @@
 
 ## 待讨论清单
 
-1. 正式SFT的rank、alpha、target modules与训练窗口；以实际处理后长度和吞吐证据讨论。
+1. rank16/alpha32/dropout0.05和目标模块已获确认；长轨迹训练窗口仍依据显存/吞吐实测冻结。
 2. Terminal新版若无法补齐成功标签/环境，采用何种质量门槛或补采策略；本夜先核证，不伪造完成。
 3. HLE独立gold与缺失学科/图像，ASI多领域环境与验证器的来源缺口。
 4. 替代Judge的校准及与官方评分模型差异；冻结答卷/产物可后判，评分失败不重新生成答案。
@@ -76,3 +76,29 @@ LoRA草案仍非已批准参数：r16/alpha32为保守起点，dropout0.05可作
 ## 运行账本
 
 API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总。GPU：724196两卡服务运行中。正式Base完成0。旧数据已删81文件/25,054,619,487B。自动续跑ACTIVE。
+
+## 03:43之后：正式训练获得授权
+
+- 用户原话：“可以，就这么来吧，然后你弄好数据可以开始训练了。”LoRA r16/alpha32/dropout0.05、语言侧full＋linear attention/sharedMLP目标、三专家＋Mixed和AVG/TIES已获确认；正式SFT与GPU反向现在已授权，不再停留在准备建议。
+- 共享超参数文件configs/train/lora_r16_shared_v1.json已保存：BF16、普通LoRA、bias none、无额外full modules、seed20261016、lr1e-4/cosine/warmup.03、1epoch、microbatch1×4卡×累积2=global8、GC、无packing/padding_free；目标匹配和kernel/ZeRO/长度仍须实测。最终每项run加数据hash/实际版本/长度/输出路径，不把共享配置当作已经可跑的完整入口。
+- 学术专家优先：原500已物化但Science135质检出现上下文/唯一性问题，保留hold并用同类独立金标任务的新V4-Pro答案替换。新版最终目标204Math＋296新Pro gold匹配；MCQ/难度偏差更大且明确披露。val100保持独立，任务val与val-loss分开。
+- SFT子任务已切换实际安装HPC独立artifacts/envs/sft；Torch2.11/Transformers5.15.1/PEFT0.20/Accelerate核心63包离线实装，固定Swift源码a01a3ae已同步；datasets4.8.4/TRL0.29.1/FLA0.5.2/DeepSpeed0.19.6传递依赖安装中。旧用户环境/在线vLLM服务不改。计划单节点4H100诊断，加现三TP2共项目10卡，仍核实际配额。
+- Terminal完整2852轨迹已核LFS SHA；第一版结构清理补选恢复427train，val原任务99且有完整teacher91。Terminus JSON的2834字符协议前缀与固定Harbor官方模板逐字相同，保留analysis/plan。它是作者过程筛选而非逐条verifier成功池；环境、类别缺口和长轨迹风险不隐去。80 messages_v3为当前待训练验收副本；后续全量精确长度见最新检查点。
+- HLE Base此前强制8K压测在300秒正确读超时，其他原生图文/精确token边界/8并发已过。追加独立900秒合成cap诊断，正式仍300秒；80驱动PID2704236，日志artifacts/runs/base_hle_v2_724196/driver.log，通过后自动启动固定2500题生成。不是为了让8K输出完成而修改正式预算。
+- 本线程heartbeat apex已更新为最新训练授权，旧“禁止SFT/rank未定”提示已移除；继续每30分钟按本文件检查点恢复。
+
+
+## 2026-10-16 03:58：首专家数据就绪及连接恢复
+
+- 学术最终Swift文件500train/100val-loss/100task-val已在Mac、80、HPC同步，现场SHA和行数全部一致；训练SHA66dbd5012b560bc7b2358bdd05001fb0fa95e56f56498685288cb5ed7f649b38。500=204新版Math+296独立MMLU-Pro金标一致的新V4-Pro解答，Science135全部hold；train243140完整模板tokens/max1531，val16562/max582。8粗类比例对齐但无图像、MCQ偏多、难度更低，明确只作代理dev。学术支实际保守费用¥2.58201072，未用正式答案。
+- 训练agent已收到HPC冻结数据与正式启动授权；独立SFT运行时安装完成，正在CPU实际Swift目标/mask检查，随后单节点4H100二步训练/保存重载，成功后直接学术一epoch。尚无正式SFT job成功回执，不把准备称训练已开始。
+- Terminal messages_v3最终427train/91teacher-val，另99独立task-val；全量完整train33,956,071tokens/P50 67,571/max402,023，仅203/427完整≤64K。32K完整回合分块情景可覆盖所有单位但后窗缺早期状态，未导出训练window；原作者262K全参训练不等于我们短窗LoRA。25个assistant正文超过8K，需记训练/评测输出偏差。
+- 共享SSH master约03:53中断，HLE900秒合成诊断收到RemoteProtocolError，尚未启动正式题；失败回执保存。已新建本线独立/tmp/apex-hle-hpc-ctl与/tmp/apex-hle-80-ctl，只恢复本线18061，不改另一会话桥；health200后80新driver PID3040907/probe3040912重跑合成。正式HLE仍300秒/8K，不因网络异常生成重答正式题。
+- 新SWE独立dev click镜像13个OCI对象756,498,142层bytes已完整校SHA并传HPC；已提交CPU初始state/cwd/依赖metadata检查，未运行源任务命令/patch/测试。source /testbed映射仍无证明，SWE未训练release。
+- 只读实核另一会话SWE724254已RUNNING，现HLE/ASI/Terminal/SWE共8H100；四卡训练后本题12、含其他722434账户13，不超过用户16或账户16。不动其他会话服务/正式结果与用户代理。
+
+
+### 04:00：训练队列与可自动续接入口
+
+- 四卡训练作业724277已提交（24CPU/256GiB/2小时），当前PENDING(Resources)。同一分配内依次实际CPU目标/mask→2K两步反向→独立进程重载forward→HLE正式500/100一epoch约63步；任何前置失败停止，不把排队当训练已开始。最终mask统一default+ignore_empty_think。
+- SWE独立dev环境CPU作业724276已提交debug分区（4CPU/12GiB/25分钟），只检查固定镜像初始commit/cwd/安装元数据与/testbed存在，不运行源轨迹/补丁/测试。镜像转换和初始状态通过也不能证明源采集映射完全相同。

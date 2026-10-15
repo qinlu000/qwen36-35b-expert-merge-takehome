@@ -900,3 +900,25 @@
 - SWE独立服务724254已提2卡16CPU128GiB，目前PENDING(Resources)，现6运行+2排队；不把待分配算已用8卡，SWE原生mini约束安装/模型桥/patch replay验收继续。
 - 已读整体推进新用户授权：数据好后可启动训练，r16/alpha32/dropout0.05已选，原“rank未定”仅历史。本会话仍只baseline，留完整4卡组给其训练、账号总16含其他项目722434，不抢满推理资源。
 - ASI产物生成持续中（本轮最后读到2/240已保存，尚未评分）；新增ASI评分适配子任务只做源码/本地stub与自造科学校准，不付费API、不改运行中的generator或正式gold。
+
+## 2026-10-16 03:43：用户确认LoRA并授权数据就绪即正式训练
+
+- 用户明确“可以，就这么来吧，然后你弄好数据可以开始训练了”。r16/alpha32/dropout0.05、语言full+linear attention/sharedMLP、冻结视觉/router/fused experts/embedding/head/norm、三专家+同数据Mixed/AVG与TIES已确认；此前参数暂缓/禁止GPU反向和SFT已过期。已更新readiness/夜间计划/总记录与本线程apex heartbeat，不以旧记录再次索要批准。
+- 新configs/train/lora_r16_shared_v1.json保存共享配置：BF16普通LoRA、biasnone、lr1e-4/cosine/warmup.03、1epoch、seed20261016、micro1×4卡×accum2=global8、GC无packing；实际kernel/ZeRO/目标/mask/长度诊断后冻结每项run。优先学术2K短QA，SWE/Terminal长窗不阻塞首专家。
+- SFT子任务已实际创建独立HPC env并安装核心63包、补Swift/FLA/DS依赖；随后单节点4卡反向/保存重载，不改在线服务环境。HLE Science135质检后hold并用同类金标新Pro替换，最终204Math+296Pro；不强行把无上下文数据标ready。Terminal新完整轨迹已验SHA，427完整parse-clean train/99task val(91teacher loss)落盘。
+- HLE Base新独立900s强制8Kcap诊断及通过后正式2500生成驱动已在80 PID2704236后台，输出artifacts/runs/base_hle_v2_724196/driver.log。正式HLE继续300s，原300s强制8K超时不视作接口不能输出8K。所有成本/未决/实际作业见统一文档。
+
+## 2026-10-16 03:58：首专家数据就绪及连接恢复
+
+- 学术最终Swift文件500train/100val-loss/100task-val已在Mac、80、HPC同步，现场SHA和行数全部一致；训练SHA66dbd5012b560bc7b2358bdd05001fb0fa95e56f56498685288cb5ed7f649b38。500=204新版Math+296独立MMLU-Pro金标一致的新V4-Pro解答，Science135全部hold；train243140完整模板tokens/max1531，val16562/max582。8粗类比例对齐但无图像、MCQ偏多、难度更低，明确只作代理dev。学术支实际保守费用¥2.58201072，未用正式答案。
+- 训练agent已收到HPC冻结数据与正式启动授权；独立SFT运行时安装完成，正在CPU实际Swift目标/mask检查，随后单节点4H100二步训练/保存重载，成功后直接学术一epoch。尚无正式SFT job成功回执，不把准备称训练已开始。
+- Terminal messages_v3最终427train/91teacher-val，另99独立task-val；全量完整train33,956,071tokens/P50 67,571/max402,023，仅203/427完整≤64K。32K完整回合分块情景可覆盖所有单位但后窗缺早期状态，未导出训练window；原作者262K全参训练不等于我们短窗LoRA。25个assistant正文超过8K，需记训练/评测输出偏差。
+- 共享SSH master约03:53中断，HLE900秒合成诊断收到RemoteProtocolError，尚未启动正式题；失败回执保存。已新建本线独立/tmp/apex-hle-hpc-ctl与/tmp/apex-hle-80-ctl，只恢复本线18061，不改另一会话桥；health200后80新driver PID3040907/probe3040912重跑合成。正式HLE仍300秒/8K，不因网络异常生成重答正式题。
+- 新SWE独立dev click镜像13个OCI对象756,498,142层bytes已完整校SHA并传HPC；已提交CPU初始state/cwd/依赖metadata检查，未运行源任务命令/patch/测试。source /testbed映射仍无证明，SWE未训练release。
+- 只读实核另一会话SWE724254已RUNNING，现HLE/ASI/Terminal/SWE共8H100；四卡训练后本题12、含其他722434账户13，不超过用户16或账户16。不动其他会话服务/正式结果与用户代理。
+
+
+### 04:00：训练队列与可自动续接入口
+
+- 四卡训练作业724277已提交（24CPU/256GiB/2小时），当前PENDING(Resources)。同一分配内依次实际CPU目标/mask→2K两步反向→独立进程重载forward→HLE正式500/100一epoch约63步；任何前置失败停止，不把排队当训练已开始。最终mask统一default+ignore_empty_think。
+- SWE独立dev环境CPU作业724276已提交debug分区（4CPU/12GiB/25分钟），只检查固定镜像初始commit/cwd/安装元数据与/testbed存在，不运行源轨迹/补丁/测试。镜像转换和初始状态通过也不能证明源采集映射完全相同。
