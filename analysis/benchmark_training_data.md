@@ -30,6 +30,9 @@ SWE 与 Terminal 有目标行为很接近的公开交互轨迹；HLE 有作者�
 
 因此，冻结前可以把现有数据兼容性作为选择合规agent的依据；之前的SWE LockedMini是候选方案，不是题面唯一指定。ASI也不必对齐一个尚未选定的唯一接口。训练和评测harness匹配是减少协议差异的工程偏好，不是题面硬性要求；真实语义差异仍不能靠改字段冒充原生轨迹。正式配置须训练前冻结，不能不同模型各选agent或据正式分数再改。
 
+
+实际采用的简化策略：Terminal评测固定Harbor/Terminus-2，训练优先同协议现成轨迹，但其他来源并非被题面禁止。SWE/ASI在有可复用agent时，优先沿用轨迹的agent和工具协议，接入官方目标任务环境及评分流程，满足权限、预算和产物契约后于训练前冻结；不是把源数据集整套任务/判分系统搬来替代目标benchmark。HLE静态问答按约定模板、模态和判分协议处理。所有项都不要求为了采集harness同源而重跑全部训练数据；D3静态程序SFT也不自动附带可直接用于ASI的多轮agent。
+
 一手依据：[SWE V2允许入口及locked protocol](https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/README.md#running)、[ASI官方agent-cmd与运行流程](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/README.md#3-run-an-agent)；TB/HLE题面约束见EXPERIMENT_REQUIREMENTS.md及用户原附件。
 
 ## 与目标harness是否一致：尚未完成完全匹配验收
