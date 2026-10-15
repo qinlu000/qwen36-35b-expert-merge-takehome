@@ -65,6 +65,14 @@
 3. HLE独立gold与缺失学科/图像，ASI多领域环境与验证器的来源缺口。
 4. 替代Judge的校准及与官方评分模型差异；冻结答卷/产物可后判，评分失败不重新生成答案。
 
+### LoRA与对比实验：原题复核
+
+用户询问LoRA参数和题目对比要求，已重新逐条读取原始附件。题面独立要求：（1）至少一个可解释训练对照，rank只是举例之一；（2）至少两种合版方法，或合版关键配置消融；（3）Base与最终合版四项全量、专家至少其目标项全量；（4）各专家train/val loss曲线，合版消融有对比指标图。不能用只有Base/专家/合版的基础矩阵代替前两项探究要求。
+
+当前建议保持三个专家＋同数据Mixed共四次SFT；Mixed使用同一基座、LoRA目标/容量、相同窗口与监督mask multiset/出现次数，报告实际步数和GPU小时差异。AVG/TIES作为两种合版候选，在独立dev比较后冻结最终方法，最终模型再四项全量。原题未要求每一个rank或合版消融候选都四项全量；Mixed若只做独立dev对照须明确其证据范围，不冒称正式benchmark提升。
+
+LoRA草案仍非已批准参数：r16/alpha32为保守起点，dropout0.05可作候选；语言侧full＋linear attention及shared MLP，冻结视觉、router及fused routed experts。普通LoRA缩放alpha/r与学习率共同影响更新；目标模块、上下文/激活与精度比只盯rank更重要。实际模块匹配/显存/训练吞吐仍待项目训练栈验收。不新增rank搜索，不因本次问答自动训练。依据：[PEFT LoRA文档](https://huggingface.co/docs/peft/main/en/package_reference/lora)、本地readiness_training精确架构草案。
+
 ## 运行账本
 
 API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总。GPU：724196两卡服务运行中。正式Base完成0。旧数据已删81文件/25,054,619,487B。自动续跑ACTIVE。

@@ -861,3 +861,10 @@
 - 03:36核学术val100、现有新源train339＋新Pro已接受117=456候选，教师生成继续；不是四域全部ready。Terminal1535标注近完成，但数学/查询/debugging供给不足，待实际分层split；ASI仍缺独立600任务且新源协议/GPU成本不适配，不凑数。总入口持续更新。
 - HLE真实8条图文、精确57344边界/57345拒绝与8近边界并发通过；完整8K压测约15token/s，预计超300s，不改正式HLE300s或8Kcap。将把完整cap诊断与正式deadline分别验收。
 - 已读另一授权会话新开ASI724241/Terminal724242，和本HLE724196共6卡，单服务端口独立；不重复起服务或干预其自有脚本。HLE正式runner加入本服务块flock/owner记录，固定答卷与失败不自动重答。
+
+## 2026-10-16：复核LoRA参数与原题对照要求
+
+- 用户询问LoRA讲究和对比要求，已重读原始Pasted text附件：至少一个可解释训练对照；至少两种合版方法或关键配置消融；Base/最终合版全四项、专家目标项全量；专家训练/验证loss曲线与合版消融指标图。rank对比仅举例，不强制rank搜索。
+- 建议维持三专家＋同数据Mixed（仍LoRA，不要求全参）共四次SFT，AVG/TIES在独立dev比较后冻结最终；公平性锁同基座/LoRA容量/targets/窗口与mask multiset/出现次数，报告实际更新步数和GPU小时。消融候选只用dev需披露证据范围；正式必交矩阵不缩减。
+- 重新查PEFT官方文档验证rank/alpha与target概念：普通LoRA alpha/r缩放，rsLoRA另为alpha/sqrt(r)，不混用。r16/alpha32/dropout0.05只是建议起点，语言侧full+linear attention/sharedMLP目标草案不变，视觉/router/fused experts冻结；尚未批准参数或正式训练。
+- 统一夜间文档增加本次讨论。顺手修正新版小Git文件带SHA但无LFS redirect时的download_data路径，保留完整SHA验收；未扩大数据量或启动训练。

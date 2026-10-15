@@ -40,8 +40,9 @@ def download(name, source, item):
                 capture_output=True, text=True, check=True).stdout
             locations = [line.split(':', 1)[1].strip() for line in headers.splitlines()
                          if line.lower().startswith('location:')]
-            url = urljoin(url, locations[-1])
-            transport = ['--noproxy', '*']
+            if locations:
+                url = urljoin(url, locations[-1])
+                transport = ['--noproxy', '*']
         aria2 = ROOT / 'artifacts/tools/aria2/usr/bin/aria2c'
         if transport and aria2.exists():
             env = os.environ.copy()
