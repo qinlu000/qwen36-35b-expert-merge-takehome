@@ -116,3 +116,14 @@
 - Dressage固定代码3e3142fe8ea07e4504c3b20a936a4c201a3de44c含准确Qwen3.6-35B-A3B的Claw训练脚本，但为4节点×8GPU=32卡的GRPO，不是Occamy全阶段复现或本项目四卡配置。
 - 未核到Occamy两个专家的SFT/HDPO/merge/SAO整套专用脚本与配置，不能将底层框架开源写成完整配方开源。补充证据到直接参考清单。
 - 本轮只读公开代码/目录，未安装、下载权重/训练数据、执行脚本或改变实验方案。
+
+## 2026-10-15：四H100的Dressage简化方案v2，仅规划
+
+- 用户明确要求参考Occamy/Dressage代码，列清可复用/自实现并适配四卡和剩余时间，继续不写实验代码。完成 `analysis/dressage_reuse_plan.md`，PROJECT_PLAN顶端标明最新建议与旧预算差别。
+- Dressage按固定3e3142f逐模块核验：轨迹schema、Qwen36 tokenizer辅助、mask一致性和产物字段可小范围借用；multi_segment、convert_samples、Harbor在线DataSource/rollout含Slime/RL语义，不直接搬入离线SFT/正式评测。mask默认只注册qwen3_5，不能假定现成覆盖Qwen3.6全部assistant轮。
+- 拟用ms-swift BF16 LoRA、三个独立专家+同数据混训对照；默认专家processed token共3M（0.9/0.9/1.2M），混训3M，累计6M，替换初稿12M默认。该规模不是充分训练或提升保证，冻结前需按真实吞吐与长度分布统一缩放。
+- 合版从六候选收敛至AVG与固定density0.2的TIES两个起点（scale1），有余量双方各加scale0.5，最多四候选；独立dev选唯一结果，保留视觉侧。混训只做dev时不声称四项正式优于混训，并披露有效秩差异。
+- 自实现拟限数据适配/manifest/mask、dense delta合版适配、官方评测薄封装、统计与交付；不写新trainer/agent平台，不引入HDPO/SAO/GRPO或在线rollout。
+- 约18:32按最初起算估计核心余55–56h，提出3h环境数据协议+8h训练+3h合版dev+36h正式评测+5h交付的条件预算，保留最后12h。专家目标全评、Base/合版四项全评和TB五次均不缩减。
+- 强制资源门槛仍为容器与额外CPU、四卡计算节点及稳定模型端点/外网、数据与judge。TB若均30分钟，36h理想最低需19路/608CPU/912GB RAM；80即使128CPU全归本项目仍不足。ASIGPT-5.5图文评分未落实，DeepSeek接口测试不能替代。
+- 仅读公开源码并更新方案文档；没有创建实验脚本、安装依赖、下载权重/训练数据、调用模型API或启动GPU/benchmark任务。
