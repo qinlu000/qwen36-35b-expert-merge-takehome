@@ -18,6 +18,7 @@
 
 | 优先级 | 问题与已核事实 | 影响 | 建议与待讨论点 |
 | --- | --- | --- | --- |
+| P1 | 消融用独立dev尚未构建；轨迹留出只有loss用途，有初始环境/独立验证器才能测执行。Terminal无统一success，OpenScience/D3有来源/金标准映射缺口 | 不能直接将随机轨迹行当可执行评测集，也不应反复抽正式benchmark调参 | 建议val-loss100K processed token+独立task-dev10修复/10终端/10科研/40QA；先按原任务家族隔离，优先复用独立可执行任务、补少量原创，冻结候选/预算/指标，详见dev_ablation_plan.md |
 | P1 | 真实tokenizer下两条Terminal完整轨迹21,174/29,685 token；两条Open-SWE规范化后40,320/18,933 token | 原8K整轨迹方案不能直接截尾，可能丢观察、状态或最终提交；样本仅各2条，不能外推分布 | 讨论完整短轨迹与逐assistant回合窗口的组合、必要历史和loss mask；真实长度分布后再锁长度/token配额，不重采整池 |
 | P1 | Terminal没有逐行resolved/result，2条结构样本未见task_complete=true；Open-SWE有成功/失败/未知标签 | 不能把全部轨迹写成验证成功，也不能从2条推断整库失败 | 按可追溯元数据定义质量选择，保留有用纠错过程；先明确终局未知如何标注，不伪造success |
 | P1 | Open-SWE同repo/instance多轨迹重复；全39片95,291行对应39,540个不同(repo,instance_id)组合；详情见artifacts/data/audits/swe_metadata.json | 随机按行切dev会泄漏同任务；exact repo排除不覆盖fork、改名、PR同源 | 按canonical repo+instance/PR任务族联合分组去重；11个SWE Pro repo排除规则已保存，后续补fork/lineage |
