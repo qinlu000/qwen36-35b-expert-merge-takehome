@@ -1,0 +1,21 @@
+{
+  "d3_gym_32b": {
+    "repo_id": "osunlp/D3-Gym-Trajectories",
+    "revision": "b21b5006956d7d246cf3e35277b13323780a45b2",
+    "selection": "Qwen3_32B successful reasoning/program SFT and README only; inspection candidate, not an approved training pool",
+    "license": "mit",
+    "files": [
+      {
+        "path": "Qwen3_32B_trajectories.json",
+        "size": 72175135,
+        "sha256": "ce0d209abd0308351b3b5e7ddfbbbdecab369b0fcabc3891936fdcda5c0bda4e"
+      },
+      {
+        "path": "README.md",
+        "size": 1230,
+        "sha256": null
+      }
+    ],
+    "upstream_license_status": "Research repository mapping and upstream license checks pending; not approved for training."
+  }
+}

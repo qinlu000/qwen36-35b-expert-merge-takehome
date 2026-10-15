@@ -1,0 +1,113 @@
+{
+  "recorded_at": "2026-10-15T13:34:22.072059+00:00",
+  "original_data": {
+    "recorded_at": "2026-10-15T13:32:32.963611+00:00",
+    "sources": {
+      "open_swe": {
+        "files": 41,
+        "parquet_files": 39,
+        "bytes": 3986366120,
+        "rows": 95291,
+        "revision": "1db674173119d71df45c22007af99e214600711a"
+      },
+      "terminal_corpus": {
+        "files": 27,
+        "parquet_files": 26,
+        "bytes": 3139375074,
+        "rows": 139841,
+        "revision": "a1667c4ffdadea02a89bffe4f1bb7ca2ff19f8d9"
+      },
+      "open_science": {
+        "files": 2,
+        "parquet_files": 1,
+        "bytes": 15706817460,
+        "rows": 1600812,
+        "revision": "174b02c9cdf231f220765b2a1d5ece4550921894"
+      },
+      "openr1_math": {
+        "files": 11,
+        "parquet_files": 10,
+        "bytes": 2149903045,
+        "rows": 93733,
+        "revision": "e4e141ec9dea9f8326f4d347be56105859b2bd68"
+      }
+    },
+    "files": 81,
+    "bytes": 24982461699,
+    "failed_files": 0
+  },
+  "candidate_d3": {
+    "files": 2,
+    "bytes": 72176365,
+    "rows": 2153
+  },
+  "swe_metadata": {
+    "recorded_at": "2026-10-15T13:31:19.073208+00:00",
+    "source_revision": "1db674173119d71df45c22007af99e214600711a",
+    "complete_shards": 39,
+    "expected_shards": 39,
+    "rows": 95291,
+    "unique_repository_instance_pairs": 39540,
+    "repeated_repository_instance_pairs": 55751,
+    "exact_swe_pro_repository_rows": 0,
+    "matching_swe_pro_repositories": {},
+    "missing_repository_rows": 0,
+    "license_counts": {
+      "BSD-3-Clause": 11086,
+      "Apache-2.0": 35389,
+      "MIT": 46841,
+      "BSD-2-Clause": 1975
+    },
+    "resolved_counts": {
+      "0": 53622,
+      "1": 32231,
+      "-1": 9438
+    },
+    "scope": "Metadata audit only. No messages, patches, tests or code read or executed. Exact repository exclusion is not a full contamination audit; forks, renamed repos, PR lineage and cross-source duplicates remain pending."
+  },
+  "hpc_cpu_import": {
+    "python": "3.12.13",
+    "torch": "2.11.0+cu130",
+    "transformers": "5.15.1",
+    "peft": "0.20.0",
+    "architecture_config_import": "Qwen3_5MoeConfig",
+    "passed": true,
+    "cuda_visible_devices": "",
+    "gpu_work": false,
+    "note": "first SSH/import returned slowly (>2min), phase timing not isolated; completed normally, no matching probe process afterward"
+  },
+  "hle_processor": {
+    "purpose": "CPU-only synthetic image processor check; no model weights or benchmark data",
+    "model_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "python": "3.12.13",
+    "transformers": "5.15.1",
+    "torch": "2.13.0+cu132",
+    "tokenizers": "0.22.2",
+    "vllm": "0.27.1",
+    "passed": true,
+    "processor_class": "Qwen3VLProcessor",
+    "output_shapes": {
+      "input_ids": [
+        1,
+        81
+      ],
+      "attention_mask": [
+        1,
+        81
+      ],
+      "mm_token_type_ids": [
+        1,
+        81
+      ],
+      "pixel_values": [
+        256,
+        1536
+      ],
+      "image_grid_thw": [
+        1,
+        3
+      ]
+    },
+    "elapsed_seconds": 6.739
+  }
+}

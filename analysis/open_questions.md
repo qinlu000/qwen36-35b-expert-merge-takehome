@@ -1,0 +1,34 @@
+# 待集中讨论的问题
+
+更新：2026-10-15。用户已授权按当前方向推进，问题先记录、之后集中讨论。本表只列真实缺口及建议，不把工程偏好写成题面新增硬要求；不因这些问题停止可独立开展的数据/工程准备。
+
+## 优先处理
+
+| 优先级 | 问题与已核事实 | 影响 | 建议与待讨论点 |
+| --- | --- | --- | --- |
+| P0 | TB所需CPU并发未落实：当前HPC formal-user每用户192CPU、现有作业占12；80最多可见128逻辑CPU且共享。乐观合计最多9路32CPU沙箱，尚未扣训练/其他评测 | 若平均30min/trial，1335次仅TB约74.2h；原36h假设需至少19路。平均时长仍未知 | 落实额外CPU评测资源/合法account与实际可用配额，并用独立任务测耗时；不得缩题或减五次冒充全量 |
+| P0 | 80未找到可用Docker/Podman/Apptainer等后端；HPC有Singularity4.1.5和可读SIF，但尚未验证官方任务语义 | 正式容器与隔离链路未ready；ASI seed42官网要求Docker os来源 | 决定已有组内容器服务、项目rootless路径或HPC合规后端；先做自造CPU环境验证。暂不擅改官方环境或用户系统 |
+| P0 | ASI固定评分需要GPT-5.5并含视觉判分；当前本项目仅配置HF和DeepSeek | DeepSeek文本接口成功不能代替该Judge，完整评分链缺凭据/服务证据 | 后续落实支持原模型与图像的评分接口，或正式确认允许的替代协议；不默改Judge |
+| P0 | ms-swift已明确注册准确模型，但完整项目训练栈和4H100加载/反向/导出尚未跑通 | 8h训练/6M processed token仍是预算，不是实测保证 | 用项目独立环境复用可用依赖，再以自造数据做短smoke和真实8K吞吐检查；不修改其他项目环境 |
+| P1 | ASI seed31415本地score被官方文档称non-official，seed42官网路线需Docker os/Portal。当前暂定公开60×4 | 题目“官方主指标”可指官方实现指标，但不得混称官网榜单成绩 | 集中确认可复现本地官方实现是否满足提交口径；若要求Portal再切换明确路线，不擅自替换split |
+
+## 数据与协议
+
+| 优先级 | 问题与已核事实 | 影响 | 建议与待讨论点 |
+| --- | --- | --- | --- |
+| P1 | 真实tokenizer下两条Terminal完整轨迹21,174/29,685 token；两条Open-SWE规范化后40,320/18,933 token | 原8K整轨迹方案不能直接截尾，可能丢观察、状态或最终提交；样本仅各2条，不能外推分布 | 讨论完整短轨迹与逐assistant回合窗口的组合、必要历史和loss mask；真实长度分布后再锁长度/token配额，不重采整池 |
+| P1 | Terminal没有逐行resolved/result，2条结构样本未见task_complete=true；Open-SWE有成功/失败/未知标签 | 不能把全部轨迹写成验证成功，也不能从2条推断整库失败 | 按可追溯元数据定义质量选择，保留有用纠错过程；先明确终局未知如何标注，不伪造success |
+| P1 | Open-SWE同repo/instance多轨迹重复；全39片95,291行对应39,540个不同(repo,instance_id)组合；详情见artifacts/data/audits/swe_metadata.json | 随机按行切dev会泄漏同任务；exact repo排除不覆盖fork、改名、PR同源 | 按canonical repo+instance/PR任务族联合分组去重；11个SWE Pro repo排除规则已保存，后续补fork/lineage |
+| P1 | D3实际仅instruction/input/output，没有task_id、repo、逐行license或成功字段；OpenScience仅input/output/expected_answer | 无法仅凭总数据卡许可完成逐条来源过滤；现成D3不是OpenCode多轮数据 | D3暂作科研程序候选，来源映射前不宣称完成许可/ASI同源清洗；OpenScience保留固定行/hash及recipe，说明溯源局限 |
+| P1 | ASI推荐内置opencode_cli可接自部署Qwen；采样/总token/步数、thinking replay、host HOME隔离未实际核实 | 同一benchmark预算与多轮协议不能只靠CLI默认值保证 | 固定OpenCode版本后用自造文件任务检查调用和产物；明确预算与隔离，不为D3静态数据选择单次生成替代主agent |
+| P1 | HLE自造图文processor已过；DeepSeek判分JSON mode第一版漏strict，明确完整例子后8/8通过 | processor成功不等于模型图文服务；合成8例不等于科学题校准或官方Judge等价 | 仍需真实模型HTTP图文/usage检查；DeepSeek若用于主结果，明确为本实验Judge并扩展独立样例校准，不能依据正式HLE反馈改prompt |
+
+## 已解决或已有明确路径
+
+- 原四组候选数据全部81文件/约25GB完成下载与完整性校验，失败0；D3 32B额外小池也完成。最终文件完整性以download_receipts.json为准，不把落盘部分或格式检查当成训练质量通过。
+- Open-SWE和Terminal有限实际样本的关键动作/观察协议与mini/Terminus2方向吻合，不必为框架名称重采全部轨迹；真实状态语义仍按数据规范处理。
+- 80→Mac双SSH→HPC已知计算节点的TCP桥接实际通过，临时隧道全部清理；尚未证明模型HTTP、流式响应或长期稳定。
+- 固定基座的本地tokenizer及图文processor可加载，HPC Torch/Transformers/PEFT及准确架构config的CPU导入也已通过；未使用GPU或下载模型权重。
+- 新增SWE元数据审计脚本，只读repo/license/instance_id/resolved；不读messages、patch或测试，不产生训练集。
+
+专项证据：[数据结构与长度](readiness_data.md)、[ASI agent](readiness_asi_agent.md)、[基础设施](readiness_infrastructure.md)、[训练栈](readiness_training.md)、[HLE/Judge](readiness_hle_judge.md)。

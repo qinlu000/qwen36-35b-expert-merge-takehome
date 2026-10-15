@@ -278,3 +278,18 @@
 - 三专家和ms-swift不重开；优先未决为ASI adapter/科研监督定位，以及容器/CPU并发/本地模型服务/HLE图文/ASI Judge链。SWE mini与Terminal skill-based继续为候选优先方向，精确配额待实际可用量统计。
 - 提醒同项所有模型公平一致、合版固定权重；不要求四harness统一、不要求全部轨迹重采、不据正式题调参，不扩大训练分支。21:10 CST实查时钟，仅用于识别排期仍在流逝，未把旧55h窗口当剩余时间。
 - 写入PROJECT_PLAN当前决定清单并更新本记录；下载继续暂停，没有新增数据读取/下载、API生成、代码或实验执行。
+
+
+## 2026-10-15：按用户授权推进数据与工程准备，问题集中留档
+
+- 用户明确“按这个方向推进，有问题先记录，之后一起讨论”。本轮恢复并完成原四源81文件/24,982,461,699B下载，失败0；另下载固定D3-32B候选2文件/72,176,365B。全部原文件在80 ignored artifacts/data/raw，最终回执已生成；没有把原始数据或密钥提交Git。原暂停状态已被此次授权覆盖。
+- 完整Parquet metadata行数：Open-SWE95,291，Terminal139,841，OpenScience1,600,812，OpenR1 default93,733；D3 JSON2,153。各源最多2条真实训练样本做结构检查和固定tokenizer长度检查，不执行样本命令/代码/测试，不读取正式benchmark答案或隐藏测试。
+- 实际确认Open-SWE bash(command)/returncode-output/提交及subshell提示、Terminal Terminus2 JSON动作族；原消息需规范化，现拟8K无法直接容纳所查完整交互轨迹（Terminal21,174/29,685，SWE40,320/18,933 token）。这些是有限样本，不外推质量/长度分布。OpenScience/D3缺逐行来源映射，Terminal缺统一成功标签，问题保留。
+- 新增configs/data_exclusions.json与scripts/audit_swe_metadata.py，只读SWE repo/license/instance_id/resolved。全39片95,291行有39,540种repo-instance组合，重复组合55,751行；resolved1为32,231行。对固定Pro全部11repo精确匹配为0、缺repo0，但fork/改名/PR/其他benchmark关联仍未查完，不宣称已去污染。脚本已实际运行；新增忽略Python cache。
+- ASI入口方案明确：优先官方opencode_cli，备选pi_cli，提供版本/命令/预算与产物契约草案，不先自写agent。seed31415本地non-official与seed42官网/Docker路线差异留讨论；没有擅自换split或启动正式任务。
+- 基础设施实查H10080GB、HPC QoS每用户192CPU且已有12CPU，80共享128logicalCPU，TB乐观最多9路尚未扣其他任务；若平均30min仅TB约74.2h，原36h假设未获资源支持。80缺容器后端、CPU-only政策和正式模型端点仍待验证。未提交Slurm、占本题GPU或修改既有作业。
+- 实际建立仅loopback的临时Mac双SSH桥接，80经Mac/hpc3收到本人已知节点SSH banner，完成后精准关闭自建隧道并核端口释放；只证明短时TCP路径，未证明模型HTTP/流式/长期稳定。
+- 精确ms-swift注册model_type=qwen3_5_moe/template=qwen3_5与r16目标regex有源码依据，310权重键/估算21,166,080 LoRA参数未实测；HPC现成Torch2.11/Transformers5.15.1/PEFT0.20及准确架构config CPU导入成功。完整项目训练栈、模型加载反向/导出和四卡吞吐仍未验证；未下载基座权重或安装/修改用户环境。
+- 固定基座5个tokenizer/processor元数据文件已下载校验；80现成环境在禁GPU、离线模式下处理32x32自造图像成功。仅证明图文预处理，不等于模型多模态评测。
+- 本轮DeepSeek合成Judge接口检查共16次（8例初版+8例字段提示修正），prompt6066/completion951共7017token。初版yes/no与confidence8/8、完整strict schema仅2/8；明确五字段JSON例子后8/8通过。保留两版请求/响应与失败记录并同步80，未用正式题校准、不声称官方Judge等价。ASI GPT-5.5图文评分凭据仍缺；未将DeepSeek偷偷替代。
+- 问题统一写analysis/open_questions.md，数据/ASI/基础设施/训练/HLE五份readiness证据与source_snapshots/preparation_checks_20261015.json链接进入当前方案。正式训练和全量评测尚未启动；准备进展不代表全部数据合格、环境ready或原排程可达。Mac既有未提交logs/和check_deepseek_judge.py保持原状。

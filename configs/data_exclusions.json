@@ -1,0 +1,20 @@
+{
+  "benchmark": "SWE-bench Pro V2",
+  "source_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+  "source_url": "https://api.github.com/repos/scaleapi/SWE-bench_Pro-os/contents/v2/tasks?ref=66f92766bba642462d4bbe5479e83f91f9211862",
+  "task_directories": 642,
+  "repository_match": "case-insensitive exact owner/repo; fork and rename mapping pending",
+  "swe_pro_repositories": [
+    "NodeBB/NodeBB",
+    "ansible/ansible",
+    "element-hq/element-web",
+    "flipt-io/flipt",
+    "future-architect/vuls",
+    "gravitational/teleport",
+    "internetarchive/openlibrary",
+    "navidrome/navidrome",
+    "protonmail/webclients",
+    "qutebrowser/qutebrowser",
+    "tutao/tutanota"
+  ]
+}
