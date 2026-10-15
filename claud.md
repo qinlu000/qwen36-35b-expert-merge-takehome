@@ -585,3 +585,12 @@
 - HLE官方示例8192是输出，reasoning不建议低于8192，非思考无最低规定。未找到当前Qwen3.6非思考32K/4K无损对照或冻结2500题实际图文输入分布；32K待验，输出8K较稳、4K为进一步节省候选，不据模型卡thinking至少128K断言无工具非思考必须128K。
 - ASI论文百万token为多轮累计，B1/B2均时37.8/49.7min，不能推最小窗口或20min足够。仅CPU读取已下载240份官方原始prompt，加DirectLLM默认system和固定Qwen模板（thinking/preserve false，tokenizer无truncation/padding），不打印/保存正文、不读data/reference/answers：中位978.5、P95约2831、max15229；预留8192时240/240可装32K，max合计23421。只证明该文本组合输入容量，不证明8K程序足够、真实附加prompt、图片输入或多轮历史。原生单次adapter仍是候选。
 - 本轮未调用模型/付费API、跑程序/正式任务、安装依赖或调度GPU；只运行上述CPU tokenizer统计并保存摘要，无题面正文入Git。关闭自己的浏览器研究space，保留其他工作流镜像脚本/logs/WIP；运行准备状态以并行工作流最新回执为准。
+
+## 2026-10-16：实测已下载训练轨迹长度
+
+- 用户要求查看轨迹长度。本轮仅80 CPU以固定Qwen tokenizer/template计数，未执行轨迹命令/样本程序、模型/API/GPU或正式任务。SWE/Terminal无原生token列：39片SWE每片等距128=4992（1693源resolved1）；26片Terminal每片128=3328；按N/n加权而非冒称全库精确统计。另Terminal mixed5689、D3静态程序2153全量，OpenR1十片各200共2000未加权样本；OpenScience15.7GB本轮未分词。所有统计已正常结束，无后台作业。
+- 完整序列计system/user/assistant/tool定义/参数/观察/模板，raw preserve=true防自动去旧推理，clean显式去assistant公开前缀/reasoning_content并preserve=false，保留Terminus JSON analysis/plan及可见解释。clean仅长度对照，未决定删除teacher推理或生成最终SFT。模板/Tokenizer IDs合成对照通过，QA原/收紧前缀清理规则逐字等价检查通过；不平衡think记录保留并单列。
+- SWE clean全体中位33418/P9559429，≤8K0.20%、16K4.54%、32K47.83%、64K97.30%；来源成功子样本中位29804/P9551814，覆盖0.12%/7.09%/61.51%/98.89%。单assistant含bash参数P991640，99.9749%≤4K。长轨迹主要为累计历史而非公开thinking；64K预留4K的保守整条覆盖成功子样本约98.04%，支持SWE不一刀切32K。
+- Terminal clean全域样本中位12694/P9522537，≤8K19.88%、32K99.825%；mixed全量中位9937/P9517543/max24810，全部≤32K，整条再预留4K的保守条件也全覆盖。clean单次输出99.7998%（样本）/99.8305%（mixed全量）≤4K。小model_training域仍有约48K P95，样本最大值和来源总体覆盖不能冒充正式TB需求分布；≤32K完整序列不自动保证每次还能额外reserve8K。
+- D3 raw中位8441/P9515640，clean2683/P958300/max14924；clean94.4728%整条≤8K、100%≤16K，assistant max3713全部≤4K。OpenR1 raw中位5050.5/P9514236，clean637/P95969、99.8%≤8K；4条不平衡think保留形成长尾，非HLE正式题。不能把短teacher最终目标当成ASI/HLE推理生成预算无损证据。
+- 新增trajectory_lengths主报告、SWE/Terminal/QA专项、3个KISS统计脚本及3份无正文聚合JSON，readiness/资源方案加入口。关键影响：8K SFT不能对SWE完整轨迹直接截尾，需另议16K短轨迹筛选或保留状态的交互窗口；尚未改训练/评测配置。行级数字仅留ignored artifacts；保留镜像/模型smoke等其他工作流修改，单独Git记录本轮产物。
