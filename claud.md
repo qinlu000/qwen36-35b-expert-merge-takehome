@@ -649,3 +649,8 @@
 - 新增analysis/validation_selection.md与metadata-only validation_target_distribution_20261016.json，保存分类/模态计数与来源；旧70题val方案中的TB10/ASI10不足覆盖全类，数量暂不冻结，需按主要类别/长尾与吞吐预算重算。没有从正式题中抽val，也没有宣称已有最终val题目或验证器验收。
 - 清洗精确定义为删除assistant reasoning_content与明确教师think前缀，保留Terminus analysis/plan等必需协议、真实工具动作/反馈和可见答案。未闭合think/结构损坏隔离，空正文但有效tool_calls保留；清后重渲染、重算仅新增assistant监督mask，无目标排除，不递归删代码或工具数据中的同名字段。历史长度统计不重跑，清洗决定不等于已导出数据。
 - 更新dev_ablation_plan、readiness_training与trajectory_lengths的当前决策状态；未调用模型/评分API、运行任务、申请GPU或训练，保留其他工作流WIP，仅本轮文档/聚合快照入Git。
+
+## 2026-10-16：澄清显式think是否计入轨迹token
+
+- 用户要求先暂停选集并确认此前token口径。已核对trajectory_lengths：raw包含公开teacher think和reasoning_content，clean去除可识别显式think前缀及reasoning_content并用非思考模板；此前资源建议主要引用clean，未把raw冒充已清理长度。clean历史统计的未闭合think少数长尾仍保留，不等于最终清洗合格。
+- 整条中位raw→clean：SWE33418→33418、Terminal17246→12694、D3 8441→2683；工具观察/调用、Terminus analysis/plan、可见答案及模板开销始终计入。SWE长主要是交互历史，不能以再删think推断其可装8K。未继续选题、清洗、模型/API或训练。
