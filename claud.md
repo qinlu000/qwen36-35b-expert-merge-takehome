@@ -312,3 +312,13 @@
 - 透明中情景累计输入SWE1M、TB/ASI0.5M每trial，输出50K/30K/30K；HLE输入2K输出8K；三agent输入70%cache、HLE无cache。Flash作答闲时300.96/全高峰601.92元，完全无缓存闲时570.90；TB仅89次则202.35/404.69。均为预算假设、非实测或封顶，另给低/高敏感性。
 - Pro当前表不支持图像；Pro三agent+Flash全部HLE的混合中情景969.39/1938.78元。HLE Judge假设另10.5–35元闲时，ASI指定Judge和CPU/容器/任务GPU费用另计，无法凭DeepSeek API消除环境瓶颈；DeepSeek参考结果不能替代题面Qwen训练/合版结果。
 - 保存analysis/deepseek_cost_estimate.md、计费约束和source_snapshots/deepseek_cost_assumptions_20261015.json；未更改正式方案或自动开始全量跑分。
+
+
+## 2026-10-15：核对单任务CPU/时间，纠正并发推算
+
+- 用户问每任务CPU与时间、能否缩短。本轮仅核固定公开代码和资源metadata，没有正式任务、API、容器或GPU运行。SWE HARD51全51项一致1CPU/4096MB，agent50min、verifier另50min、build30min，fresh replay保持；均为上限，非平均。
+- ASI Docker os默认4CPU/8GiB、每(task,B层,attempt)默认3h。追加只读60项task_meta.yaml确认requires_gpu=false 60/60、services=0 60/60，纠正此前把部分任务必须用GPU当事实。linux_ns虽声明内存常量，执行未用，无CPU quota/cgroup/rlimit；外层资源隔离仍需落实。HLE无逐题固定CPU沙箱或统一墙钟要求。
+- 固定Harbor Docker默认ResourceMode.LIMIT：32CPU为容器上限，非独占reservation/cpuset；48GB也非实际常驻内存。此前80四路+HPC五路约九路仅为各路同时用满的保守容量情景，不能称最大并发。同步修正当前方案、问题清单和基础设施文档；历史日志由本条纠正。Slurm allocation/父cgroup与共享主机约束仍有效。
+- TB3h是agent wait_for上限，Terminus2完成确认即提前返回，环境/判分另计。正式固定预算和五次不砍；SWE50min/replay同理。ASI3h可在训练前统一配置并披露，但可能降分，未擅自调整。
+- 建议独立dev测4/8/16并发、CPU核秒/RSS/I/O/throttling/API等待，固定所有模型资源/调度政策；预热镜像、轻CPU填空和异步评分。单DeepSeek TB445次假设16有效并发、15/30min均值约7.0/13.9h，题定三个模型1335次约20.9/41.7h，均为情景非实测。
+- 新增analysis/task_resource_budget.md与两份固定源码/metadata证据，未编写实验代码、安装软件、启动后端、占GPU或更改正式配置。

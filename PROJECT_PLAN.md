@@ -4,6 +4,8 @@
 
 最新数据与专家建议见[数据方案v3](analysis/data_expert_recommendation.md)：已确认按行为分为仓库修复专家（SWE）、交互执行专家（TB+ASI）、学术推理专家（HLE），替换早期把HLE+ASI放入同一科学专家的建议。候选主源为Open-SWE-Traces mini、Terminal skill-based、OpenScienceReasoning-2，数学少量补充。训练框架与专家分工已确认，数据配方仍待讨论；现已获准先下载固定版本候选数据，暂不做抽样复验；筛选/清洗与训练仍未执行。累计6M processed token、AVG/TIES两个起点/最多四候选的预算沿用[四卡简化方案v2](analysis/dressage_reuse_plan.md)；下文较早的12M/6候选及旧专家映射保留作历史，不作为当前建议。
 
+最新单任务CPU/时间见[资源预算](analysis/task_resource_budget.md)：32CPU是固定Docker默认容器上限，之前9路仅为同时满额情景，不是最大并发；真实耗时与有效并发未测。固定ASI60项metadata全部不要求GPU、无sidecar。
+
 最新逐benchmark训练来源见[对应数据清单](analysis/benchmark_training_data.md)：补入SI2CA、D3-Gym等研究候选，未自动变更配方或下载清单。当前原四组数据81文件/约25GB已全部下载校验，新增D3科研程序小池也已完成。最新实际检查及待集中讨论项见[问题清单](analysis/open_questions.md)。
 
 
@@ -76,7 +78,7 @@
 
 最低矩阵仍为SWE153次及replay、HLE7500次、ASI720个任务条件、TB1335 trials。若平均摊在36h，需要TB约37.1 trials/h、ASI20条件/h、HLE208.3题/h；它们与SWE/replay还共享GPU服务和CPU资源。
 
-80号服务器可见128逻辑CPU、约2TiB RAM，项目实际配额/容器尚未核实。即便独占128CPU并全给TB，每trial32CPU也仅4路，平均需不超过约6.47分钟才可能在36h覆盖TB，且没有给其他项留CPU。若TB平均30分钟，理想下界至少19路/608CPU/912GB RAM，尚未计长尾、其他项和环境错误；这只是下界，不是已获资源或可用容量承诺。需优先落实额外兼容CPU沙箱资源。
+80号服务器可见128逻辑CPU、约2TiB RAM，实际配额/容器尚未核实。纠正：128/32=4只适用于每路同时用满CPU；固定Harbor Docker默认limit不独占预留，等待模型/API期间可能有更多并发。若TB均值30分钟，36h理想需至少约19路有效并发；608CPU/912GB仅是19路同时用满题定资源的容量情景，并非必要硬下界。四路均值需6.47分钟的算例也仅对有效并发确为4成立。真实耗时、共享拥塞与模型吞吐需独立dev验证，不能承诺更多并发可用或线性提速。
 
 HLE若平均输出2K token，仅该项就需约116 output token/s；按8192上限约474 token/s。四卡在36h共144 GPU-hours，推理服务与ASI科学任务共享这同一额度；不得各自按四卡计算。模型服务长上下文、图文与实际并发吞吐仍需实测。
 
@@ -254,6 +256,6 @@ HLE若平均输出2K token，仅该项就需约116 output token/s；按8192上�
 
 Linux原生环境可以提前验证数据、agent和容器，但CUDA、Gated DeltaNet、ZeRO-3及完整模型导出仍需HPC上的小规模验证。Mac运行linux/amd64镜像需要模拟的情况见[Docker官方文档](https://docs.docker.com/build/building/multi-platform/)；Slurm批作业由已分配节点执行，提交后不需要Mac持续保持交互会话，见[sbatch文档](https://slurm.schedmd.com/sbatch.html)。两种开发方式均可用批作业，服务器开发的主要收益在Linux调试和CPU处理，而非使训练摆脱笔记本在线。
 
-正式CPU评测单独安排资源：即使128逻辑CPU全可用，按题定TB每trial32CPU最多保障4路，不足以自动解决本题全量排期；应确认更多HPC CPU节点/合规沙箱资源。正式评测能否落在80，取决于容器、实际资源配额、稳定外网及“评测容器→HPC模型端点”的完整链路。ASI需GPU的任务仍计入本题四卡限制。
+正式CPU评测单独安排资源：128逻辑CPU可供4路同时满额32CPU，这是容量情景；固定Docker默认limit允许等待期间共享，不代表最多只能4路。需实测有效并发并确认合法CPU配额/合规沙箱。正式评测能否落在80，取决于容器、实际资源配额、稳定外网及“评测容器→HPC模型端点”的完整链路。ASI需GPU的任务仍计入本题四卡限制。
 
 已迁移开发工作区并建立Git同步；尚未配置新的SSH/代理、安装依赖、迁移凭据或运行实验。80容器与稳定联网、HPC环境和正式协议仍按后续定稿方案处理。
