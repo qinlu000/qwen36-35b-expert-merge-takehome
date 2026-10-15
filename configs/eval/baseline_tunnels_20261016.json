@@ -1,0 +1,11 @@
+{
+  "hpc_host": "hpc3",
+  "runner_host": "10.123.4.80",
+  "hpc_socket": "/tmp/apex-baseline-hpc-ctl",
+  "runner_socket": "/tmp/apex-baseline-80-ctl",
+  "workers": [
+    {"benchmark": "asi", "job_id": 724241, "node": "ACD1-61", "service_port": 18001, "bridge_port": 18071},
+    {"benchmark": "terminal", "job_id": 724242, "node": "ACD1-54", "service_port": 18002, "bridge_port": 18072},
+    {"benchmark": "swe", "job_id": 724254, "node": "ACD1-36", "service_port": 18003, "bridge_port": 18073}
+  ]
+}

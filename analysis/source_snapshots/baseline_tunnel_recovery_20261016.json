@@ -1,0 +1,169 @@
+{
+  "passed": true,
+  "old_hpc_ssh_pid": 11879,
+  "new_state": {
+    "at": "2026-10-15T20:00:22.178220+00:00",
+    "pid": 11878,
+    "config": "/Users/caoqinlu/Documents/ChatGPT/apex \u7b14\u8bd5/configs/eval/baseline_tunnels_20261016.json",
+    "starts": {
+      "hpc": 2,
+      "runner": 1
+    },
+    "last_exit": {
+      "hpc": {
+        "code": 0,
+        "at": "2026-10-15T20:00:16.146136+00:00"
+      }
+    },
+    "children": {
+      "runner": 11880,
+      "hpc": 12520
+    },
+    "note": "SSH liveness only; runners must gate admission on HTTP health."
+  },
+  "observations": [
+    {
+      "elapsed": 0,
+      "health": {
+        "18071": 200,
+        "18072": 200,
+        "18073": 200
+      }
+    },
+    {
+      "elapsed": 0.13,
+      "health": {
+        "18071": "ConnectionResetError",
+        "18072": "ConnectionResetError",
+        "18073": "ConnectionResetError"
+      }
+    },
+    {
+      "elapsed": 1.27,
+      "health": {
+        "18071": "ConnectionResetError",
+        "18072": "ConnectionResetError",
+        "18073": "ConnectionResetError"
+      }
+    },
+    {
+      "elapsed": 2.42,
+      "health": {
+        "18071": "ConnectionResetError",
+        "18072": "ConnectionResetError",
+        "18073": "ConnectionResetError"
+      }
+    },
+    {
+      "elapsed": 3.54,
+      "health": {
+        "18071": "ConnectionResetError",
+        "18072": "ConnectionResetError",
+        "18073": "ConnectionResetError"
+      }
+    },
+    {
+      "elapsed": 4.72,
+      "health": {
+        "18071": "ConnectionResetError",
+        "18072": "ConnectionResetError",
+        "18073": "ConnectionResetError"
+      }
+    },
+    {
+      "elapsed": 5.85,
+      "health": {
+        "18071": "ConnectionResetError",
+        "18072": "ConnectionResetError",
+        "18073": "ConnectionResetError"
+      }
+    },
+    {
+      "elapsed": 7.05,
+      "health": {
+        "18071": 200,
+        "18072": 200,
+        "18073": 200
+      }
+    }
+  ],
+  "note": "Stopped only our forwarding child, never a GPU service; formal runners paused throughout.",
+  "runner_reconnect": {
+    "passed": true,
+    "old_pid": 11880,
+    "new_state": {
+      "at": "2026-10-15T20:01:32.483560+00:00",
+      "pid": 11878,
+      "config": "/Users/caoqinlu/Documents/ChatGPT/apex \u7b14\u8bd5/configs/eval/baseline_tunnels_20261016.json",
+      "starts": {
+        "hpc": 2,
+        "runner": 2
+      },
+      "last_exit": {
+        "hpc": {
+          "code": 0,
+          "at": "2026-10-15T20:00:16.146136+00:00"
+        },
+        "runner": {
+          "code": 0,
+          "at": "2026-10-15T20:01:26.458711+00:00"
+        }
+      },
+      "children": {
+        "hpc": 12520,
+        "runner": 13247
+      },
+      "note": "SSH liveness only; runners must gate admission on HTTP health."
+    },
+    "observations": [
+      {
+        "elapsed": 0.56,
+        "health": {
+          "18071": "URLError",
+          "18072": "URLError",
+          "18073": "URLError"
+        }
+      },
+      {
+        "elapsed": 2.11,
+        "health": {
+          "18071": "URLError",
+          "18072": "URLError",
+          "18073": "URLError"
+        }
+      },
+      {
+        "elapsed": 3.52,
+        "health": {
+          "18071": "URLError",
+          "18072": "URLError",
+          "18073": "URLError"
+        }
+      },
+      {
+        "elapsed": 5.1,
+        "health": {
+          "18071": "URLError",
+          "18072": "URLError",
+          "18073": "URLError"
+        }
+      },
+      {
+        "elapsed": 6.7,
+        "health": {
+          "18071": "URLError",
+          "18072": "URLError",
+          "18073": "URLError"
+        }
+      },
+      {
+        "elapsed": 8.3,
+        "health": {
+          "18071": 200,
+          "18072": 200,
+          "18073": 200
+        }
+      }
+    ]
+  }
+}

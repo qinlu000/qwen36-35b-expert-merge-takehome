@@ -1,0 +1,95 @@
+{
+  "scope": "independent synthetic Terminus v2 adapter acceptance; no formal Terminal task content",
+  "stub_native_loop": {
+    "scope": "native Terminus loop and helpers with fake terminal/HTTP; independent synthetic text",
+    "real_model": false,
+    "real_tmux": false,
+    "checks": {
+      "native_parser_length_feedback_and_two_step_finish": true,
+      "native_three_helper_prompts_same_cap_seed": true,
+      "answers_helper_overflow_best_effort_without_history_change": true,
+      "main_guard_blocks_without_native_unwind_or_retry": true,
+      "exact_57344_boundary_admitted_with_full_8192_reservation": true,
+      "read_timeout_is_not_retried": true,
+      "ambiguous_disconnect_is_not_retried": true,
+      "only_connection_failure_gets_two_identical_attempts": true,
+      "tokenize_in_shared_deadline": true,
+      "solver_error_cleanup_has_explicit_reason_before_reraise": true,
+      "normal_return_does_not_kill_task_services": true
+    },
+    "status": "passed"
+  },
+  "actual_qwen_transport": {
+    "status": "passed",
+    "response": "APEX_TERMINUS_TRANSPORT_OK",
+    "usage": {
+      "prompt_tokens": 29,
+      "completion_tokens": 8,
+      "cache_tokens": 0,
+      "cost_usd": 0.0
+    },
+    "extra": {
+      "finish_reason": "stop",
+      "request_sha256": "9663631d2260f9fc6a2fedb710527c5b526eb1ac335455e9cd80fd966512d675"
+    }
+  },
+  "real_native_tmux": {
+    "scope": "independent synthetic native Terminus + real Qwen + persistent tmux",
+    "scratch": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/terminal-v2/live-20261015T194418Z",
+    "status": "passed",
+    "exception_info": null,
+    "rewards": {
+      "reward": 1.0
+    },
+    "requests": [
+      {
+        "phase": "main",
+        "status": "completed",
+        "prompt_tokens_exact": 774,
+        "finish_reason": "stop"
+      },
+      {
+        "phase": "main",
+        "status": "completed",
+        "prompt_tokens_exact": 1151,
+        "finish_reason": "stop"
+      }
+    ],
+    "task_complete_turns": 2
+  },
+  "formal_trials_started": 0,
+  "source_sha256": {
+    "scripts/terminal_baseline_v2.py": "b5248e3c54fc75cc416626410dcdff238415aa94d9ae1fe2a4f803d7690e6d80",
+    "scripts/run_terminal_baseline_v2.py": "cb662792e221bf997b650461cebc67bf1a50fd5bf3abc8a36f3b0df23e2cff8d",
+    "scripts/smoke_terminal_baseline_v2.py": "a48c1ee23b2a8cbf1eb4f695d49dfa2d85e9c1e2170954bc57229d804636f5c5",
+    "scripts/smoke_terminal_live_v2.py": "7d7d81c119e111f306511c68b37205b3774d96e6f0f48805bd5069fb6259f6ce",
+    "scripts/smoke_terminal_cancel_v2.py": "647bae1b92d4ed7a72f7b1c98275034e2d98842dd7203482e2262314a598fc35",
+    "configs/eval/terminal_v2_environment.json": "764509150e3f7f0e049ddfddd97bb229a4791ec28d1a5ce585019cf85e0ceca8"
+  },
+  "actual_qwen_cancellation": {
+    "scope": "one independent synthetic long generation; dedicated idle TB service",
+    "status": "passed",
+    "before": {
+      "running": 0.0,
+      "waiting": 0.0
+    },
+    "observed_in_flight": {
+      "running": 1.0,
+      "waiting": 0.0
+    },
+    "client_cancelled": true,
+    "after": {
+      "running": 0.0,
+      "waiting": 0.0
+    },
+    "engine_quiesced_after_cancel_seconds": 0.1607,
+    "elapsed_seconds": 0.5354
+  },
+  "backend_receipt_80": "artifacts/preflight/backend_v2/smoke-ypuo4cn1/result.json",
+  "dedicated_service_concurrency": "Root accepted8 solver requests/4 model sequences:4 exact57344+4 short; our first29-token marker probe overlapped that calibration window, so9 synthetic requests total, no formal trial.",
+  "native_terminus": true,
+  "exact_token_guard": true,
+  "cpu_memory_network": true,
+  "endpoint_cancellation": true,
+  "pre_admission_layout_fix": "First launcher stopped before trial creation: Harbor rejects cross-task tests/solution symlinks. Driver now copies task files byte-for-byte and validates native Task.is_valid_dir before admission. No formal model request or scored result preceded this fix."
+}

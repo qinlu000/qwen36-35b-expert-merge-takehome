@@ -922,3 +922,15 @@
 
 - 四卡训练作业724277已提交（24CPU/256GiB/2小时），当前PENDING(Resources)。同一分配内依次实际CPU目标/mask→2K两步反向→独立进程重载forward→HLE正式500/100一epoch约63步；任何前置失败停止，不把排队当训练已开始。最终mask统一default+ignore_empty_think。
 - SWE独立dev环境CPU作业724276已提交debug分区（4CPU/12GiB/25分钟），只检查固定镜像初始commit/cwd/安装元数据与/testbed存在，不运行源轨迹/补丁/测试。镜像转换和初始状态通过也不能证明源采集映射完全相同。
+
+
+## 2026-10-16T04:01:56+08:00：8卡运行，SSH事故恢复与显式基础设施补跑
+
+- 四组TP2服务均真实RUNNING：HLE724196/ACD1-61:18000，ASI724241/ACD1-61:18001，Terminal724242/ACD1-54:18002，SWE724254/ACD1-36:18003。共8H100，不把GPU在跑等同四项正式baseline在跑；另训练724277四卡等待，722434他项目一卡保留。
+- 约03:53旧SSH master/socket消失，80桥18071/18072失效；HPC内网服务health均200，故障实证在转发进程。进程最初消失原因未证明；未改用户代理。HLE由整体推进恢复18061，本线只接管18071–73。
+- 新scripts/supervise_baseline_tunnels.py+configs/eval/baseline_tunnels_20261016.json，Mac后台PID11878，状态artifacts/runs/baseline-tunnels-20261016/state.json，两条前台SSH子进程自动重连、独立socket /tmp/apex-baseline-hpc-ctl与/tmp/apex-baseline-80-ctl。真实杀自己HPC转发后health从reset转200，7.05s恢复；三服务self-authored marker请求正确、精确tokenize/usage/非thinking通过，SWE首次预热36.3s，另两端<1s。原GPU服务未重启。
+- ASI旧attempt0已退出：240保存结果=229 tokenizer拒连未生成+8已发送断连无答卷+3已收完整答卷且执行失败。3保留为模型/程序失败，不允许重生；其余237经核为infra，明确人工授权第1次同ID/seed/预算全trial补跑，新目录/显式manifest，全部原日志/答卷/成本保留，按first valid chronological选择，不按分数择优。8项不被混写成安全HTTP重试。
+- TB r2已SIGINT安全停，21结果=13transport+8取消，0正常完成、0不完整目录，5份完整policy response保留；明确人工授权21项第1次同条件infra补跑，未开始424项仍按固定445总清单。
+- 两个独立修复driver验收中：最多8个future，每次准入health，transport异常熔断停止新准入/取消在途/保存checkpoint；旧生产源码/runtime SHA不改，桥绿之后也需断网stub通过才启动。原全trial自动重试0、人工infra最多2次、同HTTP read/ambiguous不得自动再发的协议保持。
+- 尝试仅延长本线724241/724242/724254的Slurm TimeLimit，被权限拒绝，未升级/换账户；仍各8h，ASI11:30:57、TB11:31:29、SWE11:52:47到期（CST）。巡检至少提前1小时有序checkpoint/服务换班，避免到期被杀。
+- ASI评分独立stub/校准及reference隔离准备继续；当前零付费，不挤占另一会话夜间30元数据预算。apex-baseline半小时heartbeat已更新事故分类/新桥/人工补跑/到期处理；本线持续推进baseline，另一线训练授权保持。

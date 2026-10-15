@@ -1,0 +1,37 @@
+{
+  "as_of_utc": "2026-10-15T19:55:47.399458+00:00",
+  "run_dir": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2_20261016",
+  "expected_conditions": 240,
+  "admitted": 240,
+  "not_admitted": 0,
+  "saved_results": 240,
+  "saved_responses": 3,
+  "status_counts": {
+    "failed": 240
+  },
+  "classification_counts": {
+    "answer_received_execution_attempted": 3,
+    "generation_attempted_transport_outcome_ambiguous": 8,
+    "no_generation_attempt_tokenizer_or_admission_failure": 229
+  },
+  "event_counts": {
+    "guard": 11,
+    "generation_started": 11,
+    "response": 3,
+    "generation_complete": 3,
+    "ambiguous_transport_failure_no_retry": 8
+  },
+  "failed_no_execution_log_categories": {
+    "Connection refused": 229,
+    "Server disconnected": 8
+  },
+  "controller_pid2473386_alive": false,
+  "live_asi_scopes": [],
+  "run_metadata_sha256": "eb6a362fc0af642bca5d86f02c1ecb99d0cecfe3b7ab0db59d188f0e419752db",
+  "actions": {
+    "frozen_asi_sources_changed": false,
+    "artifacts_deleted": false,
+    "automatic_regeneration": false,
+    "classification": "infrastructure incident; preserve same IDs/seeds and original artifacts for manual bounded retry review"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "pid": 2779230,
+  "launched_at_utc": "2026-10-15T19:50:04.942984+00:00",
+  "expected_trials": 445,
+  "tasks_per_seed": 89,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "concurrency": 8,
+  "service_job": 724242,
+  "endpoint": "http://127.0.0.1:18072",
+  "output": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2",
+  "log": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-724242/runner-2.log",
+  "lock": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-724242.lock",
+  "runtime": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-724242/runtime2",
+  "source_freeze_sha256": "cc387c10171b7b0e8ff9b36e462f7a4a405faaabb91885c7831e6c4d3cea3157",
+  "sif_integrity_sha256": "70916a1a1c03650f8661ca904819ce9f4282fe4fdc605c3fad004e05d25fc43f",
+  "acceptance_receipt_sha256": "d7132bdcc05be6da30ced34de91c9e0fbb8fcf61615d09c3443da2805b32a6d1",
+  "resource_profile": "4CPU8GiB1800s;8 disjoint CPU slots32-63;TP2 service max4 model sequences",
+  "failure_policy": "no full trial retries; preserve complete results; incomplete resume requires infrastructure audit",
+  "checked_at_utc": "2026-10-15T19:50:45.555858+00:00",
+  "active_pid_confirmed": true,
+  "initial_trial_configs": 8,
+  "initial_saved_results": 0,
+  "initial_policy_requests": 0,
+  "sif_verified": 89,
+  "frozen_source_files": 452,
+  "prior_attempt": {
+    "pid": 2722007,
+    "outcome": "pre-admission task layout rejection",
+    "formal_trials": 0,
+    "policy_requests": 0,
+    "preserved": "artifacts/runs/base-terminal-724242/runtime and launch.json; artifacts/results/base-terminal-v2-724242"
+  },
+  "read_rule": "Infrastructure/counters only; no task outcome used for prompt/budget changes.",
+  "later_infrastructure_stop": {
+    "at_utc": "2026-10-15T19:54:06.883543+00:00",
+    "signal": "SIGINT",
+    "controller_alive": false,
+    "runtime_processes_remaining": 0,
+    "terminal_scopes_remaining": 0,
+    "admitted_trials": 21,
+    "saved_results": 21,
+    "incomplete_trials": 0,
+    "exception_types": {
+      "ConnectError": 5,
+      "RemoteProtocolError": 2,
+      "ReadError": 6,
+      "CancelledError": 8
+    },
+    "normally_completed_trials": 0,
+    "completed_raw_policy_responses_preserved": 5,
+    "requests_with_failed_receipts": 13,
+    "action": "Await dedicated service/bridge infrastructure audit; no automatic regeneration; preserve all original results/runtime."
+  }
+}

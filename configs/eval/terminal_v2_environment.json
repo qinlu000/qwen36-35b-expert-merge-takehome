@@ -1,0 +1,9 @@
+{
+  "type": null,
+  "import_path": "baseline_singularity:BaselineSingularityEnvironment",
+  "kwargs": {
+    "singularity_image_cache_dir": "artifacts/benchmarks/sif",
+    "baseline_cpu_offset": 32,
+    "baseline_cpu_slots": 8
+  }
+}

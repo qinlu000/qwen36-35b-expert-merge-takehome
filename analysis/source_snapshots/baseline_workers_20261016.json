@@ -1,7 +1,7 @@
 {
-  "as_of": "2026-10-16T03:34:57+08:00",
-  "state": "workers_running_acceptance_pending",
-  "total_project_gpus": 6,
+  "as_of": "2026-10-16T04:01:56+08:00",
+  "state": "8_gpus_running_transport_restored_formal_repair_acceptance_pending",
+  "total_project_gpus": 8,
   "per_replica": {
     "gpus": 2,
     "cpus": 16,
@@ -34,8 +34,46 @@
       "port": 18002,
       "port_on_80": 18072,
       "probe_pid_on_80": 2136214
+    },
+    {
+      "benchmark": "swe",
+      "job_id": 724254,
+      "node": "ACD1-36",
+      "port": 18003,
+      "port_on_80": 18073,
+      "owner": "side 推进",
+      "state": "RUNNING"
     }
   ],
-  "formal_base_trials_this_workflow": 0,
-  "note": "Allocation and synthetic queue acceptance are separate from native benchmark formal readiness."
+  "formal_base_trials_this_workflow": {
+    "asi": {
+      "saved_attempt0": 240,
+      "original_answers_retained": 3,
+      "verified_infrastructure_retry1_pending": 237,
+      "scored": 0
+    },
+    "terminal": {
+      "saved_attempt_r2": 21,
+      "normal_completed": 0,
+      "verified_infrastructure_retry1_pending": 21,
+      "not_admitted": 424
+    },
+    "swe": {
+      "admitted": 0,
+      "fixed_denominator": 51
+    }
+  },
+  "note": "Allocation, native acceptance, valid formal coverage and scoring are distinct. Historical attempt0 failures are preserved; explicit retry manifests required.",
+  "tunnel_supervisor": {
+    "pid": 11878,
+    "config": "configs/eval/baseline_tunnels_20261016.json",
+    "recovery_receipt": "analysis/source_snapshots/baseline_tunnel_recovery_20261016.json",
+    "marker_receipt": "analysis/source_snapshots/baseline_tunnel_markers_20261016.json"
+  },
+  "service_expirations_cst": {
+    "724241": "2026-10-16T11:30:57+08:00",
+    "724242": "2026-10-16T11:31:29+08:00",
+    "724254": "2026-10-16T11:52:47+08:00"
+  },
+  "timelimit_extension": "User-owned scontrol update rejected with Access/permission denied; unchanged8h."
 }
