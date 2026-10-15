@@ -2,6 +2,8 @@
 
 2026-10-16。用户已决定先按四项 benchmark 的任务分布挑 val；清除训练中的显式教师 think 与 assistant reasoning_content；LoRA rank 等参数暂缓。本文件是选集依据，尚未锁定 val 题目、数量或训练配方，也未执行模型／任务／评分 API。
 
+> 后续状态（2026-10-16）：用户要求先暂停val选题与清洗，深入核查Qwen原生thinking与服务字段。已完成[三层调查](qwen_thinking_investigation.md)：同一thinking可被序列化为think段或API字段；训练loader与HF模板行为不同。下文清洗决定已记录但未批量执行，不能根据字段名直接推断教师生成模式或训练loss。
+
 ## 训练集依什么选择
 
 采用“正式 benchmark 的公开任务元数据 → 独立 val → Base 在独立 val 上的能力诊断 → train 配比”的路线。正式四项的全量 Base 可以并行生成与固化，但其逐题成败、回答和测试反馈不用于选训练题、数据比例或合版。

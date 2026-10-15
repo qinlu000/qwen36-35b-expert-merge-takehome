@@ -1,0 +1,64 @@
+{
+  "recorded_date": "2026-10-16",
+  "scope": "CPU-only exact tokenizer/template synthetic messages; no model weights, inference/API, benchmark tasks or real training content accessed by this probe.",
+  "model_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "remote_tokenizer_directory": "/data/caoqinlu/projects/apex-takehome/artifacts/models/Qwen3.6-35B-A3B/995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "interpreter": "/data/caoqinlu/envs/datamind-sft/bin/python",
+  "think_token_ids": {
+    "<think>": 248068,
+    "</think>": 248069
+  },
+  "think_marked_special": {
+    "<think>": false,
+    "</think>": false
+  },
+  "decode_skip_special": "<think>SYNTHETIC_REASONING</think>",
+  "inline_and_field_render_equal": true,
+  "old_turn_reasoning_occurrences": 0,
+  "flags_for_complete_messages": {
+    "enable_thinking": false,
+    "preserve_thinking": false,
+    "add_generation_prompt": false
+  },
+  "cases": {
+    "inline": {
+      "rendered_tokens": 35,
+      "reasoning_occurrences": 1,
+      "think_open_count": 1,
+      "think_close_count": 1
+    },
+    "field": {
+      "rendered_tokens": 35,
+      "reasoning_occurrences": 1,
+      "think_open_count": 1,
+      "think_close_count": 1
+    },
+    "both": {
+      "rendered_tokens": 44,
+      "reasoning_occurrences": 2,
+      "think_open_count": 2,
+      "think_close_count": 2
+    },
+    "clean": {
+      "rendered_tokens": 27,
+      "reasoning_occurrences": 0,
+      "think_open_count": 1,
+      "think_close_count": 1
+    },
+    "generation_True": {
+      "rendered_tokens": 16,
+      "assistant_prefix": "<think>\n"
+    },
+    "generation_False": {
+      "rendered_tokens": 18,
+      "assistant_prefix": "<think>\n\n</think>\n\n"
+    }
+  },
+  "synthetic_inputs": {
+    "user": "SYNTHETIC_QUESTION",
+    "reasoning": "SYNTHETIC_REASONING",
+    "answer": "SYNTHETIC_ANSWER",
+    "next_user": "SYNTHETIC_NEXT_QUESTION"
+  },
+  "interpretation": "Inline/field are storage alternatives for identical rendered reasoning. Both is deliberately duplicated input, not normal double billing. Token counts are this synthetic sequence only, not benchmark usage. Empty wrapper after cleanup is template structure, not retained teacher content."
+}

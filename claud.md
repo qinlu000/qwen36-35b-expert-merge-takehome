@@ -667,3 +667,13 @@
 - 用户要求看两者区别。只读固定Qwen模板、实际数据审计文档与长度脚本，确认think是正文/序列标记，reasoning_content是独立消息字段，可承载同一段推理。SWE4992样本97非空字段且无正文think；Terminal仅role/content，D3/OpenR1配对推理为正文前缀。
 - 固定模板优先字符串reasoning_content，否则解析正文闭合think；字段也渲染为think块，两处同时存在不去重。CPU自造消息实渲染：单形式各1次、双形式2次；非思考双false仍保留最近user后的assistant推理，更早轮次省略，生成前缀为空think块。故清除两种源推理内容必须显式执行，不能只关开关；模板空标记不是残留教师推理。
 - 补validation_selection的模板边界，未继续val选题或导出训练数据，未访问原始题/轨迹正文、调用tokenizer/模型/API、申请GPU或训练。仅本轮文档入Git，保留其他工作流WIP。
+
+## 2026-10-16：深入核实Qwen原生thinking、服务解析和SFT语义
+
+- 用户记得Qwen thinking就是think tags，要求深入调查。暂停val选题/清洗，采用research与ego-browser，一手固定模型卡/词表/模板、vLLM0.20.2/LiteLLM实际安装源码、固定候选Swift源码及已有数据安全元数据并行核验；无模型推理、训练、付费API或GPU申请。
+- 修正此前解释的不足：Qwen3.6原生thinking由think标记界定，独立reasoning/reasoning_content通常是同段内容的服务/客户端表示，不是两套原生思考。固定模型卡支持enable_thinking=false非思考路径，不官方支持旧Qwen3 /think软切换；不能将清理历史与控制新生成混为一谈。
+- 精确服务链为模型think序列→vLLM0.20.2 reasoning/content→LiteLLM1.105.1或1.93.0 reasoning_content；mini/Harbor有保存路径。vLLM入站有reasoning→模板两字段桥，但仅旧字段回传的完整wire仍待验。8K输出包含全部生成token，隐藏返回字段不节约生成预算。
+- 80固定AutoTokenizer CPU自造验证：inline与field渲染逐字等价，各35tokens；故意双写44tokens；删正文27tokens仍有模板空块。think IDs248068/248069，added-token special=false，decode skip_special_tokens=True仍保留标签；回执为source_snapshots/qwen_thinking_template_probe_20261016.json。未加载权重/读真实题面。
+- 新核安全元数据：SWE95291行全为Qwen3.6-27B、thinking=false；Terminal139841行全DeepSeek-V3.2、thinking=true。SWE同4992样本97条含103个truthy reasoning字段，16仅空白、87去空白后非空（84条记录），其与非思考元数据并列、原wire归因未知；不凭有/无字段判定生成模式。D3导出器还可能补包装标签，保存格式不必等于原wire。
+- 候选Swift标准messages加载会过滤额外reasoning字段，不能把HF模板支持外推到训练loader；CLI hybrid通常ignore_empty_think，仅mask空块、不忽略非空全文。删除teacher思考与保留但mask不等价，后者答案仍以teacher思考为条件并耗上下文。最终训练input_ids/labels/loss_scale仍待合成验收，不擅定rank或修改部署协议。
+- 新增qwen_thinking_investigation总报告、vllm/data/training三专项与CPU聚合回执；validation_selection加暂停和最新证据入口。仅本轮文档/回执纳入Git，其他工作流环境与脚本WIP保留。浏览器只关闭本调研自己的task space。
