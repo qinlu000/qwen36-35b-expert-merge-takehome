@@ -33,9 +33,9 @@ singularity exec --cleanenv --containall \
   --output "$APEX_PROJECT/artifacts/preflight/base-runtime/cpu_check.json"
 ```
 
-donor 的 Torch 与 vLLM 顶层 import 已在登录节点通过；直接导入 CUDA 扩展因登录节点没有 `libcuda.so.1` 失败，完整 `vllm --help` 也因无法推断 device type 失败。后续分配节点上的两卡实测已通过权重加载和短HTTP请求，结果如下；长上下文、持续吞吐及正式四卡服务参数仍待验证。
+donor 的 Torch 与 vLLM 顶层 import 已在登录节点通过；直接导入 CUDA 扩展因登录节点没有 `libcuda.so.1` 失败，完整 `vllm --help` 也因无法推断 device type 失败。后续分配节点上的两卡实测已通过权重加载和短HTTP请求，结果如下；当前v2的TP2/64K/8K及近边界长输入已另测通过；持续吞吐、并发与原生benchmark链路仍待验证。
 
-## GPU smoke：两卡合成HTTP检查通过
+## 历史GPU smoke：262K配置的短HTTP检查通过
 
 作业 **723821** 在 `emergency_acd` / `qinlucao` / `formal-user` 下完成，实际priority为10023；`sacct`为`COMPLETED / 0:0`，总用时5分07秒。`artifacts/preflight/base-smoke-723821/summary.json`记录`passed=true`，四个合成case全部通过，服务启动270.19秒，脚本正常退出0。带key的HTTP请求成功200，无key的`/v1/models`返回401，认证已实际生效。
 
@@ -43,7 +43,7 @@ donor 的 Torch 与 vLLM 顶层 import 已在登录节点通过；直接导入 C
 
 四个case分别是纯文本、32×32红色PNG、`add_numbers(17,25)`自动tool call，以及返回工具结果42后的回答。每次保存请求、响应、usage与延迟；回执和`server.log`位于上述作业目录，Slurm输出为`artifacts/preflight/base-smoke-723821.log`。仅证明此配置下的短文本、图文及工具往返通路；没有实际填满262,144上下文、测持续吞吐或验收正式四卡参数。
 
-入口为`scripts/smoke_base.slurm`和`scripts/smoke_base.py`。Slurm默认请求4 GPU / 16 CPU / 192 GiB / 30分钟；本次用以下覆盖提交两卡检查：
+入口为`scripts/smoke_base.slurm`和`scripts/smoke_base.py`。当前Slurm默认请求2 GPU / 16 CPU / 128 GiB / 30分钟；723821历史提交时用以下覆盖：
 
 ```bash
 cd /data/user/qinlucao/projects/apex-takehome
@@ -65,4 +65,15 @@ API key 由 Python 生成到 Git 忽略的 `artifacts/private/base_smoke_api_key
 
 超时或失败返回非零；结束和SIGTERM/SIGINT时向整个服务进程组发TERM，等待主进程最多20秒，再清除残余进程组。本次服务与作业均已退出，没有留下常驻endpoint。
 
-用户已授权提高优先级，脚本默认分区为`emergency_acd`（PriorityTier/JobFactor300，原`acd_ue`为200），仍用本人`qinlucao`账号/`formal-user` QoS。未调整其他项目作业722434。后续v2协议已选TP2单服务/64K总context/8K输出；262K短smoke不能替代当前参数、长请求和队列验收，也不再将四卡端点作为既定前提。本轮正在另做对应64K/8K的合成检查，未运行正式题。
+用户已授权提高优先级，脚本默认分区为`emergency_acd`（PriorityTier/JobFactor300，原`acd_ue`为200），仍用本人`qinlucao`账号/`formal-user` QoS。未调整其他项目作业722434。后续v2协议已选TP2单服务/64K总context/8K输出；262K短smoke不能替代当前参数、长请求和队列验收，也不再将四卡端点作为既定前提。对应64K/8K的723993已通过下述检查；没有运行正式题。
+
+
+## 当前v2：TP2 / 64K / 8K合成验收通过
+
+作业**723993**在emergency_acd的ACD1-1完成，2×H100 80GB /16CPU/128GiB，Slurm主/batch/extern均COMPLETED0:0，总8分44秒；启动410.31秒。`summary.json`为`passed=true`，server_returncode=0，带key models=200、无key=401。新安全聚合回执见`source_snapshots/base_gpu_smoke_v2_20261016.json`；原723821回执保留为历史。
+
+服务使用已选v2参数：BF16、TP2、max_model_len=65536、max_num_seqs=4、gpu_memory_utilization=.85、eager、GDN/MoE Triton、chunked prefill、max_num_batched_tokens=8192。请求明确max_tokens=8192、temperature=.7、top_p=.8、top_k=20、min_p=0、presence_penalty=0、repetition_penalty=1、seed=0，thinking/preserve_thinking均false。
+
+原文本/32px红图/tool call/tool result四项语义断言全部通过，另有合成长输入：固定模板计数**57,280**与实际usage.prompt_tokens一致，预留8,192输出，总65,472；HTTP200、返回标记8tokens/stop，耗时2.560秒。自造越界输入本地计数57,408，携同8,192输出预算得到明确context HTTP400；服务安全计数至至少57,345即拒绝，不能把这个下界写成服务完整计数57,408。没有重试、降cap或使用正式题。
+
+批日志已确认`Local scratch removed: /tmp/apex-base-723993.9DtoZS`，服务正常关闭；不留常驻endpoint。复现当前配置直接`sbatch scripts/smoke_base.slurm`。这次验证长输入和输出cap接线，没有生成满8K、测4并发/持续吞吐或跑四benchmark的原生adapter；这些仍须分别验收。

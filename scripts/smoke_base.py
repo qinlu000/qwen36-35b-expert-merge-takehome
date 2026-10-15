@@ -3,6 +3,7 @@
 import argparse
 import base64
 from datetime import datetime, timezone
+import hashlib
 import io
 import json
 import os
@@ -20,6 +21,9 @@ from uuid import UUID
 
 REVISION = "995ad96eacd98c81ed38be0c5b274b04031597b0"
 BASE_URL = "http://127.0.0.1:18000"
+CONTEXT_TOKENS = 65536
+OUTPUT_TOKENS = 8192
+TEMPLATE_SHA256 = "e84f32a23fdda27689f868aa4a1a5621f41133e51a48d7f3efcbea2839574259"
 
 
 def main():
@@ -47,7 +51,7 @@ def main():
     key = key_path.read_text().strip()
     visible = os.environ["CUDA_VISIBLE_DEVICES"]
     tensor_parallel = len(visible.split(","))
-    assert tensor_parallel in (2, 4), "Smoke supports two or four allocated GPUs"
+    assert tensor_parallel == 2, "Unified 64K/8K smoke requires two allocated GPUs"
     model = project / "artifacts/models/Qwen3.6-35B-A3B" / REVISION
     index = json.loads((model / "model.safetensors.index.json").read_text())
     shards = set(index["weight_map"].values())
@@ -59,7 +63,8 @@ def main():
                "--model", str(model), "--served-model-name", "apex-qwen",
                "--host", "127.0.0.1", "--port", "18000", "--dtype", "bfloat16",
                "--tensor-parallel-size", str(tensor_parallel), "--distributed-executor-backend", "mp",
-               "--max-model-len", "262144", "--max-num-seqs", "4",
+               "--max-model-len", str(CONTEXT_TOKENS), "--max-num-seqs", "4",
+               "--max-num-batched-tokens", "8192", "--enable-chunked-prefill",
                "--gpu-memory-utilization", "0.85", "--enforce-eager",
                "--gdn-prefill-backend", "triton", "--moe-backend", "triton",
                "--enable-auto-tool-choice", "--tool-call-parser", "qwen3_coder",
@@ -68,7 +73,8 @@ def main():
     summary = {"started_at_utc": datetime.now(timezone.utc).isoformat(),
                "job_id": os.environ.get("SLURM_JOB_ID"), "model_revision": REVISION,
                "cuda_visible_devices": visible, "server_command": command,
-               "purpose": "synthetic smoke; these settings do not freeze formal thinking preference",
+               "protocol_id": "apex-eval-v2-unified64k8k",
+               "purpose": "synthetic parameter/long-input acceptance; no full 8K decode, concurrency or native benchmark claim",
                "cases": [], "passed": False}
 
     def gpu_snapshot():
@@ -87,7 +93,7 @@ def main():
                             "free_mib", "driver_version"],
                 "rows": [row.split(", ") for row in result.stdout.strip().splitlines()]}
 
-    def request(path, payload=None, timeout=180, authenticate=True):
+    def request(path, payload=None, timeout=180, authenticate=True, expected_status=200):
         headers = {"Content-Type": "application/json"}
         if authenticate:
             headers["Authorization"] = "Bearer " + key
@@ -98,24 +104,36 @@ def main():
                     Request(BASE_URL + path, data=body, headers=headers),
                     timeout=timeout) as response:
                 raw = response.read()
+                status = response.status
         except HTTPError as exc:
-            raise RuntimeError(f"{path}: HTTP {exc.code}") from None
+            status = exc.code
+            raw = exc.read()
+        if status != expected_status:
+            raise RuntimeError(f"{path}: HTTP {status}")
         return json.loads(raw) if raw else None
 
-    def chat(name, messages, **extra):
-        payload = {"model": "apex-qwen", "messages": messages, "temperature": 0,
-                   "max_tokens": 256,
-                   "chat_template_kwargs": {"enable_thinking": False,
-                                            "preserve_thinking": False}, **extra}
+    def payload_for(messages, **extra):
+        return {"model": "apex-qwen", "messages": messages,
+                "temperature": 0.7, "top_p": 0.8, "top_k": 20, "min_p": 0,
+                "presence_penalty": 0, "repetition_penalty": 1,
+                "max_tokens": OUTPUT_TOKENS, "seed": 0,
+                "chat_template_kwargs": {"enable_thinking": False,
+                                         "preserve_thinking": False}, **extra}
+
+    def chat(name, messages, timeout=180, **extra):
+        payload = payload_for(messages, **extra)
         started = time.monotonic()
-        response = request("/v1/chat/completions", payload)
-        assert response.get("usage", {}).get("completion_tokens", 0) > 0
         (output / (name + "_request.json")).write_text(json.dumps(payload, indent=2) + "\n")
+        response = request("/v1/chat/completions", payload, timeout=timeout)
+        assert response.get("usage", {}).get("completion_tokens", 0) > 0
         (output / (name + "_response.json")).write_text(json.dumps(response, indent=2) + "\n")
+        message = response["choices"][0]["message"]
+        assert not message.get("reasoning"), "Unexpected thinking output"
         summary["cases"].append({"name": name, "latency_seconds": time.monotonic() - started,
+                                 "http_status": 200,
                                  "usage": response["usage"],
                                  "finish_reason": response["choices"][0]["finish_reason"]})
-        return response["choices"][0]["message"]
+        return message
 
     def interrupted(signum, frame):
         raise SystemExit(128 + signum)
@@ -184,6 +202,61 @@ def main():
                           "content": json.dumps({"sum": arguments["a"] + arguments["b"]})}]
             answer = chat("tool_result", messages, tools=tools, tool_choice="none")
             assert "42" in (answer.get("content") or "")
+
+            # Count the fixed rendered template, then compare with real server usage.
+            from transformers import AutoTokenizer
+            tokenizer = AutoTokenizer.from_pretrained(model, local_files_only=True)
+            template_hash = hashlib.sha256(tokenizer.chat_template.encode()).hexdigest()
+            assert template_hash == TEMPLATE_SHA256
+            summary["chat_template_sha256"] = template_hash
+
+            def padded_messages(target):
+                def build(repeats):
+                    return [{"role": "user", "content": (
+                        "This is synthetic filler for a context-budget test.\n"
+                        + " filler" * repeats
+                        + "\nIgnore the filler. Reply exactly SYNTHETIC_LONG_OK.")}]
+
+                def count(messages):
+                    return len(tokenizer.apply_chat_template(
+                        messages, tokenize=True, return_dict=False, add_generation_prompt=True,
+                        enable_thinking=False, preserve_thinking=False))
+
+                low, high = 0, target
+                while low < high:
+                    mid = (low + high + 1) // 2
+                    if count(build(mid)) <= target:
+                        low = mid
+                    else:
+                        high = mid - 1
+                messages = build(low)
+                tokens = count(messages)
+                assert target - 8 <= tokens <= target
+                return messages, tokens
+
+            long_messages, prompt_tokens = padded_messages(CONTEXT_TOKENS - OUTPUT_TOKENS - 64)
+            assert prompt_tokens + OUTPUT_TOKENS <= CONTEXT_TOKENS
+            summary["long_input_budget"] = {"prompt_tokens": prompt_tokens,
+                                          "reserved_output_tokens": OUTPUT_TOKENS,
+                                          "context_tokens": CONTEXT_TOKENS}
+            long_answer = chat("long_text", long_messages, timeout=300)
+            assert "SYNTHETIC_LONG_OK" in (long_answer.get("content") or "")
+            assert summary["cases"][-1]["usage"]["prompt_tokens"] == prompt_tokens
+
+            # Deliberate synthetic server-rejection diagnostic, not a policy request.
+            over_messages, over_tokens = padded_messages(CONTEXT_TOKENS - OUTPUT_TOKENS + 64)
+            assert over_tokens < CONTEXT_TOKENS < over_tokens + OUTPUT_TOKENS
+            over_payload = payload_for(over_messages)
+            (output / "over_budget_request.json").write_text(json.dumps(over_payload, indent=2) + "\n")
+            rejection = request("/v1/chat/completions", over_payload, expected_status=400)
+            (output / "over_budget_response.json").write_text(json.dumps(rejection, indent=2) + "\n")
+            error_text = json.dumps(rejection).lower()
+            assert "maximum context length" in error_text and str(CONTEXT_TOKENS) in error_text
+            assert str(OUTPUT_TOKENS) in error_text
+            summary["over_budget_rejection"] = {"http_status": 400,
+                                                "prompt_tokens": over_tokens,
+                                                "reserved_output_tokens": OUTPUT_TOKENS,
+                                                "purpose": "synthetic server diagnostic; no retry or cap change"}
             summary["gpu_after_requests"] = gpu_snapshot()
             summary["passed"] = True
     except BaseException as exc:

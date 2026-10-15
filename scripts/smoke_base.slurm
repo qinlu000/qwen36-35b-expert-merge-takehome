@@ -6,8 +6,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=16
-#SBATCH --gres=gpu:4
-#SBATCH --mem=192G
+#SBATCH --gres=gpu:2
+#SBATCH --mem=128G
 #SBATCH --time=00:30:00
 #SBATCH --export=NONE
 #SBATCH --chdir=/data/user/qinlucao/projects/apex-takehome
@@ -22,7 +22,12 @@ module load apptainer/1.4.5
 APEX_PROJECT=/data/user/qinlucao/projects/apex-takehome
 APEX_PYTHON_ROOT=/data/user/qinlucao/datasets/training_mix_hpc_wheelhouse_v1/python
 APEX_LOCAL_TMP=$(mktemp -d "/tmp/apex-base-${SLURM_JOB_ID}.XXXXXX")
-trap 'rm -rf -- "$APEX_LOCAL_TMP"' EXIT
+cleanup() {
+    rm -rf -- "$APEX_LOCAL_TMP"
+    [[ ! -e "$APEX_LOCAL_TMP" ]]
+    printf 'Local scratch removed: %s\n' "$APEX_LOCAL_TMP"
+}
+trap cleanup EXIT
 mkdir -p "$APEX_LOCAL_TMP"/cache/{triton,vllm,torch,huggingface}
 [[ -n "${CUDA_VISIBLE_DEVICES:-}" ]]
 

@@ -1,0 +1,257 @@
+{
+  "protocol_id": "apex-eval-v2-unified64k8k",
+  "started_at_utc": "2026-10-15T18:03:01.460874+00:00",
+  "finished_at_utc": "2026-10-15T18:11:42.240318+00:00",
+  "job_id": "723993",
+  "model_repo": "Qwen/Qwen3.6-35B-A3B",
+  "model_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "passed": true,
+  "scope": "Synthetic local HTTP/GPU acceptance only; no formal benchmark questions, scoring, training or paid API",
+  "startup_seconds": 410.3106336799683,
+  "api_authentication": "enforced",
+  "server_returncode": 0,
+  "server": {
+    "vllm": "0.20.2",
+    "torch": "2.11.0+cu130",
+    "transformers": "5.15.1",
+    "dtype": "bfloat16",
+    "tensor_parallel_size": 2,
+    "max_model_len": 65536,
+    "max_num_seqs": 4,
+    "max_num_batched_tokens": 8192,
+    "enable_chunked_prefill": true,
+    "gpu_memory_utilization": 0.85,
+    "enforce_eager": true,
+    "gdn_prefill_backend": "triton",
+    "moe_backend": "triton",
+    "tool_call_parser": "qwen3_coder",
+    "reasoning_parser": "qwen3",
+    "served_model_name": "apex-qwen",
+    "host": "127.0.0.1",
+    "port": 18000,
+    "cli_flags": [
+      "--model",
+      "/data/user/qinlucao/projects/apex-takehome/artifacts/models/Qwen3.6-35B-A3B/995ad96eacd98c81ed38be0c5b274b04031597b0",
+      "--served-model-name",
+      "apex-qwen",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "18000",
+      "--dtype",
+      "bfloat16",
+      "--tensor-parallel-size",
+      "2",
+      "--distributed-executor-backend",
+      "mp",
+      "--max-model-len",
+      "65536",
+      "--max-num-seqs",
+      "4",
+      "--max-num-batched-tokens",
+      "8192",
+      "--enable-chunked-prefill",
+      "--gpu-memory-utilization",
+      "0.85",
+      "--enforce-eager",
+      "--gdn-prefill-backend",
+      "triton",
+      "--moe-backend",
+      "triton",
+      "--enable-auto-tool-choice",
+      "--tool-call-parser",
+      "qwen3_coder",
+      "--reasoning-parser",
+      "qwen3",
+      "--no-enable-log-requests"
+    ],
+    "cache": "Per-job node-local scratch bound at container /tmp; compiler caches under /tmp/cache; logs in shared project",
+    "authentication": "VLLM_API_KEY supplied through environment; key absent from CLI and this snapshot"
+  },
+  "generation": {
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "min_p": 0,
+    "presence_penalty": 0,
+    "repetition_penalty": 1,
+    "max_tokens": 8192,
+    "seed": 0,
+    "chat_template_kwargs": {
+      "enable_thinking": false,
+      "preserve_thinking": false
+    }
+  },
+  "generation_transport": "Raw Chat Completions JSON uses top_k/min_p/repetition_penalty at top level; extra_body is only an SDK packaging convention",
+  "chat_template_sha256": "e84f32a23fdda27689f868aa4a1a5621f41133e51a48d7f3efcbea2839574259",
+  "cases": [
+    {
+      "name": "text",
+      "latency_seconds": 38.48201523406897,
+      "http_status": 200,
+      "usage": {
+        "prompt_tokens": 21,
+        "total_tokens": 29,
+        "completion_tokens": 8,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "name": "image",
+      "latency_seconds": 0.9312149699544534,
+      "http_status": 200,
+      "usage": {
+        "prompt_tokens": 91,
+        "total_tokens": 93,
+        "completion_tokens": 2,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "name": "tool_call",
+      "latency_seconds": 2.866026894073002,
+      "http_status": 200,
+      "usage": {
+        "prompt_tokens": 305,
+        "total_tokens": 343,
+        "completion_tokens": 38,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "tool_calls"
+    },
+    {
+      "name": "tool_result",
+      "latency_seconds": 1.1381967220222577,
+      "http_status": 200,
+      "usage": {
+        "prompt_tokens": 367,
+        "total_tokens": 384,
+        "completion_tokens": 17,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "name": "long_text",
+      "latency_seconds": 2.560137729975395,
+      "http_status": 200,
+      "usage": {
+        "prompt_tokens": 57280,
+        "total_tokens": 57288,
+        "completion_tokens": 8,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "synthetic_checks": {
+    "text_marker": true,
+    "red_png_32x32": true,
+    "one_add_numbers_17_25": true,
+    "tool_id_matches": true,
+    "answer_after_tool_result_42": true,
+    "long_marker": true,
+    "long_usage_matches_fixed_template_count": true,
+    "all_six_requests_explicit_generation_fields": true,
+    "no_reasoning_field_content": true,
+    "authorized_models_http": 200,
+    "unauthenticated_models_http": 401
+  },
+  "long_input_budget": {
+    "prompt_tokens": 57280,
+    "reserved_output_tokens": 8192,
+    "context_tokens": 65536,
+    "total_with_reserved_output": 65472,
+    "remaining_context_tokens": 64
+  },
+  "negative_context_diagnostic": {
+    "http_status": 400,
+    "locally_counted_prompt_tokens": 57408,
+    "reserved_output_tokens": 8192,
+    "local_total_with_reserved_output": 65600,
+    "max_context_tokens": 65536,
+    "server_reported_prompt_tokens_lower_bound": 57345,
+    "server_reported_total_tokens_lower_bound": 65537,
+    "error": {
+      "message": "This model's maximum context length is 65536 tokens. However, you requested 8192 output tokens and your prompt contains at least 57345 input tokens, for a total of at least 65537 tokens. Please reduce the length of the input prompt or the number of requested output tokens. (parameter=input_tokens, value=57345)",
+      "type": "BadRequestError",
+      "param": "input_tokens",
+      "code": 400
+    },
+    "count_explanation": "The upstream renderer may stop validation tokenization at max_input_tokens+1 and reports at least 57345. This is a lower bound, not an exact server count of the full locally counted 57408-token request. The request was rejected before generation.",
+    "purpose": "One deliberately over-budget synthetic server diagnostic; no retry, cap reduction or formal policy request. It does not establish a client-side pre-request guard."
+  },
+  "scheduler": {
+    "partition": "emergency_acd",
+    "qos": "formal-user",
+    "account": "qinlucao",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "elapsed": "00:08:44",
+    "gpus": 2,
+    "cpus": 16,
+    "memory_gib": 128,
+    "time_limit": "00:30:00",
+    "steps": {
+      "723993": "COMPLETED 0:0",
+      "723993.batch": "COMPLETED 0:0",
+      "723993.extern": "COMPLETED 0:0"
+    }
+  },
+  "cleanup": {
+    "server_shutdown_complete": true,
+    "server_returncode": 0,
+    "scratch_deleted": true,
+    "deletion_checked_with_test_before_log": true,
+    "receipt": "Local scratch removed: /tmp/apex-base-723993.9DtoZS",
+    "receipt_source": "artifacts/preflight/base-smoke-723993.log",
+    "post_job_compute_node_ssh": false
+  },
+  "gpu": {
+    "model": "NVIDIA H100 80GB HBM3",
+    "count": 2,
+    "driver": "610.43.02",
+    "total_mib_per_gpu": 81559,
+    "ready_used_mib": [
+      70627,
+      70627
+    ],
+    "after_requests_used_mib": [
+      70763,
+      70763
+    ],
+    "memory_measurement": "Ready/after snapshots, not continuous peak monitoring"
+  },
+  "provenance": {
+    "scripts_sha256": {
+      "scripts/smoke_base.py": "4f0e30e46507128d2d4d09f6c81bc3ed17d85598c16ad38b2eaf5585e8d90683",
+      "scripts/smoke_base.slurm": "40137c6cfbc6a9e51e8e965696c3db713155afa1b0ad7bcaed1c80f564473515"
+    },
+    "ignored_receipts": "artifacts/preflight/base-smoke-723993/",
+    "wire_files_sha256": {
+      "image_request.json": "6c07c5dfce1dd6920bb71802da6f820d41ce8e859a4a919016f119390aa5339e",
+      "long_text_request.json": "758e82ba551a28ab82bc21648c3521a6740ce196dddfb19fb5b54be293ef046d",
+      "over_budget_request.json": "4da2e71d84be5b51adea3d827fab61a39ea82f2a0c90f29824ce86f2552473a1",
+      "text_request.json": "c6d0acc9d695666009b807a3361cbdf68e3c341bd3f957b78de610488fd10c30",
+      "tool_call_request.json": "f7df4821d52304be6e1178665fddaf691fe40d1eb6da47a1f311e6683b063da7",
+      "tool_result_request.json": "7624ed4511f623d37a5b759ba42f460868b7c96b3ab983b310bdd6f07e8e69a5",
+      "image_response.json": "76507c799f7cf448819a9be4911e77702025a1a4eb878ef3290b8b43e4abd2ac",
+      "long_text_response.json": "3d853c7064322b1fc77f73dd79e2b5d3c56057ff2d30aa6638b7fe9344e1c1e2",
+      "over_budget_response.json": "0aecd91067a7630a09e5bd32e7f10b4e2bc87f3232387ca3b6eb19716c21d313",
+      "text_response.json": "fd1a5d59ec924edfcb9a17611010b369389b03f84a3e04c391fa636167d0059d",
+      "tool_call_response.json": "622e44b1647d5daf6e101020cf20a410755356bb253ee46d2700965e1e2c538d",
+      "tool_result_response.json": "64a433f6f3bedac78cb3756589ab131f19b7676b867145abe9370002734ce087"
+    },
+    "batch_log_sha256": "57782b100d41c4642686b43908817150f0f7425dbe3f2a21f67b28ff5ae43833"
+  },
+  "limitations": [
+    "8192 is the explicit per-call output cap. Actual completion lengths were 8, 2, 38, 17, 8 tokens; a full 8192-token decode was not exercised.",
+    "One synthetic long text input was tested at 57280 tokens, leaving 64 tokens below the 57344 prompt budget; the exact 57344-token boundary was not exercised.",
+    "No concurrent long requests, four-sequence throughput, eight admitted solvers or continuous GPU peak-memory acceptance.",
+    "No native benchmark agent, long conversation, Terminus summary, runtime adapter guard or per-task resource/network isolation acceptance.",
+    "The image case checks one 32x32 red RGB PNG and a correct response; it does not validate a general exact visual-token counter.",
+    "This smoke uses the default (.7, .8) sampling. The Terminal-specific (1, .95) sampling override was not separately exercised."
+  ]
+}

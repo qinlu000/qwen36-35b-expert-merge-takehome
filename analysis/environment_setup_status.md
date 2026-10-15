@@ -7,7 +7,7 @@
 | 项目 | 实际完成 | 尚待完成 |
 | --- | --- | --- |
 | Base 文件 | **80与HPC均完整到齐并独立校验：40文件、71,926,865,825B；26分片/1,045张量与固定index匹配** | 无剩余下载；不把文件校验当成GPU加载成功 |
-| Base 推理环境 | HPC独立184包锁；723821在两H100上完成权重加载、鉴权及文本/图像/多轮工具4个合成HTTP检查，`passed=true`、退出0；本地`/tmp`缓存修复实测通过 | 当前v2选择TP2单服务，统一64K/8K、长请求/并发和评测端点链路仍需验收；旧smoke服务已退出 |
+| Base 推理环境 | HPC独立184包锁；723993在两H100/TP2/64K/8K上通过文本、图像、多轮工具、57,280-token长输入及越界400；本地缓存与退出清理均实测通过 | 满8K生成、并发/持续吞吐与四benchmark原生端点链路仍需验收；smoke服务已退出 |
 | HLE | 固定源码、独立44包锁；2500题文件/ID/342图像计数核对；自造图文与schema检查通过 | 接入冻结的Qwen推理及Judge运行参数；不把安装通过当成正式评分完成 |
 | SWE Pro HARD-51 | 固定源码、Harbor/mini环境、完整51任务、镜像digest | 镜像缓存、容器内mini依赖锁，以及官方locked流程的phase断网与模型白名单 |
 | Terminal-Bench2 | 80/HPC固定Harbor0.24与完整89任务；89项均有预构建镜像，无Compose任务；两端真实TB镜像的Harbor/两次exec/tmux/asciinema/停止合成闭环通过 | 全量镜像预拉/容器启动、实际Slurm资源与端点验收；冷启动收尾补丁已完成两端回归 |
@@ -42,4 +42,7 @@ Base运行容器18,337,001,472B已重新计算SHA-256，与原回执一致；身
 
 成功版本为每job在节点本地XFS `/tmp`创建独立目录并绑定至容器`/tmp`，Triton/vLLM/TorchInductor/FlashInfer/HF/XDG缓存均放其中，`MAX_JOBS=4`；健康等待1200秒，使用eager、最多4序列及GDN-prefill/MoE Triton backend。历史723706曾加载权重后耗尽容器私有`/tmp`；723727的项目临时目录版本编译超过600秒；723784虽约280秒启动并通过health/models鉴权，首文本仍因共享DPC Triton缓存元数据缺失返回500。迁本地cache后的723821才完成全部HTTP检查。历史失败日志保留，未改HOME、系统或管理员wrapper。
 
-这次合成检查分配2GPU/16CPU/128GiB/30min，未实际填满长上下文或测持续吞吐，也未验收正式四卡配置。thinking、Judge及各benchmark正式协议仍待各自冻结。用户授权提高优先级后，Slurm默认分区为`emergency_acd`（PriorityTier/JobFactor300，高于`acd_ue`的200）；723821实际priority为10023，仍用本人qinlucao账号/formal-user QoS。未调整原有其他项目作业722434。
+723821历史合成检查未填满长上下文；当前v2已选TP2单服务/65536总context/8192输出和关闭thinking，723993另已通过近边界长输入及同预算越界400。满8K生成、并发/持续吞吐和benchmark原生参数/共享deadline仍待验收，Judge还需独立校准。用户授权提高优先级后，Slurm默认分区为`emergency_acd`（PriorityTier/JobFactor300，高于`acd_ue`的200）；723821实际priority为10023，仍用本人qinlucao账号/formal-user QoS。未调整原有其他项目作业722434。
+
+
+最新v2合成GPU作业**723993**已COMPLETED0:0（8分44秒），startup410.31秒，五项正例HTTP200与一项预算越界400通过。57,280实际prompt tokens与固定模板计数完全一致、携max_tokens8192成功；8token短标记输出不代表完整8K decode通过。批日志证实本次节点临时目录已删除，服务退出0。详见`setup_base_runtime_status.md`与`source_snapshots/base_gpu_smoke_v2_20261016.json`；未运行正式题、训练或评分。
