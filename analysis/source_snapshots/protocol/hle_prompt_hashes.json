@@ -1,0 +1,10 @@
+{
+  "source_code_revision": "22ed3074b1e7b134bcbc09028d0ba320839b0655",
+  "files": {
+    "hle_system.txt": "40f399fe8c277e2cb98ad8ca663461141d1abbf01a18da3c4129eccc706b4326",
+    "hle_judge_criteria.txt": "0f0023ee579b8c134f1834ed8952778b9e01460e31d47c242ee3629da9d44835",
+    "hle_judge_json_system.txt": "63d3450fed0f7a8def3f00cd8241f4dffd748c6f9af8405985adb0082452d007"
+  },
+  "judge_schema_system_source": "project synthetic v2 preflight; experimental JSON transport addition",
+  "prompt_bytes_preserved": true
+}

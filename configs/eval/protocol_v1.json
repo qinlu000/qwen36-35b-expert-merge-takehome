@@ -1,0 +1,321 @@
+{
+  "protocol_id": "apex-eval-v1",
+  "status": "design_draft_runtime_unverified",
+  "as_of": "2026-10-15",
+  "scope": "Specification only; not native runnable runner configuration. No formal runs or training started.",
+  "model": {
+    "repo_id": "Qwen/Qwen3.6-35B-A3B",
+    "revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "dtype": "bfloat16",
+    "weight_quantization": null,
+    "kv_cache_dtype": "bfloat16",
+    "context_tokens": 262144,
+    "tokenizer_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "chat_template_snapshot": "analysis/source_snapshots/model_chat_template.jinja",
+    "chat_template_sha256": "e84f32a23fdda27689f868aa4a1a5621f41133e51a48d7f3efcbea2839574259",
+    "enable_thinking": false,
+    "preserve_thinking": false,
+    "thinking_decision": "recommended non-thinking profile; user preference question pending; freeze before any formal run",
+    "inference_candidate": {
+      "engine": "vllm",
+      "version": "0.27.1",
+      "tensor_parallel_size": 4,
+      "verified": false
+    },
+    "multimodal": true,
+    "vision_processor": "fixed base processor; no language-model-only serving for HLE"
+  },
+  "generation_default": {
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "min_p": 0,
+    "presence_penalty": 1.5,
+    "repetition_penalty": 1,
+    "max_tokens": 32768,
+    "sampling_seed": 0,
+    "scope": "non-thinking experiment profile; overridden per benchmark below; actual wire values require smoke"
+  },
+  "benchmarks": {
+    "swe": {
+      "name": "SWE-bench Pro V2 HARD-51",
+      "code_repo": "scaleapi/SWE-bench_Pro-os",
+      "code_revision": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "dataset_repo": "ScaleAI/SWE-bench_Pro",
+      "dataset_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+      "dataset_config": "hard",
+      "split": "test",
+      "task_manifest": "analysis/source_snapshots/protocol/swe_hard_task_ids.json",
+      "tasks": 51,
+      "repetitions": 1,
+      "seeds": [
+        0
+      ],
+      "harbor_revision": "f527f8e447038fd242d08ecfa8aaa8029100da97",
+      "harbor_version": "0.24.0",
+      "agent": "locked_mini_swe:LockedMiniSwe",
+      "mini_swe_agent_version": "2.4.6",
+      "mini_version_verified": false,
+      "system_and_tool_prompt": "official v2/tooling/configs/mini_toolcall.yaml; prompt content unchanged",
+      "agent_timeout_seconds": 3000,
+      "inner_agent_timeout_seconds": 2940,
+      "inner_kill_grace_seconds": 30,
+      "verifier_timeout_seconds": 3000,
+      "build_timeout_seconds": 1800,
+      "cpus": 1,
+      "memory_mib": 4096,
+      "storage_mib": 10240,
+      "network": "agent: model endpoint allowlist only; setup/verifier: phase-specific official policy",
+      "max_steps": null,
+      "total_generated_token_hard_limit": null,
+      "max_tokens_per_call": 32768,
+      "mini_cost_limit": 0,
+      "interactive_confirmation": false,
+      "bash_command_timeout_seconds": 30,
+      "model_request_max_attempts_native": 10,
+      "harbor_job_max_retries": 0,
+      "reasoning_effort": "remove model_kwargs.reasoning_effort for local Qwen; do not set Harbor reasoning_effort option",
+      "fresh_sandbox_patch_replay": true,
+      "primary_metric": "100 * official fresh-replay resolved tasks / 51",
+      "preserve_initial_and_replay_scores": true,
+      "image_digests_status": "not yet resolved"
+    },
+    "terminal": {
+      "name": "Terminal-Bench 2.0",
+      "registry_revision": "f527f8e447038fd242d08ecfa8aaa8029100da97",
+      "task_repo": "laude-institute/terminal-bench-2",
+      "task_revision": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "task_manifest": "analysis/source_snapshots/protocol/terminal_task_ids.json",
+      "tasks": 89,
+      "repetitions": 5,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "job_layout": "five separate full jobs, n_attempts=1 per job; seed explicitly forwarded to every model request",
+      "harbor_revision": "f527f8e447038fd242d08ecfa8aaa8029100da97",
+      "harbor_version": "0.24.0",
+      "agent": "terminus-2",
+      "agent_version": "2.0.0",
+      "temperature": 1,
+      "top_p": 0.95,
+      "top_k": 20,
+      "presence_penalty": 0,
+      "repetition_penalty": 1,
+      "max_tokens_per_call": 81920,
+      "context_tokens": 262144,
+      "agent_timeout_seconds": 10800,
+      "cpus": 32,
+      "memory_mib": 49152,
+      "memory_convention": "interpret model-card 48 GB as 48 GiB; disclose unit convention",
+      "max_turns": null,
+      "total_generated_token_hard_limit": null,
+      "enable_summarize": true,
+      "proactive_summarize_threshold_tokens": 86016,
+      "summarize_threshold_status": "experiment setting, requires long-history boundary validation; not a strict safety proof",
+      "llm_query_max_attempts_native": 3,
+      "llm_transport_max_attempts_native": 3,
+      "harbor_job_max_retries": 0,
+      "top_k_transport": "llm_call_kwargs.extra_body.top_k=20; actual server request must be checked",
+      "unknown_model_info": {
+        "max_input_tokens": 262144,
+        "max_output_tokens": 81920
+      },
+      "primary_metric": "mean of five complete 89-task success percentages",
+      "repeat_dispersion": "sample standard deviation, ddof=1; not pass@5",
+      "resources_guaranteed": false,
+      "image_digests_status": "not yet resolved"
+    },
+    "hle": {
+      "name": "HLE",
+      "dataset_repo": "cais/hle",
+      "dataset_revision": "5a81a4c7271a2a2a312b9a690f0c2fde837e4c29",
+      "code_repo": "centerforaisafety/hle",
+      "code_revision": "22ed3074b1e7b134bcbc09028d0ba320839b0655",
+      "split": "test",
+      "task_manifest": "analysis/source_snapshots/protocol/hle_task_ids.json",
+      "tasks": 2500,
+      "image_tasks": 342,
+      "text_only_tasks": 2158,
+      "include_images": true,
+      "tools": false,
+      "repetitions": 1,
+      "seeds": [
+        0
+      ],
+      "max_tokens_per_call": 32768,
+      "request_timeout_seconds": 600,
+      "system_prompt": "configs/eval/prompts/hle_system.txt",
+      "dataset_read_columns_for_manifest": [
+        "id",
+        "image"
+      ],
+      "question_answer_read_for_protocol": false,
+      "judge": {
+        "provider": "DeepSeek official API",
+        "model": "deepseek-flash",
+        "provenance": "experimental judge, different from official script default o3-mini-2025-01-31",
+        "backend_revision": "provider alias only; record returned model and date, immutable backend unavailable",
+        "thinking": false,
+        "temperature": 0,
+        "max_tokens": 4096,
+        "response_format": "json_object",
+        "criteria_prompt": "configs/eval/prompts/hle_judge_criteria.txt",
+        "json_system_prompt": "configs/eval/prompts/hle_judge_json_system.txt",
+        "schema": [
+          "extracted_final_answer:string",
+          "reasoning:string",
+          "correct:yes|no",
+          "confidence:integer[0,100]",
+          "strict:true"
+        ],
+        "retry": "at most one retry for transport/invalid schema; identical frozen prediction and prompts, no best-label selection",
+        "calibration_status": "8 synthetic v2 interface cases passed; broader independent calibration still required"
+      },
+      "primary_metric": "100 * correctly judged answers / 2500; report text/image subgroups separately",
+      "raw_reference_and_judge_artifacts": "restricted local artifacts; never policy input or training data",
+      "question_walltime_seconds": 1800,
+      "request_max_attempts": 2,
+      "time_budget_note": "question wall clock includes transport retries; exact outer deadline implementation pending"
+    },
+    "asi": {
+      "name": "ASI-Bench",
+      "code_repo": "apexin-ai/ASI-Bench",
+      "code_revision": "cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc",
+      "dataset_repo": "Apexintelligence-AI/ASI-Bench-seed31415",
+      "dataset_revision": "0fa14219cafdbab634d8b3cfbce238a8735a214f",
+      "evaluation_split": "open",
+      "dataset_seed": 31415,
+      "run_mode": "produce-only then official local scoring",
+      "report_label": "ASI-Bench seed31415 / open / local / single run; not Portal-certified",
+      "task_manifest": "analysis/source_snapshots/protocol/asi_task_ids.json",
+      "tasks": 60,
+      "levels": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
+      "conditions": 240,
+      "repetitions": 1,
+      "attempts_per_condition": 1,
+      "inference_seed": 0,
+      "adapter": "opencode_cli",
+      "opencode_version": "1.17.15",
+      "opencode_revision": "5fb0d1cdb363ecafd55402c451c6634ed15b74b1",
+      "sandbox": "os (Docker)",
+      "agent_timeout_seconds": 1800,
+      "cpus": 4,
+      "memory_mib": 8192,
+      "max_agent_iterations": 100,
+      "max_tokens_per_call": 8192,
+      "total_generated_token_hard_limit": null,
+      "context_tokens": 262144,
+      "tools": "build shell/read/write/edit/search; webfetch/websearch/MCP/subagents disabled",
+      "network": "only model endpoint during solving; dependency preparation before solve",
+      "auxiliary_models": "title/summary/compaction use the same evaluated model; all requests logged",
+      "judge": "original per-task scorer configurations and openai/gpt-5.5 where required",
+      "judge_credential_status": "HKUST gateway key discovered and compatible text/image calls tested; current model list has gpt-5.6-luna but no gpt-5.5; original Judge still unavailable",
+      "primary_metric": "official local_score_seed31415.json.mean_percent = 100 * sum(final_score) / sum(max_score)",
+      "expected_scored_conditions": 240,
+      "expected_scorer_error_count": 0,
+      "effective_max_score_each_condition": 100,
+      "incomplete_scoring": "preserve invalid/null and coverage; no official complete score until all 240 scored",
+      "preserve_native_scorer_prompts_models_and_repeats": true,
+      "alternative_judge": {
+        "model": "gpt-5.6-luna",
+        "base_url": "https://aigc-api.hkust-gz.edu.cn/v1",
+        "credential_source": "/data/caoqinlu/projects/data-perception/.env",
+        "decision_status": "candidate only; original per-task scorer configurations not changed",
+        "actual_compatibility": "four synthetic requests, HTTP 4/4; text 1/1; image 2/3 exact expected matches",
+        "estimated_slots_per_model": {
+          "text": 56,
+          "image": 76,
+          "total": 132
+        },
+        "estimated_slots_three_models": {
+          "text": 168,
+          "image": 228,
+          "total": 396
+        },
+        "scoped_output_token_cap_three_models": 291888,
+        "pricing_cny_per_million": {
+          "input": 1.4662,
+          "output": 8.7996
+        },
+        "cost_review": "analysis/hkust_judge_budget.md"
+      }
+    }
+  },
+  "experiment_matrix": {
+    "base": [
+      "swe",
+      "terminal",
+      "hle",
+      "asi"
+    ],
+    "repository_expert": [
+      "swe"
+    ],
+    "execution_expert": [
+      "terminal",
+      "asi"
+    ],
+    "academic_expert": [
+      "hle"
+    ],
+    "final_merged": [
+      "swe",
+      "terminal",
+      "hle",
+      "asi"
+    ],
+    "mixed_and_losing_merge_candidates": "independent dev only, unless extra budget",
+    "minimum_formal_runs": {
+      "swe": 153,
+      "terminal": 1335,
+      "hle": 7500,
+      "asi": 720,
+      "total": 9708
+    }
+  },
+  "failure_policy": {
+    "complete_trial_auto_retries": 0,
+    "manual_infrastructure_reruns_max": 2,
+    "rerun_rule": "only verified infrastructure failures, same task/seed/model/config, first valid result retained; preserve all costs",
+    "model_failure_rule": "no answer-selection reruns; official grader scores saved artifacts, including timeout/invalid/missing artifacts",
+    "unresolved_infrastructure": "retain expected denominator and list failures; conservative zero score only as an explicitly labelled auxiliary result",
+    "native_aggregate_missing_behavior": "never silently exclude invalid evaluations and call result complete",
+    "request_retries": "freeze per-runner native retry behavior; full-trial retry setting does not disable request retries",
+    "judge_retry_rule": "score frozen original response/artifact; never regenerate model answers because a judge failed"
+  },
+  "statistics": {
+    "scores_percent": true,
+    "macro": "equal mean of four benchmark primary percentages",
+    "delta": "merged macro - measured Base macro, in percentage points",
+    "paired_bootstrap_repetitions": 10000,
+    "bootstrap_seed": 20261015,
+    "confidence_level": 0.95,
+    "resampling_units": {
+      "swe": "task ID",
+      "hle": "question ID",
+      "terminal": "task ID with all five seeds kept together",
+      "asi": "project/task ID with all four levels kept together"
+    },
+    "paired_rule": "identical sampled IDs and retained within-task seeds/levels for each compared model",
+    "macro_ci": "mean of four paired bootstrap benchmark deltas per replicate",
+    "interpretation": "conditional on these fixed versions, task scopes and evaluated runs"
+  },
+  "remaining_execution_gates": [
+    "user thinking preference resolved and actual rendered requests checked",
+    "accurate base weights and same inference runtime loaded on allocated <=4 H100",
+    "text/image/tool/long-history independent smoke passes",
+    "Docker-equivalent phase network/resource isolation and fixed image digests",
+    "ASI original GPT-5.5 available, or explicitly freeze and disclose a calibrated alternative Judge",
+    "full dependency lock and native runner config hashes saved before formal runs",
+    "real CPU quota and sustainable concurrency measured; no scheduling promise from nominal core counts"
+  ]
+}

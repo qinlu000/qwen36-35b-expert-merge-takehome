@@ -1,0 +1,2100 @@
+{
+  "schema_version": 1,
+  "scope": "metadata_only_no_prompts_answers_references_or_rubrics",
+  "code_repository": "https://github.com/apexin-ai/ASI-Bench",
+  "code_revision": "cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc",
+  "dataset_repository": "Apexintelligence-AI/ASI-Bench-seed31415",
+  "dataset_revision": "0fa14219cafdbab634d8b3cfbce238a8735a214f",
+  "split": "open",
+  "score_status": "public_local_non_official",
+  "task_count": 60,
+  "prompt_levels": [
+    "b1",
+    "b2",
+    "b3",
+    "b4"
+  ],
+  "expected_condition_count": 240,
+  "attempts_per_condition": 1,
+  "repetitions": 1,
+  "upstream_task_status": "59 final tasks plus one requested test task",
+  "upstream_seed_overrides": {
+    "computer_science.deployment_prediction_sets": 2,
+    "math.ucb_q_learning_regret": 2
+  },
+  "task_ids": [
+    "astronomy.nbody_close_encounters",
+    "astronomy.planet_activity_sep",
+    "astronomy.white_dwarf_sparse_inference",
+    "biology.calcium_ip3_dyk_oscillations",
+    "biology.contextual_dna_regime_mapping",
+    "biology.gene_network_timeseries",
+    "biology.gillespie_ssssa_michaelis_menten",
+    "biology.protein_folding_go_model",
+    "biology.scrna_seq_analysis",
+    "biostat.perturbation_convergence_testing",
+    "chemistry.implicit_solvent_pb_gb",
+    "chemistry.marcus_et_reorganization_energy",
+    "chemistry.metadynamics_for_dipeptide_in_vacuum",
+    "chemistry.reaction_path_bifurcation_vri",
+    "chemistry.sapt_water_dimer",
+    "chemistry.vtst_tunneling_corrections",
+    "computer_science.affinity_subset_bound_audit",
+    "computer_science.bci_forensics",
+    "computer_science.causal_attention",
+    "computer_science.deployment_prediction_sets",
+    "computer_science.dp_accountant_forensics",
+    "computer_science.euclidean_tsp_tour_optimization",
+    "computer_science.hmc_neal_funnel",
+    "computer_science.max3sat_assignment_optimization",
+    "computer_science.stable_latent_state_fitting",
+    "earth_science.2_e_soil_carbon_nitrogen_cycling",
+    "earth_science.farquhar_ballberry_photosynthesis",
+    "earth_science.richards_topmodel_hydrology",
+    "earth_science.snow_3layer_compaction",
+    "electrical_engineering.cmos_opamp_design",
+    "electrical_engineering.lossy_tline_skin",
+    "materials.ising_domain_growth",
+    "materials.relaxation_mode_recovery",
+    "math.homotopy_poly_roots",
+    "math.ill_posed_inverse_problem",
+    "math.levin_context_grid_search",
+    "math.manifold_pde_meshfree",
+    "math.mpsc_safety_filter",
+    "math.multiply_connected_conformal_mapping",
+    "math.nnls_modulus_deblur",
+    "math.ucb_q_learning_regret",
+    "math.sigma_linear_diophantine",
+    "math.sparse_hyperbolic_recovery_2d",
+    "math.sparse_nonlinear_interaction_recovery",
+    "math.symplectic_integrators",
+    "physics.ag_strip_dielectric_inference",
+    "physics.dp_contact_process",
+    "physics.ks_2d_anisotropic",
+    "physics.kt_phase_transition_2d_xy_model",
+    "physics.lbm_square_wake",
+    "physics.lid_driven_cavity_flow",
+    "physics.paired_nanorod_negative_index_retrieval",
+    "physics.vpfm_leapfrog",
+    "robotics.lidar_imu_time_offset_yaw_calibration",
+    "robotics.multiregime_icp_degeneracy",
+    "robotics.occupancy_grid_mapping_correlated_clutter",
+    "robotics.particle_filter",
+    "robotics.rnea_inverse_dynamics_dh",
+    "robotics.robust_pose_graph_false_loops",
+    "robotics.ukf_bearing_only_tracking"
+  ],
+  "tasks": [
+    {
+      "task_id": "astronomy.nbody_close_encounters",
+      "instance_id": "astronomy.nbody_close_encounters__seed31415",
+      "task_eval_path": "tasks/astronomy/nbody_close_encounters/task_eval.yaml",
+      "task_eval_sha256": "b349048d3d353603972056aff444659720c4a7538aa8ef5abe4286a217fdd746",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "astronomy.planet_activity_sep",
+      "instance_id": "astronomy.planet_activity_sep__seed31415",
+      "task_eval_path": "tasks/astronomy/planet_activity_sep/task_eval.yaml",
+      "task_eval_sha256": "47c9f118239866f090b94f4920b1779809029ddc5d54b143327c0ebd7ef811e2",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "astronomy.white_dwarf_sparse_inference",
+      "instance_id": "astronomy.white_dwarf_sparse_inference__seed31415",
+      "task_eval_path": "tasks/astronomy/white_dwarf_sparse_inference/task_eval.yaml",
+      "task_eval_sha256": "c7554029de8e348b060aa2bd37b0220dce23485e8917933440a2e671bcc72a15",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "biology.calcium_ip3_dyk_oscillations",
+      "instance_id": "biology.calcium_ip3_dyk_oscillations__seed31415",
+      "task_eval_path": "tasks/biology/calcium_ip3_dyk_oscillations/task_eval.yaml",
+      "task_eval_sha256": "d4c39bdfcdc9c8c93c0312cdb8e4b8c4a82decb1eac45751c6ba6540ce2a1982",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [
+        "openai/gpt-5.5"
+      ],
+      "generic_judge_scorer_types": [
+        "multimodal"
+      ]
+    },
+    {
+      "task_id": "biology.contextual_dna_regime_mapping",
+      "instance_id": "biology.contextual_dna_regime_mapping__seed31415",
+      "task_eval_path": "tasks/biology/contextual_dna_regime_mapping/task_eval.yaml",
+      "task_eval_sha256": "4f281f38bdf17feb94926063e9021b0b3e3e04b5f21b191d5bb0c0803513b8ce",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [
+        "openai/gpt-5.5"
+      ],
+      "generic_judge_scorer_types": [
+        "multimodal"
+      ]
+    },
+    {
+      "task_id": "biology.gene_network_timeseries",
+      "instance_id": "biology.gene_network_timeseries__seed31415",
+      "task_eval_path": "tasks/biology/gene_network_timeseries/task_eval.yaml",
+      "task_eval_sha256": "f9438cecb31ef1fcb22c57efb52510f64d8ad30c3beb21c9542caf2486706083",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "biology.gillespie_ssssa_michaelis_menten",
+      "instance_id": "biology.gillespie_ssssa_michaelis_menten__seed31415",
+      "task_eval_path": "tasks/biology/gillespie_ssssa_michaelis_menten/task_eval.yaml",
+      "task_eval_sha256": "5b7940c19de60a214d16551977ac7d01f3d1302a2a7c010c41ac0345eacc0fcc",
+      "scoring_weight_sum": 100.0,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "biology.protein_folding_go_model",
+      "instance_id": "biology.protein_folding_go_model__seed31415",
+      "task_eval_path": "tasks/biology/protein_folding_go_model/task_eval.yaml",
+      "task_eval_sha256": "7d84b9178c2f0a50953789759113997b471871d4a1921f8ec7f536af4bc67cf9",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [
+        "openai/gpt-5.5"
+      ],
+      "generic_judge_scorer_types": [
+        "multimodal"
+      ]
+    },
+    {
+      "task_id": "biology.scrna_seq_analysis",
+      "instance_id": "biology.scrna_seq_analysis__seed31415",
+      "task_eval_path": "tasks/biology/scrna_seq_analysis/task_eval.yaml",
+      "task_eval_sha256": "0857f69c088292f231f837334a10043bb8083a760e0136d7a1df15d6cc1ffa79",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "biostat.perturbation_convergence_testing",
+      "instance_id": "biostat.perturbation_convergence_testing__seed31415",
+      "task_eval_path": "tasks/biostat/perturbation_convergence_testing/task_eval.yaml",
+      "task_eval_sha256": "6c351005f1c0415eba9b9b1e686a87a05ce7c8b10901054a2ddf34a9e7ebe50e",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "chemistry.implicit_solvent_pb_gb",
+      "instance_id": "chemistry.implicit_solvent_pb_gb__seed31415",
+      "task_eval_path": "tasks/chemistry/implicit_solvent_pb_gb/task_eval.yaml",
+      "task_eval_sha256": "68db1cafa76cd117326458585b48682eba7203fc28990f983607b46d989ce1f5",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "chemistry.marcus_et_reorganization_energy",
+      "instance_id": "chemistry.marcus_et_reorganization_energy__seed31415",
+      "task_eval_path": "tasks/chemistry/marcus_et_reorganization_energy/task_eval.yaml",
+      "task_eval_sha256": "0eb759cbd04d39c6350e360b1f43f188df6dba4c7cd14eed7744a97ae323c915",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "chemistry.metadynamics_for_dipeptide_in_vacuum",
+      "instance_id": "chemistry.metadynamics_for_dipeptide_in_vacuum__seed31415",
+      "task_eval_path": "tasks/chemistry/metadynamics_for_dipeptide_in_vacuum/task_eval.yaml",
+      "task_eval_sha256": "6a85c4481414e26d8a103b82c02caf395811865d6fe7debcc974fa718fa9340c",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [
+        "openai/gpt-5.5"
+      ],
+      "generic_judge_scorer_types": [
+        "llm_judge"
+      ]
+    },
+    {
+      "task_id": "chemistry.reaction_path_bifurcation_vri",
+      "instance_id": "chemistry.reaction_path_bifurcation_vri__seed31415",
+      "task_eval_path": "tasks/chemistry/reaction_path_bifurcation_vri/task_eval.yaml",
+      "task_eval_sha256": "c8b501c8e1108a2294aa2889b48215373d3f6451238bc5c2e0fadeee4760e8b5",
+      "scoring_weight_sum": 100.0,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "chemistry.sapt_water_dimer",
+      "instance_id": "chemistry.sapt_water_dimer__seed31415",
+      "task_eval_path": "tasks/chemistry/sapt_water_dimer/task_eval.yaml",
+      "task_eval_sha256": "40036c2900ca874b02c51a8a3fc268394ca992bd2b95bbdd1c5dec40feb99ec9",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [
+        "openai/gpt-5.5"
+      ],
+      "generic_judge_scorer_types": [
+        "llm_judge"
+      ]
+    },
+    {
+      "task_id": "chemistry.vtst_tunneling_corrections",
+      "instance_id": "chemistry.vtst_tunneling_corrections__seed31415",
+      "task_eval_path": "tasks/chemistry/vtst_tunneling_corrections/task_eval.yaml",
+      "task_eval_sha256": "5faff4a51406041686dfdfdbb846b8e62f51521f6c8361bb258cdce69196f07d",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [
+        "openai/gpt-5.5"
+      ],
+      "generic_judge_scorer_types": [
+        "multimodal"
+      ]
+    },
+    {
+      "task_id": "computer_science.affinity_subset_bound_audit",
+      "instance_id": "computer_science.affinity_subset_bound_audit__seed31415",
+      "task_eval_path": "tasks/computer_science/affinity_subset_bound_audit/task_eval.yaml",
+      "task_eval_sha256": "592022efdd1654e01c987b23814de9d70292aa1f0035bf3a2e99b44d48901d38",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "computer_science.bci_forensics",
+      "instance_id": "computer_science.bci_forensics__seed31415",
+      "task_eval_path": "tasks/computer_science/bci_forensics/task_eval.yaml",
+      "task_eval_sha256": "c4e4745616a58ef65ba5a360d1f5d95f7b0b7848065bd7454b1fb90a681131d9",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "computer_science.causal_attention",
+      "instance_id": "computer_science.causal_attention__seed31415",
+      "task_eval_path": "tasks/computer_science/causal_attention/task_eval.yaml",
+      "task_eval_sha256": "d9c56ae5ad6d922844dac16f2c309fb862b401c61042e7861e5e9d6983322c9a",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "computer_science.deployment_prediction_sets",
+      "instance_id": "computer_science.deployment_prediction_sets__seed31415",
+      "task_eval_path": "tasks/computer_science/deployment_prediction_sets/task_eval.yaml",
+      "task_eval_sha256": "54bd53df2e6d0cb937ef03f22ec8f53400d1cc8536dd3359f071a1a5b25bf165",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "computer_science.dp_accountant_forensics",
+      "instance_id": "computer_science.dp_accountant_forensics__seed31415",
+      "task_eval_path": "tasks/computer_science/dp_accountant_forensics/task_eval.yaml",
+      "task_eval_sha256": "4e9208f8beae9fe8c8f3175ce38a5247cae0266a7d248a430169cffe4e0afff7",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "computer_science.euclidean_tsp_tour_optimization",
+      "instance_id": "computer_science.euclidean_tsp_tour_optimization__seed31415",
+      "task_eval_path": "tasks/computer_science/euclidean_tsp_tour_optimization/task_eval.yaml",
+      "task_eval_sha256": "396cbce4efcbf171709131605ce914f206480554fc64c0dcc15114cff950607b",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "computer_science.hmc_neal_funnel",
+      "instance_id": "computer_science.hmc_neal_funnel__seed31415",
+      "task_eval_path": "tasks/computer_science/hmc_neal_funnel/task_eval.yaml",
+      "task_eval_sha256": "0fcc25592deecd482a6c630fa10fb46406efd83bf13838ce9023a389e25065ec",
+      "scoring_weight_sum": 100.0,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "computer_science.max3sat_assignment_optimization",
+      "instance_id": "computer_science.max3sat_assignment_optimization__seed31415",
+      "task_eval_path": "tasks/computer_science/max3sat_assignment_optimization/task_eval.yaml",
+      "task_eval_sha256": "4eb0f78bdfec826cdb460c2a7cc4a1604d12f78adea9a69b76e5c43715e4fab4",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "computer_science.stable_latent_state_fitting",
+      "instance_id": "computer_science.stable_latent_state_fitting__seed31415",
+      "task_eval_path": "tasks/computer_science/stable_latent_state_fitting/task_eval.yaml",
+      "task_eval_sha256": "95df66466b4e7522aacbedaf2f70fd9f64dfba7070af14ec81825808354e6979",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "earth_science.2_e_soil_carbon_nitrogen_cycling",
+      "instance_id": "earth_science.2_e_soil_carbon_nitrogen_cycling__seed31415",
+      "task_eval_path": "tasks/earth_science/2_e_soil_carbon_nitrogen_cycling/task_eval.yaml",
+      "task_eval_sha256": "421672b0622fb19919a4493c5c1b5cf6c719a347592c2f541fcba2c2a3fc78ad",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [
+        "openai/gpt-5.5"
+      ],
+      "generic_judge_scorer_types": [
+        "multimodal"
+      ]
+    },
+    {
+      "task_id": "earth_science.farquhar_ballberry_photosynthesis",
+      "instance_id": "earth_science.farquhar_ballberry_photosynthesis__seed31415",
+      "task_eval_path": "tasks/earth_science/farquhar_ballberry_photosynthesis/task_eval.yaml",
+      "task_eval_sha256": "3030e011a3b0ce40f741f2eb4d14c0d6ee82cc057eaf88020dd30ac494b3d62f",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "earth_science.richards_topmodel_hydrology",
+      "instance_id": "earth_science.richards_topmodel_hydrology__seed31415",
+      "task_eval_path": "tasks/earth_science/richards_topmodel_hydrology/task_eval.yaml",
+      "task_eval_sha256": "5302e40f11a53045e54bb45d1aea7f82c378d3bba22abdf427d9cb7ef73ff878",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "earth_science.snow_3layer_compaction",
+      "instance_id": "earth_science.snow_3layer_compaction__seed31415",
+      "task_eval_path": "tasks/earth_science/snow_3layer_compaction/task_eval.yaml",
+      "task_eval_sha256": "42e1de4f867507940b4d0890c913c7749b9ca33d3a2d705187089ce1aab4f8c3",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "electrical_engineering.cmos_opamp_design",
+      "instance_id": "electrical_engineering.cmos_opamp_design__seed31415",
+      "task_eval_path": "tasks/electrical_engineering/cmos_opamp_design/task_eval.yaml",
+      "task_eval_sha256": "79617e2139b1eeb01586a2b57c0144eabc6d2ab5b5558094b0c3c81bc448b871",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [
+        "openai/gpt-5.5"
+      ],
+      "generic_judge_scorer_types": [
+        "llm_judge"
+      ]
+    },
+    {
+      "task_id": "electrical_engineering.lossy_tline_skin",
+      "instance_id": "electrical_engineering.lossy_tline_skin__seed31415",
+      "task_eval_path": "tasks/electrical_engineering/lossy_tline_skin/task_eval.yaml",
+      "task_eval_sha256": "9b74ba6e29eb1d439a6dd35c377cdd3d4c4d485f2f2f55489dbf174e37465cc7",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "materials.ising_domain_growth",
+      "instance_id": "materials.ising_domain_growth__seed31415",
+      "task_eval_path": "tasks/materials/ising_domain_growth/task_eval.yaml",
+      "task_eval_sha256": "2f8c0eef3ba3e5249fd2bb871ec5d5007a12fd4473c2bd928cadfce64d868f28",
+      "scoring_weight_sum": 105,
+      "score_divisor": 1.05,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [
+        "openai/gpt-5.5"
+      ],
+      "generic_judge_scorer_types": [
+        "multimodal"
+      ]
+    },
+    {
+      "task_id": "materials.relaxation_mode_recovery",
+      "instance_id": "materials.relaxation_mode_recovery__seed31415",
+      "task_eval_path": "tasks/materials/relaxation_mode_recovery/task_eval.yaml",
+      "task_eval_sha256": "1e2f047fbec48035edb9fc7d608b5508804f9f4092d894ea961f8f0dd8c61d93",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "math.homotopy_poly_roots",
+      "instance_id": "math.homotopy_poly_roots__seed31415",
+      "task_eval_path": "tasks/math/homotopy_poly_roots/task_eval.yaml",
+      "task_eval_sha256": "7adef51bda9149c98e067f3235340b1eef069d1833c39286a5906e93ecdeb4ec",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "math.ill_posed_inverse_problem",
+      "instance_id": "math.ill_posed_inverse_problem__seed31415",
+      "task_eval_path": "tasks/math/ill_posed_inverse_problem/task_eval.yaml",
+      "task_eval_sha256": "ee63b8e8c5e0f1ce5f713d1eb3fe9ed1ae970e8ba73df06ecc7b3c591d5b82f2",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "math.levin_context_grid_search",
+      "instance_id": "math.levin_context_grid_search__seed31415",
+      "task_eval_path": "tasks/math/levin_context_grid_search/task_eval.yaml",
+      "task_eval_sha256": "301f4265cd00c9ab9d6960e6332b6ae32715615ba862e1f1c09c9ba7727bcb29",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "math.manifold_pde_meshfree",
+      "instance_id": "math.manifold_pde_meshfree__seed31415",
+      "task_eval_path": "tasks/math/manifold_pde_meshfree/task_eval.yaml",
+      "task_eval_sha256": "6fd8a4d0a6f0547d2d36877f1bb1fd64280817a3479d1e57b54326dde8f8b985",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "math.mpsc_safety_filter",
+      "instance_id": "math.mpsc_safety_filter__seed31415",
+      "task_eval_path": "tasks/math/mpsc_safety_filter/task_eval.yaml",
+      "task_eval_sha256": "df702662162e9f866a4c47e886f71a4216eada0b762bcdf3f908106d4f825227",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "math.multiply_connected_conformal_mapping",
+      "instance_id": "math.multiply_connected_conformal_mapping__seed31415",
+      "task_eval_path": "tasks/math/multiply_connected_conformal_mapping/task_eval.yaml",
+      "task_eval_sha256": "b4255d96ba10e9b0f9cab023a6574b3c0fe4bffc80d9efad43a9b79d399718f2",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "math.nnls_modulus_deblur",
+      "instance_id": "math.nnls_modulus_deblur__seed31415",
+      "task_eval_path": "tasks/math/nnls_modulus_deblur/task_eval.yaml",
+      "task_eval_sha256": "a6051e60da06eca191cf2af052729457e5dc27886a9637938918380e6b13308e",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [
+        "openai/gpt-5.5"
+      ],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "math.ucb_q_learning_regret",
+      "instance_id": "math.ucb_q_learning_regret__seed31415",
+      "task_eval_path": "tasks/math/ucb_q_learning_regret/task_eval.yaml",
+      "task_eval_sha256": "1b57624f8c28756eef2601f9b54f487cd77c38d7aaf38af67c0659dac31983d1",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "math.sigma_linear_diophantine",
+      "instance_id": "math.sigma_linear_diophantine__seed31415",
+      "task_eval_path": "tasks/math/sigma_linear_diophantine/task_eval.yaml",
+      "task_eval_sha256": "7638fee6ce83be737258439b02872556249d810cedaad4951e263016970752e5",
+      "scoring_weight_sum": 100.0,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "math.sparse_hyperbolic_recovery_2d",
+      "instance_id": "math.sparse_hyperbolic_recovery_2d__seed31415",
+      "task_eval_path": "tasks/math/sparse_hyperbolic_recovery_2d/task_eval.yaml",
+      "task_eval_sha256": "9e6b188fb74f4fbc9890205c8a6b26410ce201109db5b3873a4ddc1b374cb1bd",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "math.sparse_nonlinear_interaction_recovery",
+      "instance_id": "math.sparse_nonlinear_interaction_recovery__seed31415",
+      "task_eval_path": "tasks/math/sparse_nonlinear_interaction_recovery/task_eval.yaml",
+      "task_eval_sha256": "a34fed540accd7d484d958e4f0d108ab3e88e1414a794ae7269f0d781c413803",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "math.symplectic_integrators",
+      "instance_id": "math.symplectic_integrators__seed31415",
+      "task_eval_path": "tasks/math/symplectic_integrators/task_eval.yaml",
+      "task_eval_sha256": "c8bf7d342a81a039f8744e3b911372643f93a4c99ed75400f429a810284e077d",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "physics.ag_strip_dielectric_inference",
+      "instance_id": "physics.ag_strip_dielectric_inference__seed31415",
+      "task_eval_path": "tasks/physics/ag_strip_dielectric_inference/task_eval.yaml",
+      "task_eval_sha256": "1cd5d2cc1a4f672ebdf4ab7aec23a93a284edf53214d3f7e0c51820f9a04416e",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [
+        "openai/gpt-5.5"
+      ],
+      "generic_judge_scorer_types": [
+        "multimodal"
+      ]
+    },
+    {
+      "task_id": "physics.dp_contact_process",
+      "instance_id": "physics.dp_contact_process__seed31415",
+      "task_eval_path": "tasks/physics/dp_contact_process/task_eval.yaml",
+      "task_eval_sha256": "41f2e11dd1898d423101be88d341c8c32956a1d4b5438f421a816b3f5bd93123",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "physics.ks_2d_anisotropic",
+      "instance_id": "physics.ks_2d_anisotropic__seed31415",
+      "task_eval_path": "tasks/physics/ks_2d_anisotropic/task_eval.yaml",
+      "task_eval_sha256": "cbd6a18b12986a5aba02e05ed65b377b61dbd7a50a7a50fc9a1c0fea77d0564f",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [
+        "openai/gpt-5.5"
+      ],
+      "generic_judge_scorer_types": [
+        "multimodal"
+      ]
+    },
+    {
+      "task_id": "physics.kt_phase_transition_2d_xy_model",
+      "instance_id": "physics.kt_phase_transition_2d_xy_model__seed31415",
+      "task_eval_path": "tasks/physics/kt_phase_transition_2d_xy_model/task_eval.yaml",
+      "task_eval_sha256": "e12e63d641e5441c8a8c9193b16fdfdffbb1c7ff036252e01283ddf617367614",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "physics.lbm_square_wake",
+      "instance_id": "physics.lbm_square_wake__seed31415",
+      "task_eval_path": "tasks/physics/lbm_square_wake/task_eval.yaml",
+      "task_eval_sha256": "079eaa4359bd0d1bfad9cd86bb0de30b0559398114418cb37f6caa0b18f68bc6",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "physics.lid_driven_cavity_flow",
+      "instance_id": "physics.lid_driven_cavity_flow__seed31415",
+      "task_eval_path": "tasks/physics/lid_driven_cavity_flow/task_eval.yaml",
+      "task_eval_sha256": "2030dfc39b0fd0421bc8092ef35581fa1af21eeaaa8232d258d3e69dc240fa0a",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "physics.paired_nanorod_negative_index_retrieval",
+      "instance_id": "physics.paired_nanorod_negative_index_retrieval__seed31415",
+      "task_eval_path": "tasks/physics/paired_nanorod_negative_index_retrieval/task_eval.yaml",
+      "task_eval_sha256": "d5c835c285f7b0431f74e1a28531b80fe2f5b6841254a0a3e3c4caa8e3bc0634",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [
+        "openai/gpt-5.5"
+      ],
+      "generic_judge_scorer_types": [
+        "multimodal"
+      ]
+    },
+    {
+      "task_id": "physics.vpfm_leapfrog",
+      "instance_id": "physics.vpfm_leapfrog__seed31415",
+      "task_eval_path": "tasks/physics/vpfm_leapfrog/task_eval.yaml",
+      "task_eval_sha256": "4909cfe62bca957f0f02cdfd19e7768db2be0d089ec836225d45f6483bf357f8",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "robotics.lidar_imu_time_offset_yaw_calibration",
+      "instance_id": "robotics.lidar_imu_time_offset_yaw_calibration__seed31415",
+      "task_eval_path": "tasks/robotics/lidar_imu_time_offset_yaw_calibration/task_eval.yaml",
+      "task_eval_sha256": "7df7c2dd497b883f72238c279ebfb2008ee4053cfbf59f47d15eaec17be0c227",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "robotics.multiregime_icp_degeneracy",
+      "instance_id": "robotics.multiregime_icp_degeneracy__seed31415",
+      "task_eval_path": "tasks/robotics/multiregime_icp_degeneracy/task_eval.yaml",
+      "task_eval_sha256": "9573bb81667daa391bfb0de3d95dbbe6ec624f6beded12fcf0909a58c1838459",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "robotics.occupancy_grid_mapping_correlated_clutter",
+      "instance_id": "robotics.occupancy_grid_mapping_correlated_clutter__seed31415",
+      "task_eval_path": "tasks/robotics/occupancy_grid_mapping_correlated_clutter/task_eval.yaml",
+      "task_eval_sha256": "56fa6b7bfe240f1a84c658698bc72530f988bbb4eb106b9edeef9551852c545f",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "robotics.particle_filter",
+      "instance_id": "robotics.particle_filter__seed31415",
+      "task_eval_path": "tasks/robotics/particle_filter/task_eval.yaml",
+      "task_eval_sha256": "12f922cd077bf36c1039623c4da8dd144debe40346716f02b155be8e837e04a8",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "robotics.rnea_inverse_dynamics_dh",
+      "instance_id": "robotics.rnea_inverse_dynamics_dh__seed31415",
+      "task_eval_path": "tasks/robotics/rnea_inverse_dynamics_dh/task_eval.yaml",
+      "task_eval_sha256": "a76c7a180bfa174578c0ae040cbe52b1cb8768e0d8cf12eb14d9cdf4201cb770",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "robotics.robust_pose_graph_false_loops",
+      "instance_id": "robotics.robust_pose_graph_false_loops__seed31415",
+      "task_eval_path": "tasks/robotics/robust_pose_graph_false_loops/task_eval.yaml",
+      "task_eval_sha256": "5c67c4233bdeb19b99e0bd589fae196f37c403c789fda411e492cab5ce0f151b",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    },
+    {
+      "task_id": "robotics.ukf_bearing_only_tracking",
+      "instance_id": "robotics.ukf_bearing_only_tracking__seed31415",
+      "task_eval_path": "tasks/robotics/ukf_bearing_only_tracking/task_eval.yaml",
+      "task_eval_sha256": "2d5157fd112ed281da292aad6479d141a201cee5fc961937c7892dc37d5ba2c9",
+      "scoring_weight_sum": 100,
+      "score_divisor": 1,
+      "normalized_max_score": 100.0,
+      "explicit_judge_models": [],
+      "generic_judge_scorer_types": []
+    }
+  ],
+  "expected_conditions": [
+    {
+      "task_id": "astronomy.nbody_close_encounters",
+      "instance_id": "astronomy.nbody_close_encounters__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "astronomy.nbody_close_encounters",
+      "instance_id": "astronomy.nbody_close_encounters__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "astronomy.nbody_close_encounters",
+      "instance_id": "astronomy.nbody_close_encounters__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "astronomy.nbody_close_encounters",
+      "instance_id": "astronomy.nbody_close_encounters__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "astronomy.planet_activity_sep",
+      "instance_id": "astronomy.planet_activity_sep__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "astronomy.planet_activity_sep",
+      "instance_id": "astronomy.planet_activity_sep__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "astronomy.planet_activity_sep",
+      "instance_id": "astronomy.planet_activity_sep__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "astronomy.planet_activity_sep",
+      "instance_id": "astronomy.planet_activity_sep__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "astronomy.white_dwarf_sparse_inference",
+      "instance_id": "astronomy.white_dwarf_sparse_inference__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "astronomy.white_dwarf_sparse_inference",
+      "instance_id": "astronomy.white_dwarf_sparse_inference__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "astronomy.white_dwarf_sparse_inference",
+      "instance_id": "astronomy.white_dwarf_sparse_inference__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "astronomy.white_dwarf_sparse_inference",
+      "instance_id": "astronomy.white_dwarf_sparse_inference__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "biology.calcium_ip3_dyk_oscillations",
+      "instance_id": "biology.calcium_ip3_dyk_oscillations__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "biology.calcium_ip3_dyk_oscillations",
+      "instance_id": "biology.calcium_ip3_dyk_oscillations__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "biology.calcium_ip3_dyk_oscillations",
+      "instance_id": "biology.calcium_ip3_dyk_oscillations__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "biology.calcium_ip3_dyk_oscillations",
+      "instance_id": "biology.calcium_ip3_dyk_oscillations__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "biology.contextual_dna_regime_mapping",
+      "instance_id": "biology.contextual_dna_regime_mapping__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "biology.contextual_dna_regime_mapping",
+      "instance_id": "biology.contextual_dna_regime_mapping__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "biology.contextual_dna_regime_mapping",
+      "instance_id": "biology.contextual_dna_regime_mapping__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "biology.contextual_dna_regime_mapping",
+      "instance_id": "biology.contextual_dna_regime_mapping__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "biology.gene_network_timeseries",
+      "instance_id": "biology.gene_network_timeseries__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "biology.gene_network_timeseries",
+      "instance_id": "biology.gene_network_timeseries__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "biology.gene_network_timeseries",
+      "instance_id": "biology.gene_network_timeseries__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "biology.gene_network_timeseries",
+      "instance_id": "biology.gene_network_timeseries__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "biology.gillespie_ssssa_michaelis_menten",
+      "instance_id": "biology.gillespie_ssssa_michaelis_menten__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "biology.gillespie_ssssa_michaelis_menten",
+      "instance_id": "biology.gillespie_ssssa_michaelis_menten__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "biology.gillespie_ssssa_michaelis_menten",
+      "instance_id": "biology.gillespie_ssssa_michaelis_menten__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "biology.gillespie_ssssa_michaelis_menten",
+      "instance_id": "biology.gillespie_ssssa_michaelis_menten__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "biology.protein_folding_go_model",
+      "instance_id": "biology.protein_folding_go_model__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "biology.protein_folding_go_model",
+      "instance_id": "biology.protein_folding_go_model__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "biology.protein_folding_go_model",
+      "instance_id": "biology.protein_folding_go_model__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "biology.protein_folding_go_model",
+      "instance_id": "biology.protein_folding_go_model__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "biology.scrna_seq_analysis",
+      "instance_id": "biology.scrna_seq_analysis__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "biology.scrna_seq_analysis",
+      "instance_id": "biology.scrna_seq_analysis__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "biology.scrna_seq_analysis",
+      "instance_id": "biology.scrna_seq_analysis__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "biology.scrna_seq_analysis",
+      "instance_id": "biology.scrna_seq_analysis__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "biostat.perturbation_convergence_testing",
+      "instance_id": "biostat.perturbation_convergence_testing__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "biostat.perturbation_convergence_testing",
+      "instance_id": "biostat.perturbation_convergence_testing__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "biostat.perturbation_convergence_testing",
+      "instance_id": "biostat.perturbation_convergence_testing__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "biostat.perturbation_convergence_testing",
+      "instance_id": "biostat.perturbation_convergence_testing__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "chemistry.implicit_solvent_pb_gb",
+      "instance_id": "chemistry.implicit_solvent_pb_gb__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "chemistry.implicit_solvent_pb_gb",
+      "instance_id": "chemistry.implicit_solvent_pb_gb__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "chemistry.implicit_solvent_pb_gb",
+      "instance_id": "chemistry.implicit_solvent_pb_gb__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "chemistry.implicit_solvent_pb_gb",
+      "instance_id": "chemistry.implicit_solvent_pb_gb__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "chemistry.marcus_et_reorganization_energy",
+      "instance_id": "chemistry.marcus_et_reorganization_energy__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "chemistry.marcus_et_reorganization_energy",
+      "instance_id": "chemistry.marcus_et_reorganization_energy__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "chemistry.marcus_et_reorganization_energy",
+      "instance_id": "chemistry.marcus_et_reorganization_energy__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "chemistry.marcus_et_reorganization_energy",
+      "instance_id": "chemistry.marcus_et_reorganization_energy__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "chemistry.metadynamics_for_dipeptide_in_vacuum",
+      "instance_id": "chemistry.metadynamics_for_dipeptide_in_vacuum__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "chemistry.metadynamics_for_dipeptide_in_vacuum",
+      "instance_id": "chemistry.metadynamics_for_dipeptide_in_vacuum__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "chemistry.metadynamics_for_dipeptide_in_vacuum",
+      "instance_id": "chemistry.metadynamics_for_dipeptide_in_vacuum__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "chemistry.metadynamics_for_dipeptide_in_vacuum",
+      "instance_id": "chemistry.metadynamics_for_dipeptide_in_vacuum__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "chemistry.reaction_path_bifurcation_vri",
+      "instance_id": "chemistry.reaction_path_bifurcation_vri__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "chemistry.reaction_path_bifurcation_vri",
+      "instance_id": "chemistry.reaction_path_bifurcation_vri__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "chemistry.reaction_path_bifurcation_vri",
+      "instance_id": "chemistry.reaction_path_bifurcation_vri__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "chemistry.reaction_path_bifurcation_vri",
+      "instance_id": "chemistry.reaction_path_bifurcation_vri__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "chemistry.sapt_water_dimer",
+      "instance_id": "chemistry.sapt_water_dimer__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "chemistry.sapt_water_dimer",
+      "instance_id": "chemistry.sapt_water_dimer__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "chemistry.sapt_water_dimer",
+      "instance_id": "chemistry.sapt_water_dimer__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "chemistry.sapt_water_dimer",
+      "instance_id": "chemistry.sapt_water_dimer__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "chemistry.vtst_tunneling_corrections",
+      "instance_id": "chemistry.vtst_tunneling_corrections__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "chemistry.vtst_tunneling_corrections",
+      "instance_id": "chemistry.vtst_tunneling_corrections__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "chemistry.vtst_tunneling_corrections",
+      "instance_id": "chemistry.vtst_tunneling_corrections__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "chemistry.vtst_tunneling_corrections",
+      "instance_id": "chemistry.vtst_tunneling_corrections__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "computer_science.affinity_subset_bound_audit",
+      "instance_id": "computer_science.affinity_subset_bound_audit__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "computer_science.affinity_subset_bound_audit",
+      "instance_id": "computer_science.affinity_subset_bound_audit__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "computer_science.affinity_subset_bound_audit",
+      "instance_id": "computer_science.affinity_subset_bound_audit__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "computer_science.affinity_subset_bound_audit",
+      "instance_id": "computer_science.affinity_subset_bound_audit__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "computer_science.bci_forensics",
+      "instance_id": "computer_science.bci_forensics__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "computer_science.bci_forensics",
+      "instance_id": "computer_science.bci_forensics__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "computer_science.bci_forensics",
+      "instance_id": "computer_science.bci_forensics__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "computer_science.bci_forensics",
+      "instance_id": "computer_science.bci_forensics__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "computer_science.causal_attention",
+      "instance_id": "computer_science.causal_attention__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "computer_science.causal_attention",
+      "instance_id": "computer_science.causal_attention__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "computer_science.causal_attention",
+      "instance_id": "computer_science.causal_attention__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "computer_science.causal_attention",
+      "instance_id": "computer_science.causal_attention__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "computer_science.deployment_prediction_sets",
+      "instance_id": "computer_science.deployment_prediction_sets__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "computer_science.deployment_prediction_sets",
+      "instance_id": "computer_science.deployment_prediction_sets__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "computer_science.deployment_prediction_sets",
+      "instance_id": "computer_science.deployment_prediction_sets__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "computer_science.deployment_prediction_sets",
+      "instance_id": "computer_science.deployment_prediction_sets__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "computer_science.dp_accountant_forensics",
+      "instance_id": "computer_science.dp_accountant_forensics__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "computer_science.dp_accountant_forensics",
+      "instance_id": "computer_science.dp_accountant_forensics__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "computer_science.dp_accountant_forensics",
+      "instance_id": "computer_science.dp_accountant_forensics__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "computer_science.dp_accountant_forensics",
+      "instance_id": "computer_science.dp_accountant_forensics__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "computer_science.euclidean_tsp_tour_optimization",
+      "instance_id": "computer_science.euclidean_tsp_tour_optimization__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "computer_science.euclidean_tsp_tour_optimization",
+      "instance_id": "computer_science.euclidean_tsp_tour_optimization__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "computer_science.euclidean_tsp_tour_optimization",
+      "instance_id": "computer_science.euclidean_tsp_tour_optimization__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "computer_science.euclidean_tsp_tour_optimization",
+      "instance_id": "computer_science.euclidean_tsp_tour_optimization__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "computer_science.hmc_neal_funnel",
+      "instance_id": "computer_science.hmc_neal_funnel__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "computer_science.hmc_neal_funnel",
+      "instance_id": "computer_science.hmc_neal_funnel__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "computer_science.hmc_neal_funnel",
+      "instance_id": "computer_science.hmc_neal_funnel__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "computer_science.hmc_neal_funnel",
+      "instance_id": "computer_science.hmc_neal_funnel__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "computer_science.max3sat_assignment_optimization",
+      "instance_id": "computer_science.max3sat_assignment_optimization__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "computer_science.max3sat_assignment_optimization",
+      "instance_id": "computer_science.max3sat_assignment_optimization__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "computer_science.max3sat_assignment_optimization",
+      "instance_id": "computer_science.max3sat_assignment_optimization__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "computer_science.max3sat_assignment_optimization",
+      "instance_id": "computer_science.max3sat_assignment_optimization__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "computer_science.stable_latent_state_fitting",
+      "instance_id": "computer_science.stable_latent_state_fitting__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "computer_science.stable_latent_state_fitting",
+      "instance_id": "computer_science.stable_latent_state_fitting__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "computer_science.stable_latent_state_fitting",
+      "instance_id": "computer_science.stable_latent_state_fitting__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "computer_science.stable_latent_state_fitting",
+      "instance_id": "computer_science.stable_latent_state_fitting__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "earth_science.2_e_soil_carbon_nitrogen_cycling",
+      "instance_id": "earth_science.2_e_soil_carbon_nitrogen_cycling__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "earth_science.2_e_soil_carbon_nitrogen_cycling",
+      "instance_id": "earth_science.2_e_soil_carbon_nitrogen_cycling__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "earth_science.2_e_soil_carbon_nitrogen_cycling",
+      "instance_id": "earth_science.2_e_soil_carbon_nitrogen_cycling__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "earth_science.2_e_soil_carbon_nitrogen_cycling",
+      "instance_id": "earth_science.2_e_soil_carbon_nitrogen_cycling__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "earth_science.farquhar_ballberry_photosynthesis",
+      "instance_id": "earth_science.farquhar_ballberry_photosynthesis__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "earth_science.farquhar_ballberry_photosynthesis",
+      "instance_id": "earth_science.farquhar_ballberry_photosynthesis__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "earth_science.farquhar_ballberry_photosynthesis",
+      "instance_id": "earth_science.farquhar_ballberry_photosynthesis__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "earth_science.farquhar_ballberry_photosynthesis",
+      "instance_id": "earth_science.farquhar_ballberry_photosynthesis__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "earth_science.richards_topmodel_hydrology",
+      "instance_id": "earth_science.richards_topmodel_hydrology__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "earth_science.richards_topmodel_hydrology",
+      "instance_id": "earth_science.richards_topmodel_hydrology__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "earth_science.richards_topmodel_hydrology",
+      "instance_id": "earth_science.richards_topmodel_hydrology__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "earth_science.richards_topmodel_hydrology",
+      "instance_id": "earth_science.richards_topmodel_hydrology__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "earth_science.snow_3layer_compaction",
+      "instance_id": "earth_science.snow_3layer_compaction__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "earth_science.snow_3layer_compaction",
+      "instance_id": "earth_science.snow_3layer_compaction__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "earth_science.snow_3layer_compaction",
+      "instance_id": "earth_science.snow_3layer_compaction__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "earth_science.snow_3layer_compaction",
+      "instance_id": "earth_science.snow_3layer_compaction__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "electrical_engineering.cmos_opamp_design",
+      "instance_id": "electrical_engineering.cmos_opamp_design__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "electrical_engineering.cmos_opamp_design",
+      "instance_id": "electrical_engineering.cmos_opamp_design__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "electrical_engineering.cmos_opamp_design",
+      "instance_id": "electrical_engineering.cmos_opamp_design__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "electrical_engineering.cmos_opamp_design",
+      "instance_id": "electrical_engineering.cmos_opamp_design__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "electrical_engineering.lossy_tline_skin",
+      "instance_id": "electrical_engineering.lossy_tline_skin__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "electrical_engineering.lossy_tline_skin",
+      "instance_id": "electrical_engineering.lossy_tline_skin__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "electrical_engineering.lossy_tline_skin",
+      "instance_id": "electrical_engineering.lossy_tline_skin__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "electrical_engineering.lossy_tline_skin",
+      "instance_id": "electrical_engineering.lossy_tline_skin__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "materials.ising_domain_growth",
+      "instance_id": "materials.ising_domain_growth__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "materials.ising_domain_growth",
+      "instance_id": "materials.ising_domain_growth__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "materials.ising_domain_growth",
+      "instance_id": "materials.ising_domain_growth__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "materials.ising_domain_growth",
+      "instance_id": "materials.ising_domain_growth__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "materials.relaxation_mode_recovery",
+      "instance_id": "materials.relaxation_mode_recovery__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "materials.relaxation_mode_recovery",
+      "instance_id": "materials.relaxation_mode_recovery__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "materials.relaxation_mode_recovery",
+      "instance_id": "materials.relaxation_mode_recovery__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "materials.relaxation_mode_recovery",
+      "instance_id": "materials.relaxation_mode_recovery__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "math.homotopy_poly_roots",
+      "instance_id": "math.homotopy_poly_roots__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "math.homotopy_poly_roots",
+      "instance_id": "math.homotopy_poly_roots__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "math.homotopy_poly_roots",
+      "instance_id": "math.homotopy_poly_roots__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "math.homotopy_poly_roots",
+      "instance_id": "math.homotopy_poly_roots__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "math.ill_posed_inverse_problem",
+      "instance_id": "math.ill_posed_inverse_problem__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "math.ill_posed_inverse_problem",
+      "instance_id": "math.ill_posed_inverse_problem__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "math.ill_posed_inverse_problem",
+      "instance_id": "math.ill_posed_inverse_problem__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "math.ill_posed_inverse_problem",
+      "instance_id": "math.ill_posed_inverse_problem__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "math.levin_context_grid_search",
+      "instance_id": "math.levin_context_grid_search__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "math.levin_context_grid_search",
+      "instance_id": "math.levin_context_grid_search__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "math.levin_context_grid_search",
+      "instance_id": "math.levin_context_grid_search__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "math.levin_context_grid_search",
+      "instance_id": "math.levin_context_grid_search__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "math.manifold_pde_meshfree",
+      "instance_id": "math.manifold_pde_meshfree__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "math.manifold_pde_meshfree",
+      "instance_id": "math.manifold_pde_meshfree__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "math.manifold_pde_meshfree",
+      "instance_id": "math.manifold_pde_meshfree__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "math.manifold_pde_meshfree",
+      "instance_id": "math.manifold_pde_meshfree__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "math.mpsc_safety_filter",
+      "instance_id": "math.mpsc_safety_filter__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "math.mpsc_safety_filter",
+      "instance_id": "math.mpsc_safety_filter__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "math.mpsc_safety_filter",
+      "instance_id": "math.mpsc_safety_filter__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "math.mpsc_safety_filter",
+      "instance_id": "math.mpsc_safety_filter__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "math.multiply_connected_conformal_mapping",
+      "instance_id": "math.multiply_connected_conformal_mapping__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "math.multiply_connected_conformal_mapping",
+      "instance_id": "math.multiply_connected_conformal_mapping__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "math.multiply_connected_conformal_mapping",
+      "instance_id": "math.multiply_connected_conformal_mapping__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "math.multiply_connected_conformal_mapping",
+      "instance_id": "math.multiply_connected_conformal_mapping__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "math.nnls_modulus_deblur",
+      "instance_id": "math.nnls_modulus_deblur__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "math.nnls_modulus_deblur",
+      "instance_id": "math.nnls_modulus_deblur__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "math.nnls_modulus_deblur",
+      "instance_id": "math.nnls_modulus_deblur__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "math.nnls_modulus_deblur",
+      "instance_id": "math.nnls_modulus_deblur__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "math.ucb_q_learning_regret",
+      "instance_id": "math.ucb_q_learning_regret__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "math.ucb_q_learning_regret",
+      "instance_id": "math.ucb_q_learning_regret__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "math.ucb_q_learning_regret",
+      "instance_id": "math.ucb_q_learning_regret__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "math.ucb_q_learning_regret",
+      "instance_id": "math.ucb_q_learning_regret__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "math.sigma_linear_diophantine",
+      "instance_id": "math.sigma_linear_diophantine__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "math.sigma_linear_diophantine",
+      "instance_id": "math.sigma_linear_diophantine__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "math.sigma_linear_diophantine",
+      "instance_id": "math.sigma_linear_diophantine__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "math.sigma_linear_diophantine",
+      "instance_id": "math.sigma_linear_diophantine__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "math.sparse_hyperbolic_recovery_2d",
+      "instance_id": "math.sparse_hyperbolic_recovery_2d__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "math.sparse_hyperbolic_recovery_2d",
+      "instance_id": "math.sparse_hyperbolic_recovery_2d__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "math.sparse_hyperbolic_recovery_2d",
+      "instance_id": "math.sparse_hyperbolic_recovery_2d__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "math.sparse_hyperbolic_recovery_2d",
+      "instance_id": "math.sparse_hyperbolic_recovery_2d__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "math.sparse_nonlinear_interaction_recovery",
+      "instance_id": "math.sparse_nonlinear_interaction_recovery__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "math.sparse_nonlinear_interaction_recovery",
+      "instance_id": "math.sparse_nonlinear_interaction_recovery__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "math.sparse_nonlinear_interaction_recovery",
+      "instance_id": "math.sparse_nonlinear_interaction_recovery__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "math.sparse_nonlinear_interaction_recovery",
+      "instance_id": "math.sparse_nonlinear_interaction_recovery__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "math.symplectic_integrators",
+      "instance_id": "math.symplectic_integrators__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "math.symplectic_integrators",
+      "instance_id": "math.symplectic_integrators__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "math.symplectic_integrators",
+      "instance_id": "math.symplectic_integrators__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "math.symplectic_integrators",
+      "instance_id": "math.symplectic_integrators__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "physics.ag_strip_dielectric_inference",
+      "instance_id": "physics.ag_strip_dielectric_inference__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "physics.ag_strip_dielectric_inference",
+      "instance_id": "physics.ag_strip_dielectric_inference__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "physics.ag_strip_dielectric_inference",
+      "instance_id": "physics.ag_strip_dielectric_inference__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "physics.ag_strip_dielectric_inference",
+      "instance_id": "physics.ag_strip_dielectric_inference__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "physics.dp_contact_process",
+      "instance_id": "physics.dp_contact_process__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "physics.dp_contact_process",
+      "instance_id": "physics.dp_contact_process__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "physics.dp_contact_process",
+      "instance_id": "physics.dp_contact_process__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "physics.dp_contact_process",
+      "instance_id": "physics.dp_contact_process__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "physics.ks_2d_anisotropic",
+      "instance_id": "physics.ks_2d_anisotropic__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "physics.ks_2d_anisotropic",
+      "instance_id": "physics.ks_2d_anisotropic__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "physics.ks_2d_anisotropic",
+      "instance_id": "physics.ks_2d_anisotropic__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "physics.ks_2d_anisotropic",
+      "instance_id": "physics.ks_2d_anisotropic__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "physics.kt_phase_transition_2d_xy_model",
+      "instance_id": "physics.kt_phase_transition_2d_xy_model__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "physics.kt_phase_transition_2d_xy_model",
+      "instance_id": "physics.kt_phase_transition_2d_xy_model__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "physics.kt_phase_transition_2d_xy_model",
+      "instance_id": "physics.kt_phase_transition_2d_xy_model__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "physics.kt_phase_transition_2d_xy_model",
+      "instance_id": "physics.kt_phase_transition_2d_xy_model__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "physics.lbm_square_wake",
+      "instance_id": "physics.lbm_square_wake__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "physics.lbm_square_wake",
+      "instance_id": "physics.lbm_square_wake__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "physics.lbm_square_wake",
+      "instance_id": "physics.lbm_square_wake__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "physics.lbm_square_wake",
+      "instance_id": "physics.lbm_square_wake__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "physics.lid_driven_cavity_flow",
+      "instance_id": "physics.lid_driven_cavity_flow__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "physics.lid_driven_cavity_flow",
+      "instance_id": "physics.lid_driven_cavity_flow__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "physics.lid_driven_cavity_flow",
+      "instance_id": "physics.lid_driven_cavity_flow__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "physics.lid_driven_cavity_flow",
+      "instance_id": "physics.lid_driven_cavity_flow__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "physics.paired_nanorod_negative_index_retrieval",
+      "instance_id": "physics.paired_nanorod_negative_index_retrieval__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "physics.paired_nanorod_negative_index_retrieval",
+      "instance_id": "physics.paired_nanorod_negative_index_retrieval__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "physics.paired_nanorod_negative_index_retrieval",
+      "instance_id": "physics.paired_nanorod_negative_index_retrieval__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "physics.paired_nanorod_negative_index_retrieval",
+      "instance_id": "physics.paired_nanorod_negative_index_retrieval__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "physics.vpfm_leapfrog",
+      "instance_id": "physics.vpfm_leapfrog__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "physics.vpfm_leapfrog",
+      "instance_id": "physics.vpfm_leapfrog__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "physics.vpfm_leapfrog",
+      "instance_id": "physics.vpfm_leapfrog__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "physics.vpfm_leapfrog",
+      "instance_id": "physics.vpfm_leapfrog__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "robotics.lidar_imu_time_offset_yaw_calibration",
+      "instance_id": "robotics.lidar_imu_time_offset_yaw_calibration__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "robotics.lidar_imu_time_offset_yaw_calibration",
+      "instance_id": "robotics.lidar_imu_time_offset_yaw_calibration__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "robotics.lidar_imu_time_offset_yaw_calibration",
+      "instance_id": "robotics.lidar_imu_time_offset_yaw_calibration__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "robotics.lidar_imu_time_offset_yaw_calibration",
+      "instance_id": "robotics.lidar_imu_time_offset_yaw_calibration__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "robotics.multiregime_icp_degeneracy",
+      "instance_id": "robotics.multiregime_icp_degeneracy__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "robotics.multiregime_icp_degeneracy",
+      "instance_id": "robotics.multiregime_icp_degeneracy__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "robotics.multiregime_icp_degeneracy",
+      "instance_id": "robotics.multiregime_icp_degeneracy__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "robotics.multiregime_icp_degeneracy",
+      "instance_id": "robotics.multiregime_icp_degeneracy__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "robotics.occupancy_grid_mapping_correlated_clutter",
+      "instance_id": "robotics.occupancy_grid_mapping_correlated_clutter__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "robotics.occupancy_grid_mapping_correlated_clutter",
+      "instance_id": "robotics.occupancy_grid_mapping_correlated_clutter__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "robotics.occupancy_grid_mapping_correlated_clutter",
+      "instance_id": "robotics.occupancy_grid_mapping_correlated_clutter__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "robotics.occupancy_grid_mapping_correlated_clutter",
+      "instance_id": "robotics.occupancy_grid_mapping_correlated_clutter__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "robotics.particle_filter",
+      "instance_id": "robotics.particle_filter__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "robotics.particle_filter",
+      "instance_id": "robotics.particle_filter__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "robotics.particle_filter",
+      "instance_id": "robotics.particle_filter__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "robotics.particle_filter",
+      "instance_id": "robotics.particle_filter__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "robotics.rnea_inverse_dynamics_dh",
+      "instance_id": "robotics.rnea_inverse_dynamics_dh__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "robotics.rnea_inverse_dynamics_dh",
+      "instance_id": "robotics.rnea_inverse_dynamics_dh__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "robotics.rnea_inverse_dynamics_dh",
+      "instance_id": "robotics.rnea_inverse_dynamics_dh__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "robotics.rnea_inverse_dynamics_dh",
+      "instance_id": "robotics.rnea_inverse_dynamics_dh__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "robotics.robust_pose_graph_false_loops",
+      "instance_id": "robotics.robust_pose_graph_false_loops__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "robotics.robust_pose_graph_false_loops",
+      "instance_id": "robotics.robust_pose_graph_false_loops__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "robotics.robust_pose_graph_false_loops",
+      "instance_id": "robotics.robust_pose_graph_false_loops__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "robotics.robust_pose_graph_false_loops",
+      "instance_id": "robotics.robust_pose_graph_false_loops__seed31415",
+      "prompt_level": "b4"
+    },
+    {
+      "task_id": "robotics.ukf_bearing_only_tracking",
+      "instance_id": "robotics.ukf_bearing_only_tracking__seed31415",
+      "prompt_level": "b1"
+    },
+    {
+      "task_id": "robotics.ukf_bearing_only_tracking",
+      "instance_id": "robotics.ukf_bearing_only_tracking__seed31415",
+      "prompt_level": "b2"
+    },
+    {
+      "task_id": "robotics.ukf_bearing_only_tracking",
+      "instance_id": "robotics.ukf_bearing_only_tracking__seed31415",
+      "prompt_level": "b3"
+    },
+    {
+      "task_id": "robotics.ukf_bearing_only_tracking",
+      "instance_id": "robotics.ukf_bearing_only_tracking__seed31415",
+      "prompt_level": "b4"
+    }
+  ],
+  "framework_snapshot_files": [
+    {
+      "path": "README.md",
+      "sha256": "26efe8fd2dd32e7ab603c63ecada4d3a64ceaf22da98fb0ad41d41f6e4f4d966",
+      "bytes": 41751
+    },
+    {
+      "path": "docs/guide/how-scoring-works.md",
+      "sha256": "a1ff215d3fa2f25d49f3336dd7b10b87b8b17eff0c3025550d7b3286a63517a2",
+      "bytes": 3592
+    },
+    {
+      "path": "docs/guide/getting-started.md",
+      "sha256": "712d52f9a8435dbff61be64c9935ecf39fc067fe14d05c61fca2742468c77254",
+      "bytes": 9265
+    },
+    {
+      "path": "ai4sci_bench/local_scoring.py",
+      "sha256": "aa638a14428b7fcd25cf3d8448d1df5472c7c480baabab8fad14480ab2ef135e",
+      "bytes": 41229
+    },
+    {
+      "path": "ai4sci_bench/cli.py",
+      "sha256": "28823cf304899241f7f697da3bea3b182d127b4831c49863ed46d0905e8200f3",
+      "bytes": 191109
+    },
+    {
+      "path": "ai4sci_bench/adapters/subprocess_base.py",
+      "sha256": "ad8f15f9bef0c7011fa5ceeceee4ff12ba47691567cc46e8ba4038c33f8407f3",
+      "bytes": 14533
+    },
+    {
+      "path": "ai4sci_bench/adapters/opencode_cli.py",
+      "sha256": "d11243b94b061b58e7f2a4cebf5ca6595ce8a1a5e75aa39ec2bef2c4e7f63589",
+      "bytes": 21979
+    },
+    {
+      "path": "ai4sci_bench/core/scorer.py",
+      "sha256": "26d1a5e0e4ef8a34f6594a4a5d5be21236bdb28b6b3dc750222a525b4ec13fc3",
+      "bytes": 3414
+    },
+    {
+      "path": "ai4sci_bench/core/scoring.py",
+      "sha256": "91feffd409bebfcdcbf98900a2781b55f1c0c4d08a6b5d6dd597709f237f375e",
+      "bytes": 7969
+    },
+    {
+      "path": "ai4sci_bench/runner/orchestrator.py",
+      "sha256": "26570ff71d1474adbc2f1b076f70f9cbb17676fcd8d5e88090ea7602d5be3603",
+      "bytes": 65320
+    },
+    {
+      "path": "ai4sci_bench/runner/linux_ns_sandbox.py",
+      "sha256": "5ae6781207cc11fa7a8734ad3ddd6b428f76afd72208d48c616365d529ab3fb5",
+      "bytes": 5898
+    },
+    {
+      "path": "ai4sci_bench/runner/os_sandbox.py",
+      "sha256": "2f7c6a9ebdf67443fd6b57696d9372cd503ff1b127c58b511646f6f22cbb47b8",
+      "bytes": 43199
+    },
+    {
+      "path": "ai4sci_bench/scorers/_judge_common.py",
+      "sha256": "0f0b9f3f0cc755168feb45ab5e42c03a4a747c7e780a0346d2ec2a79f80a616f",
+      "bytes": 14655
+    },
+    {
+      "path": "ai4sci_bench/scorers/multimodal.py",
+      "sha256": "a6fe14ac78f489b8db0e48a14fa266f01acead6276785d4871d2b480d494d380",
+      "bytes": 15222
+    },
+    {
+      "path": "ai4sci_bench/reporting/leaderboard.py",
+      "sha256": "653b52d8cef849836ed7a29003337ab3655439b81a38ca913d68752c9efe1f7e",
+      "bytes": 6184
+    },
+    {
+      "path": "ai4sci_bench/reporting/aggregator.py",
+      "sha256": "33d9357dd110e271fd6df35b00ee80f79d32aec4a482db36784b448faab02dce",
+      "bytes": 9513
+    }
+  ],
+  "opencode": {
+    "version": "1.17.15",
+    "git_tag": "v1.17.15",
+    "tag_commit": "5fb0d1cdb363ecafd55402c451c6634ed15b74b1"
+  },
+  "checks": {
+    "ids_match_source_metadata": true,
+    "all_normalized_max_score_100": true,
+    "explicit_judge_task_count": 13,
+    "multimodal_task_count": 9,
+    "root_prompt_counts": {
+      "b1": 60,
+      "b2": 60,
+      "b3": 60,
+      "b4": 60
+    }
+  }
+}
