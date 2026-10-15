@@ -1,21 +1,30 @@
 {
-  "d3_gym_32b": {
-    "repo_id": "osunlp/D3-Gym-Trajectories",
-    "revision": "b21b5006956d7d246cf3e35277b13323780a45b2",
-    "selection": "Qwen3_32B successful reasoning/program SFT and README only; inspection candidate, not an approved training pool",
-    "license": "mit",
+  "ecocoder": {
+    "repo_id": "alrobles/ecocoder-scientific-reasoning",
+    "revision": "09591b2b7b261aeb37d7db464f2af31eaa24baa0",
+    "selection": "New research candidate only: ecology Python tasks require independent execution/validation; not an accepted ASI replacement. Source train/val/test partition is not trusted as final family-independent split.",
+    "license": "apache-2.0",
     "files": [
       {
-        "path": "Qwen3_32B_trajectories.json",
-        "size": 72175135,
-        "sha256": "ce0d209abd0308351b3b5e7ddfbbbdecab369b0fcabc3891936fdcda5c0bda4e"
+        "path": "README.md",
+        "size": 5462,
+        "sha256": "6dc1587786bd65113942d0ff7b7cf7654fb8bdfcf1f73460849ad05048e4da3a"
       },
       {
-        "path": "README.md",
-        "size": 1230,
-        "sha256": null
+        "path": "data/ecology/test.jsonl",
+        "size": 485140,
+        "sha256": "048e913dfca5b495f32fffebfae9bf4997be2058771b28584ade78003423d5d0"
+      },
+      {
+        "path": "data/ecology/train.jsonl",
+        "size": 4014891,
+        "sha256": "c22dbcbb9c874cbb4350eac6b2a84c5ee40b0a4fc79cd22a73ff564c370ea5c0"
+      },
+      {
+        "path": "data/ecology/val.jsonl",
+        "size": 525782,
+        "sha256": "82717850c2c8772699b18d8cf2720ecd19b6e9fc55aa63507540b10d6b6274b2"
       }
-    ],
-    "upstream_license_status": "Research repository mapping and upstream license checks pending; not approved for training."
+    ]
   }
 }

@@ -1,0 +1,475 @@
+{
+  "retired_at_beijing": "2026-10-16",
+  "policy": "Historical provenance only. User authorized old raw deletion; never active training/download sources.",
+  "sources": {
+    "open_swe": {
+      "repo_id": "nvidia/Open-SWE-Traces",
+      "revision": "1db674173119d71df45c22007af99e214600711a",
+      "selection": "Complete data/minisweagent/qwen36_27b directory (v1.1, minisweagent, Qwen3.6-27B), plus README.md and data_distribution.md; no other versions/harnesses",
+      "license": "cc-by-4.0",
+      "files": [
+        {
+          "path": "data/minisweagent/qwen36_27b/scale-swe/train-00000-of-00017.parquet",
+          "size": 113552886,
+          "sha256": "d0a788df4d9254e828b5b20d14d3f33597367fe0c3de8f57f03941538c7aeb70"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/scale-swe/train-00001-of-00017.parquet",
+          "size": 112685589,
+          "sha256": "35e1bc0f1110757a044529b4cf8f001965fab3396ea62c369d4b6e05ed4e507e"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/scale-swe/train-00002-of-00017.parquet",
+          "size": 115950911,
+          "sha256": "3559446fe37330cea7ab70e1a99f90611b678ee4035d2604dbc3148157588c96"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/scale-swe/train-00003-of-00017.parquet",
+          "size": 109830451,
+          "sha256": "94eb1c9096c2a2a76f44ca708054592a01524386622688106075c68b94b96c74"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/scale-swe/train-00004-of-00017.parquet",
+          "size": 113432082,
+          "sha256": "e7f5c8de63ebe025f8a806ba5641204b293b61f2a776bd15449a08f04288d373"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/scale-swe/train-00005-of-00017.parquet",
+          "size": 112055589,
+          "sha256": "a51885b186f5f412889f4bb161936617a31cb3be7b8140a96be7d786ae46a252"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/scale-swe/train-00006-of-00017.parquet",
+          "size": 113906324,
+          "sha256": "1b955ce6333794ee53270c0aebced9556a8062704ab4ea7db221be28c6b3e671"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/scale-swe/train-00007-of-00017.parquet",
+          "size": 117233943,
+          "sha256": "d390dbd469c9d2fb06a7866a14e1afe3d0db217948b319705cdd48b698e4f562"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/scale-swe/train-00008-of-00017.parquet",
+          "size": 109469359,
+          "sha256": "cb15e4b063551cf94679e9cf2feed00a763f6b76a2065276a7f093c2ac08b74b"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/scale-swe/train-00009-of-00017.parquet",
+          "size": 113266797,
+          "sha256": "c436c0bd6a9f797f526f937cf348a8c3f5aa5910f75c2f0f441e4ede36729f9b"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/scale-swe/train-00010-of-00017.parquet",
+          "size": 108779255,
+          "sha256": "73322d7a4fe2a7a68aa36f8e5831746accd64065b0669b21b2e207f9dda5d437"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/scale-swe/train-00011-of-00017.parquet",
+          "size": 112487792,
+          "sha256": "53ac0fbf330b49680f93090e22649ea6c10fa2dc612e92a56e621f9c8028a378"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/scale-swe/train-00012-of-00017.parquet",
+          "size": 111032673,
+          "sha256": "fe7f5a4cdf4f901ac1c4391658f5794125545fdd5ab1f4613ba0ae3e3dfa7144"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/scale-swe/train-00013-of-00017.parquet",
+          "size": 112548303,
+          "sha256": "1756c7d60ed040aed2ecfb3389a0f67d91a4a66b053313b7442e420ecb8b56b0"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/scale-swe/train-00014-of-00017.parquet",
+          "size": 109380279,
+          "sha256": "a2a2cb1d9753468279cfb40b2bf590585b909822557d592f2eed0d890604446a"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/scale-swe/train-00015-of-00017.parquet",
+          "size": 108122876,
+          "sha256": "629da6d0c084e9fa69029f4597c6686081a2d1affdce9c33cef5b1c4a79bcc0e"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/scale-swe/train-00016-of-00017.parquet",
+          "size": 75156950,
+          "sha256": "8bdf26a55441bd0860ac959a5ff9c36909e8d4b4392e50f9fd3bfac530adc4de"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00000-of-00022.parquet",
+          "size": 98551191,
+          "sha256": "3e59ad1e799dad690f606cc353231e1000a7d9e1b0aef6256f5dbca21470b365"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00001-of-00022.parquet",
+          "size": 98429046,
+          "sha256": "7f18635bb57461b35bf3fcbf823182dd9c2f767d638b0321a01e70d644cc253f"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00002-of-00022.parquet",
+          "size": 98547072,
+          "sha256": "f988468281fd1650740449cc0957bf6e7fb57c7ea52953f116aba4e53c6b1d92"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00003-of-00022.parquet",
+          "size": 99135368,
+          "sha256": "07dd30fc23b54f9a92591c6eadb8ece80f7fd561112100a1befdf3ba33a291b1"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00004-of-00022.parquet",
+          "size": 99614114,
+          "sha256": "eae9936014cce8c52d5a6ca23112d038c127639baf0a2435c7713cd60763441d"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00005-of-00022.parquet",
+          "size": 100470370,
+          "sha256": "1133ab8364a7bb4cda6651025f1fe78f069c4054c5c60a85cc1b97e10202d34f"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00006-of-00022.parquet",
+          "size": 98554995,
+          "sha256": "9d8cc6e753f15f02f4b54c50b630fbdbb96cfe1882017588fa109f9147b6bd0d"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00007-of-00022.parquet",
+          "size": 99275571,
+          "sha256": "fd2a62a44581055147650c55ccf225c88203aff157cb3cac24035a0c08dbb51b"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00008-of-00022.parquet",
+          "size": 98841084,
+          "sha256": "229eaee56165da252d56361464dfffc83a34d6b753f5931792bf74132f852c8c"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00009-of-00022.parquet",
+          "size": 98867342,
+          "sha256": "c23597aacf8959e20fbf74aa415366595f97dcc59ff766b88941952e38dd3fa3"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00010-of-00022.parquet",
+          "size": 98455855,
+          "sha256": "dc65efaedfadb3b01a435244a61ac683512e1e74ec1f489c53edc40f0a38a149"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00011-of-00022.parquet",
+          "size": 99798358,
+          "sha256": "d21db3b3cfebf2eb23546d54c0b969bf066b323dab1e464cd3ee41e7ae037abb"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00012-of-00022.parquet",
+          "size": 99295223,
+          "sha256": "389c71abe46ac73c1035b783bcba0a3082999249ebe3d306d8eacbb59c2a1520"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00013-of-00022.parquet",
+          "size": 99045003,
+          "sha256": "f5cf577adc7a940127cc7bcafa7e496bd8e360c2e16829f033f0a0cdebff2845"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00014-of-00022.parquet",
+          "size": 97930540,
+          "sha256": "b50c120a123493552009e9b5c2eb2780157a67ab7f8324b66a33b6488ba38186"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00015-of-00022.parquet",
+          "size": 98302186,
+          "sha256": "4476eff839ef737698628f19d828f223ac920cf25bf74b2e39ad35e5e7f633d1"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00016-of-00022.parquet",
+          "size": 98807962,
+          "sha256": "003e076eb3af0ba12399e8c9ca3dc233952aa93d3d9bcf42fe26ec5b25f42866"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00017-of-00022.parquet",
+          "size": 98044634,
+          "sha256": "eea350f8108dc19f31559993a6df412a1b584ac1bbe1c892c183b4df51a3c6d8"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00018-of-00022.parquet",
+          "size": 98991871,
+          "sha256": "bcc6fe2b940333e13bb1d55c381dd7978f2e992f0d3dbfd05c4a0f4492965fe8"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00019-of-00022.parquet",
+          "size": 99844181,
+          "sha256": "542ca8a904bd56c7f6da0cdfaff69a47ccc2bd961f9bf1cf33bdf7e9ca27705b"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00020-of-00022.parquet",
+          "size": 98393740,
+          "sha256": "f8bc525a0024a3198ae1eb04434b8a58b5d1303eb188c02cf261398b99554f33"
+        },
+        {
+          "path": "data/minisweagent/qwen36_27b/swe-rebench-v2/train-00021-of-00022.parquet",
+          "size": 40259778,
+          "sha256": "5e975eeb12f3f00c10197017a3173fa4e53d135f00f903e5aa5b729337a1bfda"
+        },
+        {
+          "path": "README.md",
+          "size": 7964,
+          "sha256": null
+        },
+        {
+          "path": "data_distribution.md",
+          "size": 10613,
+          "sha256": null
+        }
+      ],
+      "metadata_urls": [
+        "https://huggingface.co/api/datasets/nvidia/Open-SWE-Traces/tree/1db674173119d71df45c22007af99e214600711a/data/minisweagent/qwen36_27b?recursive=true&expand=false&limit=1000",
+        "https://huggingface.co/api/datasets/nvidia/Open-SWE-Traces/tree/1db674173119d71df45c22007af99e214600711a?recursive=false&expand=false&limit=1000"
+      ],
+      "data_file_count": 39,
+      "data_bytes": 3986347543,
+      "total_bytes": 3986366120,
+      "sha256_source": "HF tree API lfs.oid; null for small Git files without LFS",
+      "standalone_license_file_found": false,
+      "upstream_license_note": "Repository-specific upstream licenses also apply; dataset card contains license declaration.",
+      "scope_note": "Only metadata read. No Parquet/rows/reference patches fetched. Full selected directory; no v1.2 or other harnesses."
+    },
+    "terminal_corpus": {
+      "repo_id": "nvidia/Nemotron-Terminal-Corpus",
+      "revision": "a1667c4ffdadea02a89bffe4f1bb7ca2ff19f8d9",
+      "selection": "all skill-based easy/medium/mixed trajectory files; exclude dataset_adapters",
+      "license": "cc-by-4.0",
+      "files": [
+        {
+          "path": "README.md",
+          "size": 3255,
+          "sha256": null
+        },
+        {
+          "path": "synthetic_tasks/skill_based/easy/data_processing/data_filtered.parquet",
+          "size": 76808989,
+          "sha256": "ef34d9a0ba58dbcf6a598cf028ed6de2cd63670c5941e8c4f3c81b944c31e1b1"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/easy/data_querying/data_filtered.parquet",
+          "size": 82052503,
+          "sha256": "b3beff8c8c877351cf7c97c5d2947bdf7c2c00a18be7240e315201fafe45d146"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/easy/data_science/data_filtered.parquet",
+          "size": 83741178,
+          "sha256": "b8a1de95d97d20fb853e10e381b894710f5efc3b02ef92b8756b1af48fd562b4"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/easy/debugging/data_filtered.parquet",
+          "size": 86704551,
+          "sha256": "c6b667d077d84c9d09bd5dd0cbbd3ba3402f56a231e223d65015ab2bc0ce09ff"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/easy/dependency_management/data_filtered.parquet",
+          "size": 95057310,
+          "sha256": "819bd3e42d462a8c3da703886a4dbacb7c79c1642a48e05c31cf7fce452800cf"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/easy/file_operations/data_filtered.parquet",
+          "size": 75797216,
+          "sha256": "50cb715afdd824d33d141ccbfbe8f0cec4f2069827f4fa5eafa98e1f858b7af2"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/easy/scientific_computing/data_filtered.parquet",
+          "size": 80224866,
+          "sha256": "4d2a63f3cba5050fac4b69897270dfd641111c71cc7847c02559f83f9e25a78f"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/easy/security/data_filtered.parquet",
+          "size": 102981255,
+          "sha256": "e9b634cb2fde53f8c5a28159b6e2c15813ab0cd7e0c8eba0358832d25829992b"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/easy/software_engineering/data_filtered.parquet",
+          "size": 103224442,
+          "sha256": "50aec76f12926d36b6e4e39966bd430b776e600e936c7f05d7a6c9b378541104"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/medium/data_processing/data_filtered.parquet",
+          "size": 78571816,
+          "sha256": "4f857d77ef92b5481981549704be50931bfaf9d6f62daa05a6ff5a47e9fa9f7a"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/medium/data_querying/data_filtered.parquet",
+          "size": 112108040,
+          "sha256": "a62bf9ae89e75d743b512bacf964f4c12e93e706d5d77f398b3e1d122830a6ad"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/medium/data_science/data_filtered.parquet",
+          "size": 294377145,
+          "sha256": "509b99e3126fe8ff2f28f51414c2425e727a7e5af7b68f58aa5bbfc9ea8f2530"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/medium/debugging/data_filtered.parquet",
+          "size": 344176526,
+          "sha256": "8fe4845fcd3a6ee62f30e9b45372f09da6b515e4e7643985f0e22a39a23c52fd"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/medium/dependency_management/data_filtered.parquet",
+          "size": 96048188,
+          "sha256": "7b5048dd3162eb97f5b78d24241ac1ff6e5e4562fc14054c13ad13e96081ecc0"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/medium/file_operations/data_filtered.parquet",
+          "size": 266802814,
+          "sha256": "a6aadf87360d625c05dd76419926862a74a0c1f18cb50c8e713680b7a7421980"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/medium/model_training/data_filtered.parquet",
+          "size": 8870482,
+          "sha256": "d5a9e987672bc7f885c0aa780326ad63c2c92d6fb64cc6b1d7ed0443c42abb6c"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/medium/scientific_computing/data_filtered.parquet",
+          "size": 301815242,
+          "sha256": "17bd72cb319ea1211693bfb51551e46b20599962754ff9b6c2a60cfa1e247caa"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/medium/security/data_filtered.parquet",
+          "size": 296302609,
+          "sha256": "4d31db3ccfcd82285f400e2790753205bd320ea00b2b0cb4940003e77df8c2cf"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/medium/software_engineering/data_filtered.parquet",
+          "size": 266228153,
+          "sha256": "ddbcc08aecd1f7cbde438372e07e92400f2e42f294d829ca5e24524aee26da85"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/medium/system_administration/data_filtered.parquet",
+          "size": 185003211,
+          "sha256": "3acd303dea316194d88f14e1960cdd28ba63f8678af5174b44443914b626e394"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/mixed/data_processing/data_filtered.parquet",
+          "size": 17900136,
+          "sha256": "640d10c02d4f8bc50e6d98ae0824fba90e36d0709998c19ed0ffbca43e6644aa"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/mixed/data_science/data_filtered.parquet",
+          "size": 18366114,
+          "sha256": "c74e8ca09440d181939f641003fcdc0600f3d5db72233db3892152fe79530b00"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/mixed/debugging/data_filtered.parquet",
+          "size": 18601952,
+          "sha256": "75d3e2338f16541021d8e437009bfb424f76e4e6f29eca3b1455e970f52017e4"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/mixed/file_operations/data_filtered.parquet",
+          "size": 16284573,
+          "sha256": "ed802858a9321086a30a530c66d2e4bd4da86640ab15c9bd6dfca1205f50b1fc"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/mixed/scientific_computing/data_filtered.parquet",
+          "size": 15098212,
+          "sha256": "1b36cc95f187127db6f72fbe11d90cb2277348067dd55a2d916bce5dde66ae27"
+        },
+        {
+          "path": "synthetic_tasks/skill_based/mixed/security/data_filtered.parquet",
+          "size": 16224296,
+          "sha256": "62c5bf5c65b5884fef82412056513d2e6d62837d5184a8704e0a04866074e077"
+        }
+      ]
+    },
+    "open_science": {
+      "repo_id": "nvidia/OpenScienceReasoning-2",
+      "revision": "174b02c9cdf231f220765b2a1d5ece4550921894",
+      "selection": "all train parquet files under train/",
+      "license": "cc-by-4.0",
+      "files": [
+        {
+          "path": "train/OpenScienceReasoning-2.parquet",
+          "size": 15706815309,
+          "sha256": "e82e9c7de7ac4befc12734d1b7b42b62c9896ba5bdef4e5d17cb7e7e8bceaef2"
+        },
+        {
+          "path": "README.md",
+          "size": 2151,
+          "sha256": null
+        }
+      ]
+    },
+    "openr1_math": {
+      "repo_id": "open-r1/OpenR1-Math-220k",
+      "revision": "e4e141ec9dea9f8326f4d347be56105859b2bd68",
+      "selection": "default config only: data/train-*.parquet; excludes all/ and extended/",
+      "license": "apache-2.0",
+      "files": [
+        {
+          "path": "data/train-00000-of-00010.parquet",
+          "size": 213636225,
+          "sha256": "ccc3a95e4875dc4cff9bec2f0fb1c93e4c9cbb24fb24853fd0b96c416e1a263c"
+        },
+        {
+          "path": "data/train-00001-of-00010.parquet",
+          "size": 214580713,
+          "sha256": "a7d3eb54d97f7e1237a872947f2246de54a104be224646f62f588abdf6c7db60"
+        },
+        {
+          "path": "data/train-00002-of-00010.parquet",
+          "size": 214585972,
+          "sha256": "a44a2354bfa752541ab768b62edf01f3df4b9b2a7660774ab1eb6e7f19f0a86b"
+        },
+        {
+          "path": "data/train-00003-of-00010.parquet",
+          "size": 216773329,
+          "sha256": "dd7d2f0f04d80b3ae08484b706c4f7fd9dd29eeff4038c36257a307c77b877e9"
+        },
+        {
+          "path": "data/train-00004-of-00010.parquet",
+          "size": 214835490,
+          "sha256": "e358157990d7744643e25f1e692556ac5fd4a2212c008cf67475b14e040861ea"
+        },
+        {
+          "path": "data/train-00005-of-00010.parquet",
+          "size": 214488314,
+          "sha256": "30254d14d17b63d1f7963488d53a2d26aa22070f71baa2fe601201b081e38060"
+        },
+        {
+          "path": "data/train-00006-of-00010.parquet",
+          "size": 215593265,
+          "sha256": "b3bce93c06d4dc22788c04d0a1da5cbadb5b3db31046809c59a4ec26e96ebb52"
+        },
+        {
+          "path": "data/train-00007-of-00010.parquet",
+          "size": 216310260,
+          "sha256": "7def8029cf6d40f7493e9aa4be4b49c251ae7e0cb23b0b117c485e09ff5d5021"
+        },
+        {
+          "path": "data/train-00008-of-00010.parquet",
+          "size": 213801211,
+          "sha256": "29cf75a663e91039fc92bffd86a9ad845f992302da52d1fb1563b6c41ae777ed"
+        },
+        {
+          "path": "data/train-00009-of-00010.parquet",
+          "size": 215293135,
+          "sha256": "14df2775196a701b97a71cf0285fa75d97980fbda4db9ec9af9c2a07658ca256"
+        },
+        {
+          "path": "README.md",
+          "size": 5131,
+          "sha256": null
+        }
+      ]
+    }
+  },
+  "candidate_sources": {
+    "d3_gym_32b": {
+      "repo_id": "osunlp/D3-Gym-Trajectories",
+      "revision": "b21b5006956d7d246cf3e35277b13323780a45b2",
+      "selection": "Qwen3_32B successful reasoning/program SFT and README only; inspection candidate, not an approved training pool",
+      "license": "mit",
+      "files": [
+        {
+          "path": "Qwen3_32B_trajectories.json",
+          "size": 72175135,
+          "sha256": "ce0d209abd0308351b3b5e7ddfbbbdecab369b0fcabc3891936fdcda5c0bda4e"
+        },
+        {
+          "path": "README.md",
+          "size": 1230,
+          "sha256": null
+        }
+      ],
+      "upstream_license_status": "Research repository mapping and upstream license checks pending; not approved for training."
+    }
+  }
+}

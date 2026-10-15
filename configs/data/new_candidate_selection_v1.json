@@ -1,0 +1,164 @@
+{
+  "version": "new-data-candidates-v1-20261016",
+  "status": "candidate partitions and target weights; not final Swift training files or executable task-dev",
+  "new_data_first": true,
+  "training_total_tokens": null,
+  "sources": {
+    "swe": {
+      "repo": "nvidia/Open-SWE-Traces",
+      "revision": "1db674173119d71df45c22007af99e214600711a",
+      "prefix": "data/minisweagent/qwen38_flash_next/",
+      "source_category": "bug-fix",
+      "quality": "publisher resolved=1; protocol and source lineage statuses retained"
+    },
+    "academic_math": {
+      "repo": "nvidia/Nemotron-SFT-Math-v4",
+      "revision": "84d42ad0cb960f07f951b9baa9ed2b46a5a18c66"
+    },
+    "academic_science": {
+      "repo": "nvidia/Nemotron-SFT-Science-v2",
+      "revision": "6536a5021222a94126968e8c92f29ee47fc8a7df",
+      "quality": "teacher/tool/gold status explicit; no whole-pool success assumption"
+    },
+    "terminal": {
+      "repo": "open-thoughts/OpenThoughts-Agent-SFT-100K",
+      "revision": "45fb28fcc38d352133cb28a1c8a43a2f14fea97b",
+      "quality": "pending actual result semantics and category mapping; no main-pool acceptance yet"
+    },
+    "science_program": {
+      "repo": "alrobles/ecocoder-scientific-reasoning",
+      "revision": "09591b2b7b261aeb37d7db464f2af31eaa24baa0",
+      "quality": "ecology Python candidates only; independent execution verification missing"
+    }
+  },
+  "split": {
+    "unit": "cross-teacher original problem/PR/template/source family, joined before partition",
+    "seed": "apex-new-data-v1-20261016",
+    "rule": "val iff int(sha256((seed+NUL+family_key).encode()).hexdigest()[:16],16) modulo 10 == 0; otherwise train",
+    "candidate_holdout_fraction": 0.1,
+    "note": "90/10 reserves candidate families only. Final target is100 independent validation tasks and about500 training tasks per benchmark, selected by target categories and availability; no legacy raw re-download or training fallback."
+  },
+  "target_distributions": {
+    "hle": {
+      "total": 2500,
+      "category_counts": {
+        "Math": 1021,
+        "Biology/Medicine": 280,
+        "Computer Science/AI": 241,
+        "Other": 233,
+        "Physics": 230,
+        "Humanities/Social Science": 219,
+        "Chemistry": 165,
+        "Engineering": 111
+      },
+      "category_by_modality": {
+        "Math": {
+          "image": 45,
+          "text": 976
+        },
+        "Biology/Medicine": {
+          "image": 58,
+          "text": 222
+        },
+        "Computer Science/AI": {
+          "image": 17,
+          "text": 224
+        },
+        "Other": {
+          "image": 57,
+          "text": 176
+        },
+        "Physics": {
+          "image": 28,
+          "text": 202
+        },
+        "Humanities/Social Science": {
+          "image": 26,
+          "text": 193
+        },
+        "Chemistry": {
+          "image": 64,
+          "text": 101
+        },
+        "Engineering": {
+          "image": 47,
+          "text": 64
+        }
+      },
+      "answer_type_counts": {
+        "exactMatch": 1909,
+        "multipleChoice": 591
+      }
+    },
+    "terminal": {
+      "total": 89,
+      "category_counts": {
+        "software-engineering": 26,
+        "system-administration": 9,
+        "security": 8,
+        "scientific-computing": 8,
+        "data-science": 8,
+        "debugging": 5,
+        "file-operations": 5,
+        "mathematics": 4,
+        "data-processing": 4,
+        "model-training": 4,
+        "machine-learning": 3,
+        "games": 1,
+        "personal-assistant": 1,
+        "optimization": 1,
+        "data-querying": 1,
+        "video-processing": 1
+      },
+      "difficulty_counts": {
+        "medium": 55,
+        "hard": 30,
+        "easy": 4
+      }
+    },
+    "asi": {
+      "total": 60,
+      "discipline_counts": {
+        "math": 12,
+        "computer_science": 9,
+        "physics": 8,
+        "robotics": 7,
+        "biology": 6,
+        "chemistry": 6,
+        "earth_science": 4,
+        "astronomy": 3,
+        "electrical_engineering": 2,
+        "materials": 2,
+        "biostat": 1
+      },
+      "conditions_per_project": 4
+    },
+    "swe": {
+      "total": 51,
+      "category_counts": {
+        "debugging": 51
+      },
+      "repository_counts_are_coverage_metadata_only": {
+        "ansible/ansible": 8,
+        "internetarchive/openlibrary": 8,
+        "flipt-io/flipt": 7,
+        "gravitational/teleport": 6,
+        "protonmail/webclients": 5,
+        "element-hq/element-web": 4,
+        "future-architect/vuls": 4,
+        "qutebrowser/qutebrowser": 4,
+        "navidrome/navidrome": 3,
+        "NodeBB/NodeBB": 1,
+        "tutao/tutanota": 1
+      },
+      "language_weights": null,
+      "note": "No official per-task language labels; do not invent language percentages. Audit independent candidate language coverage."
+    }
+  },
+  "quota_rule": "largest remainder allocation from fixed target counts at each chosen subset size; group first, keep missing-stratum slots explicit, do not silently fill missing humanities/images/science disciplines with math or biology",
+  "decontamination": "formal exact normalized input hashes exclude whole linked families; formal SWE repository exact filter plus fork/rename review pending; old training-source overlap is grouped, not automatically excluded",
+  "default_output": "ranked metadata-only train/val candidate manifests under ignored artifacts/data/candidates; no raw official questions, answers, patches, tests or teacher commands in tracked files",
+  "training_or_model_calls": false,
+  "new_data_only": true,
+  "retired_sources_provenance": "analysis/source_snapshots/retired_data_sources_20261016.json"
+}

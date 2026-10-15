@@ -846,3 +846,18 @@
 - 直接只读80固定源码locked_mini_swe.py和Harbor mini_swe_agent.py：LockedMiniSwe继承Harbor MiniSweAgent适配器，后者启动mini-swe-agent包。实际模型/bash/反馈循环由mini实现；Locked包装补Python3.12安装适配、内部timeout和结束model.patch捕获，两者组合使用。
 - 明确独立职责：新环境patch replay由PatchReplayAgent/verifier完成，网络phase与资源由Harbor/backend实现，不能把它们都归到LockedMiniSwe类。正式选择仍mini2.4.6/Harbor0.24/LockedMiniSwe，未改变v2预算或harness。
 - 在protocol_swe_review补层次与v2指针；仅源码读取和文档说明，没有执行正式题、模型API、GPU或训练。
+
+## 2026-10-16 03:20：夜间执行获授权并实际启动
+
+- 用户已确认先用新版SWE成功修复候选，授权删除旧版下载数据、全部用新版，睡觉期间持续推进并统一文档记录进展/未决项。此前计划/暂停状态已过期；rank/alpha/targets/window仍未定，不正式SFT或GPU反向。
+- 统一入口analysis/overnight_progress_20261016.md；本线程heartbeat ACTIVE/id apex/每30分钟，首段至11:30交接。三子任务SWE/Terminal/学术ASI实跑，root集成；不另建用户聊天或向其他会话发消息。API分支10+20元，总30元上限。
+- 80精确删除旧qwen36_27b39片、旧Terminal/OpenScience/OpenR1/D3共81文件25,054,619,487B；新SWE16片与同族映射保留，benchmark/模型未动。默认下载清单切新版，历史manifest归档provenance，删除receipt已存。
+- SWE600已选清理计长，固定official repo_language纠正JS/TS代理误配；native parser/observation通过，但源末次echo+cat与目标提交契约不同，迁移中未release。TerminalHorizon新版Pro/Terminus2有原环境，但无逐条reward、长轨迹/Compose构建待验。学术100代理dev有gold但无图像且难度/MCQ偏离；补缺新Pro答案按gold验。NatureBench科研来源仍hold，不凑ASItask数。
+- Slurm724196实际2H100/16CPU/128GiB/ACD1-61/8h，emergency_acd/formal-user；未动722434。HLE薄runner离线2500输入与目标Python3.12假HTTP的断点/超限/失败不重答通过；80合成验收PID2027170待结果，通过后完整正式生成，当前正式0。单服务先HLE，其余benchmark工程在另一获授权会话并行准备，不能同时正式抢服务。
+
+## 2026-10-16 03:38：划分状态核对及继续执行
+
+- 用户核对划分后明确继续。SWE500train/100val已落盘、repo/family/text交叉0；target-contract600副本/可逆ledger/mini终止fixture已产出，环境及/testbed/patch动作仍待验，未training release。
+- 03:36核学术val100、现有新源train339＋新Pro已接受117=456候选，教师生成继续；不是四域全部ready。Terminal1535标注近完成，但数学/查询/debugging供给不足，待实际分层split；ASI仍缺独立600任务且新源协议/GPU成本不适配，不凑数。总入口持续更新。
+- HLE真实8条图文、精确57344边界/57345拒绝与8近边界并发通过；完整8K压测约15token/s，预计超300s，不改正式HLE300s或8Kcap。将把完整cap诊断与正式deadline分别验收。
+- 已读另一授权会话新开ASI724241/Terminal724242，和本HLE724196共6卡，单服务端口独立；不重复起服务或干预其自有脚本。HLE正式runner加入本服务块flock/owner记录，固定答卷与失败不自动重答。

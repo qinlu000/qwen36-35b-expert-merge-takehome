@@ -1,0 +1,43 @@
+{
+  "completed_at_utc": "2026-10-15T19:23:38.009527+00:00",
+  "host": "10.123.4.80",
+  "removed": [
+    {
+      "path": "artifacts/data/raw/open_swe/1db674173119d71df45c22007af99e214600711a/data/minisweagent/qwen36_27b",
+      "files": 39,
+      "bytes": 3986347543,
+      "absent_after": true
+    },
+    {
+      "path": "artifacts/data/raw/terminal_corpus/a1667c4ffdadea02a89bffe4f1bb7ca2ff19f8d9",
+      "files": 27,
+      "bytes": 3139375074,
+      "absent_after": true
+    },
+    {
+      "path": "artifacts/data/raw/open_science/174b02c9cdf231f220765b2a1d5ece4550921894",
+      "files": 2,
+      "bytes": 15706817460,
+      "absent_after": true
+    },
+    {
+      "path": "artifacts/data/raw/openr1_math/e4e141ec9dea9f8326f4d347be56105859b2bd68",
+      "files": 11,
+      "bytes": 2149903045,
+      "absent_after": true
+    },
+    {
+      "path": "artifacts/data/raw/d3_gym_32b/b21b5006956d7d246cf3e35277b13323780a45b2",
+      "files": 2,
+      "bytes": 72176365,
+      "absent_after": true
+    }
+  ],
+  "removed_files": 81,
+  "removed_bytes": 25054619487,
+  "new_swe_files_retained": 16,
+  "new_swe_bytes_retained": 3653370550,
+  "family_mapping_retained": true,
+  "provenance_metadata_dir": "artifacts/data/_metadata/retired_sources_20261016",
+  "benchmark_and_models_touched": false
+}
