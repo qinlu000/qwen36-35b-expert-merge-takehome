@@ -517,3 +517,10 @@
 - 用户说明没有sudo；不再要求系统安装。80使用项目内Apptainer1.4.5，HPC使用集群模块。140个固定digest的SWE/TB镜像继续缓存与同步；CPU/RAM实测有余量后，预取已安全提升至8worker，保留旧日志与已完成layer/SIF。
 - ASI OpenCode模型配置原来默认无图片输入，已补attachment/modalities；断网真实OpenCode解析与官方adapter合并检查通过，无模型调用。SWE/TB真实镜像检查发现硬编码Python路径、apt的_apt降权和多UID ownership问题，正在使用只读启动hook与官方用户态fakeroot机制修复，不能把包安装或SIF缓存冒称完整正式runtime验收。
 - 修复GPU检查的Slurm CUDA序号/NVML物理序号混用，改用Torch设备UUID并记录映射；候选TP2/4参数的CPU解析通过。完整权重后已提交四卡/16CPU/192GiB/30min合成GPU作业723633，acd_ue，当前排队；未运行正式题或训练。详细状态见analysis/environment_setup_status.md。
+
+## 2026-10-16：明确重申训练—评测一致性优先
+
+- 用户澄清核心疑问：训练轨迹sandbox应与最终四项benchmark的环境足够相近，评测harness也最好与对应轨迹一致，减少SFT学到不适用的操作习惯。承认此前过度强调可迁移/可复用，没有将此要求放在首位；不将其说成仅需格式转换或离线SFT能读入。
+- 将环境/harness一致性写为主训练数据资格前提：核工具/观察/提示/状态/结束、依赖与初始化、权限/网络/资源；在题面允许范围内优先按轨迹选择同源评测agent。TB遵循题定Terminus2，其他agent在正式Base前可重审原候选，不为保留OpenCode实现强行使用不匹配轨迹。
+- 同项Base/专家/合版在冻结后统一harness；四项分别对齐，不要求四项共用一个。未验兼容样本不升主数据，D3静态程序暂仅辅助候选，ASI主交互数据需匹配组合或真实补采。更新trajectory_sandbox及harness_compatibility首要结论，不改变正式任务/镜像/评分或启动训练。
+- 本轮仅记录用户约束与修正方案优先级，保留另一工作流所有环境/模型smoke修改；无额外联网、任务/API/GPU调用、安装或配置变更。
