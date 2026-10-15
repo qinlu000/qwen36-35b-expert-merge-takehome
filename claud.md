@@ -514,7 +514,7 @@
 ## 2026-10-16：Base完整校验与无sudo环境适配
 
 - 固定Base revision的40文件/71,926,865,825B已在80和HPC完整落盘，分别验证LFS SHA-256、小文件Git blob SHA-1，以及26个safetensors分片/1,045张量与固定index一致，failures为空。HPC最终回执00:25:55；关闭本次43873只读传输服务并清理6.66GB重复断点，保留失败日志。
-- 用户说明没有sudo；不再要求系统安装。80使用项目内Apptainer1.4.5，HPC使用集群模块。140个固定digest的SWE/TB镜像继续缓存与同步；CPU/RAM实测有余量后，预取已安全提升至8worker，保留旧日志与已完成layer/SIF。
+- 用户说明没有sudo；不再要求系统安装。80使用项目内Apptainer1.4.5，HPC使用集群模块。140个固定digest的SWE/TB镜像继续缓存与同步；CPU/RAM实测有余量后，预取已安全提升至8worker，保留旧日志与已完成layer/SIF。大型镜像进入压缩后，后续builder的mksquashfs从2调至4CPU/1GiB，不重启在途拉取。
 - ASI OpenCode模型配置原来默认无图片输入，已补attachment/modalities；断网真实OpenCode解析与官方adapter合并检查通过，无模型调用。SWE/TB真实镜像发现Python路径、apt降权/ownership、系统Python替换server解释器的问题，已用项目只读hook与官方用户态fakeroot适配；80以官方IGNORE_SUBUID选root-map模式，不改系统helper。两端真实TB镜像约52秒完成Harbor/两次exec/tmux/asciinema/停止合成闭环；另一次上游60秒冷启动超时有收尾缺口，已清理并保留失败证据。全量SIF、SWE phase网络、ASI隔离与正式资源仍待完成，不能把首例成功冒称全部ready。
 - 修复GPU检查的Slurm CUDA序号/NVML物理序号混用，改用Torch设备UUID并记录映射；候选TP2/4参数的CPU解析通过。完整权重后四卡作业723633的排队预测延后，确认仍PENDING后取消、未占GPU；改提交acd_ue两卡/16CPU/128GiB/30min合成作业723673，当前排队，不代表正式资源配置冻结。未运行正式题或训练，详见analysis/environment_setup_status.md。
 
@@ -524,3 +524,12 @@
 - 将环境/harness一致性写为主训练数据资格前提：核工具/观察/提示/状态/结束、依赖与初始化、权限/网络/资源；在题面允许范围内优先按轨迹选择同源评测agent。TB遵循题定Terminus2，其他agent在正式Base前可重审原候选，不为保留OpenCode实现强行使用不匹配轨迹。
 - 同项Base/专家/合版在冻结后统一harness；四项分别对齐，不要求四项共用一个。未验兼容样本不升主数据，D3静态程序暂仅辅助候选，ASI主交互数据需匹配组合或真实补采。更新trajectory_sandbox及harness_compatibility首要结论，不改变正式任务/镜像/评分或启动训练。
 - 本轮仅记录用户约束与修正方案优先级，保留另一工作流所有环境/模型smoke修改；无额外联网、任务/API/GPU调用、安装或配置变更。
+
+## 2026-10-16：按构建方式与公开harness代码确认复用路线
+
+- 用户进一步明确检查方法：环境主要比较轨迹sandbox如何构建及与benchmark是否相似；harness主要查有无公开代码能直接复用。分别取证，不再把NVIDIA完整批量collector未公开混同为没有标准harness，也不只重复抽象一致性要求。
+- SWE已核mini v2.4.6官方tag a83fcae82d2a08f0ee0c688f9d137b3566c097f8；DefaultAgent/actions_toolcall与80已装包SHA相同。现成Agent/LiteLLM/bash/环境、HarborMini、官方LockedMiniSwe/PatchReplay可直接复用，新增仅端点/版本/任务image-base-cwd-setup适配，不重写agent。
+- Terminal已核固定Harbor内置Terminus2/parser/tmux/Chat/LiteLLM/registry/CLI，公开代码完整，能复用标准主干；环境构建/文件恢复和Apptainer backend与agent层分开。缺原批量采集launcher不阻断此代码复用，仍需模型端点与环境验收。
+- ASI新核官方DirectLLMAdapter：官方prompt单次生成完整Python、提取代码、在原sandbox执行并收集产物交原grader，与D3静态监督更接近。它仍执行科学程序，但无模型探索/读stderr后修复，当前仅文本prompt无图片附件；还需生成参数/总deadline接线。将D3+direct_llm列为匹配候选，与OpenCode在独立dev/工程成熟度上比较后正式前冻结；纠正‘D3无条件只能辅助/必须补多轮’的过早限制，未改变现行配置或官方任务/评分。
+- 环境构建比较：SWE均为仓库Docker环境+初始checkout/项目依赖，Terminal均为Harbor Dockerfile+输入文件，D3/ASI均科学Python依赖与程序产物；结构相似与具体初始化/权限/网络待验分开。HLE复用官方生成client，图文/模板与参数接线另核。
+- 新建harness_reuse总表及SWE/Terminal/ASI-HLE三份短代码清单，更新sandbox/harness主结论与ASI问题项。只读固定源码/环境资料和版本，无模型/付费API、任务/容器、GPU、安装或runtime修改；保留另一工作流全部WIP。

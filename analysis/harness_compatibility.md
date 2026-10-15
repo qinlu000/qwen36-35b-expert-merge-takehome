@@ -4,13 +4,13 @@
 
 ## 结论与当前取舍
 
-用户明确以训练—评测环境及harness一致性为主训练数据资格前提，详见[sandbox方案约束](trajectory_sandbox.md)。SWE和Terminal现有行为协议接近证据，只支持优先核验；还须通过sandbox和交互协议验收才进入主训练清单。题面允许范围内优先按轨迹选择同源评测harness，不固守此前候选实现；该项正式Base前确定并冻结。D3适合辅助科研程序SFT，尚不能充当OpenCode多轮执行示范。仍没有最终可直接开训的manifest，清洗/重采取舍以一致性要求为先。
+用户明确以训练—评测环境及harness一致性为主训练数据资格前提，详见[sandbox方案约束](trajectory_sandbox.md)。SWE和Terminal现有行为协议接近证据，只支持优先核验；还须通过sandbox和交互协议验收才进入主训练清单。题面允许范围内优先按轨迹选择同源评测harness，不固守此前候选实现；该项正式Base前确定并冻结。D3尚不能充当OpenCode多轮示范，但已有更接近其静态程序监督的官方direct_llm可复用候选，故不预先限定其只能辅助。仍没有最终可直接开训的manifest，清洗/重采取舍以一致性要求为先。[环境构建与代码复用盘点](harness_reuse.md)
 
 | 方向 | 实际检查得到什么 | 可复用方式 | 仍需处理 |
 | --- | --- | --- | --- |
 | SWE / Open-SWE → LockedMiniSwe | 39分片分层检查624条，37,024次调用均为单个bash(command)，观察为JSON，与目标同族 | 规范化JSON arguments与空字段；非终止单调用可根据严格相邻顺序恢复返回关联；保留源任务上下文训练 | 源提示额外要求patch.txt及echo后cat补丁，不能盲换目标prompt；末尾提交无工具结果不应伪造结果；分组去污染、长度/监督mask与目标端点仍待验 |
 | Terminal / Corpus → Terminus-2 | 26分片共139,841行元数据；260条有界结构样本，动作、持续终端和观察模板同族 | 将额外teacher think与实际动作JSON分开；使用原生parser标注动作可解析性，保留协议字段 | 2,058条采样assistant消息去显式think后1,930条可解析，128条仍报错；不能整池不筛选直接监督，也不能将可解析率当成功率 |
-| ASI / D3 → OpenCode | D3只有instruction/input/output；OpenCode实际使用多轮工具调用与返回 | D3可作为静态科研推理/程序辅助数据；真实交互缺口在独立任务上补采 | 缺少工具调用、观察、错误恢复；当前OpenCode自定义模型还未声明图片输入，需修正能力声明并验收图片工具回路 |
+| ASI / D3 → 待选生成/执行harness | D3是静态程序；官方direct_llm为一次生成后真实执行，OpenCode为多轮工具 | 优先比较D3+direct_llm的匹配路线与OpenCode路线；选择OpenCode时D3仍作程序辅助 | direct_llm需生成参数/总deadline接线且无多轮与模型图片观察；OpenCode需工具过程数据。图片能力声明已由环境工作流补齐，真实端点仍未验 |
 | HLE / 学术QA → 固定问答客户端 | 无终端状态协议；自造Explanation/Answer/Confidence和图片占位符可渲染 | 保留可见解释与答案，按选定thinking配置处理发布的teacher推理 | 文本QA不自动补齐图像能力；原题来源/答案质量与真实图片HTTP通路仍待验 |
 
 SWE样本按分片、语言和上游resolved标签确定性选择，Terminal为每片前10条；二者都不是随机质量抽样，不能外推整库错误率或模型成绩。源码与统计详见[SWE](harness_compatibility_swe.md)、[Terminal](harness_compatibility_terminal.md)、[ASI/HLE](harness_compatibility_asi_hle.md)。
@@ -38,7 +38,7 @@ SWE样本按分片、语言和上游resolved标签确定性选择，Terminal为�
 1. 先按原任务/仓库/模板族跨任务包和轨迹联合分组，排除正式评测同源，固定dev；Terminal同ID不同题面不能自动合并为同一个可执行环境。
 2. SWE保留可核的单调用链与源上下文，完成序列化规范化；不编造末尾工具结果，也不直接覆盖源prompt。Terminal保留合法动作结构，将未解析消息和终局未知单列；错误恢复可保留为上下文，是否监督错误动作需在训练配方中明确。
 3. 若采用非思考设置，显式规范化外层teacher推理；保留工具协议的analysis/plan和可见Explanation。按完整交互边界处理长度，核processed/supervised token与loss mask，不硬截断JSON动作。
-4. D3暂不冒充OpenCode轨迹；先恢复少量独立科研任务，真实记录工具调用和反馈。图片能力声明按固定OpenCode源码修正并做自造图片读工具端点检查，暂未更改当前运行配置。
+4. D3不冒充OpenCode轨迹；先比较官方direct_llm与OpenCode代码复用和数据匹配，再冻结ASI路线。若选多轮执行，再恢复少量独立科研任务补真实工具过程；若选direct_llm，补生成参数/总deadline与产物接线。真实文本/图片/工具端点按所选路线验收。
 5. 由实际Base独立dev和净可用数据量决定补采比例；不为了版本名全量重采，不把解析或模板通过写成执行成功。本轮未开始SFT、正式全量Base或大规模teacher采集。
 
 ## 清洗还是重采：先分清环境差异

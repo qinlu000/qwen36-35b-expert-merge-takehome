@@ -24,7 +24,7 @@
 | P1 | Terminal没有逐行resolved/result，2条结构样本未见task_complete=true；Open-SWE有成功/失败/未知标签 | 不能把全部轨迹写成验证成功，也不能从2条推断整库失败 | 按可追溯元数据定义质量选择，保留有用纠错过程；先明确终局未知如何标注，不伪造success |
 | P1 | Open-SWE同repo/instance多轨迹重复；全39片95,291行对应39,540个不同(repo,instance_id)组合；详情见artifacts/data/audits/swe_metadata.json | 随机按行切dev会泄漏同任务；exact repo排除不覆盖fork、改名、PR同源 | 按canonical repo+instance/PR任务族联合分组去重；11个SWE Pro repo排除规则已保存，后续补fork/lineage |
 | P1 | D3实际仅instruction/input/output，没有task_id、repo、逐行license或成功字段；OpenScience仅input/output/expected_answer | 无法仅凭总数据卡许可完成逐条来源过滤；现成D3不是OpenCode多轮数据 | D3暂作科研程序候选，来源映射前不宣称完成许可/ASI同源清洗；OpenScience保留固定行/hash及recipe，说明溯源局限 |
-| P1 | ASI推荐内置opencode_cli可接自部署Qwen；采样/总token/步数、thinking replay、host HOME隔离未实际核实 | 同一benchmark预算与多轮协议不能只靠CLI默认值保证 | 固定OpenCode版本后用自造文件任务检查调用和产物；明确预算与隔离，不为D3静态数据选择单次生成替代主agent |
+| P1 | ASI原生OpenCode与direct_llm均有可复用代码；D3静态程序更接近后者，前者提供多轮与图文工具行为 | 主harness选择应同时考虑数据匹配与能力；direct_llm生成参数/总deadline未接齐，OpenCode端点/预算/隔离仍需验收 | 正式Base前基于独立dev与工程成熟度比较冻结，不能预先锁OpenCode再要求全池重采，也不能仅为名字一致忽略多轮/图片能力。代码入口见harness_reuse.md |
 | P1 | HLE自造图文processor已过；DeepSeek判分JSON mode第一版漏strict，明确完整例子后8/8通过 | processor成功不等于模型图文服务；合成8例不等于科学题校准或官方Judge等价 | 仍需真实模型HTTP图文/usage检查；DeepSeek若用于主结果，明确为本实验Judge并扩展独立样例校准，不能依据正式HLE反馈改prompt |
 
 ## 已解决或已有明确路径
