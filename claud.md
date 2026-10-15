@@ -539,3 +539,13 @@
 - direct_llm在本项目语境指ASI官方的单次程序生成adapter：任务与数据说明送给模型一次，模型输出完整Python，runner在sandbox执行并收集文件，交原官方评分器。仍可使用本地Qwen，不表示必须调用付费API。
 - 与OpenCode的读文件、运行、观察报错、修改代码多轮流程区分；direct_llm仍真实执行程序，但模型不根据执行反馈修复。D3完整程序监督与此形式更接近，效果与环境兼容仍待验证，目前只是候选，未切换配置或启动任务。
 - 本轮仅解释已有源码结论并记录，无训练、模型/API调用或运行环境变更，保留其他工作流修改。
+
+## 2026-10-16：数据、工程、算法与评测的联网方法调研
+
+- 用户要求从网上找当前任务各方面可参考的方法。实际联网核验作者论文、数据卡、官方源码与文档，新建总报告 `analysis/research_web_methods_20261016.md`，以及 data/algorithms/engineering_eval 三份同日期专项笔记；仅研究文档，未改变配置、训练范围或正式评测协议。
+- 整体路线参考同Qwen3.6底座的Occamy；T-pro共享SFT接近领域SFT的反证支持保留同数据Mixed，不预设分专家SFT合版更优。AgentTuning借鉴能力保留与held-out检查，不直接加入其旧数据或RL阶段。
+- 数据侧核验Open-SWE/Nemotron包含未成功轨迹的消融，但样本数/token混杂，不能推出本项目必须no-filter；优先保留完整成功轨迹内的有效恢复。新增SWE-Prime的保留上下文/选择监督思路，局部mask仅为有条件候选，不同比节省processed token。D3完整程序与ASI direct_llm更相近，但当前adapter只给文本prompt、不附模型图片；上游许可、任务映射及评分材料隔离仍需核对。
+- 合版侧明确真实更新为scaling×B@A；PEFT linear/ties是因子空间，不等价dense AVG/TIES，cat可精确表达AVG。TIES逐张量/global trim、disjoint mean权重、scale和平票语义须执行前固定；SVD重压缩与秩容量差异需披露，保持当前候选模块范围，不盲套all-linear或扩训routed参数。
+- 工程侧新增固定Harbor resume可能删除旧trial的证据，建议恢复前归档attempt/usage；vLLM当前文档提供Qwen3.6 MoE LoRA例子，但2D/3D布局、parser、实际安装版本仍需验收。root-map、资源限额、网络分别核查；同项模型采用同调度政策，避免排队挤占行动预算。
+- 评测侧建议保留固定分母、配对任务簇区间（TB89×5、ASI60×4）、分项退化、接口/环境失败及成本；替代Judge需独立人工可核文本/科学图文校准，图像/JSON接口成功不等于官方评分等价。主报告已做数据与工程专项交叉审阅，建议与已冻结/已完成状态分开。
+- 本轮未执行模型、任务、容器、训练、正式评测或付费API，未安装/下载实验依赖；保留其他工作流正在修改的脚本、状态文档和logs，仅将本轮研究笔记与本节纳入Git。
