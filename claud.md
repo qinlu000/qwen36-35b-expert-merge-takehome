@@ -425,6 +425,14 @@
 - ACD CPU-only sbatch test被集群拒绝；为容器检查曾提交本项目1GPU/2CPU/4GB/5min作业723418，后因已有更轻量Apptainer方案仅取消此自建作业（当时刚启动于ACD1-14），未执行GPU计算，未影响原作业722434。无80 GPU使用。
 - 80的rootless Docker缺uidmap且无免密sudo，用户已说明无管理员权限，未继续系统安装。HPC已查登录节点和ACD1-13无Docker/socket；当前实际采用集群提供的Apptainer能力继续配置，不把Docker与Singularity混称。
 
+### 环境安装后续验收
+
+- ASI的657个agent-facing输入文件与45/45组任务依赖已到齐，覆盖60项目/240条件；独立科学库、ngspice和CPU Torch自造算例通过，未下载reference或执行正式题。HPC独立Base runtime 184包已锁，图文CPU检查通过；18GB运行SIF重算SHA-256与既有回执一致。
+- Harbor自造start/两次exec/stop闭环通过；官方停止流程遇到集群launcher的子服务残留，项目19行子类先调用官方/shutdown后再stop，端口关闭验收通过。Harbor原生module:Class入口和JSON import_path均已离线验证，不修改固定上游源码。
+- 80已在项目目录解包官方非suid Apptainer1.4.5并校验发布SHA，无sudo。140个固定amd64 digest镜像正在缓存为SIF，TB优先，实际并发4；独立只读43874服务仅向HPC登录IP同步SIF。镜像回执持续更新，尚未把预拉进行中写成全量runtime通过。
+- 新增4GPU/16CPU/192GB/30min的Base自造GPU检查脚本及项目私有模型服务key，key未输出或提交；仅prepare-only与语法/模块初始化验证已执行，尚未提交GPU检查。权重完整且HPC最终校验通过后再运行。
+- 依赖、版本、脚本与阶段状态已提交并推送lab bare仓库；80原有未提交协议/文档继续保留，未reset/pull覆盖。SWE phase网络、ASI文件/网络隔离、正式资源与Judge adapter仍需独立验收，不把软件安装完成等同正式可一键跑分。
+
 ## 2026-10-15：整理四项评测协议与完整ID
 
 - 用户要求先解决评测协议。并行核固定官方SWE/TB/ASI框架、模型卡及HLE通用预测/评分源码；保存四份protocol_*审计、主evaluation_protocol.md与configs/eval/protocol_v1.json。规范是可审阅设计，不是已验收原生runner配置，不写训练/评测实现或启动正式题。

@@ -12,7 +12,10 @@ while true; do
     if [[ -f "$APEX_MODEL/download_receipts.json" ]] && \
         "$APEX_PYTHON" -c 'import json,sys; sys.exit(not json.load(open(sys.argv[1]))["complete"])' \
         "$APEX_MODEL/download_receipts.json"; then
-        "$APEX_PYTHON" "$APEX_ROOT/scripts/download_base.py" --output "$APEX_MODEL" --workers 2
+        rsync -rt --partial --append-verify --size-only \
+            --exclude='*.part' --exclude='*.aria2' \
+            rsync://10.123.4.80:43873/apex-base/ "$APEX_MODEL/"
+        "$APEX_PYTHON" "$APEX_ROOT/scripts/download_base.py" --output "$APEX_MODEL" --workers 2 --check-only
         break
     fi
     sleep 30

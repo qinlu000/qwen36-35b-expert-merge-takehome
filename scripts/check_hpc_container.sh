@@ -2,6 +2,9 @@
 # Run with sbatch; no benchmark content or model calls are involved.
 set -euo pipefail
 : "${SLURM_JOB_ID:?Submit this check through Slurm}"
+source /etc/profile.d/modules.sh
+module use /data/modulefiles/opensource
+module load apptainer/1.4.5
 APEX_ROOT=${APEX_ROOT:-/data/user/qinlucao/projects/apex-takehome}
 APEX_IMAGE=${APEX_IMAGE:-/data/user/qinlucao/software/containers/hpc-benchmarks_24.09.sif}
 APEX_CHECK_DIR="$APEX_ROOT/artifacts/preflight/container-$SLURM_JOB_ID"

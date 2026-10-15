@@ -91,9 +91,14 @@ def main():
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--workers', type=int, default=4)
     parser.add_argument('--aria2', type=Path, help='On a host with direct HF CDN access, use segmented LFS downloads')
+    parser.add_argument('--check-only', action='store_true', help='Require every final file; never download missing files')
     args = parser.parse_args()
     source = json.loads(args.manifest.read_text())
     args.output.mkdir(parents=True, exist_ok=True)
+    if args.check_only:
+        missing = [item['path'] for item in source['files'] if not (args.output / item['path']).is_file()]
+        if missing:
+            raise SystemExit('Missing final files: ' + ', '.join(missing))
     results, failures = [], []
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         futures = {pool.submit(download, source, item, args.output, args.aria2): item for item in source['files']}

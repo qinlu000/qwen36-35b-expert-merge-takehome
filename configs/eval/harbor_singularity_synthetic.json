@@ -1,0 +1,16 @@
+{
+  "job_name": "synthetic-singularity-config-only",
+  "jobs_dir": "artifacts/preflight/swe_tb/jobs",
+  "n_attempts": 1,
+  "n_concurrent_trials": 1,
+  "retry": {"max_retries": 0},
+  "environment": {
+    "type": null,
+    "import_path": "apex_singularity:ApexSingularityEnvironment",
+    "kwargs": {
+      "singularity_image_cache_dir": "artifacts/preflight/swe_tb/synthetic-harbor/cache"
+    }
+  },
+  "agents": [{"name": "nop"}],
+  "datasets": [{"path": "artifacts/preflight/swe_tb/synthetic-harbor"}]
+}
