@@ -149,3 +149,14 @@
 - 用户明确选择ms-swift，已将PROJECT_PLAN与简化方案状态更新为框架已确认，训练按ms-swift + PEFT / BF16 LoRA路线规划。Dressage不作为训练运行依赖，Unsloth不再与主线并列待选。
 - 此选择仅确认训练框架；专家分工、数据清单与预算、LoRA目标/rank、合版候选和正式评测资源仍待整体讨论定稿，具体版本与ZeRO-3配置尚未实测锁定。
 - 保持先规划不写实验代码的既有要求。仅修改方案与本记录，未安装依赖、下载模型/训练数据、调用模型API或启动训练/评测。80主开发、HPC四H100计算、本机编辑查看的分工保持。
+
+
+## 2026-10-15：调研数据来源并修订专家划分建议
+
+- 按用户要求使用research流程，三路并行核验修复数据、科学推理/执行池和专家训练参考，主线核终端数据并综合为 `analysis/data_expert_recommendation.md`（v3）。新增三份数据专项及专家划分笔记，PROJECT_PLAN/旧v2顶端注明新旧优先级。
+- 新建议按行为划三专家：E-code→SWE，E-exec→TB+ASI，E-reason→HLE，替换早期E-science兼顾HLE+ASI；exec内保留科研子预算与独立dev。三专家+一次混训、累计6M processed token预算暂不扩大，拟分0.9/1.2/0.9M，混训3M；只是待讨论起点。目标全评总量不因划分改变。
+- 修复主审计候选升级为NVIDIA Open-SWE-Traces v1.1 mini/Qwen3.6轨迹，具有repo/license/language/instance/messages/tools/resolved；上游SWE-rebench-V2明确仅排旧SWE-bench，Scale-SWE也仅声明排Verified，故本题Pro关联需自行排除。SWE-smith新多语言发布只有任务环境，不是现成轨迹；旧traj只作补充。
+- 执行主候选为Terminal Corpus skill-based；scientific_computing/data_science可按固定文件目录选择，但不是独立config，也没有原生domain/resolved字段。OT-Agent-SFT-100K SuperUser为可选补充，实际API当前返回94334行而卡称100K，未下载核差异。
+- 推理主候选为OpenScienceReasoning-2（CC BY4，跨STEM/人文等，有长CoT），数学沿用少量OpenR1。OpenScience缺逐题来源/正确性标签，作者多数投票不是独立证明；文本训练不代表已覆盖HLE图像。OpenThoughts/OpenMath TIR留备选，MegaScience暂不作主源。
+- 参考Occamy互补分支、OT-Agent来源/多轮消融、T-pro shared/domain SFT对照与Nemotron过滤/混合结果；不把论文大规模全参或RL结果外推成本项目LoRA收益。保持同数据混训、任务组切分、四类独立dev和正式结果不选参。
+- 仅查询公开论文、数据卡、文件索引和schema/版本元数据，未读取正式答案/补丁/隐藏测试、下载Parquet或权重、写实验代码、安装、调用模型API或启动训练/评测；全部候选尚未做逐行污染/许可审核、格式转换或实际token统计。

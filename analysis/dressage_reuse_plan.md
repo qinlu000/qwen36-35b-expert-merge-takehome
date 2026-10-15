@@ -2,6 +2,8 @@
 
 状态：用户已确认训练框架采用ms-swift + PEFT（BF16 LoRA）；其余设计继续讨论，未批准恢复实验代码或执行。2026-10-15约18:32 CST，按最初约15:20的71h倒计时估计，保留最后12h后，核心时间约55–56h；真实截止以平台倒计时为准。本稿更新初稿的12M token与6候选预算，其余题面硬要求不变。数字是预算起点，不是吞吐实测或提升承诺。
 
+最新数据与专家分工见[数据方案v3](data_expert_recommendation.md)：建议E-code→SWE、E-exec→TB+ASI、E-reason→HLE，更新本稿早期E-science→HLE+ASI的映射；仍为待讨论设计。累计6M预算与合版范围不扩大。
+
 ## 1. 主线
 
 借鉴Occamy“同底座、不同专长分支、参数合成一个模型”的结构。采用Qwen3.6-35B-A3B、三个独立SFT LoRA专家、一个同数据混训对照、AVG/TIES两种合版。训练执行用ms-swift，正式评测用各自官方runner。Dressage不作为整套运行依赖。
