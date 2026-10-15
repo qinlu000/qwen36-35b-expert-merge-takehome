@@ -24,3 +24,36 @@ while true; do
     sleep 30
   fi
 done
+
+# Verify the complete transfer against the source's per-SIF receipt.
+python3 - "$APEX_ROOT" <<'PY'
+from pathlib import Path
+import datetime
+import hashlib
+import json
+import sys
+
+root = Path(sys.argv[1])
+cache = root / 'artifacts/benchmarks/sif'
+report = json.loads((cache / '_prefetch_progress.json').read_text())
+manifest = root / 'configs/envs/swe_tb_image_digests.json'
+assert report['manifest_sha256'] == hashlib.sha256(manifest.read_bytes()).hexdigest()
+assert report['status'] == 'complete' and report['failed'] == 0, 'Source download is incomplete'
+assert report['completed'] == len(report['results']) == len(json.loads(manifest.read_text()))
+for item in report['results']:
+    path = cache / item['sif_file']
+    assert path.stat().st_size == item['sif_bytes'], path
+    checksum = hashlib.sha256()
+    with path.open('rb') as stream:
+        for chunk in iter(lambda: stream.read(8 * 1024 * 1024), b''):
+            checksum.update(chunk)
+    assert checksum.hexdigest() == item['sif_sha256'], path
+    alias = cache / item['harbor_cache_name']
+    assert alias.is_symlink() and alias.resolve() == path.resolve(), alias
+receipt = {'complete': True, 'sha256_verified': report['completed'],
+           'manifest_sha256': report['manifest_sha256'],
+           'checked_at': datetime.datetime.now(datetime.timezone.utc).isoformat()}
+output = root / 'artifacts/preflight/swe_tb/sif-hpc-integrity.json'
+output.write_text(json.dumps(receipt, indent=2) + '\n')
+print(json.dumps(receipt))
+PY

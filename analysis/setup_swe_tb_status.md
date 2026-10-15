@@ -32,7 +32,7 @@ Harbor 依赖保持官方 lock；mini 的独立宿主依赖保存在 `configs/en
 - SWE `hard51_ids.txt` 为 51 个唯一 ID，SHA256 `6e35e84708a26443e1746ae928940555a3188654c90f3a2eb691f4f699482bd1`。`artifacts/benchmarks/swe-hard51` 仅以 symlink 物化这完整 51 项。
 - TB 使用固定 Harbor registry 中 `terminal-bench@2.0` 的完整 89 项；`artifacts/benchmarks/terminal-bench-2-registered` 物化完整注册集。检查 89/89 个 `task.toml`：均有预构建 `docker_image`，89 个不同镜像，未发现 `environment/docker-compose.yml` 或 `.yaml`。这是原生 Singularity 的定义兼容检查，尚不代表 89 个镜像均已成功启动。
 - 完整 51+89 个公开镜像已匿名查询 registry：**140/140 tag 均取得 OCI digest**。24 个多架构 index 另查得唯一 linux/amd64 manifest；116 个为单 manifest。首轮一个 GHCR TLS 瞬断，单项重试成功。结果固定于 `configs/envs/swe_tb_image_digests.json`，仅含镜像元数据。
-- 140 个目标 manifest 的压缩层大小累计为 **137,955,104,637 bytes**；此数包含跨镜像重复层，未估算解压后的实际磁盘占用。已启动按固定 amd64 digest 的全量 SIF 预取，TB 优先；2026-10-16 00:32（上海）检查时，80 与 HPC 均有 **81/140 个最终 SIF、0 下载失败、12,778,250,240 bytes SIF**。全量仍在下载和传输，不能标成 140 个已就绪；缓存成功也不等于内部 bootstrap 成功。
+- 140 个目标 manifest 的压缩层大小累计为 **137,955,104,637 bytes**；此数包含跨镜像重复层，未估算解压后的实际磁盘占用。已启动按固定 amd64 digest 的全量 SIF 预取，TB 优先；2026-10-16 01:22（上海）检查时，80 已有 **100/140 个最终 SIF、0 下载失败**，HPC 持续镜像同步。全量仍在下载和传输，不能标成 140 个已就绪；缓存成功也不等于内部 bootstrap 成功。
 
 80 原始检查工件位于 `artifacts/preflight/swe_tb/`：`install_check.json`、`task_image_manifest.json`、`images.txt`、`image_digests.json`、`tb_compatibility.json`、两个 requirements 清单和 CLI help。HPC 同目录保存 `hpc_install_check.json`、CLI help、镜像 digest 副本和自造容器检查记录。
 
@@ -116,7 +116,7 @@ JSON 的等价写法为 `environment.type=null`、`environment.import_path="apex
 - 完整进度与每个产物的 SIF SHA256：`artifacts/benchmarks/sif/_prefetch_progress.json`。先按 manifest digest 保存数据，再创建与固定 Harbor cache 规则一致的原 tag 同名 symlink。只解析 SIF 分区表并哈希二进制，不打开内部任务文件。
 - 对固定公开 layer 的小段压缩字节做网络吞吐检查：GHCR CDN 直连约 3.51 MB/s、经代理约 1.96 MB/s，因此 ghcr.io 与 pkg-containers.githubusercontent.com 在下载进程中加入 NO_PROXY。Docker registry/CDN 直连不稳定，继续使用代理。此测试没有解压或查看文件内容，也不承诺整套下载的固定时长。
 - 80 独立只读 rsync：`10.123.4.80:43874/benchmark_sif`，仅导出 `artifacts/benchmarks/sif`，只允许 HPC 登录出口 `10.120.48.33`；未修改 Base 的 `43873` 模块或路径。配置与 PID 位于 `artifacts/preflight/swe_tb/rsync-sif.*`。
-- HPC 镜像脚本：`scripts/mirror_benchmark_sifs.sh`，后台 PID 记录于 `artifacts/preflight/swe_tb/sif-mirror.pid`，日志为同目录 `sif-mirror.log`。持续传输本次下载的已完成 SIF；源进度 complete/finished 后再做一次完整 rsync，避免最后镜像在上一轮 file-list 建立后才完成的竞态，然后退出。镜像产物写入 HPC 同相对目录。
+- HPC 镜像脚本：`scripts/mirror_benchmark_sifs.sh`，后台 PID 记录于 `artifacts/preflight/swe_tb/sif-mirror.pid`，日志为同目录 `sif-mirror.log`。持续传输本次下载的已完成 SIF；源进度 complete/finished 后再做一次完整 rsync，避免最后镜像在上一轮 file-list 建立后才完成的竞态，然后对完整manifest逐个核SIF字节、SHA256与alias，只有全部通过才写`complete=true / sha256_verified=140`的`sif-hpc-integrity.json`。新版循环已在旧循环空闲时替换并新启动，PID2266968；不会依赖旧进程重新读取脚本。镜像产物写入HPC同相对目录。
 - 已实传并在 HPC 对首 **15 个 SIF / 515,747,840 bytes** 逐个验证 SHA256 与 80 回执一致。后续新增产物仍在传输。
 - 主线后续在 HPC 对当时全部 **77 个 SIF** 重算 SHA256 并核 alias，均匹配；回执 `artifacts/preflight/swe_tb/sif-hpc-integrity.json`。本轮选中的 build-cython-ext 也另外实际重算 SHA256，与上述回执一致。
 
@@ -129,3 +129,5 @@ JSON 的等价写法为 `environment.type=null`、`environment.import_path="apex
 本轮没有申请 GPU、提交新作业或借用已有 allocation。当前实际分区名为默认 `acd_u`、`acd_ue`、`emergency_acd` 与 `debug`，不是 `ACD`。`acd_u` 最大 7 天、40 节点，`debug` 最大 30 分钟；debug_qos 每用户最多 12 CPU / 1 GPU / 240G / 1 节点，因此不适合冻结协议中单 TB trial 的 32 CPU / 49152 MiB / 3 小时 agent 时限。作业总时限还需覆盖 setup 与 verifier，不能恰好只给 3 小时。
 
 用户默认 account 为 qinlucao，formal-user 与 normal 的 `MaxTRESPU` 均为 **每用户合计** 192 CPU / 16 GPU / 3840G，最多 20 个运行、50 个提交作业；不是每个 trial 的额度，也不是已经可用的资源。本快照已有其他用户作业占用 12 CPU / 1 GPU / 160G，未操作该作业。此前主线的 CPU-only `sbatch --test-only` 被站点 Lua 要求 `--gres=gpu:N`，本轮未重新提交。正式 TB 仍须取得符合协议的实际 allocation 或已获授权的 CPU 资源入口，再决定并发；Singularity kwargs 和宿主 watchdog 不能代替 Slurm CPU/RAM 预留。当前登录节点的合成验收不证明正式 Slurm 调度已完成。
+
+2026-10-16 01:20对四个TB大镜像做30秒双采样：pytorch-model-recovery、hf-model-inference、mteb-retrieve、mteb-leaderboard均持续下载，每项新增81–88MB，约2.7–2.9MB/s；仍处于Fetching OCI image，并未进入压缩。四条连接均到现有进程代理，日志尚未换阶段不等于下载停滞。实际同时有8个pull，保留所有在途大blob。

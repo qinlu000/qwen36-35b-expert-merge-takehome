@@ -1,0 +1,110 @@
+{
+  "started_at_utc": "2026-10-15T17:15:05.786077+00:00",
+  "finished_at_utc": "2026-10-15T17:20:09.176135+00:00",
+  "job_id": "723821",
+  "model_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "passed": true,
+  "startup_seconds": 270.18888789694756,
+  "api_authentication": "enforced",
+  "cases": [
+    {
+      "name": "text",
+      "latency_seconds": 14.62479532789439,
+      "usage": {
+        "prompt_tokens": 21,
+        "total_tokens": 29,
+        "completion_tokens": 8,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "name": "image",
+      "latency_seconds": 0.9571563452482224,
+      "usage": {
+        "prompt_tokens": 91,
+        "total_tokens": 93,
+        "completion_tokens": 2,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "name": "tool_call",
+      "latency_seconds": 2.9781200657598674,
+      "usage": {
+        "prompt_tokens": 305,
+        "total_tokens": 343,
+        "completion_tokens": 38,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "tool_calls"
+    },
+    {
+      "name": "tool_result",
+      "latency_seconds": 1.1701354207471013,
+      "usage": {
+        "prompt_tokens": 367,
+        "total_tokens": 384,
+        "completion_tokens": 17,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "server_returncode": 0,
+  "scope": "Synthetic HTTP/GPU smoke only; no benchmark questions, scoring or training",
+  "scheduler": {
+    "partition": "emergency_acd",
+    "priority": 10023,
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "elapsed": "00:05:07",
+    "gpus": 2,
+    "cpus": 16,
+    "memory_gib": 128
+  },
+  "server": {
+    "vllm": "0.20.2",
+    "torch": "2.11.0+cu130",
+    "transformers": "5.15.1",
+    "dtype": "bfloat16",
+    "tensor_parallel": 2,
+    "max_model_len": 262144,
+    "max_num_seqs": 4,
+    "gpu_memory_utilization": 0.85,
+    "enforce_eager": true,
+    "gdn_prefill_backend": "triton",
+    "moe_backend": "triton",
+    "tool_call_parser": "qwen3_coder",
+    "reasoning_parser": "qwen3",
+    "cache": "Per-job node-local /tmp; logs remain in shared project"
+  },
+  "synthetic_checks": {
+    "text_marker": true,
+    "red_png_32x32": true,
+    "one_add_numbers_17_25": true,
+    "tool_id_matches": true,
+    "answer_after_tool_result_42": true,
+    "authorized_models_http": 200,
+    "unauthenticated_models_http": 401
+  },
+  "gpu": {
+    "model": "NVIDIA H100 80GB HBM3",
+    "driver": "610.43.02",
+    "total_mib_per_gpu": 81559,
+    "ready_used_mib": [
+      70627,
+      70627
+    ],
+    "after_requests_used_mib": [
+      70635,
+      70635
+    ]
+  },
+  "limitations": [
+    "No long-context request or throughput acceptance",
+    "TP4 and formal per-benchmark parameters are not frozen by this smoke",
+    "EXIT cleanup is configured; no independent post-job local-directory deletion receipt"
+  ]
+}

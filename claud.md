@@ -601,3 +601,10 @@
 - SWE虽99.9749%样本动作≤4K，来源成功样本最大单turn5011，故为少量大bash写文件/patch动作保留8K；Terminal约99.8%clean动作≤4K，需独立dev记录少量length截断。D3清后目标max3713不能证明所有ASI完整程序都≤4K；HLE清后训练答案短也不证明正式求解4K足够，保留可见解释空间。题定Terminal正式80K不因开发预算自动更改。
 - 输入预留对应SWE57344=56K、Terminal短档28672=28K、ASI/HLE24576=24K，含模板/图片/工具/历史。只在独立dev统一修订预算，同项全部模型一致；正式个别length失败不额外加token重答。推理输出上限不拿来直接截SFT标签，训练窗口另议。
 - 更新agent_resource_protocol当前表及口径，旧32K/64K讨论作为历史；未改protocol_v1/实际runner、训练、模型/API或任何作业，保留其他工作流WIP，仅文档Git记录。
+
+## 2026-10-16：高优先级Base图文与工具GPU验收通过
+
+- 已用本人账号/formal-user QoS在emergency_acd实际提交，作业723784、723821优先级10023（此前acd_ue为6689）；未修改其他项目722434或使用管理员priority/负nice。默认高优先级配置已用于实际作业。
+- 723727挂项目临时目录后仍在首次NVCC编译阶段超过600秒；随后显式采用已安装vLLM0.20.2原生Triton GDN/MoE并放宽health至1200秒。723784虽成功启动服务/鉴权，但首个文本请求因共享盘Triton缓存文件缺失返回500；保留失败日志，不将其算成功。
+- 723821把所有编译缓存和/tmp改为每作业独立的节点本地XFS临时目录，在2×H100 80GB、TP2/BF16/262144/eager/maxseq4下通过4项自造HTTP：文本标记、32px红图、add_numbers(17,25)调用和同tool ID反馈后回答42。鉴权200/无key401，startup270.19秒，每卡请求后70635MiB；Slurm COMPLETED0:0/5分07秒，服务返回0。安全聚合回执入analysis/source_snapshots/base_gpu_smoke_20261016.json。不是长上下文/吞吐/四卡正式配置验收；没有运行正式题、训练或评分。
+- 用户追问镜像并发，已核实当前实际8个Apptainer pull子进程并发，99/140、0失败；四个6–9GB大TB镜像持续约2.7–2.9MB/s，未卡死，不丢弃在途下载。HPC新镜像同步循环在源全完成后额外rsync并逐个核140份SHA256与alias；全量完成前不冒称全部缓存验收成功。

@@ -61,6 +61,7 @@ def main():
                "--tensor-parallel-size", str(tensor_parallel), "--distributed-executor-backend", "mp",
                "--max-model-len", "262144", "--max-num-seqs", "4",
                "--gpu-memory-utilization", "0.85", "--enforce-eager",
+               "--gdn-prefill-backend", "triton", "--moe-backend", "triton",
                "--enable-auto-tool-choice", "--tool-call-parser", "qwen3_coder",
                "--reasoning-parser", "qwen3", "--no-enable-log-requests"]
     server_env = dict(os.environ, VLLM_API_KEY=key)
@@ -128,7 +129,7 @@ def main():
             process = subprocess.Popen(command, env=server_env, stdout=log,
                                        stderr=subprocess.STDOUT, start_new_session=True)
             started = time.monotonic()
-            deadline = started + 600
+            deadline = started + 1200
             while time.monotonic() < deadline:
                 if process.poll() is not None:
                     raise RuntimeError(f"vLLM exited before health: {process.returncode}")
@@ -138,7 +139,7 @@ def main():
                 except (RuntimeError, URLError, TimeoutError):
                     time.sleep(min(2, max(0, deadline - time.monotonic())))
             else:
-                raise TimeoutError("vLLM was not healthy within 600 seconds")
+                raise TimeoutError("vLLM was not healthy within 1200 seconds")
             summary["startup_seconds"] = time.monotonic() - started
             models = request("/v1/models")
             assert any(item["id"] == "apex-qwen" for item in models["data"])
