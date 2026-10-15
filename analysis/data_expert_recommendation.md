@@ -6,6 +6,8 @@
 
 专项证据：[修复数据](data_swe_sources.md)、[终端数据](data_terminal_sources.md)、[科学数据](data_science_sources.md)、[专家划分参考](expert_partition_research.md)。本稿的比例、抽样和dev方案均为工程/研究判断，不能当作论文已证实的最优配方。
 
+2026-10-16补充：近期教师候选见[新轨迹调查](latest_trajectories_20261016.md)，小规模选样与修正后的量级建议见[训练数据预算](sft_data_budget_20261016.md)。下文6M累计配额保留为旧pilot方案；当前讨论起点为约15M一次性完整序列token、专家与同数据Mixed各一遍约30M累计processed token，窗口重复另计。尚未冻结新配额或切换实际数据源。
+
 ## 1. 已确认的三专家，按行为与产物区分
 
 | 专家 | 学习行为与主要产物 | 主要正式目标 | 数据管道 |
@@ -96,7 +98,7 @@ OpenScienceReasoning-2作者提供了[问题合成、推理生成与多数投票
 
 ## 3. 预算起点，先按token而非样本数
 
-在既有累计6M processed token讨论预算下，建议暂分：
+以下为旧累计6M processed token的pilot配额；最新规模建议与吞吐条件见[训练数据预算](sft_data_budget_20261016.md)，不能将此表视为已确定的充分训练量：
 
 | 对象 | processed token起点 | 内部约束 |
 | --- | ---: | --- |
