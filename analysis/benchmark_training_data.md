@@ -15,6 +15,20 @@ SWE 与 Terminal 有目标行为很接近的公开交互轨迹；HLE 有作者�
 
 各项更完整的候选、固定revision与协议证据：[SWE](benchmark_training_swe.md)、[ASI](benchmark_training_asi.md)、[Terminal](benchmark_training_terminal.md)。已有四组下载版本仍以根目录data_sources.json为准；本次不自动加候选或更换版本。
 
+
+## 与目标harness是否一致：尚未完成完全匹配验收
+
+当前不能将本清单称为“已经匹配目标harness的训练集”。框架同名、工具名称相同或研究目标相关，都不足以证明模型可见协议一致。
+
+| 项目 | 当前证据等级 | 未解决的问题 |
+| --- | --- | --- |
+| SWE | mini同谱系；SI2CA明确bash(command) | 精确mini版本、system prompt、shell状态、观察模板/截断、提交动作未逐项核齐 |
+| TB | Nemotron采集与目标同属Terminus2，匹配证据最强 | 未确认同版本、同模板、同观察/结束规则；未读实际消息完成核对 |
+| ASI | D3是科研推理与最终程序，尚非同协议多轮轨迹 | 目标adapter未锁；若选多轮CLI，静态程序解答不能替代工具交互 |
+| HLE | 静态无工具问答，不涉及终端动作协议 | 需适配目标模板/thinking/答案表达；文本池仍缺图像覆盖 |
+
+直接模仿的主训练轨迹应优先验证动作、观察、状态与结束语义相容；只有序列化差异且不改变这些语义时才机械转换。存在真实协议差异的数据可保留原上下文作辅助迁移，但不能冒充目标原生示范。不同版本不自动代表不可用，同框架也不自动代表匹配。正式评测始终在同一benchmark内对所有模型锁定同一harness。
+
 ## SWE：新增备选的取舍
 
 SI2CA standard的工具字段比Open-SWE卡片更明确，可作为Python补充；另两个self-judgement配置共享相同任务，且筛选judge使用训练gold patch，不能相加当独立题，也不能把judge材料拼进policy监督。三源跨配置/教师/数据集需要按repo、PR、任务族去重。
