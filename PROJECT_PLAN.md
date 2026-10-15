@@ -2,6 +2,12 @@
 
 状态：训练框架已确认采用 ms-swift + PEFT（BF16 LoRA），三专家划分与名称已确认；用户已授权按当前方向推进数据与工程准备，问题集中记录后讨论；正式训练和全量评测尚未启动，数据配方、训练超参数和评测执行条件仍需锁定。2026-10-15 用户明确要求先停止写代码与实验执行，先讨论数据、工程、算法、评测。以下数字均为初始设计和资源预算，不是吞吐实测或完成承诺。
 
+当前优先使用已选好的独立任务包，而非逐个 GitHub issue 手工造题：固定版本的 SWE-smith Python/Go、Nemotron mixed 六类任务及 D3-Gym 任务元数据已下载到 80，共 23 文件、257,332,473 字节，实际结构审计与版本见 [任务包清单](analysis/ready_task_catalog.md) 和 `task_sources.json`。容器镜像未拉，尚未恢复这些环境或证明目标 harness 运行通过。下一步先按仓库/任务族对任务与既有轨迹联合归组，再确定 train/val；任务记录和 gold 仅作候选/评分侧输入，不能直接当教师轨迹或无污染数据。原始大文件与审计回执保留在 `artifacts/tasks/`。
+
+用户已授权 Codex 子代理真实任务发现与解题试点，现已完成一个 Rich 仓库 train 候选：固定 base 上记录 15 步真实命令/反馈/patch，solver 五项检查和 fresh-base 重放通过，协调者另行七项 import 边界重放也通过；未跑完整上游测试。发现侧八个候选见 [任务发现清单](analysis/agent_task_candidates.md)，当前优先现成任务包、逐 issue 路线保留补充。未调用额外教师 API；操作日志不是原生 Terminus2 或完整 Codex transport，不能直接称可训练完整 messages，见 [采集边界与证据](analysis/agent_teacher_capture_review.md)。不改变正式评测协议。
+
+从零收集train/val的备选方案见[自采可行性](analysis/fresh_trajectory_feasibility.md)。复用独立任务包/环境/测试、在目标harness自采teacher，可作为有条件的训练主线候选；全部题目/环境/评分器也自写则不建议在当前窗口覆盖三专家。先按原任务家族留出val，再采train；task-dev无需教师轨迹，val-loss需要少量参考输出。应以净可用token/小时和可靠评分决定规模，不因已下载公开轨迹就固定选择，也不因API便宜假定环境已ready。3M专家预算起点非硬下限，混训使用同一数据，不另采一套；该节是最初可行性讨论；后续已执行一题子代理试点与现成任务下载，尚未替换 data_sources 或启动批量采集。
+
 消融/选模开发集的最新候选见[最小dev方案](analysis/dev_ablation_plan.md)：保留两类独立开发数据，val-loss总约100K processed token兼训练监控/至多两个checkpoint选择；task-dev暂拟修复10、终端10、科研10、学术QA40。先按来源任务/仓库/模板族归组，再切分和分段；正式benchmark不参与候选选择。现有轨迹不能自动变成可执行dev，仍需恢复环境/验证器或补少量独立原创任务。只比较固定AVG/TIES、同数据混训及专家目标域，不增加训练分支；小样本结论限于开发集。此为建议，尚未构造或执行这些任务，旧350K/多份dev数字不作为当前默认。
 
 当前TB资源结论：80共享CPU与HPC尚未分配的account额度，不能保障题定全矩阵按期完成。32CPU作为容器limit不自动独占，也不能据此把超卖视作相同实际资源；详见[CPU容量风险](analysis/tb_cpu_capacity_risk.md)。优先落实额外兼容CPU或题目接受的资源受限设置，不将未验证9/16路代入承诺排期。

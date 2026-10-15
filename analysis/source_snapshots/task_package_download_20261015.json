@@ -1,0 +1,524 @@
+{
+  "captured_at": "2026-10-15T14:40:09.066736+00:00",
+  "downloaded_files": 23,
+  "downloaded_bytes": 257332473,
+  "failed": 0,
+  "raw_root_80": "/data/caoqinlu/projects/apex-takehome/artifacts/tasks/raw",
+  "scope": "Candidate training/development tasks, not official benchmark splits or ready teacher trajectories",
+  "inspection": "Parquet metadata and tar headers only; no task code executed or archive extracted",
+  "sources": {
+    "swe_smith_py": {
+      "repo_id": "SWE-bench/SWE-smith-py",
+      "revision": "77cab9055d42ab4a5c25c89a8f937096db13558e",
+      "files": [
+        {
+          "path": "README.md",
+          "bytes": 1501,
+          "sha256": "18afda407941c9d3c65ff530bedd3bc93f3a13d9504ee5728e959fb43ffce808",
+          "integrity": "size and upstream Git blob SHA-1 matched"
+        },
+        {
+          "path": "data/train-00000-of-00011.parquet",
+          "bytes": 16852671,
+          "sha256": "302a383bb9229c42063ff2364b2ea637e9e7a20d82e0d566614d3aba9234833d",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        },
+        {
+          "path": "data/train-00001-of-00011.parquet",
+          "bytes": 5574116,
+          "sha256": "f15e5b8ab49866e93245a736056fab680d6dde8fb5c2ba89c06241cf12a32afe",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        },
+        {
+          "path": "data/train-00002-of-00011.parquet",
+          "bytes": 6006895,
+          "sha256": "67512898124c03132ae5bbf78866610571a565724dcb6a2064009db8a6825613",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        },
+        {
+          "path": "data/train-00003-of-00011.parquet",
+          "bytes": 117625772,
+          "sha256": "cc4c9812480faac2bc2de49e78a271d17cc8dcd89a8af2268246c3c8632fd27d",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        },
+        {
+          "path": "data/train-00004-of-00011.parquet",
+          "bytes": 9822409,
+          "sha256": "6110c76e568c0ee03eb1c86d208887154c6406237f532436cf72ed2c265073ca",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        },
+        {
+          "path": "data/train-00005-of-00011.parquet",
+          "bytes": 7434902,
+          "sha256": "517420b48132eda3c073e6b9bc5fecbaf34c3dea7f3fec49a46f8615584f8200",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        },
+        {
+          "path": "data/train-00006-of-00011.parquet",
+          "bytes": 12282590,
+          "sha256": "8e55de0daa541c031779f17d6ef04ebc3a4e2caad708d3137edb4587d89e60f3",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        },
+        {
+          "path": "data/train-00007-of-00011.parquet",
+          "bytes": 6665621,
+          "sha256": "c558fc3b6507f36ae520a8b23ac0cd71be7d7c8bb15c0b09060fe18d83d21045",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        },
+        {
+          "path": "data/train-00008-of-00011.parquet",
+          "bytes": 21661282,
+          "sha256": "b861958c450293ee717c00659958d2f334a697edf804f33c10c75bd05b8787e7",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        },
+        {
+          "path": "data/train-00009-of-00011.parquet",
+          "bytes": 7641038,
+          "sha256": "20923272dab2706c1e07e9e11a19373c5c642efbb594a3b1c104440cf8cfc132",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        },
+        {
+          "path": "data/train-00010-of-00011.parquet",
+          "bytes": 9078471,
+          "sha256": "3b7c09dfa07209f550f210344caac267c2ac5ea9c6eefa84c67845ecdff0b6df",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        }
+      ],
+      "bytes": 220647268,
+      "task_records": 50908,
+      "task_entries": 0,
+      "status": "downloaded; environments not restored; container images not downloaded; provenance and family split pending"
+    },
+    "swe_smith_go": {
+      "repo_id": "SWE-bench/SWE-smith-go",
+      "revision": "d2f6ecc2cf8ae1af00fc790801bbacfa2913e015",
+      "files": [
+        {
+          "path": "README.md",
+          "bytes": 1493,
+          "sha256": "6bb7580e3cb6c72507428b530dd8a9bdce18991a35250ad9a40a1cb9a3fe518c",
+          "integrity": "size and upstream Git blob SHA-1 matched"
+        },
+        {
+          "path": "data/train-00000-of-00001.parquet",
+          "bytes": 6489675,
+          "sha256": "6e5f18fc1e7c31af8f52923da81017dc6d63c96c1247dcf7129962aa93edd2e3",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        }
+      ],
+      "bytes": 6491168,
+      "task_records": 8212,
+      "task_entries": 0,
+      "status": "downloaded; environments not restored; container images not downloaded; provenance and family split pending"
+    },
+    "d3_tasks": {
+      "repo_id": "osunlp/D3-Gym",
+      "revision": "8499689ac98882a7cac9b5ef9e93365cc37df57e",
+      "files": [
+        {
+          "path": "README.md",
+          "bytes": 2579,
+          "sha256": "00afaf6b24ce7c7078dcef5789f606afd7e3b1a0b2b97957728bdc9d4eb76b30",
+          "integrity": "size and upstream Git blob SHA-1 matched"
+        },
+        {
+          "path": "data/train-00000-of-00001.parquet",
+          "bytes": 2254947,
+          "sha256": "a749576292494b301093fb8f037e2cf61016d89ffab86f3482e7aa27557423a9",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        }
+      ],
+      "bytes": 2257526,
+      "task_records": 565,
+      "task_entries": 0,
+      "status": "downloaded; environments not restored; container images not downloaded; provenance and family split pending"
+    },
+    "nemotron_tasks": {
+      "repo_id": "nvidia/Nemotron-Terminal-Synthetic-Tasks",
+      "revision": "7e53648e183cee7bcb0aed623cc91a121d37fa38",
+      "files": [
+        {
+          "path": "README.md",
+          "bytes": 1332,
+          "sha256": "9890af8f9185184fd7ecfd5147f713f054ffcc62e8131e3ba53fae91dbf7310b",
+          "integrity": "size and upstream Git blob SHA-1 matched"
+        },
+        {
+          "path": "skill_based/mixed/data_processing.tar.gz",
+          "bytes": 3426312,
+          "sha256": "c063d69b65b39f7c26667d65c18e2c553291d1755514936eaca8c8bc48c7da0a",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        },
+        {
+          "path": "skill_based/mixed/data_science.tar.gz",
+          "bytes": 6196655,
+          "sha256": "632bd4fd0898f46df0a3fc24ae2beab777bdf280e37fd2577e9d59d9b698ceb7",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        },
+        {
+          "path": "skill_based/mixed/debugging.tar.gz",
+          "bytes": 6885891,
+          "sha256": "5d230bc87b2300f7abac0965beef9edc57e3de2e834779dd8a70369e99ce43e9",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        },
+        {
+          "path": "skill_based/mixed/file_operations.tar.gz",
+          "bytes": 3752713,
+          "sha256": "dd5a65652d30fa3965275ab58ad8c6a66b43f5e7d150dd0d3499b1cdf9a6eb72",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        },
+        {
+          "path": "skill_based/mixed/scientific_computing.tar.gz",
+          "bytes": 3080893,
+          "sha256": "ace6c6815d48d394123e98fd1033f046901baad3c306e72b689e3cc37ebc5c1d",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        },
+        {
+          "path": "skill_based/mixed/security.tar.gz",
+          "bytes": 4592715,
+          "sha256": "df82414c48b95de59645a17a824c96f294d77412921ecce04201402614e697b7",
+          "integrity": "size and upstream LFS SHA-256 matched during download"
+        }
+      ],
+      "bytes": 27936511,
+      "task_records": 0,
+      "task_entries": 5984,
+      "status": "downloaded; environments not restored; container images not downloaded; provenance and family split pending"
+    }
+  },
+  "readme_integrity": [
+    {
+      "source": "swe_smith_py",
+      "path": "README.md",
+      "git_blob_sha1": "daba00d673ca58d61bb86b901f587dd9106146b6",
+      "matched": true
+    },
+    {
+      "source": "swe_smith_go",
+      "path": "README.md",
+      "git_blob_sha1": "468bdcd06c8f373ff0e1a30087489322f5efd781",
+      "matched": true
+    },
+    {
+      "source": "d3_tasks",
+      "path": "README.md",
+      "git_blob_sha1": "bd8318a65500c6ed273dd3301bec8c35d31b06d1",
+      "matched": true
+    },
+    {
+      "source": "nemotron_tasks",
+      "path": "README.md",
+      "git_blob_sha1": "6438b0182857993c3df2cbfdf4af27cceef49fbc",
+      "matched": true
+    }
+  ],
+  "nemotron_archive_structure": [
+    {
+      "path": "skill_based/mixed/data_processing.tar.gz",
+      "archive_files": 7433,
+      "uncompressed_bytes": 16880992,
+      "instruction_md": 1000,
+      "task_toml": 1000,
+      "test_sh": 1000,
+      "dockerfile": 1000,
+      "names_sample": [
+        "./data_processing/data_processing_task_0459/tests/test_requirements.txt",
+        "./data_processing/data_processing_task_0459/tests/test.sh",
+        "./data_processing/data_processing_task_0459/tests/test_outputs.py",
+        "./data_processing/data_processing_task_0459/task.toml",
+        "./data_processing/data_processing_task_0459/instruction.md"
+      ],
+      "common_basenames": [
+        [
+          "test.sh",
+          1000
+        ],
+        [
+          "test_outputs.py",
+          1000
+        ],
+        [
+          "task.toml",
+          1000
+        ],
+        [
+          "instruction.md",
+          1000
+        ],
+        [
+          "Dockerfile",
+          1000
+        ],
+        [
+          "test_requirements.txt",
+          908
+        ],
+        [
+          "events.jsonl",
+          203
+        ],
+        [
+          "sensor_readings.jsonl",
+          132
+        ]
+      ]
+    },
+    {
+      "path": "skill_based/mixed/data_science.tar.gz",
+      "archive_files": 10516,
+      "uncompressed_bytes": 21786213,
+      "instruction_md": 1000,
+      "task_toml": 1000,
+      "test_sh": 1000,
+      "dockerfile": 1000,
+      "names_sample": [
+        "./data_science/data_science_task_0914/instruction.md",
+        "./data_science/data_science_task_0914/environment/files/tickets.csv",
+        "./data_science/data_science_task_0914/environment/files/config.json",
+        "./data_science/data_science_task_0914/environment/files/customers.json",
+        "./data_science/data_science_task_0914/environment/Dockerfile"
+      ],
+      "common_basenames": [
+        [
+          "instruction.md",
+          1000
+        ],
+        [
+          "Dockerfile",
+          1000
+        ],
+        [
+          "task.toml",
+          1000
+        ],
+        [
+          "test_requirements.txt",
+          1000
+        ],
+        [
+          "test_outputs.py",
+          1000
+        ],
+        [
+          "test.sh",
+          1000
+        ],
+        [
+          "tickets.csv",
+          287
+        ],
+        [
+          "analysis_config.yaml",
+          183
+        ]
+      ]
+    },
+    {
+      "path": "skill_based/mixed/debugging.tar.gz",
+      "archive_files": 15025,
+      "uncompressed_bytes": 22267635,
+      "instruction_md": 1000,
+      "task_toml": 1000,
+      "test_sh": 1000,
+      "dockerfile": 1002,
+      "names_sample": [
+        "./debugging/debugging_task_0602/instruction.md",
+        "./debugging/debugging_task_0602/environment/files/dependency_graph.json",
+        "./debugging/debugging_task_0602/environment/files/input.txt",
+        "./debugging/debugging_task_0602/environment/files/error_logs.json",
+        "./debugging/debugging_task_0602/environment/files/current_requirements.txt"
+      ],
+      "common_basenames": [
+        [
+          "Dockerfile",
+          1002
+        ],
+        [
+          "instruction.md",
+          1000
+        ],
+        [
+          "task.toml",
+          1000
+        ],
+        [
+          "test_outputs.py",
+          1000
+        ],
+        [
+          "test.sh",
+          1000
+        ],
+        [
+          "test_requirements.txt",
+          992
+        ],
+        [
+          "requirements.txt",
+          893
+        ],
+        [
+          "__init__.py",
+          340
+        ]
+      ]
+    },
+    {
+      "path": "skill_based/mixed/file_operations.tar.gz",
+      "archive_files": 10146,
+      "uncompressed_bytes": 14248999,
+      "instruction_md": 997,
+      "task_toml": 997,
+      "test_sh": 997,
+      "dockerfile": 997,
+      "names_sample": [
+        "./file_operations/file_operations_task_0767/instruction.md",
+        "./file_operations/file_operations_task_0767/environment/files/evidence/system_logs/auth.log",
+        "./file_operations/file_operations_task_0767/environment/files/evidence/system_logs/syslog.txt",
+        "./file_operations/file_operations_task_0767/environment/files/evidence/hidden/.malware_config",
+        "./file_operations/file_operations_task_0767/environment/files/evidence/server_config.json"
+      ],
+      "common_basenames": [
+        [
+          "instruction.md",
+          997
+        ],
+        [
+          "Dockerfile",
+          997
+        ],
+        [
+          "task.toml",
+          997
+        ],
+        [
+          "test_outputs.py",
+          997
+        ],
+        [
+          "test.sh",
+          997
+        ],
+        [
+          "test_requirements.txt",
+          787
+        ],
+        [
+          "config.json",
+          102
+        ],
+        [
+          "access.log",
+          54
+        ]
+      ]
+    },
+    {
+      "path": "skill_based/mixed/scientific_computing.tar.gz",
+      "archive_files": 7082,
+      "uncompressed_bytes": 12696920,
+      "instruction_md": 1000,
+      "task_toml": 1000,
+      "test_sh": 1000,
+      "dockerfile": 1000,
+      "names_sample": [
+        "./scientific_computing/scientific_computing_task_0939/instruction.md",
+        "./scientific_computing/scientific_computing_task_0939/environment/files/sim_config.json",
+        "./scientific_computing/scientific_computing_task_0939/environment/Dockerfile",
+        "./scientific_computing/scientific_computing_task_0939/task.toml",
+        "./scientific_computing/scientific_computing_task_0939/tests/test_requirements.txt"
+      ],
+      "common_basenames": [
+        [
+          "instruction.md",
+          1000
+        ],
+        [
+          "Dockerfile",
+          1000
+        ],
+        [
+          "task.toml",
+          1000
+        ],
+        [
+          "test_requirements.txt",
+          1000
+        ],
+        [
+          "test_outputs.py",
+          1000
+        ],
+        [
+          "test.sh",
+          1000
+        ],
+        [
+          "config.json",
+          319
+        ],
+        [
+          "network_config.json",
+          68
+        ]
+      ]
+    },
+    {
+      "path": "skill_based/mixed/security.tar.gz",
+      "archive_files": 10379,
+      "uncompressed_bytes": 16161337,
+      "instruction_md": 987,
+      "task_toml": 987,
+      "test_sh": 987,
+      "dockerfile": 987,
+      "names_sample": [
+        "./security/security_task_0732/instruction.md",
+        "./security/security_task_0732/environment/files/webapp/files/readme.txt",
+        "./security/security_task_0732/environment/files/webapp/app.py",
+        "./security/security_task_0732/environment/files/webapp/breach_log.txt",
+        "./security/security_task_0732/environment/Dockerfile"
+      ],
+      "common_basenames": [
+        [
+          "instruction.md",
+          987
+        ],
+        [
+          "Dockerfile",
+          987
+        ],
+        [
+          "task.toml",
+          987
+        ],
+        [
+          "test_outputs.py",
+          987
+        ],
+        [
+          "test.sh",
+          987
+        ],
+        [
+          "test_requirements.txt",
+          947
+        ],
+        [
+          "access.log",
+          269
+        ],
+        [
+          "vulnerable_app.py",
+          153
+        ]
+      ]
+    }
+  ],
+  "endless": {
+    "status": "partial_stopped",
+    "complete_files": 35,
+    "bytes": 84357,
+    "solution_files_downloaded": 0,
+    "not_ready": true
+  }
+}

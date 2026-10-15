@@ -1,0 +1,168 @@
+{
+  "swe_smith_py": {
+    "repo_id": "SWE-bench/SWE-smith-py",
+    "revision": "77cab9055d42ab4a5c25c89a8f937096db13558e",
+    "role": "independent task candidate; not a ready SFT trajectory; provenance screening pending",
+    "files": [
+      {
+        "path": "README.md",
+        "size": 1501,
+        "sha256": null,
+        "git_blob_id": "daba00d673ca58d61bb86b901f587dd9106146b6"
+      },
+      {
+        "path": "data/train-00000-of-00011.parquet",
+        "size": 16852671,
+        "sha256": "302a383bb9229c42063ff2364b2ea637e9e7a20d82e0d566614d3aba9234833d",
+        "git_blob_id": "0583f71047200ea92a2fc547ffcf2b0cf0239a95"
+      },
+      {
+        "path": "data/train-00001-of-00011.parquet",
+        "size": 5574116,
+        "sha256": "f15e5b8ab49866e93245a736056fab680d6dde8fb5c2ba89c06241cf12a32afe",
+        "git_blob_id": "34b11a9f93d91f8b3e992abe8d6c31706c973395"
+      },
+      {
+        "path": "data/train-00002-of-00011.parquet",
+        "size": 6006895,
+        "sha256": "67512898124c03132ae5bbf78866610571a565724dcb6a2064009db8a6825613",
+        "git_blob_id": "0427c7f31545f250787c5655fd76bc7d15cd7394"
+      },
+      {
+        "path": "data/train-00003-of-00011.parquet",
+        "size": 117625772,
+        "sha256": "cc4c9812480faac2bc2de49e78a271d17cc8dcd89a8af2268246c3c8632fd27d",
+        "git_blob_id": "e359e0546e50e0088177c3b80cdb0fe76ba47772"
+      },
+      {
+        "path": "data/train-00004-of-00011.parquet",
+        "size": 9822409,
+        "sha256": "6110c76e568c0ee03eb1c86d208887154c6406237f532436cf72ed2c265073ca",
+        "git_blob_id": "aabc29bac4ad51c1fe3432815f086e542308e6f6"
+      },
+      {
+        "path": "data/train-00005-of-00011.parquet",
+        "size": 7434902,
+        "sha256": "517420b48132eda3c073e6b9bc5fecbaf34c3dea7f3fec49a46f8615584f8200",
+        "git_blob_id": "5da0ec66e4c751a17d65348818fde3d9a04f2200"
+      },
+      {
+        "path": "data/train-00006-of-00011.parquet",
+        "size": 12282590,
+        "sha256": "8e55de0daa541c031779f17d6ef04ebc3a4e2caad708d3137edb4587d89e60f3",
+        "git_blob_id": "df9459c593f12f73ab68c3815508ae2e35c7b618"
+      },
+      {
+        "path": "data/train-00007-of-00011.parquet",
+        "size": 6665621,
+        "sha256": "c558fc3b6507f36ae520a8b23ac0cd71be7d7c8bb15c0b09060fe18d83d21045",
+        "git_blob_id": "dd97aed46966a698ef20f29e5cdffd0099f849e6"
+      },
+      {
+        "path": "data/train-00008-of-00011.parquet",
+        "size": 21661282,
+        "sha256": "b861958c450293ee717c00659958d2f334a697edf804f33c10c75bd05b8787e7",
+        "git_blob_id": "cbec77135b04258b225b1c8c06b6e6858d8e68d6"
+      },
+      {
+        "path": "data/train-00009-of-00011.parquet",
+        "size": 7641038,
+        "sha256": "20923272dab2706c1e07e9e11a19373c5c642efbb594a3b1c104440cf8cfc132",
+        "git_blob_id": "294632787aabdae3e382e673a09d06a421eef0e2"
+      },
+      {
+        "path": "data/train-00010-of-00011.parquet",
+        "size": 9078471,
+        "sha256": "3b7c09dfa07209f550f210344caac267c2ac5ea9c6eefa84c67845ecdff0b6df",
+        "git_blob_id": "fd543ba7fae4531c746eced7a08423625332c107"
+      }
+    ]
+  },
+  "swe_smith_go": {
+    "repo_id": "SWE-bench/SWE-smith-go",
+    "revision": "d2f6ecc2cf8ae1af00fc790801bbacfa2913e015",
+    "role": "independent task candidate; not a ready SFT trajectory; provenance screening pending",
+    "files": [
+      {
+        "path": "README.md",
+        "size": 1493,
+        "sha256": null,
+        "git_blob_id": "468bdcd06c8f373ff0e1a30087489322f5efd781"
+      },
+      {
+        "path": "data/train-00000-of-00001.parquet",
+        "size": 6489675,
+        "sha256": "6e5f18fc1e7c31af8f52923da81017dc6d63c96c1247dcf7129962aa93edd2e3",
+        "git_blob_id": "a4570462d7624c5fe45fc73d0545722ca16f1a39"
+      }
+    ]
+  },
+  "d3_tasks": {
+    "repo_id": "osunlp/D3-Gym",
+    "revision": "8499689ac98882a7cac9b5ef9e93365cc37df57e",
+    "role": "independent task candidate; not a ready SFT trajectory; provenance screening pending",
+    "files": [
+      {
+        "path": "README.md",
+        "size": 2579,
+        "sha256": null,
+        "git_blob_id": "bd8318a65500c6ed273dd3301bec8c35d31b06d1"
+      },
+      {
+        "path": "data/train-00000-of-00001.parquet",
+        "size": 2254947,
+        "sha256": "a749576292494b301093fb8f037e2cf61016d89ffab86f3482e7aa27557423a9",
+        "git_blob_id": "6ad2f50cbcfcc41c223faed2dadba82d5c902def"
+      }
+    ]
+  },
+  "nemotron_tasks": {
+    "repo_id": "nvidia/Nemotron-Terminal-Synthetic-Tasks",
+    "revision": "7e53648e183cee7bcb0aed623cc91a121d37fa38",
+    "role": "independent task candidate; not a ready SFT trajectory; provenance screening pending",
+    "files": [
+      {
+        "path": "README.md",
+        "size": 1332,
+        "sha256": null,
+        "git_blob_id": "6438b0182857993c3df2cbfdf4af27cceef49fbc"
+      },
+      {
+        "path": "skill_based/mixed/data_processing.tar.gz",
+        "size": 3426312,
+        "sha256": "c063d69b65b39f7c26667d65c18e2c553291d1755514936eaca8c8bc48c7da0a",
+        "git_blob_id": "b9c30e78785b8c81c190084d96805a109ffda75d"
+      },
+      {
+        "path": "skill_based/mixed/data_science.tar.gz",
+        "size": 6196655,
+        "sha256": "632bd4fd0898f46df0a3fc24ae2beab777bdf280e37fd2577e9d59d9b698ceb7",
+        "git_blob_id": "2d2706c8ae126fc27918e64ecc96ef25f340b29b"
+      },
+      {
+        "path": "skill_based/mixed/debugging.tar.gz",
+        "size": 6885891,
+        "sha256": "5d230bc87b2300f7abac0965beef9edc57e3de2e834779dd8a70369e99ce43e9",
+        "git_blob_id": "50b6c95ba005a4185bcd61827c03718418fc7854"
+      },
+      {
+        "path": "skill_based/mixed/file_operations.tar.gz",
+        "size": 3752713,
+        "sha256": "dd5a65652d30fa3965275ab58ad8c6a66b43f5e7d150dd0d3499b1cdf9a6eb72",
+        "git_blob_id": "857e96ad46fdeb0a439ceeab85cfeb955069754d"
+      },
+      {
+        "path": "skill_based/mixed/scientific_computing.tar.gz",
+        "size": 3080893,
+        "sha256": "ace6c6815d48d394123e98fd1033f046901baad3c306e72b689e3cc37ebc5c1d",
+        "git_blob_id": "6c24246eba3491b87484bfc63ae8d4ed3f364788"
+      },
+      {
+        "path": "skill_based/mixed/security.tar.gz",
+        "size": 4592715,
+        "sha256": "df82414c48b95de59645a17a824c96f294d77412921ecce04201402614e697b7",
+        "git_blob_id": "21a31b9566743c449665ccebe06d5cc565db34fc"
+      }
+    ]
+  }
+}

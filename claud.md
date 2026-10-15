@@ -373,3 +373,30 @@
 - 开发可另设短预算（如工具5min/≤4CPU，QA2K输出），所有参比较模型固定一致；不替代正式TB题定资源/五次。当前矩阵4个全域对象Base/混训/AVG/TIES+三专家目标域共150工具trial与200QA，工具满5min计12.5agent-hours，8路理想1.56h，QA上限0.4M输出；加载/构建/判分另算，3h是待实测条件预算。
 - 70题尚未构造执行或冻结。小样本仅能粗筛/回归；10题域每题10pp，不能据一两题声称正式benchmark有稳定提升。预先固定简易持平选择规则，不围绕dev扫参。正式仍是Base/唯一合版四项全量、专家目标全量，混训和落选合版只报dev范围。
 - 保存analysis/dev_ablation_plan.md并更新当前计划和问题。仅查公开资料/现有数据结构证据，无正式题读取、新数据生成、任务/API/Slurm或训练执行；没有扩大专家数/训练框架或在线RL范围。
+
+
+## 2026-10-15：评估从零收集train与val
+
+- 用户明确问train和val一起从零收集是否可行。本轮区分复用独立任务/环境/验证器、自采teacher轨迹，与任务/环境/评分器也全自建；前者可作为有条件的主方案候选，后者在当前窗口覆盖三专家风险高。下载完成的沉没成本不决定取舍。
+- 复核SWE-smith52K任务/250+Docker环境、Endless任务环境生成/Harbor入口与D3科研任务接口等一手来源及已有固定笔记；均未下载/安装或实际恢复环境，不把任务包当现成SFT轨迹。实际采集必须由teacher动作驱动真实执行/观察，并以独立验证器检查。
+- train/val按原repo/任务/模板族先切分再生成。训练需可用教师监督；task-dev只需独立任务/初态/评分器或金标准，不必全采teacher；val-loss另需少量参考输出。val教师输出不能回流训练；公开正式四benchmark及其变体不作为自采任务。
+- 条件算例：目标3M专家processed token、p=.5/q=.8、每条4K/8K/16K，需750/375/188条可用，1875/938/470次attempt；C8均10min纯rollout约39.1/19.5/9.8h。全部是假设，不包括环境/验证/val/训练/全评。混训复用同一3M，不多采一套；3M非题面数据量硬下限。
+- 500次attempt相同期望约200可用，平均8K仅1.6M；少量可做缩小SFT或先补科研多轮，不能承诺支持原三专家规模或提升。若采集12–16h支持3M，需约188–250K净token/h；QA和执行分别估吞吐，不机械共用每题10min。
+- 22:21 CST核时，距截止约64h，保留12h后约52h常规窗口，不重置为72h。当前Docker/CPU分配/Base服务仍未ready；API可替代teacher GPU推理，不能消除真实工具CPU/环境与正式全评瓶颈。
+- 保存analysis/fresh_trajectory_feasibility.md，接入当前方案和问题清单。没有启动采集/调用API/申请GPU/下载任务包/写实验代码或切换配方；只给候选与需实测的门槛。
+
+## 2026-10-15：执行子代理真实任务解题试点
+
+- 用户提出用任务发现与解题两个 Codex 子代理收集真实训练任务/答案。已实际派发，发现代理留下八个真实来源候选；solver 只接收剥离修复线索的 Rich cwd import 症状与固定 base，不查 gold/修复历史。发现侧接触过 issue 内修复线索，不能声称全流程盲测。
+- 80 的 artifacts/agent_teacher/pilot_rich_4201 留下 manifest、15 步命令/可见说明/完整 stdout/stderr/退出码/hash、patch、测试和 fresh-base 重放。修复前五项检查3过2败，修复后5过；初次重放 Git 发现外层仓库而未应用 patch，失败与提前报告错误已保留并纠正，建立独立 .git 后5过。
+- 协调者再从固定 base 只导出已审阅的两个 import 文件、应用保存 patch，另行定义七项 import 边界检查；修复前3/7、后7/7。未跑完整上游测试或正式 benchmark，不据此推断整体提升。
+- 无 DeepSeek 教师调用、安装依赖、GPU/Slurm或上游消息。当前只有可观察操作日志，缺精确教师 build/token/logprob/完整原始 transport；不导出隐藏推理，不补造中间过程，不冒称原生 mini/Terminus2，扩量需先核协议与净产量。分析文件已汇总，未启动批量采集或训练。
+
+
+## 2026-10-15：按用户要求优先下载现成任务包
+
+- 用户要求先看有没有已选好的任务并直接下载。已取得固定 revision 的 SWE-smith Python/Go、NVIDIA Nemotron mixed 六类和 D3-Gym 任务元数据，共23个文件、257,332,473B，下载回执0失败；沿用已有下载函数与现有代理，仅进程内设置网络参数，没有写新实验代码、改全局配置或使用新凭据。
+- SWE Python 50,908、Go 8,212 是任务记录数，尚未跨源/任务族去重；D3 565条只有任务元数据，完整环境/输入依赖仍需镜像。Nemotron以六个压缩包为首批，不拉全部 easy/medium 或完整镜像；六包按 instruction/task.toml/test.sh 一致计5,984个入口（非名义6,000）；结构计数及完整性摘要保存 analysis/ready_task_catalog.md 和 analysis/source_snapshots/task_package_download_20261015.json。
+- Endless 作为备选固定2,492任务的目录清单；实际仅35完整非solution文件84,357B，Git批量下载失败后停止，状态partial_stopped，未读/拉solution，不算任务集就绪。相较2万小文件，六包Nemotron已更适合先试。
+- 仅读Parquet footer/schema及tar成员名称/大小，未运行包内代码/测试、未解压或拉容器。下载完成不等于环境ready，也不证明可直接训练、许可或正式集污染筛查通过。
+- 下一步先按仓库/原任务/模板族联合切分任务与既有轨迹，再选少量恢复环境。Nemotron任务可能与已下载Corpus轨迹同族，dev所对应旧教师rollout必须一并隔离；SWE patch/test清单与D3 eval只进评分侧。学术QA仍需已有OpenScience/OpenR1单独筛选，不能用GitHub修复题替代HLE类学术覆盖。
