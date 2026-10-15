@@ -39,6 +39,6 @@ root负责统一清单、工程集成、资源调度、Base与Git记录；三子
 
 ## 新SWE/Terminal来源的明确状态
 
-SWE主候选确定为nvidia/Open-SWE-Traces固定revision 1db674173119d71df45c22007af99e214600711a的mini/Qwen3.8-Flash-Next；全16片已下载校验，9436成功bug-fix结构候选。旧Qwen3.6只做跨教师任务族识别/备选。SWE新池仍需按目标类型配额选600任务、恢复val环境与验证观察转换，候选数不代表验收可执行数。
+SWE优先来源确定为nvidia/Open-SWE-Traces固定revision 1db674173119d71df45c22007af99e214600711a的mini/Qwen3.8-Flash-Next；全16片已下载校验，9436个发布方标成功的bug-fix结构候选仅为修复子池，不是最终SWE类型边界。源feature-request/enhancement/other原始记录保留，目标统一debugging粗标签不足以据此全部排除；先完成目标与来源的同口径细分类，再定配额并验其他类型的质量/环境。旧Qwen3.6只做跨教师任务族识别/备选。SWE新池仍需按目标类型配额选600任务、恢复val环境与验证观察转换，候选数不代表验收可执行数。
 
 Terminal优先新查到的来源，但尚无最终主池：OpenThoughts-Agent-SFT-100K固定45fb28fcc38d352133cb28a1c8a43a2f14fea97b为GLM4.7-AWQ/Terminus2/Daytona，实际94334行，逐条成功及任务环境仍待核；open-athena GLM5.2+Terminus2两源是更新教师线索，固定版本无license/README且成功语义未验。不能把“新找到的数据”与“最新教师且已适配成功轨迹”混称。夜间继续核新源，不无提示退回旧DeepSeek-V3.2主池，不将质量hold清单当已可训。数据来源是用户本轮询问，资源变更不自动意味着已批准夜间启动/正式SFT。
