@@ -1,0 +1,178 @@
+{
+  "date": "2026-10-15",
+  "purpose": "Hypothetical API cost of one external DeepSeek model, not the required Qwen Base/expert/merged matrix. No benchmark or paid API calls performed.",
+  "official_pricing_url": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+  "cny_per_1M_tokens_offpeak": {
+    "flash": {
+      "cache_hit": 0.02,
+      "cache_miss": 1,
+      "output": 4
+    },
+    "pro": {
+      "cache_hit": 0.15,
+      "cache_miss": 4.5,
+      "output": 13.5
+    }
+  },
+  "peak_multiplier": 2,
+  "scenarios_per_trial_count_cumulative_input_output_hit_fraction": {
+    "low": {
+      "swe": [
+        51,
+        250000,
+        15000,
+        0.7
+      ],
+      "terminal": [
+        445,
+        100000,
+        10000,
+        0.7
+      ],
+      "asi": [
+        240,
+        100000,
+        10000,
+        0.7
+      ],
+      "hle": [
+        2500,
+        1000,
+        2000,
+        0
+      ]
+    },
+    "middle": {
+      "swe": [
+        51,
+        1000000,
+        50000,
+        0.7
+      ],
+      "terminal": [
+        445,
+        500000,
+        30000,
+        0.7
+      ],
+      "asi": [
+        240,
+        500000,
+        30000,
+        0.7
+      ],
+      "hle": [
+        2500,
+        2000,
+        8000,
+        0
+      ]
+    },
+    "high": {
+      "swe": [
+        51,
+        4000000,
+        150000,
+        0.7
+      ],
+      "terminal": [
+        445,
+        2000000,
+        80000,
+        0.7
+      ],
+      "asi": [
+        240,
+        2000000,
+        80000,
+        0.7
+      ],
+      "hle": [
+        2500,
+        4000,
+        8192,
+        0
+      ]
+    }
+  },
+  "results": {
+    "low": {
+      "per_benchmark": {
+        "swe": {
+          "flash": 7.0635,
+          "pro": 28.87875
+        },
+        "terminal": {
+          "flash": 31.773,
+          "pro": 124.8225
+        },
+        "asi": {
+          "flash": 17.136,
+          "pro": 67.32
+        },
+        "hle": {
+          "flash": 22.5,
+          "pro": 78.75
+        }
+      },
+      "flash_offpeak": 78.4725,
+      "hybrid_pro_agents_flash_hle_offpeak": 243.52125,
+      "flash_no_cache_offpeak": 134.21
+    },
+    "middle": {
+      "per_benchmark": {
+        "swe": {
+          "flash": 26.214000000000002,
+          "pro": 108.63
+        },
+        "terminal": {
+          "flash": 123.265,
+          "pro": 503.9625
+        },
+        "asi": {
+          "flash": 66.48,
+          "pro": 271.8
+        },
+        "hle": {
+          "flash": 85.0,
+          "pro": 292.5
+        }
+      },
+      "flash_offpeak": 300.959,
+      "hybrid_pro_agents_flash_hle_offpeak": 969.3924999999999,
+      "flash_no_cache_offpeak": 570.9,
+      "flash_terminal_once_offpeak": 202.347
+    },
+    "high": {
+      "per_benchmark": {
+        "swe": {
+          "flash": 94.65600000000002,
+          "pro": 400.095
+        },
+        "terminal": {
+          "flash": 421.86000000000007,
+          "pro": 1775.55
+        },
+        "asi": {
+          "flash": 227.52000000000004,
+          "pro": 957.6
+        },
+        "hle": {
+          "flash": 91.92,
+          "pro": 321.48
+        }
+      },
+      "flash_offpeak": 835.956,
+      "hybrid_pro_agents_flash_hle_offpeak": 3225.165,
+      "flash_no_cache_offpeak": 1915.72
+    }
+  },
+  "caveats": [
+    "Token amounts and cache fractions are assumptions, not measured benchmark averages.",
+    "Inputs include all multi-turn history replay. Outputs include reasoning.",
+    "HLE input includes a placeholder budget for billable image tokens; actual resolution/token usage unmeasured.",
+    "Upper scenario is not a cost cap. 80K output is not assumed to cap a whole Terminal episode.",
+    "No CPU/container/task GPU/HLE judge/ASI judge/storage/portal fees included.",
+    "Pro does not support vision in current price table; hybrid uses Flash for all HLE."
+  ]
+}
