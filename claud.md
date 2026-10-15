@@ -794,3 +794,11 @@
 
 - 后续03:00源推进到114/140（TB89、SWE25），新轮0失败；36份own part inode均与native pin不同，10秒7个part新增100.66MB，无.invalid。另发现rsync --append-verify会保留较长的旧JSON，HPC文件已到114却仍报旧110/15；已把SIF追加同步与JSON普通ignore-times同步拆开。
 - rsync3.1.3隔离fixture实证：4165B旧report对62B新report时append仍旧且exit0，普通同步正确覆盖。旧mirror3040078在only sleep空闲时精确停止，新19075启动；HPC新epoch/ranged-oci/114/0的88936B JSON与source逐字节相同，114份SIF字节数逐个匹配。未提前声称全140 SHA通过，finalizer58129继续等最终完整回执。
+
+## 2026-10-16：提交睡觉期间的推进计划供审阅
+
+- 用户将睡觉，希望助手继续推进，但明确先看方案。本轮只写analysis/overnight_execution_plan_20261016.md并做只读计划审查，没有启动夜间执行/自动续跑/数据选样/GPU。建议确认后约8小时窗口，到点汇总，不承诺全数据齐备或四项全评结束。
+- 计划并行新数据任务类型配额与家族隔离、HLE/ASI缺口/金标准及Terminal环境、SWE XML/JSON对齐和CPU mask验收；root集成工程与Base原生calibration，通过哪项就按已冻结协议启动哪项完整Base，正式结果不用于选训练数据。
+- 每benchmark val100/train约500仍是目标，候选数不冒充可执行任务。rank/alpha/target/window用户仍暂缓，夜间不自行正式SFT或GPU反向；训练环境与CPU模板可准备。最多4H100，优先已验单TP2服务，不动其他聊天的作业/镜像队列/代理。
+- 公开数据优先、小量API核验/判分；提议夜间DeepSeek上限30元并执行前核费率usage，未知校园计费只界定调用，不批量重采。单路径约45分钟无新进展留证转并行项，Git/claud记录实际产物和资源账，不向其他聊天发消息。
+- 使用OpenAI Docs核官方Scheduled tasks页面（developers链接跳learn.chatgpt.com）：本地任务需电脑保持开机、应用运行。用户确认后才检查/创建本线程heartbeat，远端作业驻留不能被说成助手在本机休眠后仍连续决策。当前只给计划，没有实际配置自动任务。
