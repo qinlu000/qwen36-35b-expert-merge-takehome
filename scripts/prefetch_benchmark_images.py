@@ -37,7 +37,9 @@ def main():
     env = os.environ | {'APPTAINER_CACHEDIR': str(root / 'artifacts/cache/apptainer'),
                         'APPTAINER_TMPDIR': str(root / 'artifacts/cache/apptainer-tmp'),
                         'GOMAXPROCS': '2', 'OMP_NUM_THREADS': '2'}
-    env['NO_PROXY'] = env.get('NO_PROXY', '') + ',ghcr.io,pkg-containers.githubusercontent.com'
+    # Small direct ranges were fast, but full GHCR layers repeatedly ended in
+    # PROTOCOL_ERROR / EOF. Use the configured proxy for whole image transfers.
+    env['NO_PROXY'] = 'localhost,127.0.0.1'
     env['no_proxy'] = env['NO_PROXY']
     # Avoid the GHCR HTTP/2 PROTOCOL_ERROR observed during large layer pulls.
     env['GODEBUG'] = ','.join(filter(None, (env.get('GODEBUG'), 'http2client=0')))
@@ -82,6 +84,7 @@ def main():
     report = {'manifest_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
               'total': len(items), 'workers': args.workers, 'started_at': now(),
               'go_http2_client': False,
+              'registry_transport': 'proxy' if env.get('HTTPS_PROXY') or env.get('https_proxy') else 'direct',
               'scope': 'Image download/conversion only; no task or image commands executed'}
 
     def save(status):

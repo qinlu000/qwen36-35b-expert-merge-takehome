@@ -110,13 +110,17 @@ JSON 的等价写法为 `environment.type=null`、`environment.import_path="apex
 
 ## 进行中的镜像下载与传输
 
+当前为单个16-worker代理队列PID2878546（2026-10-16 02:09上海），109/140个已缓存且复扫通过，0失败；其余31项继续下载。原8+补8的旧进程树已精确停止，两个退出0且SIF分区表通过的大TB partial已保留为final，合计17,569,775,616B。GHCR整层直连在HTTP1下仍EOF，故当前所有远端registry走既有38080代理；先前失败的固定1.08GB镜像经代理完整验证成功。回执见`source_snapshots/image_prefetch_transport_20261016.json`。后文较早的PID/直连/两队列描述为操作历史，当前以`image-prefetch.pid`和canonical进度为准。
+
+Mac收尾进程PID15079已改为每轮读取当前coordinator PID，避免新旧切换后重复启动；HPC镜像PID3040078持续同步，只有完整140项独立SHA通过后才关闭本次专用rsync。全量仍未完成。以下保留安装与扩并发历史。
+
 80 已按官方发布 SHA256 校验 `apptainer_1.4.5_amd64.deb`，仅在 `artifacts/tools/apptainer-1.4.5/rootfs` 解包；`buildcfg` 确认为 `APPTAINER_SUID_INSTALL=0`。配置文件位于项目内，mksquashfs 初始限制每进程2 CPU/1 GiB；00:39发现大型镜像进入压缩后，将后续新builder调为4 CPU/1 GiB，不重启或丢弃在途拉取。prefetch 初始并发2，后调至4，2026-10-16 00:17调至8；8个builder最多约32压缩CPU，仍低于采样空闲资源。下载过程未执行容器内容。安装复现脚本为 `scripts/install_apptainer_user.sh`。[官方发布资产](https://github.com/apptainer/apptainer/releases/expanded_assets/v1.4.5)
 
-- 下载脚本：`scripts/prefetch_benchmark_images.py --root <project> --workers 8`；80 当前后台 PID 为 2262293，记录于 `artifacts/preflight/swe_tb/image-prefetch.pid`，日志为同目录 `image-prefetch.log`，每镜像独立拉取日志在 `image-pulls/`。本次安全重启前 72 个 SIF 已缓存；停止并核对旧 PID 1134008 及本任务子进程后，继承原代理环境重启，新进程恢复 72 个缓存、0 失败，实见 8 个 pull 子进程。最终 SIF 与完成的 layer cache 未删除，旧日志/进度和重启回执保存为 `image-prefetch.workers4.20261016-001702.log`、`image-prefetch.progress.workers4.20261016-001702.json`、`image-prefetch-restart.20261016-001702.json`。
+- 下载脚本：`scripts/prefetch_benchmark_images.py --root <project> --workers 8`；历史8-worker后台 PID 为2262293（已停止），记录于 `artifacts/preflight/swe_tb/image-prefetch.pid`，日志为同目录 `image-prefetch.log`，每镜像独立拉取日志在 `image-pulls/`。本次安全重启前 72 个 SIF 已缓存；停止并核对旧 PID 1134008 及本任务子进程后，继承原代理环境重启，新进程恢复 72 个缓存、0 失败，实见 8 个 pull 子进程。最终 SIF 与完成的 layer cache 未删除，旧日志/进度和重启回执保存为 `image-prefetch.workers4.20261016-001702.log`、`image-prefetch.progress.workers4.20261016-001702.json`、`image-prefetch-restart.20261016-001702.json`。
 - 完整进度与每个产物的 SIF SHA256：`artifacts/benchmarks/sif/_prefetch_progress.json`。先按 manifest digest 保存数据，再创建与固定 Harbor cache 规则一致的原 tag 同名 symlink。只解析 SIF 分区表并哈希二进制，不打开内部任务文件。
-- 对固定公开 layer 的小段压缩字节做网络吞吐检查：GHCR CDN 直连约 3.51 MB/s、经代理约 1.96 MB/s，因此 ghcr.io 与 pkg-containers.githubusercontent.com 在下载进程中加入 NO_PROXY。Docker registry/CDN 直连不稳定，继续使用代理。此测试没有解压或查看文件内容，也不承诺整套下载的固定时长。
+- 历史小段测速：GHCR CDN 直连约3.51 MB/s、经代理约1.96 MB/s，初期据此将GHCR加入NO_PROXY。后续整层反复PROTOCOL_ERROR/EOF，证明该短样本不足以支持直连路线；当前已改为远端registry全部走配置的代理。未解压或查看层内容，不承诺固定时长。
 - 80 独立只读 rsync：`10.123.4.80:43874/benchmark_sif`，仅导出 `artifacts/benchmarks/sif`，只允许 HPC 登录出口 `10.120.48.33`；未修改 Base 的 `43873` 模块或路径。配置与 PID 位于 `artifacts/preflight/swe_tb/rsync-sif.*`。
-- HPC 镜像脚本：`scripts/mirror_benchmark_sifs.sh`，后台 PID 记录于 `artifacts/preflight/swe_tb/sif-mirror.pid`，日志为同目录 `sif-mirror.log`。持续传输本次下载的已完成 SIF；源进度 complete/finished 后再做一次完整 rsync，避免最后镜像在上一轮 file-list 建立后才完成的竞态，然后对完整manifest逐个核SIF字节、SHA256与alias，只有全部通过才写`complete=true / sha256_verified=140`的`sif-hpc-integrity.json`。新版循环已在旧循环空闲时替换并新启动，PID2266968；不会依赖旧进程重新读取脚本。镜像产物写入HPC同相对目录。
+- HPC 镜像脚本：`scripts/mirror_benchmark_sifs.sh`，后台 PID 记录于 `artifacts/preflight/swe_tb/sif-mirror.pid`，日志为同目录 `sif-mirror.log`。持续传输本次下载的已完成 SIF；只在源进度 complete 后再做一次完整 rsync（finished/failed继续等待修复），避免最后镜像在上一轮 file-list 建立后才完成的竞态，然后对完整manifest逐个核SIF字节、SHA256与alias，只有全部通过才写`complete=true / sha256_verified=140`的`sif-hpc-integrity.json`。新版循环已在旧循环空闲时替换并新启动，当前PID3040078；不会依赖旧进程重新读取脚本。镜像产物写入HPC同相对目录。
 - 已实传并在 HPC 对首 **15 个 SIF / 515,747,840 bytes** 逐个验证 SHA256 与 80 回执一致。后续新增产物仍在传输。
 - 主线后续在 HPC 对当时全部 **77 个 SIF** 重算 SHA256 并核 alias，均匹配；回执 `artifacts/preflight/swe_tb/sif-hpc-integrity.json`。本轮选中的 build-cython-ext 也另外实际重算 SHA256，与上述回执一致。
 
@@ -132,7 +136,7 @@ JSON 的等价写法为 `environment.type=null`、`environment.import_path="apex
 
 2026-10-16 01:20对四个TB大镜像做30秒双采样：pytorch-model-recovery、hf-model-inference、mteb-retrieve、mteb-leaderboard均持续下载，每项新增81–88MB，约2.7–2.9MB/s；仍处于Fetching OCI image，并未进入压缩。四条连接均到现有进程代理，日志尚未换阶段不等于下载停滞。实际同时有8个pull，保留所有在途大blob。
 
-随后无损扩并发：只暂停Python任务分配器2262293，原8个Apptainer下载保留；读取父进程打开的per-image日志FD，固定排除8个已分派digest（包括已退出但尚未rename的child），再排除106个final。新增8-worker队列只处理其余26项，独立`_prefetch_supplement_progress.json`和`image-prefetch-extra.log`，峰值16。supervisor1651574/helper1651575记录于`prefetch-expand.json`；新增队列退出后自动恢复原coordinator。主表暂时不更新不代表下载停滞，HPC仍只以最终canonical完整报告验收。原Future已记录1次失败；即使补充队列补好，仍须原runner结束后全缓存复扫。
+随后无损扩并发：只暂停Python任务分配器2262293，原8个Apptainer下载保留；读取父进程打开的per-image日志FD，固定排除8个已分派digest（包括已退出但尚未rename的child），再排除106个final。新增8-worker队列只处理其余26项，独立`_prefetch_supplement_progress.json`和`image-prefetch-extra.log`，并发上限16。supervisor1651574/helper1651575记录于`prefetch-expand.json`；新增队列退出后自动恢复原coordinator。主表暂时不更新不代表下载停滞，HPC仍只以最终canonical完整报告验收。原Future已记录1次失败；即使补充队列补好，仍须原runner结束后全缓存复扫。
 
 部分GHCR大层此前出现HTTP/2 PROTOCOL_ERROR并重试；新prefetch子进程通过GODEBUG=http2client=0关闭Go客户端HTTP2（[Go官方说明](https://go.dev/doc/godebug)）。固定GHCR元数据/既有缓存SIF复拉已通过，不声称全层吞吐已提升。在线包装工具入口不兼容Apptainer自定位，version检查即失败，已原子回退同一官方ELF及安装脚本；未停止原下载，没有留下二进制包装。正式使用进程环境开关。
 

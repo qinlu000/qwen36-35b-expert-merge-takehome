@@ -1,0 +1,60 @@
+{
+  "scope": "Transport validation of a pinned public image; no image commands or benchmark tasks executed",
+  "manifest_sha256": "388d9c4413cb281b489174c19a268cd935f34742d92996ce2390b64c0011d91a",
+  "proxy_probe": {
+    "manifest_sha256": "388d9c4413cb281b489174c19a268cd935f34742d92996ce2390b64c0011d91a",
+    "total": 1,
+    "workers": 1,
+    "started_at": "2026-10-15T18:02:30.391035+00:00",
+    "go_http2_client": false,
+    "scope": "Image download/conversion only; no task or image commands executed",
+    "status": "complete",
+    "updated_at": "2026-10-15T18:05:47.403384+00:00",
+    "completed": 1,
+    "failed": 0,
+    "results": [
+      {
+        "image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b",
+        "linux_amd64_digest": "sha256:e7b8d6619890971c47d9b9eac31a8ac3c0d3218f3eba3590b5b1be33d00bbbe3",
+        "started_at": "2026-10-15T18:02:30.391512+00:00",
+        "log_path": "artifacts/preflight/swe_tb/image-pulls/sha256-e7b8d6619890971c47d9b9eac31a8ac3c0d3218f3eba3590b5b1be33d00bbbe3.log",
+        "attempts": 1,
+        "status": "cached",
+        "sif_file": "sha256-e7b8d6619890971c47d9b9eac31a8ac3c0d3218f3eba3590b5b1be33d00bbbe3.sif",
+        "harbor_cache_name": "ghcr.io_scaleapi_swe-bench_pro-v2_instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b.sif",
+        "sif_bytes": 1083351040,
+        "sif_sha256": "aec3a53ae84647c537c5e124615055a0093914eee7bdc3b560f4ef46470e4798",
+        "finished_at": "2026-10-15T18:05:47.402068+00:00"
+      }
+    ]
+  },
+  "observed_connection_target": "127.0.0.1:38080",
+  "interpretation": "Full image transfer and SIF table/SHA256 checks passed via configured proxy after repeated direct transfer failures. This is not a throughput guarantee or full140 acceptance.",
+  "single_queue_restart": {
+    "status": "single_proxy_queue_running",
+    "launched_at_utc": "2026-10-15T18:09:39.596792+00:00",
+    "new_pid": 2878546,
+    "workers": 16,
+    "final_sif_count_before_scan": 109,
+    "prefetch_script_sha256": "dc1dbe33950ab8622f9451929025052bfc2f4106a2aa2219e4bb9b262b4c8398",
+    "preserved_successful_sifs": [
+      {
+        "sif_file": "sha256-99dd676a21fd3124b7b8164cd93e8f0c51f1fdab2f84a831c61049eff78d063d.sif",
+        "bytes": 8782258176,
+        "producer_exit_code": 0,
+        "partition_table_verified": true
+      },
+      {
+        "sif_file": "sha256-968de9456bfc53728f7df0cb6c9ce33e17bd0e5563ddfe031e6ed2964965aecf.sif",
+        "bytes": 8787517440,
+        "producer_exit_code": 0,
+        "partition_table_verified": true
+      }
+    ],
+    "old_owned_tree_stopped_before_launch": true,
+    "live_completed_109_failed_0_observed_at": "2026-10-15T18:09:49Z",
+    "observed_active_apptainer_pulls": 16,
+    "observed_established_connections": 53,
+    "all_observed_connections_via_proxy": true
+  }
+}

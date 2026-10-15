@@ -611,7 +611,7 @@
 
 ## 2026-10-16：镜像无损扩到16并发与ASI隔离候选
 
-- 用户追问并发后，在保留原8个长下载的前提下新增8-worker：仅暂停任务分配器，固定排除其打开日志对应8digest及106个final，另队列处理26项，峰值16。独立进度/日志，supervisor1651574/helper1651575结束后恢复原coordinator，最后统一汇总；未kill或重启原Apptainer。原Future已记录前次失败，必要时待原runner结束后全缓存复扫。
+- 用户追问并发后，在保留原8个长下载的前提下新增8-worker：仅暂停任务分配器，固定排除其打开日志对应8digest及106个final，另队列处理26项，并发上限16。独立进度/日志，supervisor1651574/helper1651575结束后恢复原coordinator，最后统一汇总；未kill或重启原Apptainer。原Future已记录前次失败，必要时待原runner结束后全缓存复扫。
 - 针对实测GHCR HTTP2流中断，新prefetch子进程显式Go http2client=0；固定GHCR元数据/缓存SIF复拉通过。在线入口包装不兼容Apptainer重定位，version检查即失败并原子恢复同一ELF，安装脚本也回退，未留二进制包装、不丢缓存。新增subset/独立progress参数保证补充队列互斥。
 - ASI新增可选bwrap OpenCode adapter和固定模型Unix relay，真实key留controller；四namespace、文件/进程/网络边界、SSE/tool反馈、窄路径/模型/附件限制及8.072秒timeout清理通过。原生TaskEnvironmentManager的3组缓存科学自造算例与ngspice0.5V通过，安全聚合回执入source_snapshots。无正式题/评分/付费API/GPU，未改protocol或选择OpenCode/direct_llm。CPU/RAM和真实Qwen链路仍待验收，不冒称正式就绪。
 - Base完成后曾关闭本轮自建HPC反向代理38082（Mac69616）并核端口关闭；为补丁后的Harbor合成回归，临时在本轮SSH master重新开启，回归结束再关闭。用户80原代理38080保持，镜像只读同步43874仍有用途。
@@ -684,3 +684,10 @@
 - Qwen3.6-27B公开存在，官方同表35BA3B→27B：SWEVerified73.4→77.2、Pro49.5→53.5、Multilingual67.2→71.3、TB2 51.5→59.3、HLE21.4→24.0。27B是dense，Base35B总/3B激活MoE，参数数字不能直接比。公开相关能力有27B更强证据；源teacher非思考且精确revision/wire未知，没有本实验非思考64K8K师生直接对照。
 - 标准DeepSeekV3.2作者TB2 thinking/ClaudeCode46.4，另Terminus非思考39.3；Qwen51.5为另一预算/模式设置，不能精确排序或默认DeepSeek必强。SWEVerified73.1与73.4也跨harness；HLE模态/工具设置不同不排名。旧论文Terminus思考不兼容不代表后续Nemotron采集无效。
 - 新增teacher_strength_qwen_20261016与teacher_strength_deepseek_20261016报告。教师总体分数与单条数据资格分开，成功/协议兼容/独立来源及Base-SFT dev提升才是选轨迹依据；不因教师名字更大就用全量，亦不因此更换题定Base。未运行模型、API、任务、GPU或训练，val选题/清洗仍未恢复；仅文档入Git并保留其他工作流WIP。
+
+## 2026-10-16：剩余镜像改用代理与统一16并发队列
+
+- 用户追问镜像是否可以并发；已从8并发尝试无损补充8-worker。随后实测GHCR直连整层在关闭HTTP2后仍反复unexpected EOF，小段测速不能证明完整镜像稳定。保持固定digest和已完成cache，改用既有38080代理；不修改或关闭用户代理。
+- 代理完整单镜像验证于2026-10-15T18:05:47Z通过：先前失败的固定tutao镜像首次成功，SIF1,083,351,040B，SHA256 aec3a53ae84647c537c5e124615055a0093914eee7bdc3b560f4ef46470e4798；Apptainer连接实际指向127.0.0.1:38080。该证据支持切换路径，不承诺固定速度。
+- 已精确停止本轮旧调度器/补充队列，统一单个16-worker代理队列2878546；02:09上海复扫109/140、0失败。原8个child均已退出，其中两个大TB pull退出0且SIF分区表通过，合计17,569,775,616B已保留后复扫；其他进程、系统配置、正式题与原722434均不操作。140项全量和HPC最终SHA仍待完成；新64K/8K合成GPU作业723993仍在启动，不能冒称通过。
+- Mac收尾进程15079已改为逐轮读取当前image-prefetch.pid，现有队列活着时不重复启动；独立只读审阅通过。HPC镜像3040078继续等待源complete并全140项SHA，达门槛后才关闭本次SIF只读rsync。旧进程/日志/进度及partial inode硬链接已归档，不碰用户代理。

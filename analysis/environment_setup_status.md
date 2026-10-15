@@ -10,7 +10,7 @@
 | Base 推理环境 | HPC独立184包锁；723821在两H100上完成权重加载、鉴权及文本/图像/多轮工具4个合成HTTP检查，`passed=true`、退出0；本地`/tmp`缓存修复实测通过 | 当前v2选择TP2单服务，统一64K/8K、长请求/并发和评测端点链路仍需验收；旧smoke服务已退出 |
 | HLE | 固定源码、独立44包锁；2500题文件/ID/342图像计数核对；自造图文与schema检查通过 | 接入冻结的Qwen推理及Judge运行参数；不把安装通过当成正式评分完成 |
 | SWE Pro HARD-51 | 固定源码、Harbor/mini环境、完整51任务、镜像digest | 镜像缓存、容器内mini依赖锁，以及官方locked流程的phase断网与模型白名单 |
-| Terminal-Bench2 | 80/HPC固定Harbor0.24与完整89任务；89项均有预构建镜像，无Compose任务；两端真实TB镜像的Harbor/两次exec/tmux/asciinema/停止合成闭环通过 | 全量镜像预拉/容器启动、冷启动超时收尾、实际Slurm资源与端点验收 |
+| Terminal-Bench2 | 80/HPC固定Harbor0.24与完整89任务；89项均有预构建镜像，无Compose任务；两端真实TB镜像的Harbor/两次exec/tmux/asciinema/停止合成闭环通过 | 全量镜像预拉/容器启动、实际Slurm资源与端点验收；冷启动收尾补丁已完成两端回归 |
 | ASI-Bench | 固定源码、657输入文件/60项目/240条件；45组依赖；v2已选DirectLLM，其执行隔离候选通过单次生成/执行、3组task env、ngspice及超时验收 | 实现正式预算/参数并验收全量运行；CPU/RAM约束、Qwen端点及最终Judge配置 |
 
 各项详细证据：[HLE](setup_hle_status.md)、[SWE/TB](setup_swe_tb_status.md)、[ASI](setup_asi_status.md)、[Base runtime](setup_base_runtime_status.md)。正式执行应读取协议工作流最终冻结配置；本页记录安装，不替代协议或自动冻结thinking、adapter与Judge路线。
@@ -32,9 +32,9 @@ Harbor原生Singularity后端可以启动工具环境，但没有SWE所需phase�
 
 ACD分区已实测拒绝CPU-only作业。容器检查作业723418为本次单独申请的1GPU/2CPU/4GB/5min，后已取消；未执行GPU计算，未改动原用户作业722434。后续GPU smoke最多使用授权的4卡，不复用原用户任务。
 
-HPC首轮自造Harbor检查通过：启动31.14秒，两次exec成功，停止后端口关闭。当时用项目子类处理集群launcher收尾，后续显式patch见下文。140个固定digest镜像在80预拉并转为SIF，主表已到106/140，现新增8-worker队列处理余下26项，并发上限16；原8个已分派下载保留。旧coordinator暂缓派新任务，新增队列结束后自动恢复并统一汇总；主表暂时不变不代表下载停止。新增worker用Go原生HTTP1.1开关处理已观察到的HTTP2流中断，不承诺吞吐翻倍。原Future已记录1次失败，即使补充队列补好，最终仍须全缓存复扫。HPC镜像进程已更新为PID3040078，只在源complete后额外rsync并逐140项检查SHA256、字节数和alias；不会因旧finished/failed回执提前停止。最终回执尚未产生，不能写为全量缓存完成。
+HPC首轮自造Harbor检查通过：启动31.14秒，两次exec成功，停止后端口关闭。当时用项目子类处理集群launcher收尾，后续显式patch见下文。140个固定digest镜像在80预拉并转为SIF；当前已统一为单个**16-worker代理队列，PID2878546**，实见16个pull、53条连接全部经过代理。2026-10-16 02:09（上海）复扫已有**109/140个final SIF，0失败**，其余31项继续下载；原8+补8两队列已精确停止，两个退出0的大TB镜像保留17,569,775,616B。最初GHCR小段直连测速较快，但整层反复PROTOCOL_ERROR/EOF，HTTP1也未解决；改走既有38080代理后，一个此前失败的1.08GB镜像完整拉取/分区表/SHA256检查通过，故当前远端registry均走代理，保持HTTP1。未修改用户代理，不承诺固定速度。安全回执见`source_snapshots/image_prefetch_transport_20261016.json`。
 
-本地ignored `artifacts/preflight/swe_tb/finish_prefetch.py`负责本次收尾：等待原runner退出，必要时以HTTP1.1/16worker做全缓存复扫，最多3轮；再等HPC的complete=true、sha256_verified=140及固定manifest匹配，才关闭本次80只读SIF rsync。只读SSH/JSON轮询有限重试，启动和关闭不盲重试。状态为同目录`download-pipeline.json`，日志为`download-pipeline.log`；它没有运行正式题、模型或评分。
+HPC镜像进程PID3040078只在源complete后额外rsync并逐140项检查SHA256、字节数和alias；不会因旧finished/failed回执提前停止。Mac收尾进程PID15079逐轮读取当前`image-prefetch.pid`，现有队列活着时不另起下载；必要时最多3轮全缓存复扫，然后等HPC的complete=true、sha256_verified=140及固定manifest匹配，才关闭本次SIF只读rsync。状态/日志为ignored `artifacts/preflight/swe_tb/download-pipeline.{json,log}`。当前全量仍未完成，没有运行正式题、模型或评分。
 
 真实TB镜像检查两端已通过。随后针对上游60秒启动窗口及launcher无界等待，实际应用固定f527上的显式local patch：启动默认300秒、实例身份校验、服务日志落文件、关闭/等待有界；项目旧stop override同步移除。80/HPC各用同一固定SIF重验，约44/46秒通过两次exec、tmux、录屏和stop后端口关闭；故障分支8项合成通过。依赖锁和固定SIF未变。详见`scripts/harbor_startup_patch.md`；监听前已脱离launcher的bootstrap仍有清理边界，未证明全140项bootstrap、完整多UID、网络策略或资源限额。
 
