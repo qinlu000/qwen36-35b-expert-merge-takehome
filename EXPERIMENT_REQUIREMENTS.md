@@ -55,6 +55,9 @@
 - 四项百分制主指标等权宏平均，与本次实测 Base 比较；使用同任务的配对 bootstrap 估计提升区间，报告重复运行波动和所有退化。
 - 宏平均提升 3 个百分点是挑战目标，5 个百分点是优秀参考，不是已验证的必达门槛；官方成绩只能作背景。
 
+
+**split 与全量：** split 是官方数据分区（常见 train/validation/test）；全量是把指定评测分区的完整任务全部评完，两者不矛盾，不要求把训练集、开发集一起测试，也不允许自行抽样后称全量。不同benchmark还需分别固定config/subset、版本、seed与运行条件：SWE是hard配置的test全部51项，HLE是固定test全部2500题（当前完整多模态候选口径），TB2是固定2.0全部89任务且五次，ASI当前候选open seed31415为60项目×B1–B4完整240条件。ASI的open/protected、seed和B层不能混叫成可任意缩减的split；SWE hard也不能写成自己挑选的子集。指定范围不得擅自替换，未指定的官方选项在训练前选定并披露。
+
 ### 四项协议
 
 - **SWE Pro v2-hard**：完整指定 hard 任务集，官方 resolved rate；记录 hard 依据、任务 ID、镜像、评测器和 Agent commit、prompt、工具、步数、token 和超时。目前核验到官方 V2 HARD-51（51 项），必须用 V2 对应流程，不用 V1 管线替代。[官方 V2 协议](https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/README.md)
