@@ -29,3 +29,5 @@
 HLE还需真实被测模型端点的图文HTTP/输出/usage冒烟、固定推理和thinking预算；正式Judge完整版本/错误处理也待冻结。若继续使用DeepSeek，应在独立、许可清楚的更广学科样例上校准，不用正式HLE反馈选judge或prompt。
 
 一手依据：[固定HLE预测代码](https://github.com/centerforaisafety/hle/blob/22ed3074b1e7b134bcbc09028d0ba320839b0655/hle_eval/run_model_predictions.py)、[固定HLE判分代码](https://github.com/centerforaisafety/hle/blob/22ed3074b1e7b134bcbc09028d0ba320839b0655/hle_eval/run_judge_results.py)、[DeepSeek JSON mode](https://api-docs.deepseek.com/guides/json_mode/)。
+
+后续纠正（2026-10-15）：当前官方deepseek-flash支持图像，已有key一次双图HTTP200且内容正确，见deepseek_vision_verification.md。上文早期文本测试不能推出不支持视觉；推荐HLE/ASI统一Flash替代Judge，原GPT5.5复现与具体模型支持是两回事。

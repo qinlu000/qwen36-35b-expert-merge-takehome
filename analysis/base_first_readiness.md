@@ -27,7 +27,7 @@
 | HLE | 已查cais/hle@5a81a4c7271a2a2a312b9a690f0c2fde837e4c29、test2500；自造图像processor通过；DeepSeek合成Judge JSON修正后8/8接口检查通过 | 将固定HF revision实际注入运行入口（完整2500 ID及342图像标志已物化）；真实Qwen图文请求；thinking/preserve_thinking、输出预算、图文/工具、答案抽取/Judge版本及失败规则冻结；判分协议校准 | 最接近打通，仍未ready |
 | SWE HARD-51 | 指定51任务清单和官方代码revision可查；全部task.toml资源元数据已核；mini兼容轨迹方向明确 | 正式容器后端/镜像缓存、固定Harbor/mini入口、模型allowlist与分阶段断网、实际任务生命周期与fresh-image replay；50min或30min自定义预算需先决定 | 无可用容器后端，未ready |
 | Terminal-Bench2 | 官方89项、Terminus2、五次要求及Harbor资源语义已核 | 可运行的官方Harbor后端/镜像、端点、五组种子与采样/context/thinking冻结、独立任务有效并发验证；题定3h/32CPU/48GB不能默改30min/4CPU | 无可用容器后端，未ready |
-| ASI-Bench | 固定代码与完整60×B1–B4范围可查；推荐opencode_cli/OpenCode1.17.15；60项元数据无任务GPU要求 | 先选open seed31415本地或protected seed42官网路线；落实相应sandbox/任务依赖、agent隔离与真实预算；原Judge或明确披露的已校准替代Judge，评分聚合/失败处理落地（已有Luna网关但原配置未改） | split/正式评分路线与服务未定，未ready |
+| ASI-Bench | 固定代码与完整60×B1–B4范围可查；推荐opencode_cli/OpenCode1.17.15；60项元数据无任务GPU要求 | 先选open seed31415本地或protected seed42官网路线；落实相应sandbox/任务依赖、agent隔离与真实预算；统一DeepSeek Flash替代Judge的独立科学校准/字段验收及评分聚合/失败处理落地（图文接口已实测，原配置未改） | split/正式评分路线与服务未定，未ready |
 
 上述“缺”基于项目当前证据，不等于断言其他主机或用户全部目录均不存在相关软件。80受检repo只有数据下载与审计脚本，未有正式运行配置或eval runner；`artifacts/models`下仅有`base_metadata`。之前的“数据已下完”指候选训练数据，不能据此称四项正式benchmark已完成物化/镜像预拉。
 

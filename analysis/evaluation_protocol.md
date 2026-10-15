@@ -50,7 +50,7 @@ Qwen固定模型卡和config明确含vision encoder、image token和图文输入
 
 HLE候选沿用DeepSeek官方deepseek-flash、thinking关闭、temperature0、输出4096、固定官方criteria和五字段JSON transport；prompt与hash已保存configs/eval/prompts及manifest。已做8例合成接口检查，仍需更广独立校准；它区别默认o3-mini，不冒称官方默认Judge等价。只向Judge提供评分所需输入，不向policy提供gold。
 
-ASI原始13项配置要求openai/gpt-5.5并含视觉评分。现已发现80的HKUST网关，当前key列有gpt-5.6-luna，四次合成请求HTTP均成功，图像探针2/3符合预期；原始GPT-5.5仍未提供。Luna可作为需校准、需披露的替代Judge候选，尚未修改原scorer模型。预算详见 [HKUST Judge费用](hkust_judge_budget.md) 与 [ASI调用量](asi_judge_call_budget.md)。
+ASI原始13项配置要求openai/gpt-5.5并含视觉评分。重新查当前官方文档并用已有key实测后，确认deepseek-flash支持图像，一次双图请求正确通过；此前“DeepSeek官方API不支持图片”的判断已纠正。推荐HLE与ASI统一用已有DeepSeek官方deepseek-flash作本实验替代Judge，保留原rubric/num_judges/图片/聚合，显式适配model映射及输出解析，尚未修改原task_eval。Luna留作备选，不再把新增GPT/Luna凭据当统一替代方案的技术前置。差异与实测见 [DeepSeek图像核验](deepseek_vision_verification.md)；仍需独立科学图文校准，不能声称原GPT5.5完全复现。调用结构仍参考 [ASI调用量](asi_judge_call_budget.md)。
 
 - 模型超时、错误动作、缺文件按官方grader对已固化产物评分；不因低分换seed重答。ASI可能保留有效部分分，不一概手工赋零。
 - 完整trial默认自动重试0；已核实基础设施故障最多人工补跑2次，同ID/seed/模型/配置，首个有效结果保留，全部失败和费用留档；不挑最好结果。各框架原生请求重试另固定并计日志。

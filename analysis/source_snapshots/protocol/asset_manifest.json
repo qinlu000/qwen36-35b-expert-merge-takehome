@@ -38,8 +38,8 @@
     },
     {
       "path": "configs/eval/protocol_v1.json",
-      "bytes": 13577,
-      "sha256": "2ca30ffe82f0c919e4a1c16f98aad3c5b44c8b8c2427f4f76bcb7a4af5cd7dca"
+      "bytes": 14110,
+      "sha256": "302cdb1c13fb8b2082b16b6e2087cdfa10e415eb3d75dbc3d6953f6876c82ff8"
     }
   ]
 }

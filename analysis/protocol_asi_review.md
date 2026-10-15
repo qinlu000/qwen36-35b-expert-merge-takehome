@@ -62,7 +62,7 @@
 
 来源：[ASI adapter 构造器与原生配置](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/ai4sci_bench/adapters/opencode_cli.py#L108-L228)、[CLI 时间/attempt/seed](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/ai4sci_bench/cli.py#L1457-L1485)、[资源限额](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/ai4sci_bench/runner/os_sandbox.py#L71-L108)、[OpenCode 网络特例](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/ai4sci_bench/runner/os_sandbox.py#L844-L873)、[固定 agent schema](https://github.com/anomalyco/opencode/blob/5fb0d1cdb363ecafd55402c451c6634ed15b74b1/packages/core/src/v1/config/agent.ts#L18-L37)、[固定 provider limit](https://github.com/anomalyco/opencode/blob/5fb0d1cdb363ecafd55402c451c6634ed15b74b1/packages/core/src/v1/config/provider.ts#L41-L62)、[真实步数控制](https://github.com/anomalyco/opencode/blob/5fb0d1cdb363ecafd55402c451c6634ed15b74b1/packages/opencode/src/session/prompt.ts#L1170-L1179)、[title 辅助调用](https://github.com/anomalyco/opencode/blob/5fb0d1cdb363ecafd55402c451c6634ed15b74b1/packages/opencode/src/session/prompt.ts#L193-L236)、[token/采样请求准备](https://github.com/anomalyco/opencode/blob/5fb0d1cdb363ecafd55402c451c6634ed15b74b1/packages/opencode/src/session/llm/request.ts#L80-L130)。
 
-## 原始 Judge 必须保持：实际缺什么
+## 原始 Judge 与本实验替代协议
 
 本次对 60 项配置仅提取 scorer/model/weight/num_judges 等白名单字段。**13 项显式模型全部是 `openai/gpt-5.5`**，其余47项没有显式 model，不据此声称47项所有 custom scorer 传递依赖已证明完全无 API。
 
@@ -72,9 +72,9 @@
 | 明确 llm_judge（3项） | chemistry.metadynamics_for_dipeptide_in_vacuum；chemistry.sapt_water_dimer；electrical_engineering.cmos_opamp_design |
 | 自定义 scorer 配置显式同模型（1项） | math.nnls_modulus_deblur |
 
-公共 Judge 路由默认也为 `openai/gpt-5.5`。运行时 endpoint/key/protocol override **不替换 model**；multimodal 会将预测图和参考图作为 `image_url: data:image/...;base64` 送给模型。现有 DeepSeek 官方 key 和余额无法履行 GPT-5.5 + 图像评分请求；把 model 偷换为 DeepSeek 会改变 scorer 契约，不能作为本协议主结果。
+公共 Judge 路由默认也为 `openai/gpt-5.5`。运行时 endpoint/key/protocol override **不替换 model**；multimodal 会将预测图和参考图作为 `image_url: data:image/...;base64` 送给模型。DeepSeek endpoint不能在保留GPT5.5模型名时调用该原模型，但这不等于DeepSeek不支持图像。当前deepseek-flash原生支持图片，已有官方key双图实测成功；显式替换模型/服务并适配输出解析后，可作为需披露的本实验替代Judge，原GPT5.5配置则保留作来源记录。
 
-**最小外部条件**：提供能真实调用 `gpt-5.5` 且支持图像输入的 OpenAI API 凭据配置位置，或同一模型的兼容网关地址、模型 ID 映射与凭据环境变量。只需配置位置/变量名，不需在聊天粘贴 key。冻结源码指定的 rubric、模型、温度、num_judges 和重试；不为省 API 降级视觉评分或把 evaluator_unavailable 填零。
+**原GPT5.5完全复现所需条件（非替代路线前置）**：提供能真实调用 `gpt-5.5` 且支持图像输入的 OpenAI API 凭据配置位置，或同一模型的兼容网关地址、模型 ID 映射与凭据环境变量。只需配置位置/变量名，不需在聊天粘贴 key。冻结源码指定的 rubric、模型、温度、num_judges 和重试；不为省 API 降级视觉评分或把 evaluator_unavailable 填零。
 
 来源：[唯一默认与模型映射](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/ai4sci_bench/scorers/_judge_common.py#L87-L102)、[override 保留配置 model](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/ai4sci_bench/scorers/_judge_common.py#L197-L204)、[明确 GPT-5.5 图像评分配置第79–82行](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/tasks/biology/calcium_ip3_dyk_oscillations/task_eval.yaml#L79-L82)、[图像请求构造](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/ai4sci_bench/scorers/multimodal.py#L129-L193)。这里仅核查配置与通用传输，未读取实际参考图或题面。
 
@@ -82,6 +82,6 @@
 
 保护集 seed42 数据 revision `4533397770a85ef79afe31e0361cbd9c42d5b50d` 有同样 60 个任务ID和四层，但输入不同、无公开 reference。官网认证要求 Docker `os` 运行证明、Portal 登录/PAT、上传 draft、网页确认、排队私有判分；`score --repo seed42` 被 CLI 拒绝。此路线不是只替换 seed 参数，亦不能将 seed31415 的本地数值上传成官方分数。目前本实验选择 open/local，所以无需为当前协议索要 Portal 账号；若交付要求改变，再落实账号与时效。
 
-当前真正阻止本协议完整评分的外部输入只有 **原 Judge 凭据/网关可用性**。Docker执行主机、endpoint网络、隔离配置及Qwen工具/生成参数透传属于工程验收事项，可以先在自造任务推进；不能因为尚未验收就宣称已完成 Base 测评。无需再向用户询问“是否所有四项必须统一harness”或让用户决定OpenCode低层字段。
+若要求原GPT5.5模型完全复现，仍缺原Judge凭据；本实验替代路线已有deepseek-flash图文接口实测，缺新key不再是技术阻断，仍需独立校准和实现验收。Docker执行主机、endpoint网络、隔离配置及Qwen工具/生成参数透传属于工程验收事项，可以先在自造任务推进；不能因为尚未验收就宣称已完成 Base 测评。无需再向用户询问“是否所有四项必须统一harness”或让用户决定OpenCode低层字段。
 
 来源：[官网评分工作流及差异](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/docs/guide/how-scoring-works.md#L21-L44)、[seed42 固定索引](https://huggingface.co/datasets/Apexintelligence-AI/ASI-Bench-seed42/tree/4533397770a85ef79afe31e0361cbd9c42d5b50d)。

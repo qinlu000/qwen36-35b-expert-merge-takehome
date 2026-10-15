@@ -441,3 +441,11 @@
 - 用户问四项中哪些要评分模型。按已固定版本/当前候选协议：SWE Pro HARD51用官方测试器及fresh patch replay，TB2用官方验证脚本，二者不需额外LLM Judge；Qwen作答调用另计。HLE官方式答案抽取/等价判定需要Judge，本项目候选DeepSeek。ASI是自动数值/工件检查与部分LLM/VLM评分组合，已核13任务配置显式Judge，本项目研究HKUST Luna替代候选，未改原GPT5.5配置。
 - HLE包含图像题意味着被测Qwen需看图；固定HLE原Judge仅接问题文字/标准答案/模型回答，不自动要求视觉Judge。ASI部分scorer实际比较预测图/参考图，需要视觉评分模型，不能把两者的图文需求混为一谈。
 - 本轮只澄清已有固定源码证据并更新记录，无API/任务/GPU/训练执行或协议参数变更。
+
+## 2026-10-15：纠正DeepSeek图像支持判断并实测双图
+
+- 用户追问能否HLE/ASI都用DeepSeek，是图片API不支持还是接口有错。重新核当前官方Vision/API/model表，deepseek-flash（当前表列V4.1-Flash）支持图像，而deepseek-v4-pro不支持；此前把已有Flash官方API笼统说成纯文本、据此认为必须Luna/GPT视觉key，是未经验证的错误，已明确向用户纠正并道歉。不是已观察到ASIj图片请求报错。
+- 固定ASI multimodal scorer本就把预测/参考图编码成user.content.image_url，和DeepSeek当前OpenAI-compatible格式一致。模型名仍须显式从原GPT5.5映射至deepseek-flash，endpoint override自身不改模型；评分器解析/num_judges/cap/重试和rubric仍要验收冻结。
+- 只用已有本机私有DeepSeek官方key实做一次generation，1请求两张自造512px PNG，thinking disabled/temp0/max1024/JSON/no retry；正确识别红蓝与蓝红并判different，HTTP200/stop，1.274s，prompt466/output35/total501。原始合成证据已在Mac和80ignored artifacts留存，安全summary和fingerprint入source_snapshots/protocol；无正式题/参考图、无密钥复制或输出。
+- 更新协议草案推荐HLE和ASI统一现有deepseek-flash替代Judge，Luna备用；原始task_eval未改。新增凭据不再作为统一替代路线的技术阻断；保留原GPT5.5不同、需披露及独立科学图文校准的边界，不把简单颜色探针当评分质量验证。SWE/TB仍自动测试，不需LLM判分。
+- 同步更正当前问题表、Judge说明、ASI审计与预算页状态；历史claud保留当时错误并以本条纠正。未做正式评测/训练、安装、GPU/Slurm或发外部消息。其他线程新建脚本保持原状。

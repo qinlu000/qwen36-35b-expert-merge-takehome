@@ -1,5 +1,7 @@
 # HKUST(GZ) GPT-5.6 Luna 判分 API 预算
 
+当前状态更新：已确认已有DeepSeek官方deepseek-flash原生支持图像且双图实测成功，推荐统一HLE/ASI使用它作替代Judge；Luna保留备选。下文校内价格与预算仍有效，但不是因DeepSeek缺视觉能力而必须新增的开销，见deepseek_vision_verification.md。
+
 核验日期：2026-10-15。仅核配置与模型列表，并用4个自造请求测试文本/图像接口；未正式评分任何HLE/ASI题目或启动被测Base。
 
 ## 已找到的配置与价格

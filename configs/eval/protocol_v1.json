@@ -217,8 +217,8 @@
       "tools": "build shell/read/write/edit/search; webfetch/websearch/MCP/subagents disabled",
       "network": "only model endpoint during solving; dependency preparation before solve",
       "auxiliary_models": "title/summary/compaction use the same evaluated model; all requests logged",
-      "judge": "original per-task scorer configurations and openai/gpt-5.5 where required",
-      "judge_credential_status": "HKUST gateway key discovered and compatible text/image calls tested; current model list has gpt-5.6-luna but no gpt-5.5; original Judge still unavailable",
+      "judge": "deepseek-flash on DeepSeek official API; proposed experimental substitution; upstream task_eval unchanged",
+      "judge_credential_status": "existing project DeepSeek key tested successfully with two real synthetic image_url parts; no new API key required for this substitution",
       "primary_metric": "official local_score_seed31415.json.mean_percent = 100 * sum(final_score) / sum(max_score)",
       "expected_scored_conditions": 240,
       "expected_scorer_error_count": 0,
@@ -229,7 +229,7 @@
         "model": "gpt-5.6-luna",
         "base_url": "https://aigc-api.hkust-gz.edu.cn/v1",
         "credential_source": "/data/caoqinlu/projects/data-perception/.env",
-        "decision_status": "candidate only; original per-task scorer configurations not changed",
+        "decision_status": "backup candidate; DeepSeek Flash vision now verified",
         "actual_compatibility": "four synthetic requests, HTTP 4/4; text 1/1; image 2/3 exact expected matches",
         "estimated_slots_per_model": {
           "text": 56,
@@ -247,6 +247,16 @@
           "output": 8.7996
         },
         "cost_review": "analysis/hkust_judge_budget.md"
+      },
+      "upstream_judge": "openai/gpt-5.5 in original per-task scorer configuration",
+      "proposed_unified_judge": {
+        "model": "deepseek-flash",
+        "base_url": "https://api.deepseek.com",
+        "thinking": false,
+        "temperature": 0,
+        "preserve_upstream_rubric_weights_num_judges_output_caps": true,
+        "status": "recommended substitution; full scorer adapter and scientific calibration pending",
+        "verification": "analysis/deepseek_vision_verification.md"
       }
     }
   },
@@ -314,7 +324,7 @@
     "accurate base weights and same inference runtime loaded on allocated <=4 H100",
     "text/image/tool/long-history independent smoke passes",
     "Docker-equivalent phase network/resource isolation and fixed image digests",
-    "ASI original GPT-5.5 available, or explicitly freeze and disclose a calibrated alternative Judge",
+    "freeze/disclose unified DeepSeek Flash substitute and validate the scorer adapter on independent scientific image/text cases",
     "full dependency lock and native runner config hashes saved before formal runs",
     "real CPU quota and sustainable concurrency measured; no scheduling promise from nominal core counts"
   ]

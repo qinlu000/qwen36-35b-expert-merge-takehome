@@ -5,7 +5,7 @@
 ## 当前鉴权结果
 
 - HF 账号 `csminion` 的鉴权成功，token role 为 write，HLE 数据访问检查返回 200。
-- DeepSeek 官方模型列表和余额接口均返回 200，余额状态可用；返回模型为 `deepseek-flash`、`deepseek-v4-pro`。这是鉴权证据，不代表已测试生成或判分兼容性。[模型列表接口](https://api-docs.deepseek.com/api/list-models)、[余额接口](https://api-docs.deepseek.com/api/get-user-balance)
+- DeepSeek 官方模型列表和余额接口均返回 200，余额状态可用；返回模型为 `deepseek-flash`、`deepseek-v4-pro`。这些是早期鉴权证据；后续已有文本JSON与双图真实请求通过，最新见deepseek_vision_verification.md，仍非科学评分校准。[模型列表接口](https://api-docs.deepseek.com/api/list-models)、[余额接口](https://api-docs.deepseek.com/api/get-user-balance)
 - 用户尚未指定 API 总费用上限；账号余额不等于本实验授权支出。
 
 ## HLE
@@ -18,7 +18,7 @@
 
 - 60/60 配置成功检查；13 项显式指定 `openai/gpt-5.5`，这是配置中唯一显式 judge 模型；47 项没有模型字段，也未出现通用 `llm_judge` / `multimodal` 标签。
 - 通用 judge 代码的默认模型同样为 `openai/gpt-5.5`；API base、key-env 和 protocol 的 transport override 会保留任务配置声明的模型名。因此 DeepSeek 官方 endpoint 不能直接履行这些 GPT-5.5 评分请求。[路由与默认模型](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/ai4sci_bench/scorers/_judge_common.py)
-- 原始配置包含视觉评分，所需接口必须支持 GPT-5.5 的图像输入。最小新增条件是可调用该模型的 OpenAI API 凭据，或提供相同模型及图像能力的兼容网关地址、模型映射和凭据。[视觉评分配置](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/tasks/biology/calcium_ip3_dyk_oscillations/task_eval.yaml)、[文本评分配置](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/tasks/chemistry/metadynamics_for_dipeptide_in_vacuum/task_eval.yaml)、[VLM 实现](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/ai4sci_bench/scorers/multimodal.py)
+- 原始配置包含视觉评分；保留GPT5.5原模型需其图像API凭据，替代实验则可用已有deepseek-flash图文接口，经独立校准并披露，不要求因此新增OpenAI凭据。[视觉评分配置](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/tasks/biology/calcium_ip3_dyk_oscillations/task_eval.yaml)、[文本评分配置](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/tasks/chemistry/metadynamics_for_dipeptide_in_vacuum/task_eval.yaml)、[VLM 实现](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/ai4sci_bench/scorers/multimodal.py)
 - OpenAI 官方模型页列出 GPT-5.5 的图像输入、Chat Completions 和结构化输出支持；具体账号权限、速率和调用成功率仍须用后续凭据验证。[官方模型文档](https://developers.openai.com/api/docs/models/gpt-5.5)
 - README 中的 Gemini 示例不是这 60 个实际任务的 judge 清单；不能据示例要求用户配置 Gemini。47 项的 custom scorer 尚未逐一追踪所有传递依赖，不能声称它们绝无外部 API 需求。
 
@@ -40,4 +40,4 @@ physics.ks_2d_anisotropic
 physics.paired_nanorod_negative_index_retrieval
 ```
 
-将上述任务换成 DeepSeek judge 会改变本版本评分契约；若尝试，应单列为修改协议的补充实验，不能充当原始配置的主结果。[ASI 评分契约](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/docs/guide/how-scoring-works.md)
+将上述任务换成DeepSeek会改变评分模型；可作为明确披露替代Judge的本实验结果，不能冒称原GPT5.5配置复现。当前deepseek-flash已双图实测通过，技术能力与原模型等价性应分开；见deepseek_vision_verification.md。[ASI 评分契约](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/docs/guide/how-scoring-works.md)
