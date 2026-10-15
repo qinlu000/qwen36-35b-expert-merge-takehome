@@ -142,3 +142,10 @@
 - 找到实际MoE LoRA代码Slime PR #2440（Open，头a988346413582c1567330675592286387168b9a9）；支持注入/冻结/保存/merged HF设计，但adapter是自定义Megatron分片且无PEFT转换器，示例Qwen3-30B八卡GRPO，尚无准确模型四H100离线SFT验证。PR #1865 dense-only，#1140也仍Open，不能代替本题证据。
 - 结论收敛：LoRA为重点时维持ms-swift/PEFT BF16 SFT主线建议，Occamy供多专家合版思路，Dressage供轨迹参考；不把更新Slime main写成即用LoRA，不为截止窗口加入未合并Megatron适配工作。训练/合版/评测方案尚待共同讨论确认。
 - 仅更新文档；未写实验代码、安装依赖、下载权重/训练数据、调用模型API、提交GPU任务或执行评测；本机既有未提交scripts/logs保持不动。
+
+
+## 2026-10-15：用户确认采用ms-swift
+
+- 用户明确选择ms-swift，已将PROJECT_PLAN与简化方案状态更新为框架已确认，训练按ms-swift + PEFT / BF16 LoRA路线规划。Dressage不作为训练运行依赖，Unsloth不再与主线并列待选。
+- 此选择仅确认训练框架；专家分工、数据清单与预算、LoRA目标/rank、合版候选和正式评测资源仍待整体讨论定稿，具体版本与ZeRO-3配置尚未实测锁定。
+- 保持先规划不写实验代码的既有要求。仅修改方案与本记录，未安装依赖、下载模型/训练数据、调用模型API或启动训练/评测。80主开发、HPC四H100计算、本机编辑查看的分工保持。
