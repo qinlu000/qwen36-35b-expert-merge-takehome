@@ -127,3 +127,10 @@
 - 约18:32按最初起算估计核心余55–56h，提出3h环境数据协议+8h训练+3h合版dev+36h正式评测+5h交付的条件预算，保留最后12h。专家目标全评、Base/合版四项全评和TB五次均不缩减。
 - 强制资源门槛仍为容器与额外CPU、四卡计算节点及稳定模型端点/外网、数据与judge。TB若均30分钟，36h理想最低需19路/608CPU/912GB RAM；80即使128CPU全归本项目仍不足。ASIGPT-5.5图文评分未落实，DeepSeek接口测试不能替代。
 - 仅读公开源码并更新方案文档；没有创建实验脚本、安装依赖、下载权重/训练数据、调用模型API或启动GPU/benchmark任务。
+
+## 2026-10-15：直接使用Dressage/Slime的补充核验
+
+- 用户继续问能否直接用Dressage。已修正此前仅从agentRL示例判断的范围：其固定Slime aaf5c2092b01219fa0d5c2d323741d409086ca32已有35B MoE离线SFT入口及本地messages/mask读取，不需要自写SFT loss/训练循环或在线agent生成答案。
+- 近邻SFT脚本为Qwen3.5-35B-A3B、单节点8GPU/EP8且含CPU optimizer offload；框架支持colocate/小卡数，但不是目标3.6四卡LoRA实测。LoRA接线/保存恢复/HF导出仍未核实，不写成不支持。32卡不是框架最低要求。
+- Docker在quickstart中是可选，不能将无Docker视为框架绝对障碍。Dressage的Harbor extra0.18与SWE V2新版协议应分环境处理。
+- 简化方案追加直接采用框架的候选路线与未来2h兼容验证门槛；如果需要改Megatron核心再回到ms-swift。当前没有擅自切换主训练方案、写实验代码、安装或跑任务。

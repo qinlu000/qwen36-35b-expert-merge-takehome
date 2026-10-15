@@ -108,3 +108,17 @@ SWE V2 HARD-51/locked protocol并fresh-image replay；HLE建议完整2500含图�
 80主开发目录沿用 `/data/caoqinlu/projects/apex-takehome`，中间产物放 `artifacts/`。HPC持久盘缓存base/adapter与当前评测完整权重；固定git commit、依赖、数据manifest和run_id。正式所需日志/曲线/逐任务结果整理到可提交位置或带校验值的归档，不能因临时artifacts被忽略就漏交日志。最终提供各专家与合版公开HF revision、复现命令、损失曲线原始数据、统计/失败分析和一页报告。
 
 本稿只列复用/适配/自实现边界与资源门槛；没有创建上述实验脚本、安装依赖、调用模型API、下载训练数据/权重或启动GPU任务。
+
+## 9. 补查：直接采用Dressage/Slime也是可选路线
+
+用户追问能否直接使用框架后，进一步核验了Dressage固定子模块Slime `aaf5c2092b01219fa0d5c2d323741d409086ca32`，并非拿最新main替代证据：
+
+- 已有[35B MoE离线SFT脚本](https://github.com/THUDM/slime/blob/aaf5c2092b01219fa0d5c2d323741d409086ca32/scripts/run-qwen3.5-35B-A3B-sft.sh)和[sft_rollout数据入口](https://github.com/THUDM/slime/blob/aaf5c2092b01219fa0d5c2d323741d409086ca32/slime/rollout/sft_rollout.py)。它从本地messages构造token/mask，使用SFT loss、关闭advantage/return计算并走train-only；无需在线agent生成训练答案。不能把它说成只能RL或必须重写SFT。
+- 该近邻脚本是Qwen3.5-35B-A3B、单actor节点8GPU/EP8，并已有optimizer CPU offload。框架也支持colocate及少于8卡的配置；但离线SFT不必使用在线训练/推理colocate。32卡示例不是框架最低卡数，四卡需要调整实际并行/内存布局并验证。
+- 该固定组合的目标Qwen3.6 MoE LoRA注入、仅adapter更新、保存/恢复和HF完整导出，本次仍未核实；这不等于不支持。Megatron参数透传也不能作为整条LoRA路径已可用的证据。若只能走全参+offload，需重新测显存和吞吐，不能自动套用6M token的LoRA预算。
+- [Dressage quickstart](https://github.com/Accio-Lab/Dressage/blob/3e3142fe8ea07e4504c3b20a936a4c201a3de44c/docs/quickstart.md)将Docker列为可选，缺Docker不是框架绝对不可用的理由；实际依赖环境及正式评测容器仍要分别验证。
+- 固定[pyproject](https://github.com/Accio-Lab/Dressage/blob/3e3142fe8ea07e4504c3b20a936a4c201a3de44c/pyproject.toml)的Harbor extra钉0.18.0，不能拿它覆盖SWE V2要求的新版评测环境。离线训练可不装该extra，正式评测另锁依赖和官方协议。
+
+因此，可选做法是“保留Dressage仓库，直接走其Slime离线SFT路径”，复用训练循环与数据入口，再接本项目的独立专家、AVG/TIES及正式评测。它仍不自动提供本题数据、三专家调度、合版选择或四项结果统计。
+
+若用户选择该路线，建议把后续首段环境验证中的最多2h用于准确模型LoRA、四卡前后向/显存、mask与HF导出闭环，并据实测吞吐冻结训练量；若需修改Megatron核心，当前窗口回到较短的ms-swift路径。此为待讨论的采用门槛，本轮没有安装或执行，也尚未切换已拟定训练主线。
