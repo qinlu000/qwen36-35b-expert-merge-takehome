@@ -88,6 +88,14 @@
 - 工程建议已补入`PROJECT_PLAN.md`：80主开发/CPU处理，本机编辑查看，HPC计算节点训练/推理；固定Git commit，权重就近HPC，80缓存放/data。正式CPU评测需另核容器、配额和网络；128CPU按TB每trial32CPU至多保障4路，不能据此宣称解决全量排期。
 - 仅读官方Docker多平台与Slurm批作业说明；两种开发方式均可提交不依赖交互SSH会话的批作业。未新增实验代码、迁移仓库、安装依赖或启动实验。
 
+## 2026-10-15：工程分工确认，工作区落到80的projects
+
+- 用户确认80主开发/HPC训练推理/本机编辑查看，并进一步要求项目放在`projects`。确认80已有`/data/caoqinlu/projects`后，开发目录最终为`/data/caoqinlu/projects/apex-takehome`。
+- 用主分支Git bundle保留已提交历史，建立`/data/caoqinlu/repos/apex-takehome.git`同步入口与80普通checkout；本机配置`lab`远端，80的`origin`使用该bare仓库。仅迁移项目主分支历史，没有迁移应用内部refs。
+- 数据/缓存/运行产物目录为项目下`artifacts/data`、`artifacts/cache`、`artifacts/runs`，添加`/artifacts/`忽略规则。最初建立的`/data/caoqinlu/apex-takehome`和`/data/caoqinlu/apex-artifacts`已移动到最终位置，未留下第二套开发目录。
+- 未提交的`scripts/`与`logs/`、仓库外凭据保留在本机；没有安装依赖、修改SSH/代理配置、使用80 GPU或启动训练/合版/正式评测。
+- 工程位置确认不等于全部实验设计已确认；数据/算法/评测讨论继续。HPC按冻结commit执行，HPC到80 Git入口鉴权、正式沙箱与稳定外网仍待处理。
+
 ## 题目来源
 
 - 用户附件：`/Users/caoqinlu/.codex/attachments/20b2f4c3-6e03-4746-a389-d488086d7780/Pasted text.txt`。
