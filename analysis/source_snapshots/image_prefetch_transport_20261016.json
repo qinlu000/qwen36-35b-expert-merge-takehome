@@ -56,5 +56,116 @@
     "observed_active_apptainer_pulls": 16,
     "observed_established_connections": 53,
     "all_observed_connections_via_proxy": true
+  },
+  "subsequent_proxy_batch": {
+    "observed_at": "2026-10-15T18:42:50Z",
+    "completed": 110,
+    "failed_after_two_attempts": 15,
+    "still_active": 15,
+    "terminal_bench_complete": 89,
+    "swe_complete": 21,
+    "latest_error": "error writing layer: unexpected EOF",
+    "interpretation": "The earlier successful one-image probe did not establish reliable full-batch transfers. HTTP1 through the proxy still truncates full layers."
+  },
+  "ranged_layer_probe": {
+    "passed": true,
+    "layer_digest": "sha256:32926d178d6ee589692d2128a260a6f0dda1c17d66ba2a6b9dc294fe53f833c8",
+    "bytes": 598841604,
+    "chunk_bytes": 8388608,
+    "workers": 4,
+    "seconds": 132.48115017078817,
+    "sha256_verified": true,
+    "scope": "Fixed OCI compressed layer only; no image contents opened or executed",
+    "interrupted_chunk_retry_observed": true,
+    "initial_failure": "SSLError during one8MiB chunk; chunk retry completed with exact final layer SHA256",
+    "full_image_acceptance": false
+  },
+  "ranged_oci_image_probe": {
+    "image": "ghcr.io/scaleapi/swe-bench_pro-v2@sha256:3f506b30838750b681489f4e7a476379ebe4d9d4acc67b9bbb0299c6531841dc",
+    "manifest_sha256": "sha256:3f506b30838750b681489f4e7a476379ebe4d9d4acc67b9bbb0299c6531841dc",
+    "objects_verified": 29,
+    "oci_layout": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/ranged-oci/layouts/3f506b30838750b681489f4e7a476379ebe4d9d4acc67b9bbb0299c6531841dc",
+    "output": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/swe_tb/ranged-image-probe.sif",
+    "scope": "Blob transfer and official OCI-to-SIF conversion only; no image commands",
+    "status": "passed",
+    "sif_list_exit_code": 0,
+    "sif_bytes": 1034416128,
+    "sif_sha256": "fae86a5071fe326f2dd80a9deffa3c2479a691f3b0b9e539650ba4a287da89ef",
+    "helper_sha256": "a4a1ec83ce99f9c91b3c119ab743742c5c645c94112016bf1566ede79524f2b8",
+    "verified_598mb_blob_reused_without_download": true,
+    "driver_exited": true
+  },
+  "current_helper_after_corrupt_prefix_fix": {
+    "sha256": "ba22ab1afe2763a37b069c690ba00d14ec6113f6885c2fa22766d068ffbde727",
+    "change": "Quarantine an own partial that fails final size/SHA, so a subsequent attempt can restart instead of repeatedly failing on the same bytes. Normal OCI conversion path unchanged.",
+    "synthetic_receipt": "artifacts/preflight/swe_tb/oci-eof-20261015T185700Z/summary.json"
+  },
+  "ranged_queue_restart": {
+    "started_at_utc": "2026-10-15T18:58:51.806157+00:00",
+    "new_pid": 701277,
+    "workers": 16,
+    "transport": "ranged-oci",
+    "helper_sha256": "ba22ab1afe2763a37b069c690ba00d14ec6113f6885c2fa22766d068ffbde727",
+    "prefetch_sha256": "5873a02417db96b035948c808a3b2009e71c29b234bf5e5282d81f47af61a4d4",
+    "original_final_sifs_preserved": 110,
+    "pinned_native_temporary_files": 49,
+    "prefixes_seeded_as_independent_files": 36,
+    "seeded_prefix_bytes": 5504894709,
+    "seeded_prefixes_sha256_verified": false,
+    "prefix_validation": "Prefixes are untrusted until the complete blob size/SHA is checked. A mismatch is quarantined so the next attempt can restart. Native inodes are not appended.",
+    "promotions": [
+      {
+        "digest": "3f506b30838750b681489f4e7a476379ebe4d9d4acc67b9bbb0299c6531841dc",
+        "action": "promoted",
+        "bytes": 1034416128,
+        "proof": "Real probe validation: official pull0, 29 OCI SHA/size, SIF SHA/bytes/list"
+      }
+    ],
+    "source_completed_after_scan": 111,
+    "source_failed_after_scan": 0,
+    "hpc_final_sifs_synced": 111,
+    "hpc_independently_sha256_checked": 77,
+    "full140_acceptance": false,
+    "mac_finalizer_pid": 58129
+  },
+  "ranged_queue_latest_observation": {
+    "checked_at": "2026-10-15T19:00:49Z",
+    "completed": 114,
+    "failed": 0,
+    "original110_size_preserved": true,
+    "all36_seeded_parts_have_independent_native_inodes": true,
+    "sample_seconds": 10.02,
+    "range_log_lines_added": 13,
+    "existing_parts_grown": 7,
+    "existing_parts_added_bytes": 100663296,
+    "invalid_parts": 0,
+    "full140_acceptance": false
+  },
+  "hpc_followup_20261015T1902Z": {
+    "actual_final_sifs": 114,
+    "mirrored_report_completed": 110,
+    "mirrored_report_failed": 15,
+    "mirrored_report_transport": null,
+    "hpc_report_bytes": 94009,
+    "source_report_bytes": 88936,
+    "interpretation": "Large SIFs are transferring; the progress JSON shrank after queue restart and rsync append mode retained the longer old copy. Metadata synchronization is being separated from immutable SIF append transfers."
+  },
+  "mirror_metadata_fix": {
+    "new_pid": 19075,
+    "script_sha256": "12750d15cd36644a31643c0c31bbf0cef3a04469fc4fb090290ead8a34782557",
+    "rsync_version": "3.1.3",
+    "fixture_old_report_bytes": 4165,
+    "fixture_new_report_bytes": 62,
+    "append_verify_retained_old_report_with_exit_0": true,
+    "normal_rsync_ignore_times_replaced_short_report": true,
+    "hpc_report_matches_source_bytes": true,
+    "hpc_report_bytes": 88936,
+    "hpc_report_epoch": "2026-10-15T18:58:56.487700+00:00",
+    "hpc_report_transport": "ranged-oci",
+    "sif_sizes_matched": 114,
+    "missing_sifs": 0,
+    "size_mismatches": 0,
+    "independent_full140_sha256_complete": false,
+    "receipt": "artifacts/preflight/swe_tb/mirror-json-fix-20261016.json"
   }
 }

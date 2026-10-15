@@ -17,6 +17,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--root', type=Path, required=True)
     parser.add_argument('--workers', type=int, default=2)
+    parser.add_argument('--transport', choices=('native', 'ranged-oci'), default='native')
     parser.add_argument('--only-images', type=Path, help='Optional JSON list of image names')
     parser.add_argument('--progress-name', default='_prefetch_progress.json')
     args = parser.parse_args()
@@ -60,11 +61,19 @@ def main():
             with log.open('ab') as stream:
                 for attempt in range(1, 3):
                     partial.unlink(missing_ok=True)
-                    command = [str(tool), 'pull', '--arch', 'amd64', str(partial), 'docker://' + ref]
+                    if args.transport == 'ranged-oci':
+                        command = [str(root / 'artifacts/envs/harbor/bin/python'),
+                                   str(root / 'scripts/pull_oci_resumable.py'),
+                                   '--root', str(root), '--image', ref, '--output', str(partial)]
+                    else:
+                        command = [str(tool), 'pull', '--arch', 'amd64', str(partial), 'docker://' + ref]
                     code = subprocess.run(command, env=env, stdout=stream, stderr=subprocess.STDOUT).returncode
                     result['attempts'] = attempt
                     if code == 0:
                         partial.replace(output)
+                        if args.transport == 'ranged-oci':
+                            receipt = partial.with_suffix(partial.suffix + '.oci.json')
+                            receipt.replace(output.with_suffix(output.suffix + '.oci.json'))
                         break
                 else:
                     result.update(status='failed', return_code=code, finished_at=now())
@@ -83,6 +92,7 @@ def main():
 
     report = {'manifest_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
               'total': len(items), 'workers': args.workers, 'started_at': now(),
+              'transport': args.transport,
               'go_http2_client': False,
               'registry_transport': 'proxy' if env.get('HTTPS_PROXY') or env.get('https_proxy') else 'direct',
               'scope': 'Image download/conversion only; no task or image commands executed'}

@@ -1,0 +1,148 @@
+{
+  "captured_at_utc": "2026-10-15T19:00:39.327969+00:00",
+  "host": "10.123.4.80",
+  "scope": "Self-authored localhost OCI registry; isolated temporary caches; no benchmark tasks, image execution or production queue changes",
+  "passed": true,
+  "fixture": {
+    "seed": 31415,
+    "payload_bytes": 9437184,
+    "gzip_layer_bytes": 9440248,
+    "gzip_layer_digest": "sha256:66e7e0ec24fad6e81630a5a574500d8ff4740825c58d0ac3bf714afb1d27ae38",
+    "unranged_get_truncation_bytes": 65536,
+    "first_range_also_truncated": true
+  },
+  "native_apptainer_version": "1.4.5",
+  "checker_sha256": "34aa39ad46fb0b5af2799f3cc0185b87e4b0fd82ad274aefca62fc4ffd85cc8f",
+  "tested_helper_sha256": "ba22ab1afe2763a37b069c690ba00d14ec6113f6885c2fa22766d068ffbde727",
+  "runs": [
+    {
+      "receipt": "artifacts/preflight/swe_tb/oci-eof-20261015T184933Z/summary.json",
+      "checker_sha256": null,
+      "helper_sha256": null,
+      "baseline_returncode": 255,
+      "baseline_red": true,
+      "baseline_seconds": 0.037,
+      "baseline_errors": [
+        "FATAL:   While making image from oci registry: error fetching image to cache: while building SIF from layers: conveyor failed to get: error writing layer: unexpected EOF"
+      ],
+      "resumable_passed": true,
+      "resumable_seconds": null,
+      "ranges": [
+        {
+          "range": "bytes=0-8388607",
+          "status": 206,
+          "declared_bytes": 8388608,
+          "sent_bytes": 65536,
+          "truncated": true
+        },
+        {
+          "range": "bytes=0-8388607",
+          "status": 206,
+          "declared_bytes": 8388608,
+          "sent_bytes": 8388608,
+          "truncated": false
+        },
+        {
+          "range": "bytes=8388608-9440247",
+          "status": 206,
+          "declared_bytes": 1051640,
+          "sent_bytes": 1051640,
+          "truncated": false
+        }
+      ],
+      "cache_hit_without_get": true,
+      "temporary_directory_removed": true
+    },
+    {
+      "receipt": "artifacts/preflight/swe_tb/oci-eof-20261015T185024Z/summary.json",
+      "checker_sha256": "4f485290be001dda4bc7dbd9131295dc7846f8b319bcc5718c5042794e3b5fef",
+      "helper_sha256": "eb15dfe387582b9c83f98b52fd3286aa282d9cbff24dea9c1ec1a6dcaf336468",
+      "baseline_returncode": 255,
+      "baseline_red": true,
+      "baseline_seconds": 0.039,
+      "baseline_errors": [
+        "FATAL:   While making image from oci registry: error fetching image to cache: while building SIF from layers: conveyor failed to get: error writing layer: unexpected EOF"
+      ],
+      "resumable_passed": true,
+      "resumable_seconds": 1.098,
+      "ranges": [
+        {
+          "range": "bytes=0-8388607",
+          "status": 206,
+          "declared_bytes": 8388608,
+          "sent_bytes": 65536,
+          "truncated": true
+        },
+        {
+          "range": "bytes=0-8388607",
+          "status": 206,
+          "declared_bytes": 8388608,
+          "sent_bytes": 8388608,
+          "truncated": false
+        },
+        {
+          "range": "bytes=8388608-9440247",
+          "status": 206,
+          "declared_bytes": 1051640,
+          "sent_bytes": 1051640,
+          "truncated": false
+        }
+      ],
+      "cache_hit_without_get": true,
+      "temporary_directory_removed": true
+    },
+    {
+      "receipt": "artifacts/preflight/swe_tb/oci-eof-20261015T185700Z/summary.json",
+      "checker_sha256": "34aa39ad46fb0b5af2799f3cc0185b87e4b0fd82ad274aefca62fc4ffd85cc8f",
+      "helper_sha256": "ba22ab1afe2763a37b069c690ba00d14ec6113f6885c2fa22766d068ffbde727",
+      "baseline_returncode": 255,
+      "baseline_red": true,
+      "baseline_seconds": 0.033,
+      "baseline_errors": [
+        "FATAL:   While making image from oci registry: error fetching image to cache: while building SIF from layers: conveyor failed to get: error writing layer: unexpected EOF"
+      ],
+      "resumable_passed": true,
+      "resumable_seconds": 1.224,
+      "ranges": [
+        {
+          "range": "bytes=0-8388607",
+          "status": 206,
+          "declared_bytes": 8388608,
+          "sent_bytes": 65536,
+          "truncated": true
+        },
+        {
+          "range": "bytes=0-8388607",
+          "status": 206,
+          "declared_bytes": 8388608,
+          "sent_bytes": 8388608,
+          "truncated": false
+        },
+        {
+          "range": "bytes=8388608-9440247",
+          "status": 206,
+          "declared_bytes": 1051640,
+          "sent_bytes": 1051640,
+          "truncated": false
+        }
+      ],
+      "cache_hit_without_get": true,
+      "temporary_directory_removed": true,
+      "corrupt_prefix": {
+        "seed_bytes": 65536,
+        "first_range_start": 65536,
+        "sha_rejected": true,
+        "invalid_bytes_preserved": 9440248,
+        "next_attempt_range_start": 0,
+        "recovered_full_sha": true
+      }
+    }
+  ],
+  "replay_on_80_project_root": "artifacts/envs/harbor/bin/python scripts/check_oci_resumable.py --apptainer artifacts/tools/apptainer-1.4.5/rootfs/usr/bin/apptainer --helper scripts/pull_oci_resumable.py",
+  "limitations": [
+    "The native pull is intentionally expected to fail with unexpected EOF.",
+    "Green covers the public download_blob function, Range retry, a nonzero resume offset, whole-layer bytes/SHA, and cache reuse. It does not validate external registry authentication, throughput, full OCI-to-SIF conversion or benchmark execution.",
+    "Earlier run hashes are recorded where the receipt captured them. The separate real-image normal conversion probe used a4a1ec83; the final synthetic run validates the ba22ab1a quarantine-only amendment."
+  ],
+  "corrupt_prefix_recovery_passed": true
+}

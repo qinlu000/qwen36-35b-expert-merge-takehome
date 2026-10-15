@@ -2,6 +2,8 @@
 
 更新：2026-10-16。本文记录真实安装与检查结果；没有运行正式题作答或评分，没有读取 instruction、参考补丁或隐藏测试，没有调用付费模型。
 
+最新复查（2026-10-16 03:02上海）：**80/HPC均114/140个final（TB89/89、SWE25/51）**。原HTTP1代理整层队列15项两次EOF失败，已归档停止；当前唯一16-worker ranged-OCI队列701277，111项复扫通过后推进到114项、当前0失败，余26项续传。原110份final均保留；36份/5,504,894,709B在途前缀已复制到独立own part，最终整层SHA未过前不当完整blob。HPC独立回执仍77项，全140项验收未完成；固定manifest已补齐。下文旧PID/0失败/并发阶段为带时间的操作历史。
+
 ## 已完成的安装
 
 | 对象 | 80 主机 | HPC |
@@ -110,9 +112,11 @@ JSON 的等价写法为 `environment.type=null`、`environment.import_path="apex
 
 ## 进行中的镜像下载与传输
 
-当前为单个16-worker代理队列PID2878546（2026-10-16 02:09上海），109/140个已缓存且复扫通过，0失败；其余31项继续下载。原8+补8的旧进程树已精确停止，两个退出0且SIF分区表通过的大TB partial已保留为final，合计17,569,775,616B。GHCR整层直连在HTTP1下仍EOF，故当前所有远端registry走既有38080代理；先前失败的固定1.08GB镜像经代理完整验证成功。回执见`source_snapshots/image_prefetch_transport_20261016.json`。后文较早的PID/直连/两队列描述为操作历史，当前以`image-prefetch.pid`和canonical进度为准。
+当前下载入口：`scripts/prefetch_benchmark_images.py --root <80项目> --workers 16 --transport ranged-oci`，canonical PID701277，114/140个final。HPC mirror19075和Mac finalizer58129继续收尾；只有源140完成且HPC140个独立SHA通过，才关闭本次专用rsync。当前完成数和失败记录见`_prefetch_progress.json`；原队列15项EOF失败历史在archive，不被新轮0失败抹去。
 
-Mac收尾进程PID15079已改为每轮读取当前coordinator PID，避免新旧切换后重复启动；HPC镜像PID3040078持续同步，只有完整140项独立SHA通过后才关闭本次专用rsync。全量仍未完成。以下保留安装与扩并发历史。
+下载器以固定linux/amd64 manifest建立独立OCI layout，按8MiB Range续传，核完整blob size/SHA后发布；官方`apptainer pull --disable-cache oci:<layout>`仅转换，不执行镜像。真实598.8MB层在一次SSL中断后分段补齐并通过整SHA；固定Navidrome镜像29逻辑对象校验、官方转SIF和分区表均通过。秒级自造registry重现同EOF，首次Range截断恢复、非零offset、缓存零GET与坏前缀隔离/重下均通过。原在途49个temp inode保全，36份5.50GB前缀已copy为独立inode，不追加native文件；前缀最终SHA失败会隔离，不会产出错误SIF。详见`apptainer_cache_resume_research.md`和两份safe transport/EOF snapshots。
+
+以下保留安装与扩并发历史。
 
 80 已按官方发布 SHA256 校验 `apptainer_1.4.5_amd64.deb`，仅在 `artifacts/tools/apptainer-1.4.5/rootfs` 解包；`buildcfg` 确认为 `APPTAINER_SUID_INSTALL=0`。配置文件位于项目内，mksquashfs 初始限制每进程2 CPU/1 GiB；00:39发现大型镜像进入压缩后，将后续新builder调为4 CPU/1 GiB，不重启或丢弃在途拉取。prefetch 初始并发2，后调至4，2026-10-16 00:17调至8；8个builder最多约32压缩CPU，仍低于采样空闲资源。下载过程未执行容器内容。安装复现脚本为 `scripts/install_apptainer_user.sh`。[官方发布资产](https://github.com/apptainer/apptainer/releases/expanded_assets/v1.4.5)
 

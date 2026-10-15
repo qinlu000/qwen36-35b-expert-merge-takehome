@@ -7,16 +7,23 @@ mkdir -p "$APEX_SIF_DIR"
 sync_sifs() {
   rsync -rlt --partial --append-verify --contimeout=15 --timeout=180 --no-motd \
     --exclude='*.partial.sif' --exclude='*.partial.json' \
-    --include='*.sif' --include='_prefetch_progress.json' --exclude='*' \
+    --include='*.sif' --exclude='*' \
     rsync://10.123.4.80:43874/benchmark_sif/ "$APEX_SIF_DIR/"
 }
+sync_progress() {
+  # Reports shrink after a new run; append mode skips a longer old receiver.
+  rsync -lt --ignore-times --contimeout=15 --timeout=180 --no-motd \
+    rsync://10.123.4.80:43874/benchmark_sif/_prefetch_progress.json \
+    "$APEX_SIF_DIR/_prefetch_progress.json"
+}
 while true; do
-  if sync_sifs; then
+  if sync_sifs && sync_progress; then
     APEX_PROGRESS_STATUS=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["status"])' "$APEX_SIF_DIR/_prefetch_progress.json")
     printf 'SIF mirror sync succeeded; source status=%s\n' "$APEX_PROGRESS_STATUS"
     if [[ "$APEX_PROGRESS_STATUS" = complete ]]; then
       # The previous file list may predate the last image's atomic rename.
       sync_sifs
+      sync_progress
       break
     fi
     # A repair pass may replace a finished report containing earlier failures.

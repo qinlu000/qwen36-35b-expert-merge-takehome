@@ -775,3 +775,22 @@
 - 三专家对应500/1000/500，Mixed同2000并集各一遍；每域若500全训须至少600个独立任务并隔离来源族。val100适合有限开发比较，稀有类仍只有1–2题；二项n100最坏95%近似半宽约9.8百分点，不以1–2题排序作可靠提升。
 - 原val模型矩阵若每独立任务单次运行约2000次尝试，非400次调用，条件/seed另计；不每checkpoint全执行。SWE500按新64条成功bugfix样本均长41801粗估20.9M完整tokens，专家+Mixed该部分41.8M，其他域/窗口重复/padding另计，4H100耗时尚未验证。
 - 只更新选样讨论稿，不将ASI31生态家族或HLE四科当已足600任务；保留新源缺类/图像、gold/环境与工具协议问题。本轮不恢复下载、分类、选样、模型/API/GPU或训练，保留其他工作流WIP。
+
+## 2026-10-16 02:43：镜像EOF复查与HPC最终清单补齐
+
+- 用户追问进度，实核80与HPC实际110个final：TB89/89、SWE21/51，78.6%。02:42:50时当前轮15项已两次失败、15项仍pull；剥离旧archive后30条fatal均为error writing layer: unexpected EOF，不把此前单镜像代理通过误当全队列已解决，不再沿用0失败状态。
+- 现有16-worker及HPC mirror3040078继续运行；Mac finalizer15079后已停止，避免新方法验证前重复整包重试，状态标为paused_for_transport_repair；HPC独立SHA回执仍历史77项，110份存在不等于110项已独立重验。保留全部成功SIF与缓存，不动用户代理或原HPC作业。
+- 发现HPC最终验收依赖的configs/envs/swe_tb_image_digests.json实际未部署；已补同一固定清单并实核SHA388d9c4413cb281b489174c19a268cd935f34742d92996ce2390b64c0011d91a，无须重启mirror。该缺口若不修，源complete后footer会失败。
+- 使用diagnosing-bugs流程，以固定失败镜像/完整层SHA作最终通过信号；GB整层复现耗时，不能把秒级Range速度当修复。代理Range1MiB实测206、Content-Range完整匹配；正在核官方Apptainer1.4.5的OCI layout/断点续传替代，不修改在线共享cache index或正式任务。
+
+
+## 2026-10-16 02:59：OCI分段续传修复与111份镜像保全
+
+- 原整层下载反复EOF，真实598,841,604B层改为4×8MiB分段，132.481秒完成，途中一次SSL错误按块重试后整SHA一致。固定Navidrome child3f506b完整镜像29逻辑对象size/SHA通过，官方OCI→SIF和sif list通过；SIF1,034,416,128B/SHAfae86a5071fe326f2dd80a9deffa3c2479a691f3b0b9e539650ba4a287da89ef，598MB已有层直接复用。
+- 新pull_oci_resumable.py维护独立OCI layout/own cache，8MiB Range、digest flock、完整size/SHA后atomic publish，native完整blob只读验证后复用，不人工改index。独立review发现坏own prefix会sticky失败，已最小修为最终SHA失败后移.invalid，下一attempt从0；正常转换路径未改。
+- 自造9MiB OCI registry秒级原Apptainer255 unexpectedEOF红→新helper绿；首次Range也被截断，按段恢复/非零offset/完整SHA/缓存零GET通过。新增坏65536B prefix续到全size后被SHA拒绝/隔离，第二次从0重下通过；临时目录已清理，无镜像exec、正式题、GPU或付费API。
+- 精确冻结并停止旧2878546整树，原110个final按dev/inode/size完整保留。49个native临时inode先pin，按digest选择36份5,504,894,709B copy为独立own part继续；前缀仍未整SHA验证，最终不符会隔离重下。Nav完整probe补为第111份。
+- 新唯一16-worker ranged-OCI队列701277已实际启动，02:59复扫111/140、当前0失败（原15失败记录归档）。TB89/89、SWE22/51；HPC实际111份，独立回执仍77，不能冒称全量验收。Mac收尾58129已重启且repair也用ranged-oci，HPC mirror3040078继续；只有140项完整SHA回执才关本次rsync，用户代理/原722434未动。
+
+- 后续03:00源推进到114/140（TB89、SWE25），新轮0失败；36份own part inode均与native pin不同，10秒7个part新增100.66MB，无.invalid。另发现rsync --append-verify会保留较长的旧JSON，HPC文件已到114却仍报旧110/15；已把SIF追加同步与JSON普通ignore-times同步拆开。
+- rsync3.1.3隔离fixture实证：4165B旧report对62B新report时append仍旧且exit0，普通同步正确覆盖。旧mirror3040078在only sleep空闲时精确停止，新19075启动；HPC新epoch/ranged-oci/114/0的88936B JSON与source逐字节相同，114份SIF字节数逐个匹配。未提前声称全140 SHA通过，finalizer58129继续等最终完整回执。
