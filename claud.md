@@ -802,3 +802,12 @@
 - 每benchmark val100/train约500仍是目标，候选数不冒充可执行任务。rank/alpha/target/window用户仍暂缓，夜间不自行正式SFT或GPU反向；训练环境与CPU模板可准备。最多4H100，优先已验单TP2服务，不动其他聊天的作业/镜像队列/代理。
 - 公开数据优先、小量API核验/判分；提议夜间DeepSeek上限30元并执行前核费率usage，未知校园计费只界定调用，不批量重采。单路径约45分钟无新进展留证转并行项，Git/claud记录实际产物和资源账，不向其他聊天发消息。
 - 使用OpenAI Docs核官方Scheduled tasks页面（developers链接跳learn.chatgpt.com）：本地任务需电脑保持开机、应用运行。用户确认后才检查/创建本线程heartbeat，远端作业驻留不能被说成助手在本机休眠后仍连续决策。当前只给计划，没有实际配置自动任务。
+
+
+## 2026-10-16：Baseline可启动项复核
+
+- 用户询问哪些baseline可以先启动；并行只读核实际HLE/ASI/Harbor入口及v2规范，未运行正式题、API/Judge、容器任务或新GPU作业。当前仅用户其他项目722434在跑，本项目723993测试服务已结束，不能把smoke通过当常驻endpoint/正式runner已就绪。
+- 建议HLE生成最先打通，Judge可对冻结答卷后评；需常驻TP2端点、薄runner显式固定输入/64K8K/视觉计数、共享300s/安全重试及逐题保存恢复。现官方入口仍600s/SDK重试/浮动revision/缺采样guard/集中写盘，不能直接按v2批跑。
+- TB89镜像齐，不受SWE剩余26项阻塞；仍缺正式Terminus配置/主辅guard与摘要溢出规则、实际资源/网络和全镜像bootstrap。ASI240输入/45环境齐，DirectLLM仅执行隔离，需正式入口实例化该adapter、生成参数与共享1200s/资源/真实端点；produce-only不必等Judge。SWE25/51可做工程预检，正式仍缺locked phase网络、容器mini锁与fresh replay接线。
+- 更新base_first_readiness顶部当前矩阵，并把2026-10-15旧的“权重/环境未准备”审计明确标历史；四项当前均未符合v2直接正式批跑。HLE优先，TB/ASI并行准备、共享服务按项正式运行；没有擅自启动正式评分、修改冻结协议或干预下载/原有作业。
+- 补充区分启动与完成：SWE在phase网络/mini锁/v2 runner通过后，可先运行已缓存25项的一批，剩余镜像继续下载；全51分母与固定清单不变。当前这些硬门槛尚未满足，不因25项可用就直接绕过locked流程。

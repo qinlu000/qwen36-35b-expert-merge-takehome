@@ -1,5 +1,25 @@
 # Base优先评测：执行条件与最短依赖
 
+## 2026-10-16：当前启动判断
+
+本轮只读复核实际脚本、固定上游入口、安装回执与Slurm状态；没有运行正式题、模型/API、评分或新GPU作业。权重和推理环境已完成，723993已实测TP2/BF16/64K/8K的文本、图像、工具、57,280-token长输入和越界400。当前测试服务已退出，没有本项目常驻Base服务。协议v2为规范，仍不是可直接执行的四项runner配置。
+
+**优先打通HLE生成；TB与ASI接线/预检可并行准备，SWE最后补齐。现阶段四项均未达到按v2直接正式批跑的状态。** 不用等待SWE余下镜像，也不把Judge校准完成作为HLE/ASI生成的前提。共享TP2服务按协议逐项运行，不在这里新增跨benchmark同时正式运行的策略。
+
+| 项目 | 已有条件 | 正式启动前最小接线/验收 | 可先推进 |
+| --- | --- | --- | --- |
+| HLE | 固定2500题、342图像、44包；Base图文与长输入合成验收通过；无需任务镜像 | 常驻服务和80到端点；固定输入/显式v2参数；真实视觉token发送前guard；共享300s及单层安全重试；逐题保存/恢复/保留失败和分母 | 最优先补薄runner并用合成数据接通，随后先生成冻结答卷；独立评分后置 |
+| Terminal-Bench2 | 89/89镜像两端已到；Harbor补丁与代表真实镜像的exec/终端生命周期通过 | v2可执行配置；主/辅助请求8192和64K guard、种子/重试/摘要溢出策略；实际4CPU/8GiB与solver网络；各镜像bootstrap和真实端点链 | 无须等SWE，先做原生Terminus2端到端验收；通过后按89×5运行资源受限实验档 |
+| ASI | 全240条件输入、45组依赖、ngspice；DirectLLM执行隔离合成验收通过 | 正式入口必须实例化BwrapDirectLLMAdapter；生成参数/64K8K与共享1200s；4CPU/8GiB；真实Qwen单次程序生成→隔离执行→产物链 | 不依赖SWE/TB镜像，先补produce-only runner；references/Judge适配和科学校准可后置 |
+| SWE | 固定HARD51和官方mini；本轮实核25/51镜像 | locked agent阶段模型白名单/phase网络；容器内mini依赖锁；30min wrapper/安全重试与fresh replay验收；余26镜像为全量完成条件 | 当前先做工程检查；其他门槛通过后可先启动缓存25项的一批，不必等待全部镜像，最终分母仍51 |
+
+当前仅有`scripts/smoke_base.*`、HLE安装检查、Harbor自造nop配置和ASI合成入口；不把这些称为正式baseline runner。HLE原生`run_model_predictions.py`仍是600s/SDK重试、未固定dataset revision，缺显式采样/guard且末尾集中写盘；ASI候选`scripts/asi_direct_bwrap.py:4`明确仅覆写执行。TB的`harbor_singularity_synthetic.json`为nop，项目启动器只配置环境子类；各自native请求接线尚未完成。
+
+Judge影响的是可信分数：HLE可对保存答卷独立评分，ASI原生produce-only也会在评分前保存返回。Judge失败只重评同一冻结答卷/产物，不重答题。TB的64K/8K、30min/4CPU/8GiB是已选资源受限实验，不称满足题定256K/80K/3h/32CPU/48GB。
+
+以下为2026-10-15历史审计。其“权重未下载、无容器后端、ASI adapter未选”等描述已被本节及环境安装回执更新，不能作当前就绪判断。
+
+
 更新：2026-10-15。仅只读检查80当前Git文件、现有readiness证据与artifacts目录结构；本轮没有安装、模型/API/任务执行、容器、Slurm申请或广泛环境扫描。本文不会把此前工程检查当成正式Base成绩。
 
 ## 判断
