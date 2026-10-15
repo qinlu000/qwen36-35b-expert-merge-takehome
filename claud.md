@@ -840,3 +840,9 @@
 - 区分实际接线：Harbor项目脚本只选择Apptainer backend，未自动实施Agent/v2请求/phase网络/CPU RAM；ASI BwrapDirectLLM只覆写执行hook，正式入口与生成预算/共享deadline仍待补。四项runner不因已安装harness就被标ready。逐项表见analysis/protocol_alignment_20261016.md。
 - 本轮读取到整体推进的新用户指令：全用新版数据并持续推进、集中记录进展/不确定性；更新上轮“夜间仍待审阅”的时效说明，由另一会话继续该工作，本会话不接管下载删除/队列，不把该指令当rank/window已确定。
 - 仅文档核对，无正式任务、模型API、GPU、训练或自动任务；未向其他会话发消息。保留共享工作区其他WIP。
+
+## 2026-10-16：解释LockedMiniSwe与mini-swe-agent的层次
+
+- 直接只读80固定源码locked_mini_swe.py和Harbor mini_swe_agent.py：LockedMiniSwe继承Harbor MiniSweAgent适配器，后者启动mini-swe-agent包。实际模型/bash/反馈循环由mini实现；Locked包装补Python3.12安装适配、内部timeout和结束model.patch捕获，两者组合使用。
+- 明确独立职责：新环境patch replay由PatchReplayAgent/verifier完成，网络phase与资源由Harbor/backend实现，不能把它们都归到LockedMiniSwe类。正式选择仍mini2.4.6/Harbor0.24/LockedMiniSwe，未改变v2预算或harness。
+- 在protocol_swe_review补层次与v2指针；仅源码读取和文档说明，没有执行正式题、模型API、GPU或训练。

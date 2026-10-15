@@ -38,6 +38,8 @@
 
 选用官方 `v2/tooling/locked_mini_swe.py:LockedMiniSwe`，配置为官方 `v2/tooling/configs/mini_toolcall.yaml`。SWE题面没有唯一强制mini；这是本项目选择，后续所有模型必须一致。
 
+2026-10-16补充层次说明：`LockedMiniSwe`继承Harbor的`MiniSweAgent`适配器，后者安装并启动实际mini-swe-agent包。mini负责模型→bash→观察的解题循环；LockedMiniSwe补Python3.12安装适配、内部timeout与结束后`model.patch`捕获，不是第二套解题算法。新环境重放由独立`PatchReplayAgent`和verifier完成，分阶段网络/资源由Harbor及backend负责。当前固定mini2.4.6与30min/64K8K见[v2](evaluation_protocol.md)，下文官方原预算审计不覆盖后续实验设置。
+
 - system与instance prompt直接使用固定官方yaml，不新增基于正式失败结果的提示。任务内容是正式instruction.md，仅运行时送给模型，审计阶段未打开。
 - 单一 `bash` 工具，参数 `command`；每次响应至少一次bash调用。模型可以读/改仓库、运行仓库已有测试和自己的复现程序。
 - 每次action在新subshell，cd/环境变量不跨action自动持续；观察为returncode/output JSON。
