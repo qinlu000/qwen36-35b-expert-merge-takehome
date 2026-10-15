@@ -708,3 +708,11 @@
 - Terminal：OpenThoughts-Agent-SFT-100K已核准确为GLM4.7-AWQ、Terminus2/Daytona/result，不应与旧OpenHands池混称；新GLM5.2+Terminus2 open-athena仓库公开但缺文档/许可/来源/成功依据，待核不直接入主池。TMax当前真正轨迹10726/成功5795，不用论文16.5K/8K冒充公开量，且bash非Terminus。最新V4函数工具/Pi会话、正式TB/easy25/2.1评测日志都不自动成为合格终端主池。
 - 新增latest_trajectories_20261016总报告与swe/terminal/science三专项、passive latest_trajectory_candidates_20261016.json；benchmark_training_data加新入口及OT100K纠正。原data_sources.json/协议/训练参数不变，尚未更换或选入任何最终样本。所有新旧teacher同PR/模板/源问题须联合分组留val、排四正式任务/保守repo/fork，保留逐行许可；不因追新放宽环境和成功资格。
 - 本调研仅将上述文档/聚合候选登记入Git，保留其他工作流环境/长输入smoke和脚本修改；关闭自己浏览空间47，未操作别人的浏览器或任务。
+
+## 2026-10-16：结合实测轨迹长度讨论SFT规模
+
+- 用户询问大致数据量。本轮复核当前数据预算、clean完整轨迹均值与已下载数据状态，独立交叉核算，并重新联网阅读AgentTuning/SWE-smith一手资料；保存analysis/sft_data_budget_20261016.md。没有恢复已暂停的选题/清洗，没有导出数据、调用模型/API、训练或改变配置。
+- 修正原6M累计预算的解释：三专家3M+同数据Mixed3M只是小预算pilot；旧SWE0.9M按31,174均长约29条记录，Terminal0.7M约53条（mixed约68），科研0.5M约152条；记录尚须按原任务去重，不能直接称独立任务。原学术0.9M含OpenScience0.6M，后者未测长度，不将整池套OpenR1均值。
+- 新讨论起点是三专家合计约10–20M完整序列token，优先按15M核算；Mixed同数据再一遍后累计20–40M，15M对应约30M。可核算示例为修复8M、执行4.5M（终端4M+科研0.5M）、学术2.5M；不是用户已确认的新配额，也不是充分专长/提升的门槛。
+- 建议任务覆盖量级：修复200–300；终端200–400加科研100–200；学术约2–5千题，广域长度/科研任务映射及质量验收后重算。分别记独立任务、一次性完整数据token、含epoch/窗口历史重复的processed token与新增assistant supervised token，不按切片数或重复epoch冒充新增数据。
+- 保留真实训练吞吐为锁量条件：若8h训练预算仅6.4h用于前后向，累计20/30/40M需整组约868/1302/1736非padding token/s；现有vLLM长输入smoke不证明训练可达。推荐量需先与当前评测/交付资源兼容，不因本轮建议延长已定截止或挤占保留缓冲。仅本轮笔记及本节纳入Git，其他工作流修改保留。
