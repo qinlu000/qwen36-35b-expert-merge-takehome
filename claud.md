@@ -435,3 +435,9 @@
 - 仅4个自造generation请求（无正式题/参考图）：文本2+3过；64px红蓝图误答blue/blue；两张512px红蓝/蓝红图均过。HTTP4/4，returned_model=luna，reasoning_tokens0；prompt755/completion56/total811，公开价估算0.0015997586元，不是账单实扣。失败完整保留；这不是科学Judge校准，原配置未改。安全usage摘要入source_snapshots/protocol/hkust_luna_preflight.json，原始合成请求/响应在ignored artifacts。
 - 仅静态白名单与NNLS委托AST核ASI判分槽：每模型132=56文本+76视觉，三模型396=168文本+228视觉，420图像附件含重复；无重试输出cap291888。396非全局严格上限，gate/缺工件可能减少、外层/SDK/其他custom依赖可能增加。按总输入2/5/10/20M与该输出cap估5.50/9.90/17.23/31.89元，ASI先规划50元；HLE若另改Luna7500调用，三组假设约55/110/220元，两项含余量可规划100–350元，不是硬封顶或实测。
 - 保存asi_judge_call_budget.md、hkust_judge_budget.md与价格/协议资产快照。另一代理只读复核范围/次数/资源/算术/未ready状态与小图失败保留无实质异议。没有正式评测/训练、申请GPU、安装、更改系统或发送上游消息。
+
+## 2026-10-15：说明哪些benchmark需要评分模型
+
+- 用户问四项中哪些要评分模型。按已固定版本/当前候选协议：SWE Pro HARD51用官方测试器及fresh patch replay，TB2用官方验证脚本，二者不需额外LLM Judge；Qwen作答调用另计。HLE官方式答案抽取/等价判定需要Judge，本项目候选DeepSeek。ASI是自动数值/工件检查与部分LLM/VLM评分组合，已核13任务配置显式Judge，本项目研究HKUST Luna替代候选，未改原GPT5.5配置。
+- HLE包含图像题意味着被测Qwen需看图；固定HLE原Judge仅接问题文字/标准答案/模型回答，不自动要求视觉Judge。ASI部分scorer实际比较预测图/参考图，需要视觉评分模型，不能把两者的图文需求混为一谈。
+- 本轮只澄清已有固定源码证据并更新记录，无API/任务/GPU/训练执行或协议参数变更。
