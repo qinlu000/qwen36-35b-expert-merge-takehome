@@ -25,8 +25,8 @@ async def main():
     cache = scratch / 'cache'
     cache.mkdir(exist_ok=True)
     cached_image = cache / 'apex-synthetic_slime-ubuntu24_local.sif'
-    if not cached_image.exists():
-        cached_image.symlink_to(args.image.resolve())
+    cached_image.unlink(missing_ok=True)
+    cached_image.symlink_to(args.image.resolve())
     paths = TrialPaths(scratch / 'trial')
     paths.mkdir()
     logging.basicConfig(level=logging.INFO)
@@ -41,7 +41,7 @@ async def main():
         logger=logging.getLogger('apex.synthetic-harbor'),
     )
     report = {'image_path': str(args.image), 'task_scope': 'Synthetic only; no benchmark instruction, solution, or tests',
-              'scope': 'Upstream Harbor start/exec with project HPC launcher cleanup; no model or GPU computation'}
+              'scope': 'Native Harbor with project bootstrap/cleanup adaptations; no model or GPU computation'}
     started = time.monotonic()
     try:
         await env.start(force_build=False)
@@ -57,6 +57,21 @@ async def main():
         check = await env.exec('cat /tmp/apex-harbor-synthetic.txt', timeout_sec=10)
         assert check.return_code == 0 and check.stdout.strip() == 'APEX_HARBOR_SYNTHETIC_OK'
         report['persistent_exec'] = check.model_dump()
+        terminal = await env.exec(
+            "set -e; tmux -V; asciinema --version; "
+            "tmux -S /tmp/apex-harbor-smoke.sock new-session -d -s synthetic 'bash --noprofile --norc'; "
+            "tmux -S /tmp/apex-harbor-smoke.sock send-keys -t synthetic "
+            "\"printf 'APEX_TMUX_SYNTHETIC_OK\\n' > /tmp/apex-tmux-smoke.txt\" Enter; "
+            "timeout 5 bash -c 'until test -s /tmp/apex-tmux-smoke.txt; do sleep 0.1; done'; "
+            "cat /tmp/apex-tmux-smoke.txt; "
+            "tmux -S /tmp/apex-harbor-smoke.sock capture-pane -p -t synthetic; "
+            "tmux -S /tmp/apex-harbor-smoke.sock kill-server; "
+            "asciinema rec --command 'printf APEX_CAST_SYNTHETIC_OK' --overwrite /tmp/apex-synthetic.cast; "
+            "test -s /tmp/apex-synthetic.cast",
+            timeout_sec=30,
+        )
+        report['terminal'] = terminal.model_dump()
+        assert terminal.return_code == 0 and 'APEX_TMUX_SYNTHETIC_OK' in terminal.stdout
         report['status'] = 'passed'
     except Exception as exc:
         report.update(status='failed', error=str(exc))

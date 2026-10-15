@@ -15,6 +15,7 @@ import sys
 import time
 from urllib.error import HTTPError, URLError
 from urllib.request import ProxyHandler, Request, build_opener
+from uuid import UUID
 
 
 REVISION = "995ad96eacd98c81ed38be0c5b274b04031597b0"
@@ -45,7 +46,8 @@ def main():
 
     key = key_path.read_text().strip()
     visible = os.environ["CUDA_VISIBLE_DEVICES"]
-    assert len(visible.split(",")) == 4, "Smoke requires exactly four visible GPUs"
+    tensor_parallel = len(visible.split(","))
+    assert tensor_parallel in (2, 4), "Smoke supports two or four allocated GPUs"
     model = project / "artifacts/models/Qwen3.6-35B-A3B" / REVISION
     index = json.loads((model / "model.safetensors.index.json").read_text())
     shards = set(index["weight_map"].values())
@@ -56,7 +58,7 @@ def main():
     command = [sys.executable, "-m", "vllm.entrypoints.openai.api_server",
                "--model", str(model), "--served-model-name", "apex-qwen",
                "--host", "127.0.0.1", "--port", "18000", "--dtype", "bfloat16",
-               "--tensor-parallel-size", "4", "--distributed-executor-backend", "mp",
+               "--tensor-parallel-size", str(tensor_parallel), "--distributed-executor-backend", "mp",
                "--max-model-len", "262144", "--max-num-seqs", "4",
                "--gpu-memory-utilization", "0.85", "--enforce-eager",
                "--enable-auto-tool-choice", "--tool-call-parser", "qwen3_coder",
@@ -69,11 +71,18 @@ def main():
                "cases": [], "passed": False}
 
     def gpu_snapshot():
+        import torch
+        # Slurm can remap CUDA ordinals; NVML must be queried by device UUID.
+        gpu_uuids = [
+            "GPU-" + str(UUID(bytes=bytes(torch.cuda.get_device_properties(i).uuid.bytes)))
+            for i in range(tensor_parallel)
+        ]
         result = subprocess.run([
-            "nvidia-smi", "-i", visible,
+            "nvidia-smi", "-i", ",".join(gpu_uuids),
             "--query-gpu=index,name,uuid,memory.total,memory.used,memory.free,driver_version",
             "--format=csv,noheader,nounits"], capture_output=True, text=True, check=True)
-        return {"columns": ["index", "name", "uuid", "total_mib", "used_mib",
+        return {"cuda_to_gpu_uuid": dict(enumerate(gpu_uuids)),
+                "columns": ["nvml_index", "name", "uuid", "total_mib", "used_mib",
                             "free_mib", "driver_version"],
                 "rows": [row.split(", ") for row in result.stdout.strip().splitlines()]}
 

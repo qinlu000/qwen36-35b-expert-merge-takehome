@@ -1,6 +1,6 @@
 # ASI 环境安装与验收
 
-更新：2026-10-15。执行主机为 `10.123.4.80`，项目 `/data/caoqinlu/projects/apex-takehome`。只安装环境、核对依赖元数据并运行自造烟测；未运行正式 ASI 作答或判分，未读取正式题面、reference、solution、隐藏测试或评分 rubric，付费 API 调用为 0，未使用 GPU。
+更新：2026-10-16。执行主机为 `10.123.4.80`，项目 `/data/caoqinlu/projects/apex-takehome`。只安装环境、核对依赖元数据并运行自造烟测；未运行正式 ASI 作答或判分，未读取正式题面、reference、solution、隐藏测试或评分 rubric，付费 API 调用为 0，未使用 GPU。
 
 ## 已完成
 
@@ -25,6 +25,10 @@ Python 精确依赖在 [requirements-asi.lock](../scripts/requirements-asi.lock)
 
 使用原 adapter 时需将 `OPENCODE_CONFIG` 指向本项目 JSON，同时由运行器为每个条件提供独立 HOME/XDG。JSON 的 endpoint/key 仅通过 `APEX_ASI_MODEL_BASE`、`APEX_ASI_MODEL_KEY` 环境变量解析；文件没有凭据。此配置没有替代操作系统层面的网络隔离。
 
+2026-10-16 补齐图片能力声明：固定 OpenCode 对新自定义模型默认 `attachment=false`、`input.image=false`。根据 [harness 兼容核查](harness_compatibility_asi_hle.md) 与已安装版本源码，在 `provider.bench.models.apex-qwen` 补入 `attachment=true`、`modalities.input=["text","image"]`、`modalities.output=["text"]`。
+
+已用固定 OpenCode 1.17.15 的真实 `debug config` 和 `models bench --verbose` 做离线解析：修改前两个图片能力开关均为 false，修改后均为 true；叠加官方 ASI adapter 生成的 inline provider 配置后仍保留这两个声明。检查使用新 HOME/XDG、假 endpoint/key，并在独立 network namespace 内运行，没有模型调用。自造 32×32 PNG 经 `debug file read` 的 base64 结果可还原为原文件。这里只验收配置和本地文件读取；真实 Qwen 的图片工具反馈、HTTP 传输与视觉理解仍待服务接入验收。回执为 `artifacts/preflight/asi/offline-image-config-eb0kr3uq/summary.json`。
+
 ## 输入与任务依赖
 
 - 通过官方 `TaskEnvironmentManager.ensure_env` 完成 **45/45 组独立任务依赖、60/60 任务** 的安装和 `uv pip check`，安装并发最高为 2。逐组保存 `requirements.lock.txt`；完整回执在 `artifacts/preflight/asi/task_env_install.json`，汇总为 `task_env_summary.json`。45 组精确版本另存到 [task_requirements.json](../configs/asi/task_requirements.json)，准备脚本通过 `UV_CONSTRAINT` 使用这些版本。任务依赖及源码安装过程中均没有运行 GPU。
@@ -39,6 +43,8 @@ Python 精确依赖在 [requirements-asi.lock](../scripts/requirements-asi.lock)
 4. 本次未配置或核验原 `openai/gpt-5.5` 及图像评分入口；未修改评分模型。公开 references 尚未下载到本次 agent 输入目录，后续应由独立评分流程准备并对 agent 隐藏。
 
 本实验继续采用已选的 `seed31415 / open / local / single run` 协议，没有改成 protected seed42，也没有运行任何正式条件。
+
+2026-10-16只读核过无sudo路线：`RunConfig.agent`可接受`OpenCodeCLIAdapter`子类，覆写`_build_command()`/`_build_run_env()`可给原生命令加受限挂载与network namespace，保留官方solve、JSONL、usage与collector。控制器可保留reference/Judge凭据，agent仅挂当次workspace、只读runtime和固定目标Unix socket；namespace内再转为OpenCode可用的本地HTTP。当前没有该启动适配器或relay实现，也没有CPU/RAM实际限额验收。CLI的`--agent-cmd`会退到generic并丢失原生解析；`OSSandbox.egress_whitelist_port`在固定源码中没有执行引用，两者都不能直接当作现成解决方案。不移植整套Docker backend。
 
 ## 重放入口
 

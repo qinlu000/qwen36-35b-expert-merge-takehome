@@ -17,6 +17,11 @@
       "models": {
         "apex-qwen": {
           "name": "apex-qwen",
+          "attachment": true,
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
           "tool_call": true,
           "temperature": true,
           "limit": {

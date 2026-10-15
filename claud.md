@@ -515,8 +515,8 @@
 
 - 固定Base revision的40文件/71,926,865,825B已在80和HPC完整落盘，分别验证LFS SHA-256、小文件Git blob SHA-1，以及26个safetensors分片/1,045张量与固定index一致，failures为空。HPC最终回执00:25:55；关闭本次43873只读传输服务并清理6.66GB重复断点，保留失败日志。
 - 用户说明没有sudo；不再要求系统安装。80使用项目内Apptainer1.4.5，HPC使用集群模块。140个固定digest的SWE/TB镜像继续缓存与同步；CPU/RAM实测有余量后，预取已安全提升至8worker，保留旧日志与已完成layer/SIF。
-- ASI OpenCode模型配置原来默认无图片输入，已补attachment/modalities；断网真实OpenCode解析与官方adapter合并检查通过，无模型调用。SWE/TB真实镜像检查发现硬编码Python路径、apt的_apt降权和多UID ownership问题，正在使用只读启动hook与官方用户态fakeroot机制修复，不能把包安装或SIF缓存冒称完整正式runtime验收。
-- 修复GPU检查的Slurm CUDA序号/NVML物理序号混用，改用Torch设备UUID并记录映射；候选TP2/4参数的CPU解析通过。完整权重后已提交四卡/16CPU/192GiB/30min合成GPU作业723633，acd_ue，当前排队；未运行正式题或训练。详细状态见analysis/environment_setup_status.md。
+- ASI OpenCode模型配置原来默认无图片输入，已补attachment/modalities；断网真实OpenCode解析与官方adapter合并检查通过，无模型调用。SWE/TB真实镜像发现Python路径、apt降权/ownership、系统Python替换server解释器的问题，已用项目只读hook与官方用户态fakeroot适配；80以官方IGNORE_SUBUID选root-map模式，不改系统helper。两端真实TB镜像约52秒完成Harbor/两次exec/tmux/asciinema/停止合成闭环；另一次上游60秒冷启动超时有收尾缺口，已清理并保留失败证据。全量SIF、SWE phase网络、ASI隔离与正式资源仍待完成，不能把首例成功冒称全部ready。
+- 修复GPU检查的Slurm CUDA序号/NVML物理序号混用，改用Torch设备UUID并记录映射；候选TP2/4参数的CPU解析通过。完整权重后四卡作业723633的排队预测延后，确认仍PENDING后取消、未占GPU；改提交acd_ue两卡/16CPU/128GiB/30min合成作业723673，当前排队，不代表正式资源配置冻结。未运行正式题或训练，详见analysis/environment_setup_status.md。
 
 ## 2026-10-16：明确重申训练—评测一致性优先
 
