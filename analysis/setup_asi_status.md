@@ -44,7 +44,26 @@ Python 精确依赖在 [requirements-asi.lock](../scripts/requirements-asi.lock)
 
 本实验继续采用已选的 `seed31415 / open / local / single run` 协议，没有改成 protected seed42，也没有运行任何正式条件。
 
-2026-10-16只读核过无sudo路线：`RunConfig.agent`可接受`OpenCodeCLIAdapter`子类，覆写`_build_command()`/`_build_run_env()`可给原生命令加受限挂载与network namespace，保留官方solve、JSONL、usage与collector。控制器可保留reference/Judge凭据，agent仅挂当次workspace、只读runtime和固定目标Unix socket；namespace内再转为OpenCode可用的本地HTTP。当前没有该启动适配器或relay实现，也没有CPU/RAM实际限额验收。CLI的`--agent-cmd`会退到generic并丢失原生解析；`OSSandbox.egress_whitelist_port`在固定源码中没有执行引用，两者都不能直接当作现成解决方案。不移植整套Docker backend。
+2026-10-16核过无sudo路线并实现下述可选候选：`RunConfig.agent`可接受`OpenCodeCLIAdapter`子类，覆写`_build_command()`/`_build_run_env()`可给原生命令加受限挂载与network namespace，保留官方solve、JSONL、usage与collector。CPU/RAM实际限额仍未验收。CLI的`--agent-cmd`会退到generic并丢失原生解析；`OSSandbox.egress_whitelist_port`在固定源码中没有执行引用，两者都不能直接当作现成解决方案。不移植整套Docker backend。
+
+## 无sudo隔离候选：合成验收通过
+
+新增`scripts/asi_bwrap.py:BwrapOpenCodeAdapter`，继承固定官方OpenCode adapter，不替换solve、stdin、JSONL或usage解析。80的bwrap0.6.1创建独立user/mount/PID/net namespace，仅挂当次workspace、精确Python/task venv、OpenCode ELF及公共OS库；prompt/task_info/data只读，HOME/XDG/tmp独立。项目根、host HOME、reference、controller进程环境和外网均在自造哨兵检查中不可见。
+
+`scripts/asi_fixed_relay.py:FixedModelRelay`仅允许一个固定模型的`POST /v1/chat/completions`，真实key留在controller，隔离内仅有窄token及Unix socket。SSE和工具反馈通过；拒绝其他路径、query、absolute URL、CONNECT、错模型/错token，以及会触发服务端抓取的远程图片/视频。图片只接受内嵌data:image，未递归改写文本或tool arguments。
+
+最终全边界回执`artifacts/preflight/asi/bwrap-candidate-ctlr5g31/summary.json`为passed=true，覆盖新增OS与ngspice只读挂载；原生8.072秒timeout后，自造脱离session子进程的heartbeat停止，同PID namespace无剩余进程，relay socket删除。
+
+另以原生TaskEnvironmentManager的24/15/17三组既有缓存执行纯自造科学算例，原生solve实际使用各自task env，未挂默认env：SciPy解[2,3]、SymPy/PNG、Pandas/sklearn系数2截距1、CPU Torch矩阵乘/NumPy互转通过。可选ngspice_root仅挂公共工具精确目录，原wrapper/code models分压实得0.5V。没有读取正式题面、数据或reference；这3组不冒充全45组在新launcher逐个验收。
+
+重放只使用本地假模型端点：
+
+```bash
+artifacts/envs/asi-py312/bin/python scripts/asi_smoke_bwrap.py
+artifacts/envs/asi-py312/bin/python scripts/asi_smoke_bwrap.py --task-env
+```
+
+安全聚合回执与脚本SHA在`analysis/source_snapshots/asi_bwrap_smoke_20261016.json`。该adapter未替换正式协议或选定OpenCode/direct_llm；后者若最终选中也需验收对应隔离入口。CPU/RAM没有强制限额，真实Qwen图文/参数透传与全量任务bootstrap仍待验收，不标记正式ready。
 
 ## 重放入口
 

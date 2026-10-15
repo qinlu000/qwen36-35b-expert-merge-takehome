@@ -1,0 +1,128 @@
+{
+  "candidate_only": true,
+  "formal_protocol_changed": false,
+  "benchmark_tasks_executed": 0,
+  "paid_api_calls": 0,
+  "cpu_limit_enforced": false,
+  "memory_limit_enforced": false,
+  "native_stdout_format": "jsonl",
+  "native_usage_parsed": true,
+  "timeout_check": {
+    "status": "timeout",
+    "seconds": 8.072,
+    "hanging_tool_started": true,
+    "heartbeat_stopped": true,
+    "remaining_namespace_processes": [],
+    "passed": true
+  },
+  "relay_socket_removed": true,
+  "passed": true,
+  "real_vllm_tested": false,
+  "script_sha256": {
+    "scripts/asi_bwrap.py": "101d60802649f15307ac176c4874cf934b91c7ae40028e74d5f0693439a3c9e4",
+    "scripts/asi_fixed_relay.py": "0f7a609c885f33cfa6c5d81c2f4a5bf9a5db50cde1d2830e6029c77ff39a1be3",
+    "scripts/asi_smoke_bwrap.py": "782215691fbab9f413ddb5d893d0d6bfacd0435b87954a35df0f367192a38b5d"
+  },
+  "isolation": {
+    "namespace_separate": {
+      "user": true,
+      "mnt": true,
+      "pid": true,
+      "net": true
+    },
+    "sentinel_readable": false,
+    "host_proc_environ_readable": false,
+    "host_root_via_proc1_readable": false,
+    "project_scripts_visible": false,
+    "reference_root_visible": false,
+    "host_ssh_visible": false,
+    "controller_secret_in_namespace_environ": false,
+    "controller_secret_env_name_present": false,
+    "host_loopback_connected": false,
+    "external_connected": false,
+    "interfaces": [
+      [
+        1,
+        "lo"
+      ]
+    ],
+    "routes": [],
+    "cap_eff": "0000000000000000",
+    "relay_status": {
+      "allowed": 200,
+      "wrong_path": 403,
+      "absolute_url": 403,
+      "query": 403,
+      "connect": 403,
+      "wrong_model": 403,
+      "wrong_token": 401,
+      "remote_image": 403,
+      "remote_video": 403,
+      "data_image": 200
+    },
+    "writable_workspace": true,
+    "prompt_readonly": true
+  },
+  "task_env_manager_tested": true,
+  "task_env_cases": [
+    {
+      "group": 24,
+      "passed": true,
+      "cache_hit": true,
+      "cache_key": "f112e65289330e0b",
+      "default_env_mounted": false,
+      "ngspice_ro_mounted": true,
+      "native_usage_parsed": true,
+      "science_checks": {
+        "linear_solution": [
+          2.000000000000001,
+          2.9999999999999996
+        ],
+        "symbolic_factor": "(x - 1)*(x + 1)",
+        "plot_bytes": 18621,
+        "ngspice_path": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/ngspice/bin/ngspice",
+        "divider_voltage": 0.5,
+        "ngspice_returncode": 0
+      }
+    },
+    {
+      "group": 15,
+      "passed": true,
+      "cache_hit": true,
+      "cache_key": "3a82ade46b0cb63b",
+      "default_env_mounted": false,
+      "ngspice_ro_mounted": true,
+      "native_usage_parsed": true,
+      "science_checks": {
+        "coefficient": [
+          2.0
+        ],
+        "intercept": 1.0,
+        "rows": 4
+      }
+    },
+    {
+      "group": 17,
+      "passed": true,
+      "cache_hit": true,
+      "cache_key": "82728268c4416382",
+      "default_env_mounted": false,
+      "ngspice_ro_mounted": true,
+      "native_usage_parsed": true,
+      "science_checks": {
+        "torch_version": "2.5.1+cu124",
+        "product": [
+          [
+            7.0,
+            10.0
+          ],
+          [
+            15.0,
+            22.0
+          ]
+        ],
+        "device": "cpu"
+      }
+    }
+  ]
+}

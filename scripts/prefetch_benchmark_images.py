@@ -17,10 +17,16 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--root', type=Path, required=True)
     parser.add_argument('--workers', type=int, default=2)
+    parser.add_argument('--only-images', type=Path, help='Optional JSON list of image names')
+    parser.add_argument('--progress-name', default='_prefetch_progress.json')
     args = parser.parse_args()
     root = args.root
     source = root / 'configs/envs/swe_tb_image_digests.json'
     items = json.loads(source.read_text())
+    if args.only_images:
+        wanted = set(json.loads(args.only_images.read_text()))
+        items = [item for item in items if item['image'] in wanted]
+        assert len(items) == len(wanted), 'Unknown or duplicate image names'
     # Prepare all TB images first; small images provide an early real pull check.
     items.sort(key=lambda x: (x['image'].startswith('ghcr.io/'), x['compressed_layer_bytes']))
     dest = root / 'artifacts/benchmarks/sif'
@@ -33,6 +39,8 @@ def main():
                         'GOMAXPROCS': '2', 'OMP_NUM_THREADS': '2'}
     env['NO_PROXY'] = env.get('NO_PROXY', '') + ',ghcr.io,pkg-containers.githubusercontent.com'
     env['no_proxy'] = env['NO_PROXY']
+    # Avoid the GHCR HTTP/2 PROTOCOL_ERROR observed during large layer pulls.
+    env['GODEBUG'] = ','.join(filter(None, (env.get('GODEBUG'), 'http2client=0')))
     Path(env['APPTAINER_CACHEDIR']).mkdir(parents=True, exist_ok=True)
     Path(env['APPTAINER_TMPDIR']).mkdir(parents=True, exist_ok=True)
     results = []
@@ -73,14 +81,16 @@ def main():
 
     report = {'manifest_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
               'total': len(items), 'workers': args.workers, 'started_at': now(),
+              'go_http2_client': False,
               'scope': 'Image download/conversion only; no task or image commands executed'}
 
     def save(status):
         report.update(status=status, updated_at=now(), completed=sum(r['status'] == 'cached' for r in results),
                       failed=sum(r['status'] == 'failed' for r in results), results=results)
-        temporary = dest / '_prefetch_progress.partial.json'
+        progress = dest / args.progress_name
+        temporary = progress.with_suffix('.partial.json')
         temporary.write_text(json.dumps(report, indent=2) + '\n')
-        temporary.replace(dest / '_prefetch_progress.json')
+        temporary.replace(progress)
 
     save('running')
     with ThreadPoolExecutor(max_workers=args.workers) as pool:

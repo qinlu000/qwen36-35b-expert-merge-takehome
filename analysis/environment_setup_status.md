@@ -11,9 +11,9 @@
 | HLE | 固定源码、独立44包锁；2500题文件/ID/342图像计数核对；自造图文与schema检查通过 | 接入冻结的Qwen推理及Judge运行参数；不把安装通过当成正式评分完成 |
 | SWE Pro HARD-51 | 固定源码、Harbor/mini环境、完整51任务、镜像digest | 镜像缓存、容器内mini依赖锁，以及官方locked流程的phase断网与模型白名单 |
 | Terminal-Bench2 | 80/HPC固定Harbor0.24与完整89任务；89项均有预构建镜像，无Compose任务；两端真实TB镜像的Harbor/两次exec/tmux/asciinema/停止合成闭环通过 | 全量镜像预拉/容器启动、冷启动超时收尾、实际Slurm资源与端点验收 |
-| ASI-Bench | 固定源码、OpenCode1.17.15、657输入文件/60项目/240条件；45组任务依赖及自造CPU/工具检查通过；图片能力声明已补齐并离线解析通过 | 正式文件/网络隔离、CPU/RAM约束、Qwen端点及最终Judge配置 |
+| ASI-Bench | 固定源码、OpenCode1.17.15、657输入文件/60项目/240条件；45组依赖；无sudo隔离候选通过文件/网络、SSE工具和3组真实task env自造验收 | 选定正式adapter并验收全量运行；CPU/RAM约束、Qwen端点及最终Judge配置 |
 
-各项详细证据：[HLE](setup_hle_status.md)、[SWE/TB](setup_swe_tb_status.md)、[ASI](setup_asi_status.md)、[Base runtime](setup_base_runtime_status.md)。候选协议仍沿用80上的configs/eval/protocol_v1.json；安装不自动冻结尚待决定的thinking与Judge路线。
+各项详细证据：[HLE](setup_hle_status.md)、[SWE/TB](setup_swe_tb_status.md)、[ASI](setup_asi_status.md)、[Base runtime](setup_base_runtime_status.md)。正式执行应读取协议工作流最终冻结配置；本页记录安装，不替代协议或自动冻结thinking、adapter与Judge路线。
 
 ## 下载、同步与位置
 
@@ -32,7 +32,7 @@ Harbor原生Singularity后端可以启动工具环境，但没有SWE所需phase�
 
 ACD分区已实测拒绝CPU-only作业。容器检查作业723418为本次单独申请的1GPU/2CPU/4GB/5min，后已取消；未执行GPU计算，未改动原用户作业722434。后续GPU smoke最多使用授权的4卡，不复用原用户任务。
 
-HPC的完整自造Harbor检查已通过：启动31.14秒，两次exec成功，停止后端口关闭。为兼容集群launcher，用19行子类在官方stop前调用官方`/shutdown`，不修改固定上游源码或网络能力。140个固定digest镜像正在80预拉并转为SIF，当前100/140、0失败；4个大TB镜像仍以约2.7–2.9 MB/s持续传输。HPC镜像进程已用新脚本重启为PID2266968，源完成后会额外rsync一次，再逐140项检查SHA256、字节数和alias；全140项最终回执尚未产生，不能写为全量缓存完成。
+HPC的完整自造Harbor检查已通过：启动31.14秒，两次exec成功，停止后端口关闭。为兼容集群launcher，用项目子类在官方stop前调用官方`/shutdown`，不修改固定上游源码或网络能力。140个固定digest镜像在80预拉并转为SIF，主表已到106/140，现新增8-worker队列处理余下26项，并发上限16；原8个已分派下载保留。旧coordinator暂缓派新任务，新增队列结束后自动恢复并统一汇总；主表暂时不变不代表下载停止。新增worker用Go原生HTTP1.1开关避开已观察到的HTTP2流中断，不承诺吞吐翻倍。原Future已记录1次失败，即使补充队列补好，最终仍须全缓存复扫。HPC镜像进程PID2266968在源完成后额外rsync，再逐140项检查SHA256、字节数和alias；最终回执尚未产生，不能写为全量缓存完成。
 
 后续真实TB镜像检查在两端均通过（约52秒）：项目内fakeroot1.25.3配合官方root-map模式，基础设施启动hook处理既有Python路径、服务解释器副本与apt sandbox用户，未改固定SIF或上游源码。统一入口为`scripts/run_harbor_singularity.sh`，80还使用官方`APPTAINER_IGNORE_SUBUID=1`选较低权限模式。此适配不提供完整多UID映射、网络策略或资源限额。另一次冷启动超过上游60秒窗口并卡在launcher收尾，已清理；当前正常启停成功不能保证全部镜像的冷启动超时路径。
 

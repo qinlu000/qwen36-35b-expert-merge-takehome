@@ -609,6 +609,13 @@
 - 723821把所有编译缓存和/tmp改为每作业独立的节点本地XFS临时目录，在2×H100 80GB、TP2/BF16/262144/eager/maxseq4下通过4项自造HTTP：文本标记、32px红图、add_numbers(17,25)调用和同tool ID反馈后回答42。鉴权200/无key401，startup270.19秒，每卡请求后70635MiB；Slurm COMPLETED0:0/5分07秒，服务返回0。安全聚合回执入analysis/source_snapshots/base_gpu_smoke_20261016.json。不是长上下文/吞吐/四卡正式配置验收；没有运行正式题、训练或评分。
 - 用户追问镜像并发，已核实当前实际8个Apptainer pull子进程并发，99/140、0失败；四个6–9GB大TB镜像持续约2.7–2.9MB/s，未卡死，不丢弃在途下载。HPC新镜像同步循环在源全完成后额外rsync并逐个核140份SHA256与alias；全量完成前不冒称全部缓存验收成功。
 
+## 2026-10-16：镜像无损扩到16并发与ASI隔离候选
+
+- 用户追问并发后，在保留原8个长下载的前提下新增8-worker：仅暂停任务分配器，固定排除其打开日志对应8digest及106个final，另队列处理26项，峰值16。独立进度/日志，supervisor1651574/helper1651575结束后恢复原coordinator，最后统一汇总；未kill或重启原Apptainer。原Future已记录前次失败，必要时待原runner结束后全缓存复扫。
+- 针对实测GHCR HTTP2流中断，新prefetch子进程显式Go http2client=0；固定GHCR元数据/缓存SIF复拉通过。在线入口包装不兼容Apptainer重定位，version检查即失败并原子恢复同一ELF，安装脚本也回退，未留二进制包装、不丢缓存。新增subset/独立progress参数保证补充队列互斥。
+- ASI新增可选bwrap OpenCode adapter和固定模型Unix relay，真实key留controller；四namespace、文件/进程/网络边界、SSE/tool反馈、窄路径/模型/附件限制及8.072秒timeout清理通过。原生TaskEnvironmentManager的3组缓存科学自造算例与ngspice0.5V通过，安全聚合回执入source_snapshots。无正式题/评分/付费API/GPU，未改protocol或选择OpenCode/direct_llm。CPU/RAM和真实Qwen链路仍待验收，不冒称正式就绪。
+- Base完成后曾关闭本轮自建HPC反向代理38082（Mac69616）并核端口关闭；为补丁后的Harbor合成回归，临时在本轮SSH master重新开启，回归结束再关闭。用户80原代理38080保持，镜像只读同步43874仍有用途。
+
 ## 2026-10-16：统一64K/8K并定稿Agent协议
 
 - 用户在统一8K输出后提出所有benchmark统一64K上下文；已冻结v2实验设计，输入最多57344 token，所有policy主调用与摘要辅助调用均为65536总context／8192输出，关闭thinking与preserve_thinking。保留真实图像token计数及原生多轮格式反馈，不加预算重答或静默裁题。

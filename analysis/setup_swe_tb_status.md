@@ -131,3 +131,7 @@ JSON 的等价写法为 `environment.type=null`、`environment.import_path="apex
 用户默认 account 为 qinlucao，formal-user 与 normal 的 `MaxTRESPU` 均为 **每用户合计** 192 CPU / 16 GPU / 3840G，最多 20 个运行、50 个提交作业；不是每个 trial 的额度，也不是已经可用的资源。本快照已有其他用户作业占用 12 CPU / 1 GPU / 160G，未操作该作业。此前主线的 CPU-only `sbatch --test-only` 被站点 Lua 要求 `--gres=gpu:N`，本轮未重新提交。正式 TB 仍须取得符合协议的实际 allocation 或已获授权的 CPU 资源入口，再决定并发；Singularity kwargs 和宿主 watchdog 不能代替 Slurm CPU/RAM 预留。当前登录节点的合成验收不证明正式 Slurm 调度已完成。
 
 2026-10-16 01:20对四个TB大镜像做30秒双采样：pytorch-model-recovery、hf-model-inference、mteb-retrieve、mteb-leaderboard均持续下载，每项新增81–88MB，约2.7–2.9MB/s；仍处于Fetching OCI image，并未进入压缩。四条连接均到现有进程代理，日志尚未换阶段不等于下载停滞。实际同时有8个pull，保留所有在途大blob。
+
+随后无损扩并发：只暂停Python任务分配器2262293，原8个Apptainer下载保留；读取父进程打开的per-image日志FD，固定排除8个已分派digest（包括已退出但尚未rename的child），再排除106个final。新增8-worker队列只处理其余26项，独立`_prefetch_supplement_progress.json`和`image-prefetch-extra.log`，峰值16。supervisor1651574/helper1651575记录于`prefetch-expand.json`；新增队列退出后自动恢复原coordinator。主表暂时不更新不代表下载停滞，HPC仍只以最终canonical完整报告验收。原Future已记录1次失败；即使补充队列补好，仍须原runner结束后全缓存复扫。
+
+部分GHCR大层此前出现HTTP/2 PROTOCOL_ERROR并重试；新prefetch子进程通过GODEBUG=http2client=0关闭Go客户端HTTP2（[Go官方说明](https://go.dev/doc/godebug)）。固定GHCR元数据/既有缓存SIF复拉已通过，不声称全层吞吐已提升。在线包装工具入口不兼容Apptainer自定位，version检查即失败，已原子回退同一官方ELF及安装脚本；未停止原下载，没有留下二进制包装。正式使用进程环境开关。
