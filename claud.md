@@ -204,3 +204,23 @@
 - 用户问是否应先找数据、是否需要自己收集任务自己跑。说明目前只有来源/schema核验，下一步应在准备时段优先验收实际代表样本、统计可用独立任务/token/覆盖并做来源分组，和资源验证并行，再锁训练量。
 - 三专家主线均优先现成轨迹/推理解答，不重生成整池；任务环境无assistant过程则需要另跑教师。自己执行集中于可映射训练样本的抽样复现、独立dev任务/评分验证及明确覆盖缺口的小量原创任务。新增轨迹执行验证，计入原预算；不从正式题派生。
 - 补充到数据方案v3和PROJECT_PLAN，区分上游验证、项目抽样复现及未知状态，不把抽样通过写成全量已验证。仍未下载数据/权重、写实验代码、调用API、启动训练或评测；本轮只更新方案。
+
+
+## 2026-10-15：按用户指示先下载候选数据，暂不抽样复验
+
+- 用户明确“先不用抽样复验，先把数据弄下来”。执行范围恢复为候选数据下载和必要下载辅助脚本，尚未授权启动训练；本次不读样本、执行复验、生成教师轨迹或评测。
+- 80的/data实查可用约2.9TiB。四组来源固定：Open-SWE 1db674…的v1.1 mini/Qwen3.6；Terminal a1667…全部skill-based（不含adapters）；OpenScience 174b02…全train；OpenR1 e4e141…仅default data/train-*（不含all/extended）。共81文件24,982,461,699字节，包含README/分布说明。
+- 写入 `data_sources.json` 和 `scripts/download_data.py`；四线程curl断点续传，核字节数及上游LFS SHA-256，原文件在80 `artifacts/data/raw/`，日志/回执在 `artifacts/data/`，不入Git。数据文件不解码、不执行；无额外Python依赖安装。
+- 下载经80现有127.0.0.1:38080 HTTP代理，公开数据未使用/迁移HF凭据；进程独立会话运行、PID写download.pid，仍依赖已有Mac代理/SSH转发在线。当前已启动，完成情况以后续回执为准，不能把已启动写成已完成。
+- PROJECT_PLAN和数据方案v3标明此次优先级覆盖旧“先抽样验收再下载”的建议。没有使用GPU或调用模型API；Mac既有未提交scripts/logs不动。
+
+- 下载路径优化：HF元数据仍经现有代理，已确认官方us.aws.cdn.hf.co可由80直连，数据本体改为官方CDN直传。为单个15.7GB文件启用分段续传，将Ubuntu aria2/libaria2/libssh2/libc-ares包仅解压到artifacts/tools/aria2，不修改系统或训练环境；Python依赖仍未安装。全文件继续以固定revision/LFS SHA校验，不使用第三方数据副本。此前仅探测hf-mirror速率，未用其下载实际候选文件。
+
+
+## 2026-10-15：暂停下载并澄清各benchmark的harness规则
+
+- 用户先说“等一下”质疑跨harness轨迹复用，已于19:39:51 CST前暂停自己创建的下载进程组540141；仅停止该组，未删数据。6文件/1,769,702,489B完成校验，实际落盘约8.18GB含分段；其余未完成，最终全量回执未生成，状态存artifacts/data/download_state.json。没有恢复下载。
+- 用户随后提供题面截图，明确无需四个benchmark同harness，只需同一benchmark的Base/专家/合版保持同配置。已确认该理解，补入PROJECT_PLAN与数据方案v3；交互执行专家可分别保留TB/ASI两套原生协议条件训练，不必统一成一种工具接口。匹配的是协议，训练任务仍需独立。
+- 只查官方工具代码确认：Terminus2是持续tmux+JSON keystrokes/duration/task_complete；SWE固定配置bash(command)每次新subshell，状态与结束/观察规则不同；Open-SWE只有mini谱系证明，未证实际协议完全相同。跨harness旧轨迹可保原协议作辅助，但不能直接冒充目标原生示范。
+- ASI具体adapter尚未锁定：direct_llm单次completion后框架执行，无模型工具反馈；CLI adapter另有协议。先固定ASI入口再定科研轨迹资格，不改正式协议迎合数据。上述源码核查不读取任何任务答案或样本，不执行复验/训练/评测。
+- 当前将此前授权产生的下载清单/辅助脚本纳入Git，原始文件仍在gitignored artifacts；本机先前未提交check_deepseek_judge脚本和日志保持不动。

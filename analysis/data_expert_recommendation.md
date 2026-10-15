@@ -22,6 +22,23 @@
 
 这一边界并不唯一，SWE同样含执行反馈；单列修复是为了保留仓库理解、补丁与回归测试的集中专长，而非证明它与终端天然互斥。当前三专家是数据/行为共享与工程简化的候选折中，没有直接实验证明优于四专家。固定总训练token时少一个专家主要省初始化、保存、加载和管理，训练计算不会自动显著减少，正式评测量也不减少。若科研数据成熟且更重视专长归因，四专家是更清楚的备选，不应仅以“省算力”强行合并。
 
+## Harness规则：各benchmark独立，同一benchmark内公平一致
+
+用户提供的题面截图明确要求“在每个benchmark内”所有评测对象保持相同配置，没有要求四个benchmark共用同一harness。采用各benchmark原生/官方允许的harness，并让对应训练轨迹优先匹配目标协议，是本项目的数据组织原则。
+
+| benchmark | 对应专家与训练协议方向 | 同项正式评测的要求 |
+| --- | --- | --- |
+| SWE Pro V2 HARD-51 | 仓库修复专家，优先匹配LockedMiniSwe的bash/command、观察与结束规则 | Base、仓库修复专家、合版及任何额外参评模型使用同一固定SWE配置 |
+| TB2 | 交互执行专家的终端子池，匹配Terminus2 | 同一Terminus2配置、资源与五组种子 |
+| ASI | 交互执行专家的科研子池，匹配待锁定的官方允许adapter | 同一ASI adapter、prompt/工具/预算/评分，不能为不同模型换工具 |
+| HLE | 学术推理专家，按冻结的问答/图文/thinking协议组织数据 | 所有参评模型保持同一模态、工具、提取/判分和生成配置 |
+
+训练harness与目标harness匹配是直接行为模仿的首选，并非题面要求训练过程也只能使用一个harness。交互执行专家可以混合TB、ASI两种原生协议，逐样本保留各自system prompt、工具定义及观察/结束动作，用协议上下文区分；合版模型在不同benchmark下分别接收对应配置。训练任务必须独立，不能因为harness一致就使用正式评测任务或解答。
+
+跨harness的旧轨迹可作为保留原协议的辅助迁移数据，但不能写成目标协议的原生示范。仅工具拼写/序列化差异且动作、观察、状态和结束语义均可无损对应时才做机械转换。Terminus2的持续tmux与SWE新subshell存在真实状态差异；不能只把keystrokes改名为command。[Terminus2说明](https://arxiv.org/html/2602.21193v1#S3.SS2)、[SWE固定工具配置](https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tooling/configs/mini_toolcall.yaml)
+
+当前ASI adapter尚未选定，不能称Terminal科学子池已经匹配ASI。官方direct_llm只是单次生成后框架执行，不是Terminus2式多轮工具反馈；其他CLI adapter又有自己的工具协议。先锁定正式入口再决定科研轨迹的主源资格，而非改正式harness迁就数据。[官方direct_llm](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/ai4sci_bench/adapters/direct_llm.py)、[adapter契约](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/ai4sci_bench/core/agent_interface.py)
+
 ## 2. 主源、补充与明确边界
 
 | 池 | 第一审计候选 | 补充/备选 | 首要资格条件 |
@@ -34,6 +51,22 @@
 主源不是“已经清洗好”。Open-SWE的上游[SWE-rebench-V2作者卡](https://huggingface.co/datasets/nebius/SWE-rebench-V2/blob/10483de0f50fe5da545942705a76c6150171af7f/README.md)明确只排原始SWE-bench仓库，没有显式过滤其他benchmark。其resolved字段只表示执行结果，不能证明没有本题污染。Open-SWE mini与LockedMiniSwe同谱系也不证明工具协议相同。许可不明、已发现评测关联、或修复任务无法恢复repo/任务ID的记录排除。合成推理没有逐题URL时，保存固定分片/行号、题面hash与生成recipe，明确few-shot来源及近重复审计局限；不把这些索引冒充原题来源证明。
 
 OpenScienceReasoning-2作者提供了[问题合成、推理生成与多数投票流程](https://github.com/NVIDIA-NeMo/Skills/blob/bcf059af55c20a89f797724598f9908d126153e6/docs/releases/openreasoning/dataset.md)。这比纯数学池更贴跨学科学术推理，但并非逐条正确性的保证；不能因为卡片写“面向HLE”就认定其含HLE原题，反之也不能认为已完成去污染。
+
+## 当前优先动作：先下载，不抽样复验
+
+用户已明确指示先把数据下载下来，本阶段跳过抽样复验。已固定Open-SWE v1.1 mini/Qwen3.6、Terminal skill-based、OpenScience全train、OpenR1 default四组来源与原始文件清单，见仓库根目录 `data_sources.json`。数据放80 `artifacts/data/raw/<来源>/<revision>/`；下载只做字节数和SHA-256校验，不读取样本、改写任务、重跑教师或启动训练。后续筛选/分组/格式适配另行开展，下节旧验收建议不再是下载的前置步骤。
+
+### 已固定的原始下载范围
+
+| 来源 | revision前缀 | 文件数（含说明） | 原始文件字节 |
+| --- | --- | ---: | ---: |
+| Open-SWE mini/Qwen3.6 | 1db67417 | 41 | 3,986,366,120 |
+| Terminal skill-based | a1667c4f | 27 | 3,139,375,074 |
+| OpenScience全train | 174b02c9 | 2 | 15,706,817,460 |
+| OpenR1 default | e4e141ec | 11 | 2,149,903,045 |
+| 合计 | 固定四个版本 | 81 | 24,982,461,699 |
+
+数据不入Git，固定文件路径/大小/上游hash入 `data_sources.json`。19:39 CST已按用户“等一下”暂停下载，6个文件（1,769,702,489字节）已完成校验，已落盘约8.18GB含未完成分段；保留断点，尚未完成全量，也未生成最终全量回执；“文件完整性校验”不包含样本质量、去污染或执行复验。
 
 ## 数据准备优先级：先验收现成轨迹，再决定是否补任务
 
