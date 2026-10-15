@@ -8,7 +8,7 @@
 | --- | --- | --- | --- |
 | P0 | Base四项尚无正式运行；80只有13MB元数据，HPC常见缓存未发现准确完整checkpoint，真实Qwen图文/tool端点、容器与最终协议均未ready | 当前不能直接宣称已启动或可一键全量；正式Base若用未冻结设置可能重跑 | 先准备准确权重/服务，在独立任务打通四runner；协议先冻结再尽早排Base全量；CPU训练准备并行，四卡GPU分时，详见base_first_readiness.md |
 | P0 | 用户提出所有任务30min、最多4CPU；TB原题明确3h/32CPU，所有模型同配置也不能自动覆盖该条。SWE题面未写死50min，但所选官方locked protocol为50min | ASI可预冻30min/4CPU；SWE30min是自定义预算实验；TB30min/4CPU偏离题定配置 | 开发可用短预算；正式TB保留题定配置，若要替代需先确认面试方接受。SWE现有1CPU已满足最多4CPU；HLE资源为共享客户端，详见budget_30min_4cpu_review.md |
-| P0 | TB有效并发未落实：HPC formal-user192CPU、现有作业占12；80可见128逻辑CPU且共享。纠正此前9路：仅为每路满额32CPU的情景，固定Docker默认limit不自动独占，等待型环境可尝试更多并发 | 若均值30min/trial，1335次在9路约74.2h，36h需约19路有效并发；均非实测，不能由CPU除法断定最大并发 | 完成后端，独立dev测4/8/16路CPU/RSS/I/O/模型队列；各模型固定政策、合法配额，保留32CPU/48GB、任务与五次 |
+| P0 | TB有效并发未落实：HPC formal-user192CPU、现有作业占12；80可见128逻辑CPU且共享。9路仅为满额容量情景且未获保障；Docker limit不独占，但仅填32CPU也不足以证明共享争用下实际资源一致 | 若均值30min/trial，1335次在9路约74.2h，36h需约19路有效并发；均非实测，不能由CPU除法断定最大并发 | 完成后端，独立dev测4/8/16路CPU/RSS/I/O/模型队列；各模型固定政策、合法配额，保留32CPU/48GB、任务与五次 |
 | P0 | 80未找到可用Docker/Podman/Apptainer等后端；HPC有Singularity4.1.5和可读SIF，但尚未验证官方任务语义 | 正式容器与隔离链路未ready；ASI seed42官网要求Docker os来源 | 决定已有组内容器服务、项目rootless路径或HPC合规后端；先做自造CPU环境验证。暂不擅改官方环境或用户系统 |
 | P0 | ASI固定评分需要GPT-5.5并含视觉判分；当前本项目仅配置HF和DeepSeek | DeepSeek文本接口成功不能代替该Judge，完整评分链缺凭据/服务证据 | 后续落实支持原模型与图像的评分接口，或正式确认允许的替代协议；不默改Judge |
 | P0 | ms-swift已明确注册准确模型，但完整项目训练栈和4H100加载/反向/导出尚未跑通 | 8h训练/6M processed token仍是预算，不是实测保证 | 用项目独立环境复用可用依赖，再以自造数据做短smoke和真实8K吞吐检查；不修改其他项目环境 |
