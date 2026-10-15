@@ -458,3 +458,10 @@
 - 只用已有本机私有DeepSeek官方key实做一次generation，1请求两张自造512px PNG，thinking disabled/temp0/max1024/JSON/no retry；正确识别红蓝与蓝红并判different，HTTP200/stop，1.274s，prompt466/output35/total501。原始合成证据已在Mac和80ignored artifacts留存，安全summary和fingerprint入source_snapshots/protocol；无正式题/参考图、无密钥复制或输出。
 - 更新协议草案推荐HLE和ASI统一现有deepseek-flash替代Judge，Luna备用；原始task_eval未改。新增凭据不再作为统一替代路线的技术阻断；保留原GPT5.5不同、需披露及独立科学图文校准的边界，不把简单颜色探针当评分质量验证。SWE/TB仍自动测试，不需LLM判分。
 - 同步更正当前问题表、Judge说明、ASI审计与预算页状态；历史claud保留当时错误并以本条纠正。未做正式评测/训练、安装、GPU/Slurm或发外部消息。其他线程新建脚本保持原状。
+
+## 2026-10-15：介绍已下载任务实例与下一步顺序
+
+- 用户要求介绍找到的任务及后续动作。仅读80已下载的四条独立训练题面：SWE-smith webargs请求解析回归、Nemotron游戏日志清洗和N体仿真、D3-Gym分子键级计算；未读取其patch/测试内容/eval_script/gold，未执行任务或模型API。新建analysis/training_task_examples.md记录来源、输入输出、适合专家及尚未验证项。
+- 候选池统计维持SWE Python/Go共59,120条记录（未去重验收）、Nemotron mixed 5,984任务、D3 565条metadata。前两者主要为合成任务，D3来自科研仓库衍生；不统称真实维护者issue。现有学术QA仍须筛来源/答案/学科覆盖。四例未被选入最终train/dev。
+- 下一步维持协议/Base优先：跨新任务与旧轨迹联合分组排除、留独立dev；每类工具任务先2–3个恢复环境/核评分器；验收真实Base端点、容器及Judge链并逐项冻结协议，先看独立dev再针对性采示范与SFT。候选dev10修复+10终端+10科研+40QA仍是待运行耗时确认的小规模方案，不代替正式全量。
+- 实际环境安装在另一工作流进行中，不能将包已安装/CPU探针通过称为GPU模型服务或正式评测就绪；也不将四项全量Base全部返回设为CPU准备和数据整理的硬前置。本轮未新增安装、GPU/Slurm、付费API、teacher批量采集或训练；保留其他工作流所有修改。
