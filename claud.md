@@ -342,3 +342,13 @@
 - ASI默认Docker4CPU/8GiB，timeout可在训练前统一冻结30min；目前只记录候选、不擅改。HLE无逐题独立4CPU沙箱，30min可作题级保护上限，仍需单独固定生成token/thinking/图文/Judge与客户端并发。
 - 预算缩短不保证得分或API费按比例缩短。反事实算例：最低三模型SWE153+TB1335+ASI720共2208 agent runs，若全满30min为1104 task-hours，16路69h、32路34.5h，尚不含HLE7500/构建/验证/replay/Judge；非实际吞吐预测。
 - 新增analysis/budget_30min_4cpu_review.md，当前方案/问题/资源表加入此澄清；训练与正式评测仍未启动。
+
+
+## 2026-10-15：讨论先做Base四项评测的执行顺序
+
+- 用户问现在是否应先把Base四项benchmark跑完。明确优先打通真实Base链路、协议冻结后尽早启动正式全量；无需把四项全部完成设为CPU数据处理/训练环境/报告准备的前置条件。四张H100的模型推理与SFT需分时或在实际证明资源可分后安排，不重复承诺四卡并行；GPU块切换前结束在途任务，未开始的队列可后续恢复。
+- Base指固定Qwen3.6-35B-A3B原始checkpoint，不用DeepSeek分数替代。独立任务先验证文本/图文、tool往返、评分和完整日志；正式结果不用于选择训练数据、超参/提示预算或合版权重。工程错误允许记录后按最终协议补跑，不能把正式集当dev。
+- 80实际只见data_exclusions配置、下载/审计脚本，以及13MB Base元数据，无完整权重或已通过服务。HPC常见用户缓存只读检查：.cache/huggingface/hub不存在、cache/huggingface为空、models顶层无准确Base，projects不存在、research顶层无对应模型；范围非穷尽，不排除其他共享缓存。未扫描他人目录/权重tensor或读取凭据。
+- 四项均未具备完整正式启动条件：Qwen端点与模型权重、容器后端/真实配额、thinking/timeout/CPU/任务清单的最终冻结；ASI另有split/评分路线/原Judge问题。HLE已有processor与合成Judge接口证据，但不能写成正式推理服务ready。
+- 复核准确官方模型卡，enable_thinking=False有正式API支持，preserve_thinking与tokenizer/processor仍需统一；前面的DeepSeek费用情景不等于已冻结Qwen thinking设置。
+- 新增analysis/base_first_readiness.md并更新当前方案顺序与问题清单。本轮没有下载权重、安装、运行容器/API/正式任务、分配GPU或修改正式配置；仅只读核查和文档记录。
