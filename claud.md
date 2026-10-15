@@ -557,3 +557,10 @@
 - 区分总context、单次output、累计生成、server活跃序列及sandbox并发；图片/工具定义/历史也占context。mini无原生短context硬限/历史摘要，按benchmark分时设置服务128K最省代码；OpenCode原生steps只是收尾提示，不能称硬执行次数上限。Terminus86016是剩余token触发阈值，三阶段摘要继承80K仍可能超限，需真实计数/边界恢复验收或披露薄适配。
 - 固定权重约66.97GiB，10层full+30层linear；TP4 KV头复制，256K full-KV约2.5GiB/序列/卡，不可直接总量除4。HPC识别H100 80GB HBM3约79.65GiB/卡，低并发有显存容量依据但无完整长上下文HTTP通过回执；linear state、cache pool、视觉与workspace另计。建议TP4单服务，先2条活跃请求再测4，85%显存/8192chunked prefill是待验候选，训练评测分时。
 - 显存可行不代表按期完成：模型队列、decode速度、CPU/RAM/I/O及TB1335次长尾另验；16K生成与600s HTTP也要匹配真实速度。训练先8K、可验16K，不等同评测256K。只读现有723706在途作业，不干预任何作业、容器、共享缓存或他人WIP；不把理论估算冒称实测。
+
+## 2026-10-16：效率优先的64K预算讨论案
+
+- 用户要求兼顾效率、适当降低上一案参数。将agent_resource_protocol当前优先讨论案改为非TB统一64K总context：SWE单次4K/30min、ASI direct候选8K/20min（生成与执行共享）、HLE4K/5min（队列、传输重试共享）；原128K案保留为前案，尚未改实际配置或冻结。
+- 优先压长输出与超时长尾，不承诺按上限同比提速：同样短请求不会因context上限减半自动更快，提前EOS也可能使max_tokens缩减几乎无收益。保留完整图像/题干、环境与harness契约、官方判分及SWE fresh replay；64K图像输入边界、length/context失败与吞吐在独立dev核验，所有参评模型同项一致。
+- 更正预算边界：SWE50min来自所选locked protocol、非题面硬值，30min作为本实验设置披露；TB题定256K/80K/3h/32CPU/48GiB和五seed保持。另列TB64K/8K/30min/4CPU/8GiB独立开发消融档，不替代题定正式结果，当前无面试方同意替代。ASI adapter仍待冻结，不能把改为单次生成的效果差异归因训练。
+- 本轮仅既有资料与同伴只读复核、修订讨论文档并Git记录；未启动API、模型、任务、容器或作业，未安装依赖、改正式协议或干预其他工作流WIP。
