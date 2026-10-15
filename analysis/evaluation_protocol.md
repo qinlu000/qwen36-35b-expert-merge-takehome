@@ -1,74 +1,61 @@
-# 四项评测协议草案 v1
+# 四项 Agent 评测协议 v2：统一 64K / 8K
 
-更新：2026-10-15。本文与 `configs/eval/protocol_v1.json` 是本项目评测规范草案，不是已通过执行验收的原生runner配置。完整来源、split、ID和主指标已明确；thinking偏好与ASI替代Judge尚待定，推理端点、容器、镜像digest和依赖锁也尚未验收。训练及正式Baseline均未启动。
+2026-10-16。当前有效的**实验设计**为 [protocol_v2_unified64k8k.json](../configs/eval/protocol_v2_unified64k8k.json)。参数已确定，原生 runner 的适配、长请求及并发验收尚未完成；本文件不代表已开始正式评测。旧版保存在 [v1 文档](evaluation_protocol_v1.md) 与 `configs/eval/protocol_v1.json`，仅供历史参照。
 
-## 范围、运行次数与主指标
+## 范围与资源
 
-| 项目 | 选定范围 | 每模型运行 | Agent与主指标 |
-| --- | --- | --- | --- |
-| SWE-bench Pro V2 HARD-51 | 官方hard/test完整51项 | 1次，采样seed=0 | 官方LockedMiniSwe；全新环境patch replay后的resolved rate，固定分母51；原运行分数另存 |
-| Terminal-Bench 2.0 | 固定官方registry完整89项 | 5个独立完整job，seed=0,1,2,3,4 | Harbor/Terminus-2；五个成功率均值及样本标准差ddof=1，非pass@5 |
-| HLE | cais/hle固定test全部2500题，含342图像题 | 1次，seed=0 | 官方单次图文/no-tools问答格式；准确率，另列2158纯文本与342图像题分项 |
-| ASI-Bench | seed31415/open完整60任务×B1–B4=240条件 | 1次完整重复、每条件1 attempt | opencode_cli；官方本地mean_percent，明确标open/local/single run，非Portal认证 |
+所有受测模型的主调用及辅助调用统一 **65536 总上下文、8192 单次输出上限**，关闭 thinking 和 preserve_thinking。K=1024；8K 是每次调用的上限，不是整题累计上限，也不要求生成满额。评分模型另定预算。
 
-完整任务ID已保存于 `analysis/source_snapshots/protocol/` 的四份manifest，均固定来源revision；HLE由实下载的固定Parquet仅读取id/image列，image只用于非空标志。未读取正式question/answer/rationale。ASI保留源metadata的seed override与59 final+1 requested test状态，不自行剔除；五个sample不混入60项。
-
-## 全部参评对象的共同约束
-
-- 同一基座Qwen/Qwen3.6-35B-A3B，revision `995ad96eacd98c81ed38be0c5b274b04031597b0`；tokenizer、processor、chat template都随此revision固定。BF16权重与KV，不量化；评测专家和合版保留完整视觉模块。
-- 默认context=262144。四卡推理是候选运行方式，未证明加载/长请求吞吐；每项所有对象必须采用同一已验收推理栈、precision、prompt、工具、context、采样、重试和调度政策。
-- 建议统一enable_thinking=false、preserve_thinking=false以控制时间；此偏好已向用户询问，尚未得到明确回答，不把建议当作用户已确认。固定模型模板开关，并检查真实渲染；不靠reasoning_effort名称猜开关。
-- 非思考候选采样：SWE/HLE/ASI temperature=.7、top_p=.8、top_k=20、min_p=0、presence_penalty=1.5、repetition_penalty=1。TB遵题面覆盖为temperature=1、top_p=.95、top_k=20，presence_penalty=0作为本实验明确设置。
-- 每次输出上限：SWE/HLE 32768；ASI 8192；TB 81920。输入+实际生成受context共同约束。未另外实现累计token硬限的工具任务明确设null，不把API max_tokens冒充整题预算。
-- 官方通用prompt、工具schema和原生压缩流程固定；本地Qwen参数、额外禁网/工具范围、单次输出、种子等未公开值标为本实验设置，不声称复现模型卡未公开内部scaffold或修订题集。
-- 正式评测在训练前锁完整scope/metric/protocol；仅独立dev用于配方、checkpoint与合版选择。正式逐题答案、测试反馈和派生示范不回流训练；最终权重冻结后只做评分与错误分析。
-
-## 每项具体资源与差异
-
-| 项目 | 作答上限 | CPU／RAM | 步数／累计输出 | 执行说明 |
+| Benchmark | 固定 harness | 完整范围／每模型重复 | 解题墙钟 | 任务 CPU／RAM |
 | --- | --- | --- | --- | --- |
-| SWE | 外层3000s；原wrapper内层2940s并留30s强杀宽限 | 1 CPU／4096MiB | native step_limit=0；无额外总token硬限 | build1800s、verifier3000s另计；作答阶段断网仅放行模型端点；fresh replay保留 |
-| TB | 10800s | 32 CPU／49152MiB | native max_turns=None；无额外总token硬限 | 48GB按48GiB约定披露；资源配额未落实，不能只填limit便称已获得 |
-| HLE | 每题总墙钟1800s；单次HTTP600s，最多一次传输重试 | 共享客户端，不逐题开CPU容器 | 单次答案，无工具；32768输出上限 | 完整图文；不因图像请求失败或答错临时删除题 |
-| ASI | 每条件1800s | 4 CPU／8192MiB | build.steps=100；单次8192，无额外累计token硬限 | 本实验预算区别官方默认10800s；独立HOME/XDG，禁webfetch/websearch/MCP/子代理 |
+| SWE-bench Pro V2 HARD-51 | 官方 LockedMiniSwe + mini-swe-agent 2.4.6 | hard/test 51 项，seed=0 | 30min；内层 1740s，强杀宽限 30s | 1 CPU／4GiB |
+| Terminal-Bench 2.0 | Harbor 0.24.0 / Terminus-2 2.0.0 | 完整 89 项 × 五组 seed=0–4 | 30min，含摘要和命令 | 4 CPU／8GiB |
+| ASI-Bench | 官方 direct_llm，单程序生成与执行 | seed31415/open 60 任务 × B1–B4=240 条件，各一次 | 20min，生成与执行共享 | 4 CPU／8GiB |
+| HLE | 官方单次图文问答，无工具 | test 全部 2500 题，含 342 图像题，seed=0 | 5min／题 | 共享客户端 4 CPU／8GiB，非每题独占 |
 
-SWE用Harbor固定commit `f527f8e447038fd242d08ecfa8aaa8029100da97`（实际包版本0.24.0），mini-swe-agent候选2.4.6。官方未指定此mini精确版，需独立兼容验收；模型选项中去掉不适合本地Qwen的reasoning_effort，不传导致Harbor切Responses API的agent option。prompt/bash/结束标记与观察截断保持固定官方配置。所有镜像还需在执行前记录OCI digest。
+模型服务的 GPU／CPU／RAM 单独计入调度。镜像构建、输入准备、SWE verifier 与 fresh replay、独立判分不在解题墙钟内，分别记录耗时。所有来源 revision、任务 ID、主指标和依赖指纹见 JSON 与 `analysis/source_snapshots/protocol/`，不改用其他 split，不删除失败题。
 
-TB固定Terminus-2 2.0.0；top_k通过extra_body并核对真实请求，防止LiteLLM drop_params静默丢失。自定义模型信息明确max_input_tokens=262144/max_output_tokens=81920。启用原生summarize，提前阈值暂设86016以为长输出留空间；该值是本实验设置，近似计数、后续prompt和摘要追加仍有边界风险，必须用独立长对话验收后再锁。Harbor job完整trial重试0不等于关闭两层各3次的原生API重试。
+**Terminal 的本版本属于资源受限实验。** 题定要求为 256K context、80K 单次输出、3 小时、32 CPU、48GB、五组种子。本版本只保留完整任务集与五次重复，未满足前述资源配置，也未获得面试方例外许可，不能作为完全符合题定设置的成绩。SWE 的 30min 也区别所选上游 locked 配置的 50min；HLE／ASI 替换 Judge 的差异须一并报告。
 
-ASI固定OpenCode1.17.15，commit `5fb0d1cdb363ecafd55402c451c6634ed15b74b1`。steps/temperature/top_p/provider limit有原生字段，ASI adapter不自动填齐；top_k、thinking和采样seed透传仍需检查。title/summary/compaction如使用，全部指向同一受测模型并计成本，不偷偷加外部强模型。restricted仅关闭web工具，不能替代bash网络隔离。
+## 模型与请求
 
-## 80K与图片的资源判断
+- 基座固定 `Qwen/Qwen3.6-35B-A3B@995ad96eacd98c81ed38be0c5b274b04031597b0`；tokenizer、processor、chat template 固定同一 revision。BF16 权重及 full-attention KV，不做权重量化，保留原生视觉模块与 linear-attention 状态精度。
+- Base、目标专家、合版在每个 benchmark 内使用相同 harness、prompt、工具、精度、上下文、输出、种子、采样、超时与调度。跨 benchmark 保留各自原生 Agent 接口。
+- SWE／HLE／ASI：temperature=0.7、top_p=0.8、top_k=20、min_p=0、presence_penalty=0、repetition_penalty=1、seed=0。Terminal：temperature=1、top_p=0.95、top_k=20、presence_penalty=0、repetition_penalty=1，分别运行五组种子。这些未由上游强制的值是本实验设置。
+- 使用 Chat Completions；top_k 经 extra_body 传入，thinking 两开关经 chat_template_kwargs 传入，验收真实请求和模板。保留原生 EOS／工具结束，不新增 stop 字符串。
+- 每个主调用与摘要辅助调用发送前，以固定 Qwen 模板及 processor 计算实际输入 P，要求 **P + 8192 ≤ 65536**，即最多 **57344（56K）输入 tokens**。计入 system、工具定义、待加入消息、历史、真实展开的视觉 tokens。图片占位符估算不能代替视觉计数。
+- 输入超限不发送，不静默裁题、删图、裁历史或减少输出预留。`finish_reason=length` 保存部分输出，不加预算重答。原生多轮 Agent 可把解析／工具错误作为下一轮观察继续修复，仍计入同一 trial 和墙钟；HLE／ASI 单次作答不生成第二份答案。
 
-81920是单次生成的上限，遇到EOS/工具响应自然结束不会补足；context262144包含历史与输出，不是另加262144输入再加81920输出。主协议仅TB保留80K，其他三项采用上表各自预算。4×H100低并发能否承受长上下文与实际并发，必须测显存、prefill、decode和端点队列，当前没有吞吐保证。
+## 各 Agent 的交互契约
 
-固定索引权重71,903,645,408B，理想四卡均分约17.98GB/卡，只是权重。配置为40层混合注意力，其中10层full attention、2 KV头、head_dim256；BF16常规full-attention KV理论未分片/未复制为20480B/token，262144 tokens约5GiB/序列。此数只说明这部分缓存的数量级，未计TP复制、linear-attention状态、分页/对齐、视觉、激活、通信workspace和框架峰值，不能当成服务实际显存。先验收低并发，再选可持续并发；若100 token/s则生成满81920约13.7分钟，仅是假设算例。
+**SWE。** 保留官方 prompt、`bash(command)` 工具 schema、每动作新 subshell、JSON 观察，以及 10000 字符的头尾截断；不误写为 tokens。保留官方提交标记、patch 捕获和全新初始 sandbox 的 patch replay，主分数取 replay resolved rate／51，原运行分数另存。无限 step，无额外总 token 上限，无新增摘要或滚动历史。移除不适用于本地 Qwen 的 reasoning_effort；原生最多十次传输重试须改成下述共同政策，保留原生格式错误反馈。
 
-Qwen固定模型卡和config明确含vision encoder、image token和图文输入示例；CPU自造图像processor已过，实际GPU/HTTP图文尚未过。用户允许在模型确实不支持图片时另定text-only口径；本基座支持，当前保留全部2500。若未来决定text-only，须在任何正式Base/训练前版本化锁定2158题、所有模型同范围，并明确标签，不能把它与完整多模态分数混报或运行后删除失败图像题。
+**Terminal。** 保留原生 assistant JSON 中的 analysis／plan／commands／task_complete、tmux 持久状态、输出格式与字节截断、两次完成确认；不改造成 API function tools。启用原生 proactive best-effort 摘要，free-token 阈值 32768，即原生估算历史超过约 32K 时尝试摘要。该阈值仅提前触发，不能保证后续多阶段摘要一定容纳。主／summary／questions／answers／short_summary 均用同一受测模型、8K 上限，逐次做实际输入检查；辅助超限则不发送、记录摘要失败，之后主请求合法才继续。主请求超限则结束并留档，不能依赖原生 reactive unwind 或隐式裁历史绕过限制。所有调用共同计入 30min；不新增 max_turns 或累计 token 硬限。
 
-## Judge、失败与成本
+**ASI。** 采用官方 direct_llm：模型仅收到官方默认 system 与该条件的完整文本 prompt，一次生成完整 Python 程序，按原生提取规则执行一次并收集声明文件，由官方 scorer 判分。程序可读取 sandbox 中的任务数据和图片；该模式没有把图片发给模型的工具回路，也没有 stderr 反馈后的二次生成。生成、排队、重试、提取写入和执行共享 1200s，执行只获剩余时间。每条件使用全新任务工作区及官方依赖，reference 和 scorer 对 policy 隔离，任务程序不可用 GPU 或外网。具体隔离实现尚待验收，不能仅因原生接口名为 os 就称已隔离。
 
-HLE候选沿用DeepSeek官方deepseek-flash、thinking关闭、temperature0、输出4096、固定官方criteria和五字段JSON transport；prompt与hash已保存configs/eval/prompts及manifest。已做8例合成接口检查，仍需更广独立校准；它区别默认o3-mini，不冒称官方默认Judge等价。只向Judge提供评分所需输入，不向policy提供gold。
+**HLE。** 一题一次回答，保留官方 Explanation／Answer／Confidence 格式，完整题面及原图，固定 processor，不按失败题临时缩图或删题。无 shell、搜索、代码执行工具。2500 全量准确率为主，另报 2158 纯文本与 342 图像题分项；评分参考答案只交 Judge。300s 包含已准入后的输入处理、端点等待、传输和生成，每次 HTTP timeout 不超过剩余墙钟；不保留独立 600s 的旧 HTTP 默认。
 
-ASI原始13项配置要求openai/gpt-5.5并含视觉评分。重新查当前官方文档并用已有key实测后，确认deepseek-flash支持图像，一次双图请求正确通过；此前“DeepSeek官方API不支持图片”的判断已纠正。推荐HLE与ASI统一用已有DeepSeek官方deepseek-flash作本实验替代Judge，保留原rubric/num_judges/图片/聚合，显式适配model映射及输出解析，尚未修改原task_eval。Luna留作备选，不再把新增GPT/Luna凭据当统一替代方案的技术前置。差异与实测见 [DeepSeek图像核验](deepseek_vision_verification.md)；仍需独立科学图文校准，不能声称原GPT5.5完全复现。调用结构仍参考 [ASI调用量](asi_judge_call_budget.md)。
+## 时间、重试、失败与评分
 
-- 模型超时、错误动作、缺文件按官方grader对已固化产物评分；不因低分换seed重答。ASI可能保留有效部分分，不一概手工赋零。
-- 完整trial默认自动重试0；已核实基础设施故障最多人工补跑2次，同ID/seed/模型/配置，首个有效结果保留，全部失败和费用留档；不挑最好结果。各框架原生请求重试另固定并计日志。
-- 评分服务失败只重判原回答/原工件，不重新生成policy答案。评分invalid/null单列，不静默剔除后报完整主成绩。可另给固定分母缺失按0的保守辅助分，但不冒称官方完成评分。
-- 原生ASI mean_percent仅在240条件全部有效评分时作为完整主项，scorer_error_count=0；本版本每条件max_score=100，故等价任务/四层macro mean。图文与学科分项保留。
-- 每结果记录模型artifact revision、协议/配置hash、镜像digest、ID/seed/attempt、输出/patch/评分工件、失败分类、请求usage、延迟、CPU/RSS/GPU峰值与全部成本；不记录密钥。
+环境／输入就绪且任务获 solver slot 后开始计时；未获准入的全局队列另计。计时包括端点排队、全部主／辅助调用及任务命令／程序。到期取消实际生成、停止 solver 进程组，保留产物；清理阶段不能继续解题。
 
-## 统计与最少实验矩阵
+每个 policy 主／辅助逻辑 HTTP 至多两次尝试，只在一层重试，禁用 SDK／LiteLLM 的叠加重试；Judge 的固化产物重判按独立评分规则执行。仅明确请求尚未发送的连接失败，或明确未生成的 429，可携相同 payload／seed 在原 deadline 内重试。发送后断链、读超时、length 不重答。原生解析反馈进入下一 Agent turn 与传输重试分别记录。
 
-Base与最终合版均四项全量；仓库修复专家只要求SWE，交互执行专家要求TB+ASI，学术专家要求HLE。最低SWE153次、TB1335次、ASI720条件、HLE7500次问答，共9708个正式任务/问题运行。混训及落选合版只做预定独立dev，不要求额外四项全量。
+整题自动重跑为零。经核实的基础设施失败最多人工补跑两次，同 ID／seed／模型／配置，保留首个有效结果及全部日志和成本。模型超时、缺文件、错误动作按官方 grader 对现有产物给分，保留部分分；基础设施／判分失败单列，不删失败题提高分数。
 
-四项百分制主指标等权平均；提升用合版减本次实测Base，单位百分点。配对bootstrap 10000次、seed20261015、95%区间：SWE/HLE按任务ID；TB按89任务簇保留每题五seed；ASI按60任务簇保留四层。对同一bootstrap样本保持比较模型配对；宏平均CI由四项配对差值均值形成。TB另报五轮SD，不把重复运行当445个独立任务。区间仅对固定版本/预算及已评运行解释，不用小dev证明3pp正式提升。
+HLE／ASI 选已有 DeepSeek 官方 deepseek-flash 作**本实验替代 Judge**，不声称等价官方默认模型。HLE 使用固定原 criteria、JSON 包装、非思考、temperature=0、4096 输出；ASI 保留原 rubric、权重、num_judges、图像、输出额度及聚合，只适配模型和响应接口。图像接口已通过合成检查，科学评分校准仍待做。备用 Judge 不混入同一结果批次；更换须版本化并对所有模型的同批固化产物重判。Judge 失败只重判原答案／文件，不触发 policy 重答；统一 8K 不覆盖 Judge。
 
-## 正式启动前仍需完成
+主指标保留：SWE fresh-replay resolved rate；TB 五次成功率均值及样本标准差 ddof=1；HLE 准确率；ASI 官方 local mean_percent，240 条件判分完整且 scorer_error_count=0 后才报完整主分。四项百分制等权 macro。配对 task-cluster percentile bootstrap 10000 次、PCG64 seed20261015、95% 区间，TB 保留每题五 seed，ASI 保留每任务四层。正式输出／反馈不回流训练或独立 dev。
 
-1. 确定thinking偏好、ASI最终Judge路线，并完成独立文本/图像/工具/长历史验收后生成实际runner配置。
-2. 固定完整依赖lock、真实请求及prompt/schema hash、各镜像OCI digest；以同一栈评所有对象。
-3. 准确Base权重加载、真实<=4H100分配、容器phase网络/CPU/RAM、模型端点、评分接口与持久日志验收。
-4. 按真实可用配额测有效并发，不把80可见核心数或HPC account上限当已保留资源。各项ready即启Base，CPU准备并行，四卡训练/推理按实际容量分时。
+最低完整范围矩阵仍为 Base 与合版四项、仓库专家 SWE、交互执行专家 TB+ASI、学术专家 HLE，共 SWE153、TB1335、HLE7500、ASI720，总9708次；完整范围不等于 Terminal 已满足题定资源。
 
-一手出处：[Qwen固定模型卡](https://huggingface.co/Qwen/Qwen3.6-35B-A3B/blob/995ad96eacd98c81ed38be0c5b274b04031597b0/README.md)、[SWE审计](protocol_swe_review.md)、[TB审计](protocol_terminal_review.md)、[ASI审计](protocol_asi_review.md)、[HLE审计](protocol_hle_review.md)。以上是可审阅设计和来源锁定，当前不宣称执行就绪或已有正式分数。
+## 部署与执行状态
+
+设计起点固定为单个 TP2 服务：vLLM0.20.2、Torch2.11.0+cu130、Transformers5.15.1、eager、Triton GDN／MoE、max_num_seqs=4、gpu_memory_utilization=0.85、chunked prefill、max_num_batched_tokens=8192。后者是调度分块额度，不是输入长度上限。服务单独申请 2×H100／16 CPU／128GiB，最多准入 8 个 solver；一次运行一个 benchmark／模型块，各比较模型相同。训练与评测分时，项目总 H100 不超过四张，不预设未经验证的第二副本或 2+2 并行训练。
+
+作业723821已在 TP2/BF16 的 256K 服务上通过短文本、32px 图片、原生工具调用及反馈，并非长输入或并发验收。64K 通常增加的是允许的最长历史，并不让短请求自动变长；显存池也未必随名义 context 成比例变化。仍需按本版本真实请求验证长输入、视觉、摘要边界、四条活跃模型序列／八个 solver 的排队与峰值，以及任务 CPU／RAM／网络隔离。验收失败应在正式 Base 前修订版本，不能逐题临时改预算。
+
+本 JSON 是协议规范，未自动实现上述适配。正式启动前需完成薄适配、冻结实际 runner／依赖／镜像与线上请求指纹、通过独立 smoke；SFT 训练窗口与推理上限分别制定，不因单次输出 8K 就把训练标签直接裁到 8K。
+
+来源审计与容量依据：[SWE](protocol_swe_review.md)、[Terminal](protocol_terminal_review.md)、[ASI](protocol_asi_review.md)、[HLE](protocol_hle_review.md)、[上下文证据](context_evidence_20261016.md)、[轨迹长度](trajectory_lengths.md)、[Base验收状态](setup_base_runtime_status.md)。

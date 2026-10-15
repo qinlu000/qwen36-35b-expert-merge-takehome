@@ -1,0 +1,510 @@
+{
+  "protocol_id": "apex-eval-v2-unified64k8k",
+  "status": "decisions_locked_runtime_acceptance_pending",
+  "as_of": "2026-10-16",
+  "scope": "Authoritative experiment specification, not native executable runner configuration. All evaluated-model main and helper calls use 65536 total context and 8192 output. No formal runs or training started under this protocol.",
+  "model": {
+    "repo_id": "Qwen/Qwen3.6-35B-A3B",
+    "revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "dtype": "bfloat16",
+    "weight_quantization": null,
+    "kv_cache_dtype": "bfloat16",
+    "context_tokens": 65536,
+    "tokenizer_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "chat_template_snapshot": "analysis/source_snapshots/model_chat_template.jinja",
+    "chat_template_sha256": "e84f32a23fdda27689f868aa4a1a5621f41133e51a48d7f3efcbea2839574259",
+    "enable_thinking": false,
+    "preserve_thinking": false,
+    "thinking_decision": "Selected unified non-thinking profile for all compared models; verify real rendered requests before formal use.",
+    "inference_candidate": {
+      "engine": "vllm",
+      "version": "0.20.2",
+      "torch": "2.11.0+cu130",
+      "transformers": "5.15.1",
+      "tensor_parallel_size": 2,
+      "max_num_seqs": 4,
+      "gpu_memory_utilization": 0.85,
+      "enforce_eager": true,
+      "gdn_prefill_backend": "triton",
+      "moe_backend": "triton",
+      "chunked_prefill": true,
+      "max_num_batched_tokens": 8192,
+      "tool_call_parser": "qwen3_coder",
+      "reasoning_parser": "qwen3",
+      "runtime_lock": "scripts/requirements-base-runtime.lock",
+      "runtime_lock_sha256": "632490600719f2eba07a6cf1a975d17da8b6356ce6b2d955ba66f0e3a3b142d3",
+      "verification": "TP2/BF16 short text/image/native-tool HTTP passed in job723821; unified64K/8K, long histories, concurrency and native benchmark agents still require acceptance.",
+      "verified": false
+    },
+    "multimodal": true,
+    "vision_processor": "fixed base processor; no language-model-only serving for HLE",
+    "deployment": "One TP2 service; all four benchmarks share the same 64K profile. At most four project H100 total. Training and evaluation run in separate phases; no assumed 2+2 overlap or untested second serving replica."
+  },
+  "generation_default": {
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "min_p": 0,
+    "presence_penalty": 0,
+    "repetition_penalty": 1,
+    "max_tokens": 8192,
+    "sampling_seed": 0,
+    "scope": "Explicit non-thinking experiment settings for SWE/ASI/HLE; Terminal overrides temperature/top_p. Exact max_tokens applies to every evaluated-model main/helper call, not to grading services or total trial usage."
+  },
+  "benchmarks": {
+    "swe": {
+      "name": "SWE-bench Pro V2 HARD-51",
+      "code_repo": "scaleapi/SWE-bench_Pro-os",
+      "code_revision": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "dataset_repo": "ScaleAI/SWE-bench_Pro",
+      "dataset_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+      "dataset_config": "hard",
+      "split": "test",
+      "task_manifest": "analysis/source_snapshots/protocol/swe_hard_task_ids.json",
+      "tasks": 51,
+      "repetitions": 1,
+      "seeds": [
+        0
+      ],
+      "harbor_revision": "f527f8e447038fd242d08ecfa8aaa8029100da97",
+      "harbor_version": "0.24.0",
+      "agent": "locked_mini_swe:LockedMiniSwe",
+      "mini_swe_agent_version": "2.4.6",
+      "mini_version_verified": true,
+      "system_and_tool_prompt": "official v2/tooling/configs/mini_toolcall.yaml; prompt content unchanged",
+      "agent_timeout_seconds": 1800,
+      "inner_agent_timeout_seconds": 1740,
+      "inner_kill_grace_seconds": 30,
+      "verifier_timeout_seconds": 3000,
+      "build_timeout_seconds": 1800,
+      "cpus": 1,
+      "memory_mib": 4096,
+      "storage_mib": 10240,
+      "network": "agent: model endpoint allowlist only; setup/verifier: phase-specific official policy",
+      "max_steps": null,
+      "total_generated_token_hard_limit": null,
+      "max_tokens_per_call": 8192,
+      "mini_cost_limit": 0,
+      "interactive_confirmation": false,
+      "bash_command_timeout_seconds": 30,
+      "model_request_max_attempts_native": 10,
+      "harbor_job_max_retries": 0,
+      "reasoning_effort": "remove model_kwargs.reasoning_effort for local Qwen; do not set Harbor reasoning_effort option",
+      "fresh_sandbox_patch_replay": true,
+      "primary_metric": "100 * official fresh-replay resolved tasks / 51",
+      "preserve_initial_and_replay_scores": true,
+      "image_digests_status": "140 fixed OCI identities in configs/envs/swe_tb_image_digests.json; cached SIF readiness is separate",
+      "context_tokens": 65536,
+      "model_request_max_attempts_effective": 2,
+      "report_label": "SWE Pro V2 HARD-51 / mini2.4.6 / reduced30min / 64K-8K / fresh replay",
+      "agent_core_revision": "a83fcae82d2a08f0ee0c688f9d137b3566c097f8",
+      "native_prompt_sha256": "7275afa9920a6fb1b9ec66ab74cee44121db9b0276bb9fa90f5ec0597e523a45",
+      "tool_contract": {
+        "type": "native function tool bash(command), new subshell for each action",
+        "observation": "Original official JSON observation and head/tail 10000-character truncation",
+        "finish": "Official COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT marker and patch capture; fresh sandbox replay",
+        "history": "Append original history, no added summary or hidden rolling-window truncation; actual request over context ends trial",
+        "format_feedback": "Preserve native FormatError observation and next agent turn, including after partial length output; this is not a transport retry or trial restart."
+      },
+      "required_runtime_adapter_behaviors": [
+        "Apply1800s total deadline to the wrapper and its1740s inner solver; preserve30s kill grace and patch capture.",
+        "Remove reasoning_effort; use Chat Completions and the fixed bash schema.",
+        "Override native up-to10 transport attempts to the common policy; retain native format-feedback loop without same-request cap escalation.",
+        "Use fixed digest and replay in a fresh initial environment, keep initial and authoritative replay scores."
+      ]
+    },
+    "terminal": {
+      "name": "Terminal-Bench 2.0",
+      "registry_revision": "f527f8e447038fd242d08ecfa8aaa8029100da97",
+      "task_repo": "laude-institute/terminal-bench-2",
+      "task_revision": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "task_manifest": "analysis/source_snapshots/protocol/terminal_task_ids.json",
+      "tasks": 89,
+      "repetitions": 5,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "job_layout": "five separate full jobs, n_attempts=1 per job; seed explicitly forwarded to every model request",
+      "harbor_revision": "f527f8e447038fd242d08ecfa8aaa8029100da97",
+      "harbor_version": "0.24.0",
+      "agent": "terminus-2",
+      "agent_version": "2.0.0",
+      "temperature": 1,
+      "top_p": 0.95,
+      "top_k": 20,
+      "presence_penalty": 0,
+      "repetition_penalty": 1,
+      "max_tokens_per_call": 8192,
+      "context_tokens": 65536,
+      "agent_timeout_seconds": 1800,
+      "cpus": 4,
+      "memory_mib": 8192,
+      "memory_convention": "8GiB selected experiment limit; differs from required48GB",
+      "max_turns": null,
+      "total_generated_token_hard_limit": null,
+      "enable_summarize": true,
+      "proactive_summarize_threshold_tokens": 32768,
+      "summarize_threshold_status": "Locked free-token threshold: native estimated H>32768 triggers proactive summary. This is not a proof of bounded third-stage input.",
+      "llm_query_max_attempts_native": 3,
+      "llm_transport_max_attempts_native": 3,
+      "harbor_job_max_retries": 0,
+      "top_k_transport": "llm_call_kwargs.extra_body.top_k=20; actual server request must be checked",
+      "unknown_model_info": {
+        "max_input_tokens": 65536,
+        "max_output_tokens": 8192
+      },
+      "primary_metric": "mean of five complete 89-task success percentages",
+      "repeat_dispersion": "sample standard deviation, ddof=1; not pass@5",
+      "resources_guaranteed": false,
+      "image_digests_status": "140 fixed OCI identities in configs/envs/swe_tb_image_digests.json; cached SIF readiness is separate",
+      "report_label": "Terminal-Bench2 / full89x5 / resource constrained64K-8K / 30min-4CPU-8GiB",
+      "llm_query_max_attempts_effective": 2,
+      "llm_transport_max_attempts_effective": 1,
+      "summary": {
+        "enabled": true,
+        "implementation": "Original Terminus2 prompts, JSON parser, tmux state and completion confirmation",
+        "free_token_trigger": 32768,
+        "all_helper_max_tokens": 8192,
+        "helper_phases": [
+          "summary",
+          "questions",
+          "answers",
+          "short_summary"
+        ],
+        "auxiliary_model": "same evaluated model",
+        "on_helper_budget_error": "Do not send; log summary_failed/context_budget_exceeded. Follow native proactive best-effort return. Continue only if the next main request passes exact guard.",
+        "on_main_budget_error": "Terminate with context_budget_exceeded and retain artifacts; bypass native reactive4000-token unwind, silent history trimming and identical-request retries.",
+        "required_adapter": "Thin pre-request guard plus explicit main/helper overflow classification; preserve native planning, tool and summary text."
+      },
+      "tool_contract": {
+        "type": "plain assistant JSON analysis/plan/commands/task_complete, not API function tools",
+        "state": "persistent tmux terminal",
+        "observation": "Original fixed Terminus2 screen/output formatting and byte truncation",
+        "finish": "Original two-step task_complete confirmation",
+        "network": "Solver only model endpoint; task-specific download/build dependencies staged before timer; disclose no external solving assistance",
+        "gpu_visible_to_task": false
+      }
+    },
+    "hle": {
+      "name": "HLE",
+      "dataset_repo": "cais/hle",
+      "dataset_revision": "5a81a4c7271a2a2a312b9a690f0c2fde837e4c29",
+      "code_repo": "centerforaisafety/hle",
+      "code_revision": "22ed3074b1e7b134bcbc09028d0ba320839b0655",
+      "split": "test",
+      "task_manifest": "analysis/source_snapshots/protocol/hle_task_ids.json",
+      "tasks": 2500,
+      "image_tasks": 342,
+      "text_only_tasks": 2158,
+      "include_images": true,
+      "tools": false,
+      "repetitions": 1,
+      "seeds": [
+        0
+      ],
+      "max_tokens_per_call": 8192,
+      "request_timeout_seconds": 300,
+      "system_prompt": "configs/eval/prompts/hle_system.txt",
+      "dataset_read_columns_for_manifest": [
+        "id",
+        "image"
+      ],
+      "question_answer_read_for_protocol": false,
+      "judge": {
+        "provider": "DeepSeek official API",
+        "model": "deepseek-flash",
+        "provenance": "experimental judge, different from official script default o3-mini-2025-01-31",
+        "backend_revision": "provider alias only; record returned model and date, immutable backend unavailable",
+        "thinking": false,
+        "temperature": 0,
+        "max_tokens": 4096,
+        "response_format": "json_object",
+        "criteria_prompt": "configs/eval/prompts/hle_judge_criteria.txt",
+        "json_system_prompt": "configs/eval/prompts/hle_judge_json_system.txt",
+        "schema": [
+          "extracted_final_answer:string",
+          "reasoning:string",
+          "correct:yes|no",
+          "confidence:integer[0,100]",
+          "strict:true"
+        ],
+        "retry": "at most one retry for transport/invalid schema; identical frozen prediction and prompts, no best-label selection",
+        "calibration_status": "8 synthetic v2 interface cases passed; broader independent calibration still required"
+      },
+      "primary_metric": "100 * correctly judged answers / 2500; report text/image subgroups separately",
+      "raw_reference_and_judge_artifacts": "restricted local artifacts; never policy input or training data",
+      "question_walltime_seconds": 300,
+      "request_max_attempts": 2,
+      "time_budget_note": "At most300s total after solver admission; endpoint waiting and retries share it. Each HTTP timeout=min(remaining deadline,300s). Grading is separate.",
+      "context_tokens": 65536,
+      "tool_contract": {
+        "type": "single model response, no shell/search/code tools",
+        "input": "Official system plus full question and original image if present; fixed processor, no per-question resizing/drop",
+        "output": "Original Explanation / Answer / Confidence format",
+        "regenerate_answer": false
+      },
+      "required_runtime_adapter_behaviors": [
+        "Pin dataset revision rather than client default.",
+        "Explicitly pass chosen sampling,seed,thinking and8192 output; default None does not implement this cap.",
+        "Count real image processor tokens, enforce common64K/8K guard, keep all2500 and image342 denominators.",
+        "Shared300s deadline includes transport attempts; no second answer on read timeout,length or judge failure."
+      ],
+      "shared_client_resources": {
+        "cpus": 4,
+        "memory_mib": 8192,
+        "scope": "shared request/tokenization client, not a separate allocation for every question; model service separate"
+      }
+    },
+    "asi": {
+      "name": "ASI-Bench",
+      "code_repo": "apexin-ai/ASI-Bench",
+      "code_revision": "cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc",
+      "dataset_repo": "Apexintelligence-AI/ASI-Bench-seed31415",
+      "dataset_revision": "0fa14219cafdbab634d8b3cfbce238a8735a214f",
+      "evaluation_split": "open",
+      "dataset_seed": 31415,
+      "run_mode": "produce-only then official local scoring",
+      "report_label": "ASI seed31415 / open / local / direct_llm single generation / 64K-8K / 20min / replacement judge / not Portal-certified",
+      "task_manifest": "analysis/source_snapshots/protocol/asi_task_ids.json",
+      "tasks": 60,
+      "levels": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
+      "conditions": 240,
+      "repetitions": 1,
+      "attempts_per_condition": 1,
+      "inference_seed": 0,
+      "adapter": "direct_llm",
+      "sandbox": "official os isolation semantics; existing Docker/Apptainer implementation must pass isolation/resource acceptance",
+      "agent_timeout_seconds": 1200,
+      "cpus": 4,
+      "memory_mib": 8192,
+      "max_tokens_per_call": 8192,
+      "total_generated_token_hard_limit": null,
+      "context_tokens": 65536,
+      "tools": "No interactive model tools. One full Python program generation; framework executes it and collects declared artifacts.",
+      "network": "Only model endpoint during solving; generated program has no external network. Inputs/dependencies staged before timer.",
+      "auxiliary_models": "None for solving; no OpenCode title/summary/compaction calls",
+      "judge": "Selected DeepSeek official deepseek-flash replacement; original task rubrics/weights/repeats/output caps retained",
+      "judge_credential_status": "existing project DeepSeek key tested successfully with two real synthetic image_url parts; no new API key required for this substitution",
+      "primary_metric": "official local_score_seed31415.json.mean_percent = 100 * sum(final_score) / sum(max_score)",
+      "expected_scored_conditions": 240,
+      "expected_scorer_error_count": 0,
+      "effective_max_score_each_condition": 100,
+      "incomplete_scoring": "preserve invalid/null and coverage; no official complete score until all 240 scored",
+      "upstream_judge": "openai/gpt-5.5 in original per-task scorer configuration",
+      "proposed_unified_judge": {
+        "model": "deepseek-flash",
+        "base_url": "https://api.deepseek.com",
+        "thinking": false,
+        "temperature": 0,
+        "preserve_upstream_rubric_weights_num_judges_output_caps": true,
+        "status": "selected experimental substitution; scientific calibration and scorer adapter acceptance pending",
+        "verification": "analysis/deepseek_vision_verification.md"
+      },
+      "max_agent_iterations": 1,
+      "tool_contract": {
+        "input": "Official prompt.md as text plus original DirectLLM default system; data stays in sandbox; no model image attachments/read-tool feedback",
+        "output": "One complete Python program using official extraction and declared output-file rules",
+        "execution": "Exactly one extracted program execution with remaining total deadline; collect stdout/stderr/files and use official graders",
+        "model_feedback_repair": false,
+        "gpu_visible_to_task": false,
+        "prompt_source_sha256": "8aa4c3fc83dd70a1b090b2c6bb86844926cd87ff2b2279d0712407eeb9e9d697"
+      },
+      "required_runtime_adapter_behaviors": [
+        "Pass explicit generation sampling,seed,thinking,8192 cap and HTTP timeout into the official completion call.",
+        "Use one1200s monotonic deadline for queue,transport,generation,extraction,write and execution; execution receives only remaining time.",
+        "Use fresh declared task runtime/workspace per condition; no reuse of artifacts from another level/model.",
+        "Keep reference/gold/scorer material outside policy-visible workspace and messages; no self-debug regeneration."
+      ],
+      "preserve_native_scorer_prompts_rubrics_weights_and_repeats": true
+    }
+  },
+  "experiment_matrix": {
+    "base": [
+      "swe",
+      "terminal",
+      "hle",
+      "asi"
+    ],
+    "repository_expert": [
+      "swe"
+    ],
+    "execution_expert": [
+      "terminal",
+      "asi"
+    ],
+    "academic_expert": [
+      "hle"
+    ],
+    "final_merged": [
+      "swe",
+      "terminal",
+      "hle",
+      "asi"
+    ],
+    "mixed_and_losing_merge_candidates": "independent dev only, unless extra budget",
+    "minimum_full_scope_runs": {
+      "swe": 153,
+      "terminal": 1335,
+      "hle": 7500,
+      "asi": 720,
+      "total": 9708
+    },
+    "run_count_note": "9708 full-scope trials/questions, including experimental resource-constrained Terminal results; counts alone do not satisfy the original Terminal configuration."
+  },
+  "failure_policy": {
+    "complete_trial_auto_retries": 0,
+    "manual_infrastructure_reruns_max": 2,
+    "rerun_rule": "only verified infrastructure failures, same task/seed/model/config, first valid result retained; preserve all costs",
+    "model_failure_rule": "no answer-selection reruns; official grader scores saved artifacts, including timeout/invalid/missing artifacts",
+    "unresolved_infrastructure": "retain expected denominator and list failures; conservative zero score only as an explicitly labelled auxiliary result",
+    "native_aggregate_missing_behavior": "never silently exclude invalid evaluations and call result complete",
+    "request_retries": "Scope: evaluated-policy main/helper requests only; Judge retries follow judge_retry_rule and benchmark Judge settings. At most2 HTTP attempts total for each logical request, in one layer only; inner SDK/LiteLLM retries disabled. Retry only explicit connection failure before request was sent or429 confirming no generation. Same payload/seed and original remaining deadline. No read-timeout/ambiguous disconnect/response-length retry.",
+    "judge_retry_rule": "score frozen original response/artifact; never regenerate model answers because a judge failed",
+    "native_agent_feedback": "Original parser/tool-error feedback may create subsequent native agent turns within one trial; they are logged and count against the same wall clock. This is distinct from same-request transport retry.",
+    "output_truncation": "Record finish_reason=length and partial text/tool/program artifacts, no higher-cap retry or second single-turn answer.",
+    "context_failure": "Do not silently delete task text/images/history; apply exact guard and the locked Terminus proactive helper policy. Preserve failure and denominator."
+  },
+  "statistics": {
+    "scores_percent": true,
+    "macro": "equal mean of four benchmark primary percentages",
+    "delta": "merged macro - measured Base macro, in percentage points",
+    "paired_bootstrap_repetitions": 10000,
+    "bootstrap_seed": 20261015,
+    "confidence_level": 0.95,
+    "resampling_units": {
+      "swe": "task ID",
+      "hle": "question ID",
+      "terminal": "task ID with all five seeds kept together",
+      "asi": "project/task ID with all four levels kept together"
+    },
+    "paired_rule": "identical sampled IDs and retained within-task seeds/levels for each compared model",
+    "macro_ci": "mean of four paired bootstrap benchmark deltas per replicate",
+    "interpretation": "conditional on these fixed versions, task scopes and evaluated runs",
+    "bootstrap_method": "paired task-cluster percentile interval",
+    "rng": "numpy.random.Generator(PCG64), seed20261015"
+  },
+  "remaining_execution_gates": [
+    "Run exact64K/8K text/image/native-tool and long-summary boundary acceptance with real requests; TP2 short smoke is not this test.",
+    "Enforce and verify per-taskCPU/RAM/network/score-material boundaries on the selected backend.",
+    "Validate fixed whole input manifests, real image token coverage and all native prompt/tool hashes.",
+    "Measure8 admitted solvers/4 model sequences without uncontrolled queue timeout orOOM; revisions occur before formal Base.",
+    "Implement/test the thin adapters listed; freeze source/config hashes and wire requests before formal runs.",
+    "Use experimental labels for Terminal budget deviation and replacement judges; required Terminal configuration is not satisfied without an interviewer exception."
+  ],
+  "supersedes": "configs/eval/protocol_v1.json",
+  "decisions": {
+    "uniform_context_tokens": 65536,
+    "uniform_max_tokens_per_call": 8192,
+    "thinking": false,
+    "preserve_thinking": false,
+    "asi_adapter": "direct_llm",
+    "frozen_scope": "Agent, prompt contract, budgets, sampling, scoring scope, failure and scheduling policy. Required adapters and end-to-end resource/long-context acceptance remain unimplemented or unverified. Changes before first formal Base require a new protocol revision; no score-dependent changes between compared models."
+  },
+  "requirements_compliance": {
+    "profile": "resource_constrained_experiment",
+    "original_terminal_requirements_met": false,
+    "interviewer_exception_approved": false,
+    "report_rule": "Do not label the reduced Terminal configuration as satisfying the takehome-required 256K/80K/3h/32CPU/48GB setting. Full task coverage is preserved; configuration compliance is separate.",
+    "terminal_reference": {
+      "context_tokens": 262144,
+      "max_tokens_per_call": 81920,
+      "agent_timeout_seconds": 10800,
+      "cpus": 32,
+      "memory_mib": 49152,
+      "repetitions": 5,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "other_differences": [
+      "SWE 30min instead of the selected upstream locked 50min; same tasks/prompt/tools/fresh replay.",
+      "ASI official direct_llm, 20min total, one program generation, experimental replacement judge.",
+      "HLE full multimodal/no-tools, chosen generation budget and replacement judge."
+    ]
+  },
+  "request_contract": {
+    "api": "OpenAI-compatible Chat Completions",
+    "max_context_tokens": 65536,
+    "max_output_tokens": 8192,
+    "max_prompt_tokens": 57344,
+    "counting": "Count final serialized Qwen chat template plus actual processor-expanded visual tokens, tool definitions and pending messages, before each main/helper call. Require P+8192<=65536.",
+    "generation_kwargs_transport": {
+      "top_k": "extra_body.top_k=20",
+      "chat_template_kwargs": {
+        "enable_thinking": false,
+        "preserve_thinking": false
+      }
+    },
+    "end_of_generation": "Native EOS/tool-call termination, no invented stop sequences; cap is an upper bound.",
+    "context_overflow": "Do not send over-budget requests, silently truncate input, drop images, lower output reservation or retry with larger budget. Preserve artifacts and budget failure.",
+    "length_finish": "Save partial response and finish_reason=length. No same-prompt re-generation or cap increase. Native multi-turn parser/tool error feedback may continue as a new logged agent turn within the original deadline; single-turn HLE/ASI do not generate a second answer.",
+    "reasoning_mode": "No hidden think generation; visible task explanation and Terminus analysis/plan fields remain valid output. Do not strip model output to conceal mode violations."
+  },
+  "scheduling": {
+    "serving_replicas": 1,
+    "max_active_model_sequences": 4,
+    "max_admitted_solver_tasks": 8,
+    "benchmark_mode": "Run one benchmark/model block at a time; all compared models use the same limits.",
+    "timer_start": "After environment/input preparation and admission to a solver slot; includes input handling, all endpoint waiting, transport attempts, generation, helpers and tool/program execution. Unadmitted global job queue is outside the per-task solver timer.",
+    "timer_stop": "Cancel in-flight generation, kill solver process group/container, retain current artifacts; cleanup is logged and cannot perform additional solving.",
+    "outside_solver_deadline": [
+      "environment image build/preparation",
+      "SWE verifier and fresh replay",
+      "HLE/ASI independent grading",
+      "cleanup with no additional model action"
+    ],
+    "training_overlap": false,
+    "acceptance": "Long-request peak memory, model queue latency and sandbox CPU/RAM enforcement must pass before formal runs. Eight admitted tasks is a frozen starting policy, not a measured sustainable throughput claim.",
+    "model_server_resources": {
+      "gpus": 2,
+      "cpus": 16,
+      "memory_gib": 128,
+      "scope": "one serving allocation; independent CPU task environments separate; at most4 project H100 including all active jobs"
+    }
+  },
+  "judge_policy": {
+    "scope": "8192 uniform cap applies to evaluated-model solver/helper calls only; grader calls retain separately fixed original/output budgets.",
+    "hle": "DeepSeek official deepseek-flash, non-thinking,temperature0,max_tokens4096, fixed original criteria and JSON wrapper; experimental substitution.",
+    "asi": "DeepSeek official deepseek-flash replacing upstream GPT5.5; preserve each task rubric,weights,num_judges,vision inputs,output cap and official local aggregation.",
+    "backup": "Luna is not mixed into a frozen result batch; any provider change needs versioning and regrade of the same saved artifacts for every compared model.",
+    "calibration": "Scientific text/image semantic calibration and scorer adapter acceptance required; interface success alone is insufficient.",
+    "failure": "Retry judge on the identical frozen response/artifact only; never generate a new policy answer."
+  },
+  "required_runtime_adapters": {
+    "status": "not implemented by this JSON",
+    "items": [
+      "Common final-prompt token/vision counter and64K/8K guard",
+      "Single-layer safe transport retry policy and shared deadlines",
+      "SWE30min wrapper and transport classification while preserving parser feedback",
+      "Terminus proactive summary guard and no silent reactive unwind",
+      "HLE explicit parameters/revision/300s guard",
+      "ASI direct_llm explicit parameters and shared1200s deadline",
+      "Replacement judge adapter and calibration",
+      "Per-sandbox quota/network/isolation and fixed image acceptance"
+    ]
+  },
+  "prompt_and_source_fingerprints": {
+    "swe_official_yaml_sha256": "7275afa9920a6fb1b9ec66ab74cee44121db9b0276bb9fa90f5ec0597e523a45",
+    "mini_default_agent_sha256": "e8ef8aa365942d739c2ec5cb0879f60f377d2dc2de8ec670aaedf3bafb45a4c2",
+    "mini_toolcall_impl_sha256": "47b666412e4f838508b50009cf34c7f63fe15e9e40affc257a17c0829896526f",
+    "terminus_agent_sha256": "de15c2c86a66fdc9d7f75f974759835b1174e320fd146f393ef8101c46ba2e6e",
+    "terminus_parser_sha256": "ba7eeaeb28e2f72ecdc5850617c77cc571692c68698306637cc2cfed41130688",
+    "terminus_json_prompt_sha256": "89a3dc3a15752b748a99fb907c9251ab31a464e13386583fb48476b078b54a34",
+    "asi_direct_llm_impl_sha256": "8aa4c3fc83dd70a1b090b2c6bb86844926cd87ff2b2279d0712407eeb9e9d697",
+    "hle_system_sha256": "40f399fe8c277e2cb98ad8ca663461141d1abbf01a18da3c4129eccc706b4326",
+    "image_digest_manifest_sha256": "388d9c4413cb281b489174c19a268cd935f34742d92996ce2390b64c0011d91a"
+  }
+}

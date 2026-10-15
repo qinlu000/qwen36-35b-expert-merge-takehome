@@ -1,5 +1,7 @@
 # Agent 协议与资源预算候选
 
+> **2026-10-16 最新决策：** 用户选择四项统一 **64K 总上下文／8K 单次输出**，全部 Agent 协议已整理为 [v2](evaluation_protocol.md) 与 [配置规范](../configs/eval/protocol_v2_unified64k8k.json)。下文保留为此前预算讨论，不再是当前执行设计；v2 仍待原生适配和长请求／并发验收。Terminal 的资源受限版本不能冒称满足题定 256K／80K／3h／32CPU／48GB。
+
 2026-10-16。针对用户提出的“最大上下文等协议要在现有资源内承受”。本文为正式 Base 前的候选修订；不修改 `protocol_v1.json`，不启动模型、任务或训练。模型与运行环境的实际验收状态另见 [Base 状态](setup_base_runtime_status.md)。
 
 ## 结论

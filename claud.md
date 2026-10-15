@@ -608,3 +608,11 @@
 - 723727挂项目临时目录后仍在首次NVCC编译阶段超过600秒；随后显式采用已安装vLLM0.20.2原生Triton GDN/MoE并放宽health至1200秒。723784虽成功启动服务/鉴权，但首个文本请求因共享盘Triton缓存文件缺失返回500；保留失败日志，不将其算成功。
 - 723821把所有编译缓存和/tmp改为每作业独立的节点本地XFS临时目录，在2×H100 80GB、TP2/BF16/262144/eager/maxseq4下通过4项自造HTTP：文本标记、32px红图、add_numbers(17,25)调用和同tool ID反馈后回答42。鉴权200/无key401，startup270.19秒，每卡请求后70635MiB；Slurm COMPLETED0:0/5分07秒，服务返回0。安全聚合回执入analysis/source_snapshots/base_gpu_smoke_20261016.json。不是长上下文/吞吐/四卡正式配置验收；没有运行正式题、训练或评分。
 - 用户追问镜像并发，已核实当前实际8个Apptainer pull子进程并发，99/140、0失败；四个6–9GB大TB镜像持续约2.7–2.9MB/s，未卡死，不丢弃在途下载。HPC新镜像同步循环在源全完成后额外rsync并逐个核140份SHA256与alias；全量完成前不冒称全部缓存验收成功。
+
+## 2026-10-16：统一64K/8K并定稿Agent协议
+
+- 用户在统一8K输出后提出所有benchmark统一64K上下文；已冻结v2实验设计，输入最多57344 token，所有policy主调用与摘要辅助调用均为65536总context／8192输出，关闭thinking与preserve_thinking。保留真实图像token计数及原生多轮格式反馈，不加预算重答或静默裁题。
+- 新增configs/eval/protocol_v2_unified64k8k.json；更新analysis/evaluation_protocol.md；旧文档归档analysis/evaluation_protocol_v1.md，v1 JSON不变。analysis/agent_resource_protocol.md明确指向v2，旧表仅为讨论历史。
+- SWE固定mini2.4.6、官方bash/prompt/观察/结束、30min与fresh replay；TB固定Terminus2原生JSON/tmux和提前摘要、30min/4CPU/8GiB；ASI选官方direct_llm单程序单执行、生成执行共20min；HLE完整2500含342图像、单答无工具、每题5min。传输至多两次且只允许明确未生成的失败，原生解析反馈与同请求重试分开。
+- TB明确标resource_constrained_experiment，保留题定256K/80K/3h/32CPU/48GB参考配置，不冒称符合题定要求或已有面试方例外许可。HLE/ASI替代DeepSeek Judge单独披露，Judge不适用policy统一8K。
+- 起始部署设计为一个TP2服务、4活跃模型序列、8准入solver，训练评测分时，总卡数不超过4。已有TP2短文本/图片/工具smoke通过，不等于64K长输入/并发/隔离验收；实际适配仍待执行。本文定稿没有运行正式题、训练、评分API或提交GPU作业。
