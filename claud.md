@@ -549,3 +549,11 @@
 - 工程侧新增固定Harbor resume可能删除旧trial的证据，建议恢复前归档attempt/usage；vLLM当前文档提供Qwen3.6 MoE LoRA例子，但2D/3D布局、parser、实际安装版本仍需验收。root-map、资源限额、网络分别核查；同项模型采用同调度政策，避免排队挤占行动预算。
 - 评测侧建议保留固定分母、配对任务簇区间（TB89×5、ASI60×4）、分项退化、接口/环境失败及成本；替代Judge需独立人工可核文本/科学图文校准，图像/JSON接口成功不等于官方评分等价。主报告已做数据与工程专项交叉审阅，建议与已冻结/已完成状态分开。
 - 本轮未执行模型、任务、容器、训练、正式评测或付费API，未安装/下载实验依赖；保留其他工作流正在修改的脚本、状态文档和logs，仅将本轮研究笔记与本节纳入Git。
+
+## 2026-10-16：将Agent上下文与协议纳入资源预算
+
+- 用户要求Agent协议、最大上下文等必须由4H100资源承受。本轮只读固定模型配置、已装runtime/协议与HPC/80资源状态，联网核官方vLLM0.20.2参数，分别核显存、Harbor/mini、ASI/HLE参数落地；新增agent_resource_protocol及三份专项记录，未修改protocol_v1或启动模型/任务/训练。
+- 候选：TB保持题定256K总context/80K单次输出/3h/32CPU/48GiB/五seed；其余三项统一128K总context，SWE每次8K、HLE与ASI单次完整程序16K。保留SWE官方50min、不另加100步；ASI总30min、direct_llm仍候选。预算缩减是实验自选值，需实际验收后在正式Base前统一固定与披露，不能按低分对象加预算。
+- 区分总context、单次output、累计生成、server活跃序列及sandbox并发；图片/工具定义/历史也占context。mini无原生短context硬限/历史摘要，按benchmark分时设置服务128K最省代码；OpenCode原生steps只是收尾提示，不能称硬执行次数上限。Terminus86016是剩余token触发阈值，三阶段摘要继承80K仍可能超限，需真实计数/边界恢复验收或披露薄适配。
+- 固定权重约66.97GiB，10层full+30层linear；TP4 KV头复制，256K full-KV约2.5GiB/序列/卡，不可直接总量除4。HPC识别H100 80GB HBM3约79.65GiB/卡，低并发有显存容量依据但无完整长上下文HTTP通过回执；linear state、cache pool、视觉与workspace另计。建议TP4单服务，先2条活跃请求再测4，85%显存/8192chunked prefill是待验候选，训练评测分时。
+- 显存可行不代表按期完成：模型队列、decode速度、CPU/RAM/I/O及TB1335次长尾另验；16K生成与600s HTTP也要匹配真实速度。训练先8K、可验16K，不等同评测256K。只读现有723706在途作业，不干预任何作业、容器、共享缓存或他人WIP；不把理论估算冒称实测。

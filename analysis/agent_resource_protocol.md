@@ -1,0 +1,59 @@
+# Agent 协议与资源预算候选
+
+2026-10-16。针对用户提出的“最大上下文等协议要在现有资源内承受”。本文为正式 Base 前的候选修订；不修改 `protocol_v1.json`，不启动模型、任务或训练。模型与运行环境的实际验收状态另见 [Base 状态](setup_base_runtime_status.md)。
+
+## 结论
+
+可以缩小题面未规定的上下文和单次输出，先验证低并发。Terminal 的 256K context / 80K max_tokens 是题面明确要求，保留；先通过请求并发、分块 prefill、日志及摘要预算管理显存和延迟。4 H100 80GB 的低并发显存容量有可行依据，但长上下文请求、图像和各 harness 尚未全部实际验收，不能保证全量评测在剩余时间内完成。
+
+这里 K=1024。上下文包含 system、工具定义、图片展开、任务、全部保留历史以及本次输出；不表示可送满输入再额外生成。每次输出上限不是整题累计输出上限，更不是每题必定生成这么多。
+
+## 建议的候选表
+
+| 项目 | 单请求输入＋输出总上限 | 单次输出上限 | 交互与时间 | CPU / RAM |
+|---|---:|---:|---|---|
+| SWE / mini | 128K = 131072 | 8K = 8192 | 保留官方工具、观察与结束契约；50min；不新增100步上限 | 原任务1 CPU / 4GiB；fresh replay另计 |
+| Terminal / Terminus-2 | 256K = 262144 | 80K = 81920 | 题定3h；五seed；保留原生摘要，不额外砍轮数或累计输出 | 题定32 CPU / 48GiB（单位约定） |
+| ASI / direct_llm 候选 | 128K = 131072 | 16K = 16384 | 一次完整程序生成＋真实执行；总墙钟30min，需同时约束生成与执行 | 4 CPU / 8GiB |
+| HLE / 官方问答客户端 | 128K = 131072 | 16K = 16384 | 无工具；每题总墙钟30min，单HTTP600s及原重试另固定 | 共享客户端，模型服务另计 |
+
+128K统一用于非Terminal项目，减少预算分支；HLE题目通常不需要长历史，但这里不靠裁掉图像或正式题干降低预算。真实输入长度需由固定tokenizer/processor验收。ASI若改选OpenCode，多轮输出候选8K、总context128K、总墙钟30min；原生100steps只作为收尾提示，固定代码未实际禁用下一轮工具，不能称100次硬限。它是另一条正式前择一路线，不能与direct_llm混报。
+
+这些是较原草案更保守的**实验自选预算**：原草案非Terminal context为256K，SWE/HLE单次输出32K。缩减可能影响得分；统一用于该项Base、专家、合版，不能对低分模型追加预算。不能只改服务端共享最大长度就声称各客户端已经落实128K；原生不支持的限制需薄适配或按benchmark分块使用相应服务配置。任何超限失败保留在预期任务分母，不静默跳过。
+
+## 显存估算及部署策略
+
+- 固定权重张量共71,903,645,408B，约66.97GiB。全35B权重都需驻留；3B激活不等于3B权重显存。TP4仅权重均分约16.74GiB/卡，TP2约33.48GiB/卡，实际还有复制的视觉等模块。
+- 固定config是30层linear attention＋10层full attention，full attention为2KV头、head_dim256、BF16。未分片常规full-attention KV为 `10 × 2(K/V) × 2(heads) × 256 × 2(bytes) = 20480 B/token`：128K约2.5GiB/序列，256K约5GiB/序列。不能套40层全attention估算，也不能漏掉linear state。
+- TP4超过2个KV头，固定vLLM0.20.2会复制KV头，不能把上述KV总量直接除4：TP2/TP4每卡256K full-KV均约2.5GiB/序列。分页/混合cache padding、linear state、视觉特征、激活、通信与graph workspace还需计入；这些数字只作数量级推算，不能当实际vLLM显存回执。此前实际GPU识别为H100 80GB HBM3、81559MiB/卡（约79.65GiB），不按整80GiB计算硬余量。详见 [显存专项](agent_capacity_memory_review.md)。
+- 正式服务优先一个TP4实例，BF16权重及BF16 KV；暂不依赖FP8/CPU offload/2卡训练＋2卡服务来保证排期。训练和评测分时。先验收2条同时活跃模型请求，再测4条；它是vLLM同时处理的sequence数，与同时存在的任务sandbox数不同。
+- 候选 `gpu_memory_utilization=0.85`、chunked prefill、`max_num_batched_tokens=8192`、`max_num_seqs=2` 起步。8192是一次调度处理的token量，不是输入只能8192；只有实际启用chunked prefill且后端支持时，才可分块处理长输入。eager先用于验收，正式是否用graph依据测量。配置值仍需在实际0.20.2版本上验证。
+- 仅把最大允许context从256K降至128K，不会让相同短输入本身更快，也不保证vLLM预留cache按比例减半；固定显存利用率时pool可能仍吃满既定预算。真正要测的是实际保留历史、输出长度、活跃请求和cache/调度策略，避免为名义节省无谓牺牲能力。
+- 摘要会额外调用模型，也消耗上下文和时间。Terminal原生86016候选是“剩余历史估计token触发阈值”，不是历史总长度；仅提高阈值仍不能保证三阶段摘要总能容纳80K输出。需核固定源码、真实模板计数及超限恢复，必要时给辅助摘要独立较小输出预算并披露适配，不能裁官方题干。详见 [协议专项](agent_capacity_protocol_review.md)。
+
+128K上下文落实最简方式是按benchmark分时使用 `max_model_len=131072` 的服务，Terminal分块使用262144，所有对象一致；mini仅注册模型metadata不会强制128K，且没有原生历史摘要，不虚构已有自动压缩。SWE的8K输出需要预留输入空间，实际prompt最多122880token。原官方工具观察截断是10000字符、头尾各5000，继续保留，不能误称10000token。
+
+## 承受显存与按时完成是两项验收
+
+80共享主机可见128逻辑CPU、约2TiB RAM，不等于项目获独占资源；题定TB每任务32CPU/48GiB，模型排队也会消耗agent墙钟。不能从4卡显存推算TB有效并发或完工时间。最低TB矩阵为1335次；若平均15min，即便有效16并发也约20.9h，平均30min则约41.7h，均未含长尾，且16并发尚未获保障。这是情景算术，不是已测吞吐。
+
+正式前最低验收：
+
+1. 同一实际服务上的短文本、图像、各harness动作/观察/结束与实际请求参数通过。
+2. 独立合成历史验证128K和256K边界，输入＋输出合计、长工具结果及Terminus三阶段摘要不静默截断；不必为验收故意生成满80K废文本，但需覆盖接近总边界的执行及输出预算校验。
+3. 2→4活跃请求，记录GPU峰值、KV容量/占用、抢占、tokens/s、TTFT、排队时间及超时；不是仅启动时通过就认定长请求成功。
+4. 独立dev测任务CPU/RSS/I/O和模型等待，按有效吞吐冻结各项admission/调度策略，同项全部模型一致。
+
+耗时还需与HTTP超时一致：生成满16K若只给600秒HTTP截止，平均decode至少约27.3token/s且还没计排队/prefill。生成满80K在50/100token/s时约27.3/13.7分钟，仅是算例；多轮与摘要会重复消耗。不能由“显存放得下”推导“单次/全矩阵按时完成”。
+
+训练另以8K序列为起点，显存/吞吐通过后再考虑16K及长轨迹窗口；不把256K评测能力等同256K反向传播可行。窗口保留必要任务/工具上下文和正确loss mask，不简单截掉动作依赖的观察。
+
+## 一手来源
+
+- [固定Qwen config](https://huggingface.co/Qwen/Qwen3.6-35B-A3B/blob/995ad96eacd98c81ed38be0c5b274b04031597b0/config.json)：混合层、KV头、head_dim与原生context。
+- [固定权重索引](https://huggingface.co/Qwen/Qwen3.6-35B-A3B/blob/995ad96eacd98c81ed38be0c5b274b04031597b0/model.safetensors.index.json)：真实张量字节数。
+- [vLLM0.20.2引擎参数](https://docs.vllm.ai/en/v0.20.2/configuration/engine_args/)：max_model_len定义为prompt＋output。
+- [vLLM0.20.2优化](https://docs.vllm.ai/en/v0.20.2/configuration/optimization/)：并发、KV抢占、chunked prefill、TP的资源与延迟取舍。
+- 用户原题附件第289–300行，以及 [现行协议草案](evaluation_protocol.md) / [TB固定源码审计](protocol_terminal_review.md) / [SWE固定源码审计](protocol_swe_review.md)：硬约束及未公开设置的披露边界。
+
+专项：[ASI/HLE预算落地](agent_capacity_asi_hle_review.md)。本次没有更改正式协议或依赖版本，也没有把其他工作流的在途GPU smoke视为成功。
