@@ -97,7 +97,7 @@
 - 已完成：需求与官方来源核验、SSH 入口检查、HF/HLE 权限与 DeepSeek 鉴权；小型基座配置快照；ASI 显式 judge 模型字段审计。
 - 未完成：正式 benchmark manifest/协议冻结、训练数据构建、专家方案定稿、环境运行与吞吐验证、训练、合版、正式评测和模型发布。
 - 专家数量/划分、rank、数据量、训练对照、merge 配方、HLE judge/模态、ASI split/重复数仍属待设计项，不应描述为题目已经指定。
-- API 预算仍未确定；当前不执行批量付费调用。本次用户先审核完整实验理解，不重复催要凭据。
+- 用户已允许必要 API 合理使用，无需逐次确认；最新要求先讨论数据/工程/算法/评测方案再执行，当前停止新增代码、模型 API 调用和实验。讨论稿见 `PROJECT_PLAN.md`，尚未定稿。
 - 核心资源风险是全量评测的 CPU/RAM 沙箱并发、任务计算、镜像/隔离兼容性和推理吞吐；四张 H100 不能独立证明可在窗口内完成。
 
 更细的版本证据见 `analysis/benchmark_sources.md`、`analysis/terminal_hle_feasibility.md`、`analysis/model_feasibility.md`、`analysis/judge_requirements.md`。
