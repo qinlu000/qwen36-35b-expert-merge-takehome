@@ -1,5 +1,7 @@
 # ASI／HLE：哪些harness代码能直接复用
 
+> 后续决策（2026-10-16）：[协议v2](evaluation_protocol.md)已选择ASI官方`direct_llm`，一次生成、执行与产物收集；HLE使用官方预测/评分流程。下文OpenCode对比是历史设计依据，不要求重新比较或重选正式harness。
+
 更新：2026-10-16。只读固定通用源码，不读正式题、答案或隐藏scorer，不启动模型／任务，不安装或修改runtime。这里先比较可复用的生成／执行模式，不预设必须使用OpenCode。
 
 ## 结论

@@ -832,3 +832,11 @@
 - 补齐723993的64K/8K参数、57280-token长输入/小图/工具/越界400证据；整体verified仍false，原生链、真实视觉guard、长摘要、完整8K解码、并发与持续吞吐未被冒称通过。
 - 同步前Mac与80的v2 JSON/文档SHA一致，HPC缺少这两份规范文件；本轮补同步规范和对齐记录并核SHA，不把文件同步当runner已生效。说明见analysis/protocol_alignment_20261016.md。
 - 仅协议核对与文档修正，无GPU作业/优先级变更、模型API、正式评测、训练或自动任务；没有给其他会话发消息。夜间计划仍待审阅，不将资源授权视为正式SFT或续跑批准。保留其他工作流WIP。
+
+## 2026-10-16：逐项澄清benchmark harness与旧候选记录
+
+- v2选定：SWE=Harbor0.24.0/官方LockedMiniSwe/mini2.4.6/fresh replay；Terminal=Harbor0.24.0/Terminus2 2.0.0；HLE=官方预测与Judge脚本（DeepSeek替代评分）；ASI=asibench0.2.0官方direct_llm单程序生成/单执行与官方collector/scorer。同benchmark的Base/专家/合版复用同一harness。
+- ASI旧OpenCode/262K/1800s/steps100记录是候选安装与审计，不是当前正式路线。给五份旧ASI/兼容性文档加v2决策提示，HLE安装文档的v1指针改v2；不删除历史证据、不改选定Agent或安装环境。
+- 区分实际接线：Harbor项目脚本只选择Apptainer backend，未自动实施Agent/v2请求/phase网络/CPU RAM；ASI BwrapDirectLLM只覆写执行hook，正式入口与生成预算/共享deadline仍待补。四项runner不因已安装harness就被标ready。逐项表见analysis/protocol_alignment_20261016.md。
+- 本轮读取到整体推进的新用户指令：全用新版数据并持续推进、集中记录进展/不确定性；更新上轮“夜间仍待审阅”的时效说明，由另一会话继续该工作，本会话不接管下载删除/队列，不把该指令当rank/window已确定。
+- 仅文档核对，无正式任务、模型API、GPU、训练或自动任务；未向其他会话发消息。保留共享工作区其他WIP。

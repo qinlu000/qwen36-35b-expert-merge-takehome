@@ -1,5 +1,7 @@
 # ASI 环境安装与验收
 
+> 当前正式路线（2026-10-16）：[v2](evaluation_protocol.md)选定官方`direct_llm`；下文OpenCode安装、262K和假端点交互记录属于已完成的候选环境验收。direct_llm的执行隔离回执见本文后段；正式生成参数、共享1200s、资源限额和真实端点仍待接线，不能直接用OpenCode配置替代。
+
 更新：2026-10-16。执行主机为 `10.123.4.80`，项目 `/data/caoqinlu/projects/apex-takehome`。只安装环境、核对依赖元数据并运行自造烟测；未运行正式 ASI 作答或判分，未读取正式题面、reference、solution、隐藏测试或评分 rubric，付费 API 调用为 0，未使用 GPU。
 
 ## 已完成

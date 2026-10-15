@@ -1,5 +1,7 @@
 # ASI／HLE数据与目标harness兼容检查
 
+> 后续决策与验收更新（2026-10-16）：[协议v2](evaluation_protocol.md)已选ASI官方`direct_llm`；OpenCode仅保留作候选研究。后续已完成OpenCode图片能力声明的离线修正，见[安装回执](setup_asi_status.md)，下文“未修改/待声明”是历史状态，且不构成当前direct_llm的图像工具能力。
+
 更新：2026-10-16。检查固定ASI adapter、固定OpenCode通用源码、现有D3结构审计、Qwen模板及已有自造烟测；新增的实际运行仅为CPU tokenizer渲染。没有读取正式题面、答案、reference或隐藏测试，没有调用API／模型、执行训练数据中的命令、拉镜像、修改runtime或正式配置。
 
 ## 结论
