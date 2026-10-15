@@ -654,3 +654,9 @@
 
 - 用户要求先暂停选集并确认此前token口径。已核对trajectory_lengths：raw包含公开teacher think和reasoning_content，clean去除可识别显式think前缀及reasoning_content并用非思考模板；此前资源建议主要引用clean，未把raw冒充已清理长度。clean历史统计的未闭合think少数长尾仍保留，不等于最终清洗合格。
 - 整条中位raw→clean：SWE33418→33418、Terminal17246→12694、D3 8441→2683；工具观察/调用、Terminus analysis/plan、可见答案及模板开销始终计入。SWE长主要是交互历史，不能以再删think推断其可装8K。未继续选题、清洗、模型/API或训练。
+
+## 2026-10-16：核查think与reasoning_content的区别
+
+- 用户要求看两者区别。只读固定Qwen模板、实际数据审计文档与长度脚本，确认think是正文/序列标记，reasoning_content是独立消息字段，可承载同一段推理。SWE4992样本97非空字段且无正文think；Terminal仅role/content，D3/OpenR1配对推理为正文前缀。
+- 固定模板优先字符串reasoning_content，否则解析正文闭合think；字段也渲染为think块，两处同时存在不去重。CPU自造消息实渲染：单形式各1次、双形式2次；非思考双false仍保留最近user后的assistant推理，更早轮次省略，生成前缀为空think块。故清除两种源推理内容必须显式执行，不能只关开关；模板空标记不是残留教师推理。
+- 补validation_selection的模板边界，未继续val选题或导出训练数据，未访问原始题/轨迹正文、调用tokenizer/模型/API、申请GPU或训练。仅本轮文档入Git，保留其他工作流WIP。

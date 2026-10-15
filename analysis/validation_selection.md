@@ -39,3 +39,11 @@ val-loss另从独立任务组留出固定监督片段作NLL诊断；task-dev才�
 删除assistant的reasoning_content，以及已确认是教师推理的闭合前缀think块；不把正文／代码中的任意同名字符串当推理删去。保留Terminus必需analysis／plan／commands／task_complete、正常可见答案、真实tool_calls及工具反馈。未闭合标签、清后动作缺失、工具关联损坏先隔离待审；不猜边界、不补造动作，空正文但tool_calls有效的消息保留。
 
 清后用固定非思考模板重渲染，重新计算新增assistant监督mask和长度；system/user/tool不作训练目标，整条没有监督目标则排除。模板原生空think标记不含教师推理，不擅改模板去消除标记。训练窗口与长轨迹方案另定，不由推理64K／8K自动推出；rank／alpha等LoRA参数本轮不定、不据旧候选启动训练。
+
+### think 标记与 reasoning_content 字段的关系（固定模板实查）
+
+`<think>…</think>`是assistant正文／模型序列中的标记；`reasoning_content`是独立消息字段，可以承载同一段教师推理，不能当作两类必然不同的内容。固定Qwen模板优先读取字符串reasoning_content，否则从正文的闭合think标记分离；字段里的推理也会被渲染为think块。两处同时有内容时不自动去重。
+
+本轮以该模板做CPU自造消息渲染，正文only与字段only各出现一次推理，两者同时存在则出现两次。即使enable_thinking=false/preserve_thinking=false，最后真实user之后的assistant推理仍会渲染；更早轮次的推理会省略。enable_thinking=false控制追加生成前缀为空think块，不自动清理数据。故必须清除两种存储形式中的教师内容，再渲染核查；不能仅依赖开关。模板的正文fallback按闭合标记检测，代码里需要保留的字面标记也须单独核查，不用全局正则误删。测试未访问原始数据、tokenizer、模型或API。
+
+现有SWE4992条样本中97条含非空reasoning_content、未发现正文think；Terminal conversations仅role/content，显式think在正文；D3／OpenR1所测配对块也为正文前缀。统计已分别处理这些来源格式，不把字段名本身当一段额外推理文本计算。
