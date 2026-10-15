@@ -533,3 +533,9 @@
 - ASI新核官方DirectLLMAdapter：官方prompt单次生成完整Python、提取代码、在原sandbox执行并收集产物交原grader，与D3静态监督更接近。它仍执行科学程序，但无模型探索/读stderr后修复，当前仅文本prompt无图片附件；还需生成参数/总deadline接线。将D3+direct_llm列为匹配候选，与OpenCode在独立dev/工程成熟度上比较后正式前冻结；纠正‘D3无条件只能辅助/必须补多轮’的过早限制，未改变现行配置或官方任务/评分。
 - 环境构建比较：SWE均为仓库Docker环境+初始checkout/项目依赖，Terminal均为Harbor Dockerfile+输入文件，D3/ASI均科学Python依赖与程序产物；结构相似与具体初始化/权限/网络待验分开。HLE复用官方生成client，图文/模板与参数接线另核。
 - 新建harness_reuse总表及SWE/Terminal/ASI-HLE三份短代码清单，更新sandbox/harness主结论与ASI问题项。只读固定源码/环境资料和版本，无模型/付费API、任务/容器、GPU、安装或runtime修改；保留另一工作流全部WIP。
+
+## 2026-10-16：解释direct_llm
+
+- direct_llm在本项目语境指ASI官方的单次程序生成adapter：任务与数据说明送给模型一次，模型输出完整Python，runner在sandbox执行并收集文件，交原官方评分器。仍可使用本地Qwen，不表示必须调用付费API。
+- 与OpenCode的读文件、运行、观察报错、修改代码多轮流程区分；direct_llm仍真实执行程序，但模型不根据执行反馈修复。D3完整程序监督与此形式更接近，效果与环境兼容仍待验证，目前只是候选，未切换配置或启动任务。
+- 本轮仅解释已有源码结论并记录，无训练、模型/API调用或运行环境变更，保留其他工作流修改。
