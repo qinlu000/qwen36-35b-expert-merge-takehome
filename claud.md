@@ -624,3 +624,12 @@
 - 训练前仍需冻结最终来源资格与任务族train/val-loss/task-dev互斥manifest、去污染及去重边界；现有70题task-dev/100K token val-loss只是建议，非已构建独立集。推理关闭thinking不自动决定teacher think清洗，训练长轨迹/状态/新增assistant监督mask及训练窗口需另定。
 - 训练/选择前冻结同结构LoRA与同数据混训公平预算、候选checkpoint/AVG/TIES数量及dev主指标和近似持平规则。具体LR/batch/序列长度与有效并发依小规模吞吐验收再选，不需在无实测时拍数，也不必全部阻塞Base。
 - 建议沿用不加RL/偏好优化与大规模补采的SFT主线；优先必需参评对象与报告，保留10月18日14:20截止前12小时整理窗口（核心实验止于10月18日02:20，北京时间）。本轮为待讨论缺口梳理，未将这些建议擅自标成用户已确认，未启动任务、训练或API。
+
+## 2026-10-16：专家模型、参数合版与MoE的关系
+
+- 用户要求调研三者是否有重要关系。本轮真实联网核验论文与官方实现，保存 `analysis/expert_merge_moe_relationship_20261016.md`，经文献与架构两路交叉核对；只补研究文档，未改变已冻结v2协议、训练候选范围或执行配置。
+- 区分领域专家（同底座的仓库修复/交互执行/学术推理分支）、静态参数合版（离线合并真实更新）、MoE（运行时内部模块路由）。三者有交集但互不构成必要条件；dense ΔW表示还原LoRA更新矩阵，不表示最终架构变dense。
+- 五个代表方法：BTM的Merge并非仅权重平均，亦有专家集合/输出集成；BTX明确将领域整模FFN保留成MoE、其余参数平均后继续训练；Sparse Upcycling从同一MLP复制内部专家；X-LoRA/MixLoRA展示低秩模块动态混合。mergekit有免训练gate初始化，不能绝对声称构造MoE必须继续训练，也不能据此认定当前Qwen分支可直接拼接。
+- 固定Qwen3.6配置为各MoE层256个routed专家、每token选8，另有shared。三个外部领域分支不会自动成为三个内部FFN；同结构AVG/TIES后仍约35B总参数，不变成105B。当前候选attention/shared-MLP LoRA可改变hidden state，所以冻结router权重不保证路由不变，此为源码函数推断。
+- 新查HARC研究同底座MoE分支合版的routing breakdown；其OLMoE全参微调和另Qwen3-30B设置不能直接外推当前冻结router的Qwen3.6 LoRA。路由重叠/概率可作解释性诊断，但变化不等于错误，不新增校准阶段或把复制Base路线设成优化目标。
+- 建议保持三专家SFT、同数据Mixed及AVG/TIES主线，将底座架构、领域分支训练、组合方式分别报告。动态adapter路由或重组MoE为后续独立结构实验，不替代本题静态参数合版。本轮无模型、任务、训练、评分API、容器或GPU执行，保留其他工作流WIP。
