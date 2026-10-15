@@ -14,7 +14,7 @@
 | 交互执行专家 | 命令/环境/文件操作，以及科学数值计算、数据分析、结果和工件检查；产出可执行程序/数据/图表 | TB2 + ASI | 通用终端与科研执行两桶，独立配额、标签和dev |
 | 学术推理专家 | 无工具条件下跨学科推理、答案表达、证据与一致性检查；产出学术答案 | HLE | 广域科学/人文推理为主、可验证数学为补充 |
 
-同一训练任务默认只归一个专家：已有仓库的修复/回归归仓库修复专家；在环境中完成工作流并交付工件归交互执行专家；直接给学术答案归学术推理专家。科学主题本身不决定专家归属。跨数据源同题、不同教师和不同框架的变体必须统一分组。不同正式benchmark仍各用冻结的官方agent和工具，不为配合训练数据改agent。
+同一训练任务默认只归一个专家：已有仓库的修复/回归归仓库修复专家；在环境中完成工作流并交付工件归交互执行专家；直接给学术答案归学术推理专家。科学主题本身不决定专家归属。跨数据源同题、不同教师和不同框架的变体必须统一分组。不同正式benchmark分别使用合规的agent和工具；TB题面指定Terminus2，其他项可在官方允许范围内结合数据兼容性选择，随后在训练前冻结。同一benchmark不得因模型不同更换agent。
 
 旧三分法容易把HLE和ASI的监督形式混在一起，令纯数学冒充科研执行。新划分仍只有三次专家训练；交互执行专家内显式留科研子预算，不能被普通shell任务挤掉。HLE全量含图，而本轮候选推理池主要为文本；冻结视觉只保证保留原视觉权重，不证明图像推理收益。该覆盖缺口应在独立图文dev与最终报告明确披露，不临时接入来历不明的多模态大包。
 
@@ -45,7 +45,7 @@
 
 跨harness的旧轨迹可作为保留原协议的辅助迁移数据，但不能写成目标协议的原生示范。仅工具拼写/序列化差异且动作、观察、状态和结束语义均可无损对应时才做机械转换。Terminus2的持续tmux与SWE新subshell存在真实状态差异；不能只把keystrokes改名为command。[Terminus2说明](https://arxiv.org/html/2602.21193v1#S3.SS2)、[SWE固定工具配置](https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tooling/configs/mini_toolcall.yaml)
 
-当前ASI adapter尚未选定，不能称Terminal科学子池已经匹配ASI。官方direct_llm只是单次生成后框架执行，不是Terminus2式多轮工具反馈；其他CLI adapter又有自己的工具协议。先锁定正式入口再决定科研轨迹的主源资格，而非改正式harness迁就数据。[官方direct_llm](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/ai4sci_bench/adapters/direct_llm.py)、[adapter契约](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/ai4sci_bench/core/agent_interface.py)
+当前ASI adapter尚未选定，不能称Terminal科学子池已经匹配ASI。官方direct_llm只是单次生成后框架执行，不是Terminus2式多轮工具反馈；其他CLI adapter又有自己的工具协议。可结合现有数据在官方允许范围内选择ASI入口，并于训练前冻结，再判断科研轨迹的主源资格；不得修改官方任务/评分契约或在冻结后据正式结果换agent。[官方direct_llm](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/ai4sci_bench/adapters/direct_llm.py)、[adapter契约](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/ai4sci_bench/core/agent_interface.py)
 
 ## 2. 主源、补充与明确边界
 

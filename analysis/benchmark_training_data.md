@@ -16,6 +16,22 @@ SWE 与 Terminal 有目标行为很接近的公开交互轨迹；HLE 有作者�
 各项更完整的候选、固定revision与协议证据：[SWE](benchmark_training_swe.md)、[ASI](benchmark_training_asi.md)、[Terminal](benchmark_training_terminal.md)。已有四组下载版本仍以根目录data_sources.json为准；本次不自动加候选或更换版本。
 
 
+
+## 题面固定什么，哪些agent可以选择
+
+需要区分评测环境/评分流程与模型用于解题的agent。题面不是要求四项都绑定唯一agent，也没有要求所有训练数据由目标harness生成。
+
+| 项目 | 约束与选择空间 |
+| --- | --- |
+| TB2 | 题面明确Harbor（Terminus-2），不能为数据兼容性另换agent |
+| SWE Pro V2-hard | 题面要求官方评测器、披露并统一Agent配置；V2 README给LockedClaudeCode、LockedMiniSwe、LockedCodex等入口，不是唯一mini。所选版本的locked protocol、官方环境/判分和fresh replay仍遵守 |
+| ASI | 按所选官方版本流程运行；可在官方支持/允许的adapter或agent-cmd契约内选择，任务/评分/必要隔离与产物契约不变 |
+| HLE | 没有题面指定的唯一agent；工具/模态/抽取与判分协议需训练前确定、披露，同项所有模型相同 |
+
+因此，冻结前可以把现有数据兼容性作为选择合规agent的依据；之前的SWE LockedMini是候选方案，不是题面唯一指定。ASI也不必对齐一个尚未选定的唯一接口。训练和评测harness匹配是减少协议差异的工程偏好，不是题面硬性要求；真实语义差异仍不能靠改字段冒充原生轨迹。正式配置须训练前冻结，不能不同模型各选agent或据正式分数再改。
+
+一手依据：[SWE V2允许入口及locked protocol](https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/README.md#running)、[ASI官方agent-cmd与运行流程](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/README.md#3-run-an-agent)；TB/HLE题面约束见EXPERIMENT_REQUIREMENTS.md及用户原附件。
+
 ## 与目标harness是否一致：尚未完成完全匹配验收
 
 当前不能将本清单称为“已经匹配目标harness的训练集”。框架同名、工具名称相同或研究目标相关，都不足以证明模型可见协议一致。

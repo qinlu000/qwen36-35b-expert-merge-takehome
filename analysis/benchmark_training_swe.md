@@ -8,9 +8,9 @@
 
 “harness 不同”并不自动使轨迹失效；要区分框架名、工具语义与序列化协议。下面只把已能证明的匹配写成事实，不能证明的部分保留未知。
 
-## 本题目标接口
+## 当前候选目标接口（并非唯一允许agent）
 
-固定 SWE Pro 代码 `66f92766bba642462d4bbe5479e83f91f9211862` 的官方入口是 Harbor `LockedMiniSwe` 加 `mini_toolcall.yaml`，接 OpenAI-compatible endpoint。配置明确每轮至少一次 `bash` 工具调用，参数含 `command`，命令运行在新 subshell；结束动作必须是独立的 `echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`。观察是 returncode/output JSON，超过 10,000 字符则给头尾与省略长度。wrapper 继承 Harbor MiniSweAgent，增加安装、超时与 diff 捕获；没有自己重新实现工具协议，其 mini-swe-agent 版本由传入参数决定，仍需正式冻结。[官方入口](https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/README.md#running)、[目标配置](https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tooling/configs/mini_toolcall.yaml)、[wrapper](https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tooling/locked_mini_swe.py)
+固定 SWE Pro 代码 `66f92766bba642462d4bbe5479e83f91f9211862` 提供多个locked agent入口，包括LockedClaudeCode、LockedMiniSwe和LockedCodex；题面没有强制唯一mini。当前候选是 Harbor `LockedMiniSwe` 加 `mini_toolcall.yaml`，接 OpenAI-compatible endpoint。配置明确每轮至少一次 `bash` 工具调用，参数含 `command`，命令运行在新 subshell；结束动作必须是独立的 `echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`。观察是 returncode/output JSON，超过 10,000 字符则给头尾与省略长度。wrapper 继承 Harbor MiniSweAgent，增加安装、超时与 diff 捕获；没有自己重新实现工具协议，其 mini-swe-agent 版本由传入参数决定，仍需正式冻结。[官方入口](https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/README.md#running)、[目标配置](https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tooling/configs/mini_toolcall.yaml)、[wrapper](https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tooling/locked_mini_swe.py)
 
 ## 两个新增候选
 
