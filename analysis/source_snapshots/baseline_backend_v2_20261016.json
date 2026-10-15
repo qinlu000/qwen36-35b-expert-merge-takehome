@@ -1,0 +1,298 @@
+{
+  "date": "2026-10-16",
+  "scope": "Synthetic Harbor backend only; no benchmark instructions/tests/solution/model or paid API calls",
+  "runs": [
+    {
+      "image": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/alexgshaw_build-cython-ext_20251031.sif",
+      "cpus": 4,
+      "memory_mb": 8192,
+      "startup_seconds": 66.55579420551658,
+      "namespace_pid": 2433214,
+      "unit": "apex-baseline-1a0a8cc5391b",
+      "cgroup": {
+        "memory.max": "8589934592",
+        "memory.swap.max": "0",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+      },
+      "status": "passed",
+      "duration_seconds": 70.70269836485386,
+      "stopped_scope_state": "inactive",
+      "timeout_cleanup": {
+        "reason": "synthetic timeout",
+        "killed": [
+          {
+            "pid": 447,
+            "start": "859239326",
+            "signal": 15
+          }
+        ],
+        "remaining_pids": [],
+        "confirmed": true
+      },
+      "benchmark_profile": "tb",
+      "receipt_80": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/backend_v2/smoke-ypuo4cn1/result.json",
+      "checks": [
+        {
+          "label": "cpu-affinity-and-clean-env",
+          "return_code": 0,
+          "stdout": "CHILD_CPUS 4\n{\"cpus\": [32, 33, 34, 35], \"user_namespace\": \"user:[4026537180]\", \"env_names\": [\"APPTAINER_APPNAME\", \"APPTAINER_BIND\", \"APPTAINER_COMMAND\", \"APPTAINER_CONTAINER\", \"APPTAINER_ENVIRONMENT\", \"APPTAINER_NAME\", \"DEBIAN_FRONTEND\", \"FAKED_MODE\", \"FAKEROOTDONTTRYCHOWN\", \"FAKEROOTKEY\", \"GPG_KEY\", \"HARBOR_PYTHON\", \"HARBOR_STAGING\", \"HOME\", \"LANG\", \"LC_CTYPE\", \"LD_LIBRARY_PATH\", \"LD_PRELOAD\", \"PATH\", \"PROMPT_COMMAND\", \"PWD\", \"PYTHON_SHA256\", \"PYTHON_VERSION\", \"SHLVL\", \"SINGULARITY_BIND\", \"SINGULARITY_CONTAINER\", \"SINGULARITY_ENVIRONMENT\", \"SINGULARITY_NAME\", \"SINGULARITY_WORKDIR\", \"TMUX_TMPDIR\", \"WORKDIR\", \"_\"]}\nAFFINITY_BLOCKED"
+        },
+        {
+          "label": "filesystem-boundaries",
+          "return_code": 0,
+          "stdout": "FILESYSTEM_BOUNDARIES_OK"
+        },
+        {
+          "label": "public-network",
+          "return_code": 0,
+          "stdout": "200"
+        },
+        {
+          "label": "solver-public-egress-denied",
+          "return_code": 1,
+          "stdout": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.13/urllib/request.py\", line 1319, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n    ~~~~~~~~~^^^^^^^^^^^"
+        },
+        {
+          "label": "solver-direct-IP-egress-denied",
+          "return_code": 1,
+          "stdout": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import socket; socket.create_connection(('20.205.243.166',443),2)\n                   ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^"
+        },
+        {
+          "label": "solver-model-fixed-bridge",
+          "return_code": 0,
+          "stdout": "{\"synthetic\":true}"
+        },
+        {
+          "label": "solver-cannot-administer-network",
+          "return_code": 0,
+          "stdout": "NETLINK_ERRNO -1"
+        },
+        {
+          "label": "solver-cannot-bypass-firewall-with-raw-packets",
+          "return_code": 1,
+          "stdout": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import socket; s=socket.socket(socket.AF_PACKET,socket.SOCK_RAW,3)\n                     ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^"
+        },
+        {
+          "label": "persistent-tmux",
+          "return_code": 0,
+          "stdout": "TMUX_OK"
+        },
+        {
+          "label": "verifier-public-restored",
+          "return_code": 0,
+          "stdout": "200"
+        },
+        {
+          "label": "same-tmux-after-phase-change",
+          "return_code": 0,
+          "stdout": "PERSISTENT_TMUX_OK"
+        },
+        {
+          "label": "spawn-detached-solver",
+          "return_code": 0,
+          "stdout": ""
+        },
+        {
+          "label": "server-survived-timeout-cleanup",
+          "return_code": 0,
+          "stdout": "CLEANUP_OK"
+        }
+      ]
+    },
+    {
+      "image": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/alexgshaw_build-cython-ext_20251031.sif",
+      "cpus": 1,
+      "memory_mb": 4096,
+      "startup_seconds": 75.09254650771618,
+      "namespace_pid": 2433208,
+      "unit": "apex-baseline-0ed52ca38b6d",
+      "cgroup": {
+        "memory.max": "4294967296",
+        "memory.swap.max": "0",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+      },
+      "status": "passed",
+      "duration_seconds": 79.15735808759928,
+      "stopped_scope_state": "inactive",
+      "timeout_cleanup": {
+        "reason": "synthetic timeout",
+        "killed": [
+          {
+            "pid": 446,
+            "start": "859240167",
+            "signal": 15
+          }
+        ],
+        "remaining_pids": [],
+        "confirmed": true
+      },
+      "benchmark_profile": "swe",
+      "receipt_80": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/backend_v2/smoke-o4k34qz1/result.json",
+      "checks": [
+        {
+          "label": "cpu-affinity-and-clean-env",
+          "return_code": 0,
+          "stdout": "CHILD_CPUS 1\n{\"cpus\": [64], \"user_namespace\": \"user:[4026535088]\", \"env_names\": [\"APPTAINER_APPNAME\", \"APPTAINER_BIND\", \"APPTAINER_COMMAND\", \"APPTAINER_CONTAINER\", \"APPTAINER_ENVIRONMENT\", \"APPTAINER_NAME\", \"DEBIAN_FRONTEND\", \"FAKED_MODE\", \"FAKEROOTDONTTRYCHOWN\", \"FAKEROOTKEY\", \"GPG_KEY\", \"HARBOR_PYTHON\", \"HARBOR_STAGING\", \"HOME\", \"LANG\", \"LC_CTYPE\", \"LD_LIBRARY_PATH\", \"LD_PRELOAD\", \"PATH\", \"PROMPT_COMMAND\", \"PWD\", \"PYTHON_SHA256\", \"PYTHON_VERSION\", \"SHLVL\", \"SINGULARITY_BIND\", \"SINGULARITY_CONTAINER\", \"SINGULARITY_ENVIRONMENT\", \"SINGULARITY_NAME\", \"SINGULARITY_WORKDIR\", \"TMUX_TMPDIR\", \"WORKDIR\", \"_\"]}\nAFFINITY_BLOCKED"
+        },
+        {
+          "label": "filesystem-boundaries",
+          "return_code": 0,
+          "stdout": "FILESYSTEM_BOUNDARIES_OK"
+        },
+        {
+          "label": "public-network",
+          "return_code": 0,
+          "stdout": "200"
+        },
+        {
+          "label": "solver-public-egress-denied",
+          "return_code": 1,
+          "stdout": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.13/urllib/request.py\", line 1319, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n    ~~~~~~~~~^^^^^^^^^^^"
+        },
+        {
+          "label": "solver-direct-IP-egress-denied",
+          "return_code": 1,
+          "stdout": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import socket; socket.create_connection(('20.205.243.166',443),2)\n                   ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^"
+        },
+        {
+          "label": "solver-model-fixed-bridge",
+          "return_code": 0,
+          "stdout": "{\"synthetic\":true}"
+        },
+        {
+          "label": "solver-cannot-administer-network",
+          "return_code": 0,
+          "stdout": "NETLINK_ERRNO -1"
+        },
+        {
+          "label": "solver-cannot-bypass-firewall-with-raw-packets",
+          "return_code": 1,
+          "stdout": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import socket; s=socket.socket(socket.AF_PACKET,socket.SOCK_RAW,3)\n                     ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^"
+        },
+        {
+          "label": "persistent-tmux",
+          "return_code": 0,
+          "stdout": "TMUX_OK"
+        },
+        {
+          "label": "verifier-public-restored",
+          "return_code": 0,
+          "stdout": "200"
+        },
+        {
+          "label": "same-tmux-after-phase-change",
+          "return_code": 0,
+          "stdout": "PERSISTENT_TMUX_OK"
+        },
+        {
+          "label": "spawn-detached-solver",
+          "return_code": 0,
+          "stdout": ""
+        },
+        {
+          "label": "server-survived-timeout-cleanup",
+          "return_code": 0,
+          "stdout": "CLEANUP_OK"
+        }
+      ]
+    }
+  ],
+  "implementation_sha256": {
+    "scripts/baseline_singularity.py": "4c01b92729d94cb4ea700edd2dc79dc857ec378374459930aba00e53907b6532",
+    "scripts/baseline_netns.py": "09303db588a5b15f95116a679140af7eb4ad0b7dfb24d52d033c1d81e3990a23",
+    "scripts/baseline_exec_limits.py": "540f46a4b2b2b0d5a417f4b7ff99c309c6d2417c3e463f44b7df2af17d605757",
+    "scripts/asi_fixed_relay.py": "984d39b13799df2b7511cad0eefeb6e28630607171936f3e58b56349ddfcdf2f",
+    "scripts/asi_baseline_limits.py": "1a32b603cb4ff3594f32d16560045ab3b462b15cccf6d08b1eaa9e2c7db9279f",
+    "scripts/apex_rootmap_bootstrap.sh": "25a411f52e31ac53529bb0a0c642e26b72c51bf8d6238edf5d7e179c16653e1e",
+    "scripts/smoke_baseline_backend.py": "e5463962f41d386be0d2d5aa6e6772d8b8d97f083560db4c71db15a81ca61eb5",
+    "scripts/setup_baseline_backend.sh": "929dbf07ba5701461484575700fb1ef8c16902c34cccbbfef5c65e17f27b8c14"
+  },
+  "parallel_slots_acceptance": {
+    "runs": [
+      {
+        "directory": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/backend_v2/smoke-edgirsh0",
+        "status": "passed",
+        "cpus": [
+          76,
+          77,
+          78,
+          79
+        ],
+        "startup_seconds": 68.13829039223492,
+        "duration_seconds": 72.35788469202816,
+        "cleanup": {
+          "reason": "synthetic timeout",
+          "killed": [
+            {
+              "pid": 447,
+              "start": "859255959",
+              "signal": 15
+            }
+          ],
+          "remaining_pids": [],
+          "confirmed": true
+        },
+        "scope": "inactive"
+      },
+      {
+        "directory": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/backend_v2/smoke-4s2qlo62",
+        "status": "passed",
+        "cpus": [
+          72,
+          73,
+          74,
+          75
+        ],
+        "startup_seconds": 84.20660804025829,
+        "duration_seconds": 88.39727889746428,
+        "cleanup": {
+          "reason": "synthetic timeout",
+          "killed": [
+            {
+              "pid": 447,
+              "start": "859257563",
+              "signal": 15
+            }
+          ],
+          "remaining_pids": [],
+          "confirmed": true
+        },
+        "scope": "inactive"
+      }
+    ],
+    "passed": true,
+    "sha256": {
+      "scripts/baseline_singularity.py": "4c01b92729d94cb4ea700edd2dc79dc857ec378374459930aba00e53907b6532",
+      "scripts/baseline_netns.py": "09303db588a5b15f95116a679140af7eb4ad0b7dfb24d52d033c1d81e3990a23",
+      "scripts/baseline_exec_limits.py": "540f46a4b2b2b0d5a417f4b7ff99c309c6d2417c3e463f44b7df2af17d605757",
+      "scripts/asi_fixed_relay.py": "984d39b13799df2b7511cad0eefeb6e28630607171936f3e58b56349ddfcdf2f"
+    }
+  },
+  "known_limits": [
+    "Validated on 80 Linux user-systemd; HPC direct backend not accepted",
+    "Full native Agent and every image acceptance are separate",
+    "CPU masks are ceilings, not exclusive core reservations",
+    "No hostname/CIDR allowlist capability advertised"
+  ],
+  "memory_hard_limit_probe": {
+    "memory_max": "67108864",
+    "swap_max": "0",
+    "events": "low 0\nhigh 0\nmax 36\noom 1\noom_kill 1\noom_group_kill 0\n",
+    "allocation_child_returncode": -9,
+    "passed": true
+  },
+  "fixed_relay_hook_probe": {
+    "default_compatibility": 200,
+    "validator_reject": 400,
+    "validator_accept": 200,
+    "deadline_reject": 408,
+    "upstream_calls": 2,
+    "validated_seed": 0,
+    "passed": true
+  },
+  "tool_packages": {
+    "slirp4netns_1.0.1-2_amd64.deb": "2bcc232b44309d9aa21f84764e813059f9b12902aee81419e8d3adb7f740dc41",
+    "libslirp0_4.6.1-1ubuntu0.2_amd64.deb": "b313de55b17cf8974996706b9cc70e4de387a39decf0bc3fa3a4256734476ee8"
+  },
+  "production_helper_state": "frozen; no in-place helper edits after handoff for formal Terminal; later SWE changes require its own subclass/copy"
+}

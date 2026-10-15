@@ -61,3 +61,13 @@ rank/window仍未确定，本会话不启动训练或GPU反向。DeepSeek夜间�
 - 正式输出artifacts/eval/base_asi_v2_20261016，mode=produce_only_unscored；读取/执行正式输入已获用户授权，只保存产物不看逐题失败调训练或prompt。Judge后置，不把产物覆盖数当已评分分数。
 - core v2 SHA与独立部署修订一致，runner/helper/runtime精确hash写入原生run metadata，进程已脱离SSH shell。另会话HLE独占724196，不复用同一服务抢队列。ASI脚本自本次启动冻结，不在运行中改源码。
 - 保持本地已有或新设8小时caffeinate idle-sleep断言，帮助半小时心跳/SSH桥持续；合盖、断网或退出应用仍可能影响本地续跑及桥，不承诺离线助手决策。
+
+### 2026-10-16T03:50:12+08:00：后端最终GO、TB原生闭环通过、SWE服务排队
+
+- 80后端4CPU8GiB与1CPU4GiB两profile全部通过：actual cgroup/硬OOM/不可扩宽affinity，public→deny→public，AF_PACKET/NETLINK拒绝，固定模型桥，tmux正常保留/异常detached清理，停止后scope inactive；同controller两slot互不重叠。生产4helper源码SHA冻结，不能在正式运行期间改原文件。
+- 代码与完整聚合analysis/source_snapshots/baseline_backend_v2_20261016.json；实现脚本和安装脚本/系统包SHA均可重放，无sudo。先前候选namespace路径失败也保留，不把放弃实现当已部署。
+- TB真实独立native链63s PASS：Qwen→原生Tmux写读文件→两次完成确认→官方verifier reward1，精确P774/P1151；11项stub和实际取消归零均通过。89份SIF完整SHA已核，运行时源码/依赖已只读冻结。
+- TB首次正式前置因Harbor拒跨task symlink而退出，0trial/0模型请求；只修metadata任务stage为字节原样copy并校验，新runtime/output保留旧失败目录，未改prompt/预算/Agent。由该子任务在前置通过后自主flock启动445试次。
+- SWE新增独立TP2 job724254（2GPU/16CPU/128GiB/18003），排除已占本题4卡的ACD1-61，目前PENDING(Resources)。现有仍6卡运行、另2卡排队，不把排队称已获得8卡。SWE driver/受控模型桥/容器锁安装及自造fresh replay验收继续。
+- 已直接核另一会话最新人类消息“数据弄好可以开始训练”；其已选r16/alpha32/dropout0.05并做四卡训练诊断准备。本会话仍只baseline，容量上留完整4卡训练组，不把全16卡占成推理；总账号16还计722434的1卡，不能私自换账户。旧“rank未定”是历史状态，不阻止另一会话已授权训练。
+- 另一空闲子任务转ASI官方scorer/替代Judge dry-run与合成校准；未授权其付费调用，夜间30元数据支出总账仍由另一会话统一，评分先准备代码再核预算。

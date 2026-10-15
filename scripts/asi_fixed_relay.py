@@ -18,6 +18,7 @@ import socketserver
 import subprocess
 import sys
 import threading
+import time
 from urllib.parse import urlsplit
 
 
@@ -35,7 +36,8 @@ class FixedModelRelay:
     """
 
     def __init__(self, socket_path: Path, *, base_url: str, model: str,
-                 api_key: str, timeout: int = 10800):
+                 api_key: str, timeout: int = 10800, request_validator=None,
+                 deadline: float | None = None):
         target = urlsplit(base_url)
         if (target.scheme not in ("http", "https") or not target.hostname
                 or target.username or target.password or target.query or target.fragment):
@@ -46,6 +48,8 @@ class FixedModelRelay:
         self.model = model
         self.api_key = api_key
         self.timeout = timeout
+        self.request_validator = request_validator
+        self.deadline = deadline
         self.agent_token = "asi-local-" + secrets.token_urlsafe(24)
         self.events: list[dict] = []
         self.active_sockets = set()
@@ -94,6 +98,8 @@ class FixedModelRelay:
                 self.close_connection = True
 
             def do_POST(self):
+                if relay.deadline is not None and time.monotonic() >= relay.deadline:
+                    return self.reject(408)
                 if self.path != relay.path:
                     return self.reject(403)
                 if self.headers.get("Authorization") != "Bearer " + relay.agent_token:
@@ -119,15 +125,22 @@ class FixedModelRelay:
                                 if (part.get("type") != "image_url" or not isinstance(url, str)
                                         or not url.startswith("data:image/") or ";base64," not in url):
                                     return self.reject(403)
+                    if relay.request_validator is not None:
+                        body = relay.request_validator(body)
                     # Send the parsed object, eliminating duplicate-key ambiguity
                     # between the controller and the fixed upstream parser.
                     raw = json.dumps(body).encode()
-                except (ValueError, AttributeError):
+                except (ValueError, AttributeError, TimeoutError):
                     return self.reject(400)
                 target = relay.target
                 connection_class = (http.client.HTTPSConnection if target.scheme == "https"
                                     else http.client.HTTPConnection)
-                upstream = connection_class(target.hostname, target.port, timeout=min(30, relay.timeout))
+                remaining = relay.timeout
+                if relay.deadline is not None:
+                    remaining = min(remaining, relay.deadline - time.monotonic())
+                if remaining <= 0:
+                    return self.reject(408)
+                upstream = connection_class(target.hostname, target.port, timeout=min(30, remaining))
                 upstream_socket = None
                 started = False
                 try:
@@ -135,7 +148,11 @@ class FixedModelRelay:
                     upstream_socket = upstream.sock
                     if not relay._track(upstream_socket):
                         return
-                    upstream_socket.settimeout(relay.timeout)
+                    if relay.deadline is not None:
+                        remaining = min(remaining, relay.deadline - time.monotonic())
+                    if remaining <= 0:
+                        raise TimeoutError("Model relay deadline exhausted")
+                    upstream_socket.settimeout(remaining)
                     # Construct fresh headers: the agent cannot choose upstream auth,
                     # Host, forwarding headers, proxy targets, or another URL.
                     upstream.request("POST", relay.path, body=raw, headers={
@@ -149,7 +166,16 @@ class FixedModelRelay:
                     self.send_header("Connection", "close")
                     self.end_headers()
                     started = True
-                    while chunk := response.read1(65536):
+                    while True:
+                        if relay.deadline is not None:
+                            left = relay.deadline - time.monotonic()
+                            if left <= 0:
+                                raise TimeoutError("Model relay deadline exhausted")
+                            upstream_socket.settimeout(left)
+                            self.connection.settimeout(min(30, left))
+                        chunk = response.read1(65536)
+                        if not chunk:
+                            break
                         self.wfile.write(chunk)
                         self.wfile.flush()
                 except (OSError, http.client.HTTPException):

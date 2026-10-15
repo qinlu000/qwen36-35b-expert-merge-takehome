@@ -892,3 +892,11 @@
 - 部署单独冻结configs/eval/deployment_tp2_blocks_v1.json：独立benchmark/model block可跨TP2组并行，每组同2GPU16CPU128GiB/4序列8准入；core请求协议JSON保持SHA，避免改另一会话HLE固化配置。ASI和TB8请求近56K长输入队列测试均PASS；TB同窗另有1条校准，观测waiting5如实记录。
 - 子agent转接SWE正式driver/容器mini锁/自造patch replay，不碰运行中ASI；Terminus原生Tmux合成与backend最终资源网络验收继续。未开SWE闲置GPU，当前共6卡。半小时自动任务apex-baseline已更新独立服务/部署所有权，ACTIVE。
 - 本地已有或补8小时caffeinate防idle睡眠；应用/网络/合盖运行边界已记baseline_progress。未改其他项目722434/用户代理/镜像队列，无训练。
+
+## 2026-10-16：SWE/TB后端与Terminus原生闭环验收完成
+
+- 后端4CPU8GiB/1CPU4GiB、硬OOM/affinity不可扩宽、public/deny/public、模型Unix桥、rawpacket/NETLINK边界、正常tmux保留/异常子树清理、并行CPUslot均通过；生产4helpers冻结，详baseline_backend_v2_status及snapshot。
+- TB独立真实native链63s reward1、11stub与取消归零通过，89SIF完整SHA已核。首次formal前置Harbor拒跨task symlink，0trial/0模型调用；只修stage为原样copy，保留旧runtime/output后另fresh r2，由子任务按已授权flock启动445试次。
+- SWE独立服务724254已提2卡16CPU128GiB，目前PENDING(Resources)，现6运行+2排队；不把待分配算已用8卡，SWE原生mini约束安装/模型桥/patch replay验收继续。
+- 已读整体推进新用户授权：数据好后可启动训练，r16/alpha32/dropout0.05已选，原“rank未定”仅历史。本会话仍只baseline，留完整4卡组给其训练、账号总16含其他项目722434，不抢满推理资源。
+- ASI产物生成持续中（本轮最后读到2/240已保存，尚未评分）；新增ASI评分适配子任务只做源码/本地stub与自造科学校准，不付费API、不改运行中的generator或正式gold。
