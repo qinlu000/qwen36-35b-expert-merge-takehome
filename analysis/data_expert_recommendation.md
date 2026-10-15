@@ -35,6 +35,12 @@
 
 训练harness与目标harness匹配是直接行为模仿的首选，并非题面要求训练过程也只能使用一个harness。交互执行专家可以混合TB、ASI两种原生协议，逐样本保留各自system prompt、工具定义及观察/结束动作，用协议上下文区分；合版模型在不同benchmark下分别接收对应配置。训练任务必须独立，不能因为harness一致就使用正式评测任务或解答。
 
+### 合版模型的接入方式
+
+参数合版只产生一份固定权重，不合并四个agent框架。正式评测时，这同一份权重分别接入SWE的LockedMiniSwe、TB的Terminus2、已锁定的ASI adapter和HLE问答协议；各harness提供自身prompt、工具和观察/执行/评分流程。同一benchmark内与Base、目标专家使用完全相同配置，替换的只有模型权重/模型标识。
+
+例如SWE从Base改测合版时保留SWE工具与预算；TB从Base改测合版时保留Terminus2工具与预算。四项之间可以不同，合版权重本身始终不变，也不切换专家adapter或路由。多协议由对应system prompt和工具定义作为上下文区分；能否保持每套协议的格式与执行能力，在独立dev检验，不能假定合版必然保留，也不为合版临时增加专用提示补救。
+
 跨harness的旧轨迹可作为保留原协议的辅助迁移数据，但不能写成目标协议的原生示范。仅工具拼写/序列化差异且动作、观察、状态和结束语义均可无损对应时才做机械转换。Terminus2的持续tmux与SWE新subshell存在真实状态差异；不能只把keystrokes改名为command。[Terminus2说明](https://arxiv.org/html/2602.21193v1#S3.SS2)、[SWE固定工具配置](https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/tooling/configs/mini_toolcall.yaml)
 
 当前ASI adapter尚未选定，不能称Terminal科学子池已经匹配ASI。官方direct_llm只是单次生成后框架执行，不是Terminus2式多轮工具反馈；其他CLI adapter又有自己的工具协议。先锁定正式入口再决定科研轨迹的主源资格，而非改正式harness迁就数据。[官方direct_llm](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/ai4sci_bench/adapters/direct_llm.py)、[adapter契约](https://github.com/apexin-ai/ASI-Bench/blob/cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc/ai4sci_bench/core/agent_interface.py)

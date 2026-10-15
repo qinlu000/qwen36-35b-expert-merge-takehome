@@ -224,3 +224,10 @@
 - 只查官方工具代码确认：Terminus2是持续tmux+JSON keystrokes/duration/task_complete；SWE固定配置bash(command)每次新subshell，状态与结束/观察规则不同；Open-SWE只有mini谱系证明，未证实际协议完全相同。跨harness旧轨迹可保原协议作辅助，但不能直接冒充目标原生示范。
 - ASI具体adapter尚未锁定：direct_llm单次completion后框架执行，无模型工具反馈；CLI adapter另有协议。先固定ASI入口再定科研轨迹资格，不改正式协议迎合数据。上述源码核查不读取任何任务答案或样本，不执行复验/训练/评测。
 - 当前将此前授权产生的下载清单/辅助脚本纳入Git，原始文件仍在gitignored artifacts；本机先前未提交check_deepseek_judge脚本和日志保持不动。
+
+
+## 2026-10-15：说明合版模型如何接各benchmark的harness
+
+- 用户问合版模型的harness。明确合的是参数，不合agent框架：同一固定合版权重分别接SWE LockedMiniSwe、TB Terminus2、待锁ASI adapter与HLE协议；每项与Base/目标专家配置预算一致，只替换模型权重/标识。
+- 训练样本保留原协议上下文与工具定义，多协议遵循和合版后的格式/执行退化由独立dev验证；正式阶段不切专家adapter、不做任务路由、不为合版增加特殊补救prompt。已补充数据方案v3。
+- 下载继续保持用户“等一下”后的暂停状态，已下载和分段文件保留；本轮只更新解释文档，没有恢复下载、读取样本、训练或评测。
