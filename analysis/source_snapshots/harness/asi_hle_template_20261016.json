@@ -1,0 +1,53 @@
+{
+  "scope": "CPU tokenizer/template checks only; reused a previous self-authored OpenCode wire fixture and added synthetic QA/image-marker fixtures. No source trajectory text or formal benchmark question, answer, reference, test, or image was read for this check.",
+  "checked_on": "2026-10-16",
+  "model_repository": "Qwen/Qwen3.6-35B-A3B",
+  "model_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "chat_template_sha256": "e84f32a23fdda27689f868aa4a1a5621f41133e51a48d7f3efcbea2839574259",
+  "transformers": "4.55.0",
+  "tokenizer_class": "Qwen2TokenizerFast",
+  "local_files_only": true,
+  "cuda_visible_devices": "",
+  "model_weights_loaded": false,
+  "api_calls": 0,
+  "source_commands_executed": 0,
+  "enable_thinking": false,
+  "preserve_thinking": false,
+  "results": [
+    {
+      "fixture": "previous_self_authored_opencode_wire",
+      "arguments_normalized": false,
+      "rendered": false,
+      "error_type": "TypeError"
+    },
+    {
+      "fixture": "previous_self_authored_opencode_wire",
+      "arguments_normalized": true,
+      "normalization": "parse function.arguments JSON strings into objects; omit optional null fields",
+      "rendered": true,
+      "template_token_count": 5365,
+      "tool_response_count": 1,
+      "native_bash_function_in_render": true,
+      "empty_think_generation_prefix": true
+    },
+    {
+      "fixture": "self_authored_hle_text_format",
+      "rendered": true,
+      "template_token_count": 106,
+      "explanation_retained": true,
+      "answer_retained": true,
+      "confidence_retained": true
+    },
+    {
+      "fixture": "self_authored_image_marker_only",
+      "rendered": true,
+      "image_placeholder_count": 1,
+      "actual_image_processed": false
+    }
+  ],
+  "limitations": [
+    "The raw-wire error is a direct HF template invocation result, not evidence that the serving stack necessarily fails; serving may normalize arguments.",
+    "Template rendering does not validate model generation, tool execution, long-history compaction, multimodal inference, or benchmark success.",
+    "No source messages, commands, answers, or image payloads are included in this summary."
+  ]
+}

@@ -36,3 +36,12 @@
 - 新增SWE元数据审计脚本，只读repo/license/instance_id/resolved；不读messages、patch或测试，不产生训练集。
 
 专项证据：[数据结构与长度](readiness_data.md)、[ASI agent](readiness_asi_agent.md)、[基础设施](readiness_infrastructure.md)、[训练栈](readiness_training.md)、[HLE/Judge](readiness_hle_judge.md)。
+
+## 2026-10-16：harness实际兼容检查新增证据
+
+本节更新前面仅2条结构样本的证据范围；不回写安装工作流状态。完整结论见[harness兼容性检查](harness_compatibility.md)。
+
+- SWE已检查39分片624条，调用和JSON观察与目标mini同族；源prompt额外要求patch.txt/提交输出，不能盲换成目标prompt。非终止单调用可按序恢复工具关联，末尾无返回的提交无需伪造结果；仍未产出最终可训manifest。
+- Terminal已检查26分片260条；去外层显式think后2,058条assistant消息中1,930条能由目标parser接受，128条报错，不能据此宣称成功率。日志/N体两个示例已有同题面哈希记录，但缺task_complete；不同difficulty同ID会碰撞，需联合题面与来源分组。
+- 若采用非思考SFT，Qwen的两个false模板开关不足以删除样本已有teacher推理，需要显式处理；Terminus JSON analysis/plan和HLE可见Explanation应保留。CPU自造6序列及生成前缀检查已通过，尚不是训练mask或模型端点验收。
+- ASI当前自定义OpenCode模型未声明attachment/modalities，固定源码对新模型默认不启用图片；需修正能力声明并验收图片工具传输。D3静态output不是OpenCode多轮观察，科研执行仍有真实补采缺口。上述运行配置本轮只记录问题，没有改动。

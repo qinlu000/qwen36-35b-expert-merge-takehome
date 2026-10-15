@@ -1,0 +1,82 @@
+{
+  "harbor_version": "0.24.0",
+  "installed_environment": "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+  "parser_file": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/harbor/src/harbor/agents/terminus_2/terminus_json_plain_parser.py",
+  "fixture_count": 9,
+  "matches_source_file_import": true,
+  "synthetic_parser_fixtures": {
+    "valid_action": {
+      "error": false,
+      "warning": false,
+      "n_commands": 1,
+      "task_complete": false,
+      "durations": [
+        0.1
+      ]
+    },
+    "invalid_json": {
+      "error": true,
+      "warning": false,
+      "n_commands": 0,
+      "task_complete": false,
+      "durations": []
+    },
+    "missing_required_fields": {
+      "error": true,
+      "warning": false,
+      "n_commands": 0,
+      "task_complete": false,
+      "durations": []
+    },
+    "valid_completion": {
+      "error": false,
+      "warning": false,
+      "n_commands": 0,
+      "task_complete": true,
+      "durations": []
+    },
+    "text_wrapped_json": {
+      "error": false,
+      "warning": true,
+      "n_commands": 1,
+      "task_complete": false,
+      "durations": [
+        0.1
+      ]
+    },
+    "missing_duration": {
+      "error": false,
+      "warning": true,
+      "n_commands": 1,
+      "task_complete": false,
+      "durations": [
+        1.0
+      ]
+    },
+    "negative_duration": {
+      "error": false,
+      "warning": false,
+      "n_commands": 1,
+      "task_complete": false,
+      "durations": [
+        -1.0
+      ]
+    },
+    "over_60_duration": {
+      "error": false,
+      "warning": false,
+      "n_commands": 1,
+      "task_complete": false,
+      "durations": [
+        120.0
+      ]
+    },
+    "completion_with_bad_command": {
+      "error": false,
+      "warning": true,
+      "n_commands": 0,
+      "task_complete": true,
+      "durations": []
+    }
+  }
+}

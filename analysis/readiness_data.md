@@ -128,3 +128,9 @@ OpenR1这里是已选default的完整文件，不能将名称220k误当该config
 额外执行scripts/audit_swe_metadata.py，仅读repo/license/instance_id/resolved列，不读messages、patch、测试。全39片得到39,540个不同(repo,instance_id)组合，另55,751行重复这些任务组合；不等于重复轨迹，应按任务族分组后再切dev。resolved=1有32,231行，0有53,622行，-1有9,438行。许可字段均为MIT/Apache-2.0/BSD-2/3-Clause，仍需保留来源并核上下游条件。
 
 从官方固定V2全部642个任务目录名提取11个repo，规则存configs/data_exclusions.json。当前训练文件与这些repo大小写不敏感精确匹配为0，缺repo行0；这只完成exact-repo初筛，**不证明fork/改名/PR同源及跨其他benchmark的污染排除**。源行数/完整性/元数据结果快照见source_snapshots/preparation_checks_20261015.json。
+
+## 2026-10-16：扩大harness结构验收
+
+新增实际检查见[harness兼容性报告](harness_compatibility.md)：SWE39片624条全部单bash，36,400个非终止观察可唯一配对；原始模板输入全部报错、规范化后624条均渲染。Terminal26片260条，共2,058条assistant消息；去额外think后1,930可被目标parser接受，128报错，且parser本身仍有容错，不能当成功率或严格合格率。
+
+日志/N体两个训练例子已找到题面SHA256相同的mixed记录，但无完成标记/逐条grader结果；不同difficulty同ID存在题面碰撞，不能按裸ID连接任务/轨迹或独立切dev。固定Qwen模板的两个false开关不会清除所有已有teacher推理，非思考数据需显式规范化；JSON analysis/plan与可见Explanation保留。D3依然是静态程序候选；ASI OpenCode的图片能力声明缺口已记录。此次没有训练文件导出、轨迹命令执行、模型/API调用或正式评测。

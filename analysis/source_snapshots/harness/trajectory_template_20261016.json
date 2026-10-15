@@ -1,0 +1,74 @@
+{
+  "scope": "Synthetic CPU tokenizer/template fixtures only; no source trajectory, model, API or shell execution.",
+  "transformers": "4.55.0",
+  "tokenizers": "0.21.1",
+  "tokenizer_class": "Qwen2TokenizerFast",
+  "chat_template_sha256": "e84f32a23fdda27689f868aa4a1a5621f41133e51a48d7f3efcbea2839574259",
+  "enable_thinking": false,
+  "preserve_thinking": false,
+  "all_assertions_passed": true,
+  "generation_prefix_is_empty_think": true,
+  "fixtures": [
+    {
+      "fixture": "mini",
+      "explicitly_removed_synthetic_reasoning": false,
+      "reasoning_one_retained": true,
+      "reasoning_two_retained": true,
+      "json_analysis_count": 0,
+      "json_plan_count": 0,
+      "xml_tool_call_marker_count_including_instructions": 3,
+      "template_token_count": 358
+    },
+    {
+      "fixture": "mini",
+      "explicitly_removed_synthetic_reasoning": true,
+      "reasoning_one_retained": false,
+      "reasoning_two_retained": false,
+      "json_analysis_count": 0,
+      "json_plan_count": 0,
+      "xml_tool_call_marker_count_including_instructions": 3,
+      "template_token_count": 348
+    },
+    {
+      "fixture": "terminal",
+      "explicitly_removed_synthetic_reasoning": false,
+      "reasoning_one_retained": false,
+      "reasoning_two_retained": true,
+      "json_analysis_count": 2,
+      "json_plan_count": 2,
+      "xml_tool_call_marker_count_including_instructions": 0,
+      "template_token_count": 122
+    },
+    {
+      "fixture": "terminal",
+      "explicitly_removed_synthetic_reasoning": true,
+      "reasoning_one_retained": false,
+      "reasoning_two_retained": false,
+      "json_analysis_count": 2,
+      "json_plan_count": 2,
+      "xml_tool_call_marker_count_including_instructions": 0,
+      "template_token_count": 117
+    },
+    {
+      "fixture": "qa",
+      "explicitly_removed_synthetic_reasoning": false,
+      "reasoning_one_retained": false,
+      "reasoning_two_retained": true,
+      "json_analysis_count": 0,
+      "json_plan_count": 0,
+      "xml_tool_call_marker_count_including_instructions": 0,
+      "template_token_count": 28
+    },
+    {
+      "fixture": "qa",
+      "explicitly_removed_synthetic_reasoning": true,
+      "reasoning_one_retained": false,
+      "reasoning_two_retained": false,
+      "json_analysis_count": 0,
+      "json_plan_count": 0,
+      "xml_tool_call_marker_count_including_instructions": 0,
+      "template_token_count": 23
+    }
+  ],
+  "interpretation": "False template flags do not remove existing latest-user assistant reasoning. Explicit normalization is needed for a non-thinking SFT profile; retain Terminus JSON analysis/plan fields."
+}

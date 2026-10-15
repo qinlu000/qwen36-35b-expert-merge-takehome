@@ -82,12 +82,12 @@
 
 ## 是否已有训练轨迹
 
-任务包和现成轨迹是两批资产。上述四个具体例子尚未逐题匹配到对应teacher记录，不能声称已有同一道题的可训练轨迹；也不因此要求将整个训练池重新运行。
+任务包和现成轨迹是两批资产。2026-10-15介绍时四个例子尚未逐题匹配；2026-10-16的[实际兼容检查](harness_compatibility.md)已找到日志和N体两例题面SHA256完全相同的Corpus记录，但它们没有完成标记或grader结果，不能称为完整成功示范。SWE和D3具体例子仍未关联。无需因此将整个训练池重新运行。
 
 | 已下载内容 | 原始条数 | 实际监督形态 | 是否必须重跑全部teacher |
 | --- | ---: | --- | --- |
 | Open-SWE mini/Qwen3.6 | 95,291 | assistant/tool多轮修复消息，含bash调用和返回；这不是上文SWE-smith任务包的逐题配套证明 | 不需要；先筛来源、标签、消息完整性并适配目标协议 |
-| Nemotron Terminal-Corpus skill-based | 139,841 | Terminus-2谱系的持续终端JSON动作及观察对话 | 不需要；与Synthetic Tasks跨发布映射及dev排除尚未完成，不能保证上文日志/N体例子各有对应轨迹 |
+| Nemotron Terminal-Corpus skill-based | 139,841 | Terminus-2谱系的持续终端JSON动作及观察对话 | 不需要；日志/N体两例现有同题过程记录但终局未知，全量跨发布映射及dev排除仍未完成 |
 | D3-Gym-Trajectories Qwen3-32B | 2,153 | instruction/input/output，含推理与最终程序；没有独立多轮工具返回 | 静态程序SFT可复用；若需要ASI执行协议下的多轮示范，需选任务真实补采 |
 | OpenScienceReasoning-2 / OpenR1 default | 1,600,812 / 93,733 | 学术/数学问答及推理解答 | 不需要重新生成全部答案；先做来源、质量与模板筛选 |
 

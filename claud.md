@@ -485,3 +485,12 @@
 - 用户问是否需要对齐。题面约束是同一benchmark内Base/专家/合版固定相同评测配置，未强制所有训练轨迹来自同一harness。直接作为目标交互示范时优先检查模型可见工具参数、观察、shell状态、结束动作及上下文语义相容；不要求框架名称/版本或prompt逐字相同。存在真实差异的轨迹可保留源协议作迁移辅助，收益由独立dev验证。
 - Open-SWE mini与候选LockedMini、Nemotron与Terminus2均有直接结构接近证据，仍需验收目标prompt/状态/结束/截断；新subshell和持续tmux不能只改字段混称等价。ASI当前OpenCode候选下D3静态程序SFT可辅助科研能力，但不是现成多轮示范；工具反馈须真实补采。HLE按问答/图文/thinking模板处理，无终端状态对齐问题。
 - 当前优先验收已有轨迹，不要求全量重跑；只对协议缺口做必要适配或少量补采。此次只读既有协议/结构记录并记录澄清，未联网、执行任务/API、改正式配置或训练；保留其他工作流修改。
+
+## 2026-10-16：执行训练轨迹harness兼容检查
+
+- 用户授权继续检查。并行对固定SWEPro/Harbor/mini、Terminus2与ASI/OpenCode通用源码及现成独立训练记录取证，新增harness_compatibility总报告及三份专项报告、四个KISS审计脚本、六份不含消息正文的统计/合成检查快照。没有执行轨迹命令、模型/付费API、正式任务、容器、训练或Slurm；没有读取正式题答案、参考patch或隐藏测试。部分固定OpenCode通用源码从官方来源补读，未改共享依赖/运行配置。
+- SWE检查39分片624条、9语言；37,024次均单bash(command)，36,400非终止JSON观察可唯一相邻配对，19项原生无执行检查全部为true。原嵌套记录624条模板失败、规范化后624条通过；source额外要求patch.txt/echo后cat，与目标prompt不同，不能盲换。末尾无结果提交不伪造工具输出；全量去污染/结构/长度和loss-mask仍待完成。
+- Terminal检查26分片全部task列和每片前10条共260记录；2,058条assistant去显式think后1,930被目标parser接受、128仍错误，非成功率。9项已安装parser自造结果与固定源码一致；parser容错会补缺省/丢坏command，不能单靠接受标记选训练样本。
+- 日志0459/N体0939已各找到mixed同ID且题面SHA256完全匹配的现成记录，4/6步动作可解析，但两例均无task_complete=true或grader结果，不能称完整成功示范。5,984个包ID虽均在Corpus某处出现，跨difficulty确有同ID不同题面；dev必须跨任务/旧轨迹联合分组。更新原实例介绍与readiness，替代此前“尚未找到”的状态。
+- CPU自造6序列及生成前缀断言通过：两个false模板flag仍保留最近user后的已有teacher reasoning。若采用非思考SFT需显式处理公开推理字段，保留Terminus JSON analysis/plan和HLE可见Explanation；不以渲染成功代替真实模型/Swift监督mask验收。
+- ASI D3仍只有静态程序答案，缺OpenCode工具反馈；发现现有自定义模型没声明attachment/modalities，固定OpenCode默认为无图片，最小建议配置与源码行已记录，尚未改运行配置。科研真实多轮缺口留待小量独立任务补采；不因harness版本名重采整个池。保留其他工作流setup_swe_tb_status.md、smoke_base.py等所有修改。

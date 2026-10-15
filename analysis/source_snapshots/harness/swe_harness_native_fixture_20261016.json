@@ -1,0 +1,27 @@
+{
+  "mini_version": "2.4.6",
+  "scope": "Synthetic parsing/observation/completion checks; no model/API/container requests, subprocesses, benchmark tasks or trajectory commands executed.",
+  "checks": {
+    "valid_bash_parses_command_and_id": true,
+    "empty_calls_rejected": true,
+    "unknown_tool_rejected": true,
+    "invalid_json_rejected": true,
+    "missing_command_rejected": true,
+    "nonstring_command_not_rejected_by_native_parser": true,
+    "short_tool_role_and_call_id_preserved": true,
+    "short_returncode_preserved": true,
+    "short_output_exact": true,
+    "long_tool_role_and_call_id_preserved": true,
+    "long_returncode_preserved": true,
+    "long_output_head_tail_5000_elided_1": true,
+    "timeout_tool_role_and_call_id_preserved": true,
+    "timeout_returncode_preserved": true,
+    "timeout_exception_preserved": true,
+    "marker_completion_correct": true,
+    "marker_plus_payload_completion_correct": true,
+    "nonzero_marker_completion_correct": true,
+    "not_first_line_completion_correct": true
+  },
+  "passed": 19,
+  "total": 19
+}
