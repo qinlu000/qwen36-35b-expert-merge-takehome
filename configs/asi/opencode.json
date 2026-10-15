@@ -1,0 +1,42 @@
+{
+  "model": "bench/apex-qwen",
+  "small_model": "bench/apex-qwen",
+  "enabled_providers": ["bench"],
+  "autoupdate": false,
+  "share": "disabled",
+  "plugin": [],
+  "mcp": {},
+  "provider": {
+    "bench": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "ASI-Bench Target",
+      "options": {
+        "baseURL": "{env:APEX_ASI_MODEL_BASE}",
+        "apiKey": "{env:APEX_ASI_MODEL_KEY}"
+      },
+      "models": {
+        "apex-qwen": {
+          "name": "apex-qwen",
+          "tool_call": true,
+          "temperature": true,
+          "limit": {
+            "context": 262144,
+            "input": 253952,
+            "output": 8192
+          }
+        }
+      }
+    }
+  },
+  "agent": {
+    "build": {
+      "steps": 100,
+      "temperature": 0.7,
+      "top_p": 0.8,
+      "tools": {"webfetch": false, "websearch": false, "task": false, "skill": false, "todowrite": false}
+    },
+    "title": {"model": "bench/apex-qwen", "temperature": 0.7, "top_p": 0.8},
+    "summary": {"model": "bench/apex-qwen", "temperature": 0.7, "top_p": 0.8},
+    "compaction": {"model": "bench/apex-qwen", "temperature": 0.7, "top_p": 0.8}
+  }
+}

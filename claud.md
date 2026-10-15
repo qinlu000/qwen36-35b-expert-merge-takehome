@@ -416,6 +416,15 @@
 - 按仓库既有证据，80已保存候选数据与任务包，本地主要是研究记录和下载/元数据审计脚本，正式训练、合版与全量评测尚未启动。部分文档保留过时的暂停状态、专家划分和时间预算，读取时以最新日期内的后续确认及专项记录为准。
 - 本轮未SSH复核远端、联网、读取原始任务答案、运行现有脚本或启动实验；远端产物状态来自已有记录。本地既有未提交logs/与check_deepseek_judge.py保留原状。
 
+## 2026-10-15：执行Base下载与四项环境安装（进行中）
+
+- 用户授权下载Base并配置四项benchmark环境；后续明确80无sudo权限，并提示核查HPC容器能力。沿用80未提交的更新版评测协议，保留其既有文档与配置修改；本轮不启动正式评测、正式训练或付费模型请求。
+- 固定Base revision仍为995ad96eacd98c81ed38be0c5b274b04031597b0，新增model_sources.json锁40文件/71,926,865,825B及LFS SHA-256/小文件Git blob。下载脚本支持断点与完整性检查，完成后检查26片safetensors header和index。HPC代理下载真实遇HTTP/2断流和低吞吐，后改80直连CDN的aria2分段下载，已完成文件通过仅HPC登录节点10.120.48.33可读的临时rsync服务直接同步HPC。下载与同步均仍在进行，未称完整权重已就绪。
+- HLE固定源码、独立Python3.12环境及44包锁已安装；完整2500题（342图像）的文件哈希/ID复核和自造图文/schema检查通过，未读取真实题面答案或作答。SWE/TB固定Harbor0.24.0、mini2.4.6、51/89任务与140镜像digest已准备；80/HPC Harbor包版本一致。ASI固定源码、full依赖、OpenCode1.17.15及自造工具回路通过，任务输入和独立任务依赖正在下载/安装，未跑正式任务。
+- 默认HPC Singularity4.1.5的fakeroot实测因缺用户subuid失败；集群Apptainer1.4.5原生root-mapped模式已在自造小SIF上通过。遵守管理员对共享盘sandbox的限制，将自造rootfs放本地/tmp构建SIF，不绕过集群wrapper；完整Harbor bootstrap仍需验收，SWE phase断网与ASI隔离不能据此视为已解决。
+- ACD CPU-only sbatch test被集群拒绝；为容器检查曾提交本项目1GPU/2CPU/4GB/5min作业723418，后因已有更轻量Apptainer方案仅取消此自建作业（当时刚启动于ACD1-14），未执行GPU计算，未影响原作业722434。无80 GPU使用。
+- 80的rootless Docker缺uidmap且无免密sudo，用户已说明无管理员权限，未继续系统安装。HPC已查登录节点和ACD1-13无Docker/socket；当前实际采用集群提供的Apptainer能力继续配置，不把Docker与Singularity混称。
+
 ## 2026-10-15：整理四项评测协议与完整ID
 
 - 用户要求先解决评测协议。并行核固定官方SWE/TB/ASI框架、模型卡及HLE通用预测/评分源码；保存四份protocol_*审计、主evaluation_protocol.md与configs/eval/protocol_v1.json。规范是可审阅设计，不是已验收原生runner配置，不写训练/评测实现或启动正式题。

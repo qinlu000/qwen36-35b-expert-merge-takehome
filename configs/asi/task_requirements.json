@@ -1,0 +1,1832 @@
+{
+  "code_revision": "cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc",
+  "python": "3.12.13",
+  "scope": "dependency_metadata_only_no_task_content",
+  "runtime_groups": [
+    {
+      "group": 1,
+      "task_ids": [
+        "astronomy.nbody_close_encounters"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.24",
+          "scipy>=1.11"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 2,
+      "task_ids": [
+        "astronomy.planet_activity_sep"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.24",
+          "scipy>=1.11",
+          "matplotlib>=3.7"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 3,
+      "task_ids": [
+        "astronomy.white_dwarf_sparse_inference"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.26",
+          "scipy>=1.11",
+          "pandas>=2.0",
+          "matplotlib>=3.8"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pandas==3.0.6",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 4,
+      "task_ids": [
+        "biology.calcium_ip3_dyk_oscillations",
+        "biology.protein_folding_go_model",
+        "materials.ising_domain_growth"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=2.0",
+          "scipy>=1.11",
+          "matplotlib>=3.7"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 5,
+      "task_ids": [
+        "biology.contextual_dna_regime_mapping"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=2.0",
+          "matplotlib>=3.7"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 6,
+      "task_ids": [
+        "biology.gene_network_timeseries"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=2.0",
+          "scipy>=1.11",
+          "matplotlib>=3.7",
+          "scikit-learn>=1.3"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "cloudpickle==3.1.2",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "joblib==1.6.0",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "narwhals==2.27.1",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scikit-learn==1.9.1",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "threadpoolctl==3.7.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 7,
+      "task_ids": [
+        "biology.gillespie_ssssa_michaelis_menten"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=2.0",
+          "scipy>=1.11"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 8,
+      "task_ids": [
+        "biology.scrna_seq_analysis"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy",
+          "scipy"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 9,
+      "task_ids": [
+        "biostat.perturbation_convergence_testing"
+      ],
+      "runtime": {
+        "packages": [
+          "scikit-learn>=1.4"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "cloudpickle==3.1.2",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "joblib==1.6.0",
+        "narwhals==2.27.1",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scikit-learn==1.9.1",
+        "scipy==1.18.1",
+        "threadpoolctl==3.7.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 10,
+      "task_ids": [
+        "chemistry.implicit_solvent_pb_gb",
+        "chemistry.reaction_path_bifurcation_vri"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.26.0",
+          "scipy>=1.11.0",
+          "matplotlib>=3.8.0"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 11,
+      "task_ids": [
+        "chemistry.marcus_et_reorganization_energy",
+        "physics.kt_phase_transition_2d_xy_model"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.26",
+          "scipy>=1.11",
+          "matplotlib>=3.8"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 12,
+      "task_ids": [
+        "chemistry.metadynamics_for_dipeptide_in_vacuum"
+      ],
+      "runtime": {
+        "packages": [
+          "openmm>=8.0",
+          "numpy>=1.26.0",
+          "scipy>=1.11.0",
+          "matplotlib>=3.8.0"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "openmm==8.6.1",
+        "packaging==26.3",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 13,
+      "task_ids": [
+        "chemistry.sapt_water_dimer"
+      ],
+      "runtime": {
+        "packages": [
+          "pyscf>=2.5",
+          "numpy>=1.24",
+          "scipy>=1.11",
+          "matplotlib>=3.7"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "h5py==3.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "pyscf==2.14.0",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "setuptools==84.0.0",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 14,
+      "task_ids": [
+        "chemistry.vtst_tunneling_corrections"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=2.0.0",
+          "scipy>=1.11.0",
+          "matplotlib>=3.8.0",
+          "pandas>=2.0.0"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pandas==3.0.6",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 15,
+      "task_ids": [
+        "computer_science.affinity_subset_bound_audit"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.24",
+          "pandas>=2.0",
+          "scipy>=1.10",
+          "matplotlib>=3.7",
+          "scikit-learn==1.8.0"
+        ],
+        "python": ">=3.10"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "cloudpickle==3.1.2",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "joblib==1.6.0",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pandas==3.0.6",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scikit-learn==1.8.0",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "threadpoolctl==3.7.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 16,
+      "task_ids": [
+        "computer_science.bci_forensics",
+        "computer_science.dp_accountant_forensics"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.24",
+          "matplotlib>=3.7"
+        ],
+        "python": ">=3.10"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 17,
+      "task_ids": [
+        "computer_science.causal_attention"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.24.0",
+          "torch==2.5.1"
+        ],
+        "python": ">=3.12,<3.13"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "jinja2==3.1.6",
+        "markupsafe==3.0.4",
+        "mpmath==1.3.0",
+        "networkx==3.7",
+        "numpy==2.5.4",
+        "nvidia-cublas-cu12==12.4.5.8",
+        "nvidia-cuda-cupti-cu12==12.4.127",
+        "nvidia-cuda-nvrtc-cu12==12.4.127",
+        "nvidia-cuda-runtime-cu12==12.4.127",
+        "nvidia-cudnn-cu12==9.1.0.70",
+        "nvidia-cufft-cu12==11.2.1.3",
+        "nvidia-curand-cu12==10.3.5.147",
+        "nvidia-cusolver-cu12==11.6.1.9",
+        "nvidia-cusparse-cu12==12.3.1.170",
+        "nvidia-nccl-cu12==2.21.5",
+        "nvidia-nvjitlink-cu12==12.4.127",
+        "nvidia-nvtx-cu12==12.4.127",
+        "packaging==26.3",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "setuptools==84.0.0",
+        "sympy==1.13.1",
+        "torch==2.5.1",
+        "tqdm==4.70.1",
+        "triton==3.1.0",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 18,
+      "task_ids": [
+        "computer_science.deployment_prediction_sets",
+        "computer_science.stable_latent_state_fitting"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.24",
+          "pandas>=2.0",
+          "scipy>=1.11",
+          "matplotlib>=3.7"
+        ],
+        "python": ">=3.10"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pandas==3.0.6",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 19,
+      "task_ids": [
+        "computer_science.euclidean_tsp_tour_optimization",
+        "computer_science.max3sat_assignment_optimization"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.24"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 20,
+      "task_ids": [
+        "computer_science.hmc_neal_funnel"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=2.0",
+          "matplotlib>=3.8"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 21,
+      "task_ids": [
+        "earth_science.2_e_soil_carbon_nitrogen_cycling"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.24",
+          "scipy>=1.11",
+          "pandas>=2.0",
+          "matplotlib>=3.7"
+        ],
+        "python": ">=3.10"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pandas==3.0.6",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 22,
+      "task_ids": [
+        "earth_science.farquhar_ballberry_photosynthesis",
+        "earth_science.snow_3layer_compaction"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.24",
+          "pandas>=2.0",
+          "matplotlib>=3.7"
+        ],
+        "python": ">=3.10"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pandas==3.0.6",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 23,
+      "task_ids": [
+        "earth_science.richards_topmodel_hydrology"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.24",
+          "pandas>=2.0",
+          "matplotlib>=3.7",
+          "scipy>=1.10"
+        ],
+        "python": ">=3.10"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pandas==3.0.6",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 24,
+      "task_ids": [
+        "electrical_engineering.cmos_opamp_design"
+      ],
+      "runtime": {
+        "dockerfile": "Dockerfile.os",
+        "packages": [
+          "numpy>=1.24",
+          "matplotlib>=3.7",
+          "pandas>=2.0",
+          "scipy>=1.11",
+          "sympy>=1.12"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "mpmath==1.3.0",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pandas==3.0.6",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "sympy==1.14.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 25,
+      "task_ids": [
+        "electrical_engineering.lossy_tline_skin",
+        "physics.ag_strip_dielectric_inference",
+        "physics.paired_nanorod_negative_index_retrieval"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.26",
+          "pandas>=2.0",
+          "matplotlib>=3.8",
+          "scipy>=1.11"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pandas==3.0.6",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 26,
+      "task_ids": [
+        "materials.relaxation_mode_recovery"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.26",
+          "scipy>=1.11"
+        ],
+        "python": ">=3.10"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 27,
+      "task_ids": [
+        "math.homotopy_poly_roots"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.26",
+          "scipy>=1.11",
+          "sympy>=1.12"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "mpmath==1.3.0",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "sympy==1.14.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 28,
+      "task_ids": [
+        "math.ill_posed_inverse_problem",
+        "math.manifold_pde_meshfree"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy",
+          "scipy"
+        ]
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 29,
+      "task_ids": [
+        "math.levin_context_grid_search",
+        "math.ucb_q_learning_regret"
+      ],
+      "runtime": {},
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "packaging==26.3",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 30,
+      "task_ids": [
+        "math.mpsc_safety_filter"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.26",
+          "scipy>=1.11",
+          "cvxpy>=1.4",
+          "clarabel>=0.7",
+          "scs>=3.2"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "cffi==2.1.1",
+        "clarabel==0.11.1",
+        "click==8.5.0",
+        "cloudpickle==3.1.2",
+        "cvxpy==1.9.3",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "highspy==1.15.1",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "jinja2==3.1.6",
+        "joblib==1.6.0",
+        "markupsafe==3.0.4",
+        "numpy==2.5.4",
+        "osqp==1.1.3",
+        "packaging==26.3",
+        "pycparser==3.11",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "qdldl==0.1.9.post1",
+        "scipy==1.18.1",
+        "scs==3.3.1",
+        "setuptools==84.0.0",
+        "sparsediffpy==0.6.1",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 31,
+      "task_ids": [
+        "math.multiply_connected_conformal_mapping"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.26",
+          "scipy>=1.11"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 32,
+      "task_ids": [
+        "math.nnls_modulus_deblur"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.26",
+          "scipy>=1.11",
+          "matplotlib>=3.8",
+          "Pillow>=10.0"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 33,
+      "task_ids": [
+        "math.sigma_linear_diophantine"
+      ],
+      "runtime": {
+        "packages": [],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "packaging==26.3",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 34,
+      "task_ids": [
+        "math.sparse_hyperbolic_recovery_2d"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.26",
+          "scipy>=1.11",
+          "matplotlib>=3.8"
+        ],
+        "python": ">=3.10"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 35,
+      "task_ids": [
+        "math.sparse_nonlinear_interaction_recovery"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 36,
+      "task_ids": [
+        "math.symplectic_integrators"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.24.0",
+          "pandas>=2.0.0",
+          "matplotlib>=3.7.0",
+          "scipy>=1.11.0"
+        ],
+        "python": ">=3.9"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pandas==3.0.6",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 37,
+      "task_ids": [
+        "physics.dp_contact_process"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.24.0",
+          "pandas>=2.0.0"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pandas==3.0.6",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 38,
+      "task_ids": [
+        "physics.ks_2d_anisotropic"
+      ],
+      "runtime": {
+        "packages": [
+          "scipy>=1.11",
+          "numpy>=2.0",
+          "matplotlib>=3.7"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 39,
+      "task_ids": [
+        "physics.lbm_square_wake"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.24.0",
+          "pandas>=2.0.0",
+          "numba>=0.59.0"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "llvmlite==0.50.0",
+        "numba==0.68.0",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pandas==3.0.6",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 40,
+      "task_ids": [
+        "physics.lid_driven_cavity_flow"
+      ],
+      "runtime": {
+        "packages": [
+          "scipy>=1.11.0",
+          "Pillow>=10.0.0",
+          "matplotlib>=3.8.0"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 41,
+      "task_ids": [
+        "physics.vpfm_leapfrog"
+      ],
+      "runtime": {
+        "packages": [
+          "scipy>=1.11"
+        ],
+        "python": ">=3.11"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 42,
+      "task_ids": [
+        "robotics.lidar_imu_time_offset_yaw_calibration",
+        "robotics.robust_pose_graph_false_loops"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.24.0",
+          "scipy>=1.10.0",
+          "matplotlib>=3.7.0"
+        ],
+        "python": ">=3.10"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 43,
+      "task_ids": [
+        "robotics.multiregime_icp_degeneracy"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=2.0.0",
+          "scipy>=1.11.0"
+        ],
+        "python": ">=3.10"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 44,
+      "task_ids": [
+        "robotics.occupancy_grid_mapping_correlated_clutter",
+        "robotics.rnea_inverse_dynamics_dh",
+        "robotics.ukf_bearing_only_tracking"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.24.0"
+        ],
+        "python": ">=3.9"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "filelock==4.2.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    },
+    {
+      "group": 45,
+      "task_ids": [
+        "robotics.particle_filter"
+      ],
+      "runtime": {
+        "packages": [
+          "numpy>=1.24",
+          "scipy>=1.10",
+          "pandas>=2.0",
+          "matplotlib>=3.7"
+        ],
+        "python": ">=3.10"
+      },
+      "requirements": [
+        "anyio==4.15.1",
+        "click==8.5.0",
+        "contourpy==1.4.0",
+        "cycler==0.12.1",
+        "filelock==4.2.0",
+        "fonttools==4.67.0",
+        "fsspec==2026.9.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface-hub==2.2.0",
+        "idna==3.20",
+        "kiwisolver==1.5.1",
+        "matplotlib==3.11.2",
+        "numpy==2.5.4",
+        "packaging==26.3",
+        "pandas==3.0.6",
+        "pillow==12.3.0",
+        "pyparsing==3.3.3",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.4",
+        "pyyaml==6.0.3",
+        "scipy==1.18.1",
+        "six==1.17.0",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing-extensions==4.16.0"
+      ]
+    }
+  ]
+}
