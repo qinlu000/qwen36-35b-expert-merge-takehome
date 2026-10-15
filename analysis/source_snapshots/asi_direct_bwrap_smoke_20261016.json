@@ -1,0 +1,226 @@
+{
+  "passed": true,
+  "generation_stubbed": true,
+  "real_api_requests": 0,
+  "benchmark_tasks_executed": 0,
+  "candidate_only": true,
+  "native_task_env_tested": true,
+  "ngspice_tested": true,
+  "shared1200s_deadline_implemented": false,
+  "request64k8k_policy_implemented": false,
+  "cpu_limit_enforced": false,
+  "memory_limit_enforced": false,
+  "real_vllm_tested": false,
+  "script_sha256": {
+    "scripts/asi_bwrap.py": "0e60d939b835ff233f6dc5f14a5097ddc240f08e843ec5a004f53829bcd29884",
+    "scripts/asi_direct_bwrap.py": "72c3c9acee4d5eb42338990b94062d164f05c941e898780862a2199dbcaad8fb",
+    "scripts/asi_smoke_direct_bwrap.py": "4eb1bc4fe434217548d0b4fb4e4df983eed8d26c05c029361c218aa3d1acc322"
+  },
+  "cases": [
+    {
+      "name": "env-24",
+      "group": 24,
+      "status": "completed",
+      "seconds": 6.777,
+      "generation_count": 1,
+      "execution_count": 1,
+      "native_extraction_preserved": true,
+      "collected_code": [
+        "generated.py"
+      ],
+      "collected_data": [
+        "science.json"
+      ],
+      "cache_hit": true,
+      "passed": true,
+      "report": {
+        "boundary": {
+          "namespace_separate": {
+            "user": true,
+            "mnt": true,
+            "pid": true,
+            "net": true
+          },
+          "sentinel_visible": false,
+          "host_proc_visible": false,
+          "host_root_via_proc1_visible": false,
+          "project_visible": false,
+          "reference_visible": false,
+          "host_ssh_visible": false,
+          "controller_secret_seen": false,
+          "controller_env_name_present": false,
+          "host_loopback_connected": false,
+          "external_connected": false,
+          "interfaces": [
+            [
+              1,
+              "lo"
+            ]
+          ],
+          "routes": [],
+          "cap_eff": "0000000000000000",
+          "run_entries": [],
+          "opencode_visible": false,
+          "opencode_config_present": false,
+          "prompt_readonly": true
+        },
+        "checks": {
+          "solution": [
+            2.000000000000001,
+            2.9999999999999996
+          ],
+          "divider_voltage": 0.5,
+          "ngspice_path": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/ngspice/bin/ngspice",
+          "plot_bytes": 18621
+        }
+      }
+    },
+    {
+      "name": "env-15",
+      "group": 15,
+      "status": "completed",
+      "seconds": 1.242,
+      "generation_count": 1,
+      "execution_count": 1,
+      "native_extraction_preserved": true,
+      "collected_code": [
+        "generated.py"
+      ],
+      "collected_data": [
+        "science.json"
+      ],
+      "cache_hit": true,
+      "passed": true,
+      "report": {
+        "boundary": {
+          "namespace_separate": {
+            "user": true,
+            "mnt": true,
+            "pid": true,
+            "net": true
+          },
+          "sentinel_visible": false,
+          "host_proc_visible": false,
+          "host_root_via_proc1_visible": false,
+          "project_visible": false,
+          "reference_visible": false,
+          "host_ssh_visible": false,
+          "controller_secret_seen": false,
+          "controller_env_name_present": false,
+          "host_loopback_connected": false,
+          "external_connected": false,
+          "interfaces": [
+            [
+              1,
+              "lo"
+            ]
+          ],
+          "routes": [],
+          "cap_eff": "0000000000000000",
+          "run_entries": [],
+          "opencode_visible": false,
+          "opencode_config_present": false,
+          "prompt_readonly": true
+        },
+        "checks": {
+          "coefficient": [
+            1.9999999999999996
+          ],
+          "intercept": 1.0000000000000004
+        }
+      }
+    },
+    {
+      "name": "env-17",
+      "group": 17,
+      "status": "completed",
+      "seconds": 2.023,
+      "generation_count": 1,
+      "execution_count": 1,
+      "native_extraction_preserved": true,
+      "collected_code": [
+        "generated.py"
+      ],
+      "collected_data": [
+        "science.json"
+      ],
+      "cache_hit": true,
+      "passed": true,
+      "report": {
+        "boundary": {
+          "namespace_separate": {
+            "user": true,
+            "mnt": true,
+            "pid": true,
+            "net": true
+          },
+          "sentinel_visible": false,
+          "host_proc_visible": false,
+          "host_root_via_proc1_visible": false,
+          "project_visible": false,
+          "reference_visible": false,
+          "host_ssh_visible": false,
+          "controller_secret_seen": false,
+          "controller_env_name_present": false,
+          "host_loopback_connected": false,
+          "external_connected": false,
+          "interfaces": [
+            [
+              1,
+              "lo"
+            ]
+          ],
+          "routes": [],
+          "cap_eff": "0000000000000000",
+          "run_entries": [],
+          "opencode_visible": false,
+          "opencode_config_present": false,
+          "prompt_readonly": true
+        },
+        "checks": {
+          "product": [
+            [
+              7.0,
+              10.0
+            ],
+            [
+              15.0,
+              22.0
+            ]
+          ],
+          "device": "cpu",
+          "torch_version": "2.5.1+cu124"
+        }
+      }
+    },
+    {
+      "name": "timeout",
+      "group": 24,
+      "status": "failed",
+      "seconds": 8.014,
+      "generation_count": 1,
+      "execution_count": 1,
+      "native_extraction_preserved": true,
+      "collected_code": [
+        "generated.py"
+      ],
+      "collected_data": [],
+      "cache_hit": true,
+      "heartbeat_stopped": true,
+      "remaining_namespace_processes": [],
+      "passed": true
+    }
+  ],
+  "opencode_shared_builder_regression": {
+    "passed": true,
+    "timeout_check": {
+      "status": "timeout",
+      "seconds": 8.066,
+      "hanging_tool_started": true,
+      "heartbeat_stopped": true,
+      "remaining_namespace_processes": [],
+      "passed": true
+    },
+    "relay_socket_removed": true
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "harbor_version": "0.24.0",
+  "upstream_revision": "f527f8e447038fd242d08ecfa8aaa8029100da97",
+  "patch_sha256": {
+    "scripts/harbor_startup.patch": "af9e4abea4130f1d1afd55c77cbef08f4b5519fd0554024f3fff84e8e9ba51f6",
+    "scripts/harbor_startup_apex.patch": "207279d377af3237ff865d675f375e01e4c193802ec2a4faec6716e864cbe0d6"
+  },
+  "synthetic_failure_checks_passed": 8,
+  "benchmark_tasks_executed": 0,
+  "model_api_requests": 0,
+  "gpu_computation": false,
+  "hosts": {
+    "80": {
+      "status": "passed",
+      "start_seconds": 43.186172749847174,
+      "total_seconds": 44.26553476974368,
+      "server_port_closed": true,
+      "two_exec_passed": true,
+      "tmux_asciinema_passed": true
+    },
+    "hpc": {
+      "status": "passed",
+      "start_seconds": 44.39922836993355,
+      "total_seconds": 45.700841882964596,
+      "server_port_closed": true,
+      "two_exec_passed": true,
+      "tmux_asciinema_passed": true
+    }
+  },
+  "limitations": [
+    "Only one fixed real image lifecycle checked per host",
+    "Pre-listen detached bootstrap cannot always be authenticated or proven gone",
+    "CPU/RAM and phase-network capabilities remain unchanged"
+  ]
+}

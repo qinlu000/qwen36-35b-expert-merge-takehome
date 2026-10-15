@@ -65,6 +65,12 @@ artifacts/envs/asi-py312/bin/python scripts/asi_smoke_bwrap.py --task-env
 
 安全聚合回执与脚本SHA在`analysis/source_snapshots/asi_bwrap_smoke_20261016.json`。该adapter未替换正式协议或选定OpenCode/direct_llm；后者若最终选中也需验收对应隔离入口。CPU/RAM没有强制限额，真实Qwen图文/参数透传与全量任务bootstrap仍待验收，不标记正式ready。
 
+后续权威v2协议已选择`direct_llm`。新增42行`scripts/asi_direct_bwrap.py:BwrapDirectLLMAdapter`只覆写原生`_execute`，复用显式namespace builder；生成在controller，程序执行空间不挂OpenCode、relay、socket或模型凭据。原生solve、一次completion、程序提取与code/data collector保持。没有新增执行反馈后再次生成。
+
+直接模式合成验收4/4通过：三组原生task env的科学计算及ngspice0.5V，另一次8.014秒超时后无残留namespace进程；每例generation_count=execution_count=1，提取程序逐字一致，声明输出正常收集。所有哨兵、host proc/reference/home/key与外网隔离通过。共享builder重构后，OpenCode原边界/工具往返/8.066秒超时也重新验收通过。新回执为`analysis/source_snapshots/asi_direct_bwrap_smoke_20261016.json`，原始结果在`artifacts/preflight/asi/direct-bwrap-73aw4_ks/summary.json`。
+
+该DirectLLM候选只完成执行隔离；正式64K/8K请求参数、共享1200秒deadline、CPU/RAM限额及真实vLLM链路仍未实现或验收。重放自造程序用`artifacts/envs/asi-py312/bin/python scripts/asi_smoke_direct_bwrap.py`，不读取正式题或调用真实模型。
+
 ## 重放入口
 
 在 80 项目根目录运行 [setup_asi.sh](../scripts/setup_asi.sh) 可重放框架、精确依赖、OpenCode 和本地 ngspice 安装；所有产物均在 `artifacts/`。源码初次 clone 和 npm 可经已有进程代理，PyPI 建议直连。

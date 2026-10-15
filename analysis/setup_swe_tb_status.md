@@ -135,3 +135,13 @@ JSON 的等价写法为 `environment.type=null`、`environment.import_path="apex
 随后无损扩并发：只暂停Python任务分配器2262293，原8个Apptainer下载保留；读取父进程打开的per-image日志FD，固定排除8个已分派digest（包括已退出但尚未rename的child），再排除106个final。新增8-worker队列只处理其余26项，独立`_prefetch_supplement_progress.json`和`image-prefetch-extra.log`，峰值16。supervisor1651574/helper1651575记录于`prefetch-expand.json`；新增队列退出后自动恢复原coordinator。主表暂时不更新不代表下载停滞，HPC仍只以最终canonical完整报告验收。原Future已记录1次失败；即使补充队列补好，仍须原runner结束后全缓存复扫。
 
 部分GHCR大层此前出现HTTP/2 PROTOCOL_ERROR并重试；新prefetch子进程通过GODEBUG=http2client=0关闭Go客户端HTTP2（[Go官方说明](https://go.dev/doc/godebug)）。固定GHCR元数据/既有缓存SIF复拉已通过，不声称全层吞吐已提升。在线包装工具入口不兼容Apptainer自定位，version检查即失败，已原子回退同一官方ELF及安装脚本；未停止原下载，没有留下二进制包装。正式使用进程环境开关。
+
+## 启动超时补丁：两端已应用并回归
+
+固定Harbor f527源码上应用了明确留痕的`harbor_startup.patch`和项目companion patch。原始源码及补丁SHA校验、幂等apply/reverse、官方uv frozen锁均通过；101个distribution未变。`apply_harbor_startup_patch.sh`已加入两个安装入口，80 checkout仅允许本次已知改动还原后重放，其他未知diff拒绝覆盖。
+
+补丁将60秒硬窗口改为默认300秒；health/关闭匹配本次实例身份，服务日志写本次staging文件，取消/超时和进程等待有界。项目旧stop override已移除，不能混用旧server。8项合成故障检查通过，包括原PIPE挂起复现、实际server延迟关闭、取消和端口复用。监听前已脱离launcher的bootstrap仍不能保证零孤儿；保留诊断日志，不盲目杀其他进程。
+
+同一固定build-cython-ext SIF的实际正常生命周期，两端均通过：80启动43.186秒/总44.266秒，HPC启动44.399秒/总45.701秒；两次exec、文件保持、tmux/asciinema和stop后端口关闭均通过，driver已退出。SIF SHA仍为`0749503602dbf6a1a276c419ce15f24c79f01f4a47139c7e22a89f08ca070e77`。详情见`scripts/harbor_startup_patch.md`，安全回执为`analysis/source_snapshots/harbor_startup_smoke_20261016.json`。未强造真实容器timeout，未证明全140项bootstrap或正式网络/资源配额。
+
+HPC镜像循环已在sleep空闲期更新为PID3040078，只等待canonical complete，旧finished/failed报告会继续等待修复。Mac本次后台收尾进程读取`artifacts/preflight/swe_tb/download-pipeline.json`：等原队列结束后执行最终全缓存复扫，再等HPC完整140项SHA回执，最后才关本次rsync552766。旧77项校验回执不会满足关闭门槛；当前全量仍未完成。

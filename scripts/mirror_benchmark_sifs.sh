@@ -14,11 +14,13 @@ while true; do
   if sync_sifs; then
     APEX_PROGRESS_STATUS=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["status"])' "$APEX_SIF_DIR/_prefetch_progress.json")
     printf 'SIF mirror sync succeeded; source status=%s\n' "$APEX_PROGRESS_STATUS"
-    if [[ "$APEX_PROGRESS_STATUS" = complete || "$APEX_PROGRESS_STATUS" = finished ]]; then
+    if [[ "$APEX_PROGRESS_STATUS" = complete ]]; then
       # The previous file list may predate the last image's atomic rename.
       sync_sifs
       break
     fi
+    # A repair pass may replace a finished report containing earlier failures.
+    # Keep mirroring until the source itself reports complete.
     sleep 45
   else
     sleep 30

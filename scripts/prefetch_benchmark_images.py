@@ -102,6 +102,8 @@ def main():
             print(json.dumps({k: result[k] for k in ('image', 'status')}), flush=True)
     save('finished' if any(r['status'] == 'failed' for r in results) else 'complete')
     print(json.dumps({k: report[k] for k in ('status', 'total', 'completed', 'failed')}), flush=True)
+    if report['failed']:
+        raise SystemExit(1)
 
 
 if __name__ == '__main__':

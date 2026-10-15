@@ -28,13 +28,20 @@ checkout() {
     git init -q "$dest"
     git -C "$dest" remote add origin "$url"
   fi
+  # Restore only our known native patch before the pinned checkout. Other
+  # tracked changes still fail the clean checks; dependency lock stays upstream.
+  if [[ "$name" == harbor ]] && ! git -C "$dest" diff --quiet; then
+    APEX_ROOT="$ROOT" bash "$ROOT/scripts/apply_harbor_startup_patch.sh" reverse-native
+  fi
   git -C "$dest" diff --quiet
+  git -C "$dest" diff --cached --quiet
   if ! git -C "$dest" cat-file -e "$revision^{commit}" 2>/dev/null; then
     git -C "$dest" fetch --depth=1 origin "$revision"
   fi
   git -C "$dest" checkout --detach "$revision"
 }
 checkout harbor https://github.com/harbor-framework/harbor.git "$HARBOR_REV"
+APEX_ROOT="$ROOT" bash "$ROOT/scripts/apply_harbor_startup_patch.sh"
 checkout swe-bench-pro https://github.com/scaleapi/SWE-bench_Pro-os.git "$SWE_REV"
 checkout terminal-bench-2 https://github.com/laude-institute/terminal-bench-2.git "$TB_REV"
 

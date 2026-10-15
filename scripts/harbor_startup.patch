@@ -1,0 +1,436 @@
+--- a/src/harbor/environments/singularity/singularity.py
++++ b/src/harbor/environments/singularity/singularity.py
+@@ -23,6 +23,7 @@
+ import asyncio.subprocess
+ import logging
+ import os
++import secrets
+ import shlex
+ import shutil
+ import socket
+@@ -67,6 +68,7 @@
+         singularity_force_pull: Force re-pull even if cached (default False).
+         singularity_no_mount: Comma-separated mount types to suppress
+             (default "home,tmp,bind-paths"). Use "" to allow all Singularity mounts.
++        singularity_startup_timeout_sec: Total server startup deadline (default 300).
+     """
+ 
+     def __init__(
+@@ -80,6 +82,7 @@
+         singularity_image_cache_dir: Path | str | None = None,
+         singularity_force_pull: bool = False,
+         singularity_no_mount: str | None = None,
++        singularity_startup_timeout_sec: float = 300.0,
+         **kwargs,
+     ):
+         if singularity_image_cache_dir:
+@@ -89,6 +92,9 @@
+ 
+         self._force_pull = singularity_force_pull
+         self._singularity_no_mount = singularity_no_mount
++        if singularity_startup_timeout_sec <= 0:
++            raise ValueError("singularity_startup_timeout_sec must be positive")
++        self._startup_timeout_sec = singularity_startup_timeout_sec
+ 
+         super().__init__(
+             environment_dir=environment_dir,
+@@ -104,9 +110,11 @@
+         self._server_port: int | None = None
+         self._staging_dir: Path | None = None
+         self._sif_path: Path | None = None
+-        self._stream_task: asyncio.Task[None] | None = None
+         self._memory_watchdog_task: asyncio.Task[None] | None = None
+         self._http_client: httpx.AsyncClient | None = None
++        self._server_token: str | None = None
++        self._server_log_path: Path | None = None
++        self._preserve_startup_log = False
+ 
+         memory_mb = self._effective_memory_mb
+         self._memory_limit_bytes = (
+@@ -276,28 +284,81 @@
+             fcntl.flock(lock_file.fileno(), fcntl.LOCK_UN)
+             lock_file.close()
+ 
++    async def _shutdown_owned_server(self) -> bool:
++        """Never accept another listener's identity or call a legacy shutdown URL."""
++        if not self._http_client or not self._server_port or not self._server_token:
++            return False
++        url = f"http://127.0.0.1:{self._server_port}"
++        try:
++            health = await self._http_client.get(f"{url}/health", timeout=0.5)
++            identity = health.json() if health.status_code == 200 else None
++            if (
++                not isinstance(identity, dict)
++                or identity.get("instance_token") != self._server_token
++            ):
++                return False
++            reply = await self._http_client.post(
++                f"{url}/shutdown/{self._server_token}", timeout=0.5
++            )
++            if reply.status_code != 200:
++                return False
++            deadline = asyncio.get_running_loop().time() + 2.0
++            while asyncio.get_running_loop().time() < deadline:
++                await asyncio.sleep(0.1)
++                try:
++                    health = await self._http_client.get(f"{url}/health", timeout=0.3)
++                    identity = health.json() if health.status_code == 200 else None
++                    if (
++                        isinstance(identity, dict)
++                        and identity.get("instance_token") != self._server_token
++                    ):
++                        return True  # Port reused: never send the replacement a shutdown.
++                except httpx.ConnectError:
++                    return True
++                except (httpx.RequestError, ValueError):
++                    pass
++            return False
++        except (httpx.RequestError, ValueError):
++            return False
++
++    async def _stop_server_process(self) -> bool:
++        """Bounded cleanup of this launcher's handle; no process-name or port kills."""
++        try:
++            confirmed = await asyncio.wait_for(
++                self._shutdown_owned_server(), timeout=4.0
++            )
++        except asyncio.TimeoutError:
++            confirmed = False
++        if not confirmed and self._server_token:
++            self._preserve_startup_log = True
++        if self._server_process and self._server_process.returncode is None:
++            try:
++                self._server_process.terminate()
++            except ProcessLookupError:
++                pass
++            try:
++                await asyncio.wait_for(self._server_process.wait(), timeout=5.0)
++            except asyncio.TimeoutError:
++                try:
++                    self._server_process.kill()
++                except ProcessLookupError:
++                    pass
++                try:
++                    await asyncio.wait_for(self._server_process.wait(), timeout=2.0)
++                except asyncio.TimeoutError:
++                    self._preserve_startup_log = True
++                    self.logger.warning("Launcher exit unconfirmed; retained startup log")
++        if self._http_client:
++            try:
++                await asyncio.wait_for(self._http_client.aclose(), timeout=2.0)
++            except asyncio.TimeoutError:
++                self.logger.warning("HTTP client close timed out")
++            self._http_client = None
++        return confirmed
++
+     async def _cleanup_server_resources(self) -> None:
+         """Clean up any existing server resources from a previous run."""
+-        if (
+-            hasattr(self, "_server_process")
+-            and self._server_process
+-            and self._server_process.returncode is None
+-        ):
+-            self._server_process.kill()
+-            await self._server_process.wait()
+-        if (
+-            hasattr(self, "_stream_task")
+-            and self._stream_task
+-            and not self._stream_task.done()
+-        ):
+-            self._stream_task.cancel()
+-            try:
+-                await self._stream_task
+-            except asyncio.CancelledError:
+-                pass
+-        if hasattr(self, "_http_client") and self._http_client:
+-            await self._http_client.aclose()
+-            self._http_client = None
++        await self._stop_server_process()
+         if (
+             hasattr(self, "_memory_watchdog_task")
+             and self._memory_watchdog_task
+@@ -308,7 +369,11 @@
+                 await self._memory_watchdog_task
+             except asyncio.CancelledError:
+                 pass
+-        if self._staging_dir and self._staging_dir.exists():
++        if (
++            not self._preserve_startup_log
++            and self._staging_dir
++            and self._staging_dir.exists()
++        ):
+             shutil.rmtree(self._staging_dir, ignore_errors=True)
+             self._staging_dir = None
+ 
+@@ -322,6 +387,7 @@
+ 
+         self._staging_dir = Path(tempfile.mkdtemp(prefix="singularity_staging_"))
+         self._staging_dir.chmod(0o755)
++        self._preserve_startup_log = False
+ 
+         server_script = Path(__file__).parent / "server.py"
+         staging_server = self._staging_dir / "_hbexec.py"
+@@ -334,10 +400,14 @@
+ 
+         max_port_retries = 3
+         last_error = None
++        loop = asyncio.get_running_loop()
++        deadline = loop.time() + self._startup_timeout_sec
+ 
+         for port_attempt in range(max_port_retries):
+             reserved_socket, port = self._reserve_port()
+             self._server_port = port
++            self._server_token = secrets.token_urlsafe(32)
++            self._server_log_path = self._staging / f"server-{port_attempt + 1}.log"
+ 
+             # Note: --memory and --cpus flags are NOT used because they require
+             # cgroups support (systemd running as init), which is typically not
+@@ -375,6 +445,8 @@
+                 str(self._server_port),
+                 "--workdir",
+                 self._workdir,
++                "--instance-token",
++                self._server_token,
+             ]
+             cmd = [
+                 "singularity",
+@@ -398,28 +470,38 @@
+ 
+             reserved_socket.close()
+ 
+-            self._server_process = await asyncio.create_subprocess_exec(
+-                *cmd,
+-                stdout=asyncio.subprocess.PIPE,
+-                stderr=asyncio.subprocess.STDOUT,
+-            )
+-
+-            self._stream_task = asyncio.create_task(self._stream_server_output())
+-
+-            self._http_client = httpx.AsyncClient(timeout=30.0)
++            # A detached appinit/server must not retain an asyncio PIPE and
++            # prevent Process.wait() from completing after its launcher exits.
++            with self._server_log_path.open("wb") as server_log:
++                self._server_process = await asyncio.create_subprocess_exec(
++                    *cmd, stdout=server_log, stderr=asyncio.subprocess.STDOUT
++                )
++
++            self._http_client = httpx.AsyncClient(
++                timeout=2.0, trust_env=False, follow_redirects=False
++            )
+             server_ready = False
+ 
+-            for i in range(60):
++            while loop.time() < deadline:
+                 try:
+                     response = await self._http_client.get(
+-                        f"http://localhost:{self._server_port}/health"
++                        f"http://127.0.0.1:{self._server_port}/health",
++                        timeout=min(2.0, deadline - loop.time()),
+                     )
+                     if response.status_code == 200:
++                        identity = response.json()
++                        if (
++                            not isinstance(identity, dict)
++                            or identity.get("instance_token") != self._server_token
++                        ):
++                            last_error = RuntimeError(
++                                f"Port collision on {self._server_port}: instance token mismatch"
++                            )
++                            break
+                         # Verify OUR server is still alive before declaring ready.
+                         # Another concurrent trial may have grabbed this port
+                         # (Singularity shares host network namespace).
+                         if self._server_process.returncode is not None:
+-                            await self._stream_task
+                             last_error = RuntimeError(
+                                 f"Port collision on {self._server_port}: health "
+                                 f"check succeeded but our server process died."
+@@ -436,58 +518,42 @@
+                             )
+                         server_ready = True
+                         break
+-                except httpx.RequestError:
++                except (httpx.RequestError, ValueError):
+                     pass
+ 
+                 if self._server_process.returncode is not None:
+-                    await self._stream_task
+                     last_error = RuntimeError(
+                         f"Server process died on port {self._server_port}. "
+-                        f"Check trial.log for server output."
++                        f"Check {self._server_log_path} for server output."
+                     )
+                     self.logger.warning(
+-                        f"Server failed to start on port {self._server_port}, "
+-                        f"will retry with new port"
++                        f"Server failed to start on port {self._server_port}; cleaning up"
+                     )
+                     break
+ 
+-                await asyncio.sleep(1)
++                await asyncio.sleep(min(1.0, max(0.0, deadline - loop.time())))
+ 
+             if server_ready:
+                 return
+ 
+-            # Clean up the failed server process before retrying
+-            if self._server_process and self._server_process.returncode is None:
+-                self._server_process.kill()
+-                await self._server_process.wait()
+-            if self._stream_task and not self._stream_task.done():
+-                self._stream_task.cancel()
+-                try:
+-                    await self._stream_task
+-                except asyncio.CancelledError:
+-                    pass
+-
+-            if self._http_client:
+-                await self._http_client.aclose()
+-                self._http_client = None
++            last_error = last_error or RuntimeError(
++                f"Server startup exceeded {self._startup_timeout_sec}s"
++            )
++            self._preserve_startup_log = True
++            self.logger.warning(f"Server startup failed; log: {self._server_log_path}")
++            confirmed = await self._stop_server_process()
++            if not confirmed:
++                # Bootstrap may have detached before its server began listening.
++                # Do not guess a PID or start more copies; keep its diagnostic log.
++                self.logger.warning(f"Server shutdown unconfirmed; retained {self._staging}")
++                raise last_error
++            if loop.time() >= deadline:
++                break
+ 
+         raise last_error or RuntimeError(
+             f"Failed to start Singularity FastAPI server after "
+             f"{max_port_retries} port attempts"
+         )
+-
+-    async def _stream_server_output(self) -> None:
+-        """Stream server stdout/stderr to logger in real-time."""
+-        if not self._server_process or not self._server_process.stdout:
+-            return
+-
+-        try:
+-            async for line in self._server_process.stdout:
+-                decoded = line.decode(errors="replace").rstrip()
+-                if decoded:
+-                    self.logger.debug(f"[server] {decoded}")
+-        except Exception as e:
+-            self.logger.debug(f"Server output stream ended: {e}")
+ 
+     def _get_process_tree_memory(self, pid: int) -> int:
+         """Get total PSS memory of a process and all its descendants.
+@@ -659,17 +725,20 @@
+                 self._docker_image, force_pull=force_pull
+             )
+ 
+-        await self._start_server()
+-
+-        await self._upload_environment_dir_after_start()
++        try:
++            await self._start_server()
++            await self._upload_environment_dir_after_start()
++        except BaseException:
++            self._preserve_startup_log = True
++            try:
++                await self._stop_server_process()
++            except Exception as cleanup_error:
++                self.logger.warning(f"Startup cleanup failed: {cleanup_error}")
++            raise
+ 
+     @override
+     async def stop(self, delete: bool) -> None:
+-        """Stop the Singularity environment and all child processes."""
+-        if self._http_client:
+-            await self._http_client.aclose()
+-            self._http_client = None
+-
++        """Stop the authenticated server and this launcher's process handle."""
+         if self._memory_watchdog_task and not self._memory_watchdog_task.done():
+             self._memory_watchdog_task.cancel()
+             try:
+@@ -677,36 +746,12 @@
+             except asyncio.CancelledError:
+                 pass
+ 
+-        if self._server_process and self._server_process.returncode is None:
+-            pid = self._server_process.pid
+-
+-            self._server_process.terminate()
+-            self.logger.debug(f"Sent SIGTERM to Singularity process {pid}")
+-
+-            try:
+-                await asyncio.wait_for(self._server_process.wait(), timeout=5.0)
+-            except asyncio.TimeoutError:
+-                self.logger.debug("Graceful shutdown timed out, force killing")
+-                self._server_process.kill()
+-                await self._server_process.wait()
+-
+-            try:
+-                subprocess.run(
+-                    ["pkill", "-9", "-P", str(pid)],
+-                    capture_output=True,
+-                    timeout=5,
+-                )
+-            except Exception:
+-                pass
+-
+-        if hasattr(self, "_stream_task") and self._stream_task:
+-            self._stream_task.cancel()
+-            try:
+-                await self._stream_task
+-            except asyncio.CancelledError:
+-                pass
+-
+-        if self._staging_dir and self._staging_dir.exists():
++        await self._stop_server_process()
++        if (
++            not self._preserve_startup_log
++            and self._staging_dir
++            and self._staging_dir.exists()
++        ):
+             shutil.rmtree(self._staging_dir, ignore_errors=True)
+ 
+         if delete:
+--- a/src/harbor/environments/singularity/server.py
++++ b/src/harbor/environments/singularity/server.py
+@@ -22,7 +22,7 @@
+ from typing import Dict, Optional
+ 
+ import uvicorn
+-from fastapi import FastAPI
++from fastapi import FastAPI, HTTPException
+ from pydantic import BaseModel
+ 
+ 
+@@ -173,12 +173,14 @@
+ @app.get("/health")
+ async def health_check():
+     """Health check endpoint."""
+-    return {"status": "ok"}
+-
+-
+-@app.post("/shutdown")
+-async def shutdown():
++    return {"status": "ok", "instance_token": app.state.instance_token}
++
++
++@app.post("/shutdown/{instance_token}")
++async def shutdown(instance_token: str):
+     """Trigger server shutdown."""
++    if instance_token != app.state.instance_token:
++        raise HTTPException(status_code=403, detail="Instance token mismatch")
+     logger.debug("Shutdown requested via API")
+ 
+     async def delayed_shutdown():
+@@ -400,7 +402,9 @@
+     )
+     parser.add_argument("--port", type=int, required=True, help="Port to listen on")
+     parser.add_argument("--workdir", type=str, default="/app", help="Working directory")
++    parser.add_argument("--instance-token", required=True, help="Per-launch instance identity")
+     args = parser.parse_args()
++    app.state.instance_token = args.instance_token
+ 
+     setup_logging()
+ 

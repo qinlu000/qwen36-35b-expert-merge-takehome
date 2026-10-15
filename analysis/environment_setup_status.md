@@ -7,11 +7,11 @@
 | 项目 | 实际完成 | 尚待完成 |
 | --- | --- | --- |
 | Base 文件 | **80与HPC均完整到齐并独立校验：40文件、71,926,865,825B；26分片/1,045张量与固定index匹配** | 无剩余下载；不把文件校验当成GPU加载成功 |
-| Base 推理环境 | HPC独立184包锁；723821在两H100上完成权重加载、鉴权及文本/图像/多轮工具4个合成HTTP检查，`passed=true`、退出0；本地`/tmp`缓存修复实测通过 | 长上下文、持续吞吐、正式四卡参数和评测节点到端点的链路尚未验收；smoke服务已退出 |
+| Base 推理环境 | HPC独立184包锁；723821在两H100上完成权重加载、鉴权及文本/图像/多轮工具4个合成HTTP检查，`passed=true`、退出0；本地`/tmp`缓存修复实测通过 | 当前v2选择TP2单服务，统一64K/8K、长请求/并发和评测端点链路仍需验收；旧smoke服务已退出 |
 | HLE | 固定源码、独立44包锁；2500题文件/ID/342图像计数核对；自造图文与schema检查通过 | 接入冻结的Qwen推理及Judge运行参数；不把安装通过当成正式评分完成 |
 | SWE Pro HARD-51 | 固定源码、Harbor/mini环境、完整51任务、镜像digest | 镜像缓存、容器内mini依赖锁，以及官方locked流程的phase断网与模型白名单 |
 | Terminal-Bench2 | 80/HPC固定Harbor0.24与完整89任务；89项均有预构建镜像，无Compose任务；两端真实TB镜像的Harbor/两次exec/tmux/asciinema/停止合成闭环通过 | 全量镜像预拉/容器启动、冷启动超时收尾、实际Slurm资源与端点验收 |
-| ASI-Bench | 固定源码、OpenCode1.17.15、657输入文件/60项目/240条件；45组依赖；无sudo隔离候选通过文件/网络、SSE工具和3组真实task env自造验收 | 选定正式adapter并验收全量运行；CPU/RAM约束、Qwen端点及最终Judge配置 |
+| ASI-Bench | 固定源码、657输入文件/60项目/240条件；45组依赖；v2已选DirectLLM，其执行隔离候选通过单次生成/执行、3组task env、ngspice及超时验收 | 实现正式预算/参数并验收全量运行；CPU/RAM约束、Qwen端点及最终Judge配置 |
 
 各项详细证据：[HLE](setup_hle_status.md)、[SWE/TB](setup_swe_tb_status.md)、[ASI](setup_asi_status.md)、[Base runtime](setup_base_runtime_status.md)。正式执行应读取协议工作流最终冻结配置；本页记录安装，不替代协议或自动冻结thinking、adapter与Judge路线。
 
@@ -28,13 +28,15 @@
 
 HPC默认Singularity4.1.5需要subuid mapping，当前账号没有。集群Apptainer1.4.5提供singularity兼容入口，可用官方root-mapped namespace，已在自造小SIF上通过uid0/可写临时层检查；这不等价于完整多UID映射。共享盘sandbox目录按管理员wrapper要求不能直接运行，构建时使用本地/tmp后输出标准SIF，没有关闭或绕过wrapper。
 
-Harbor原生Singularity后端可以启动工具环境，但没有SWE所需phase网络开关，也不原生实现CPU/RAM quota。ASI linux_ns实测可读宿主sentinel，不能把它直接当作充分隔离的正式环境。正式资源必须实际落实，不能仅在配置里填写32CPU/48GiB或4CPU/8GiB。
+Harbor原生Singularity后端可以启动工具环境，但没有SWE所需phase网络开关，也不原生实现CPU/RAM quota。ASI原生linux_ns实测可读宿主sentinel；新增DirectLLM执行隔离候选已通过自造检查，但没有落实CPU/RAM限额。正式资源必须实际落实，不能仅在配置里填写额度。
 
 ACD分区已实测拒绝CPU-only作业。容器检查作业723418为本次单独申请的1GPU/2CPU/4GB/5min，后已取消；未执行GPU计算，未改动原用户作业722434。后续GPU smoke最多使用授权的4卡，不复用原用户任务。
 
-HPC的完整自造Harbor检查已通过：启动31.14秒，两次exec成功，停止后端口关闭。为兼容集群launcher，用项目子类在官方stop前调用官方`/shutdown`，不修改固定上游源码或网络能力。140个固定digest镜像在80预拉并转为SIF，主表已到106/140，现新增8-worker队列处理余下26项，并发上限16；原8个已分派下载保留。旧coordinator暂缓派新任务，新增队列结束后自动恢复并统一汇总；主表暂时不变不代表下载停止。新增worker用Go原生HTTP1.1开关避开已观察到的HTTP2流中断，不承诺吞吐翻倍。原Future已记录1次失败，即使补充队列补好，最终仍须全缓存复扫。HPC镜像进程PID2266968在源完成后额外rsync，再逐140项检查SHA256、字节数和alias；最终回执尚未产生，不能写为全量缓存完成。
+HPC首轮自造Harbor检查通过：启动31.14秒，两次exec成功，停止后端口关闭。当时用项目子类处理集群launcher收尾，后续显式patch见下文。140个固定digest镜像在80预拉并转为SIF，主表已到106/140，现新增8-worker队列处理余下26项，并发上限16；原8个已分派下载保留。旧coordinator暂缓派新任务，新增队列结束后自动恢复并统一汇总；主表暂时不变不代表下载停止。新增worker用Go原生HTTP1.1开关处理已观察到的HTTP2流中断，不承诺吞吐翻倍。原Future已记录1次失败，即使补充队列补好，最终仍须全缓存复扫。HPC镜像进程已更新为PID3040078，只在源complete后额外rsync并逐140项检查SHA256、字节数和alias；不会因旧finished/failed回执提前停止。最终回执尚未产生，不能写为全量缓存完成。
 
-后续真实TB镜像检查在两端均通过（约52秒）：项目内fakeroot1.25.3配合官方root-map模式，基础设施启动hook处理既有Python路径、服务解释器副本与apt sandbox用户，未改固定SIF或上游源码。统一入口为`scripts/run_harbor_singularity.sh`，80还使用官方`APPTAINER_IGNORE_SUBUID=1`选较低权限模式。此适配不提供完整多UID映射、网络策略或资源限额。另一次冷启动超过上游60秒窗口并卡在launcher收尾，已清理；当前正常启停成功不能保证全部镜像的冷启动超时路径。
+本地ignored `artifacts/preflight/swe_tb/finish_prefetch.py`负责本次收尾：等待原runner退出，必要时以HTTP1.1/16worker做全缓存复扫，最多3轮；再等HPC的complete=true、sha256_verified=140及固定manifest匹配，才关闭本次80只读SIF rsync。只读SSH/JSON轮询有限重试，启动和关闭不盲重试。状态为同目录`download-pipeline.json`，日志为`download-pipeline.log`；它没有运行正式题、模型或评分。
+
+真实TB镜像检查两端已通过。随后针对上游60秒启动窗口及launcher无界等待，实际应用固定f527上的显式local patch：启动默认300秒、实例身份校验、服务日志落文件、关闭/等待有界；项目旧stop override同步移除。80/HPC各用同一固定SIF重验，约44/46秒通过两次exec、tmux、录屏和stop后端口关闭；故障分支8项合成通过。依赖锁和固定SIF未变。详见`scripts/harbor_startup_patch.md`；监听前已脱离launcher的bootstrap仍有清理边界，未证明全140项bootstrap、完整多UID、网络策略或资源限额。
 
 Base运行容器18,337,001,472B已重新计算SHA-256，与原回执一致；身份固定在`configs/envs/base_runtime_container.json`。GPU smoke作业**723821已完成**：`sacct=COMPLETED / 0:0`，总用时5分07秒，启动270.19秒，`summary.json`为`passed=true`。两张H100 80GB、TP2/BF16，配置上下文262,144；纯文本、32×32红图、自动tool call和工具结果回传4个合成case全部通过，带key请求200、无key请求401。ready每卡显存占用70,627 MiB，请求后70,635 MiB。回执在`artifacts/preflight/base-smoke-723821/`，服务及作业已正常退出。
 

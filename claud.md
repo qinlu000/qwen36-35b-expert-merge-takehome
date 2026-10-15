@@ -616,6 +616,13 @@
 - ASI新增可选bwrap OpenCode adapter和固定模型Unix relay，真实key留controller；四namespace、文件/进程/网络边界、SSE/tool反馈、窄路径/模型/附件限制及8.072秒timeout清理通过。原生TaskEnvironmentManager的3组缓存科学自造算例与ngspice0.5V通过，安全聚合回执入source_snapshots。无正式题/评分/付费API/GPU，未改protocol或选择OpenCode/direct_llm。CPU/RAM和真实Qwen链路仍待验收，不冒称正式就绪。
 - Base完成后曾关闭本轮自建HPC反向代理38082（Mac69616）并核端口关闭；为补丁后的Harbor合成回归，临时在本轮SSH master重新开启，回归结束再关闭。用户80原代理38080保持，镜像只读同步43874仍有用途。
 
+## 2026-10-16：Harbor启动收尾修复与DirectLLM隔离对齐
+
+- 固定Harbor f527加显式local patch：300秒启动deadline、实例身份关闭、staging日志、有界等待/取消；项目旧stop override同步移除。两端依赖101包锁未变，幂等apply/reverse和CLI通过；实际同一SIF合成生命周期80约44秒/HPC约46秒，2exec/tmux/录屏/端口关闭通过。8项故障合成通过；监听前detach仍保留清理边界，全140 bootstrap与网络/资源能力不冒称通过。补丁及精确SHA和复现说明纳入Git。
+- 对齐另一工作流已锁v2 direct_llm，新增42行候选仅替换_execute，生成/提取/collector原生，程序空间无OpenCode/relay/key。3组taskenv科学计算与ngspice、8.014秒超时4/4通过；每例生成执行各1次。共享builder后的OpenCode候选也重新通过8.066秒边界/超时。64K8K参数/共享1200秒、CPU/RAM和真实端点仍未实现或验收；无正式题或真实API。
+- 下载后台已接自动收尾：等原队列恢复结束后全缓存复扫，再等HPC140项SHA/manifest完整回执，才关闭本次只读SIF rsync。HPC mirror空闲时更新为3040078，finished/failed不提前退出；Mac收尾worker状态在ignored download-pipeline.json。只读SSH/JSON有限重试，mutation不盲重试，原77回执不能触发关闭。
+- Harbor回归结束后已再次关闭本轮reverse38082并核端口关闭，用户38080不动。另按新v2参数安排一次2H100的64K/8K纯自造GPU检查，不把旧262K短请求当作当前参数/长上下文通过。
+
 ## 2026-10-16：统一64K/8K并定稿Agent协议
 
 - 用户在统一8K输出后提出所有benchmark统一64K上下文；已冻结v2实验设计，输入最多57344 token，所有policy主调用与摘要辅助调用均为65536总context／8192输出，关闭thinking与preserve_thinking。保留真实图像token计数及原生多轮格式反馈，不加预算重答或静默裁题。

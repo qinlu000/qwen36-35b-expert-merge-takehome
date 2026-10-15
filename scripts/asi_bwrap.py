@@ -16,6 +16,67 @@ from pathlib import Path
 from ai4sci_bench.adapters.opencode_cli import OpenCodeCLIAdapter
 
 
+def python_runtime(env_dir):
+    env_dir = Path(env_dir).resolve(strict=True)
+    settings = dict(line.split(" = ", 1) for line in
+                    (env_dir / "pyvenv.cfg").read_text().splitlines() if " = " in line)
+    interpreter = (env_dir / "bin/python").resolve(strict=True)
+    return env_dir, interpreter, interpreter.parent.parent, Path(settings["home"]).parent
+
+
+def namespace_prefix(workspace, env_dir, ngspice_root=None):
+    """Fixed runtime/workspace mounts, with no network or controller socket."""
+    workspace = Path(workspace).resolve(strict=True)
+    env_dir, interpreter, base_dir, alias_dir = python_runtime(env_dir)
+    cmd = ["/usr/bin/bwrap", "--unshare-all", "--new-session", "--die-with-parent",
+           "--cap-drop", "ALL", "--hostname", "asi-candidate"]
+    mounts = []
+
+    def bind(source, target, readonly=True):
+        cmd.extend(["--ro-bind" if readonly else "--bind", str(source), str(target)])
+        mounts.append({"source": str(source), "target": str(target), "readonly": readonly})
+
+    for directory in ("/usr/bin", "/usr/lib", "/usr/lib64", "/usr/include", "/usr/share/zoneinfo",
+                      "/usr/share/fonts", "/usr/share/fontconfig", "/etc/fonts",
+                      "/etc/alternatives", "/etc/ssl/certs", "/etc/ld.so.cache"):
+        if Path(directory).exists():
+            bind(directory, directory)
+    cmd += ["--symlink", "usr/bin", "/bin", "--symlink", "usr/lib", "/lib",
+            "--symlink", "usr/lib64", "/lib64", "--proc", "/proc", "--dev", "/dev",
+            "--tmpfs", "/tmp", "--tmpfs", "/home", "--dir", "/home/agent", "--tmpfs", "/run"]
+    bind(env_dir, env_dir)
+    bind(base_dir, base_dir)
+    # uv's version alias exposes only the same Python runtime, not its parent.
+    if alias_dir != base_dir:
+        bind(base_dir, alias_dir)
+    if ngspice_root:
+        ngspice_root = Path(ngspice_root).resolve(strict=True)
+        if not all((ngspice_root / path).is_file() for path in ("bin/ngspice", "usr/bin/ngspice")):
+            raise ValueError("ngspice_root must be the installed public ngspice tool directory")
+        # spinit names code models absolutely: bind the exact tool path only.
+        bind(ngspice_root, ngspice_root)
+    bind(workspace, "/workspace", readonly=False)
+    for name in ("prompt.md", "task_info.json", "data"):
+        path = workspace / name
+        if path.exists():
+            if not path.resolve().is_relative_to(workspace):
+                raise ValueError("Agent input overlays must stay within this workspace")
+            bind(path, Path("/workspace") / name)
+    return cmd, mounts, interpreter
+
+
+def program_env(env_dir, ngspice_root=None):
+    """Explicit child environment; inherit no controller credentials/proxies."""
+    tool_path = f":{ngspice_root}/bin" if ngspice_root else ""
+    return {
+        "PATH": f"{env_dir}/bin{tool_path}:/usr/bin:/bin", "VIRTUAL_ENV": str(env_dir),
+        "HOME": "/home/agent", "XDG_CONFIG_HOME": "/home/agent/.config",
+        "XDG_DATA_HOME": "/home/agent/.local/share", "XDG_STATE_HOME": "/home/agent/.local/state",
+        "XDG_CACHE_HOME": "/home/agent/.cache", "TMPDIR": "/tmp", "LANG": "C.UTF-8",
+        "CUDA_VISIBLE_DEVICES": "", "MPLBACKEND": "Agg", "PYTHONNOUSERSITE": "1",
+    }
+
+
 class BwrapOpenCodeAdapter(OpenCodeCLIAdapter):
     def __init__(self, *, model: str, config: dict, relay, opencode_binary: Path,
                  default_env: Path, ngspice_root: Path | None = None,
@@ -42,55 +103,16 @@ class BwrapOpenCodeAdapter(OpenCodeCLIAdapter):
         super().setup(config)
 
     def _runtime(self, task_env):
-        env_dir = Path(task_env.env_dir if task_env else self.default_env).resolve(strict=True)
-        settings = dict(line.split(" = ", 1) for line in
-                        (env_dir / "pyvenv.cfg").read_text().splitlines() if " = " in line)
-        interpreter = (env_dir / "bin/python").resolve(strict=True)
-        base_dir = interpreter.parent.parent
-        # uv venvs can name a version alias in pyvenv.cfg; expose only that same
-        # public Python runtime at the alias, never its containing cache/home.
-        alias_dir = Path(settings["home"]).parent
-        return env_dir, interpreter, base_dir, alias_dir
+        return python_runtime(task_env.env_dir if task_env else self.default_env)
 
     def _build_command(self, task_instance, task_env):
-        workspace = task_instance.workspace_dir.resolve(strict=True)
-        env_dir, interpreter, base_dir, alias_dir = self._runtime(task_env)
-        cmd = ["/usr/bin/bwrap", "--unshare-all", "--new-session", "--die-with-parent",
-               "--cap-drop", "ALL", "--hostname", "asi-candidate"]
-        mounts = []
-
-        def bind(source, target, readonly=True):
-            cmd.extend(["--ro-bind" if readonly else "--bind", str(source), str(target)])
-            mounts.append({"source": str(source), "target": str(target), "readonly": readonly})
-
-        # Public OS binaries/libraries, plus narrowly selected runtime data.
-        for directory in ("/usr/bin", "/usr/lib", "/usr/lib64", "/usr/include", "/usr/share/zoneinfo",
-                          "/usr/share/fonts", "/usr/share/fontconfig", "/etc/fonts",
-                          "/etc/alternatives", "/etc/ssl/certs", "/etc/ld.so.cache"):
-            if Path(directory).exists():
-                bind(directory, directory)
-        cmd += ["--symlink", "usr/bin", "/bin", "--symlink", "usr/lib", "/lib",
-                "--symlink", "usr/lib64", "/lib64", "--proc", "/proc", "--dev", "/dev",
-                "--tmpfs", "/tmp", "--tmpfs", "/home", "--dir", "/home/agent",
-                "--tmpfs", "/run"]
-        bind(env_dir, env_dir)
-        bind(base_dir, base_dir)
-        if alias_dir != base_dir:
-            bind(base_dir, alias_dir)
-        if self.ngspice_root:
-            # Keep the exact tool path: installed spinit names its code models
-            # absolutely. Only this public tool directory is exposed, no parent.
-            bind(self.ngspice_root, self.ngspice_root)
-        bind(self.opencode_binary, "/opt/apex/bin/opencode")
-        bind(self.relay_script, "/opt/apex/asi_fixed_relay.py")
-        bind(self.relay.socket_path, "/run/model.sock")
-        bind(workspace, "/workspace", readonly=False)
-        for name in ("prompt.md", "task_info.json", "data"):
-            path = workspace / name
-            if path.exists():
-                if not path.resolve().is_relative_to(workspace):
-                    raise ValueError("Agent input overlays must stay within this workspace")
-                bind(path, Path("/workspace") / name)
+        env_dir, _, _, _ = self._runtime(task_env)
+        cmd, mounts, interpreter = namespace_prefix(task_instance.workspace_dir, env_dir, self.ngspice_root)
+        for source, target in ((self.opencode_binary, "/opt/apex/bin/opencode"),
+                               (self.relay_script, "/opt/apex/asi_fixed_relay.py"),
+                               (self.relay.socket_path, "/run/model.sock")):
+            cmd += ["--ro-bind", str(source), target]
+            mounts.append({"source": str(source), "target": target, "readonly": True})
         cmd += ["--chdir", "/workspace", "--", str(interpreter), "-I", "-S",
                 "/opt/apex/asi_fixed_relay.py", "--inside", "/run/model.sock", "18080", "--"]
         self.last_mounts = mounts

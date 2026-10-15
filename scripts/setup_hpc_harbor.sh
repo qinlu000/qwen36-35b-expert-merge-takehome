@@ -10,6 +10,7 @@ export UV_PROJECT_ENVIRONMENT="$ART/envs/harbor"
 export LITELLM_LOCAL_MODEL_COST_MAP=True
 UV=${UV_BIN:-$(command -v uv)}
 mkdir -p "$ART/preflight/swe_tb"
+APEX_ROOT="$ROOT" bash "$ROOT/scripts/apply_harbor_startup_patch.sh"
 "$UV" sync --project "$ART/benchmarks/harbor" --frozen --no-dev --extra modal \
   --python "$UV_PYTHON_INSTALL_DIR/cpython-3.12.11-linux-x86_64-gnu/bin/python3.12"
 "$ART/envs/harbor/bin/harbor" --help > "$ART/preflight/swe_tb/harbor-help.txt"

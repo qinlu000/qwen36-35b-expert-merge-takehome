@@ -65,4 +65,4 @@ API key 由 Python 生成到 Git 忽略的 `artifacts/private/base_smoke_api_key
 
 超时或失败返回非零；结束和SIGTERM/SIGINT时向整个服务进程组发TERM，等待主进程最多20秒，再清除残余进程组。本次服务与作业均已退出，没有留下常驻endpoint。
 
-用户已授权提高优先级，脚本默认分区为`emergency_acd`（PriorityTier/JobFactor300，原`acd_ue`为200），仍用本人`qinlucao`账号/`formal-user` QoS。未调整其他项目作业722434；正式四卡服务与评测资源仍需分别落实。
+用户已授权提高优先级，脚本默认分区为`emergency_acd`（PriorityTier/JobFactor300，原`acd_ue`为200），仍用本人`qinlucao`账号/`formal-user` QoS。未调整其他项目作业722434。后续v2协议已选TP2单服务/64K总context/8K输出；262K短smoke不能替代当前参数、长请求和队列验收，也不再将四卡端点作为既定前提。本轮正在另做对应64K/8K的合成检查，未运行正式题。
