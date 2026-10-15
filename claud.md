@@ -594,3 +594,10 @@
 - Terminal clean全域样本中位12694/P9522537，≤8K19.88%、32K99.825%；mixed全量中位9937/P9517543/max24810，全部≤32K，整条再预留4K的保守条件也全覆盖。clean单次输出99.7998%（样本）/99.8305%（mixed全量）≤4K。小model_training域仍有约48K P95，样本最大值和来源总体覆盖不能冒充正式TB需求分布；≤32K完整序列不自动保证每次还能额外reserve8K。
 - D3 raw中位8441/P9515640，clean2683/P958300/max14924；clean94.4728%整条≤8K、100%≤16K，assistant max3713全部≤4K。OpenR1 raw中位5050.5/P9514236，clean637/P95969、99.8%≤8K；4条不平衡think保留形成长尾，非HLE正式题。不能把短teacher最终目标当成ASI/HLE推理生成预算无损证据。
 - 新增trajectory_lengths主报告、SWE/Terminal/QA专项、3个KISS统计脚本及3份无正文聚合JSON，readiness/资源方案加入口。关键影响：8K SFT不能对SWE完整轨迹直接截尾，需另议16K短轨迹筛选或保留状态的交互窗口；尚未改训练/评测配置。行级数字仅留ignored artifacts；保留镜像/模型smoke等其他工作流修改，单独Git记录本轮产物。
+
+## 2026-10-16：基于长度选择单次输出上限
+
+- 用户认可长度结论后询问输出端设置。按当前非思考候选建议SWE每次8192（64Kcontext）、Terminal资源受限每次4096（32K）、ASI direct候选每次8192（32K）、HLE每次8192（32K）；它们是每次请求上限，不是整题累计token额度或每次必生成长度，EOS提前停止。
+- SWE虽99.9749%样本动作≤4K，来源成功样本最大单turn5011，故为少量大bash写文件/patch动作保留8K；Terminal约99.8%clean动作≤4K，需独立dev记录少量length截断。D3清后目标max3713不能证明所有ASI完整程序都≤4K；HLE清后训练答案短也不证明正式求解4K足够，保留可见解释空间。题定Terminal正式80K不因开发预算自动更改。
+- 输入预留对应SWE57344=56K、Terminal短档28672=28K、ASI/HLE24576=24K，含模板/图片/工具/历史。只在独立dev统一修订预算，同项全部模型一致；正式个别length失败不额外加token重答。推理输出上限不拿来直接截SFT标签，训练窗口另议。
+- 更新agent_resource_protocol当前表及口径，旧32K/64K讨论作为历史；未改protocol_v1/实际runner、训练、模型/API或任何作业，保留其他工作流WIP，仅文档Git记录。
