@@ -4,6 +4,8 @@
 
 最新进展：用户随后已授权推进准备，下载恢复，有限真实训练样本检查和工程检查见[问题清单](open_questions.md)与readiness专项记录。下文早先来源调研的“未读样本/下载暂停”是历史阶段说明。
 
+> 2026-10-16 后续更新：[近期强教师轨迹](latest_trajectories_20261016.md)已核到同一固定Open-SWE revision中的mini/Qwen3.8新分区，以及NVIDIA DeepSeek-V4-Pro Math-v4／Science-v2。它们是新增候选，未加入下载/训练配方；下文原主源清单保留其历史选择。OpenThoughts-Agent-SFT-100K已核准确teacher=GLM-4.7-AWQ、Terminus-2/Daytona，不与旧Agent-v1/OpenHands混称。
+
 ## 结论与选择
 
 SWE 与 Terminal 有目标行为很接近的公开交互轨迹；HLE 有作者明确面向该类学术推理能力的数据；ASI 新找到小型现成科研程序 SFT 集及配套可执行任务。四项不需要共用一个 harness，但同一项的所有参评模型必须使用相同冻结配置。**本次尚未核到一套可直接完整覆盖 ASI、且与待选 ASI adapter 一致的现成多轮轨迹。**

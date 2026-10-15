@@ -698,3 +698,13 @@
 - 高优先级作业723993在ACD1-1完成：两H10080GB、TP2/BF16/65536/maxseq4/.85/eager、GDN与MoE Triton、chunked prefill/batched8192；Slurm主/batch/extern COMPLETED0:0、8分44秒，startup410.31秒、server返回0。没有改其他项目722434。
 - 五正例HTTP200：文本、32px红图、自动工具调用、同tool ID反馈和57,280-token长输入；显式8192输出cap及v2 sampling/关闭thinking全部落wire。长输入实际usage与固定模板计数相同，标记输出8token/stop、2.560秒。自造57,408本地计数+8192超限请求得到明确400，服务安全计数下界57,345即拒绝，未重试或改cap。
 - auth models200/无key401；batch已实证删除/tmp/apex-base-723993.9DtoZS，服务正常退出。当前Slurm默认改为两GPU/16CPU/128G；聚合回执另存base_gpu_smoke_v2_20261016.json，旧723821历史证据保留。未生成满8K、测4并发/持续吞吐或原生benchmark链路，没有正式题/评分/训练。
+
+## 2026-10-16：查找近期强开放权重教师的真实公开轨迹
+
+- 用户要求找开源最新强模型跑的轨迹。本轮research/ego-browser并行核SWE、Terminal、科研/学术一手卡/文件/schema/论文及官方权重仓库，区分数据公开、teacher开放权重、成功标签与harness相容；未下载大文件、恢复val选题/清洗、运行模型/付费API/训练或申请GPU。
+- 发现同固定Open-SWE 1db674...早有未下载v1.2：mini/Qwen3.8-Flash-Next 36,577轨迹/17,807源resolved/16Parquet/3,653,370,550B；mini/Qwen3.8-27B 107,267轨迹/41,405PR/49,925源resolved/44Parquet/10,687,441,540B。两者Thinking；前者体量较小，建议先核结构/排除/长度。此前v1.1 Qwen3.6选择未优先审这批新教师，已补清单，不冒称旧长度结论适用于新池。
+- 同库DSV4Flash0731 OpenHands另50,295轨迹/23,110resolved/约3.70GB，GLM5.2 Pi原卡207会话→1821累计前缀行，均真实公开但工具/状态协议不同。Qwen3.8公开同表代码/DeepSWE优于旧teacher，仍非本题HARD51/非思考64K8K同条件，不以版本名或发布分数担保迁移。
+- 学术新增NVIDIA Math-v4（V4-Pro High，545431行，CoT285516/TIR259915，12Parquet约5.54GB）和Science-v2（混V4Pro/V3.2/Kimi/GPTOSS，作者称2837712，4JSONL约52.69GB，viewer partial）。来源/工具/teacher须分别筛，不能把Science全叫V4或当ASI程序交付；均无图像，未有本题HLE/ASI逐项去污染证明。Proofs-v2和EcoCoder另列备选，不把自然语言verification或质量分当执行成功。
+- Terminal：OpenThoughts-Agent-SFT-100K已核准确为GLM4.7-AWQ、Terminus2/Daytona/result，不应与旧OpenHands池混称；新GLM5.2+Terminus2 open-athena仓库公开但缺文档/许可/来源/成功依据，待核不直接入主池。TMax当前真正轨迹10726/成功5795，不用论文16.5K/8K冒充公开量，且bash非Terminus。最新V4函数工具/Pi会话、正式TB/easy25/2.1评测日志都不自动成为合格终端主池。
+- 新增latest_trajectories_20261016总报告与swe/terminal/science三专项、passive latest_trajectory_candidates_20261016.json；benchmark_training_data加新入口及OT100K纠正。原data_sources.json/协议/训练参数不变，尚未更换或选入任何最终样本。所有新旧teacher同PR/模板/源问题须联合分组留val、排四正式任务/保守repo/fork，保留逐行许可；不因追新放宽环境和成功资格。
+- 本调研仅将上述文档/聚合候选登记入Git，保留其他工作流环境/长输入smoke和脚本修改；关闭自己浏览空间47，未操作别人的浏览器或任务。
