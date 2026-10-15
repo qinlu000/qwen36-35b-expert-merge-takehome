@@ -2,6 +2,8 @@
 
 状态：训练框架已确认采用 ms-swift + PEFT（BF16 LoRA），三专家划分与名称已确认；用户已授权按当前方向推进数据与工程准备，问题集中记录后讨论；正式训练和全量评测尚未启动，数据配方、训练超参数和评测执行条件仍需锁定。2026-10-15 用户明确要求先停止写代码与实验执行，先讨论数据、工程、算法、评测。以下数字均为初始设计和资源预算，不是吞吐实测或完成承诺。
 
+四项协议草案与机器可读规范已保存：[evaluation_protocol.md](analysis/evaluation_protocol.md)、`configs/eval/protocol_v1.json`。完整ID已锁存SWE51、TB89、HLE2500（342图像）、ASI60×4；SWE保留50分钟/1CPU/4GB和fresh replay，TB保留3小时/32CPU/48GiB/五seed。thinking建议关闭但偏好尚未回复；ASI原GPT5.5仍缺，现已发现HKUST Luna图文网关作为替代候选，尚未改原评分配置。真实runtime、镜像digest、依赖lock和CPU/GPU/评分链验收未完成。API预算见[HKUST评分预算](analysis/hkust_judge_budget.md)，本轮仅4个合成API探针，不是正式Baseline。
+
 当前优先级是先锁定可执行的评测协议、打通准确Base，再做针对性训练：以独立task-dev诊断指导数据与SFT配方，正式Base四项按各自ready情况尽早全量启动；不要求等四项全部结束才做已冻结SFT。数据下载和来源整理可并行，批量自采与训练调参后移。正式逐题答案/失败及其派生轨迹不进train；若据正式成绩迭代方法则记录披露，模型候选主要由独立dev选择。当前协议、推理端点和容器/Judge仍有缺口，不把讨论顺序写成已冻结或已开跑。详见 [Base优先顺序与诊断边界](analysis/base_first_readiness.md)。
 
 当前优先使用已选好的独立任务包，而非逐个 GitHub issue 手工造题：固定版本的 SWE-smith Python/Go、Nemotron mixed 六类任务及 D3-Gym 任务元数据已下载到 80，共 23 文件、257,332,473 字节，实际结构审计与版本见 [任务包清单](analysis/ready_task_catalog.md) 和 `task_sources.json`。容器镜像未拉，尚未恢复这些环境或证明目标 harness 运行通过。下一步先按仓库/任务族对任务与既有轨迹联合归组，再确定 train/val；任务记录和 gold 仅作候选/评分侧输入，不能直接当教师轨迹或无污染数据。原始大文件与审计回执保留在 `artifacts/tasks/`。

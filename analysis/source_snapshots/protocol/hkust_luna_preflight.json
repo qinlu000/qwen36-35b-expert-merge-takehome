@@ -1,0 +1,193 @@
+{
+  "checked_on": "2026-10-15",
+  "endpoint": "https://aigc-api.hkust-gz.edu.cn/v1",
+  "credential_source": "/data/caoqinlu/projects/data-perception/.env",
+  "credentials_copied_or_logged": false,
+  "model_list": {
+    "base_url": "https://aigc-api.hkust-gz.edu.cn/v1",
+    "credential_source": "/data/caoqinlu/projects/data-perception/.env",
+    "http_status": "200",
+    "transport_exit": 0,
+    "model_count": 12,
+    "matched_models": [
+      "gpt-5.6-luna",
+      "gpt-5.6-terra"
+    ],
+    "response_top_level_keys": [
+      "object",
+      "data"
+    ]
+  },
+  "synthetic_generation_requests": 4,
+  "cases": [
+    {
+      "case": "text",
+      "http_status": "200",
+      "transport_exit": 0,
+      "elapsed_seconds": 1.678,
+      "returned_model": "gpt-5.6-luna",
+      "usage": {
+        "completion_tokens": 11,
+        "prompt_tokens": 24,
+        "total_tokens": 35,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_creation_tokens": 0
+        },
+        "latency_checkpoint": {
+          "engine_tbt_ms": 10,
+          "engine_ttft_ms": 64,
+          "engine_ttlt_ms": 178,
+          "pre_inference_ms": 95,
+          "service_tbt_ms": 10,
+          "service_ttft_ms": 511,
+          "service_ttlt_ms": 617,
+          "user_visible_ttft_ms": 416
+        }
+      },
+      "expected_match": true,
+      "finish_reason": "stop",
+      "safe_headers": {},
+      "error_type": null
+    },
+    {
+      "case": "image",
+      "http_status": "200",
+      "transport_exit": 0,
+      "elapsed_seconds": 1.573,
+      "returned_model": "gpt-5.6-luna",
+      "usage": {
+        "completion_tokens": 15,
+        "prompt_tokens": 39,
+        "total_tokens": 54,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "latency_checkpoint": {
+          "engine_tbt_ms": 9,
+          "engine_ttft_ms": 90,
+          "engine_ttlt_ms": 230,
+          "pre_inference_ms": 110,
+          "service_tbt_ms": 9,
+          "service_ttft_ms": 516,
+          "service_ttlt_ms": 650,
+          "user_visible_ttft_ms": 406
+        }
+      },
+      "expected_match": false,
+      "finish_reason": "stop",
+      "safe_headers": {},
+      "error_type": null
+    },
+    {
+      "case": "image512_red_blue",
+      "http_status": "200",
+      "transport_exit": 0,
+      "elapsed_seconds": 1.77,
+      "returned_model": "gpt-5.6-luna",
+      "answer": {
+        "left": "red",
+        "right": "blue"
+      },
+      "expected": {
+        "left": "red",
+        "right": "blue"
+      },
+      "expected_match": true,
+      "usage": {
+        "completion_tokens": 15,
+        "prompt_tokens": 346,
+        "total_tokens": 361,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "latency_checkpoint": {
+          "engine_tbt_ms": 9,
+          "engine_ttft_ms": 125,
+          "engine_ttlt_ms": 269,
+          "pre_inference_ms": 104,
+          "service_tbt_ms": 9,
+          "service_ttft_ms": 393,
+          "service_ttlt_ms": 528,
+          "user_visible_ttft_ms": 289
+        }
+      }
+    },
+    {
+      "case": "image512_blue_red",
+      "http_status": "200",
+      "transport_exit": 0,
+      "elapsed_seconds": 1.965,
+      "returned_model": "gpt-5.6-luna",
+      "answer": {
+        "left": "blue",
+        "right": "red"
+      },
+      "expected": {
+        "left": "blue",
+        "right": "red"
+      },
+      "expected_match": true,
+      "usage": {
+        "completion_tokens": 15,
+        "prompt_tokens": 346,
+        "total_tokens": 361,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        },
+        "latency_checkpoint": {
+          "engine_tbt_ms": 9,
+          "engine_ttft_ms": 99,
+          "engine_ttlt_ms": 239,
+          "pre_inference_ms": 209,
+          "service_tbt_ms": 8,
+          "service_ttft_ms": 653,
+          "service_ttlt_ms": 774,
+          "user_visible_ttft_ms": 443
+        }
+      }
+    }
+  ],
+  "tokens": {
+    "input": 755,
+    "output": 56,
+    "total": 811
+  },
+  "rate_cny_per_million": {
+    "input": "1.4662",
+    "output": "8.7996"
+  },
+  "estimated_cny_not_bill": "0.0015997586",
+  "price_source": "https://docs.hpc.hkust-gz.edu.cn/docs/aigc/api-model-list/",
+  "interpretation": "HTTP text/image compatibility only; 64px image incorrect, two 512px images correct; no scientific judge calibration",
+  "formal_benchmark_data_used": false
+}

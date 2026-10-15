@@ -415,3 +415,23 @@
 - 当前优先级维持协议与准确Base通路优先、独立dev诊断指导训练；Base/合版四项全量及专家目标项全量仍是交付范围。主要缺口为真实模型服务、容器与CPU并发、ASI评分链，以及数据分组隔离和长轨迹适配；不把下载完成视为训练或评测已完成。
 - 按仓库既有证据，80已保存候选数据与任务包，本地主要是研究记录和下载/元数据审计脚本，正式训练、合版与全量评测尚未启动。部分文档保留过时的暂停状态、专家划分和时间预算，读取时以最新日期内的后续确认及专项记录为准。
 - 本轮未SSH复核远端、联网、读取原始任务答案、运行现有脚本或启动实验；远端产物状态来自已有记录。本地既有未提交logs/与check_deepseek_judge.py保留原状。
+
+## 2026-10-15：整理四项评测协议与完整ID
+
+- 用户要求先解决评测协议。并行核固定官方SWE/TB/ASI框架、模型卡及HLE通用预测/评分源码；保存四份protocol_*审计、主evaluation_protocol.md与configs/eval/protocol_v1.json。规范是可审阅设计，不是已验收原生runner配置，不写训练/评测实现或启动正式题。
+- 完整ID已锁存SWE HARD51、TB89、ASI60×4。HLE固定test Parquet274,276,147B已在80下载并匹配上游SHA；仅读id/image两列并计算非空图像标志，实得2500唯一ID、342图像、2158文本，未读question/answer/rationale。HF密钥未输出或迁移；下载先慢速Mac再80直连签名CDN，Mac自有未完成部分在80完整校验后清理。
+- 选定SWE官方locked50min/1CPU/4GB/断网+fresh replay，Harbor固定实际0.24.0 commit、mini2.4.6候选；TB题定3h/32CPU/48GiB、temp1/.95/topk20/每call81920/context262144/五独立seed0–4；ASIopen seed31415完整240、OpenCode1.17.15固定commit、30min/4CPU8GiB为本实验预算。保留原生重试与max_tokens单次/累计区别，参数透传/压缩边界/容器网络须独立smoke。
+- 已问thinking偏好，建议enable_thinking=false/preserve=false，尚未收到明确回答，不冒称确认。其他项目候选单次输出SWE/HLE32768、ASI8192；完整trial不自动选最好重跑，基础设施最多额外2次、首个有效保留，invalid不能剔除后冒称全量。统计含配对任务簇bootstrap与TB五轮SD，最低矩阵9708运行。
+
+## 2026-10-15：回应80K资源与Qwen图像能力
+
+- 用户问80K是否能负担，若Qwen不适配图片可剔除。明确80K是TB单次输出cap，不保证实际满发，也不等于累计预算；4H100能否按预期并发与时限完成须低并发长请求验收，暂无GPU吞吐保证。静态权重71.9GB、full-attention KV理论部分约20KiB/token仅作数量级，未计TP复制/linear状态/视觉/激活/workspace。
+- 固定模型卡/config明确原生vision encoder与image token，已有CPU自造processor通过，不是纯文本模型；因此保留342图像题，完整图文GPU/HTTP仍未验。若未来改text-only须在正式Base/训练前另锁2158固定scope、同模型一致且明确标签，不能后删失败题混报。
+
+## 2026-10-15：发现80 HKUST接口并核算评分API
+
+- 用户明确授权查看80的.env，指出HKUST可调用gpt5.6luna。项目根没有.env；只在本人projects/home有限深度找文件，定位/data/caoqinlu/projects/data-perception/.env。只输出变量名及脱敏URL/模型元数据；未复制/修改.env、未输出key、未读其他项目业务数据。
+- GET /models鉴权200，12模型，列gpt-5.6-luna/terra但无gpt-5.5。核学校当前定价输入1.4662元/M、输出8.7996元/M，API默认付费且网页免费额不适用，未查询账单余额。OpenAI官方确认Luna图像输入与reasoning none，但不把低成本型号当原GPT5.5等价。
+- 仅4个自造generation请求（无正式题/参考图）：文本2+3过；64px红蓝图误答blue/blue；两张512px红蓝/蓝红图均过。HTTP4/4，returned_model=luna，reasoning_tokens0；prompt755/completion56/total811，公开价估算0.0015997586元，不是账单实扣。失败完整保留；这不是科学Judge校准，原配置未改。安全usage摘要入source_snapshots/protocol/hkust_luna_preflight.json，原始合成请求/响应在ignored artifacts。
+- 仅静态白名单与NNLS委托AST核ASI判分槽：每模型132=56文本+76视觉，三模型396=168文本+228视觉，420图像附件含重复；无重试输出cap291888。396非全局严格上限，gate/缺工件可能减少、外层/SDK/其他custom依赖可能增加。按总输入2/5/10/20M与该输出cap估5.50/9.90/17.23/31.89元，ASI先规划50元；HLE若另改Luna7500调用，三组假设约55/110/220元，两项含余量可规划100–350元，不是硬封顶或实测。
+- 保存asi_judge_call_budget.md、hkust_judge_budget.md与价格/协议资产快照。另一代理只读复核范围/次数/资源/算术/未ready状态与小图失败保留无实质异议。没有正式评测/训练、申请GPU、安装、更改系统或发送上游消息。
