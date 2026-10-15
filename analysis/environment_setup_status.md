@@ -7,7 +7,7 @@
 | 项目 | 实际完成 | 尚待完成 |
 | --- | --- | --- |
 | Base 文件 | **80与HPC均完整到齐并独立校验：40文件、71,926,865,825B；26分片/1,045张量与固定index匹配** | 无剩余下载；不把文件校验当成GPU加载成功 |
-| Base 推理环境 | HPC独立184包锁；Ubuntu24 SIF内CPU import、准确架构和自造图文预处理通过；两卡检查作业723673已提交acd_ue | 作业当前排队，GPU加载、真实HTTP图文/工具往返及长上下文资源尚未验收 |
+| Base 推理环境 | HPC独立184包锁；26权重分片在两H100加载通过，NCCL/架构检查通过；已修缓存权限与JIT临时目录；作业723727运行中 | 图文/工具HTTP、KV cache和长请求吞吐尚未验收 |
 | HLE | 固定源码、独立44包锁；2500题文件/ID/342图像计数核对；自造图文与schema检查通过 | 接入冻结的Qwen推理及Judge运行参数；不把安装通过当成正式评分完成 |
 | SWE Pro HARD-51 | 固定源码、Harbor/mini环境、完整51任务、镜像digest | 镜像缓存、容器内mini依赖锁，以及官方locked流程的phase断网与模型白名单 |
 | Terminal-Bench2 | 80/HPC固定Harbor0.24与完整89任务；89项均有预构建镜像，无Compose任务；两端真实TB镜像的Harbor/两次exec/tmux/asciinema/停止合成闭环通过 | 全量镜像预拉/容器启动、冷启动超时收尾、实际Slurm资源与端点验收 |
@@ -36,4 +36,8 @@ HPC的完整自造Harbor检查已通过：启动31.14秒，两次exec成功，�
 
 后续真实TB镜像检查在两端均通过（约52秒）：项目内fakeroot1.25.3配合官方root-map模式，基础设施启动hook处理既有Python路径、服务解释器副本与apt sandbox用户，未改固定SIF或上游源码。统一入口为`scripts/run_harbor_singularity.sh`，80还使用官方`APPTAINER_IGNORE_SUBUID=1`选较低权限模式。此适配不提供完整多UID映射、网络策略或资源限额。另一次冷启动超过上游60秒窗口并卡在launcher收尾，已清理；当前正常启停成功不能保证全部镜像的冷启动超时路径。
 
-Base运行容器18,337,001,472B已重新计算SHA-256，与原回执一致；身份固定在`configs/envs/base_runtime_container.json`。GPU smoke脚本为`scripts/smoke_base.slurm`。首个四卡作业723633因排队预测延后，确认仍PENDING后由本次工作取消，未占GPU；现以`sbatch --partition=acd_ue --gres=gpu:2 --mem=128G`提交作业723673（2GPU/16CPU/128GiB/30min），等待结果。仅做自造文本/图片/工具往返，不是正式Base跑分或正式资源冻结。
+Base运行容器18,337,001,472B已重新计算SHA-256，与原回执一致；身份固定在`configs/envs/base_runtime_container.json`。GPU smoke脚本为`scripts/smoke_base.slurm`，本轮检查用2GPU/16CPU/128GiB/30min。四卡723633在PENDING时取消、未占GPU；723673在2秒内被站点包装器误判工作目录参数为sandbox，已改等号参数并在同SIF CPU预检查通过；723693识别两张H100 80GB、驱动610.43.02，但Triton默认缓存落到无写权限的模块目录，模型类inspection失败，尚未加载权重。现已显式设项目内Triton/vLLM/TorchInductor/FlashInfer/HF/XDG缓存，再提交723706。保留所有失败日志，未改HOME/系统/管理员wrapper。仅做合成检查，不是正式跑分或资源冻结。
+
+723706后续通过架构/NCCL和26分片加载（52.98秒，rank0报告模型32.86GiB），但FlashInfer GDN及MoE首次编译因容器私有`/tmp`耗尽退出，没有HTTP成功。现给作业独立项目临时目录bind到`/tmp`，并设`MAX_JOBS=4`限制ninja并发；723727已在ACD1-7运行，等待结果。
+
+用户已授权提高HPC任务优先级。后续Slurm默认分区改为`emergency_acd`，PriorityTier/JobFactor=300，高于`acd_ue`的200；仍用本人qinlucao账号/formal-user QoS，提交预检查通过。当前723727已运行，不重新排队；不调整原有其他项目作业722434。

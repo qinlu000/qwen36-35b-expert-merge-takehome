@@ -37,17 +37,21 @@ donor 的 Torch 与 vLLM 顶层 import 已在登录节点通过；直接导入 C
 
 ## GPU smoke：已提交，等待实际结果
 
-新增 `scripts/smoke_base.slurm` 与 `scripts/smoke_base.py`。已做本地 Python 语法、CLI help 和 Bash 语法检查；核实 Slurm 的 `partition=acd_u/acd_ue / qos=formal-user / account=qinlucao`，以及当前 vLLM 的 `VLLM_API_KEY` 环境变量认证和 `--no-enable-log-requests` 原生开关。80和HPC完整40文件/26分片独立校验通过后，2026-10-16首个四卡作业723633提交到`acd_ue`；排队预测由00:40推迟至04:18后，确认仍PENDING并取消，没有占用GPU。改提交两卡作业 **723673**，等待实际结果。当前命令：
+新增 `scripts/smoke_base.slurm` 与 `scripts/smoke_base.py`。已做本地 Python 语法、CLI help 和 Bash 语法检查；核实 Slurm 的 `partition=acd_u/acd_ue / qos=formal-user / account=qinlucao`，以及当前 vLLM 的 `VLLM_API_KEY` 环境变量认证和 `--no-enable-log-requests` 原生开关。80和HPC完整40文件/26分片独立校验通过后，2026-10-16首个四卡作业723633提交到`acd_ue`；排队预测由00:40推迟至04:18后，确认仍PENDING并取消，没有占用GPU。改为两卡合成检查，当前作业 **723727** 在ACD1-7运行。用户授权提高优先级后的后续提交命令：
 
 ```bash
 cd /data/user/qinlucao/projects/apex-takehome
-sbatch --partition=acd_ue --gres=gpu:2 --mem=128G scripts/smoke_base.slurm
+sbatch --gres=gpu:2 --mem=128G scripts/smoke_base.slurm
 ```
 
-Slurm脚本默认请求4 GPU、16 CPU、192 GiB RAM、30分钟；当前排队作业覆盖为2 GPU/128 GiB，其余不变。通过现有 Ubuntu 24.04 SIF `--nv` 启动，清洁环境中显式保留 Slurm 的 `CUDA_VISIBLE_DEVICES`，服务只监听 `127.0.0.1:18000`。候选参数是 BF16、按实际可见卡数选TP2或TP4、262,144 上下文、`qwen3_coder` tool parser、`qwen3` reasoning parser、served model `apex-qwen`；为减小 smoke 启动成本额外用 eager 和最多4个并发序列。这些仅用于smoke，没有冻结正式thinking偏好、吞吐设置或四卡正式服务配置。
+Slurm脚本默认请求4 GPU、16 CPU、192 GiB RAM、30分钟；当前检查作业覆盖为2 GPU/128 GiB，其余不变。通过现有 Ubuntu 24.04 SIF `--nv` 启动，清洁环境中显式保留 Slurm 的 `CUDA_VISIBLE_DEVICES`，服务只监听 `127.0.0.1:18000`。候选参数是 BF16、按实际可见卡数选TP2或TP4、262,144 上下文、`qwen3_coder` tool parser、`qwen3` reasoning parser、served model `apex-qwen`；为减小 smoke 启动成本额外用 eager 和最多4个并发序列。这些仅用于smoke，没有冻结正式thinking偏好、吞吐设置或四卡正式服务配置。
 
 API key 由 Python 生成到 Git 忽略的 `artifacts/private/base_smoke_api_key`（目录 0700、文件 0600）。只通过服务子进程的 `VLLM_API_KEY` 环境变量及请求内存中的 Authorization header 使用，不放进模型命令行、请求 JSON 或日志。`--prepare-only` 仅创建私有文件和输出目录，不用 GPU、不读权重、不启动服务；后续重复运行使用同一项目私有 key。
 
-服务健康等待最多 600 秒；随后检查认证，以及四次合成请求：纯文本、32×32 红色 PNG、`add_numbers(17,25)` 自动 tool call、tool 返回 42 后的回答。每次保留请求、响应、usage、延迟，并记录 GPU 型号、UUID、驱动及显存快照。结果写入 `artifacts/preflight/base-smoke-<jobid>/summary.json` 和同目录 `server.log`；Slurm 输出在 `artifacts/preflight/base-smoke-<jobid>.log`。超时或失败返回非零；结束和 SIGTERM/SIGINT 时向整个服务进程组发 TERM，等待主进程最多 20 秒，再清除残余进程组。当前没有任何 GPU smoke 成功回执，不能据脚本准备状态宣称模型已加载或 HTTP 验收通过。
+实际失败保留：723673在2秒内退出，管理员wrapper将`--project /data/...`的工作目录参数当作sandbox；实际镜像一直是标准SIF。改用`--project=/data/...`后，同一wrapper/SIF上的CPU `--prepare-only`已成功，没有修改或绕过wrapper。723693在ACD1-30运行2m55s，Torch/NVML识别两张H100 80GB HBM3与驱动610.43.02；vLLM架构inspection时Triton写`/data/apps/apptainer/1.4.5/.triton`失败，权重未加载。脚本现将`TRITON_CACHE_DIR`、`VLLM_CACHE_ROOT`、`TORCHINDUCTOR_CACHE_DIR`、`FLASHINFER_WORKSPACE_BASE`、`HF_HOME`与`XDG_CACHE_HOME`显式指向项目已绑定的`artifacts/cache/base-runtime`，没有改HOME或安装目录。723706是这一修复后的重试，不把前两次失败计作成功。
 
-2026-10-16 复核：安装的 vLLM 0.20.2 参数解析接受 TP2/TP4、BF16、262,144 上下文及现有 parser 参数；CPU 检查没有构建 engine。Python 检查脚本支持两卡或四卡，Slurm 默认仍申请四卡。显存查询现按 Torch 的可见 CUDA 设备 UUID 调用 `nvidia-smi`，并记录 CUDA→UUID 映射，避免将 Slurm 重编号后的 CUDA 序号误当成 NVML 物理序号。候选备用队列 `acd_ue` 允许当前账号使用，提交时须显式覆盖默认分区；排队预测不等于已经获配 GPU。
+723706已完整加载26分片，权重加载52.98秒，rank0报告模型32.86GiB；后续FlashInfer GDN及fused MoE的NVCC编译均因容器私有`/tmp`耗尽退出，没有独立工具链兼容错误证据。脚本现在将作业独立项目临时目录bind到`/tmp`，并设`TMPDIR=/tmp`和实际生效的`MAX_JOBS=4`，保持原GPU数、上下文及数值backend；723727是该修复后的重试。原失败日志保留。
+
+服务健康等待最多 600 秒；随后检查认证，以及四次合成请求：纯文本、32×32 红色 PNG、`add_numbers(17,25)` 自动 tool call、tool 返回 42 后的回答。每次保留请求、响应、usage、延迟，并记录 GPU 型号、UUID、驱动及显存快照。结果写入 `artifacts/preflight/base-smoke-<jobid>/summary.json` 和同目录 `server.log`；Slurm 输出在 `artifacts/preflight/base-smoke-<jobid>.log`。超时或失败返回非零；结束和 SIGTERM/SIGINT 时向整个服务进程组发 TERM，等待主进程最多 20 秒，再清除残余进程组。当前权重GPU加载已通过，尚没有HTTP合成请求通过回执；不能把加载成功当作服务验收通过。
+
+2026-10-16 复核：安装的 vLLM 0.20.2 参数解析接受 TP2/TP4、BF16、262,144 上下文及现有 parser 参数；CPU 检查没有构建 engine。Python 检查脚本支持两卡或四卡，Slurm 默认仍申请四卡。显存查询现按 Torch 的可见 CUDA 设备 UUID 调用 `nvidia-smi`，并记录 CUDA→UUID 映射，避免将 Slurm 重编号后的 CUDA 序号误当成 NVML 物理序号。此前使用`acd_ue`。用户随后授权提高优先级，脚本默认分区改为允许当前账号使用的`emergency_acd`（PriorityTier/JobFactor300，原acd_ue为200），提交预检查通过。723727已运行，保留其原分区不重启；后续用默认配置即选高优先级分区。

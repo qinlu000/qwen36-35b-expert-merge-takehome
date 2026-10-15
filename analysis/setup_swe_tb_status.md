@@ -110,7 +110,7 @@ JSON 的等价写法为 `environment.type=null`、`environment.import_path="apex
 
 ## 进行中的镜像下载与传输
 
-80 已按官方发布 SHA256 校验 `apptainer_1.4.5_amd64.deb`，仅在 `artifacts/tools/apptainer-1.4.5/rootfs` 解包；`buildcfg` 确认为 `APPTAINER_SUID_INSTALL=0`。配置文件位于项目内，mksquashfs 限制每进程 2 CPU / 1 GiB，prefetch 初始并发 2，后调至 4；2026-10-16 00:17 经主线明确授权调至 8，下载过程未执行容器内容。安装复现脚本为 `scripts/install_apptainer_user.sh`。[官方发布资产](https://github.com/apptainer/apptainer/releases/expanded_assets/v1.4.5)
+80 已按官方发布 SHA256 校验 `apptainer_1.4.5_amd64.deb`，仅在 `artifacts/tools/apptainer-1.4.5/rootfs` 解包；`buildcfg` 确认为 `APPTAINER_SUID_INSTALL=0`。配置文件位于项目内，mksquashfs 初始限制每进程2 CPU/1 GiB；00:39发现大型镜像进入压缩后，将后续新builder调为4 CPU/1 GiB，不重启或丢弃在途拉取。prefetch 初始并发2，后调至4，2026-10-16 00:17调至8；8个builder最多约32压缩CPU，仍低于采样空闲资源。下载过程未执行容器内容。安装复现脚本为 `scripts/install_apptainer_user.sh`。[官方发布资产](https://github.com/apptainer/apptainer/releases/expanded_assets/v1.4.5)
 
 - 下载脚本：`scripts/prefetch_benchmark_images.py --root <project> --workers 8`；80 当前后台 PID 为 2262293，记录于 `artifacts/preflight/swe_tb/image-prefetch.pid`，日志为同目录 `image-prefetch.log`，每镜像独立拉取日志在 `image-pulls/`。本次安全重启前 72 个 SIF 已缓存；停止并核对旧 PID 1134008 及本任务子进程后，继承原代理环境重启，新进程恢复 72 个缓存、0 失败，实见 8 个 pull 子进程。最终 SIF 与完成的 layer cache 未删除，旧日志/进度和重启回执保存为 `image-prefetch.workers4.20261016-001702.log`、`image-prefetch.progress.workers4.20261016-001702.json`、`image-prefetch-restart.20261016-001702.json`。
 - 完整进度与每个产物的 SIF SHA256：`artifacts/benchmarks/sif/_prefetch_progress.json`。先按 manifest digest 保存数据，再创建与固定 Harbor cache 规则一致的原 tag 同名 symlink。只解析 SIF 分区表并哈希二进制，不打开内部任务文件。

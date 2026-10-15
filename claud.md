@@ -516,7 +516,7 @@
 - 固定Base revision的40文件/71,926,865,825B已在80和HPC完整落盘，分别验证LFS SHA-256、小文件Git blob SHA-1，以及26个safetensors分片/1,045张量与固定index一致，failures为空。HPC最终回执00:25:55；关闭本次43873只读传输服务并清理6.66GB重复断点，保留失败日志。
 - 用户说明没有sudo；不再要求系统安装。80使用项目内Apptainer1.4.5，HPC使用集群模块。140个固定digest的SWE/TB镜像继续缓存与同步；CPU/RAM实测有余量后，预取已安全提升至8worker，保留旧日志与已完成layer/SIF。大型镜像进入压缩后，后续builder的mksquashfs从2调至4CPU/1GiB，不重启在途拉取。
 - ASI OpenCode模型配置原来默认无图片输入，已补attachment/modalities；断网真实OpenCode解析与官方adapter合并检查通过，无模型调用。SWE/TB真实镜像发现Python路径、apt降权/ownership、系统Python替换server解释器的问题，已用项目只读hook与官方用户态fakeroot适配；80以官方IGNORE_SUBUID选root-map模式，不改系统helper。两端真实TB镜像约52秒完成Harbor/两次exec/tmux/asciinema/停止合成闭环；另一次上游60秒冷启动超时有收尾缺口，已清理并保留失败证据。全量SIF、SWE phase网络、ASI隔离与正式资源仍待完成，不能把首例成功冒称全部ready。
-- 修复GPU检查的Slurm CUDA序号/NVML物理序号混用，改用Torch设备UUID并记录映射；候选TP2/4参数的CPU解析通过。完整权重后四卡作业723633的排队预测延后，确认仍PENDING后取消、未占GPU；改提交acd_ue两卡/16CPU/128GiB/30min合成作业723673，当前排队，不代表正式资源配置冻结。未运行正式题或训练，详见analysis/environment_setup_status.md。
+- 修复GPU检查的Slurm CUDA序号/NVML物理序号混用，改用Torch设备UUID；候选TP2/4参数CPU解析通过。四卡723633在PENDING时取消、未占GPU；两卡723673被站点wrapper误判目录参数为sandbox，改--project=后同SIF CPU预检查通过；723693识别两H100/驱动610.43.02，但Triton缓存无权限，权重未加载。已将编译/模型缓存显式落项目内，保留失败日志，重提acd_ue两卡/16CPU/128GiB/30min合成作业723706等待结果。未改HOME、系统或管理员wrapper，未运行正式题或训练，详见analysis/environment_setup_status.md。
 
 ## 2026-10-16：明确重申训练—评测一致性优先
 
@@ -571,3 +571,8 @@
 - 32K与题定TB的80K单次输出算术不兼容，若Terminal也用32K必须同步改输出并标资源受限；题定256K/80K/3h/32CPU/48GiB/五seed要求未被替代，也未获面试方认可更改。
 - 明确风险：mini无原生摘要，工具历史可能提前触顶；Terminus32K需重新核摘要预留和触发，旧86016阈值不可沿用；HLE图文真实长度不能假定全部容纳，保留完整题图，ASI程序可能length截断。缩短上限不加速相同短请求，不承诺吞吐翻倍或质量不降；用独立dev再决定某项是否统一保留64K，不对正式低分题临时扩窗。
 - 仅更新agent_resource_protocol与本日志并Git记录，保留其他工作流修改；没有改protocol_v1、运行模型/API/任务/GPU或安装依赖。
+
+## 2026-10-16：提高本项目HPC调度优先级
+
+- 用户明确授权提高HPC任务优先级。核本人账号与分区ACL后，将后续Slurm默认分区从acd_u改为emergency_acd，PriorityTier/JobFactor=300（本轮此前实际用acd_ue=200）；仍用qinlucao账号/formal-user QoS，不设置管理员专用priority/负nice。脚本已同步HPC，sbatch --test-only预检查通过，不产生真实新作业。
+- 当前723727已在ACD1-7运行，不为调度优先级重启或重复申请；未操作其他项目原有722434。此前723706已经完整加载26分片，但FlashInfer首次编译耗尽私有/tmp而失败；新作业已挂项目独立/tmp并限制MAX_JOBS=4，保留失败证据，等待HTTP验收。140镜像缓存到90个、0失败，继续同步，未运行正式benchmark或训练。

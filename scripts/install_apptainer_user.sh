@@ -19,7 +19,8 @@ python3 - "$DEST/rootfs/etc/apptainer/apptainer.conf" <<'PY'
 from pathlib import Path
 import sys
 p = Path(sys.argv[1])
-s = p.read_text().replace('mksquashfs procs = 0', 'mksquashfs procs = 2')
+s = p.read_text().replace('mksquashfs procs = 0', 'mksquashfs procs = 4')
+s = s.replace('mksquashfs procs = 2', 'mksquashfs procs = 4')
 s = s.replace('# mksquashfs mem = 1G', 'mksquashfs mem = 1G')
 p.write_text(s)
 PY
