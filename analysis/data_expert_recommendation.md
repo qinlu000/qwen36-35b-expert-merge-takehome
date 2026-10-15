@@ -2,6 +2,8 @@
 
 2026-10-15核验。用户已确认ms-swift训练框架、三专家划分与直观名称；数据来源/配比、训练超参数和评测执行条件仍待讨论，没有恢复实验实现或执行。主要变化是把原“科学专家负责HLE+ASI”改为按任务行为划分：**仓库修复专家负责SWE，交互执行专家负责TB+ASI，学术推理专家负责HLE。** 原始总训练预算暂不扩大。
 
+本轮按四项目标新增来源与取舍见[训练数据清单](benchmark_training_data.md)，其中D3科研程序SFT是新候选，尚未加入下载或通过资格检查。下载继续保持暂停。
+
 专项证据：[修复数据](data_swe_sources.md)、[终端数据](data_terminal_sources.md)、[科学数据](data_science_sources.md)、[专家划分参考](expert_partition_research.md)。本稿的比例、抽样和dev方案均为工程/研究判断，不能当作论文已证实的最优配方。
 
 ## 1. 已确认的三专家，按行为与产物区分
@@ -51,7 +53,7 @@
 | --- | --- | --- | --- |
 | 多语言修复 | [Open-SWE-Traces](https://huggingface.co/datasets/nvidia/Open-SWE-Traces/blob/1db674173119d71df45c22007af99e214600711a/README.md) v1.1 mini-swe-agent，Qwen3.6教师分区 | [SWE-smith现成轨迹](https://huggingface.co/datasets/SWE-bench/SWE-smith-trajectories/blob/08e109b4a59eaeebf80e4675cd125d42e7ac99a4/README.md) | CC BY 4.0 / MIT及逐repo许可；排除SWE Pro repo和同源任务；工具模板可对齐 |
 | 通用执行 | [Nemotron-Terminal-Corpus](https://huggingface.co/datasets/nvidia/Nemotron-Terminal-Corpus/blob/a1667c4ffdadea02a89bffe4f1bb7ca2ff19f8d9/README.md) skill-based | [OT-Agent-SFT-100K](https://huggingface.co/datasets/open-thoughts/OpenThoughts-Agent-SFT-100K/blob/45fb28fcc38d352133cb28a1c8a43a2f14fea97b/README.md) SuperUser来源 | CC BY 4.0 / Apache声明与上游归属；排除评测派生；多轮与工具返回完整 |
-| 科研执行 | 同一Terminal Corpus的scientific_computing/data_science文件分区 | 少量独立数值/图表任务仅作后续缺口补充 | 可按固定路径抽取；不是已复现ASI的科研轨迹，缺研究复现/完整论文覆盖 |
+| 科研执行 | 新候选[D3-Gym-Trajectories](https://huggingface.co/datasets/osunlp/D3-Gym-Trajectories)科研推理/程序SFT；Terminal科学子池作终端行为辅助 | AutoSDT静态程序备选；独立环境少量补采仅待明确缺口后考虑 | D3为instruction/input/output，未证多轮工具消息；需原repo映射、许可与ASI同源筛选，尚未纳入下载或锁定主配方 |
 | 广域学术推理 | [OpenScienceReasoning-2](https://huggingface.co/datasets/nvidia/OpenScienceReasoning-2/blob/174b02c9cdf231f220765b2a1d5ece4550921894/README.md) | [OpenR1-Math default](https://huggingface.co/datasets/open-r1/OpenR1-Math-220k/blob/e4e141ec9dea9f8326f4d347be56105859b2bd68/README.md)补数学；OpenThoughts科学部分为替补 | 前者CC BY 4.0，为文本合成推理，不是工具轨迹；保留完整答案，核对验证与来源信号 |
 
 主源不是“已经清洗好”。Open-SWE的上游[SWE-rebench-V2作者卡](https://huggingface.co/datasets/nebius/SWE-rebench-V2/blob/10483de0f50fe5da545942705a76c6150171af7f/README.md)明确只排原始SWE-bench仓库，没有显式过滤其他benchmark。其resolved字段只表示执行结果，不能证明没有本题污染。Open-SWE mini与LockedMiniSwe同谱系也不证明工具协议相同。许可不明、已发现评测关联、或修复任务无法恢复repo/任务ID的记录排除。合成推理没有逐题URL时，保存固定分片/行号、题面hash与生成recipe，明确few-shot来源及近重复审计局限；不把这些索引冒充原题来源证明。

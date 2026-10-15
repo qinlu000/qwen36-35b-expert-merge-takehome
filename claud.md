@@ -231,3 +231,12 @@
 - 用户问合版模型的harness。明确合的是参数，不合agent框架：同一固定合版权重分别接SWE LockedMiniSwe、TB Terminus2、待锁ASI adapter与HLE协议；每项与Base/目标专家配置预算一致，只替换模型权重/标识。
 - 训练样本保留原协议上下文与工具定义，多协议遵循和合版后的格式/执行退化由独立dev验证；正式阶段不切专家adapter、不做任务路由、不为合版增加特殊补救prompt。已补充数据方案v3。
 - 下载继续保持用户“等一下”后的暂停状态，已下载和分段文件保留；本轮只更新解释文档，没有恢复下载、读取样本、训练或评测。
+
+
+## 2026-10-15：按四项benchmark补查训练数据
+
+- 用户要求联网查面向四项的训练来源。并行核作者数据卡、论文、代码与HF文件/schema；新增综合清单analysis/benchmark_training_data.md和SWE/ASI/Terminal专项证据，链接至PROJECT_PLAN及数据方案v3。
+- SWE新增SI2CA standard（10,780同题Python轨迹，明确bash(command)）及Orchard备选；不据mini框架同名宣称观察/结束协议匹配，也不自动替换已固定Open-SWE版本。Terminal主线仍是skill-based；新增Nex Agent-SFT的agentic_code多轮消息备选（ODC-BY，未证Terminus原生），Endless约2500个Harbor任务环境需目标协议补采，代码与数据许可分开记录。
+- ASI新发现D3-Gym及其现成32B科研推理/程序SFT（2,153条、约72MB），是值得补充的候选；公开instruction/input/output不证明多轮工具反馈，训练到repo映射/上游许可/ASI同源仍待核。AutoSDT备选，SciForge仅方法/环境，不把未核发布写成已获训练池。
+- HLE维持OpenScience跨学科推理为主、OpenR1补数学；补查Nemotron-Science-v1和仅50条公开图文题的Multimodal-STEM-HLE++，不自动采用或据营销宣称效果。现有文本主线仍有图像训练覆盖缺口，HLE正式test及其重标注/解题轨迹不作训练。
+- 保留三专家与原token预算。本轮只提供来源/协议证据与建议，未读数据行/参考答案/隐藏测试、未恢复暂停下载、未下载新池、调用模型API、安装或启动采集/训练/评测；新候选没有进入data_sources.json。
