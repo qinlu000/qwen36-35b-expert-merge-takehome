@@ -616,3 +616,11 @@
 - SWE固定mini2.4.6、官方bash/prompt/观察/结束、30min与fresh replay；TB固定Terminus2原生JSON/tmux和提前摘要、30min/4CPU/8GiB；ASI选官方direct_llm单程序单执行、生成执行共20min；HLE完整2500含342图像、单答无工具、每题5min。传输至多两次且只允许明确未生成的失败，原生解析反馈与同请求重试分开。
 - TB明确标resource_constrained_experiment，保留题定256K/80K/3h/32CPU/48GB参考配置，不冒称符合题定要求或已有面试方例外许可。HLE/ASI替代DeepSeek Judge单独披露，Judge不适用policy统一8K。
 - 起始部署设计为一个TP2服务、4活跃模型序列、8准入solver，训练评测分时，总卡数不超过4。已有TP2短文本/图片/工具smoke通过，不等于64K长输入/并发/隔离验收；实际适配仍待执行。本文定稿没有运行正式题、训练、评分API或提交GPU作业。
+
+## 2026-10-16：区分启动前必须锁定的设计与执行验收
+
+- 用户问还有什么需要一开始确定。复核v2、dev_ablation_plan、readiness_training/readiness_data及数据建议；不把既有harness/context/output/split/Judge选择重复列为未决，也不将未验收误写成未决策。
+- 正式Base前：明确资源受限TB与题定结果的提交口径；落实并验收v2真实参数/共享deadline/重试/配额。正式评分前完成Judge独立校准并冻结版本；校准不必阻塞Base生成与产物固化。若需修改已锁协议，正式比较对象使用同一修订版重跑，不逐题扩预算。
+- 训练前仍需冻结最终来源资格与任务族train/val-loss/task-dev互斥manifest、去污染及去重边界；现有70题task-dev/100K token val-loss只是建议，非已构建独立集。推理关闭thinking不自动决定teacher think清洗，训练长轨迹/状态/新增assistant监督mask及训练窗口需另定。
+- 训练/选择前冻结同结构LoRA与同数据混训公平预算、候选checkpoint/AVG/TIES数量及dev主指标和近似持平规则。具体LR/batch/序列长度与有效并发依小规模吞吐验收再选，不需在无实测时拍数，也不必全部阻塞Base。
+- 建议沿用不加RL/偏好优化与大规模补采的SFT主线；优先必需参评对象与报告，保留10月18日14:20截止前12小时整理窗口（核心实验止于10月18日02:20，北京时间）。本轮为待讨论缺口梳理，未将这些建议擅自标成用户已确认，未启动任务、训练或API。
