@@ -134,3 +134,11 @@
 - 近邻SFT脚本为Qwen3.5-35B-A3B、单节点8GPU/EP8且含CPU optimizer offload；框架支持colocate/小卡数，但不是目标3.6四卡LoRA实测。LoRA接线/保存恢复/HF导出仍未核实，不写成不支持。32卡不是框架最低要求。
 - Docker在quickstart中是可选，不能将无Docker视为框架绝对障碍。Dressage的Harbor extra0.18与SWE V2新版协议应分环境处理。
 - 简化方案追加直接采用框架的候选路线与未来2h兼容验证门槛；如果需要改Megatron核心再回到ms-swift。当前没有擅自切换主训练方案、写实验代码、安装或跑任务。
+
+## 2026-10-15：用户重点为LoRA，收窄Dressage采用建议
+
+- 用户澄清主要需要LoRA。分工核验固定provider/optimizer/checkpoint/HF转换及当前官方main、未合并PR；SFT入口与LoRA闭环区分记录在 `analysis/dressage_reuse_plan.md` 第10节。
+- Dressage仍固定3e3142f及Slime aaf5c209；默认provider没有核到LoRA transform，冻结扩展点不是adapter注入证据。Megatron的q-lora-rank/kv-lora-rank为MLA架构参数。Bridge浮动依赖不能当作当前能力已在固定组合接线的证明。
+- 找到实际MoE LoRA代码Slime PR #2440（Open，头a988346413582c1567330675592286387168b9a9）；支持注入/冻结/保存/merged HF设计，但adapter是自定义Megatron分片且无PEFT转换器，示例Qwen3-30B八卡GRPO，尚无准确模型四H100离线SFT验证。PR #1865 dense-only，#1140也仍Open，不能代替本题证据。
+- 结论收敛：LoRA为重点时维持ms-swift/PEFT BF16 SFT主线建议，Occamy供多专家合版思路，Dressage供轨迹参考；不把更新Slime main写成即用LoRA，不为截止窗口加入未合并Megatron适配工作。训练/合版/评测方案尚待共同讨论确认。
+- 仅更新文档；未写实验代码、安装依赖、下载权重/训练数据、调用模型API、提交GPU任务或执行评测；本机既有未提交scripts/logs保持不动。

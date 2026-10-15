@@ -122,3 +122,21 @@ SWE V2 HARD-51/locked protocol并fresh-image replay；HLE建议完整2500含图�
 因此，可选做法是“保留Dressage仓库，直接走其Slime离线SFT路径”，复用训练循环与数据入口，再接本项目的独立专家、AVG/TIES及正式评测。它仍不自动提供本题数据、三专家调度、合版选择或四项结果统计。
 
 若用户选择该路线，建议把后续首段环境验证中的最多2h用于准确模型LoRA、四卡前后向/显存、mask与HF导出闭环，并据实测吞吐冻结训练量；若需修改Megatron核心，当前窗口回到较短的ms-swift路径。此为待讨论的采用门槛，本轮没有安装或执行，也尚未切换已拟定训练主线。
+
+## 10. 用户重点为LoRA后的结论：暂不直接采用Dressage训练主线
+
+截至2026-10-15，本节收窄第9节的候选建议：**离线SFT入口存在，不代表已经接好LoRA。** 固定Dressage/Slime组合没有核到可直接启用的目标模型LoRA闭环；不能把Megatron透传参数、按名冻结或Bridge依赖本身写成adapter注入/保存/导出已实现。
+
+| 路径 | 已核一手证据 | 对本题的判断 |
+| --- | --- | --- |
+| Dressage固定Slime `aaf5c209…` | 默认provider构建GPT/AutoBridge后可按名冻结；优化器跳过冻结参数，但没有在这条默认路径调用LoRA transform | 有适配扩展点，尚不能按现成LoRA配置直接采用 |
+| [Slime PR #2440](https://github.com/THUDM/slime/pull/2440)，头提交 `a988346413582c1567330675592286387168b9a9` | Open，未合并；新增 `--use-lora`、冻结base、dense/hybrid/shared及routed MoE注入、保存恢复和merged HF导出 | 有实际代码，是最相关实验性候选；不是Dressage已包含功能 |
+| [PR #1865](https://github.com/THUDM/slime/pull/1865) / [PR #1140](https://github.com/THUDM/slime/pull/1140) | 均Open；前者Bridge实现明确dense-only/拒绝MoE，后者FSDP作者报告小型dense运行 | 不能作为指定35B MoE四卡配方证据 |
+
+[#2440固定文档](https://github.com/THUDM/slime/blob/a988346413582c1567330675592286387168b9a9/docs/en/advanced/lora.md)明确adapter为自定义Megatron分片格式，不能直接用PEFT/SGLang原生adapter加载，也没有格式转换器。merged HF导出依赖既有架构转换支持。示例为Qwen3-30B-A3B、八GPU、GRPO，仍需验证准确Qwen3.6四H100离线SFT。其两GPU测试主要覆盖FP32线性层/TP及checkpoint，不证明BF16 actor/DDP optimizer、MoE多卡checkpoint或真实SGLang同步。PR作者的运行声明不等于本项目实测或维护者合并认可。
+
+因此，若主要需求是训练多份LoRA并合版，建议维持 **ms-swift + PEFT、BF16 LoRA** 主线：准确模型已注册、同架构有四进程近邻示例，adapter和HF权重接口更接近本题交付。仍须验证实际目标模块、四卡显存/吞吐、冻结base、保存恢复及导出，不宣称已跑通。复用证据见 `references_training.md`。
+
+计划保持相同base/revision与target布局分别训练领域LoRA，在完整更新 `Delta_i = (alpha_i/r_i) B_i A_i` 上做AVG/TIES；不分别平均A/B。保留Occamy专家分工与合版思路，Dressage仅借轨迹/分段/mask参考。当前不引入未合并Megatron LoRA适配工作，也未得到用户对实验执行的确认。
+
+本轮仅查阅公开代码与更新文档，没有安装、下载模型/训练数据、写实验代码、调用模型API或启动GPU任务。
