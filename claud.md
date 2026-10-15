@@ -745,3 +745,13 @@
 - 训练配置确定后只做一次诊断：短样例loader/mask/反向/保存重载，再在同一初始化中测各域真实代表长度及Mixed批次、稳态完整更新成本与显存。诊断adapter丢弃，不包装为有效训练；按批次计划耗时与所有初始化/验证/导出开销反推最终可容纳清单。
 - 最终先覆盖主要合格类别，再用一次预定Base独立dev聚合诊断和公开分布决定补充优先级，训练前冻结共同manifest；不先规定四桶等token/等时长。专家与Mixed同窗口multiset/次数/mask，分别记录N/L/P/S/padding/更新数与GPU时，超预算共同缩量，不只缩水对照。
 - 本轮仅做可审阅计划与交叉核对，未下载新数据、选题/清洗导出、修改训练或正式评测配置，未运行任务/模型/API/GPU或训练，保留其他工作流WIP；仅本轮文档纳入Git并同步80。
+
+## 2026-10-16：数据配比与四项提分经验的联网核验
+
+- 用户询问网上配比与各benchmark提分经验。本轮research并行真实联网读一手消融、论文/作者配方与数据卡，新建data_mixture_benchmark_evidence总报告及mixture_evidence_swe/terminal/science三专项，交叉审阅后收敛。依据最新sft_budget_redesign，不恢复旧6M/15M或固定任务数默认，也不新增配比训练搜索。
+- SWE-Prime直接Pro public731消融：全成功31.05、随机10%27.22、精选10%30.92、精选+片段mask34.75；最终是复合干预且非等token/步数证明，不叫10%最优。Orchard同模型切评测harness可大幅下降，但该表为Verified，不能当本题HARD51结果；来源百分比只是收集构成。
+- Terminal核到Nemotron广技能/混合经验，同时全量vs成功264K/83K有数据量混杂；TMax现代Qwen3.5 TB-Lite退化、TB2.1无可靠收益而large均值略升，不能概括两项都下降。LiteCoder多域整体收益不等于每个域都提高TB2；没有Terminal:ASI固定比直接证据。
+- HLE最清楚的来源配比SFT实验为Nemotron-Math总example相同，AoPS一半换StackExchange-Math：high无Python HLE-Math12.22到13.60；有Python22.54到24.67。仅976道纯文本数学、长推理120K、未证等token，不是当前全2500图文/非思考8K最优比。OpenThoughts数学85万/代码25万/科学10万中，HLE512文本MCQ起点12.7到10.2，说明邻近推理指标改善不保证HLE改善。
+- ASI未核到当前direct_llm/Qwen3.6的直接SFT比例消融；D3完整程序SFT有ScienceAgentBench邻近收益，包括非思考4B-Instruct4.2到7.2平均SR，仍不能报成ASI收益。完整CoT论文收益亦不能自动外推删teacher think后的答案监督。
+- 一般SFT研究显示较优比例随基座和总预算变化；Tulu3域删除实验支持定向技能与部分通用能力保留，不证明通用70/20/10。区分专家内部来源比、专家间数据/计算量、合版系数；并列记录独立任务N、完整长度L、实际processed P和新增assistant监督S，不从四项等权得出数据各25%。
+- 当前可行动建议仍为合格同harness优先、保留有效定位/修改/验证及恢复、按语言/任务/学科/模态覆盖、核清后监督内容，再以一次有限独立dev聚合诊断和真实训练成本冻结一份manifest。未下载/选样/清洗导出、调用模型/API、运行任务、GPU或训练、修改配置；保留其他工作流WIP，仅本轮四份报告与本节纳入Git。
