@@ -1,0 +1,293 @@
+{
+  "passed": true,
+  "as_of_utc": "2026-10-15T19:41:52.392087+00:00",
+  "benchmark_conditions_executed": 0,
+  "judge_calls": 0,
+  "formal_launch_not_performed_by_this_agent": true,
+  "synthetic": {
+    "passed": true,
+    "count": 10,
+    "remote_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi/baseline-v2-oz67cltc/summary.json",
+    "cases": [
+      {
+        "name": "env24-science",
+        "passed": true,
+        "seconds": 4.357,
+        "status": "completed",
+        "execution_count": 1,
+        "generation_requests": 1
+      },
+      {
+        "name": "env15-science",
+        "passed": true,
+        "seconds": 1.616,
+        "status": "completed",
+        "execution_count": 1,
+        "generation_requests": 1
+      },
+      {
+        "name": "env17-science",
+        "passed": true,
+        "seconds": 2.35,
+        "status": "completed",
+        "execution_count": 1,
+        "generation_requests": 1
+      },
+      {
+        "name": "env24-deadline",
+        "passed": true,
+        "seconds": 4.012,
+        "status": "failed",
+        "execution_count": 1,
+        "generation_requests": 1,
+        "heartbeat_stopped": true,
+        "remaining_namespace_processes": []
+      },
+      {
+        "name": "env24-overflow",
+        "passed": true,
+        "seconds": 0.01,
+        "status": "failed",
+        "execution_count": 0,
+        "generation_requests": 0
+      },
+      {
+        "name": "env24-ambiguous",
+        "passed": true,
+        "seconds": 0.011,
+        "status": "failed",
+        "execution_count": 0,
+        "generation_requests": 1
+      },
+      {
+        "name": "env24-safe_connect_retry",
+        "passed": true,
+        "seconds": 3.842,
+        "status": "completed",
+        "execution_count": 1,
+        "generation_requests": 1
+      },
+      {
+        "name": "env24-length",
+        "passed": true,
+        "seconds": 4.337,
+        "status": "completed",
+        "execution_count": 1,
+        "generation_requests": 1
+      },
+      {
+        "name": "native-result-journal-resume",
+        "passed": true,
+        "completed_failure_never_regenerated": true,
+        "interrupted_attempt_never_regenerated": true,
+        "interrupted_workspace_preserved": true
+      },
+      {
+        "name": "eight-process-production-worker-concurrency",
+        "passed": true,
+        "generation_requests": 8,
+        "worker_count": 8,
+        "peak_live_memory_scopes": 8,
+        "observed_cpu_sets": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            8,
+            9,
+            10,
+            11
+          ],
+          [
+            12,
+            13,
+            14,
+            15
+          ],
+          [
+            16,
+            17,
+            18,
+            19
+          ],
+          [
+            20,
+            21,
+            22,
+            23
+          ],
+          [
+            24,
+            25,
+            26,
+            27
+          ],
+          [
+            28,
+            29,
+            30,
+            31
+          ]
+        ],
+        "statuses": [
+          "completed",
+          "completed",
+          "completed",
+          "completed",
+          "completed",
+          "completed",
+          "completed",
+          "completed"
+        ]
+      }
+    ]
+  },
+  "real_native": {
+    "passed": true,
+    "remote_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi/baseline-v2-real-5vwsf6hn/summary.json",
+    "seconds": 16.798,
+    "usage": {
+      "prompt_tokens": 207,
+      "total_tokens": 426,
+      "completion_tokens": 219,
+      "prompt_tokens_details": null
+    },
+    "exact_guard_matches_usage": true,
+    "generation_count": 1,
+    "execution_count": 1,
+    "answer": {
+      "matrix_product": [
+        [
+          7,
+          10
+        ],
+        [
+          15,
+          22
+        ]
+      ],
+      "solution": [
+        2,
+        3
+      ]
+    },
+    "collected_code": [
+      "simulation.py"
+    ],
+    "collected_data": [
+      "result.json",
+      "plot.png"
+    ],
+    "response_persisted_before_execution": true,
+    "response_sha256": "5629bc3c8cc47961837316407841a1b887642e330323896fc05c0a85d1b2b283",
+    "memory_max": 8589934592,
+    "memory_swap_max": 0,
+    "allowed_cpus": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "real_cancellation": {
+    "passed": true,
+    "remote_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi/baseline-v2-cancel-9u6gbfb3/summary.json",
+    "generation_attempts": 1,
+    "error_classes": [
+      "ReadTimeout"
+    ],
+    "disconnected_after_seconds": 6.063,
+    "peak_running": 1,
+    "after": {
+      "num_requests_running": 0,
+      "num_requests_waiting": 0,
+      "aborted": 0
+    },
+    "synthetic_min_tokens": 4096
+  },
+  "fixed_scope_preflight": {
+    "conditions": 240,
+    "parallel": 8,
+    "cpu_sets": [
+      [
+        0,
+        1,
+        2,
+        3
+      ],
+      [
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        8,
+        9,
+        10,
+        11
+      ],
+      [
+        12,
+        13,
+        14,
+        15
+      ],
+      [
+        16,
+        17,
+        18,
+        19
+      ],
+      [
+        20,
+        21,
+        22,
+        23
+      ],
+      [
+        24,
+        25,
+        26,
+        27
+      ],
+      [
+        28,
+        29,
+        30,
+        31
+      ]
+    ],
+    "model_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "protocol_sha256": "dcd28455f0ebd81d9e4b9043694eb57e9e42abb6c72f8bbe41cfa01745c1f081",
+    "source_runtime_lock_sha256": "31206038f6cc9ea4abb05dae125d6522976a10b5b35a0868d232d9adc657a860",
+    "source_uv_lock_sha256": "332c9b037eafae3a4bed4ccea54866758429715acd50175f57c9f7cd9f590dbd",
+    "inference_runtime_lock_sha256": "632490600719f2eba07a6cf1a975d17da8b6356ce6b2d955ba66f0e3a3b142d3"
+  },
+  "earlier_dev_failures_retained": [
+    {
+      "remote_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi/baseline-v2-real-la44bkbl/summary.json",
+      "reason": "model used input.json rather than data/input.json; one generation and one failed execution, no repair of that answer"
+    },
+    {
+      "remote_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi/baseline-v2-cancel-qcfkvb5d/summary.json",
+      "reason": "0.8s timeout observed idle before/after but no running gauge; inconclusive rather than passed"
+    }
+  ],
+  "source_sha256": {
+    "run_asi_baseline_v2.py": "4f063c142ce00b9ff76b1e3587ac193794684e1353f01da966fce495a2ec7419",
+    "asi_baseline_limits.py": "1a32b603cb4ff3594f32d16560045ab3b462b15cccf6d08b1eaa9e2c7db9279f",
+    "asi_baseline_smoke.py": "a13b137c97a4e089c2447640543da0d9befb06fd952059c3709e5808f95e2622",
+    "asi_baseline_real_smoke.py": "59cfdc47f19564726f5a8fee6b661b19cc5c3f613d8bfba27bf037260115b1db",
+    "asi_baseline_cancel_smoke.py": "8952712cc83149e64760e6f40b0ca8b5421e1a4b039c98eedb41b017a34090c8"
+  }
+}

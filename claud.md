@@ -868,3 +868,27 @@
 - 建议维持三专家＋同数据Mixed（仍LoRA，不要求全参）共四次SFT，AVG/TIES在独立dev比较后冻结最终；公平性锁同基座/LoRA容量/targets/窗口与mask multiset/出现次数，报告实际更新步数和GPU小时。消融候选只用dev需披露证据范围；正式必交矩阵不缩减。
 - 重新查PEFT官方文档验证rank/alpha与target概念：普通LoRA alpha/r缩放，rsLoRA另为alpha/sqrt(r)，不混用。r16/alpha32/dropout0.05只是建议起点，语言侧full+linear attention/sharedMLP目标草案不变，视觉/router/fused experts冻结；尚未批准参数或正式训练。
 - 统一夜间文档增加本次讨论。顺手修正新版小Git文件带SHA但无LFS redirect时的download_data路径，保留完整SHA验收；未扩大数据量或启动训练。
+
+## 2026-10-16：授权baseline持续推进与半小时巡检
+
+- 用户明确授权本会话睡觉期间持续推进baseline、每30分钟检查。已创建应用heartbeat apex-baseline，ACTIVE，绑定本会话；现有另一会话apex心跳不改。
+- 已读另一会话当前活动：其root正做serve_base_night常驻TP2及HLE；本会话复用job724196（ACD1-61、2卡、18000、8h），不另起重复服务/HLE。此会话三子任务只做ASI正式薄runner、Terminus2正式薄runner、SWE/TB资源/网络phase backend。工作入口analysis/baseline_progress_20261016.md，统一数据/费用仍参考overnight_progress。
+- 正式运行前完成相应v2原生端到端验收；哪项ready就启动哪项，失败保留分母、逐题可恢复；生成与Judge分开，不把合成结果算正式。单TP2调度起点和16卡总上限保持，SFT未定参数不擅启。
+- 现查724196 RUNNING仅代表分配/启动，正式完成仍0；未碰722434、镜像队列、用户代理或另一会话数据WIP。已告后端子任务可提交1CPU/128MiB/2min独立cgroup诊断，不用GPU。
+- 使用OpenAI Docs核官方定时任务条件：本地需电脑唤醒联网且应用运行。已记录，不以SSH进程存活冒称助手可离线续决策。
+
+## 2026-10-16：授权提效时多开HPC卡并实启独立TP2
+
+- 用户追加能提高效率即可多用HPC卡；总16、同组4上限保持。本会话实提ASI724241/Terminal724242，均RUNNING，分别ACD1-61:18001与ACD1-54:18002，各2卡16CPU128GiB8h；加另一会话HLE724196，共6卡。不是只有计划，已经拿到资源；不把它们当原生已验收或正式结果。
+- 使用当前账号qinlucao/formal-user、emergency_acd PriorityTier300；现账号没有更高授权QoS，不擅换账号或修改其他项目722434。本题ACD1-61占4卡，Terminal另一组2卡，未假设跨节点TP或TP1。
+- 新增独立serve_base_worker.py/.slurm，通过Python编译和bash语法检查；端口独立不改serve_base_night/HLE。80桥18071/18072及专属SSHsocket已建，HLE现有18061健康HTTP200不触碰。
+- 新增probe_base_worker.py，80 PID2136213/2136214等health后分别做8并发(4近56K长输入+4短输入)的真实/tokenize/usage/采样/无thinking和Prometheus队列验收。运行证据/资源清单analysis/source_snapshots/baseline_workers_20261016.json，进展analysis/baseline_progress_20261016.md。
+- 三原生runner/backend子任务已恢复；ASI7/7科学/资源/超时/安全重试合成首轮通过，backend动态网络初探通过，Terminus薄runner已落盘；各项真实端到端和多副本调度修订通过前不正式跑。训练未启动。
+
+## 2026-10-16：ASI正式Base生成启动，独立多TP2部署已冻结
+
+- 最终ASI10项合成+8进程限额/恢复/length留存+真实native科学题+真实取消验收全部通过；root已启动240条件produce-only，80 PID2473386，专属TP2 job724241、桥18071，8准入/4模型活跃上限、每条件4CPU8GiB，flock防重复。
+- 输出artifacts/eval/base_asi_v2_20261016；每条件journal/原始response/代码/产物/原生结果保存，Judge另行评分，不能把已生成当已评分；不以正式成败改提示/训练。开始后5个ASI实现文件冻结，不边跑边修改。
+- 部署单独冻结configs/eval/deployment_tp2_blocks_v1.json：独立benchmark/model block可跨TP2组并行，每组同2GPU16CPU128GiB/4序列8准入；core请求协议JSON保持SHA，避免改另一会话HLE固化配置。ASI和TB8请求近56K长输入队列测试均PASS；TB同窗另有1条校准，观测waiting5如实记录。
+- 子agent转接SWE正式driver/容器mini锁/自造patch replay，不碰运行中ASI；Terminus原生Tmux合成与backend最终资源网络验收继续。未开SWE闲置GPU，当前共6卡。半小时自动任务apex-baseline已更新独立服务/部署所有权，ACTIVE。
+- 本地已有或补8小时caffeinate防idle睡眠；应用/网络/合盖运行边界已记baseline_progress。未改其他项目722434/用户代理/镜像队列，无训练。

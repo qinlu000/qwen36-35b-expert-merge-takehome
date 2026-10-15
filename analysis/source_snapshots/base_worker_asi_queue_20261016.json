@@ -1,0 +1,125 @@
+{
+  "started_at_utc": "2026-10-15T19:34:20.858612+00:00",
+  "endpoint": "http://127.0.0.1:18071",
+  "worker": "asi",
+  "passed": true,
+  "purpose": "synthetic eight-admitted-request queue/profile acceptance",
+  "probe_sha256": "5b6bc9a52f9a052ccb2e4fa84ba65a0fd21b496155b7e11a54698d6eab43813b",
+  "context_tokens": 65536,
+  "output_cap": 8192,
+  "requests": [
+    {
+      "index": 0,
+      "long_input": true,
+      "latency_seconds": 15.948039203882217,
+      "usage": {
+        "prompt_tokens": 57344,
+        "total_tokens": 57354,
+        "completion_tokens": 10,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 1,
+      "long_input": true,
+      "latency_seconds": 17.031325425952673,
+      "usage": {
+        "prompt_tokens": 57344,
+        "total_tokens": 57354,
+        "completion_tokens": 10,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 2,
+      "long_input": true,
+      "latency_seconds": 17.894001377746463,
+      "usage": {
+        "prompt_tokens": 57344,
+        "total_tokens": 57354,
+        "completion_tokens": 10,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 3,
+      "long_input": true,
+      "latency_seconds": 21.13200756162405,
+      "usage": {
+        "prompt_tokens": 57344,
+        "total_tokens": 57354,
+        "completion_tokens": 10,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 4,
+      "long_input": false,
+      "latency_seconds": 12.74862240254879,
+      "usage": {
+        "prompt_tokens": 23,
+        "total_tokens": 33,
+        "completion_tokens": 10,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 5,
+      "long_input": false,
+      "latency_seconds": 12.819199483841658,
+      "usage": {
+        "prompt_tokens": 23,
+        "total_tokens": 33,
+        "completion_tokens": 10,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 6,
+      "long_input": false,
+      "latency_seconds": 12.819319751113653,
+      "usage": {
+        "prompt_tokens": 23,
+        "total_tokens": 33,
+        "completion_tokens": 10,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 7,
+      "long_input": false,
+      "latency_seconds": 13.503225015476346,
+      "usage": {
+        "prompt_tokens": 23,
+        "total_tokens": 33,
+        "completion_tokens": 10,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "authentication_enforced": true,
+  "long_prompt_tokens": 57344,
+  "guard_over_budget_tokens": 57408,
+  "over_budget_generations": 0,
+  "concurrent_batch_seconds": 21.21176978200674,
+  "metric_samples": 156,
+  "metrics_peak": {
+    "num_requests_running": 4.0,
+    "num_requests_waiting": 4.0,
+    "kv_cache_usage_perc": 0.044520547945205435
+  },
+  "limitations": [
+    "Synthetic requests only; native benchmark acceptance remains separate.",
+    "Short actual completions; full8192 decode not exercised.",
+    "Prometheus snapshots are not continuous GPU peak-memory measurements."
+  ],
+  "finished_at_utc": "2026-10-15T19:35:46.442298+00:00"
+}

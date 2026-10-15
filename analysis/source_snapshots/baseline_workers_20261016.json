@@ -1,0 +1,41 @@
+{
+  "as_of": "2026-10-16T03:34:57+08:00",
+  "state": "workers_running_acceptance_pending",
+  "total_project_gpus": 6,
+  "per_replica": {
+    "gpus": 2,
+    "cpus": 16,
+    "memory_gib": 128,
+    "tensor_parallel": 2,
+    "max_num_seqs": 4,
+    "solver_admission": 8
+  },
+  "workers": [
+    {
+      "benchmark": "hle",
+      "job_id": 724196,
+      "node": "ACD1-61",
+      "port": 18000,
+      "port_on_80": 18061,
+      "owner": "整体推进"
+    },
+    {
+      "benchmark": "asi",
+      "job_id": 724241,
+      "node": "ACD1-61",
+      "port": 18001,
+      "port_on_80": 18071,
+      "probe_pid_on_80": 2136213
+    },
+    {
+      "benchmark": "terminal",
+      "job_id": 724242,
+      "node": "ACD1-54",
+      "port": 18002,
+      "port_on_80": 18072,
+      "probe_pid_on_80": 2136214
+    }
+  ],
+  "formal_base_trials_this_workflow": 0,
+  "note": "Allocation and synthetic queue acceptance are separate from native benchmark formal readiness."
+}

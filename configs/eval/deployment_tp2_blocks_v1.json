@@ -1,0 +1,51 @@
+{
+  "deployment_id": "apex-base-tp2-blocks-v1-20261016",
+  "as_of": "2026-10-16T03:41:34+08:00",
+  "authorization": "User explicitly permits additional HPC GPUs when they improve baseline efficiency; project ceiling16 H100, at most4 in a connected group.",
+  "core_protocol": "configs/eval/protocol_v2_unified64k8k.json",
+  "core_protocol_sha256": "dcd28455f0ebd81d9e4b9043694eb57e9e42abb6c72f8bbe41cfa01745c1f081",
+  "revision_scope": "Deployment only. Preserve each benchmark agent,prompt,input scope,sampling,deadline,retry,scoring and per-replica limits; do not rewrite an existing formal run configuration.",
+  "parallel_blocks": "Each independent TP2 replica serves exactly one benchmark/model block. Different benchmark blocks may run on different replicas after that block passes native acceptance. No cross-node TP or TP1.",
+  "per_replica": {
+    "h100": 2,
+    "cpus": 16,
+    "memory_gib": 128,
+    "max_active_model_sequences": 4,
+    "max_admitted_solver_tasks": 8
+  },
+  "current_project_h100": 6,
+  "training_overlap": false,
+  "workers": [
+    {
+      "benchmark": "hle",
+      "job_id": 724196,
+      "node": "ACD1-61",
+      "port": 18000,
+      "owner": "整体推进",
+      "formal_gate": "owned by overall workflow; its own native/image/deadline acceptance"
+    },
+    {
+      "benchmark": "asi",
+      "job_id": 724241,
+      "node": "ACD1-61",
+      "port": 18001,
+      "owner": "side推进",
+      "queue_acceptance": "analysis/source_snapshots/base_worker_asi_queue_20261016.json",
+      "native_acceptance": "analysis/baseline_asi_v2_status.md",
+      "formal_gate": "native scientific execution,resource,resume and endpoint cancellation acceptance before launch"
+    },
+    {
+      "benchmark": "terminal",
+      "job_id": 724242,
+      "node": "ACD1-54",
+      "port": 18002,
+      "owner": "side推进",
+      "queue_acceptance": "analysis/source_snapshots/base_worker_terminal_queue_20261016.json",
+      "native_acceptance": "analysis/baseline_terminal_v2_status.md",
+      "formal_gate": "native Tmux,resource,network,summary and cancellation acceptance before launch"
+    }
+  ],
+  "comparison_rule": "Use the same TP2 service profile,4-sequence/8-solver bounds and task resource policy for each compared model on a benchmark. Submit fixed IDs once; expansion does not add attempts or select answers.",
+  "headroom": "Account formal-user has16GPU total user quota; other project722434 uses1 and must be counted against account allocation without being modified.",
+  "lifecycle": "Do not allocate the SWE replica until the backend/agent is close to ready. Cancel only an idle worker owned by this workflow if no consumer is ready; preserve valid formal jobs."
+}
