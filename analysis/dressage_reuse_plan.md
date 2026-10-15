@@ -2,7 +2,7 @@
 
 状态：用户已确认训练框架采用ms-swift + PEFT（BF16 LoRA）；其余设计继续讨论，未批准恢复实验代码或执行。2026-10-15约18:32 CST，按最初约15:20的71h倒计时估计，保留最后12h后，核心时间约55–56h；真实截止以平台倒计时为准。本稿更新初稿的12M token与6候选预算，其余题面硬要求不变。数字是预算起点，不是吞吐实测或提升承诺。
 
-最新数据与专家分工见[数据方案v3](data_expert_recommendation.md)：建议E-code→SWE、E-exec→TB+ASI、E-reason→HLE，更新本稿早期E-science→HLE+ASI的映射；仍为待讨论设计。累计6M预算与合版范围不扩大。
+最新数据与专家分工见[数据方案v3](data_expert_recommendation.md)：用户已确认仓库修复专家→SWE、交互执行专家→TB+ASI、学术推理专家→HLE及其名称，更新本稿早期E-science→HLE+ASI的映射；具体数据配方仍待讨论。累计6M预算与合版范围不扩大。
 
 ## 1. 主线
 

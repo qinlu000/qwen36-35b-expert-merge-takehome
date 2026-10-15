@@ -1,8 +1,8 @@
 # 项目方案 A：讨论稿
 
-状态：训练框架已确认采用 ms-swift + PEFT（BF16 LoRA）；其余实验设计继续讨论，未批准恢复实验代码或执行。2026-10-15 用户明确要求先停止写代码与实验执行，先讨论数据、工程、算法、评测。以下数字均为初始设计和资源预算，不是吞吐实测或完成承诺。
+状态：训练框架已确认采用 ms-swift + PEFT（BF16 LoRA），三专家划分与名称已确认；数据配方、训练超参数和评测执行条件继续讨论，未批准恢复实验代码或执行。2026-10-15 用户明确要求先停止写代码与实验执行，先讨论数据、工程、算法、评测。以下数字均为初始设计和资源预算，不是吞吐实测或完成承诺。
 
-最新数据与专家建议见[数据方案v3](analysis/data_expert_recommendation.md)：按行为分为仓库修复（SWE）、终端与科研执行（TB+ASI）、广域学术推理（HLE），替换早期把HLE+ASI放入同一科学专家的建议。候选主源为Open-SWE-Traces mini、Terminal skill-based、OpenScienceReasoning-2，数学少量补充。训练框架已确认，数据与分工仍待讨论；尚未下载或清洗。累计6M processed token、AVG/TIES两个起点/最多四候选的预算沿用[四卡简化方案v2](analysis/dressage_reuse_plan.md)；下文较早的12M/6候选及旧专家映射保留作历史，不作为当前建议。
+最新数据与专家建议见[数据方案v3](analysis/data_expert_recommendation.md)：已确认按行为分为仓库修复专家（SWE）、交互执行专家（TB+ASI）、学术推理专家（HLE），替换早期把HLE+ASI放入同一科学专家的建议。候选主源为Open-SWE-Traces mini、Terminal skill-based、OpenScienceReasoning-2，数学少量补充。训练框架与专家分工已确认，数据配方仍待讨论；尚未下载或清洗。累计6M processed token、AVG/TIES两个起点/最多四候选的预算沿用[四卡简化方案v2](analysis/dressage_reuse_plan.md)；下文较早的12M/6候选及旧专家映射保留作历史，不作为当前建议。
 
 ## 研究问题与最小主线
 
