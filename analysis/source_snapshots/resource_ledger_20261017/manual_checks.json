@@ -1,0 +1,68 @@
+{
+  "kind": "offline manual accounting examples; no remote calls",
+  "budget_case": {
+    "name": "manual budget",
+    "kind": "budget",
+    "exists": true,
+    "invoice_amount": null,
+    "invoice_status": "not provided",
+    "event_rows": 2,
+    "calls": 2,
+    "completed_calls": 1,
+    "currency": "CNY",
+    "price_basis": "ledger prices_cny_per_million",
+    "status_counts": {
+      "completed": 1,
+      "failed_full_reservation": 1
+    },
+    "usage": {
+      "prompt_tokens": 30,
+      "completion_tokens": 5,
+      "total_tokens": 35
+    },
+    "observed_usage_estimate": 0.2,
+    "unresolved_or_failure_reservation": 0.3,
+    "accounted_total": 0.5,
+    "missing_usage_calls": 0,
+    "calls_with_usage": 2,
+    "recorded_pricing": []
+  },
+  "journal_case": {
+    "name": "manual journal",
+    "kind": "journal",
+    "exists": true,
+    "invoice_amount": null,
+    "invoice_status": "not provided",
+    "event_rows": 6,
+    "calls": 2,
+    "completed_calls": 1,
+    "cache_reuses": 1,
+    "currency": "CNY",
+    "price_basis": "USD 0.3/M input + 1.2/M output, budget coefficient 8; no cache discount",
+    "status_counts": {
+      "started": 2,
+      "completed": 1,
+      "failed": 2,
+      "cache_reused": 1
+    },
+    "usage": {
+      "prompt_tokens": 100,
+      "completion_tokens": 10,
+      "total_tokens": 110
+    },
+    "observed_usage_estimate": 0.000336,
+    "unresolved_or_failure_reservation": 0.5,
+    "accounted_total": 0.500336,
+    "missing_usage_calls": 0,
+    "calls_with_usage": 1,
+    "recorded_pricing": []
+  },
+  "actual_receipt_checks": [
+    "57 unique project top-level jobs; no excluded-ID overlap",
+    "Every GPUh equals actual allocated GPU count * ElapsedRaw / 3600",
+    "HLE 1054 completed + 2 failed reservations",
+    "SAB 6 journal rows = 3 calls",
+    "ASI calibration 29 events = 14 calls + 1 cache reuse"
+  ],
+  "passed": true
+}

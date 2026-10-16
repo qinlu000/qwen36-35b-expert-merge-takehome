@@ -454,3 +454,11 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - 10000次paired cluster bootstrap，master seed20261015；SWE51/HLE2500按ID，ASI60项目保留4条件，TB89任务保留5seed。五轮TB均值/sample SD ddof1、ASI native分子/分母均保存。原始来源、ID异常、null与有效0分分开；人工金标准与80真实部分产物适配通过。
 - 汇总快照Base SWE46/51、HLE2499/2500、ASI240/240、TB436/445；SWE专家19/51有效。仅Base ASI目前完整，1.5709884069%，四项macro及提升均null。HLE仍1Judge JSON invalid；SWE5与TB9原生verifier/基础设施缺口逐项记录，不偷偷当错题或重新答卷。
 - 本次只读未发现上述Base缺口的匹配在途修复脚本，未抢另一会话的Base重判/执行。后续仍需解决15个判分缺口或如实披露未完整，不能仅称“队列已结束”就满足全部有效评测。完整证据analysis/final_aggregation_20261017.md。
+
+
+## 2026-10-17 02:43 CST：资源与API账本补齐
+
+- 只读sacct/squeue与明确本题WorkDir，补已知配置IDs并按顶层JobID去重，57项归本题、9项同账号其他项目排除。02:38快照结束allocation183.098889 GPUh，在跑6项/14GPU暂计14.111111GPUh；含服务等待、warmup、失败、取消和TIMEOUT，没有把idle从Slurm账单中扣掉。
+- 五个最终成功trainer run内46.541425GPUh，对应Slurm47.016111GPUh，均为结束总量子集，绝不再加。HPC单价、全机CPU总时长、能源、主动人工工时未知，不冒充学校实际账单或active work。
+- 8份已有逐调用API账本共1765调用，历史记录估计USD0.32832702及CNY预算核算6.116477394（后者含失败reservation0.0290175）；非发票，不拿安全系数8当真实汇率、不与重复summary再相加。5份缺失账本仍为unknown。API不用新调用，远端无常驻采集。
+- 原生吞吐、rank0 peak-reserved语义、逐作业allocation/费用来源与轻量重跑脚本保留analysis/resource_ledger_20261017.md及source_snapshots/resource_ledger_20261017。随后Terminal并发优化不回写旧时点快照。

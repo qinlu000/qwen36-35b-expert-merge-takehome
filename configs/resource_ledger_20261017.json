@@ -1,0 +1,44 @@
+{
+  "since": "2026-10-15T00:00:00",
+  "hpc_host": "hpc3",
+  "hpc_socket": "/tmp/apex-baseline-hpc-ctl",
+  "hpc_project": "/data/user/qinlucao/projects/apex-takehome",
+  "runner_host": "10.123.4.80",
+  "runner_project": "/data/caoqinlu/projects/apex-takehome",
+  "account": "qinlucao",
+  "extra_jobs": {
+    "727689": "analysis/source_snapshots/sft_loss_only_execution_20261017.json; scripts/evaluate_sft_loss_only.py; merge owner confirmed 4-GPU loss-only job"
+  },
+  "api_ledgers": [
+    {"name": "HLE teacher data", "path": "artifacts/data/candidates/night_hle_20261016/teacher_api_ledger.jsonl", "kind": "usd_rows"},
+    {"name": "SciCode teacher data", "path": "artifacts/data/candidates/night_scicode_20261016/scicode_api_ledger.jsonl", "kind": "usd_rows"},
+    {"name": "Science quality review", "path": "artifacts/data/candidates/night_hle_20261016/science_quality_review.jsonl", "kind": "usd_rows"},
+    {"name": "Terminal data classification", "path": "artifacts/data/candidates/new_terminal_horizon_20261016/annotations/ledger.jsonl", "kind": "terminal_rows"},
+    {"name": "Base formal HLE Judge", "path": "artifacts/runs/hle_judge_v2_20261016/budget.json", "kind": "budget"},
+    {"name": "Cancelled independent HLE validation Judge", "path": "artifacts/eval/validation_direct_20261016/hle_scores/budget.json", "kind": "budget"},
+    {"name": "Cancelled independent SAB validation Judge", "path": "artifacts/eval/validation_direct_20261016/sab_scores/judge_calls.jsonl", "kind": "journal"},
+    {"name": "ASI Judge calibration", "path": "artifacts/preflight/asi-real-calibration-20261016/judge_calls.jsonl", "kind": "journal"},
+    {"name": "Base formal ASI Judge", "path": "artifacts/asi/scoring_v2_formal_params_20261016/judge_calls.jsonl", "kind": "journal"},
+    {"name": "HLE expert formal Judge", "path": "artifacts/eval/hle250_hle2500_20261017/scoring/budget.json", "kind": "budget"},
+    {"name": "AVG64 HLE formal Judge", "path": "artifacts/eval/avg64_hle2500_20261017/scoring/budget.json", "kind": "budget"},
+    {"name": "ASI expert formal Judge", "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls.jsonl", "kind": "journal"},
+    {"name": "AVG64 ASI formal Judge", "path": "artifacts/eval/avg64_asi240_20261017/scoring/judge_calls.jsonl", "kind": "journal"}
+  ],
+  "journal_price_source": "scripts/asi_score_transport.py; scripts/run_sab_validation_queue.py: prompt*0.3 USD/M + completion*1.2 USD/M, multiplied by budget safety factor 8; cache savings deliberately ignored",
+  "raw_summaries": [
+    "artifacts/results/base-terminal-independent-repair32-20261016/corrected445_summary.json",
+    "artifacts/eval/base_swe_v2_20261016_clean28/corrected51_summary.json",
+    "artifacts/runs/hle_judge_v2_20261016/summary.json",
+    "artifacts/asi/scoring_v2_formal_params_20261016/local_score_seed31415.json",
+    "artifacts/eval/validation_direct_20261016/hle_scores/summary.json",
+    "artifacts/eval/validation_direct_20261016/sab_scores/summary.json",
+    "artifacts/eval/terminal250_full445_20261017/summary.json",
+    "artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+    "artifacts/eval/swe249_hard51_20261016/summary.json",
+    "artifacts/eval/avg64_swe_hard51_20261017/summary.json",
+    "artifacts/eval/asi128_asi240_20261017/scoring/local_score_seed31415.json",
+    "artifacts/eval/avg64_asi240_20261017/scoring/local_score_seed31415.json",
+    "artifacts/eval/hle250_hle2500_20261017/scoring/summary.json",
+    "artifacts/eval/avg64_hle2500_20261017/scoring/summary.json"
+  ]
+}

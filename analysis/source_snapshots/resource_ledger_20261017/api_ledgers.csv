@@ -1,0 +1,14 @@
+name,path,exists,calls,completed_calls,event_rows,currency,observed_usage_estimate,unresolved_or_failure_reservation,accounted_total,invoice_amount,price_basis,usage
+HLE teacher data,artifacts/data/candidates/night_hle_20261016/teacher_api_ledger.jsonl,True,362,362,362,USD,0.3169676400000002,0.0,0.3169676400000002,,recorded per-row conservative rates,"{'prompt_tokens': 96772, 'completion_tokens': 47785, 'total_tokens': 144557}"
+SciCode teacher data,artifacts/data/candidates/night_scicode_20261016/scicode_api_ledger.jsonl,True,2,2,2,USD,0.0055756799999999995,0.0,0.0055756799999999995,,recorded per-row conservative rates,"{'prompt_tokens': 1569, 'completion_tokens': 885, 'total_tokens': 2454}"
+Science quality review,artifacts/data/candidates/night_hle_20261016/science_quality_review.jsonl,True,12,12,12,USD,0.005783699999999999,0.0,0.005783699999999999,,recorded per-row conservative rates,"{'prompt_tokens': 8187, 'completion_tokens': 2773, 'total_tokens': 10960}"
+Terminal data classification,artifacts/data/candidates/new_terminal_horizon_20261016/annotations/ledger.jsonl,True,64,64,64,CNY,4.269956544,0.0,4.269956544,,recorded cost_upper_cny; budget coefficient 8,"{'prompt_tokens': 1510022, 'completion_tokens': 71233, 'total_tokens': 1581255}"
+Base formal HLE Judge,artifacts/runs/hle_judge_v2_20261016/budget.json,True,1056,1054,1056,CNY,1.5707857500000002,0.0290175,1.5998032500000001,,ledger prices_cny_per_million,"{'prompt_tokens': 1868095, 'completion_tokens': 84552, 'total_tokens': 1952647}"
+Cancelled independent HLE validation Judge,artifacts/eval/validation_direct_20261016/hle_scores/budget.json,True,252,252,252,CNY,0.19690799999999994,0.0,0.19690799999999994,,ledger prices_cny_per_million,"{'prompt_tokens': 213182, 'completion_tokens': 16454, 'total_tokens': 229636}"
+Cancelled independent SAB validation Judge,artifacts/eval/validation_direct_20261016/sab_scores/judge_calls.jsonl,True,3,3,6,CNY,0.0199368,0.0,0.0199368,,"USD 0.3/M input + 1.2/M output, budget coefficient 8; no cache discount","{'prompt_tokens': 4347, 'completion_tokens': 990, 'total_tokens': 5337}"
+ASI Judge calibration,artifacts/preflight/asi-real-calibration-20261016/judge_calls.jsonl,True,14,14,29,CNY,0.029872799999999994,0.0,0.029872799999999994,,"USD 0.3/M input + 1.2/M output, budget coefficient 8; no cache discount","{'prompt_tokens': 9031, 'completion_tokens': 854, 'total_tokens': 9885}"
+Base formal ASI Judge,artifacts/asi/scoring_v2_formal_params_20261016/judge_calls.jsonl,False,,,,,,,,,,
+HLE expert formal Judge,artifacts/eval/hle250_hle2500_20261017/scoring/budget.json,False,,,,,,,,,,
+AVG64 HLE formal Judge,artifacts/eval/avg64_hle2500_20261017/scoring/budget.json,False,,,,,,,,,,
+ASI expert formal Judge,artifacts/eval/asi128_asi240_20261017/scoring/judge_calls.jsonl,False,,,,,,,,,,
+AVG64 ASI formal Judge,artifacts/eval/avg64_asi240_20261017/scoring/judge_calls.jsonl,False,,,,,,,,,,
