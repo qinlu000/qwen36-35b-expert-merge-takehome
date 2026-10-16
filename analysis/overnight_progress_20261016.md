@@ -298,3 +298,12 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - SWE实际保留原模板完整token67,446,810，少288,516，assistant输出代理14,685,184；946仓库仍保留，语言Python952/Go517/JS477/TS47，source1224/769。Mixed对应原模板保留token140,826,718。这些不是原生精确label/padding计算量，无新增编码或hash审计。
 - 实际状态：SWE726335已19:55完成249步/bestcp249 val.31768048（run为swe2k-sft-r16-726335）；ASI726336完成134/best128；HLE726664已31/250且原生2000/100；Mixed726666已6/883且7066/249；Terminal726665仍待启动无native run。四个已启run有training_config/command/args/logging，完成两项有summary。
 - 更新训练矩阵，明确train_rows为导出量、native_loaded_train_rows为预处理后量；实际SWE/Mixed加载数与并集保持一致。不为补齐7条取消/重做训练，不改数据或冻结评测。claud/overnight只提交本轮自有追加段，Git无coauthor信息。
+
+
+## 2026-10-16 21:12 CST：训练进度与Terminal提前调度
+
+- 用户问当前进度。21:08原生快照：SWE726335完成249/249(best249,val.31768048)；ASI726336完成134/134(best128,val.58268344)；HLE726664在189/250，最新eval176为3.48262358、早期best16为2.00219154；Mixed726666在128/883，best64为1.21849561。HLE/Mixed原生剩余估计约23分钟/6h10，仅为动态估计，不将loss当benchmark分。
+- Mixed同一FLCE修复已通过7次真实GPU全val，249条含Terminal全部42条长轨迹；此前只有CPU验证的局限已有GPU实证补充。Terminal独立job仍未开训，不能冒称其已通过。
+- 21:10核本题实际运行HLE2+Mixed4+Base两个TP2共4=10 GPU，加Terminal4为14≤16，故只执行scontrol update JobId=726665 Dependency=0解除旧afterany:726664:725705；21:12实查Dependency=(null)、PENDING(Resources)、无分配/run/optimizer。调度器暂估10/17 01:11，仅估计。未改数据、64K/8K/r16/global8配方或Base/无关项目作业。
+- Base另一会话只读21:09：ASI240/240本地mean1.5709884%；HLE2499/2500有效，余1评分异常，完整分null；Terminal184/445有效，30在途197待准入34异常/未评分；SWE固定clean28已3/28评分、3在途22待准入，旧受环境影响5/51不作为干净最终结果，corrected51仍null。
+- 训练矩阵/主进度/两份原始快照/OOM后续证据已更新。待完成Terminal/HLE/Mixed，按独立val选checkpoint，再做专家与合版/Mixed效果评测。训练数据与原始记录沿用已冻结版本，无新增教师API、数据hash或提示重训；Git仅提交本轮自有内容与共享文档追加，无coauthor信息。

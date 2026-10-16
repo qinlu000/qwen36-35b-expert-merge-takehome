@@ -1,0 +1,202 @@
+{
+  "time_beijing": "2026-10-16T21:08:39.394242+08:00",
+  "remaining_time_note": "Native Trainer estimates only; unstable especially early in a length-grouped epoch.",
+  "jobs": [
+    {
+      "job_id": 726335,
+      "slurm_name_state_elapsed_start_end_exit": [
+        "apex-swe2k-sft",
+        "COMPLETED",
+        "02:03:00",
+        "2026-10-16T17:52:24",
+        "2026-10-16T19:55:24",
+        "0:0"
+      ],
+      "run_path": "artifacts/runs/swe2k-sft-r16-726335",
+      "run_exists": true,
+      "latest_optimizer": {
+        "loss": 0.36871618,
+        "epoch": 1,
+        "global_step/max_steps": "249/249",
+        "elapsed_time": "1h 54m 30s",
+        "remaining_time": "0s",
+        "memory(GiB)": 61.42
+      },
+      "latest_eval": {
+        "eval_loss": 0.31768048,
+        "epoch": 1,
+        "global_step/max_steps": "249/249",
+        "elapsed_time": "1h 55m 36s",
+        "remaining_time": "0s",
+        "memory(GiB)": 61.42
+      },
+      "completed_eval_passes": 16,
+      "native_final_summary": {
+        "global_step": 249,
+        "last_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+        "best_metric": 0.31768048
+      },
+      "latest_saved_checkpoint": "artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+      "checkpoint_state": {
+        "global_step": 249,
+        "max_steps": 249,
+        "epoch": 1,
+        "best_metric": 0.31768048,
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249"
+      },
+      "summary": {
+        "passed": true,
+        "world_size": 4,
+        "global_steps": 249,
+        "wall_seconds": 7286.073950213962,
+        "final_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249"
+      },
+      "recent_error_lines": []
+    },
+    {
+      "job_id": 726336,
+      "slurm_name_state_elapsed_start_end_exit": [
+        "apex-asi-expanded-sft",
+        "COMPLETED",
+        "00:51:36",
+        "2026-10-16T16:56:09",
+        "2026-10-16T17:47:45",
+        "0:0"
+      ],
+      "run_path": "artifacts/runs/asi-expanded-sft-r16-726336",
+      "run_exists": true,
+      "latest_optimizer": {
+        "loss": 0.30870587,
+        "epoch": 1,
+        "global_step/max_steps": "134/134",
+        "elapsed_time": "46m 31s",
+        "remaining_time": "0s",
+        "memory(GiB)": 43.22
+      },
+      "latest_eval": {
+        "eval_loss": 0.58287901,
+        "epoch": 1,
+        "global_step/max_steps": "134/134",
+        "elapsed_time": "46m 41s",
+        "remaining_time": "0s",
+        "memory(GiB)": 43.26
+      },
+      "completed_eval_passes": 9,
+      "native_final_summary": {
+        "global_step": 134,
+        "last_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-134",
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128",
+        "best_metric": 0.58268344
+      },
+      "latest_saved_checkpoint": "artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-134",
+      "checkpoint_state": {
+        "global_step": 134,
+        "max_steps": 134,
+        "epoch": 1,
+        "best_metric": 0.58268344,
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128"
+      },
+      "summary": {
+        "passed": true,
+        "world_size": 2,
+        "global_steps": 134,
+        "wall_seconds": 2945.78616404254,
+        "final_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-134",
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128"
+      },
+      "recent_error_lines": []
+    },
+    {
+      "job_id": 726664,
+      "slurm_name_state_elapsed_start_end_exit": [
+        "apex-hle-existing2k-sft",
+        "RUNNING",
+        "01:15:07",
+        "2026-10-16T19:53:32",
+        "Unknown",
+        "0:0"
+      ],
+      "run_path": "artifacts/runs/hle-existing2k-sft-r16-726664",
+      "run_exists": true,
+      "latest_optimizer": {
+        "loss": 0.80935824,
+        "epoch": 0.756,
+        "global_step/max_steps": "189/250",
+        "elapsed_time": "1h 10m 19s",
+        "remaining_time": "22m 42s",
+        "memory(GiB)": 42.38
+      },
+      "latest_eval": {
+        "eval_loss": 3.48262358,
+        "epoch": 0.704,
+        "global_step/max_steps": "176/250",
+        "elapsed_time": "1h 6m 24s",
+        "remaining_time": "27m 55s",
+        "memory(GiB)": 42.38
+      },
+      "completed_eval_passes": 11,
+      "latest_saved_checkpoint": "artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-176",
+      "checkpoint_state": {
+        "global_step": 176,
+        "max_steps": 250,
+        "epoch": 0.704,
+        "best_metric": 2.00219154,
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-16"
+      },
+      "recent_error_lines": []
+    },
+    {
+      "job_id": 726665,
+      "slurm_name_state_elapsed_start_end_exit": [
+        "apex-terminal-retry-sft",
+        "PENDING",
+        "00:00:00",
+        "Unknown",
+        "Unknown",
+        "0:0"
+      ],
+      "run_exists": false
+    },
+    {
+      "job_id": 726666,
+      "slurm_name_state_elapsed_start_end_exit": [
+        "apex-mixed-existing2k-sft",
+        "RUNNING",
+        "01:13:15",
+        "2026-10-16T19:55:24",
+        "Unknown",
+        "0:0"
+      ],
+      "run_path": "artifacts/runs/mixed-existing2k-sft-r16-726666",
+      "run_exists": true,
+      "latest_optimizer": {
+        "loss": 0.38370422,
+        "epoch": 0.14496036,
+        "global_step/max_steps": "128/883",
+        "elapsed_time": "1h 2m 45s",
+        "remaining_time": "6h 10m 7s",
+        "memory(GiB)": 55.1
+      },
+      "latest_eval": {
+        "eval_loss": 1.49388659,
+        "epoch": 0.12684032,
+        "global_step/max_steps": "112/883",
+        "elapsed_time": "58m 46s",
+        "remaining_time": "6h 44m 36s",
+        "memory(GiB)": 55.1
+      },
+      "completed_eval_passes": 7,
+      "latest_saved_checkpoint": "artifacts/runs/mixed-existing2k-sft-r16-726666/training/checkpoint-112",
+      "checkpoint_state": {
+        "global_step": 112,
+        "max_steps": 883,
+        "epoch": 0.12684031710079274,
+        "best_metric": 1.21849561,
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/mixed-existing2k-sft-r16-726666/training/checkpoint-64"
+      },
+      "recent_error_lines": []
+    }
+  ]
+}

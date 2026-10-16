@@ -89,3 +89,11 @@ resolution or benchmark improvement follows from the CPU check alone.
 The missing preflight was a labelled validation pass through the actual model
 loss route; a successful backward pass did not test it. The small regression
 locks down that routing distinction without adding an architecture layer.
+# GPU follow-up — 2026-10-16 21:08 CST
+
+Mixed job 726666 has completed seven full native GPU validation passes with
+this worker patch. Its 249 validation rows include all 42 Terminal validation
+trajectories. This confirms that the patched full-validation path has run on
+GPUs without the former logits allocation OOM. The independent Terminal retry
+726665 has not yet obtained resources, so its own validation is still pending.
+Evidence: `source_snapshots/sft_status_latest_20261016.json`.

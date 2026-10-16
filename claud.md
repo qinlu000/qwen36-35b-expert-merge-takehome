@@ -1270,3 +1270,12 @@
 - 实测20:17HPC原生日志：HLE726663 Running50/Waiting0、739.3输出token/s；Terminal/SWE共享A726635 Running12/Waiting0、144.3token/s，B726629 Running15/Waiting0、211.4token/s。基线当前6GPU，旧726129/725705两份共4GPU已退出且consumer marker true；全账号13GPU包含SFT6与其他项目1，不改其作业或参数。
 - HLE唯一新增评分异常id672ecc6946f619ca9b0495c5：既定两次Judge均HTTP200但4096输出截断导致未闭JSON，正确性仍null，不能按学生答错0计分。不是网络断线；两次既定Judge尝试已耗尽，本轮未改4096/评分协议、追加第三次或重生成原答案。其余全量继续，保留该异常单列待处理。
 - 本轮仅检查正式summary、活进程、既有HPC服务日志和原始异常，不跑模型/API探针/fixture/hash、不重启在途任务。完整汇总快照analysis/source_snapshots/base_progress_20261016_2016.json；只追加本轮claud内容并单独Git提交，保留另一会话SFT/数据工作区，无coauthor信息。
+
+
+## 2026-10-16 21:12 CST：训练进度与Terminal提前调度
+
+- 用户问当前进度。21:08原生快照：SWE726335完成249/249(best249,val.31768048)；ASI726336完成134/134(best128,val.58268344)；HLE726664在189/250，最新eval176为3.48262358、早期best16为2.00219154；Mixed726666在128/883，best64为1.21849561。HLE/Mixed原生剩余估计约23分钟/6h10，仅为动态估计，不将loss当benchmark分。
+- Mixed同一FLCE修复已通过7次真实GPU全val，249条含Terminal全部42条长轨迹；此前只有CPU验证的局限已有GPU实证补充。Terminal独立job仍未开训，不能冒称其已通过。
+- 21:10核本题实际运行HLE2+Mixed4+Base两个TP2共4=10 GPU，加Terminal4为14≤16，故只执行scontrol update JobId=726665 Dependency=0解除旧afterany:726664:725705；21:12实查Dependency=(null)、PENDING(Resources)、无分配/run/optimizer。调度器暂估10/17 01:11，仅估计。未改数据、64K/8K/r16/global8配方或Base/无关项目作业。
+- Base另一会话只读21:09：ASI240/240本地mean1.5709884%；HLE2499/2500有效，余1评分异常，完整分null；Terminal184/445有效，30在途197待准入34异常/未评分；SWE固定clean28已3/28评分、3在途22待准入，旧受环境影响5/51不作为干净最终结果，corrected51仍null。
+- 训练矩阵/主进度/两份原始快照/OOM后续证据已更新。待完成Terminal/HLE/Mixed，按独立val选checkpoint，再做专家与合版/Mixed效果评测。训练数据与原始记录沿用已冻结版本，无新增教师API、数据hash或提示重训；Git仅提交本轮自有内容与共享文档追加，无coauthor信息。

@@ -1,0 +1,24 @@
+{
+  "snapshot_time_beijing": "2026-10-16T21:12:15.148955+08:00",
+  "job_id": 726665,
+  "dependency_release": {
+    "released_by": "root",
+    "reported_release_time_beijing": "2026-10-16T21:10:29+08:00",
+    "reason": "Project active 10 GPUs plus Terminal 4 remains <=16; root removed obsolete scheduling dependencies.",
+    "this_agent_mutations": false
+  },
+  "scontrol_fields": [
+    "JobState=PENDING Reason=Resources Dependency=(null)",
+    "RunTime=00:00:00 TimeLimit=16:00:00 TimeMin=N/A",
+    "StartTime=2026-10-17T01:11:08 EndTime=2026-10-17T17:11:08 Deadline=N/A",
+    "ReqNodeList=(null) ExcNodeList=ACD1-59",
+    "NodeList= SchedNodeList=ACD1-24",
+    "NumNodes=1-1 NumCPUs=24 NumTasks=1 CPUs/Task=24 ReqB:S:C:T=0:0:*:*",
+    "AllocTRES=(null)",
+    "StdOut=/data/user/qinlucao/projects/apex-takehome/artifacts/runs/expert-sft-726665.log"
+  ],
+  "sacct_records": [
+    "726665|apex-terminal-retry-sft|PENDING|00:00:00|Unknown|Unknown|0:0"
+  ],
+  "run_exists": false
+}
