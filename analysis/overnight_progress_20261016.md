@@ -249,3 +249,12 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - Mixed已实际重建并同步HPC **5573/249**：HLE500→SWE2000→Terminal2000→ASI1073各一次，验证100/87/42/20保持原样。目录mixed_expanded_20261016，原目录为空，无7073训练被覆盖，未截断/重采样/新增API或环境验收。
 - Slurm已核依赖：Terminal726345仅afterok:726336(ASI)，Mixed726346仅afterok:726335(SWE)，取消HLE不再阻塞其余组。按baseline最多8卡，训练两组4卡最多16；ASI结束前仅SWE4+ASI2。最新只读ASI121/134步，checkpoint112 val0.583276；SWE仍排资源，未动任何baseline或其他项目。
 - 四专家矩阵与analysis/sft_progress_20261016.md已切回当前方案，旧High扩量报告顶端明确停止。按最新授权不再为HLE模型强度争议追加生成，保持r16/64K8K与其余数据不变；由root只提交本轮自有文件和共享文档追加段，无coauthor信息。
+
+## 2026-10-16 18:23 CST：澄清 HLE 扩量应复用更多现成回答
+
+- 用户澄清“有没有已有的更多能直接用的轨迹”：此前将停止新生成理解为只复用原 500 条过窄；当前目标是寻找更多现成强教师回答，避免为全部 2k 新跑 API，并非用户明确放弃扩量。
+- 已核 NVIDIA Math-v4 官方 285,516 条纯 CoT、教师 DeepSeek-V4-Pro High；80 本地首 shard 23,605 条均有独立 content / reasoning_content，移除后者后 final 全部非空。Science-v2 官方总量 2,837,712 条但教师混合，现有小池 750 条明确 V4-Pro 纯问答均可保留 content，不能把总量当合格强教师数量，也不能补写未记录的 High effort。
+- 更多现成候选：个人发布的 V4-Pro-Reasoning-8000x 共 8,014 条；GLM-5.1 清理版实际 746,321 行，两者共享题源不能相加独立题数。小样本确有可抽 final，但有简单题、缺上下文、原题源不完整，尚不能声称已满足 HLE 全学科或排除正式题。NVIDIA 金融文档 63,056 条 V4-Pro 回答可作窄领域辅助，不能替代 HLE 各学科配额。
+- 非思考 SFT 可以使用原始思考教师的最终回答：删除独立 reasoning_content / 成对 think 内部隐藏推理，保留完整可见解答；这不等于教师当时关闭 thinking，也不保证 final 保留全部原始推导。现成数据无需为此重新调用教师。
+- 数量供给足够继续筛约 2k；数学/物化生优先 Math-v4 + Science-v2 明确 V4-Pro 子集。CS、人文、Other、工程的严格比例仍需筛实际候选，不用数学默默填满缺额。此前生成并保留的 722 accepted 也是现成资产，若采用须按题去重，不能与旧 500 直接相加。
+- 本轮仅来源和结构调研，没有恢复 API、导出新训练池、改 Mixed/参数/队列。实际运行方案仍按上次已落地状态记录，未来 2k 尚非已完成事实。详见 analysis/hle_existing_math_science_20261016.md 与 analysis/hle_existing_broad_sources_20261016.md；更新 claud.md 并用 Git 只提交本轮自有内容，无 coauthor 信息。
