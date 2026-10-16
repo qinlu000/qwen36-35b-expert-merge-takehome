@@ -15,11 +15,12 @@ SOURCES = {
     "SWE": (51, "artifacts/eval/base_swe_v2_20261016_final/final_summary.json"),
     "TB": (445, "artifacts/results/base-terminal-v2-recovery-20261016/final_summary.json"),
 }
+TB_CORRECTED_SOURCE = "artifacts/results/base-terminal-independent-repair32-20261016/corrected445_summary.json"
 NOTES = {
     "HLE": "Retain all original answers and normal budget ends. At1424 outcomes, serving changed from max_num_seqs4 to20, with8 incomplete migration infrastructure retry2. User then requests server/client50; the next natural handoff transfers only never-started questions and adds no retry. Actual transitions are recorded separately. Queue time is inside the300s budget, so earlier timeouts cannot be interpreted as model ability alone. Judge uses school DeepSeek-V4-Flash and original criteria/JSONwrapper/4096/nonthinking; infrastructure-invalid outcomes are not zeros.",
     "ASI": "Public local240-condition single-shot/8K score, not Portal-certified. Of237 new answers,29 hit length8192;28 then failed with a leading code fence after native extraction fallback.49 runtime missing-import outcomes used the frozen declared-dependency task sandbox, which differs from default none/full host execution. These limits confound a broad model-ability interpretation. Soil b2 empty-array hard-gate repair and native adapters remain disclosed; formal Judge0calls.",
     "SWE": "Scoring is complete using the first environment-valid fresh replay of each frozen patch. Earlier28 generation tasks used legacy PATH/Python isolation; real agent self-tests hit missing pytest/jinja2/yaml. Repairing replay cannot restore lost agent feedback. The5/51 result is an affected historical run, not a clean model-comparison baseline. A separate outcome-independent clean rerun of all28 legacy tasks is required;23 tasks already used the corrected native runtime. Complete answers have not been regenerated within this run.",
-    "TB": "Five fixed seeds×89. The legacy infrastructure_unscored field counts terminal outcomes without a valid score, including normal solver budget ends followed by failed verification or missing restorable state; it is not a count of network/infrastructure faults alone. Normal budget ends with valid native scores remain accepted. Original artifacts and fixed budgets are retained; grader-only recovery requires verifier-relevant state review. See owner source summary for accepted chronology and restoration disclosures.",
+    "TB": "Five fixed seeds×89. When available, the separate corrected445 summary reports the independent repair experiment: an outcome-independent frozen32 cohort uses3 original-answer grader-only recoveries and29 new generations. Original pending tasks transfer through natural handoff for their first admission, adding no repeated answers; later terminal unscored tasks join the same experiment without reward selection. Historical scores and their original summary remain separately traceable and are not overwritten. The legacy infrastructure_unscored field includes normal solver budget ends followed by failed verification or missing restorable state, not only network/infrastructure faults. Fixed prompts, seeds and budgets are retained; grader-only recovery requires verifier-relevant state review.",
 }
 
 
@@ -39,6 +40,9 @@ def save(path, value):
 
 def benchmark(project, name, expected, source):
     path = project / source
+    original_path = path
+    if name == "TB" and (project / TB_CORRECTED_SOURCE).exists():
+        path = project / TB_CORRECTED_SOURCE
     row = {"expected": expected, "valid_scored": None, "unscored": None, "complete": False,
         "primary_score_percent": None, "source": str(path), "note": NOTES[name]}
     try:
@@ -90,6 +94,16 @@ def benchmark(project, name, expected, source):
             score = raw["primary_score_percent"]
         else:
             assert raw["expected_trials"] == expected
+            if path != original_path:
+                original = read(original_path)
+                row.update(independent_repair_started=True, original_source=str(original_path),
+                    original_source_mtime_utc=utc(original_path.stat().st_mtime),
+                    original_valid_scored=original["valid_covered"],
+                    original_primary_score_percent=original["primary_mean_percent"],
+                    original_complete=original["complete"],
+                    fixed_repair_cohort={"expected": 32, "grade_only": 3, "new_generation": 29},
+                    later_unscored_selection="All terminal unscored outcomes, without reward selection",
+                    pending_transfer_additional_answer_attempts=0)
             row.update(valid_scored=raw["valid_covered"], unscored=expected - raw["valid_covered"],
                 infrastructure_or_evaluator_invalid=raw["infrastructure_unscored"],
                 active_trials=raw["active_trials"], pending_not_admitted=raw["pending_not_admitted"],
@@ -186,7 +200,9 @@ def markdown(result):
     if shared:
         lines += [f"夜间API总限¥{shared['night_limit_cny']:.2f}；已记数据费用¥{sum(shared['data_accounted_cny'].values()):.8f}，ASI自造校准保守预留¥{shared['asi_calibration_reserved_cny']:.8f}，ASI正式Judge0次／¥0。GPU／HPC资源费用未包含。总账来源：`{shared['source']}`。", ""]
     for name, row in result["benchmarks"].items():
-        lines += [f"**{name}**：{row['note']}", "", f"原始summary：`{row['source']}`；mtime UTC：{row.get('source_mtime_utc', '尚无文件')}。", ""]
+        lines += [f"**{name}**：{row['note']}", "", f"汇总来源：`{row['source']}`；mtime UTC：{row.get('source_mtime_utc', '尚无文件')}。", ""]
+        if row.get("independent_repair_started"):
+            lines += [f"TB 历史原run summary：`{row['original_source']}`；有效评分{row['original_valid_scored']}/445，历史主成绩：{number(row['original_primary_score_percent'])}。上表使用独立修复后的corrected445来源；历史评分文件保留。", ""]
         if row.get("source_unavailable_or_incompatible"):
             lines += ["源summary尚不可用／schema未满足：" + row["source_unavailable_or_incompatible"] + "，保留主score=null。", ""]
     lines += ["各benchmark独立计分，不合成未经定义的总分。此汇总器只读现成summary，每30秒更新；全部完整有效后自动退出。未调用模型／API、未扫描trial、未运行测试或hash。"]
@@ -204,7 +220,9 @@ def main():
     lock = (output / "collector.lock").open("a")
     fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
     shutil.copy2(__file__, output / "collector_source.py")
-    save(output / "sources.json", {name: {"expected": spec[0], "source": spec[1]} for name, spec in SOURCES.items()})
+    sources = {name: {"expected": spec[0], "source": spec[1]} for name, spec in SOURCES.items()}
+    sources["TB"].update(preferred_source=TB_CORRECTED_SOURCE, original_source=SOURCES["TB"][1])
+    save(output / "sources.json", sources)
     while True:
         result = report(args.project.resolve())
         save(output / "summary.json", result)

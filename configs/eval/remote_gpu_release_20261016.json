@@ -30,14 +30,14 @@
     {
       "benchmark": "model_consumer",
       "job_id": 726629,
-      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/shared-model-consumers-finished.json",
-      "purpose": "Retain warm maxseq20 service until both Terminal and the independent fixed clean28 SWE model consumers finish"
+      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/shared-model-consumers-finished.json",
+      "purpose": "Retain shared warm services until original Terminal, clean28 SWE and independent Terminal repair/continuation consumers all finish"
     },
     {
       "benchmark": "model_consumer",
       "job_id": 726635,
-      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/shared-model-consumers-finished.json",
-      "purpose": "Release only after Terminal and independent fixed clean28 SWE model consumers finish; CPU scoring continues independently"
+      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/shared-model-consumers-finished.json",
+      "purpose": "Retain shared warm services until original Terminal, clean28 SWE and independent Terminal repair/continuation consumers all finish"
     },
     {
       "benchmark": "model_consumer",

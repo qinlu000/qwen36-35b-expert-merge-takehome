@@ -140,16 +140,18 @@
           "native test.sh dependency installation environment"
         ],
         "archive_coverage": "The successful pre-verifier snapshot preserves the full /app tree, including vm.js, doom.wad, and doomgeneric sources. The expected /tmp/frame.bmp was absent and was not snapshotted. vm.js only imports built-in Node fs/process modules.",
-        "blocking_evidence": "The full original raw solver command history explicitly overwrites /etc/apt/sources.list.d/snapshot.list in requests 00025-main, 00026-main and 00027-main, and removes /etc/apt/sources.list in 00026-main. Those system configuration files are outside the archive. The official native test.sh performs apt dependency installation, so its original installation state cannot be reconstructed from this archive alone.",
+        "blocking_evidence": "Original trajectory step28 writes /etc/apt/sources.list.d/snapshot.list, which the old app-only replay does not restore. Step27 attempted rm /etc/apt/sources.list but returned No such file or directory; the earlier wording incorrectly described successful deletion. The old replay remains incomplete. A new independent restore manifest now records the final exact three-line apt source file and the confirmed absence of sources.list.",
         "existing_replay_observation": "The existing replay executed three tests but timed out waiting for /tmp/frame.bmp. This alone does not prove full reconstruction, and the zero reward is not accepted by this review.",
         "unresolved_state": [
           "Original /etc/apt/sources.list and /etc/apt/sources.list.d/snapshot.list contents and their effect on the verifier launcher"
         ],
-        "action": "Keep unscored; do not regenerate the model answer or run new tests as part of this review."
+        "action": "Keep unscored; do not regenerate the model answer or run new tests as part of this review.",
+        "prior_blocking_evidence_before_literal_review": "The full original raw solver command history explicitly overwrites /etc/apt/sources.list.d/snapshot.list in requests 00025-main, 00026-main and 00027-main, and removes /etc/apt/sources.list in 00026-main. Those system configuration files are outside the archive. The official native test.sh performs apt dependency installation, so its original installation state cannot be reconstructed from this archive alone."
       },
       "new_model_calls": 0,
       "new_verifier_runs": 0,
-      "byte_identical_entire_container": false
+      "byte_identical_entire_container": false,
+      "prospective_restore_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/independent-repair32-20261016/grade-only/make-doom-for-mips__seed1/restore.json"
     },
     {
       "reviewed_at": "2026-10-16T13:36:38.047630+00:00",

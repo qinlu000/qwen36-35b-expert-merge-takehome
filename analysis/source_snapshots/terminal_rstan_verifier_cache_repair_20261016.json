@@ -1,0 +1,37 @@
+{
+  "finished_at_utc": "2026-10-16T14:08:06.176903+00:00",
+  "task_id": "rstan-to-pystan",
+  "official_requirements": [
+    "pytest==8.4.1",
+    "pytest-json-ctrf==0.3.5"
+  ],
+  "original_resolved_packages": {
+    "pluggy": "1.7.0",
+    "Pygments": "2.21.0",
+    "pytest": "8.4.1",
+    "iniconfig": "2.3.1",
+    "pytest-json-ctrf": "0.3.5",
+    "packaging": "26.3"
+  },
+  "resolved_packages": {
+    "pluggy": "1.7.0",
+    "Pygments": "2.21.0",
+    "pytest": "8.4.1",
+    "iniconfig": "2.3.1",
+    "pytest-json-ctrf": "0.3.5",
+    "packaging": "26.3"
+  },
+  "source_cache": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/terminal_verifier_offline_20261016/group-caches/group-00",
+  "uv_cache_dir": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/terminal_verifier_offline_20261016/repair32-rstan-indexrefresh-20261016/uv-cache",
+  "reason": "Original ready cache metadata expired and uv revalidated PyPI through the preserved original hosts mappings. Refresh exact existing six dependency versions in an independent cache; runtime should explicitly use offline mode for this fully cached native verifier.",
+  "candidate_original_hosts_official_test_and_budgets_unchanged": true,
+  "new_model_calls": 0,
+  "native_tests_run": false,
+  "offline_fixture_run": false,
+  "ready": true,
+  "required_verifier_env": {
+    "UV_OFFLINE": "1",
+    "UV_PYTHON_DOWNLOADS": "never"
+  },
+  "frozen_no_further_writes": true
+}

@@ -1339,3 +1339,17 @@
 - 实际Swift sampler随机perm后100项megabatch内按长度排序，没有重复偏采短样本或直接沿源拼接顺序训练证据。局部source顺序影响仍未测。主要机制推测是更偏完整讲解后，直接输出短gold字母/数值概率下降；真实过拟合/更新幅度偏大仍可能，不能仅看CE断言能力退化。
 - 本轮只读数据/日志/真实源码，查询HF/PyTorch官方定义；提取250train+16val点绘制并目视确认独立loss曲线，完整数据报告与训练侧报告保存。没有新GPU/API/重训/改数据/预算/val标签，也未测Base/cp16/cp250任务准确率。cp16只是现有最低loss，未证明优于Base。
 - 推荐下一步原100题比较Base/cp16/cp250抽取后准确率及格式分项，先区分能力退化和样式指标失配，再决定是否改学习率/训练目标。Git只提交本轮自有报告、统计/原生数值及claud/overnight追加，无coauthor信息。
+
+
+## 2026-10-16 22:05 CST：清理系统盘并启动 Terminal 独立修复
+
+- 用户授权清理故障临时产物、修复并重新运行，随后要求立即处理系统盘满并询问是否由/tmp堆积造成。80原根因是每题verifier依赖副本写进系统盘/tmp且退出未回收；原34未评分中25项直接受ENOSPC影响。本机Mac则主要为uv/pip缓存，不混为同一磁盘问题。
+- 80已按审计清单删除56个inactive /tmp verifier_assets及194个inactive /data副本；排除活跃mount，保留staging父目录、日志、答案、轨迹和saved-state。审计目录复制量约47GiB+169GiB，不当净回收量；根盘从available0恢复约34GiB。旧data阶段free计数误读/tmp已在receipt明示，并修正脚本后续按/data计量。
+- 本机uv cache clean实际删除578857文件/工具报20.8GiB，另清pip http-v2/wheels下载缓存；Mac available约14GiB→31GiB，模型、环境、源码和实验结果保留。清理原始回执纳terminal_cleanup_and_local_disk_20261016.json。
+- 固定21:43快照32个未评分项作为独立修复实验：3仅native补评分（makeDoom apt字面文件、rstan hosts字面文件、PyTorch原候选+官方MNIST），29重新生成。旧答案/原成绩保留；不按0/1挑选重跑。原34审计与当前32集合不混写。31个unique task原版本依赖已备好，4pip wheelhouse及mailman原Python3.12均接线。
+- 新environment修复task cache key误用、原生PATH、丢失tmux后仍评分、清理进程确认；最终状态在agent结束/取消时提前保存，含workdir/完整etc/var-www/外部变化文件。tar不宣称重建live service。临时文件和网络socket统一/data/caoqinlu/apex-tr32-tmp，确认退出后仅删本题verifier_assets，防止再次堆积。
+- 22:01:53独立controller4164866已真实启动；首make-doom-for-mips/seed1子4164874仅评分。22:02:23实核scope CPU120-123、memory.max8589934592，setup完成，官方pytest8.4.1/Python3.13.9已collected3items开始执行，0新模型调用。launch回执纳Git，不把准备完成写成已跑完全量。
+- 原队列21:53停止新增准入，保留在途自然结束；独立controller取得原全局lock后将所有未开始pending及新增终态未评分转入修复环境，保留任务/seed/完整配置，无reward selection。旧pending属首次准入延续；初始固定32继续单列。随后自动扩31个rolling task/CPU0-123，SWE124/126/127及只读汇总125保留。
+- 共享2×TP2 Base job726629/726635释放条件已扩为原Terminal+clean28 SWE+本修复消费全部结束，远端watcher4159899常驻，Mac断网不影响。solver1800s、官方verifier900s、4CPU8GiB、模型/提示/seed/64K8K预算均保持。只做必要语法检查和真实生产执行，无额外fixture/模型验收测试/hash扫描。只提交本轮自有变更，保留其他会话SFT工作区，无coauthor信息。
+- 22:05前两次真实仅补评已完成：makeDoom原候选官方3test失败为有效0；PyTorch原候选+官方MNIST6test全过为有效1，均0新模型调用。rstan首次新补评因UV重验证过期索引/TLS未执行pytest，包装器0被正确拒绝。依赖6包版本完整未改；只为评分缓存启用offline，并登记一次改变基础设施后的native重评，不重答、不重评任何有效0/1。
+- 22:09:13父controller换为冻结runtime-v2/PID4189047，保留adaptive/seed0原在途子4180958，没有取消求解或增加模型答案。rstan新评分目录加__nativeinfra1，原invalid文件保留；单独retry计划与cache回执入Git。22:09原在途7、旧pending153；新2有效/1在途/29待准入，自动接管仍在等原全局锁。总汇已改优先读取独立corrected445且保留历史来源，collector4181090绑定CPU125。

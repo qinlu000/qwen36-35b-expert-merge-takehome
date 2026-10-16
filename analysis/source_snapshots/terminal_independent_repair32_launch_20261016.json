@@ -1,0 +1,120 @@
+{
+  "at_utc": "2026-10-16T14:01:53.174015+00:00",
+  "pid": 4164866,
+  "command": [
+    "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/runtime/scripts/run_terminal_independent_repair32.py",
+    "--plan",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/runtime/plan.json",
+    "--output",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016",
+    "--key-path",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key",
+    "--endpoints",
+    "http://127.0.0.1:28086",
+    "http://127.0.0.1:28085",
+    "--old-manifest",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime11/manifest.json"
+  ],
+  "runtime_scripts": [
+    "run_terminal_independent_repair32.py",
+    "run_terminal_repair_grade_v2.py",
+    "terminal_repair_environment_v2.py",
+    "terminal_repair_agent_v2.py",
+    "terminal_repair_takeover_v2.py"
+  ],
+  "pythonpath": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/runtime/scripts:/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime11/scripts:/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime7/scripts:/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime3/scripts:/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-724242/runtime2/scripts",
+  "temporary_directory": "/data/caoqinlu/apex-tr32-tmp",
+  "original_queue_admission_stopped": true,
+  "initial_cpu_ids": [
+    120,
+    121,
+    122,
+    123
+  ],
+  "post_drain_task_capacity": 31,
+  "all_state_and_original_outputs_retained": true,
+  "mode_counts": {
+    "grade_only": 3,
+    "new_independent_generation": 29
+  },
+  "gpu_guard": {
+    "pid": 4159899,
+    "command": [
+      "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+      "/data/caoqinlu/projects/apex-takehome/scripts/watch_swe_clean28_consumers.py",
+      "--terminal-marker",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/shared-model-consumers-finished.json",
+      "--swe-marker",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/model-consumer-finished.json",
+      "--output",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/shared-model-consumers-finished.json"
+    ],
+    "guarded_jobs": [
+      726629,
+      726635
+    ]
+  },
+  "production_observation": {
+    "at_cst": "2026-10-16 22:02:23",
+    "controller_pid": 4164866,
+    "child_pid": 4164874,
+    "task": "make-doom-for-mips/seed1",
+    "mode": "grade_only",
+    "container_server_pid": 4164981,
+    "scope": "apex-baseline-a2d4fefe5f26.scope",
+    "cpus_allowed_list": "120-123",
+    "memory_max_bytes": 8589934592,
+    "temporary_directory": "/data/caoqinlu/apex-tr32-tmp",
+    "official_verifier": "Python3.13.9 / pytest8.4.1; Installed8packages in17ms; collected3items; runningtest_outputs.py",
+    "new_model_calls": 0,
+    "setup_blocked": false
+  },
+  "initial_grade_only_results_observed": [
+    {
+      "key": "make-doom-for-mips/seed1",
+      "valid": true,
+      "reward": 0.0,
+      "native_tests": "3 failed in30.21s; candidate VM produced no/tmp/frame.bmp",
+      "new_model_calls": 0
+    },
+    {
+      "key": "pytorch-model-cli/seed2",
+      "valid": true,
+      "reward": 1.0,
+      "native_tests": "6 passed in9.24s with original answer and official MNIST preloaded",
+      "new_model_calls": 0
+    }
+  ],
+  "offline_cache_runtime_restart": {
+    "at_utc": "2026-10-16T14:09:13.811761+00:00",
+    "old_parent_pid": 4164866,
+    "new_parent_pid": 4189047,
+    "retained_active_children": {
+      "adaptive-rejection-sampler/seed0": {
+        "pid": 4180958,
+        "cpu_offset": 120,
+        "endpoint": "http://127.0.0.1:28086",
+        "mode": "new_independent_generation"
+      }
+    },
+    "command": [
+      "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/runtime-v2/scripts/run_terminal_independent_repair32.py",
+      "--plan",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/runtime-v2/plan.json",
+      "--output",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016",
+      "--key-path",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key",
+      "--endpoints",
+      "http://127.0.0.1:28086",
+      "http://127.0.0.1:28085",
+      "--old-manifest",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime11/manifest.json"
+    ],
+    "native_grade_retry_key": "rstan-to-pystan/seed1",
+    "new_model_attempts_added_by_restart": 0,
+    "change": "Only ready verifier UV caches forced offline; preserve all original answers/valid grades and in-flight solver children"
+  }
+}

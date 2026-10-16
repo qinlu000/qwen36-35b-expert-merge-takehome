@@ -1,0 +1,51 @@
+{
+  "entries": [
+    {
+      "key": "rstan-to-pystan/seed1",
+      "task_id": "rstan-to-pystan",
+      "seed": 1,
+      "mode": "grade_only",
+      "reason": "Prior native verifier never executed tests: UV revalidated expired index over original hosts and failed TLS. Exact cached dependencies now forced offline; retry grading only, no new answer.",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed1__manual1__shorttmp1/result.json",
+      "original_trial_dir": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed1__manual1__shorttmp1",
+      "original_manual_attempt": 1,
+      "original_state": "verifier_incomplete",
+      "original_exception_type": "AgentTimeoutError",
+      "original_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "original_agent_execution": {
+        "started_at": "2026-10-16T11:54:07.839837Z",
+        "finished_at": "2026-10-16T12:24:08.455344Z"
+      },
+      "archive_paths": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed1__manual1__shorttmp1/artifacts/logs/artifacts/final-task-state.tar"
+      ],
+      "savedstate_attempts": [
+        {
+          "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/rstan-to-pystan__seed1__manual1__shorttmp1__savedstate2/result.json",
+          "exception_type": null,
+          "reward": 0.0,
+          "review_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/rstan-to-pystan__seed1__manual1__shorttmp1__savedstate2/reconstruction-review.json",
+          "reconstruction_complete_for_verifier": false
+        }
+      ],
+      "original_task_config": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/rstan-to-pystan",
+        "git_url": null,
+        "git_commit_id": null,
+        "name": null,
+        "ref": null,
+        "overwrite": false,
+        "download_dir": null,
+        "source": "tasks"
+      },
+      "original_trial_config_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed1__manual1__shorttmp1/result.json",
+      "original_answer_preserved": true,
+      "replace_original_first_valid": false,
+      "new_experiment_repeat_of_budget_complete_answer": true,
+      "restore_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/independent-repair32-20261016/grade-only/rstan-to-pystan__seed1/restore.json",
+      "native_grade_infrastructure_retry": true,
+      "retained_grade_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/rstan-to-pystan__seed1__independent1/result.json"
+    }
+  ],
+  "policy": "One changed-infrastructure native grading retry, only when no original valid score; keep original invalid artifact"
+}

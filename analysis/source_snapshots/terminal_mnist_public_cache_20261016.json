@@ -1,0 +1,28 @@
+{
+  "completed_at_utc": "2026-10-16T13:51:06.443297+00:00",
+  "public_original_verifier_dataset": "MNIST",
+  "official_source": "https://ossci-datasets.s3.amazonaws.com/mnist/",
+  "download_method": "Parallel HTTP range retrieval for train images; ordinary download for labels and test images; gzip decompression. No model or native verifier call.",
+  "files": [
+    {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/train-images-idx3-ubyte",
+      "bytes": 47040016,
+      "source_url": "https://ossci-datasets.s3.amazonaws.com/mnist/train-images-idx3-ubyte.gz"
+    },
+    {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/train-labels-idx1-ubyte",
+      "bytes": 60008,
+      "source_url": "https://ossci-datasets.s3.amazonaws.com/mnist/train-labels-idx1-ubyte.gz"
+    },
+    {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/t10k-images-idx3-ubyte",
+      "bytes": 7840016,
+      "source_url": "https://ossci-datasets.s3.amazonaws.com/mnist/t10k-images-idx3-ubyte.gz"
+    },
+    {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/t10k-labels-idx1-ubyte",
+      "bytes": 10008,
+      "source_url": "https://ossci-datasets.s3.amazonaws.com/mnist/t10k-labels-idx1-ubyte.gz"
+    }
+  ]
+}

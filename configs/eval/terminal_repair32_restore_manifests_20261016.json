@@ -1,0 +1,166 @@
+{
+  "make-doom-for-mips__seed1": {
+    "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed1__manual1__shorttmp1/result.json",
+    "files": [
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed1__manual1__shorttmp1/artifacts/logs/artifacts/final-task-state.tar",
+        "target": "/staging/saved-final-state.tar"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/independent-repair32-20261016/grade-only/make-doom-for-mips__seed1/snapshot.list",
+        "target": "/staging/recovered-snapshot.list"
+      }
+    ],
+    "commands": [
+      {
+        "command": "tar -xf /staging/saved-final-state.tar -C /",
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed1__manual1__shorttmp1/artifacts/logs/artifacts/final-task-state.tar",
+        "timeout_sec": 180
+      },
+      {
+        "command": "install -m 0644 /staging/recovered-snapshot.list /etc/apt/sources.list.d/snapshot.list",
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed1__manual1__shorttmp1/agent/trajectory.json",
+        "timeout_sec": 20
+      },
+      {
+        "command": "rm -f /etc/apt/sources.list",
+        "source_evidence": "Original trajectory step27 confirms absence; this is not evidence of successful solver deletion.",
+        "timeout_sec": 20
+      }
+    ],
+    "restored_from_pre_verifier_artifact": true,
+    "reconstructed_from_transcript": true,
+    "archived_file_contents_preserved": true,
+    "byte_identical": false,
+    "new_model_calls": 0,
+    "new_verifier_runs_by_preparation": 0,
+    "original_native_verifier_timeout_seconds": 900,
+    "restore_scope_complete_for_verifier": true,
+    "manual_review_required_after_successful_restore": true,
+    "evidence": {
+      "trajectory_steps": [
+        23,
+        26,
+        27,
+        28
+      ],
+      "literal_state_basis": "Step28 executes the final complete three-line snapshot.list heredoc. Step27 rm /etc/apt/sources.list explicitly returns No such file or directory, proving the file absent rather than proving a successful deletion. Step23 shows the original deb822 Debian source stanza; the remaining source files are supplied unchanged by the same SIF. No later executed command modifies apt sources.",
+      "restore_absent_paths": [
+        "/etc/apt/sources.list"
+      ],
+      "original_trajectory": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed1__manual1__shorttmp1/agent/trajectory.json",
+      "candidate_artifact_source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed1__manual1__shorttmp1/artifacts/logs/artifacts/final-task-state.tar",
+      "prior_grade_rejected_because": "External state was not represented by the earlier /app-only replay. This manifest restores it before unchanged native verification.",
+      "unchanged_candidate_answer": true
+    },
+    "one_additional_verifier_attempt_only": true
+  },
+  "pytorch-model-cli__seed2": {
+    "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/pytorch-model-cli__seed2__manual1__shorttmp1/result.json",
+    "files": [
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/pytorch-model-cli__seed2__manual1__shorttmp1/artifacts/logs/artifacts/final-task-state.tar",
+        "target": "/staging/saved-final-state.tar"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/train-images-idx3-ubyte",
+        "target": "/staging/mnist/train-images-idx3-ubyte"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/train-labels-idx1-ubyte",
+        "target": "/staging/mnist/train-labels-idx1-ubyte"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/t10k-images-idx3-ubyte",
+        "target": "/staging/mnist/t10k-images-idx3-ubyte"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/t10k-labels-idx1-ubyte",
+        "target": "/staging/mnist/t10k-labels-idx1-ubyte"
+      }
+    ],
+    "commands": [
+      {
+        "command": "tar -xf /staging/saved-final-state.tar -C /",
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/pytorch-model-cli__seed2__manual1__shorttmp1/artifacts/logs/artifacts/final-task-state.tar",
+        "timeout_sec": 180
+      },
+      {
+        "command": "mkdir -p /app/data/MNIST/raw && cp /staging/mnist/* /app/data/MNIST/raw/",
+        "source_evidence": "Official tests/test_outputs.py:test_cli_tool_output uses torchvision.datasets.MNIST(root=./data, train=False, download=True) with task WORKDIR=/app. These are the unchanged public raw MNIST files expected by torchvision.",
+        "timeout_sec": 30
+      }
+    ],
+    "restored_from_pre_verifier_artifact": true,
+    "reconstructed_from_transcript": false,
+    "archived_file_contents_preserved": true,
+    "byte_identical": false,
+    "new_model_calls": 0,
+    "new_verifier_runs_by_preparation": 0,
+    "original_native_verifier_timeout_seconds": 900,
+    "restore_scope_complete_for_verifier": true,
+    "manual_review_required_after_successful_restore": true,
+    "one_additional_verifier_attempt_only": true,
+    "evidence": {
+      "original_test_progress": "All first five official tests passed, including a real CLI invocation; the last test first downloads MNIST, then invokes the same CLI on 50 public images. Original pre-verifier archive has no MNIST raw data.",
+      "candidate_static_review": "CLI uses only sys/json/struct/zlib/os. PNG read loop breaks on EOF and IEND; matrix dimensions are 784x16,16x16,16x10. No network, sleep, or unbounded computation was found in the candidate. This supports missing public verifier data as a likely hang, without claiming an observed stack trace.",
+      "unchanged_candidate_answer": true,
+      "public_dataset_source": "https://ossci-datasets.s3.amazonaws.com/mnist/",
+      "prepared_public_data": [
+        "train-images-idx3-ubyte",
+        "train-labels-idx1-ubyte",
+        "t10k-images-idx3-ubyte",
+        "t10k-labels-idx1-ubyte"
+      ],
+      "cache_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/ready-receipt.json",
+      "uncertainty": "The original log is buffered and does not locate the exact line in the last test. If the single repaired native900s replay still times out, retain it as unscored and do not loop retries."
+    }
+  },
+  "rstan-to-pystan__seed1": {
+    "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed1__manual1__shorttmp1/result.json",
+    "files": [
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed1__manual1__shorttmp1/artifacts/logs/artifacts/final-task-state.tar",
+        "target": "/staging/saved-final-state.tar"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/independent-repair32-20261016/grade-only/rstan-to-pystan__seed1/hosts",
+        "target": "/staging/recovered-hosts"
+      }
+    ],
+    "commands": [
+      {
+        "command": "tar -xf /staging/saved-final-state.tar -C /",
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed1__manual1__shorttmp1/artifacts/logs/artifacts/final-task-state.tar",
+        "timeout_sec": 180
+      },
+      {
+        "command": "install -m 0644 /staging/recovered-hosts /etc/hosts",
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed1__manual1__shorttmp1/agent/trajectory.json",
+        "timeout_sec": 20
+      }
+    ],
+    "restored_from_pre_verifier_artifact": true,
+    "reconstructed_from_transcript": true,
+    "archived_file_contents_preserved": true,
+    "byte_identical": false,
+    "new_model_calls": 0,
+    "new_verifier_runs_by_preparation": 0,
+    "original_native_verifier_timeout_seconds": 900,
+    "restore_scope_complete_for_verifier": true,
+    "manual_review_required_after_successful_restore": true,
+    "evidence": {
+      "trajectory_steps": [
+        10,
+        15,
+        17
+      ],
+      "literal_state_basis": "Step10 cat /etc/hosts produces no contents or error. Step15 appends the first PyPI mapping and Cloudflare mapping and confirms PyPI getaddrinfo. Step17 successfully removes only the initial IP text (leaving the leading-space hostname line), then appends both final 104.16.0.1 mappings. No later actual trajectory tool call modifies hosts. Proposed commands in summary/answers raw requests are not executed trajectory and are deliberately excluded.",
+      "original_trajectory": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed1__manual1__shorttmp1/agent/trajectory.json",
+      "candidate_artifact_source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed1__manual1__shorttmp1/artifacts/logs/artifacts/final-task-state.tar",
+      "prior_grade_rejected_because": "External state was not represented by the earlier /app-only replay. This manifest restores it before unchanged native verification.",
+      "unchanged_candidate_answer": true
+    },
+    "one_additional_verifier_attempt_only": true
+  }
+}

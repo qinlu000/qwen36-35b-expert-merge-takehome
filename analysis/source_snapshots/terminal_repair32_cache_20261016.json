@@ -1,0 +1,126 @@
+{
+  "as_of_cst": "2026-10-16T21:51:47+08:00",
+  "scope_entries": 32,
+  "unique_task_ids": 31,
+  "ready_unique_task_ids": 31,
+  "not_ready": [],
+  "map_keys_total": 84,
+  "new_entries": [
+    {
+      "task_id": "kv-store-grpc",
+      "python_version": "3.13",
+      "python": "artifacts/cache/terminal-v2-native/python/cpython-3.13.9-linux-x86_64-gnu/bin/python3.13",
+      "requirements": [
+        "pytest==8.4.2",
+        "requests==2.32.5",
+        "psutil==7.0.0",
+        "pytest-json-ctrf==0.3.5"
+      ],
+      "uv_cache_dir": "artifacts/tools/terminal_verifier_offline_20261016/repair32-20261016/cache-kv-store-grpc",
+      "missing_cache_entries": [],
+      "ready": true,
+      "uv_install_returncode": 0,
+      "pip_wheelhouse": "artifacts/tools/terminal_verifier_offline_20261016/repair32-20261016/pip-wheels-kv-store-grpc",
+      "wheel_files_count": 12,
+      "pip_download_returncode": 0
+    },
+    {
+      "task_id": "hf-model-inference",
+      "python_version": "3.13",
+      "python": "artifacts/cache/terminal-v2-native/python/cpython-3.13.9-linux-x86_64-gnu/bin/python3.13",
+      "requirements": [
+        "pytest==8.4.1",
+        "pytest-json-ctrf==0.3.5",
+        "psutil==7.0.0",
+        "requests==2.32.4"
+      ],
+      "uv_cache_dir": "artifacts/tools/terminal_verifier_offline_20261016/repair32-20261016/cache-hf-model-inference",
+      "missing_cache_entries": [],
+      "ready": true,
+      "uv_install_returncode": 0,
+      "pip_wheelhouse": "artifacts/tools/terminal_verifier_offline_20261016/repair32-20261016/pip-wheels-hf-model-inference",
+      "wheel_files_count": 12,
+      "pip_download_returncode": 0
+    },
+    {
+      "task_id": "build-cython-ext",
+      "python_version": "3.13",
+      "python": "artifacts/cache/terminal-v2-native/python/cpython-3.13.9-linux-x86_64-gnu/bin/python3.13",
+      "requirements": [
+        "pytest==8.4.1",
+        "pytest-json-ctrf==0.3.5"
+      ],
+      "uv_cache_dir": "artifacts/tools/terminal_verifier_offline_20261016/repair32-20261016/cache-build-cython-ext",
+      "missing_cache_entries": [],
+      "ready": true,
+      "uv_install_returncode": 0,
+      "pip_wheelhouse": "artifacts/tools/terminal_verifier_offline_20261016/repair32-20261016/pip-wheels-build-cython-ext",
+      "wheel_files_count": 6,
+      "pip_download_returncode": 0
+    },
+    {
+      "task_id": "largest-eigenval",
+      "python_version": "3.13",
+      "python": "artifacts/cache/terminal-v2-native/python/cpython-3.13.9-linux-x86_64-gnu/bin/python3.13",
+      "requirements": [
+        "pytest==8.4.1",
+        "pytest-json-ctrf==0.3.5"
+      ],
+      "uv_cache_dir": "artifacts/tools/terminal_verifier_offline_20261016/repair32-20261016/cache-largest-eigenval",
+      "missing_cache_entries": [],
+      "ready": true,
+      "uv_install_returncode": 0,
+      "pip_wheelhouse": "artifacts/tools/terminal_verifier_offline_20261016/repair32-20261016/pip-wheels-largest-eigenval",
+      "wheel_files_count": 6,
+      "pip_download_returncode": 0
+    },
+    {
+      "task_id": "mailman",
+      "python_version": "3.12",
+      "python": "artifacts/tools/terminal_verifier_offline_20261016/python/cpython-3.12.11-linux-x86_64-gnu/bin/python3.12",
+      "requirements": [
+        "pytest==8.4.1",
+        "pytest-json-ctrf==0.3.5",
+        "mailman==3.3.8"
+      ],
+      "uv_cache_dir": "artifacts/tools/terminal_verifier_offline_20261016/repair32-20261016/cache-mailman",
+      "missing_cache_entries": [],
+      "ready": true,
+      "uv_install_returncode": 0
+    }
+  ],
+  "model_calls": 0,
+  "task_tests": 0,
+  "fixture_tests": 0,
+  "completion": "Result=success\nExecMainStatus=0\nActiveState=inactive",
+  "remote_project": "/data/caoqinlu/projects/apex-takehome",
+  "cache_contract": "Exact original test.sh direct pins and original Python versions. Ready means downloaded/frozen dependency metadata is complete, not that native tests passed.",
+  "mapping_bug": {
+    "original_source": "scripts/terminal_verifier_environment.py:18",
+    "original_lookup": "rows.get(self.environment_name,{})",
+    "actual_keys": "Pure task_id; environment names include trial/seed/attempt and __env.",
+    "effect": "Original lookup misses the per-task frozen group and leaves the common core cache fallback.",
+    "runtime_owner_notified": true,
+    "required_runtime_changes": [
+      "Normalize environment_name to original task_id before lookup.",
+      "Copy selected pip_wheelhouse and set PIP_NO_INDEX/PIP_FIND_LINKS only after solver finishes.",
+      "For mailman copy the mapped managed3.12 interpreter tree into verifier_assets/python; keep native task Python unchanged."
+    ]
+  },
+  "download_execution": {
+    "script": "scripts/cache_terminal_repair32.py",
+    "remote_pid": 4119803,
+    "service": "apex-terminal-repair32-cache-20261016.service",
+    "cpu_id": 125,
+    "cpu_quota": 1,
+    "memory_gib": 2,
+    "finished_successfully": true
+  },
+  "sources": [
+    "artifacts/recovery/terminal-v2/independent-repair32-20261016/plan.json",
+    "artifacts/tools/terminal_verifier_offline_20261016/task_cache_map.json",
+    "artifacts/tools/terminal_verifier_offline_20261016/repair32-20261016/<task>.json",
+    "artifacts/tools/terminal_verifier_offline_20261016/repair32-20261016/<task>.log",
+    "Original31task test.sh and five missing task Dockerfiles"
+  ]
+}
