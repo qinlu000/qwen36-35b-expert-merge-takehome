@@ -1,0 +1,119 @@
+{
+  "status": "published_public_anonymous_verified",
+  "base_model": "Qwen/Qwen3.6-35B-A3B",
+  "base_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "artifacts": [
+    {
+      "name": "apex-swe-r16",
+      "card": "models/cards/apex-swe-r16.md",
+      "source_adapter": "artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+      "checkpoint_step": 249,
+      "rank": 16,
+      "alpha": 32,
+      "parameters": 21166080,
+      "weights_bytes": 84760832,
+      "planned_hf_repository": "csminion/apex-qwen36-swe",
+      "publication_state": "published_verified",
+      "notice": "models/notices/apex-swe-r16.NOTICE.md",
+      "local_source_adapter": "artifacts/merge_inputs_20261017/swe/checkpoint-249",
+      "hf_repository": "csminion/apex-qwen36-swe",
+      "hf_url": "https://huggingface.co/csminion/apex-qwen36-swe",
+      "hf_revision": "cf6f5bd1a9f6ee13a9e760640dd509b7b2d80c65"
+    },
+    {
+      "name": "apex-terminal-r16",
+      "card": "models/cards/apex-terminal-r16.md",
+      "source_adapter": "artifacts/runs/terminal-retry-sft-r16-726665/training/checkpoint-250",
+      "checkpoint_step": 250,
+      "rank": 16,
+      "alpha": 32,
+      "parameters": 21166080,
+      "weights_bytes": 84760832,
+      "planned_hf_repository": "csminion/apex-qwen36-terminal",
+      "publication_state": "published_verified",
+      "notice": "models/notices/apex-terminal-r16.NOTICE.md",
+      "local_source_adapter": "artifacts/merge_inputs_20261017/terminal/checkpoint-250",
+      "hf_repository": "csminion/apex-qwen36-terminal",
+      "hf_url": "https://huggingface.co/csminion/apex-qwen36-terminal",
+      "hf_revision": "79110026fe20fc7c64a8afc8abcedd94a676c37e"
+    },
+    {
+      "name": "apex-hle-r16",
+      "card": "models/cards/apex-hle-r16.md",
+      "source_adapter": "artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-250",
+      "checkpoint_step": 250,
+      "rank": 16,
+      "alpha": 32,
+      "parameters": 21166080,
+      "weights_bytes": 84760832,
+      "planned_hf_repository": "csminion/apex-qwen36-hle",
+      "publication_state": "published_verified",
+      "notice": "models/notices/apex-hle-r16.NOTICE.md",
+      "local_source_adapter": "artifacts/merge_inputs_20261017/hle/checkpoint-250",
+      "hf_repository": "csminion/apex-qwen36-hle",
+      "hf_url": "https://huggingface.co/csminion/apex-qwen36-hle",
+      "hf_revision": "026d926ae6ff639b7cdd540863b6c527467f1a36"
+    },
+    {
+      "name": "apex-asi-r16",
+      "card": "models/cards/apex-asi-r16.md",
+      "source_adapter": "artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128",
+      "checkpoint_step": 128,
+      "rank": 16,
+      "alpha": 32,
+      "parameters": 21166080,
+      "weights_bytes": 84760832,
+      "planned_hf_repository": "csminion/apex-qwen36-asi",
+      "publication_state": "published_verified",
+      "notice": "models/notices/apex-asi-r16.NOTICE.md",
+      "local_source_adapter": "artifacts/merge_inputs_20261017/asi/checkpoint-128",
+      "hf_repository": "csminion/apex-qwen36-asi",
+      "hf_url": "https://huggingface.co/csminion/apex-qwen36-asi",
+      "hf_revision": "abe468e5531abe8a51fd3b3a110f29159464d31c"
+    },
+    {
+      "name": "apex-avg-r64",
+      "card": "models/cards/apex-avg-r64.md",
+      "source_adapter": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+      "rank": 64,
+      "alpha": 64,
+      "parameters": 84664320,
+      "weights_bytes": 338754768,
+      "planned_hf_repository": "csminion/apex-qwen36-avg64",
+      "publication_state": "published_verified",
+      "notice": "models/notices/apex-avg-r64.NOTICE.md",
+      "local_source_adapter": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+      "hf_repository": "csminion/apex-qwen36-avg64",
+      "hf_url": "https://huggingface.co/csminion/apex-qwen36-avg64",
+      "hf_revision": "53fbd83b8c6d56d9b24dfccbe58789063f7ca853"
+    }
+  ],
+  "required_public_files": [
+    "README.md",
+    "adapter_config.json",
+    "adapter_model.safetensors",
+    "LICENSE",
+    "NOTICE.md",
+    "licenses/APACHE-2.0.txt"
+  ],
+  "adapter_config_release_overrides": {
+    "base_model_name_or_path": "Qwen/Qwen3.6-35B-A3B",
+    "revision": "995ad96eacd98c81ed38be0c5b274b04031597b0"
+  },
+  "excluded_from_public_model_repositories": [
+    "base weight shards",
+    "training_args.bin",
+    "training logs",
+    "optimizer or scheduler state",
+    "raw training/evaluation data",
+    "private credentials",
+    "unsanitized merge manifests"
+  ],
+  "license_metadata": {
+    "license": "other",
+    "license_name": "apache-2.0-adapter-contributions-plus-upstream-notices",
+    "license_link": "LICENSE"
+  },
+  "license_source": "models/LICENSE",
+  "standard_apache_text": "models/licenses/APACHE-2.0.txt"
+}

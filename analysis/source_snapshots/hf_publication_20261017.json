@@ -1,0 +1,480 @@
+{
+  "state": "all_five_public_anonymous_verified",
+  "username": "csminion",
+  "token_role": "write",
+  "authentication_at_utc": "2026-10-16T18:35:42.067947+00:00",
+  "artifacts": [
+    {
+      "name": "apex-swe-r16",
+      "repository": "csminion/apex-qwen36-swe",
+      "url": "https://huggingface.co/csminion/apex-qwen36-swe",
+      "state": "verified",
+      "created_at_utc": "2026-10-16T18:35:42.889872+00:00",
+      "requested_repository": "csminion/apex-qwen36-swe",
+      "revision": "cf6f5bd1a9f6ee13a9e760640dd509b7b2d80c65",
+      "uploaded_at_utc": "2026-10-16T18:36:21.294628+00:00",
+      "public": true,
+      "gated": false,
+      "anonymous_token": false,
+      "verified_at_utc": "2026-10-16T18:36:46.159457+00:00",
+      "files": [
+        {
+          "file": "README.md",
+          "bytes": 9703,
+          "stream_compare": true
+        },
+        {
+          "file": "adapter_config.json",
+          "bytes": 1296,
+          "stream_compare": true
+        },
+        {
+          "file": "adapter_model.safetensors",
+          "bytes": 84760832,
+          "stream_compare": true
+        },
+        {
+          "file": "LICENSE",
+          "bytes": 940,
+          "stream_compare": true
+        },
+        {
+          "file": "NOTICE.md",
+          "bytes": 1887,
+          "stream_compare": true
+        },
+        {
+          "file": "licenses/APACHE-2.0.txt",
+          "bytes": 11358,
+          "stream_compare": true
+        }
+      ],
+      "safetensors_header_equal": true,
+      "source_weight_stream_compare": true,
+      "additional_manual_hash_pass": false,
+      "anonymous_public_metadata": {
+        "repository": "csminion/apex-qwen36-swe",
+        "sha": "cf6f5bd1a9f6ee13a9e760640dd509b7b2d80c65",
+        "private": false,
+        "gated": false,
+        "library_name": "peft",
+        "pipeline_tag": "image-text-to-text",
+        "card_metadata": {
+          "base_model": "Qwen/Qwen3.6-35B-A3B",
+          "base_model_relation": "adapter",
+          "license": "other",
+          "license_name": "apache-2.0-adapter-contributions-plus-upstream-notices",
+          "license_link": "LICENSE"
+        },
+        "server_file_metadata": [
+          {
+            "file": ".gitattributes",
+            "bytes": 1519
+          },
+          {
+            "file": "LICENSE",
+            "bytes": 940
+          },
+          {
+            "file": "NOTICE.md",
+            "bytes": 1887
+          },
+          {
+            "file": "README.md",
+            "bytes": 9703
+          },
+          {
+            "file": "adapter_config.json",
+            "bytes": 1296
+          },
+          {
+            "file": "adapter_model.safetensors",
+            "bytes": 84760832
+          },
+          {
+            "file": "licenses/APACHE-2.0.txt",
+            "bytes": 11358
+          }
+        ]
+      }
+    },
+    {
+      "name": "apex-terminal-r16",
+      "repository": "csminion/apex-qwen36-terminal",
+      "url": "https://huggingface.co/csminion/apex-qwen36-terminal",
+      "state": "verified",
+      "created_at_utc": "2026-10-16T18:36:46.976666+00:00",
+      "requested_repository": "csminion/apex-qwen36-terminal",
+      "revision": "79110026fe20fc7c64a8afc8abcedd94a676c37e",
+      "uploaded_at_utc": "2026-10-16T18:37:19.137357+00:00",
+      "public": true,
+      "gated": false,
+      "anonymous_token": false,
+      "verified_at_utc": "2026-10-16T18:37:46.663774+00:00",
+      "files": [
+        {
+          "file": "README.md",
+          "bytes": 9845,
+          "stream_compare": true
+        },
+        {
+          "file": "adapter_config.json",
+          "bytes": 1296,
+          "stream_compare": true
+        },
+        {
+          "file": "adapter_model.safetensors",
+          "bytes": 84760832,
+          "stream_compare": true
+        },
+        {
+          "file": "LICENSE",
+          "bytes": 940,
+          "stream_compare": true
+        },
+        {
+          "file": "NOTICE.md",
+          "bytes": 1919,
+          "stream_compare": true
+        },
+        {
+          "file": "licenses/APACHE-2.0.txt",
+          "bytes": 11358,
+          "stream_compare": true
+        }
+      ],
+      "safetensors_header_equal": true,
+      "source_weight_stream_compare": true,
+      "additional_manual_hash_pass": false,
+      "anonymous_public_metadata": {
+        "repository": "csminion/apex-qwen36-terminal",
+        "sha": "79110026fe20fc7c64a8afc8abcedd94a676c37e",
+        "private": false,
+        "gated": false,
+        "library_name": "peft",
+        "pipeline_tag": "image-text-to-text",
+        "card_metadata": {
+          "base_model": "Qwen/Qwen3.6-35B-A3B",
+          "base_model_relation": "adapter",
+          "license": "other",
+          "license_name": "apache-2.0-adapter-contributions-plus-upstream-notices",
+          "license_link": "LICENSE"
+        },
+        "server_file_metadata": [
+          {
+            "file": ".gitattributes",
+            "bytes": 1519
+          },
+          {
+            "file": "LICENSE",
+            "bytes": 940
+          },
+          {
+            "file": "NOTICE.md",
+            "bytes": 1919
+          },
+          {
+            "file": "README.md",
+            "bytes": 9845
+          },
+          {
+            "file": "adapter_config.json",
+            "bytes": 1296
+          },
+          {
+            "file": "adapter_model.safetensors",
+            "bytes": 84760832
+          },
+          {
+            "file": "licenses/APACHE-2.0.txt",
+            "bytes": 11358
+          }
+        ]
+      }
+    },
+    {
+      "name": "apex-hle-r16",
+      "repository": "csminion/apex-qwen36-hle",
+      "url": "https://huggingface.co/csminion/apex-qwen36-hle",
+      "state": "verified",
+      "created_at_utc": "2026-10-16T18:37:47.421387+00:00",
+      "requested_repository": "csminion/apex-qwen36-hle",
+      "revision": "026d926ae6ff639b7cdd540863b6c527467f1a36",
+      "uploaded_at_utc": "2026-10-16T18:38:17.930783+00:00",
+      "public": true,
+      "gated": false,
+      "anonymous_token": false,
+      "verified_at_utc": "2026-10-16T18:39:14.286221+00:00",
+      "files": [
+        {
+          "file": "README.md",
+          "bytes": 11020,
+          "stream_compare": true
+        },
+        {
+          "file": "adapter_config.json",
+          "bytes": 1296,
+          "stream_compare": true
+        },
+        {
+          "file": "adapter_model.safetensors",
+          "bytes": 84760832,
+          "stream_compare": true
+        },
+        {
+          "file": "LICENSE",
+          "bytes": 940,
+          "stream_compare": true
+        },
+        {
+          "file": "NOTICE.md",
+          "bytes": 2903,
+          "stream_compare": true
+        },
+        {
+          "file": "licenses/APACHE-2.0.txt",
+          "bytes": 11358,
+          "stream_compare": true
+        }
+      ],
+      "safetensors_header_equal": true,
+      "source_weight_stream_compare": true,
+      "additional_manual_hash_pass": false,
+      "anonymous_public_metadata": {
+        "repository": "csminion/apex-qwen36-hle",
+        "sha": "026d926ae6ff639b7cdd540863b6c527467f1a36",
+        "private": false,
+        "gated": false,
+        "library_name": "peft",
+        "pipeline_tag": "image-text-to-text",
+        "card_metadata": {
+          "base_model": "Qwen/Qwen3.6-35B-A3B",
+          "base_model_relation": "adapter",
+          "license": "other",
+          "license_name": "apache-2.0-adapter-contributions-plus-upstream-notices",
+          "license_link": "LICENSE"
+        },
+        "server_file_metadata": [
+          {
+            "file": ".gitattributes",
+            "bytes": 1519
+          },
+          {
+            "file": "LICENSE",
+            "bytes": 940
+          },
+          {
+            "file": "NOTICE.md",
+            "bytes": 2903
+          },
+          {
+            "file": "README.md",
+            "bytes": 11020
+          },
+          {
+            "file": "adapter_config.json",
+            "bytes": 1296
+          },
+          {
+            "file": "adapter_model.safetensors",
+            "bytes": 84760832
+          },
+          {
+            "file": "licenses/APACHE-2.0.txt",
+            "bytes": 11358
+          }
+        ]
+      }
+    },
+    {
+      "name": "apex-asi-r16",
+      "repository": "csminion/apex-qwen36-asi",
+      "url": "https://huggingface.co/csminion/apex-qwen36-asi",
+      "state": "verified",
+      "created_at_utc": "2026-10-16T18:39:15.201128+00:00",
+      "requested_repository": "csminion/apex-qwen36-asi",
+      "revision": "abe468e5531abe8a51fd3b3a110f29159464d31c",
+      "uploaded_at_utc": "2026-10-16T18:39:43.902989+00:00",
+      "public": true,
+      "gated": false,
+      "anonymous_token": false,
+      "verified_at_utc": "2026-10-16T18:40:07.814446+00:00",
+      "files": [
+        {
+          "file": "README.md",
+          "bytes": 10305,
+          "stream_compare": true
+        },
+        {
+          "file": "adapter_config.json",
+          "bytes": 1296,
+          "stream_compare": true
+        },
+        {
+          "file": "adapter_model.safetensors",
+          "bytes": 84760832,
+          "stream_compare": true
+        },
+        {
+          "file": "LICENSE",
+          "bytes": 940,
+          "stream_compare": true
+        },
+        {
+          "file": "NOTICE.md",
+          "bytes": 2746,
+          "stream_compare": true
+        },
+        {
+          "file": "licenses/APACHE-2.0.txt",
+          "bytes": 11358,
+          "stream_compare": true
+        }
+      ],
+      "safetensors_header_equal": true,
+      "source_weight_stream_compare": true,
+      "additional_manual_hash_pass": false,
+      "anonymous_public_metadata": {
+        "repository": "csminion/apex-qwen36-asi",
+        "sha": "abe468e5531abe8a51fd3b3a110f29159464d31c",
+        "private": false,
+        "gated": false,
+        "library_name": "peft",
+        "pipeline_tag": "image-text-to-text",
+        "card_metadata": {
+          "base_model": "Qwen/Qwen3.6-35B-A3B",
+          "base_model_relation": "adapter",
+          "license": "other",
+          "license_name": "apache-2.0-adapter-contributions-plus-upstream-notices",
+          "license_link": "LICENSE"
+        },
+        "server_file_metadata": [
+          {
+            "file": ".gitattributes",
+            "bytes": 1519
+          },
+          {
+            "file": "LICENSE",
+            "bytes": 940
+          },
+          {
+            "file": "NOTICE.md",
+            "bytes": 2746
+          },
+          {
+            "file": "README.md",
+            "bytes": 10305
+          },
+          {
+            "file": "adapter_config.json",
+            "bytes": 1296
+          },
+          {
+            "file": "adapter_model.safetensors",
+            "bytes": 84760832
+          },
+          {
+            "file": "licenses/APACHE-2.0.txt",
+            "bytes": 11358
+          }
+        ]
+      }
+    },
+    {
+      "name": "apex-avg-r64",
+      "repository": "csminion/apex-qwen36-avg64",
+      "url": "https://huggingface.co/csminion/apex-qwen36-avg64",
+      "state": "verified",
+      "created_at_utc": "2026-10-16T18:40:08.565586+00:00",
+      "requested_repository": "csminion/apex-qwen36-avg64",
+      "revision": "53fbd83b8c6d56d9b24dfccbe58789063f7ca853",
+      "uploaded_at_utc": "2026-10-16T18:41:30.701517+00:00",
+      "public": true,
+      "gated": false,
+      "anonymous_token": false,
+      "verified_at_utc": "2026-10-16T18:42:34.981500+00:00",
+      "files": [
+        {
+          "file": "README.md",
+          "bytes": 10223,
+          "stream_compare": true
+        },
+        {
+          "file": "adapter_config.json",
+          "bytes": 1293,
+          "stream_compare": true
+        },
+        {
+          "file": "adapter_model.safetensors",
+          "bytes": 338754768,
+          "stream_compare": true
+        },
+        {
+          "file": "LICENSE",
+          "bytes": 940,
+          "stream_compare": true
+        },
+        {
+          "file": "NOTICE.md",
+          "bytes": 7353,
+          "stream_compare": true
+        },
+        {
+          "file": "licenses/APACHE-2.0.txt",
+          "bytes": 11358,
+          "stream_compare": true
+        }
+      ],
+      "safetensors_header_equal": true,
+      "source_weight_stream_compare": true,
+      "additional_manual_hash_pass": false,
+      "anonymous_public_metadata": {
+        "repository": "csminion/apex-qwen36-avg64",
+        "sha": "53fbd83b8c6d56d9b24dfccbe58789063f7ca853",
+        "private": false,
+        "gated": false,
+        "library_name": "peft",
+        "pipeline_tag": "image-text-to-text",
+        "card_metadata": {
+          "base_model": "Qwen/Qwen3.6-35B-A3B",
+          "base_model_relation": "adapter",
+          "license": "other",
+          "license_name": "apache-2.0-adapter-contributions-plus-upstream-notices",
+          "license_link": "LICENSE"
+        },
+        "server_file_metadata": [
+          {
+            "file": ".gitattributes",
+            "bytes": 1519
+          },
+          {
+            "file": "LICENSE",
+            "bytes": 940
+          },
+          {
+            "file": "NOTICE.md",
+            "bytes": 7353
+          },
+          {
+            "file": "README.md",
+            "bytes": 10223
+          },
+          {
+            "file": "adapter_config.json",
+            "bytes": 1293
+          },
+          {
+            "file": "adapter_model.safetensors",
+            "bytes": 338754768
+          },
+          {
+            "file": "licenses/APACHE-2.0.txt",
+            "bytes": 11358
+          }
+        ]
+      }
+    }
+  ],
+  "updated_at_utc": "2026-10-16T18:42:34.984156+00:00",
+  "anonymous_metadata_observed_at_utc": "2026-10-16T18:42:29.550610+00:00"
+}

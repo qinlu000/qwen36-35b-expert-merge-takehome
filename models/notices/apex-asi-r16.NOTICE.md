@@ -1,0 +1,13 @@
+# Base model and distribution scope
+
+Base: Qwen/Qwen3.6-35B-A3B, revision `995ad96eacd98c81ed38be0c5b274b04031597b0`, by the Qwen team. The [base card](https://huggingface.co/Qwen/Qwen3.6-35B-A3B/blob/995ad96eacd98c81ed38be0c5b274b04031597b0/README.md) declares Apache-2.0. The standard text accompanies this release as `licenses/APACHE-2.0.txt`.
+
+The adapter is a modification produced by SFT or the documented parameter-delta merge. Original adapter contributions are offered under the accompanying LICENSE. This release does not include the full base weights or raw source training/evaluation corpora. Dataset/source licenses below are preserved provenance, not a claim that the publisher owns or relicenses all source material. No upstream publisher or teacher endorses this adapter.
+
+## Scientific Python training sources
+
+- OSU NLP Group and contributors, [ScienceAgentBench verified](https://huggingface.co/datasets/osunlp/ScienceAgentBench/tree/9c6e96c9e74572e979b0930ee735041cef528cb7), revision `9c6e96c9e74572e979b0930ee735041cef528cb7`; 82 training references. The retained per-row record assigns76 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and6 original-upstream licenses:1 [matminer](https://github.com/hackingmaterials/matminer/blob/main/LICENSE),5 [rasterio](https://github.com/rasterio/rasterio/blob/main/LICENSE.txt). The selected reference-code canaries and original notices are retained in the private source corpus, not stripped or relabeled CC-BY.
+- xlang-ai and contributors, [DS-1000](https://github.com/xlang-ai/DS-1000/blob/b39aab71da6d23ef8d3cac59a7c5f834516ab334/data/ds1000.jsonl.gz), revision `b39aab71da6d23ef8d3cac59a7c5f834516ab334`; 976 selected references; [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+- SciCode authors, [SciCode](https://huggingface.co/datasets/SciCode1/SciCode/blob/4510f6a6aa27c43fad7b43da2c59602a86e88480/problems_dev.jsonl), revision `4510f6a6aa27c43fad7b43da2c59602a86e88480`; 15 main validation references repurposed for training; Apache-2.0.
+- Original reference code and indentation were preserved; 24 DS variants in 6 input-overlap families were excluded. Raw reference programs, benchmark files, tests, data and canaries are not redistributed in this adapter repository. SAB's six source-repository licenses were retained by URL; the exact original upstream commit/license text was not pinned in that source metadata. Current linked license texts are supplementary provenance, not proof of the exact historical source version.
+- CC share-alike applies to covered material according to its terms; this notice does not presume that every trained parameter is, or is not, Adapted Material. It does not relabel human-reference source code Apache-2.0.

@@ -1,0 +1,16 @@
+Adapter contribution license and upstream notices
+
+To the extent the adapter publisher holds copyright in original contributions to
+these LoRA adapter files and their release documentation, those contributions
+are licensed under the Apache License, Version 2.0. The standard license text is
+included in licenses/APACHE-2.0.txt and is available at:
+https://www.apache.org/licenses/LICENSE-2.0
+
+This grant does not relicense Qwen base-model material, training datasets, or
+third-party code/questions. Their existing terms and attribution remain
+unchanged, as identified in the accompanying NOTICE.md. NOTICE.md records source
+provenance and applicable upstream notices; it adds no new use restriction.
+
+The release contains LoRA weights, configuration and documentation. It does not
+redistribute full base weights, raw training text/code, or benchmark bundles.
+The Apache-2.0 warranty and liability provisions apply to the publisher's grant.
