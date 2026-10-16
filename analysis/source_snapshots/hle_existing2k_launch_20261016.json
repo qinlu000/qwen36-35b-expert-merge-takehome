@@ -1,0 +1,215 @@
+{
+  "observed_at_cst": "2026-10-16T19:17:33.254942",
+  "hle_submission": {
+    "hle_job_id": 726647,
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--job-name=apex-hle-existing2k-sft",
+      "--gres=gpu:2",
+      "--mem=180G",
+      "--cpus-per-task=12",
+      "--time=08:00:00",
+      "/data/user/qinlucao/projects/apex-takehome/scripts/run_sft.slurm",
+      "--name",
+      "hle-existing2k",
+      "--data-dir",
+      "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/hle_existing_2k_20261016/swift_ready",
+      "--max-length",
+      "65536",
+      "--world-size",
+      "2"
+    ],
+    "train_rows": 2000,
+    "val_rows": 100,
+    "max_length": 65536,
+    "global_batch_size": 8,
+    "world_size": 2,
+    "r16": true,
+    "validation_bytes_equal": true
+  },
+  "followon": {
+    "cancelled_held_old_mixed": 726346,
+    "hle_job_id": 726647,
+    "resource_rule": "Base migration up to10 + SWE4 + HLE2 <=16; after oldB natural release Base<=8 + Terminal4 + SWE/Mixed4<=16",
+    "jobs": {
+      "terminal": {
+        "job_id": 726648,
+        "command": [
+          "sbatch",
+          "--parsable",
+          "--gres=gpu:4",
+          "--mem=256G",
+          "--cpus-per-task=24",
+          "--time=16:00:00",
+          "--job-name=apex-terminal-retry-sft",
+          "--dependency=afterany:726647",
+          "/data/user/qinlucao/projects/apex-takehome/scripts/run_sft.slurm",
+          "--name",
+          "terminal-retry",
+          "--data-dir",
+          "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/terminal_sft_2k_20261016",
+          "--max-length",
+          "65536",
+          "--world-size",
+          "4"
+        ],
+        "afterany": [
+          726647,
+          725705
+        ]
+      },
+      "mixed": {
+        "job_id": 726649,
+        "command": [
+          "sbatch",
+          "--parsable",
+          "--gres=gpu:4",
+          "--mem=256G",
+          "--cpus-per-task=24",
+          "--time=16:00:00",
+          "--job-name=apex-mixed-existing2k-sft",
+          "--dependency=afterok:726335",
+          "/data/user/qinlucao/projects/apex-takehome/scripts/run_sft.slurm",
+          "--name",
+          "mixed-existing2k",
+          "--data-dir",
+          "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/mixed_existing_hle2k_20261016",
+          "--max-length",
+          "65536",
+          "--world-size",
+          "4"
+        ]
+      }
+    }
+  },
+  "hle_data": {
+    "data_ready": true,
+    "train_rows": 2000,
+    "val_rows": 100,
+    "categories": {
+      "Math": 817,
+      "Other": 186,
+      "Biology/Medicine": 224,
+      "Computer Science/AI": 193,
+      "Physics": 184,
+      "Humanities/Social Science": 175,
+      "Chemistry": 132,
+      "Engineering": 89
+    },
+    "target_categories": {
+      "Math": 817,
+      "Biology/Medicine": 224,
+      "Computer Science/AI": 193,
+      "Other": 186,
+      "Physics": 184,
+      "Humanities/Social Science": 175,
+      "Chemistry": 132,
+      "Engineering": 89
+    },
+    "quota_delta": {
+      "Math": 0,
+      "Biology/Medicine": 0,
+      "Computer Science/AI": 0,
+      "Other": 0,
+      "Physics": 0,
+      "Humanities/Social Science": 0,
+      "Chemistry": 0,
+      "Engineering": 0
+    },
+    "unavailable_strata_before_redistribution": {},
+    "candidate_supply_after_dedup_and_length_check": {
+      "Physics": 105,
+      "Chemistry": 183,
+      "Engineering": 89,
+      "Humanities/Social Science": 173
+    },
+    "sources": {
+      "Math-v4": 817,
+      "TIGER-Lab/MMLU-Pro": 884,
+      "nvidia/Nemotron-SFT-Science-v2": 201,
+      "trjxter/DeepSeek-V4-Pro-Reasoning-8000x": 82,
+      "Jackrong/GLM-5.1-Reasoning-1M-Cleaned": 16
+    },
+    "teachers": {
+      "publisher_DeepSeek-V4-Pro_High": 817,
+      "deepseek-v4-pro": 722,
+      "DeepSeek-V4-Pro": 283,
+      "GLM-5.1": 16,
+      "publisher_reference_not_model_generated": 162
+    },
+    "fixed_existing_math": 817,
+    "fixed_existing_accepted_high": 722,
+    "reference_short_answer_rows": 162,
+    "new_api_calls": 0,
+    "validation_bytes_unchanged": true,
+    "truncated_samples": 0,
+    "hidden_reasoning_fields_in_training": 0,
+    "rejections": {
+      "duplicate_question_or_family": 2
+    },
+    "full_sequence_tokens": {
+      "sum": 1125593,
+      "max": 4043,
+      "mean": 562.7965
+    },
+    "assistant_tokens": {
+      "sum": 793188,
+      "max": 3977
+    },
+    "hard_sequence_limit": 65536,
+    "hard_assistant_limit": 8192,
+    "limits": [
+      "Academic domain proxy; difficulty and subject supply differ from HLE.",
+      "Teacher mode and answer evidence are recorded per source; unknown effort is not relabeled High.",
+      "Public source and question overlap exclusions do not prove semantic independence."
+    ]
+  },
+  "mixed_data": {
+    "train_sources": [
+      {
+        "path": "artifacts/data/candidates/hle_existing_2k_20261016/swift_ready/train.messages.jsonl",
+        "rows": 2000
+      },
+      {
+        "path": "artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.messages.jsonl",
+        "rows": 2000
+      },
+      {
+        "path": "artifacts/data/candidates/terminal_sft_2k_20261016/train.messages.jsonl",
+        "rows": 2000
+      },
+      {
+        "path": "artifacts/data/candidates/asi_sft_expanded_20261016/train.messages.jsonl",
+        "rows": 1073
+      }
+    ],
+    "val_sources": [
+      {
+        "path": "artifacts/data/candidates/hle_existing_2k_20261016/swift_ready/val.messages.jsonl",
+        "rows": 100
+      },
+      {
+        "path": "artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/val.messages.jsonl",
+        "rows": 87
+      },
+      {
+        "path": "artifacts/data/candidates/terminal_sft_2k_20261016/val.messages.jsonl",
+        "rows": 42
+      },
+      {
+        "path": "artifacts/data/candidates/asi_sft_expanded_20261016/val.messages.jsonl",
+        "rows": 20
+      }
+    ],
+    "train_rows": 7073,
+    "val_rows": 249,
+    "rule": "Each expert training/validation example appears once; no oversampling or truncation",
+    "columns": [
+      "messages",
+      "tools"
+    ],
+    "metadata": "Source metadata remains in the expert partitions; missing tools are empty lists"
+  },
+  "queue": "726649 apex-mixed-existing2k-sft PENDING 0:00 afterok:726335(unfulfilled) (Dependency)\n726648 apex-terminal-retry-sft PENDING 0:00 afterany:726647(unfulfilled),afterany:725705(unfulfilled) (Dependency)\n726647 apex-hle-existing2k-sft PENDING 0:00 (null) (Priority)\n726335 apex-swe2k-sft RUNNING 1:25:09 (null) ACD1-2\n"
+}

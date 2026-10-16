@@ -92,3 +92,25 @@ artifacts/data/raw/nemotron_sft_math_v4/
 4. **现成 2k 与全学科 2k 是两件事。** 数学凑 2k 很容易，但会偏离 HLE；当前两源不能补齐 CS、人文、Other、工程，也无图像。若需要维持原领域配额，应继续寻找可追溯强教师的跨学科现成回答，而不是默认用数学填所有缺口。
 
 未修改正式训练矩阵、旧 500 文件、Mixed、训练参数或队列。本报告提供来源与结构证据，由根任务合并讨论。
+
+## 后续授权后的材料化结果
+
+根任务随后授权将现成池落地，优先填补 Physics 71 / Chemistry 130，并输出 Bio 备选。已新增 `scripts/materialize_hle_existing_math_science.py`，使用 80 的 `artifacts/envs/hle/bin/python`；最终 token 检查与配额选择由根任务统一执行，未在本分支训练。
+
+最终 80 目录：`/data/caoqinlu/projects/apex-takehome/artifacts/data/candidates/hle_existing_2k_20261016/math_science/`。
+
+| 文件 | 数量与用途 |
+| --- | --- |
+| `science.candidates.jsonl` | **288**：Physics **105**、Chemistry **183**；足以覆盖本次两类缺额，仍待根任务最终 token 验收 |
+| `science.reserve_bio.jsonl` | **364** Biology/Medicine，供根任务在其他领域不足时明确调整配额 |
+| `math.ready.jsonl` | **817**，原现成 Math ready 的标准 schema 导出，内容不改 |
+| `candidates.jsonl` | **1469**，以上三份的并集；若根任务已读取原 817，则不要再整份相加 |
+| `summary.json` | 源计数、排除原因、两个有界下载 range、清理/验证边界 |
+
+schema 为 `task_id/domain/source_id/teacher/messages/source_meta`，与 broad 分支一致。只保留完整可见最终回答，删除独立推理字段；不会为满足长度截断回答。Science 的 effort 未记录、没有独立 gold，均写入 `source_meta`，没有把它们伪装成参考验证答案。
+
+已有 Science byte 样本原本只能给 Chemistry 105 / Physics 73；为补足化学，在原 V4 密集 rqa 块后连续补读 **2×8MiB**，实际 HTTP `Content-Range` 为 `2391983511-2400372118` 与 `2400372119-2408760726`（全文件 9,534,379,615 字节）。80 直连不通，因此在 Mac 有界下载、核 206/Range/8MiB 大小后 rsync 到 80，没有完整下载大库或新 hash。
+
+最终所读 byte 样本含 V4：Physics 133、Chemistry 203、Biology 463、Math 65。材料化排除原 candidate holdout 64、exact 重复题面 83；正式 HLE 与固定 100 val 题面 exact/13-gram 无命中。Science 新增量有 652 个候选，按原始 UUID 与标准化题面去重；新读取且未在旧候选清单中的题按新 train candidate 记录，固定的 100 val 未变。不能把这些简要检查说成已经证明所有语义改写或来源族均独立。
+
+本分支没有 API、正式 gold 读取、训练、队列、最终矩阵、Mixed 或共享 `claud.md` 修改。根任务将统一完成完整序列 64K / 回答 8K 验收、最后配额和训练衔接。

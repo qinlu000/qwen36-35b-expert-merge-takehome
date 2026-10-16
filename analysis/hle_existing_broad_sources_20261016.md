@@ -39,3 +39,17 @@
 **最省时间的主路线仍是已核的 NVIDIA Math-v4 纯 CoT final + Science-v2 明确 V4-Pro 的纯问答 final；两者本来就远多于 500 条。**这次新增的 V4-Pro 8k、GLM5.1 清理池证明还有跨学科候选，不必重采教师；若采用，先筛与 HLE 题型相关的完整答案，并把来源不明、缺上下文、空/截断 final、正式 HLE 同题排掉。没有证据预先承诺所有 HLE 学科都能按原比例用强教师现成数据补齐。
 
 本报告仅记录来源核查；未纳入训练，未重建 Mixed，未恢复 HLE 答案生成，未修改当前 500 条权重的状态。后续规模须以实际筛出的独立问题数报告，而非来源卡行数相加。
+
+## 后续授权实筛：现成跨学科候选 100 条
+
+在用户授权继续现成约 2k、无新 API 后，本轮完成了小池实筛。固定 revision 的 V4-Pro 8k 完整文件下载至本机；GLM5.1 main 仅读取四段 HTTP 206 Range，每段 12 MiB（起点 0、1GB、4GB、8GB），合计 48 MiB、1,572 条完整 JSON 记录，未下载 31.7GB 全库。80 直连 HF 超时，因此走本机下载后 rsync，没有改代理或服务。
+
+输出位于 80 项目 `artifacts/data/candidates/hle_existing_2k_20261016/broad/candidates.jsonl`，与 `summary.json`、`manual_review_summary.json` 同目录。schema 为 `task_id/domain/source_id/teacher/messages/source_meta`。
+
+- 共 **100 条**：Engineering **89**、Humanities/Social Science **11**；教师 **DeepSeek-V4-Pro 82、GLM-5.1 18**。已去 think，完整 final 和原始题面保留；两池相同 normalized 题面只保留一个，V4 先于 GLM。它们是 100 个不同题干，原题源和语义题族未完全披露，不能声称人工证明 100 个独立原始任务族。
+- 工程覆盖电池/电解质、材料/晶界、半导体、测量电路、微声学及环境水文；水文与电化学模板较集中。手工排除缺图/缺数值、初等换数电阻算术、纯物理误类、项目灵感/闲聊和若干明显近重复。没有为凑 89 条保留所有 216 条工程关键词初筛命中。
+- 人文保留法律、伦理、货币/政治经济、区域社会经济等大学/专业解释题。没有用程序里的 history/grammar 单词、宇宙 inflation、文档摘要、旅游建议、小说内容问答或泛写作凑配额。**11 条远少于需要补的人文 173 条**，必须明确披露，不把其他学科伪标成人文。
+- 对正式 HLE 2,500 题只读 parquet 的 `question` 列，并按原有 normalized exact + 13-gram 规则排除与正式题及冻结 100 val 的重合；100 条没有命中。没有读取 HLE gold 选题或评价答案。原始问卷语义改写仍无法由该检查完全排除。
+- 64K 完整序列 / 8K final 的 tokenizer 计数交给最终整合流程；本候选文件标注待 root 验收，**不截断答案来通过长度限制**。无额外教师调用、环境执行、训练、Mixed/数据矩阵/队列变更。
+
+GLM5.1 强度参考：[官方模型卡](https://huggingface.co/zai-org/GLM-5.1)披露 HLE no-tools 31.0、GPQA 86.2，相对本题 base 卡的 21.4/86.0 支持作为该域教师候选；两方协议和本池未披露的实际 reasoning effort 仍限制严格同条件比较。不能以教师较强保证每条回答正确，候选继续标 `publisher_teacher_response_no_independent_gold`。

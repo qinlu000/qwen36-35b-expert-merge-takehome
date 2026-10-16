@@ -1175,3 +1175,14 @@
 - native10于18:23恢复，PID2719240；现场checkpoint为30admitted、348pending，旧35个有效结果保留。主28082实际8running＋1waiting，副28084实际7running；make-doom/make-mips已写正式agent/v2_requests原始请求，不能将30槽理解为30条HTTP同时执行。任务结束立即补位，原4CPU/8GiB/1800s、题目/seed/prompt和64K/8K不变。
 - 短临时目录/data/caoqinlu/apex-tb-tmp解决根盘/tmp满，并避免长目录触发AF_UNIX路径上限。native9的零模型setup失败目录保留，native10使用独立物理后缀，同一manual_attempt，不添加模型生成重试。378项确认agent_setup/execution/result均无实际模型执行后才恢复；另32项已有模型输出交独立评分恢复，正常AgentTimeout不重答。
 - 18:23最终只读汇总HLE1337/2500，仍8active；ASI240/240为公开本地评分口径1.5709884069%，SWE51/51官方fresh replay为9.8039215686%。Terminal主分仍待445原定项有效齐全。
+
+## 2026-10-16 19:17 CST：现成HLE2k落地、Mixed更新与Terminal验证修复
+
+- 用户授权继续筛更多现成答案；此前退回500是理解过窄。本轮已实际完成HLE2000/100，Mac/80/HPC都有完整导出，新目录hle_existing_2k_20261016/swift_ready，不恢复教师API。
+- 组成817 MathHigh＋此前已接受722 High＋Science V4 final201＋跨学科final98（V4 82/GLM5.1 16）＋MMLU-Pro参考短答案162。八类与原配额一致817/224/193/186/184/175/132/89；人文完整final新供给仅11，加原High2后缺162，使用原已分train并排除正式/val的公开gold监督，明确非完整推理轨迹，不编解释。公开教师未知effort不冒称High。
+- 清理后的完整序列1,125,593tokens/max4043，正文793188/max3977，0截断；原100val三个文件逐字节相同。学生非思考，仍按64K/8K、r16/global8一epoch，原500数据/旧权重保持历史。
+- HLE新726647双卡180G/12CPU已提交，最新PENDING Priority、无optimizer，不把提交称已训练。SWE726335实际155/249、best cp144 val0.32061967；ASI726336已134步完成51m36，bestcp128 val0.58268344。验证loss不等于benchmark成绩。
+- Terminal旧726345在16步首次eval普通CE申请21.06GiB时OOM，无checkpoint。Liger默认eval生成全词表logits；新17行worker包装让有labels的eval走官方FLCE，实际Liger前端CPU红→绿、与denseCE在causal shift/-100 mask/归一化下差分<=1e-6；训练/生成/数据/全val/预算不变。没改installed包/运行SWE/Base。真实GPU全量val仍待新job反馈。
+- Terminal重训726648四卡实际afterany:726647:725705，后者只作为旧Base B自然退役的资源依赖，不操作Base。Mixed7073/249已在新目录mixed_existing_hle2k_20261016物化并同步HPC，四专家分区各一次；旧held且0运行726346取消，新726649四卡afterok726335。旧5573未覆盖。
+- Base迁移峰值最多10＋SWE4＋HLE2≤16；旧B退役后Base≤8＋Terminal4＋SWE/Mixed4≤16，覆盖另一任务模型服务交接的暂时重叠，无关项目未动。旧API STOP_ADMISSION保持、无新app自动化、无数据hash工程。
+- KISS脚本、固定逐题筛选ID、来源局限、启动回执和OOM回归已落Git；核心记录analysis/hle_existing_2k_execution_20261016.md及sft_progress_20261016.md。claud.md/overnight只追加本轮自有段落，不夹带并行Base改动；提交无coauthor信息。
