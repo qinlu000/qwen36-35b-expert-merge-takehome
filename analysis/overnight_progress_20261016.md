@@ -401,3 +401,14 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - 用户询问“等待HLE/ASI生成批次及CPU释放”的含义。只读核实：Base HLE100与Base SAB20已完成，HLE16已保存11/100，HLE250/ASI128尚未开始；SWE51 pending、active0、valid0。
 - 等待包含两个当前部署条件：SWE与HLE/ASI验证共用727113两卡推理服务，现按模型块串行；80目标CPU0–9仍由Terminal Base/repair预留。repair187项中45有效、31active、110pending，CPU永久释放标记未写。31个4CPU槽覆盖0–123，另正式SWE Base使用124/126/127。
 - 这是现有共享资源的接续调度，SWE不依赖HLE/ASI的结果，训练和正式51题环境已完成。并发10是就绪后的运行上限，当前尚未实际启用。此次仅解释与记录，不改排期、预算、Base或队列。
+
+
+## 2026-10-16 23:13：重新按原始题面盘点剩余硬要求
+
+- 已重新读取最初完整HTML题面，三路只读审计SFT/合版、正式评测覆盖、最终交付实物；没有新运行实验或修改Base。完整核对表analysis/remaining_requirements_20261016.md。
+- SWE/ASI/HLE三专家已完成；Terminal213/250、Mixed427/883仍在训。合版仅AVG/TIES计划，尚无实现/权重/结果；Mixed也未形成可解释的实测对照，不能当合版替代品。
+- 正式Base仅ASI全量完成，HLE1项评分异常、SWE clean28收尾、TB corrected445为303有效；专家目标项和合版四项正式结果均未完成。SWE24951题仅等待式部署，并发10；HLE100与SAB20代理验证不替代正式集。
+- 还缺至少两种合版方法或关键配置消融、四项等权macro与配对bootstrap/TB均值SD、20个真实merged失败归因和3项后续实验、当前四专家完整train/val曲线及源数据、统一资源/费用/主动时长账。
+- 交付审计：只有本地bare Git remote，暂无个人GitHub链接、Public HF五模型revision、根README/models README或一页report.pdf。PEFT自动卡仍占位/本地Base路径，不能当公开模型卡。现Base collector明确combined_score=None，后续须补题定macro汇总，当前不改在用代码。
+- Terminal30min/4CPU8GiB/64K8K与原题3h/32CPU48GB/256K80K存在未获面试方例外确认的偏离，不能仅凭全量覆盖声称满足原配置；替代judge和SWE服务/预算差异也须披露。
+- 建议优先：训练收尾同时实现合版→有限独立dev比较并冻结→长耗时正式评测→统计/错误分析和公开交付。核心窗口剩约27h（10/18 02:20前），不再扩大训练或val环境分支。3pp为挑战目标，报告真实净收益；RL/全专家跨四项并非题面强制。
