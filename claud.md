@@ -1311,3 +1311,11 @@
 - Terminal726665已21:24:28实际获ACD1-26同机4H100，Swift native worker已启动，日志进入model_kwargs(BF16/grouped_mm)加载阶段；21:28尚无native数据数量、optimizer/loss，严格区分拿卡/模型加载和实际参数更新。此前凌晨01:11调度预测已失效，不能继续报仍待卡。
 - 21:28本题运行Terminal4+Mixed4+HLE2+Base4=14GPU（HLE收尾中）；无关项目1卡另计。此次仅只读，没有新调度/数据/配方修改或API。主进度/训练矩阵/独立新快照已更新，不覆盖旧21:08证据。
 - 原始训练/数据记录继续保留，HLE早期best16不被最后250覆盖；验证loss不当benchmark分。Git只提交本轮自有文件和claud/overnight追加，无coauthor信息。
+
+
+## 2026-10-16 21:31 CST：三个已完成专家的val分数
+
+- 用户问SWE/ASI/HLE val分。已核原生Swift：SWE87条val，首测16=.38588187，best=final249=.31768048；ASI20条，首16=.73078740，best128=.58268344，final134=.58287901；HLE100条，best=首16=2.00219154，final250=3.49751949。
+- 以上是保留轨迹交叉熵val loss而非任务正确率，跨数据集不能横比。SWE/ASI从首测到best下降；HLE后期监督验证变差，best16保留，不据此直接断言准确率下降或过拟合已证实。
+- 三run eval_on_start=false，没有step0同val Base loss，step16已训练。只读HPC SFT及80现有eval/run未发现专家独立val生成/执行准确率或成功率输出，现有benchmark结果为Base，不混报。未新跑模型/API、改任务或训练方案。
+- 已整理analysis/three_expert_val_scores_20261016.md及逐次eval快照，修正主进度HLE最终250步loss及Terminal已获卡历史文字。Git只提交本轮自有文件和claud/overnight追加，无coauthor信息。

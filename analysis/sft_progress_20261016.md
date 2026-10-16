@@ -10,7 +10,7 @@
 | ASI / 科研编程 | 1073→1073 /20 | 726336已完成134步，51分36秒；best checkpoint128，val loss0.58268344 |
 | Mixed对照 | 7073→**7066** /249 | 726666，4H100，RUNNING，176/883步；best checkpoint64，val loss1.21849561 |
 
-21:28原生Trainer估计Mixed剩约5小时30分钟，会随批次长度、验证和保存变化，不是完成承诺。Terminal实际21:24获卡，旧调度器01:11预测已经失效；模型加载与optimizer严格区分，尚不能说新run已经完成一次参数更新。HLE最新完整eval（240步）loss3.51007748高于早期最佳，最终summary仍选checkpoint16；按独立val再做生成与任务表现比较，不能将loss直接当HLE准确率。
+21:28原生Trainer估计Mixed剩约5小时30分钟，会随批次长度、验证和保存变化，不是完成承诺。Terminal实际21:24获卡，旧调度器01:11预测已经失效；模型加载与optimizer严格区分，尚不能说新run已经完成一次参数更新。HLE最终eval（250步）loss3.49751949高于早期最佳，最终summary仍选checkpoint16；按独立val再做生成与任务表现比较，不能将loss直接当HLE准确率。三个已完成专家的首测、最佳及最终loss见[验证结果表](three_expert_val_scores_20261016.md)。
 
 原始快照：[21:28训练状态](source_snapshots/sft_status_20261016_current.json)、[21:08历史训练状态](source_snapshots/sft_status_latest_20261016.json)、[Terminal依赖释放与资源排队历史](source_snapshots/terminal_scheduling_20261016_2110.json)。
 
@@ -46,7 +46,7 @@ HLE双卡、Mixed四卡（SWE完成后接续）。Terminal原依赖`afterany:726
 
 19:24启动修正：初次HLE726647获得调度后因集群包装器误把独立`--data-dir`目录参数当sandbox而0步失败，未加载模型；CPU原样解析条件已确认改用`--data-dir=...`通过。现HLE726664、Terminal726665、Mixed726666均用equals参数写法重提，旧0步后续726648/726649取消，数据与预算未变。HLE仍排队，GPU真实optimizer/eval尚待实证；详见执行记录和重提交回执。
 
-以上为19:24启动历史；21:08 HLE与Mixed已真实训练，最新状态见上表。Mixed同修复全val已有7次GPU通过记录，Terminal独立job仍待获卡。
+以上为19:24启动历史；最新状态见上表。Mixed同修复全val已有真实GPU通过记录；Terminal独立job已21:24获卡并进入加载流程。
 
 提示对齐优先级已复核：当前HLE/ASI差异不是已证实的训练/评分阻塞，不为纯文案一致性改当前数据或重训。接下来完成Terminal、HLE、Mixed，训练后用既有独立val检查抽取/工具/代码输出及任务表现，再做专家合版与对照评测。[必要性结论](sft_harness_alignment_20261016.md)
 

@@ -1,0 +1,384 @@
+{
+  "snapshot_time_beijing": "2026-10-16T21:30:34.976044+08:00",
+  "score_type": "SFT token-level validation cross entropy; lower is better; not task accuracy/success or official benchmark score.",
+  "runs": [
+    {
+      "run_name": "swe2k-sft-r16-726335",
+      "run_path": "artifacts/runs/swe2k-sft-r16-726335",
+      "eval_on_start": false,
+      "eval_strategy": "steps",
+      "eval_steps": 16,
+      "val_dataset": [
+        "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/val.messages.jsonl"
+      ],
+      "evals": [
+        {
+          "eval_loss": 0.38588187,
+          "epoch": 0.06425703,
+          "global_step/max_steps": "16/249",
+          "elapsed_time": "15m 20s"
+        },
+        {
+          "eval_loss": 0.35616446,
+          "epoch": 0.12851406,
+          "global_step/max_steps": "32/249",
+          "elapsed_time": "24m 1s"
+        },
+        {
+          "eval_loss": 0.34353974,
+          "epoch": 0.19277108,
+          "global_step/max_steps": "48/249",
+          "elapsed_time": "30m 19s"
+        },
+        {
+          "eval_loss": 0.33527803,
+          "epoch": 0.25702811,
+          "global_step/max_steps": "64/249",
+          "elapsed_time": "37m 47s"
+        },
+        {
+          "eval_loss": 0.33104914,
+          "epoch": 0.32128514,
+          "global_step/max_steps": "80/249",
+          "elapsed_time": "44m 18s"
+        },
+        {
+          "eval_loss": 0.32685143,
+          "epoch": 0.38554217,
+          "global_step/max_steps": "96/249",
+          "elapsed_time": "50m 37s"
+        },
+        {
+          "eval_loss": 0.32433742,
+          "epoch": 0.4497992,
+          "global_step/max_steps": "112/249",
+          "elapsed_time": "58m 12s"
+        },
+        {
+          "eval_loss": 0.32260525,
+          "epoch": 0.51405622,
+          "global_step/max_steps": "128/249",
+          "elapsed_time": "1h 4m 33s"
+        },
+        {
+          "eval_loss": 0.32061967,
+          "epoch": 0.57831325,
+          "global_step/max_steps": "144/249",
+          "elapsed_time": "1h 11m 21s"
+        },
+        {
+          "eval_loss": 0.31970751,
+          "epoch": 0.64257028,
+          "global_step/max_steps": "160/249",
+          "elapsed_time": "1h 18m 32s"
+        },
+        {
+          "eval_loss": 0.31934679,
+          "epoch": 0.70682731,
+          "global_step/max_steps": "176/249",
+          "elapsed_time": "1h 24m 26s"
+        },
+        {
+          "eval_loss": 0.31846359,
+          "epoch": 0.77108434,
+          "global_step/max_steps": "192/249",
+          "elapsed_time": "1h 31m 52s"
+        },
+        {
+          "eval_loss": 0.31806085,
+          "epoch": 0.83534137,
+          "global_step/max_steps": "208/249",
+          "elapsed_time": "1h 38m 59s"
+        },
+        {
+          "eval_loss": 0.3178463,
+          "epoch": 0.89959839,
+          "global_step/max_steps": "224/249",
+          "elapsed_time": "1h 44m 58s"
+        },
+        {
+          "eval_loss": 0.31793186,
+          "epoch": 0.96385542,
+          "global_step/max_steps": "240/249",
+          "elapsed_time": "1h 52m 14s"
+        },
+        {
+          "eval_loss": 0.31768048,
+          "epoch": 1,
+          "global_step/max_steps": "249/249",
+          "elapsed_time": "1h 55m 36s"
+        }
+      ],
+      "summary": {
+        "passed": true,
+        "global_steps": 249,
+        "final_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+        "world_size": 4,
+        "wall_seconds": 7286.073950213962
+      },
+      "latest_checkpoint_state": {
+        "global_step": 249,
+        "max_steps": 249,
+        "best_metric": 0.31768048,
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249"
+      },
+      "best_eval_observed": {
+        "eval_loss": 0.31768048,
+        "epoch": 1,
+        "global_step/max_steps": "249/249",
+        "elapsed_time": "1h 55m 36s"
+      },
+      "final_eval_observed": {
+        "eval_loss": 0.31768048,
+        "epoch": 1,
+        "global_step/max_steps": "249/249",
+        "elapsed_time": "1h 55m 36s"
+      },
+      "base_same_val_start_measured_in_native_run": false,
+      "validation_rows": 87
+    },
+    {
+      "run_name": "asi-expanded-sft-r16-726336",
+      "run_path": "artifacts/runs/asi-expanded-sft-r16-726336",
+      "eval_on_start": false,
+      "eval_strategy": "steps",
+      "eval_steps": 16,
+      "val_dataset": [
+        "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/asi_sft_expanded_20261016/val.messages.jsonl"
+      ],
+      "evals": [
+        {
+          "eval_loss": 0.7307874,
+          "epoch": 0.11940299,
+          "global_step/max_steps": "16/134",
+          "elapsed_time": "8m 11s"
+        },
+        {
+          "eval_loss": 0.70674151,
+          "epoch": 0.23880597,
+          "global_step/max_steps": "32/134",
+          "elapsed_time": "14m 3s"
+        },
+        {
+          "eval_loss": 0.68176353,
+          "epoch": 0.35820896,
+          "global_step/max_steps": "48/134",
+          "elapsed_time": "19m 37s"
+        },
+        {
+          "eval_loss": 0.6507746,
+          "epoch": 0.47761194,
+          "global_step/max_steps": "64/134",
+          "elapsed_time": "24m 56s"
+        },
+        {
+          "eval_loss": 0.60097384,
+          "epoch": 0.59701493,
+          "global_step/max_steps": "80/134",
+          "elapsed_time": "30m 12s"
+        },
+        {
+          "eval_loss": 0.58837831,
+          "epoch": 0.71641791,
+          "global_step/max_steps": "96/134",
+          "elapsed_time": "35m 14s"
+        },
+        {
+          "eval_loss": 0.58327568,
+          "epoch": 0.8358209,
+          "global_step/max_steps": "112/134",
+          "elapsed_time": "40m 10s"
+        },
+        {
+          "eval_loss": 0.58268344,
+          "epoch": 0.95522388,
+          "global_step/max_steps": "128/134",
+          "elapsed_time": "44m 45s"
+        },
+        {
+          "eval_loss": 0.58287901,
+          "epoch": 1,
+          "global_step/max_steps": "134/134",
+          "elapsed_time": "46m 41s"
+        }
+      ],
+      "summary": {
+        "passed": true,
+        "global_steps": 134,
+        "final_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-134",
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128",
+        "world_size": 2,
+        "wall_seconds": 2945.78616404254
+      },
+      "latest_checkpoint_state": {
+        "global_step": 134,
+        "max_steps": 134,
+        "best_metric": 0.58268344,
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128"
+      },
+      "best_eval_observed": {
+        "eval_loss": 0.58268344,
+        "epoch": 0.95522388,
+        "global_step/max_steps": "128/134",
+        "elapsed_time": "44m 45s"
+      },
+      "final_eval_observed": {
+        "eval_loss": 0.58287901,
+        "epoch": 1,
+        "global_step/max_steps": "134/134",
+        "elapsed_time": "46m 41s"
+      },
+      "base_same_val_start_measured_in_native_run": false,
+      "validation_rows": 20
+    },
+    {
+      "run_name": "hle-existing2k-sft-r16-726664",
+      "run_path": "artifacts/runs/hle-existing2k-sft-r16-726664",
+      "eval_on_start": false,
+      "eval_strategy": "steps",
+      "eval_steps": 16,
+      "val_dataset": [
+        "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/hle_existing_2k_20261016/swift_ready/val.messages.jsonl"
+      ],
+      "evals": [
+        {
+          "eval_loss": 2.00219154,
+          "epoch": 0.064,
+          "global_step/max_steps": "16/250",
+          "elapsed_time": "9m 5s"
+        },
+        {
+          "eval_loss": 2.83629727,
+          "epoch": 0.128,
+          "global_step/max_steps": "32/250",
+          "elapsed_time": "15m 19s"
+        },
+        {
+          "eval_loss": 3.1818397,
+          "epoch": 0.192,
+          "global_step/max_steps": "48/250",
+          "elapsed_time": "21m 9s"
+        },
+        {
+          "eval_loss": 3.19607663,
+          "epoch": 0.256,
+          "global_step/max_steps": "64/250",
+          "elapsed_time": "27m 13s"
+        },
+        {
+          "eval_loss": 3.4640696,
+          "epoch": 0.32,
+          "global_step/max_steps": "80/250",
+          "elapsed_time": "33m 18s"
+        },
+        {
+          "eval_loss": 3.53496552,
+          "epoch": 0.384,
+          "global_step/max_steps": "96/250",
+          "elapsed_time": "38m 59s"
+        },
+        {
+          "eval_loss": 3.53782797,
+          "epoch": 0.448,
+          "global_step/max_steps": "112/250",
+          "elapsed_time": "44m 51s"
+        },
+        {
+          "eval_loss": 3.44701457,
+          "epoch": 0.512,
+          "global_step/max_steps": "128/250",
+          "elapsed_time": "50m 27s"
+        },
+        {
+          "eval_loss": 3.50789237,
+          "epoch": 0.576,
+          "global_step/max_steps": "144/250",
+          "elapsed_time": "56m 5s"
+        },
+        {
+          "eval_loss": 3.43592906,
+          "epoch": 0.64,
+          "global_step/max_steps": "160/250",
+          "elapsed_time": "1h 1m 21s"
+        },
+        {
+          "eval_loss": 3.48262358,
+          "epoch": 0.704,
+          "global_step/max_steps": "176/250",
+          "elapsed_time": "1h 6m 24s"
+        },
+        {
+          "eval_loss": 3.51062369,
+          "epoch": 0.768,
+          "global_step/max_steps": "192/250",
+          "elapsed_time": "1h 11m 56s"
+        },
+        {
+          "eval_loss": 3.50890541,
+          "epoch": 0.832,
+          "global_step/max_steps": "208/250",
+          "elapsed_time": "1h 17m 10s"
+        },
+        {
+          "eval_loss": 3.49409676,
+          "epoch": 0.896,
+          "global_step/max_steps": "224/250",
+          "elapsed_time": "1h 22m 2s"
+        },
+        {
+          "eval_loss": 3.51007748,
+          "epoch": 0.96,
+          "global_step/max_steps": "240/250",
+          "elapsed_time": "1h 26m 57s"
+        },
+        {
+          "eval_loss": 3.49751949,
+          "epoch": 1,
+          "global_step/max_steps": "250/250",
+          "elapsed_time": "1h 29m 59s"
+        }
+      ],
+      "summary": {
+        "passed": true,
+        "global_steps": 250,
+        "final_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-250",
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-16",
+        "world_size": 2,
+        "wall_seconds": 5571.416432565078
+      },
+      "latest_checkpoint_state": {
+        "global_step": 250,
+        "max_steps": 250,
+        "best_metric": 2.00219154,
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-16"
+      },
+      "best_eval_observed": {
+        "eval_loss": 2.00219154,
+        "epoch": 0.064,
+        "global_step/max_steps": "16/250",
+        "elapsed_time": "9m 5s"
+      },
+      "final_eval_observed": {
+        "eval_loss": 3.49751949,
+        "epoch": 1,
+        "global_step/max_steps": "250/250",
+        "elapsed_time": "1h 29m 59s"
+      },
+      "base_same_val_start_measured_in_native_run": false,
+      "validation_rows": 100
+    }
+  ],
+  "base_same_val_status": "No step-0 evaluation in any of these native runs (eval_on_start=false). No separate same-val Base loss result was located in the inspected project records.",
+  "independent_validation_task_score_status": {
+    "available": false,
+    "scope": "Inspected HPC SFT run records and 80 artifacts/eval + artifacts/runs directories; found Base benchmark outputs, no completed specialist same-val generation/accuracy/task-success outputs.",
+    "note": "Existing Base official benchmark scores are a different evaluation and must not be relabeled as these validation results."
+  },
+  "interpretation": {
+    "swe": "Validation loss generally decreases from first measured step16 (0.38588187) to final/best step249 (0.31768048).",
+    "asi": "Validation loss generally decreases from first measured step16 (0.7307874) to best step128 (0.58268344), with tiny final increase at134 (0.58287901).",
+    "hle": "Validation loss rises after first/best measured step16 (2.00219154), ending at250 (3.49751949). This does not establish task accuracy degradation or a gain over Base. Answer-format mismatch/overfitting are hypotheses, not diagnosed conclusions.",
+    "comparison_limits": "Different validation tasks and label distributions mean loss values should not be compared as cross-domain skill rankings. First measured step16 is already trained, not Base."
+  }
+}
