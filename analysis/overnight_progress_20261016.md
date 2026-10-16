@@ -165,3 +165,11 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - SWE15:25:43 first-generation cohort has18terminal/8active/17pending; old2 normal-budget patches have fresh replay and6early-cancelled tasks remain incomplete. All51 images cached by14:44, download queue failed0. By15:32 glibc has9terminal/7active/17pending; musl root10terminal/0active/0pending. Replay-valid coverage is tracked separately from terminal counts.
 - TB stopped14:41 after a single distribution-search verifier timeout incorrectly tripped the entire queue.7/445 valid=1reward1+6reward0,414never-admitted pending,7cancelled partial solvers retained,17failed attempts including historical bootstrap errors. Owner is starting a new16-solver production leaf that isolates verifier failures and preserves existing valid results and raw responses.
 - New8-sequence service725705 actually became ready14:36:53. The once-waiter had exited on unhandled early-health ConnectionResetError; its stale checkpoint made it look merely loading, and the2GPUs remained unused for about49min. Fixed only that observed exception, restarted80 PID2004017 at15:25; consumer2004064 now performs natural drain before moving pending SWE IDs to28084. No new synthetic tests or hashes. Old live trials are not cancelled for handoff.
+
+
+## 2026-10-16：SFT实际完成与其余三组启动
+
+- 用户询问SFT是否开始，已实查sacct：学术专家725704 COMPLETED/0:0，单H100完成500/100、63步、43分34秒；验证loss后期上升，保留16与63。补齐curves/hle_sft_725704_loss.csv及PNG，未把训练成功称HLE提升。
+- 原授权其余SFT已推进：SWE725982双H100 RUNNING(448/87)，执行725987双H100 RUNNING(456/62=Terminal374/42+全SAB82/20)；尚未确认optimizer loss，不以GPU分配冒充实际步数。Mixed725984双卡PENDING(Resources)，同并集1404/249各一次，已解除依赖允许并行；baseline8卡加三组训练最多14卡，未超16。
+- 四卡排期较晚故改两卡/GA4，global8与其余LoRA配方不变；新三组完整64K/delete超长/group_by_length，HLE原2K实跑不改。weight_decay统一显式0.1，纠正共享config原0与HLE实跑默认0.1的记录差异。入口scripts/run_sft.py/slurm，Mixed与执行数据脚本/逐源manifest已保存，无重复hash、任务环境验收或教师API。
+- 详细快照analysis/sft_progress_20261016.md。SWE由night_swe、执行由night_terminal、Mixed由night_academic_asi继续跟真实原生日志，发现实际错误再修，不重复提交作业。

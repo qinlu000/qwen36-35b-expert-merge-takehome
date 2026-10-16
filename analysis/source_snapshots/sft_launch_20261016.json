@@ -1,0 +1,39 @@
+{
+  "captured_at": "2026-10-16T15:37:57.883933+08:00",
+  "academic": {
+    "job_id": 725704,
+    "state": "COMPLETED",
+    "steps": 63,
+    "train": 500,
+    "val": 100,
+    "gpus": 1,
+    "elapsed": "00:43:34"
+  },
+  "swe": {
+    "job_id": 725982,
+    "state": "RUNNING",
+    "optimizer_step_confirmed": false,
+    "train": 448,
+    "val": 87,
+    "gpus": 2
+  },
+  "execution": {
+    "job_id": 725987,
+    "state": "RUNNING",
+    "optimizer_step_confirmed": false,
+    "train": 456,
+    "val": 62,
+    "gpus": 2
+  },
+  "mixed": {
+    "job_id": 725984,
+    "state": "PENDING",
+    "reason": "Resources",
+    "train": 1404,
+    "val": 249,
+    "gpus": 2,
+    "dependency": null
+  },
+  "concurrent_gpu_total_if_mixed_starts": 14,
+  "gpu_limit": 16
+}
