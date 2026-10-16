@@ -1,13 +1,19 @@
 # 学术专家 LoRA SFT 实际运行（2026-10-16）
 
-当前正式作业 **725704**，ACD1-55，单张 H100 /12CPU /128G /1小时，RUNNING。实际native optimizer第1、2步已完成：
+正式作业 **725704已COMPLETED/0:0**，ACD1-55，单张 H100 /12CPU /128G。14:22:41→15:06:15，总耗时43分34秒；500 train完成1epoch、63/63 optimizer steps，平均train_loss **0.41485302**，峰显存 **70.9238GiB**。
 
-| step | loss | grad_norm | 下一步LR | 显存GiB |
-|---|---:|---:|---:|---:|
-| 1 | 0.62771004 | 0.76087404 | 0.00005 | 68.82 |
-| 2 | 0.58715731 | 0.59544366 | 0.00010 | 69.11 |
+最终adapter：`/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-sft-r16-725704/training/checkpoint-63/adapter_model.safetensors`，约81MiB。
 
-第1步181秒含冷编译，第2步约38秒。尚未到首次checkpoint16，不宣称整轮完成。原生日志：`/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-sft-r16-725704/training/logging.jsonl`；权重将由native Swift每16步保存。
+| checkpoint | 100条独立val loss | val token_acc |
+|---|---:|---:|
+| 16 | 2.62409234 | 0.69100785 |
+| 32 | 2.97443628 | 0.68497284 |
+| 48 | 3.10861635 | 0.68376584 |
+| 63 | 3.15466952 | 0.68195534 |
+
+**验证交叉熵持续变差，不能把训练成功称作HLE效果提升。** Native best_model_checkpoint指向16；另有硬链接保留目录 `artifacts/runs/hle-sft-r16-725704/retained-checkpoint-16`，避免任何保留策略丢失早期候选。没有本次Base独立val指标或正式HLE准确率，后续比较应优先保留这个事实。
+
+实际原生结果 `analysis/source_snapshots/hle_sft_725704_result_20261016.json`；HPC完整numeric日志 `artifacts/runs/hle-sft-r16-725704/training/logging.jsonl`。按用户效率优先，未额外重载完整Base、未加自写callback或重复hash/preflight。
 
 ## 配方与数据
 
