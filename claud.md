@@ -1113,3 +1113,10 @@
 - 轻量HLE Judge已无中断迁到CPU124至125，汇总126，离线cache127；必要SWE后续复评分只占120至123。GPU释放配置已将725705暂交TB full445条件，避免SWE模型一结束就提前释放即将复用的服务。若第二路无足够allocation余量，启用器不准入并记录原因。
 - 16:33四项统一快照：HLE1136/2500有效、0Judge异常；ASI240/240完整1.57098841%；SWE44/51有效且5resolved；TB13/445有效，41项基础设施未评分单列。四项未全齐，主总状态仍complete=false；未完成项不填0。
 - 16:38最终CPU分工更新：TB解题扩容后0至119，TB保存状态复评分120至123，必要SWE后续复评分124单槽，HLE Judge125（仍2条HTTP并发），汇总126，cache和一次启用守卫127；均不打断在途生成。第二副本守卫PID2517615已常驻，7个旧grader已全部有效收敛并给永久CPU完成marker，继续等SWE永久CPU完成marker。新B任务还需逐次检查距离725705到期不少于35分钟。
+
+
+### 16:53 CST：异步评分收尾与重建审计
+
+- old7最后的评分依赖下载独立处理，只有solver已结束、final-task-state已保存的实例才允许中断评分安装并从原现场补评分；模型和原答案不重跑。旧APT无进展下载及uv官方安装等待保留真实失败日志，不伪造工具成功或把未执行测试的结果填0。
+- archive复评分无论reward0还是1，都需要逐项恢复充分性review，确认官方checker所依赖的文件、环境、服务状态未被fresh SIF回滚改变；无法证明则保持infra-invalid。当前modernize/openssl/password三项已完成同标准review，后续观察器统一要求review。
+- SWE已全部结束模型生成；50/51评分有效时最后Flipt处于不参与最终成绩的初评，后续仅对冻结patch做正式native fresh replay。Element原patch的评分启动参数错误已在独立CPU124叶以--instance-token=value修复，有效0，未生成新答案。新私有bootstrap及两段原评分attempt均保留。

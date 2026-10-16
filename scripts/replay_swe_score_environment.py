@@ -17,8 +17,8 @@ async def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--category', default='python')
     parser.add_argument('--environment', default='swe_score_runtime:SweScoreRuntimeEnvironment')
-    parser.add_argument('--concurrency', type=int, default=4)
-    parser.add_argument('--cpu-offset', type=int, default=84)
+    parser.add_argument('--concurrency', type=int, default=1)
+    parser.add_argument('--cpu-offset', type=int, default=124)
     parser.add_argument('--task-id', action='append')
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
@@ -26,8 +26,8 @@ async def main():
     fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
     audit = json.loads(args.audit.read_text())
     selected = [row for row in audit['tasks'] if row['invalid_reason'] and
-                (('missing_pytest' in row['invalid_reason'] or 'missing_pip' in row['invalid_reason'])
-                 if args.category == 'python' else 'download_timeout' in row['invalid_reason'])]
+                (args.category == 'all' or (('missing_pytest' in row['invalid_reason'] or 'missing_pip' in row['invalid_reason'])
+                 if args.category == 'python' else 'download_timeout' in row['invalid_reason']))]
     if args.task_id:
         selected = [row for row in selected if row['task_id'] in args.task_id]
     manifest = []

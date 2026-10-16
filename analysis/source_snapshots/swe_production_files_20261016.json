@@ -29,7 +29,9 @@
     "scripts/collect_swe_final.py",
     "scripts/swe_score_go_prefetch.py",
     "scripts/swe_score_final_runtime.py",
-    "scripts/watch_swe_consumers.py"
+    "scripts/watch_swe_consumers.py",
+    "scripts/swe_score_bootstrap_runtime.py",
+    "scripts/swe_score_bootstrap.sh"
   ],
   "prior_attempt_sources": [
     "scripts/run_swe_baseline_v2.py",

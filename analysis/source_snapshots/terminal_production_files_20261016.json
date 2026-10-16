@@ -53,8 +53,9 @@
       "production_source": "/data/caoqinlu/projects/apex-takehome/scripts/run_terminal_grader_only_v4.py"
     },
     {
-      "git_source": "scripts/observe_terminal_final_v3.py",
-      "production_source": "/data/caoqinlu/projects/apex-takehome/scripts/observe_terminal_final_v3.py"
+      "git_source": "scripts/observe_terminal_final_v4.py",
+      "production_source": "/data/caoqinlu/projects/apex-takehome/scripts/observe_terminal_final_v4.py",
+      "pid": 2552032
     },
     {
       "git_source": "scripts/patch_terminal_verifier_downloads_v2.py",
@@ -80,6 +81,12 @@
       "production_source": "/data/caoqinlu/projects/apex-takehome/scripts/regrade_terminal_saved_states_v2.py",
       "pid": 2522411,
       "cpu_pool": "120-123, grading only"
+    },
+    {
+      "git_source": "scripts/patch_terminal_verifier_apt_v2.py",
+      "production_source": "/data/caoqinlu/projects/apex-takehome/scripts/patch_terminal_verifier_apt_v2.py",
+      "pid": 2537106,
+      "scope": "only old7 saved-state verifier instances; no solver mutation"
     }
   ],
   "frozen7_driver": "analysis/source_snapshots/terminal_native7_driver_frozen_20261016.py",

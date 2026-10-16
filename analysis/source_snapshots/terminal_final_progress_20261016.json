@@ -1,17 +1,17 @@
 {
-  "updated_at_utc": "2026-10-16T08:40:37.839724+00:00",
+  "updated_at_utc": "2026-10-16T08:46:54.370077+00:00",
   "expected_trials": 445,
-  "valid_covered": 15,
-  "active_trials": 10,
+  "valid_covered": 23,
+  "active_trials": 3,
   "pending_not_admitted": 380,
-  "infrastructure_unscored": 40,
+  "infrastructure_unscored": 39,
   "complete": false,
   "per_seed": [
     {
       "seed": 0,
       "expected": 89,
-      "valid_covered": 15,
-      "correct_count": 9.0,
+      "valid_covered": 23,
+      "correct_count": 10.0,
       "score_percent": null
     },
     {
@@ -47,8 +47,8 @@
     "cancelled": 36,
     "failed_attempt": 3,
     "verifier_incomplete": 9,
-    "valid": 7,
-    "admitted": 10,
+    "valid": 14,
+    "admitted": 3,
     "pending": 380
   },
   "accepted_first_valid": {
@@ -81,6 +81,34 @@
     "pypi-server/seed0": {
       "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/pypi-server__seed0__first/result.json",
       "reward": 1.0
+    },
+    "path-tracing-reverse/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/path-tracing-reverse__seed0__first/result.json",
+      "reward": 0.0
+    },
+    "path-tracing/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/path-tracing__seed0__first/result.json",
+      "reward": 0.0
+    },
+    "polyglot-c-py/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/polyglot-c-py__seed0__first/result.json",
+      "reward": 0.0
+    },
+    "password-recovery/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/password-recovery__seed0__first/result.json",
+      "reward": 0.0
+    },
+    "polyglot-rust-c/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/polyglot-rust-c__seed0__first/result.json",
+      "reward": 0.0
+    },
+    "overfull-hbox/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/overfull-hbox__seed0__first/result.json",
+      "reward": 0.0
+    },
+    "protein-assembly/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/protein-assembly__seed0__first/result.json",
+      "reward": 0.0
     },
     "dna-assembly/seed0": {
       "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/dna-assembly__seed0__original3/result.json",
@@ -135,6 +163,13 @@
       "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/modernize-scientific-stack__seed0__first__savedstate1/result.json",
       "reward": 1.0,
       "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/modernize-scientific-stack__seed0__first/result.json",
+      "reconstructed_from_transcript": false,
+      "byte_identical": false
+    },
+    "openssl-selfsigned-cert/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/openssl-selfsigned-cert__seed0__first__savedstate1/result.json",
+      "reward": 1.0,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/openssl-selfsigned-cert__seed0__first/result.json",
       "reconstructed_from_transcript": false,
       "byte_identical": false
     }

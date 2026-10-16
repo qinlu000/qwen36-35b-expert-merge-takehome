@@ -1,5 +1,7 @@
 # SWE v2 baseline status — 2026-10-16
 
+16:49续记：23个新17+manual6模型relay.end全部齐、无生成pending/infra并稳定10秒，GPU消费者marker已实际写true（评分仍在途，不释放CPU）。当前47/51有效、resolved5，3项原patch官方回放在途，1项Element66d0是真实bootstrap工程错误：随机urlsafe server token以`-`开头，argparse拒绝`--instance-token <value>`。旧invalid与server.log保留；独立`swe_score_bootstrap_runtime.py`/`.sh`仅将服务端参数传成`--instance-token=value`，原patch/tests不改，CPU124单槽fresh replay PID2563381（score_bootstrap_args1），0模型调用。永久CPU marker仍等旧64–119全部future consumer终态。
+
 16:40续记：46/51有效评分，resolved5，invalid_pending0；新17全部含官方fresh replay终态，manual6首1项也有效0，余5在途。Tutanota是原生tsc的TS2322/2345/2416类型/接口不兼容，保留原官方0并保存classification audit；没有重答或重评分。只读collector的类型错误规则限定这3个已审计错误码，缺包错误不能由该规则直接判有效0。消费者watcher当前PID2519609，两个永久marker均等待真实条件，未来必要复评分pool已改[124]/max1。
 
 16:35续记：44/51 valid、resolved5、invalid_pending0；原17最后1项已结束模型调用转fresh replay，manual6仍全部在途，pending0。只读消费者watcher已实际部署PID2511317，live状态`artifacts/runs/swe-base-725705/swe-consumer-watch.json`；模型完成marker与CPU完成marker分离。`model-consumer-finished.json`确认17+6 relay结束且无生成pending/infra后可提前写，评分可仍在途；`cpu-consumers-finished.json`仅全部23项含评分终态、父/leaf退出、旧64–119容器进程为空后写`cpu_consumers_finished:true`。该CPU永久完成后不会再从旧pool准入；所有必要后续原patch复评分固定CPU124，1滚动槽/1CPU4GiB（root随后CPU协调更新）；120–123留给Terminal原archive补评、125 HLE Judge、126汇总、127cache。725705模型由root在SWE消费者结束后交给Terminal复用，我不scancel，也未重启任何在途生产进程。

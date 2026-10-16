@@ -1,0 +1,63 @@
+{
+  "tasks": [
+    {
+      "task_id": "instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
+      "result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan/result.json",
+      "invalid_reason": "bootstrap_instance_token_argparse_rejected_dash_prefix"
+    }
+  ],
+  "prior_classification": {
+    "task_id": "instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
+    "status": "invalid_requires_replay",
+    "reward": null,
+    "accepted_result": null,
+    "invalid_attempts": [
+      {
+        "task_id": "instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
+        "result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan/result.json",
+        "reward": null,
+        "invalid_reason": "harbor_replay_exception:RuntimeError",
+        "finished_at": "2026-10-16T08:46:17.495193Z",
+        "test_count": 0
+      }
+    ],
+    "manual_infrastructure_retries": 1,
+    "manual_infrastructure_retry_planned": true,
+    "original_incomplete_trial": {
+      "task_id": "instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
+      "classification": "engine_cancelled_incomplete",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_glibc_setup1/generation/instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan/result.json",
+      "original_trajectory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_glibc_setup1/generation/instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan/agent/mini-swe-agent.trajectory.json",
+      "original_requests": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_glibc_setup1/requests/instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
+      "original_api_calls": 56,
+      "original_agent_execution": {
+        "started_at": "2026-10-16T05:57:55.369953Z",
+        "finished_at": "2026-10-16T06:26:34.646100Z"
+      },
+      "original_answer_complete": false,
+      "original_files_preserved": true,
+      "manual_infrastructure_retry": 1,
+      "generation_attempt": 2,
+      "seed": 0,
+      "solver_budget_seconds": 1800,
+      "authorization": "User requested complete final baseline; parent explicitly authorized incomplete infrastructure whole-task retry, maximum2 manual retries",
+      "resume": "No verified native remaining-budget resume entry; do not invent a trajectory continuation"
+    },
+    "all_score_attempts": [
+      {
+        "task_id": "instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
+        "result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan/result.json",
+        "reward": null,
+        "invalid_reason": "harbor_replay_exception:RuntimeError",
+        "finished_at": "2026-10-16T08:46:17.495193Z",
+        "test_count": 0
+      }
+    ]
+  },
+  "repair": "Only bootstrap token argument changes to --instance-token=value; original patch/prompt/tests unchanged",
+  "cpu_ids": [
+    124
+  ],
+  "max_concurrency": 1,
+  "model_calls": 0
+}
