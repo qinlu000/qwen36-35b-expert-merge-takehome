@@ -1,0 +1,36 @@
+{
+  "at_utc": "2026-10-16T07:37:29.814938+00:00",
+  "pid": 2052444,
+  "runtime": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime6",
+  "endpoint": "http://127.0.0.1:28082",
+  "pending_resumed": 414,
+  "first_valid_preserved": 7,
+  "rewards": {
+    "pass": 1,
+    "fail": 6
+  },
+  "expected": 445,
+  "max_solver_futures": 16,
+  "cpu_offset": 0,
+  "cpu_slots": 16,
+  "cpus_per_trial": 4,
+  "memory_mib": 8192,
+  "solver_seconds": 1800,
+  "policy": "VerifierTimeoutError remains native unscored and isolated; no invented zero; no old failed/cancelled attempt repeated",
+  "argv": [
+    "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime6/scripts/run_terminal_full16.py",
+    "--manifest",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime3/manifest.json",
+    "--output",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016",
+    "--endpoint",
+    "http://127.0.0.1:28082",
+    "--api-key-path",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key",
+    "--concurrency",
+    "16",
+    "--resume-after-bridge-approval"
+  ],
+  "log": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runner-full16.log"
+}

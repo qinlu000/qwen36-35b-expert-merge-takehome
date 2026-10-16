@@ -1,14 +1,16 @@
 # SWE v2 baseline status — 2026-10-16
 
-正式SWE当前43项首次生成全量接续：父PID452167，`artifacts/eval/base_swe_v2_20261016_full`；glibc PID452169/CPU64–71、musl root-map修复PID461500/CPU76–83，曾达到16在途，最新checkpoint为8+7在途、25+1 pending、musl 2项terminal。现服务725561/endpoint28083仍maxseq4；新725705的maxseq8卡ready后自然交接，不能称旧服务已热改。固定总范围51。最新glibc raw171/metadata163、musl raw43/metadata37；raw含在途partial，不能当作完成答卷数。
+15:38只读快照：固定51项中，当前43项接续队列已有23项generation+fresh replay终态、3项在途、17项未准入；另2项旧正常预算patch的fresh replay完成、6项旧工程熔断提前取消保留incomplete。旧musl的9个0生成setup结果不重复计入覆盖。全51镜像现已缓存，无缺镜像阻塞。
 
-旧PID3919212已自然退出：NodeBB和Ansible d624分别1740s内层timeout/exit124，26767B/8696B patch与轨迹冻结，最后502由正常预算关闭导致，被旧driver误判infra。两项只fresh replay，`base_swe_v2_20261016_budget_replay/finished.json`和2个result已落盘，不重生。另6项被旧controller工程熔断提前取消，有轨迹及部分patch但只能列incomplete，不静默当正常预算失败；不造resume、不重生答卷。7项setup误挡0生成与26未准入+10musl合计43项接入新首次生成队列。
+共25个唯一fresh replay已落盘，官方binary reward为1项1、24项0，replay级Harbor异常0。但7项存在verifier环境异常标记，暂不视为可靠模型失败：pytest缺失4、pip缺失1、Go module公网下载timeout2。其中Ansible b748同时有模型缺实现的collection error，环境并非已证实唯一原因。其余18项当前未发现上述异常，包含4项模型Go语法/API/build失败；有效resolved为1，保守已解决比例1/51=1.96%，完整主分未形成。部分tests PASSED只是诊断，官方不按测试比例给部分分。
 
-新日志：`<full>/<glibc|musl_root_repair>/requests/<taskID>/raw/NNNNN.response.raw`逐chunk fsync后才转给mini，包含完整或partial原始响应；metadata记录ID/seed0/attempt1/请求起止/HTTP状态/字节/是否完整。各子目录`admission_checkpoint.json`记录active/pending/terminal及CPU/model profile；父`checkpoint.json`跟踪初始子组，`additional_children.json`登记musl修复子组，交接脚本同时读取两者。
+旧28083生产父PID452167、glibc PID452169仍在自然drain，glibc checkpoint为stopping_admission、3active/17pending/13terminal，无新infra暂停；musl root-map修复PID461500已结束，10/10 generation与replay完成。正常1740s/exit124未再被误判infra，已有patch照常fresh replay，答卷没有重生。
 
-handoff spec固定`artifacts/runs/baseline-x2-725705/swe-launch.json`。新服务ready后只写当前父/子`STOP_ADMISSION`并自然drain，已有回答与当前repair started任务不迁移；明确0生成的旧musl setup journal不阻挡repair pending，策略留档`<full>/handoff-selection-policy.json`。未开始pending才用28084继续16slots。无pending时记录nothing_pending退出0；迁走且active0后写`artifacts/runs/swe-base-725561/model-consumer-finished.json`供释放旧2卡。没有新增验收/hash gate。
+新725705模型实际14:36已ready；root一次性waiter早期因health ConnectionReset退出，root修复后于15:25:55启动consumer2004064自然交接。`base_swe_v2_20261016_full_x2`目录已建，15:38尚无新leaf checkpoint，在等上述3项自然结束。新28084为maxseq8、16solvers、CPU64–71及76–83；旧28083仍maxseq4。
 
-musl第一次9项在模型前因`su root`无法setgroups而mkdir未执行，0请求/0回答已保留；旧musl452170仅空闲自然STOP，独立`MuslRootRuntimeEnvironment`在本已UID0时直接root执行，未改原cache/helper/旧production源。新musl PID461500已实际进入模型。
+主log为`artifacts/eval/base_swe_v2_20261016_full/full-controller.log`，有效child状态看`glibc/admission_checkpoint.json`和`musl_root_repair/admission_checkpoint.json`及`additional_children.json`。旧父checkpoint仅含初始children，不能单独代表总数。原始响应位于child的`requests/<taskID>/raw/`，逐chunk落盘后转给mini。
+
+handoff spec固定`artifacts/runs/baseline-x2-725705/swe-launch.json`，只让当前在途自然结束，迁移未准入pending；明确0生成的旧musl setup journal不阻挡repair pending，当前repair自己的started journal仍禁止重答。策略留档`<full>/handoff-selection-policy.json`。25项逐条评分审计在Mac `analysis/source_snapshots/swe_progress_20261016_1536.json`（实际as_of15:38）和远端`<full>/progress-audit-20261016-1536.json`。未新增测试、hash gate、prompt修改或模型重答。
 
 ## 前序验收与启动记录（历史，以上为当前）
 

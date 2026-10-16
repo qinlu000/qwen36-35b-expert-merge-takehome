@@ -1,0 +1,203 @@
+{
+  "status": "all_conditions_scored_with_one_evaluator_invalid",
+  "formal_directory": "artifacts/asi/scoring_v2_formal_params_20261016",
+  "launch": {
+    "pid": 376749,
+    "command": [
+      "taskset",
+      "-c",
+      "72-75",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/envs/asi-py312/bin/python",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016/runtime/scripts/score_asi_baseline_v2.py",
+      "--project",
+      "/data/caoqinlu/projects/apex-takehome",
+      "--results",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/eval",
+      "--instances",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_seed31415/instances",
+      "--selection",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2_20261016_infra1/first_valid_selection.json",
+      "--output",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016",
+      "--judge-identity",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-real-calibration-20261016/judge_identity.json",
+      "--ngspice-runtime",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_ngspice_20261016/rootfs",
+      "--credentials",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/private/deepseek.env",
+      "--max-generation-calls",
+      "396",
+      "--max-cny",
+      "6",
+      "--allow-paid-api",
+      "--skip-hashes",
+      "--workers",
+      "4",
+      "--retry-invalid",
+      "--condition-timeout",
+      "7200"
+    ],
+    "started_at_unix": 1792130236.7257426,
+    "formal_scope": 240,
+    "generation_cap": 396,
+    "reserved_cny_cap": 6,
+    "source_parameter_fix": "Original frozen framework_task_info.json parameters; in-memory grader record only",
+    "previous_grader_attempt": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_20261016",
+    "previous_formal_paid_calls": 0,
+    "hash_walks_disabled_at_user_request": true,
+    "other_data_ledgers_row_counts": {
+      "artifacts/data/candidates/night_hle_20261016/teacher_api_ledger.jsonl": 362,
+      "artifacts/data/candidates/night_scicode_20261016/scicode_api_ledger.jsonl": 2,
+      "artifacts/data/candidates/new_terminal_horizon_20261016/annotations/ledger.jsonl": 64
+    },
+    "source_core": "Reuse previous frozen official package without rehash",
+    "solver_regeneration": false,
+    "workers": 4,
+    "previous_pid": 373994,
+    "infrastructure_retry_only": true,
+    "outer_condition_timeout": 7200
+  },
+  "scientific_calibration": {
+    "passed": true,
+    "semantic_checks": {
+      "text": true,
+      "vision": true,
+      "cmos": true
+    },
+    "native_median_scores": {
+      "correct.text": 10.0,
+      "correct.vision": 10.0,
+      "wrong.text": 0.0,
+      "wrong.vision": 0.0,
+      "correct.cmos": 12.0,
+      "wrong.cmos": 0.0
+    },
+    "paid_generation_calls": 14,
+    "completed_calls": 14,
+    "conservatively_reserved_cny": 0.31576319999999997,
+    "observed_usage_ceiling_cny": 0.029872799999999998,
+    "total_input_tokens": 9031,
+    "total_output_tokens": 854,
+    "identity": {
+      "requested_model": "deepseek-flash",
+      "reported_model": "deepseek-flash",
+      "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669",
+      "provider_revision_pinned": false
+    },
+    "formal_answer_calls": 0
+  },
+  "ngspice_synthetic_acceptance": {
+    "passed": true,
+    "native_missing_docker_red": true,
+    "mapped_native_function_green": true,
+    "ngspice_version": "44.2",
+    "divider_voltage_v": 0.5,
+    "rc_at_tau_v": 0.6321203623881292,
+    "rc_expected_v": 0.6321205588285577,
+    "invalid_deck_nonzero": 1,
+    "stdout_stderr_and_files_preserved": true,
+    "native_timeout_offset_seconds": 30,
+    "timeout_elapsed_seconds": 0.20174006931483746,
+    "timeout_descendant_sentinel_absent": true,
+    "privacy": {
+      "private_host_visible": false,
+      "credential_in_env": false,
+      "network_connect_result": 101
+    },
+    "formal_artifacts_used": false,
+    "paid_calls": 0,
+    "directory": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-ngspice-phx9p21t"
+  },
+  "reference_instances": 60,
+  "reference_files": 809,
+  "selected_frozen_conditions": 240,
+  "source_runtime_files": 105,
+  "snapshot_reuses_existing_receipts_no_new_hash_walks": true,
+  "latest_coverage": {
+    "expected_instance_count": 240,
+    "scored_instance_count": 239,
+    "scorer_error_count": 1,
+    "pending_count": 0,
+    "mean_percent": null,
+    "native_valid_subset_mean_percent": 1.5775615801590612,
+    "auxiliary_zero_fill_mean_percent": 1.5709884069083986,
+    "total_score": 377.03721765801566,
+    "expected_total_max_score": 24000
+  },
+  "first_fullpass": {
+    "valid": 227,
+    "evaluation_invalid": 13,
+    "pending": 0,
+    "paid_calls": 0
+  },
+  "valid_persisted_reused": 239,
+  "infrastructure_recovery_remaining": 0,
+  "formal_paid_api_calls": 0,
+  "hash_walks_disabled_at_user_request": true,
+  "native_second_stage_timeouts_seconds": {
+    "max3sat": 1800,
+    "tsp": 3600
+  },
+  "outer_safety_timeout_seconds": 7200,
+  "submission_sandbox_acceptance": {
+    "passed": true,
+    "directory": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-submission-n6ovup0i",
+    "native_staging_and_output_collection": true,
+    "cpu_affinity_and_expansion_blocked": true,
+    "memory3g_swap0_verified_by_scope_helper": true,
+    "pids_limit": 64,
+    "fsize_limit": 1048576,
+    "readonly_inputs_and_submission": true,
+    "network_and_host_private_paths_unavailable": true,
+    "native_timeout_preserved": true,
+    "assignment": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "backend_identity": "bwrap:cached-native-task-env:/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/asi/.ai4sci-bench/task-envs/c414caa2e41905fd:python=3.12.13",
+    "paid_calls": 0
+  },
+  "report_path": "artifacts/asi/scoring_v2_formal_params_20261016/local_score_seed31415.json",
+  "formal_scoring_process_alive": false,
+  "formal_owned_native_scopes": [],
+  "last_report_write_utc": "2026-10-16T07:14:37.275105+00:00",
+  "formal_paid_api_cost_cny": 0,
+  "remaining_evaluator_invalid": "earth_science.2_e_soil_carbon_nitrogen_cycling__seed31415__b2: native file_match empty-array reduction",
+  "soil_further_repair_not_authorized_or_needed_for_this_status": true,
+  "dependency_audit": {
+    "read_only": true,
+    "generation_calls": 0,
+    "hash_walks": 0,
+    "condition_count": 49,
+    "module_counts": {
+      "pandas": 37,
+      "sklearn": 4,
+      "scipy": 4,
+      "markdown": 1,
+      "numpy": 3
+    },
+    "classification_counts": {
+      "not_declared_model_import": 49
+    },
+    "pandas_classification_counts": {
+      "not_declared_model_import": 37
+    },
+    "unique_caches_checked": 16,
+    "declared_requirements_unsatisfied_current_metadata": [],
+    "only_metadata_read_no_import_execution_or_rerun": true
+  },
+  "dependency_audit_path": "artifacts/asi/scoring_v2_formal_params_20261016/dependency_declaration_audit.json",
+  "hkust_route_metadata_verified_by_parent": {
+    "base_url": "https://aigc-api.hkust-gz.edu.cn/v1",
+    "hpc_models_status": 200,
+    "model_id": "DeepSeek-V4-Flash",
+    "host80_direct_reachable": false,
+    "new_generation_calls": 0,
+    "current_formal_asi_migrated": false,
+    "network_is_current_scoring_blocker": false
+  }
+}

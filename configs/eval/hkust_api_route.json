@@ -3,10 +3,32 @@
   "deepseek_flash_model_id": "DeepSeek-V4-Flash",
   "deepseek_pro_model_id": "DeepSeek-V4-Pro",
   "credential_source_on_80": "/data/caoqinlu/projects/data-perception/.env",
-  "credential_variables": ["OPENAI_BASE_URL", "OPENAI_API_KEY"],
+  "credential_variables": [
+    "OPENAI_BASE_URL",
+    "OPENAI_API_KEY"
+  ],
   "route": "Call from HPC. Host80 direct access failed; HPC authenticated GET /models returned200 on2026-10-16.",
   "model_inventory_requests": 1,
   "model_generation_requests": 0,
   "current_use": "Available route for future Judge or teacher API calls. Existing completed scores and Base answer generation are unchanged.",
-  "record_with_calls": ["requested_model", "reported_model", "system_fingerprint", "usage", "endpoint"]
+  "record_with_calls": [
+    "requested_model",
+    "reported_model",
+    "system_fingerprint",
+    "usage",
+    "endpoint"
+  ],
+  "current_asi_scoring": {
+    "completed_report": "artifacts/asi/scoring_v2_formal_params_20261016/local_score_seed31415.json",
+    "configured_endpoint": "https://api.deepseek.com",
+    "configured_requested_model": "deepseek-flash",
+    "formal_judge_generation_calls": 0,
+    "formal_judge_cost_cny": 0,
+    "external_network_is_current_blocker": false,
+    "migrated_or_rescored": false,
+    "future_route": "Run future necessary API requests from HPC using this campus base_url. Host80 direct route is unavailable.",
+    "campus_model_not_silently_equated_to_calibrated_provider_identity": true,
+    "record_actual_provider_identity_and_protocol_if_used": true,
+    "new_generation_or_calibration_calls_for_this_update": 0
+  }
 }

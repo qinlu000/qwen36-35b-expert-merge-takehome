@@ -1,13 +1,11 @@
 {
-  "as_of": "2026-10-16T15:33:50.250786+08:00",
+  "as_of": "2026-10-16T15:40:43.142608+08:00",
   "hle": {
     "scope": 2500,
-    "ended": 1018,
-    "full_answers": 379,
-    "repair_ended": 197,
-    "repair_full_answers": 70,
-    "repair_failed": 127,
-    "active": 8
+    "ended": 1038,
+    "repair_ended": 217,
+    "active": 8,
+    "admitted": 225
   },
   "asi": {
     "scope": 240,
@@ -18,27 +16,38 @@
     "strict_primary_mean_percent": null,
     "valid_subset_mean_percent": 1.57756158,
     "auxiliary_zero_fill_mean_percent": 1.57098841,
-    "formal_api_calls": 0
+    "formal_api_calls": 0,
+    "missing_import_audit": "49imports all absent from official TaskEnv declarations; no declared dependency install defect found"
   },
   "swe": {
     "scope": 51,
     "images_cached": 51,
     "first_generation_scope": 43,
-    "new_terminal": 19,
-    "active": 7,
+    "new_terminal": 25,
+    "active": 1,
     "pending": 17,
     "old_normal_budget_replayed": 2,
     "old_incomplete_retained": 6,
-    "terminal_is_not_valid_score": true
+    "terminal_is_not_valid_score": true,
+    "total_terminal_including_old_budget": 27,
+    "audited_replays": 25,
+    "scored_without_environment_error_flag": 18,
+    "environment_review": 7,
+    "confirmed_resolved": 1
   },
   "terminal": {
     "scope": 445,
     "valid": 7,
     "passed": 1,
     "failed_scored": 6,
-    "pending": 414,
+    "pending": 398,
     "recovering_with_solver_concurrency": 16,
-    "reason": "VerifierTimeoutError incorrectly stopped the queue"
+    "pid": 2052444,
+    "state": "running",
+    "halted": false,
+    "active": 16,
+    "older_unscored": 24,
+    "launch_at": "2026-10-16T15:37:29+08:00"
   },
   "x2": {
     "job_id": 725705,

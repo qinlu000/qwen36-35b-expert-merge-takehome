@@ -1,0 +1,306 @@
+{
+  "as_of": "2026-10-16T15:38:15.001082+08:00",
+  "scope": 51,
+  "children": {
+    "glibc": {
+      "state": "stopping_admission",
+      "reason": null,
+      "admitted_this_session": 16,
+      "active": 3,
+      "pending": 17,
+      "terminal": 13
+    },
+    "musl_root_repair": {
+      "state": "finished_available_images",
+      "reason": null,
+      "admitted_this_session": 10,
+      "active": 0,
+      "pending": 0,
+      "terminal": 10
+    }
+  },
+  "replay_results": 25,
+  "official_reward_counts": {
+    "0.0": 24,
+    "1.0": 1
+  },
+  "valid_scored": 18,
+  "valid_resolved": 1,
+  "invalid_counts": {
+    "verifier_missing_pytest": 4,
+    "verifier_missing_pip": 1,
+    "verifier_public_dependency_download_timeout": 2
+  },
+  "conservative_resolved_percent": 1.9607843137254901,
+  "primary_score_percent": null,
+  "old_engine_cancelled_incomplete": 6,
+  "cached_images": 51,
+  "missing_images": [],
+  "x2_output_exists": true,
+  "x2_leaf_checkpoints": [],
+  "no_generation_repeated": true,
+  "tests_passed_are_diagnostic_not_partial_score": true,
+  "tasks": [
+    {
+      "task_id": "instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/glibc/replay/instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": "verifier_missing_pytest",
+      "test_status_counts": {},
+      "test_count": 0,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_ansible__ansible-b748edea457a4576847a10275678127895d2f02f-v1055803c3a812189a1133297f7f5468579283f86",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/glibc/replay/instance_ansible__ansible-b748edea457a4576847a10275678127895d2f02f-v1055803c3a812189a1133297f7f5468579283f86/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": "verifier_missing_pytest",
+      "test_status_counts": {
+        "PASSED": 41
+      },
+      "test_count": 41,
+      "replay_harbor_exception": null,
+      "mixed_model_collection_error": true
+    },
+    {
+      "task_id": "instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/glibc/replay/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": null,
+      "test_status_counts": {
+        "PASSED": 3,
+        "FAILED": 3
+      },
+      "test_count": 6,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/glibc/replay/instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": "verifier_missing_pytest",
+      "test_status_counts": {},
+      "test_count": 0,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_ansible__ansible-d72025be751c894673ba85caa063d835a0ad3a8c-v390e508d27db7a51eece36bb6d9698b63a5b638a",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/glibc/replay/instance_ansible__ansible-d72025be751c894673ba85caa063d835a0ad3a8c-v390e508d27db7a51eece36bb6d9698b63a5b638a/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": null,
+      "test_status_counts": {
+        "FAILED": 5
+      },
+      "test_count": 5,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_ansible__ansible-de5858f48dc9e1ce9117034e0d7e76806f420ca8-v1055803c3a812189a1133297f7f5468579283f86",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/glibc/replay/instance_ansible__ansible-de5858f48dc9e1ce9117034e0d7e76806f420ca8-v1055803c3a812189a1133297f7f5468579283f86/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": null,
+      "test_status_counts": {
+        "PASSED": 41,
+        "FAILED": 17
+      },
+      "test_count": 58,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_ansible__ansible-e9e6001263f51103e96e58ad382660df0f3d0e39-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/glibc/replay/instance_ansible__ansible-e9e6001263f51103e96e58ad382660df0f3d0e39-v30a923fb5c164d6cd18280c02422f75e611e8fb2/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": "verifier_missing_pip",
+      "test_status_counts": {},
+      "test_count": 0,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/glibc/replay/instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": null,
+      "test_status_counts": {},
+      "test_count": 0,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_flipt-io__flipt-c1728053367c753688f114ec26e703c8fdeda125",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/glibc/replay/instance_flipt-io__flipt-c1728053367c753688f114ec26e703c8fdeda125/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": null,
+      "test_status_counts": {},
+      "test_count": 0,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_flipt-io__flipt-c188284ff0c094a4ee281afebebd849555ebee59",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/glibc/replay/instance_flipt-io__flipt-c188284ff0c094a4ee281afebebd849555ebee59/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": "verifier_public_dependency_download_timeout",
+      "test_status_counts": {},
+      "test_count": 0,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_flipt-io__flipt-cd18e54a0371fa222304742c6312e9ac37ea86c1",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/glibc/replay/instance_flipt-io__flipt-cd18e54a0371fa222304742c6312e9ac37ea86c1/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": null,
+      "test_status_counts": {
+        "PASSED": 8
+      },
+      "test_count": 8,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_flipt-io__flipt-e2bd19dafa7166c96b082fb2a59eb54b4be0d778",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/glibc/replay/instance_flipt-io__flipt-e2bd19dafa7166c96b082fb2a59eb54b4be0d778/result.json",
+      "official_reward": 1.0,
+      "invalid_reason": null,
+      "test_status_counts": {
+        "PASSED": 10
+      },
+      "test_count": 10,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_gravitational__teleport-1316e6728a3ee2fc124e2ea0cc6a02044c87a144-v626ec2a48416b10a88641359a169d99e935ff037",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/glibc/replay/instance_gravitational__teleport-1316e6728a3ee2fc124e2ea0cc6a02044c87a144-v626ec2a48416b10a88641359a169d99e935ff037/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": null,
+      "test_status_counts": {
+        "PASSED": 3,
+        "FAILED": 2
+      },
+      "test_count": 5,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_future-architect__vuls-e1fab805afcfc92a2a615371d0ec1e667503c254-v264a82e2f4818e30f5a25e4da53b27ba119f62b5",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/musl_root_repair/replay/instance_future-architect__vuls-e1fab805afcfc92a2a615371d0ec1e667503c254-v264a82e2f4818e30f5a25e4da53b27ba119f62b5/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": null,
+      "test_status_counts": {
+        "FAILED": 1
+      },
+      "test_count": 1,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_future-architect__vuls-ef2be3d6ea4c0a13674aaab08b182eca4e2b9a17-v264a82e2f4818e30f5a25e4da53b27ba119f62b5",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/musl_root_repair/replay/instance_future-architect__vuls-ef2be3d6ea4c0a13674aaab08b182eca4e2b9a17-v264a82e2f4818e30f5a25e4da53b27ba119f62b5/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": null,
+      "test_status_counts": {
+        "FAILED": 1
+      },
+      "test_count": 1,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/musl_root_repair/replay/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": null,
+      "test_status_counts": {},
+      "test_count": 0,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_gravitational__teleport-65438e6e44b6ce51458d09b7bb028a2797cfb0ea-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/musl_root_repair/replay/instance_gravitational__teleport-65438e6e44b6ce51458d09b7bb028a2797cfb0ea-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": null,
+      "test_status_counts": {},
+      "test_count": 0,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/musl_root_repair/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": "verifier_public_dependency_download_timeout",
+      "test_status_counts": {},
+      "test_count": 0,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_protonmail__webclients-08bb09914d0d37b0cd6376d4cab5b77728a43e7b",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/musl_root_repair/replay/instance_protonmail__webclients-08bb09914d0d37b0cd6376d4cab5b77728a43e7b/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": null,
+      "test_status_counts": {
+        "PASSED": 10
+      },
+      "test_count": 10,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_protonmail__webclients-5f0745dd6993bb1430a951c62a49807c6635cd77",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/musl_root_repair/replay/instance_protonmail__webclients-5f0745dd6993bb1430a951c62a49807c6635cd77/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": null,
+      "test_status_counts": {
+        "PASSED": 1
+      },
+      "test_count": 1,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_protonmail__webclients-715dbd4e6999499cd2a576a532d8214f75189116",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/musl_root_repair/replay/instance_protonmail__webclients-715dbd4e6999499cd2a576a532d8214f75189116/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": null,
+      "test_status_counts": {
+        "PASSED": 1
+      },
+      "test_count": 1,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_protonmail__webclients-c5a2089ca2bfe9aa1d85a664b8ad87ef843a1c9c",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/musl_root_repair/replay/instance_protonmail__webclients-c5a2089ca2bfe9aa1d85a664b8ad87ef843a1c9c/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": null,
+      "test_status_counts": {
+        "PASSED": 12
+      },
+      "test_count": 12,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_protonmail__webclients-e65cc5f33719e02e1c378146fb981d27bc24bdf4",
+      "result": "artifacts/eval/base_swe_v2_20261016_full/musl_root_repair/replay/instance_protonmail__webclients-e65cc5f33719e02e1c378146fb981d27bc24bdf4/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": null,
+      "test_status_counts": {
+        "FAILED": 3
+      },
+      "test_count": 3,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+      "result": "artifacts/eval/base_swe_v2_20261016_budget_replay/replay/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": null,
+      "test_status_counts": {
+        "PASSED": 309,
+        "FAILED": 2
+      },
+      "test_count": 311,
+      "replay_harbor_exception": null
+    },
+    {
+      "task_id": "instance_ansible__ansible-d62496fe416623e88b90139dc7917080cb04ce70-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "result": "artifacts/eval/base_swe_v2_20261016_budget_replay/replay/instance_ansible__ansible-d62496fe416623e88b90139dc7917080cb04ce70-v0f01c69f1e2528b935359cfe578530722bca2c59/result.json",
+      "official_reward": 0.0,
+      "invalid_reason": "verifier_missing_pytest",
+      "test_status_counts": {},
+      "test_count": 0,
+      "replay_harbor_exception": null
+    }
+  ],
+  "audit_note": "Seven results have verifier environment flags and are excluded conservatively. Ansible b748 has both missing pytest and missing model implementation collection error; environment is not established as sole cause. Reward and original answers unchanged."
+}

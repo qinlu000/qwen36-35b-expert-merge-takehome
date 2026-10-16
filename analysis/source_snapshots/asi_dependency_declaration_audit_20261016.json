@@ -1,0 +1,1213 @@
+{
+  "read_only": true,
+  "generation_calls": 0,
+  "hash_walks": 0,
+  "condition_count": 49,
+  "module_counts": {
+    "pandas": 37,
+    "sklearn": 4,
+    "scipy": 4,
+    "markdown": 1,
+    "numpy": 3
+  },
+  "classification_counts": {
+    "not_declared_model_import": 49
+  },
+  "pandas_classification_counts": {
+    "not_declared_model_import": 37
+  },
+  "evidence": [
+    {
+      "condition": "biology.gillespie_ssssa_michaelis_menten__seed31415__b2",
+      "task_id": "biology.gillespie_ssssa_michaelis_menten",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=2.0",
+        "scipy>=1.11"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=2.0",
+        "scipy>=1.11"
+      ],
+      "task_env_cache_key": "995129621e6f1cc7",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/995129621e6f1cc7",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "biology.gillespie_ssssa_michaelis_menten__seed31415__b3",
+      "task_id": "biology.gillespie_ssssa_michaelis_menten",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=2.0",
+        "scipy>=1.11"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=2.0",
+        "scipy>=1.11"
+      ],
+      "task_env_cache_key": "995129621e6f1cc7",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/995129621e6f1cc7",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "biology.gillespie_ssssa_michaelis_menten__seed31415__b4",
+      "task_id": "biology.gillespie_ssssa_michaelis_menten",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=2.0",
+        "scipy>=1.11"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=2.0",
+        "scipy>=1.11"
+      ],
+      "task_env_cache_key": "995129621e6f1cc7",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/995129621e6f1cc7",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "biology.scrna_seq_analysis__seed31415__b2",
+      "task_id": "biology.scrna_seq_analysis",
+      "module": "sklearn",
+      "package": "scikit-learn",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy",
+        "scipy"
+      ],
+      "recorded_runtime_packages": [
+        "numpy",
+        "scipy"
+      ],
+      "task_env_cache_key": "fc0055ab19e85e29",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/fc0055ab19e85e29",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "biology.scrna_seq_analysis__seed31415__b3",
+      "task_id": "biology.scrna_seq_analysis",
+      "module": "sklearn",
+      "package": "scikit-learn",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy",
+        "scipy"
+      ],
+      "recorded_runtime_packages": [
+        "numpy",
+        "scipy"
+      ],
+      "task_env_cache_key": "fc0055ab19e85e29",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/fc0055ab19e85e29",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "biostat.perturbation_convergence_testing__seed31415__b1",
+      "task_id": "biostat.perturbation_convergence_testing",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "scikit-learn>=1.4"
+      ],
+      "recorded_runtime_packages": [
+        "scikit-learn>=1.4"
+      ],
+      "task_env_cache_key": "11db8f32decf5c9b",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/11db8f32decf5c9b",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "biostat.perturbation_convergence_testing__seed31415__b2",
+      "task_id": "biostat.perturbation_convergence_testing",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "scikit-learn>=1.4"
+      ],
+      "recorded_runtime_packages": [
+        "scikit-learn>=1.4"
+      ],
+      "task_env_cache_key": "11db8f32decf5c9b",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/11db8f32decf5c9b",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "biostat.perturbation_convergence_testing__seed31415__b3",
+      "task_id": "biostat.perturbation_convergence_testing",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "scikit-learn>=1.4"
+      ],
+      "recorded_runtime_packages": [
+        "scikit-learn>=1.4"
+      ],
+      "task_env_cache_key": "11db8f32decf5c9b",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/11db8f32decf5c9b",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "biostat.perturbation_convergence_testing__seed31415__b4",
+      "task_id": "biostat.perturbation_convergence_testing",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "scikit-learn>=1.4"
+      ],
+      "recorded_runtime_packages": [
+        "scikit-learn>=1.4"
+      ],
+      "task_env_cache_key": "11db8f32decf5c9b",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/11db8f32decf5c9b",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "chemistry.implicit_solvent_pb_gb__seed31415__b1",
+      "task_id": "chemistry.implicit_solvent_pb_gb",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.26.0",
+        "scipy>=1.11.0",
+        "matplotlib>=3.8.0"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.26.0",
+        "scipy>=1.11.0",
+        "matplotlib>=3.8.0"
+      ],
+      "task_env_cache_key": "46b093f24478441f",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/46b093f24478441f",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "chemistry.marcus_et_reorganization_energy__seed31415__b1",
+      "task_id": "chemistry.marcus_et_reorganization_energy",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.26",
+        "scipy>=1.11",
+        "matplotlib>=3.8"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.26",
+        "scipy>=1.11",
+        "matplotlib>=3.8"
+      ],
+      "task_env_cache_key": "03dca224ddfa3b66",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/03dca224ddfa3b66",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "chemistry.marcus_et_reorganization_energy__seed31415__b3",
+      "task_id": "chemistry.marcus_et_reorganization_energy",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.26",
+        "scipy>=1.11",
+        "matplotlib>=3.8"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.26",
+        "scipy>=1.11",
+        "matplotlib>=3.8"
+      ],
+      "task_env_cache_key": "03dca224ddfa3b66",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/03dca224ddfa3b66",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "chemistry.marcus_et_reorganization_energy__seed31415__b4",
+      "task_id": "chemistry.marcus_et_reorganization_energy",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.26",
+        "scipy>=1.11",
+        "matplotlib>=3.8"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.26",
+        "scipy>=1.11",
+        "matplotlib>=3.8"
+      ],
+      "task_env_cache_key": "03dca224ddfa3b66",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/03dca224ddfa3b66",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "chemistry.reaction_path_bifurcation_vri__seed31415__b3",
+      "task_id": "chemistry.reaction_path_bifurcation_vri",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.26.0",
+        "scipy>=1.11.0",
+        "matplotlib>=3.8.0"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.26.0",
+        "scipy>=1.11.0",
+        "matplotlib>=3.8.0"
+      ],
+      "task_env_cache_key": "46b093f24478441f",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/46b093f24478441f",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "chemistry.reaction_path_bifurcation_vri__seed31415__b4",
+      "task_id": "chemistry.reaction_path_bifurcation_vri",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.26.0",
+        "scipy>=1.11.0",
+        "matplotlib>=3.8.0"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.26.0",
+        "scipy>=1.11.0",
+        "matplotlib>=3.8.0"
+      ],
+      "task_env_cache_key": "46b093f24478441f",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/46b093f24478441f",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "computer_science.bci_forensics__seed31415__b1",
+      "task_id": "computer_science.bci_forensics",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "task_env_cache_key": "6b5ace5996f490ee",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/6b5ace5996f490ee",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "computer_science.bci_forensics__seed31415__b2",
+      "task_id": "computer_science.bci_forensics",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "task_env_cache_key": "6b5ace5996f490ee",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/6b5ace5996f490ee",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "computer_science.bci_forensics__seed31415__b3",
+      "task_id": "computer_science.bci_forensics",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "task_env_cache_key": "6b5ace5996f490ee",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/6b5ace5996f490ee",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "computer_science.bci_forensics__seed31415__b4",
+      "task_id": "computer_science.bci_forensics",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "task_env_cache_key": "6b5ace5996f490ee",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/6b5ace5996f490ee",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "computer_science.deployment_prediction_sets__seed31415__b1",
+      "task_id": "computer_science.deployment_prediction_sets",
+      "module": "sklearn",
+      "package": "scikit-learn",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "pandas>=2.0",
+        "scipy>=1.11",
+        "matplotlib>=3.7"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24",
+        "pandas>=2.0",
+        "scipy>=1.11",
+        "matplotlib>=3.7"
+      ],
+      "task_env_cache_key": "c9f4081467014965",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/c9f4081467014965",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "computer_science.dp_accountant_forensics__seed31415__b1",
+      "task_id": "computer_science.dp_accountant_forensics",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "task_env_cache_key": "6b5ace5996f490ee",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/6b5ace5996f490ee",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "computer_science.dp_accountant_forensics__seed31415__b2",
+      "task_id": "computer_science.dp_accountant_forensics",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "task_env_cache_key": "6b5ace5996f490ee",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/6b5ace5996f490ee",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "computer_science.dp_accountant_forensics__seed31415__b3",
+      "task_id": "computer_science.dp_accountant_forensics",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "task_env_cache_key": "6b5ace5996f490ee",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/6b5ace5996f490ee",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "computer_science.dp_accountant_forensics__seed31415__b4",
+      "task_id": "computer_science.dp_accountant_forensics",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "task_env_cache_key": "6b5ace5996f490ee",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/6b5ace5996f490ee",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "earth_science.farquhar_ballberry_photosynthesis__seed31415__b4",
+      "task_id": "earth_science.farquhar_ballberry_photosynthesis",
+      "module": "scipy",
+      "package": "scipy",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "pandas>=2.0",
+        "matplotlib>=3.7"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24",
+        "pandas>=2.0",
+        "matplotlib>=3.7"
+      ],
+      "task_env_cache_key": "ce75fb13f2e0b86d",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/ce75fb13f2e0b86d",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "materials.relaxation_mode_recovery__seed31415__b1",
+      "task_id": "materials.relaxation_mode_recovery",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.26",
+        "scipy>=1.11"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.26",
+        "scipy>=1.11"
+      ],
+      "task_env_cache_key": "97ff65e7f8683b1d",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/97ff65e7f8683b1d",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "materials.relaxation_mode_recovery__seed31415__b2",
+      "task_id": "materials.relaxation_mode_recovery",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.26",
+        "scipy>=1.11"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.26",
+        "scipy>=1.11"
+      ],
+      "task_env_cache_key": "97ff65e7f8683b1d",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/97ff65e7f8683b1d",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "materials.relaxation_mode_recovery__seed31415__b3",
+      "task_id": "materials.relaxation_mode_recovery",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.26",
+        "scipy>=1.11"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.26",
+        "scipy>=1.11"
+      ],
+      "task_env_cache_key": "97ff65e7f8683b1d",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/97ff65e7f8683b1d",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "materials.relaxation_mode_recovery__seed31415__b4",
+      "task_id": "materials.relaxation_mode_recovery",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.26",
+        "scipy>=1.11"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.26",
+        "scipy>=1.11"
+      ],
+      "task_env_cache_key": "97ff65e7f8683b1d",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/97ff65e7f8683b1d",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "math.ill_posed_inverse_problem__seed31415__b4",
+      "task_id": "math.ill_posed_inverse_problem",
+      "module": "markdown",
+      "package": "Markdown",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy",
+        "scipy"
+      ],
+      "recorded_runtime_packages": [
+        "numpy",
+        "scipy"
+      ],
+      "task_env_cache_key": "c65e03f03d56af6e",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/c65e03f03d56af6e",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "math.ucb_q_learning_regret__seed31415__b1",
+      "task_id": "math.ucb_q_learning_regret",
+      "module": "numpy",
+      "package": "numpy",
+      "official_declared": false,
+      "official_requirements": [],
+      "recorded_runtime_packages": [],
+      "task_env_cache_key": "8c1b3244e71696b2",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/8c1b3244e71696b2",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "math.ucb_q_learning_regret__seed31415__b3",
+      "task_id": "math.ucb_q_learning_regret",
+      "module": "numpy",
+      "package": "numpy",
+      "official_declared": false,
+      "official_requirements": [],
+      "recorded_runtime_packages": [],
+      "task_env_cache_key": "8c1b3244e71696b2",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/8c1b3244e71696b2",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "math.ucb_q_learning_regret__seed31415__b4",
+      "task_id": "math.ucb_q_learning_regret",
+      "module": "numpy",
+      "package": "numpy",
+      "official_declared": false,
+      "official_requirements": [],
+      "recorded_runtime_packages": [],
+      "task_env_cache_key": "8c1b3244e71696b2",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/8c1b3244e71696b2",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "math.sparse_nonlinear_interaction_recovery__seed31415__b1",
+      "task_id": "math.sparse_nonlinear_interaction_recovery",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy"
+      ],
+      "recorded_runtime_packages": [
+        "numpy"
+      ],
+      "task_env_cache_key": "d8220a90c9edfc15",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/d8220a90c9edfc15",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "math.sparse_nonlinear_interaction_recovery__seed31415__b2",
+      "task_id": "math.sparse_nonlinear_interaction_recovery",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy"
+      ],
+      "recorded_runtime_packages": [
+        "numpy"
+      ],
+      "task_env_cache_key": "d8220a90c9edfc15",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/d8220a90c9edfc15",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "math.sparse_nonlinear_interaction_recovery__seed31415__b3",
+      "task_id": "math.sparse_nonlinear_interaction_recovery",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy"
+      ],
+      "recorded_runtime_packages": [
+        "numpy"
+      ],
+      "task_env_cache_key": "d8220a90c9edfc15",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/d8220a90c9edfc15",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "math.sparse_nonlinear_interaction_recovery__seed31415__b4",
+      "task_id": "math.sparse_nonlinear_interaction_recovery",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy"
+      ],
+      "recorded_runtime_packages": [
+        "numpy"
+      ],
+      "task_env_cache_key": "d8220a90c9edfc15",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/d8220a90c9edfc15",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "physics.ag_strip_dielectric_inference__seed31415__b3",
+      "task_id": "physics.ag_strip_dielectric_inference",
+      "module": "sklearn",
+      "package": "scikit-learn",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.26",
+        "pandas>=2.0",
+        "matplotlib>=3.8",
+        "scipy>=1.11"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.26",
+        "pandas>=2.0",
+        "matplotlib>=3.8",
+        "scipy>=1.11"
+      ],
+      "task_env_cache_key": "0f2dba7966a6a0bc",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/0f2dba7966a6a0bc",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "physics.dp_contact_process__seed31415__b2",
+      "task_id": "physics.dp_contact_process",
+      "module": "scipy",
+      "package": "scipy",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24.0",
+        "pandas>=2.0.0"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24.0",
+        "pandas>=2.0.0"
+      ],
+      "task_env_cache_key": "5975c6d2415eb7ec",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/5975c6d2415eb7ec",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "physics.dp_contact_process__seed31415__b4",
+      "task_id": "physics.dp_contact_process",
+      "module": "scipy",
+      "package": "scipy",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24.0",
+        "pandas>=2.0.0"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24.0",
+        "pandas>=2.0.0"
+      ],
+      "task_env_cache_key": "5975c6d2415eb7ec",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/5975c6d2415eb7ec",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "robotics.lidar_imu_time_offset_yaw_calibration__seed31415__b1",
+      "task_id": "robotics.lidar_imu_time_offset_yaw_calibration",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24.0",
+        "scipy>=1.10.0",
+        "matplotlib>=3.7.0"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24.0",
+        "scipy>=1.10.0",
+        "matplotlib>=3.7.0"
+      ],
+      "task_env_cache_key": "b28964f2a1e1b361",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/b28964f2a1e1b361",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "robotics.lidar_imu_time_offset_yaw_calibration__seed31415__b2",
+      "task_id": "robotics.lidar_imu_time_offset_yaw_calibration",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24.0",
+        "scipy>=1.10.0",
+        "matplotlib>=3.7.0"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24.0",
+        "scipy>=1.10.0",
+        "matplotlib>=3.7.0"
+      ],
+      "task_env_cache_key": "b28964f2a1e1b361",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/b28964f2a1e1b361",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "robotics.lidar_imu_time_offset_yaw_calibration__seed31415__b3",
+      "task_id": "robotics.lidar_imu_time_offset_yaw_calibration",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24.0",
+        "scipy>=1.10.0",
+        "matplotlib>=3.7.0"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24.0",
+        "scipy>=1.10.0",
+        "matplotlib>=3.7.0"
+      ],
+      "task_env_cache_key": "b28964f2a1e1b361",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/b28964f2a1e1b361",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "robotics.lidar_imu_time_offset_yaw_calibration__seed31415__b4",
+      "task_id": "robotics.lidar_imu_time_offset_yaw_calibration",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24.0",
+        "scipy>=1.10.0",
+        "matplotlib>=3.7.0"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24.0",
+        "scipy>=1.10.0",
+        "matplotlib>=3.7.0"
+      ],
+      "task_env_cache_key": "b28964f2a1e1b361",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/b28964f2a1e1b361",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "robotics.occupancy_grid_mapping_correlated_clutter__seed31415__b1",
+      "task_id": "robotics.occupancy_grid_mapping_correlated_clutter",
+      "module": "scipy",
+      "package": "scipy",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24.0"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24.0"
+      ],
+      "task_env_cache_key": "b58b2ece28e89e5e",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/b58b2ece28e89e5e",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "robotics.robust_pose_graph_false_loops__seed31415__b1",
+      "task_id": "robotics.robust_pose_graph_false_loops",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24.0",
+        "scipy>=1.10.0",
+        "matplotlib>=3.7.0"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24.0",
+        "scipy>=1.10.0",
+        "matplotlib>=3.7.0"
+      ],
+      "task_env_cache_key": "b28964f2a1e1b361",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/b28964f2a1e1b361",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "robotics.robust_pose_graph_false_loops__seed31415__b2",
+      "task_id": "robotics.robust_pose_graph_false_loops",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24.0",
+        "scipy>=1.10.0",
+        "matplotlib>=3.7.0"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24.0",
+        "scipy>=1.10.0",
+        "matplotlib>=3.7.0"
+      ],
+      "task_env_cache_key": "b28964f2a1e1b361",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/b28964f2a1e1b361",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "robotics.robust_pose_graph_false_loops__seed31415__b3",
+      "task_id": "robotics.robust_pose_graph_false_loops",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24.0",
+        "scipy>=1.10.0",
+        "matplotlib>=3.7.0"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24.0",
+        "scipy>=1.10.0",
+        "matplotlib>=3.7.0"
+      ],
+      "task_env_cache_key": "b28964f2a1e1b361",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/b28964f2a1e1b361",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    },
+    {
+      "condition": "robotics.robust_pose_graph_false_loops__seed31415__b4",
+      "task_id": "robotics.robust_pose_graph_false_loops",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared": false,
+      "official_requirements": [
+        "numpy>=1.24.0",
+        "scipy>=1.10.0",
+        "matplotlib>=3.7.0"
+      ],
+      "recorded_runtime_packages": [
+        "numpy>=1.24.0",
+        "scipy>=1.10.0",
+        "matplotlib>=3.7.0"
+      ],
+      "task_env_cache_key": "b28964f2a1e1b361",
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/b28964f2a1e1b361",
+      "currently_installed_version": null,
+      "classification": "not_declared_model_import"
+    }
+  ],
+  "unique_caches_checked": 16,
+  "declared_requirements_unsatisfied_current_metadata": [],
+  "cache_evidence": {
+    "995129621e6f1cc7": {
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/995129621e6f1cc7",
+      "declared_requirements_metadata": [
+        {
+          "requirement": "numpy>=2.0",
+          "installed_version": "2.5.4",
+          "satisfied": true
+        },
+        {
+          "requirement": "scipy>=1.11",
+          "installed_version": "1.18.1",
+          "satisfied": true
+        }
+      ]
+    },
+    "fc0055ab19e85e29": {
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/fc0055ab19e85e29",
+      "declared_requirements_metadata": [
+        {
+          "requirement": "numpy",
+          "installed_version": "2.5.4",
+          "satisfied": true
+        },
+        {
+          "requirement": "scipy",
+          "installed_version": "1.18.1",
+          "satisfied": true
+        }
+      ]
+    },
+    "11db8f32decf5c9b": {
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/11db8f32decf5c9b",
+      "declared_requirements_metadata": [
+        {
+          "requirement": "scikit-learn>=1.4",
+          "installed_version": "1.9.1",
+          "satisfied": true
+        }
+      ]
+    },
+    "46b093f24478441f": {
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/46b093f24478441f",
+      "declared_requirements_metadata": [
+        {
+          "requirement": "numpy>=1.26.0",
+          "installed_version": "2.5.4",
+          "satisfied": true
+        },
+        {
+          "requirement": "scipy>=1.11.0",
+          "installed_version": "1.18.1",
+          "satisfied": true
+        },
+        {
+          "requirement": "matplotlib>=3.8.0",
+          "installed_version": "3.11.2",
+          "satisfied": true
+        }
+      ]
+    },
+    "03dca224ddfa3b66": {
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/03dca224ddfa3b66",
+      "declared_requirements_metadata": [
+        {
+          "requirement": "numpy>=1.26",
+          "installed_version": "2.5.4",
+          "satisfied": true
+        },
+        {
+          "requirement": "scipy>=1.11",
+          "installed_version": "1.18.1",
+          "satisfied": true
+        },
+        {
+          "requirement": "matplotlib>=3.8",
+          "installed_version": "3.11.2",
+          "satisfied": true
+        }
+      ]
+    },
+    "6b5ace5996f490ee": {
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/6b5ace5996f490ee",
+      "declared_requirements_metadata": [
+        {
+          "requirement": "numpy>=1.24",
+          "installed_version": "2.5.4",
+          "satisfied": true
+        },
+        {
+          "requirement": "matplotlib>=3.7",
+          "installed_version": "3.11.2",
+          "satisfied": true
+        }
+      ]
+    },
+    "c9f4081467014965": {
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/c9f4081467014965",
+      "declared_requirements_metadata": [
+        {
+          "requirement": "numpy>=1.24",
+          "installed_version": "2.5.4",
+          "satisfied": true
+        },
+        {
+          "requirement": "pandas>=2.0",
+          "installed_version": "3.0.6",
+          "satisfied": true
+        },
+        {
+          "requirement": "scipy>=1.11",
+          "installed_version": "1.18.1",
+          "satisfied": true
+        },
+        {
+          "requirement": "matplotlib>=3.7",
+          "installed_version": "3.11.2",
+          "satisfied": true
+        }
+      ]
+    },
+    "ce75fb13f2e0b86d": {
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/ce75fb13f2e0b86d",
+      "declared_requirements_metadata": [
+        {
+          "requirement": "numpy>=1.24",
+          "installed_version": "2.5.4",
+          "satisfied": true
+        },
+        {
+          "requirement": "pandas>=2.0",
+          "installed_version": "3.0.6",
+          "satisfied": true
+        },
+        {
+          "requirement": "matplotlib>=3.7",
+          "installed_version": "3.11.2",
+          "satisfied": true
+        }
+      ]
+    },
+    "97ff65e7f8683b1d": {
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/97ff65e7f8683b1d",
+      "declared_requirements_metadata": [
+        {
+          "requirement": "numpy>=1.26",
+          "installed_version": "2.5.4",
+          "satisfied": true
+        },
+        {
+          "requirement": "scipy>=1.11",
+          "installed_version": "1.18.1",
+          "satisfied": true
+        }
+      ]
+    },
+    "c65e03f03d56af6e": {
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/c65e03f03d56af6e",
+      "declared_requirements_metadata": [
+        {
+          "requirement": "numpy",
+          "installed_version": "2.5.4",
+          "satisfied": true
+        },
+        {
+          "requirement": "scipy",
+          "installed_version": "1.18.1",
+          "satisfied": true
+        }
+      ]
+    },
+    "8c1b3244e71696b2": {
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/8c1b3244e71696b2",
+      "declared_requirements_metadata": []
+    },
+    "d8220a90c9edfc15": {
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/d8220a90c9edfc15",
+      "declared_requirements_metadata": [
+        {
+          "requirement": "numpy",
+          "installed_version": "2.5.4",
+          "satisfied": true
+        }
+      ]
+    },
+    "0f2dba7966a6a0bc": {
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/0f2dba7966a6a0bc",
+      "declared_requirements_metadata": [
+        {
+          "requirement": "numpy>=1.26",
+          "installed_version": "2.5.4",
+          "satisfied": true
+        },
+        {
+          "requirement": "pandas>=2.0",
+          "installed_version": "3.0.6",
+          "satisfied": true
+        },
+        {
+          "requirement": "matplotlib>=3.8",
+          "installed_version": "3.11.2",
+          "satisfied": true
+        },
+        {
+          "requirement": "scipy>=1.11",
+          "installed_version": "1.18.1",
+          "satisfied": true
+        }
+      ]
+    },
+    "5975c6d2415eb7ec": {
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/5975c6d2415eb7ec",
+      "declared_requirements_metadata": [
+        {
+          "requirement": "numpy>=1.24.0",
+          "installed_version": "2.5.4",
+          "satisfied": true
+        },
+        {
+          "requirement": "pandas>=2.0.0",
+          "installed_version": "3.0.6",
+          "satisfied": true
+        }
+      ]
+    },
+    "b28964f2a1e1b361": {
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/b28964f2a1e1b361",
+      "declared_requirements_metadata": [
+        {
+          "requirement": "numpy>=1.24.0",
+          "installed_version": "2.5.4",
+          "satisfied": true
+        },
+        {
+          "requirement": "scipy>=1.10.0",
+          "installed_version": "1.18.1",
+          "satisfied": true
+        },
+        {
+          "requirement": "matplotlib>=3.7.0",
+          "installed_version": "3.11.2",
+          "satisfied": true
+        }
+      ]
+    },
+    "b58b2ece28e89e5e": {
+      "cache_dir": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/b58b2ece28e89e5e",
+      "declared_requirements_metadata": [
+        {
+          "requirement": "numpy>=1.24.0",
+          "installed_version": "2.5.4",
+          "satisfied": true
+        }
+      ]
+    }
+  },
+  "only_metadata_read_no_import_execution_or_rerun": true
+}

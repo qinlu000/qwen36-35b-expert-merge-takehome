@@ -1,3 +1,15 @@
+# Terminal baseline full16 resumed — 2026-10-16 15:37 CST
+
+Actual controller PID **2052444**, runtime6, endpoint **28082**. All **414 previously unadmitted task/seed entries** resumed under the existing445 manifest; the first **16 are admitted**,398 remain pending, halted=false. Existing7 valid results are preserved: **1 reward1,6 reward0**. Per-trial resources remain4CPU,8GiB,1800s; the new16-slot CPU pool occupies0–63. No model prompts, seeds, budgets or verifier scores were changed. No tests or hash scans preceded this launch.
+
+The earlier controller paused at14:41 on a single native `VerifierTimeoutError`, then cancelled7 solver peers. Runtime6 records native verifier exceptions separately as `verifier_incomplete`, without inventing a valid zero and without tripping the solver queue. The7 recent cancellations all occurred inside the agent and had no completed solver return; their raw responses and trajectories are retained and they were not regenerated. Re-reading all original exception types gives21 historical cancelled,2 other failed attempts,1 verifier-incomplete and7 valid; this reclassification does not represent new failures.
+
+Launch receipt: `artifacts/runs/base-terminal-recovery-v2-20261016/launch-full16.json`; log: `runner-full16.log`; checkpoint: `artifacts/results/base-terminal-v2-recovery-20261016/checkpoint.json`. Prior runtime2–5, all result/raw-response directories and the prelaunch checkpoint remain retained. The new controller supports the prepared natural-drain file interface. A Git-reviewable source copy is `scripts/run_terminal_full16.py`; no stage/commit or root-index changes were made.
+
+All sections below are historical snapshots.
+
+---
+
 # Terminal baseline runtime5 is running — 2026-10-16 14:27 CST
 
 Actual remote controller PID **359147**, service **725545** (`ACD1-24:18002`), direct bridge **28082**. Runtime5 resumed only **429 never-admitted attempts**. Current checkpoint: **8 admitted, 421 pending, 16 earlier infrastructure attempts retained, 0 valid covered**, halted=false. Fixed denominator remains445. Original runtime2/3/4 and every earlier response/result directory remain unchanged. No prior failed/cancelled attempt was automatically regenerated.
