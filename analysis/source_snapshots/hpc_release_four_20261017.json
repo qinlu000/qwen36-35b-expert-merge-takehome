@@ -1,0 +1,65 @@
+{
+  "at_utc": "2026-10-16T19:53:05.551673+00:00",
+  "state": "paused_user_gpu_release",
+  "authorized_action": "Release four GPUs: completed727113 plus idle727654",
+  "released_service_job_id": 727654,
+  "previous_controller": {
+    "pid": 3237026,
+    "profile": "merged",
+    "endpoint": "http://127.0.0.1:28093",
+    "aliases": {
+      "asi": "apex-avg64",
+      "hle": "apex-avg64"
+    },
+    "at_utc": "2026-10-16T19:39:43.129764+00:00",
+    "state": "waiting_service",
+    "external_hle_controller": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/controller"
+  },
+  "previous_state": {
+    "state": "waiting_cpu_gate",
+    "gate": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/generation_cpu_finished.json",
+    "at_utc": "2026-10-16T19:39:43.130075+00:00"
+  },
+  "stopped_waiting_pid": 3237026,
+  "previous_command": [
+    "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+    "scripts/run_direct_formal_pipeline.py",
+    "--project",
+    "/data/caoqinlu/projects/apex-takehome",
+    "--profile",
+    "merged"
+  ],
+  "no_child_processes": true,
+  "no_asi_answers_admitted": true,
+  "external_hle_unchanged": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/controller",
+  "resume_requirement": "Restore or repoint a verified AVG64 endpoint before restarting the merged ASI coordinator; do not call released28093 or allocate replacement GPUs automatically.",
+  "verified_at_cst": "2026-10-17 03:53",
+  "released_jobs": [
+    {
+      "job_id": 727113,
+      "gpus": 2,
+      "state": "CANCELLED",
+      "end_cst": "2026-10-17 03:47:02",
+      "already_released_before_this_action": true
+    },
+    {
+      "job_id": 727654,
+      "gpus": 2,
+      "state": "CANCELLED",
+      "end_cst": "2026-10-17 03:53:05",
+      "cancelled_in_this_action": true
+    }
+  ],
+  "remaining_running_job_ids": [
+    727660,
+    727643,
+    727640,
+    727831,
+    727821,
+    727822
+  ],
+  "remaining_gpu_allocation": 12,
+  "gpu_headroom_under_user_limit16": 4,
+  "waiting_coordinator_active_after": false,
+  "expert_and_avg64_hle_state_after": "generation_and_scoring"
+}

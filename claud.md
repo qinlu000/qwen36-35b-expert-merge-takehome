@@ -1603,3 +1603,9 @@
 - 一次纯汇总已接新14708固定观测和HLE额外pair，Base SWE51/HLE2500/ASI240/TB严格442、预算445；Base预算macro11.340888%，主AVG64比较仍null。原NodeBB审计0与TB三native null来源保留。完成的SWE专家727113经51终态、原父退出、零消费者和native running/waiting/KV均0证明后于03:47:02释放2卡；新增服务时峰值16、现14GPU，作业allocation11.383333GPUh不能重复加进总账。
 - 每小时本线程heartbeat automation已更新并确认ACTIVE，截止10月18日02:20，保留最后12小时。优先真实正式评测/工程阻塞/审计/失败案例/任务对照/最终报告，不恢复独立val、不重新生成Base或按reward重试。当前状态和持续日志统一记录；本机和应用需保持运行，远端既有持久队列不依赖本机SSH会话。
 - 本轮只纳上述自有代码/配置/小收据/文档及共享文档追加，保留其他会话WIP；无coauthor、邮件或仓库邀请。
+
+## 2026-10-17 03:53 CST：按用户要求释放4张H100
+
+- 用户明确“4张卡释放吧”。复查727113已于03:47:02 CST CANCELLED、2GPU已退；727654仍0running/0waiting/KV0，合版ASI尚无输出目录、未准入答案。先确认等待parent3237026无子进程且只等专家ASI CPU gate，再停止该纯等待parent，03:53:05取消727654释放另2GPU。两作业均以sacct确认CANCELLED，当前6作业12GPU，16卡上限下空出4卡；没有自动重申替代GPU。
+- 合版ASI等待入口明确记录paused_user_gpu_release，原command/state/controller及恢复条件保存在artifacts/eval/merged_direct_pipeline_20261017/gpu-release-pause.json。恢复前须重新提供或复用已验收AVG64端点，不能向已释放28093准入；未开始的合版ASI保持待接续。独立HLE AVG64727822和HLE专家727821均仍generation_and_scoring，其他在途求解、评分、CPU程序不被取消。
+- 小型释放收据analysis/source_snapshots/hpc_release_four_20261017.json；未新增模型请求、测试或GPU作业。
