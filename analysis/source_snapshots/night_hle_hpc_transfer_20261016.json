@@ -1,0 +1,37 @@
+{
+  "hpc_root": "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/night_hle_20261016/swift_ready",
+  "all_five_data_files_sha256_and_row_count_verified": true,
+  "files": {
+    "train": {
+      "path": "artifacts/data/candidates/night_hle_20261016/swift_ready/train.messages.jsonl",
+      "rows": 500,
+      "bytes": 744826,
+      "sha256": "66dbd5012b560bc7b2358bdd05001fb0fa95e56f56498685288cb5ed7f649b38"
+    },
+    "train_provenance": {
+      "path": "artifacts/data/candidates/night_hle_20261016/swift_ready/train.provenance.jsonl",
+      "rows": 500,
+      "bytes": 783917,
+      "sha256": "b490c60ddbebc3907966418c1a1e93f1be15934f328b12df1cd1d8700788ba9b"
+    },
+    "val_loss": {
+      "path": "artifacts/data/candidates/night_hle_20261016/swift_ready/val.messages.jsonl",
+      "rows": 100,
+      "bytes": 56315,
+      "sha256": "dca83f108ab2d33b5d9ac6c308b09b673d588d5a5d5122e505fc0c5a6b6ff59d"
+    },
+    "val_tasks": {
+      "path": "artifacts/data/candidates/night_hle_20261016/swift_ready/val.tasks.jsonl",
+      "rows": 100,
+      "bytes": 67567,
+      "sha256": "b096203887a82b835da069f0162373e162bf4a89ebb3415f19910f3743dcd517"
+    },
+    "val_provenance": {
+      "path": "artifacts/data/candidates/night_hle_20261016/swift_ready/val.provenance.jsonl",
+      "rows": 100,
+      "bytes": 124171,
+      "sha256": "082b41e6c756a3a2d3ae9debc0e6304eeddd32bd1b075fa839388fb72773bbd6"
+    }
+  },
+  "note": "Remote Python hashlib + line counts verified after rsync; no GPU or training invoked."
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "instance_id": "pallets__click-1852",
+    "repo": "pallets/click",
+    "base_commit": "82a83fda1fafd4a43c67755140555bfd5afbd592",
+    "published_image": "docker.io/swerebenchv2/pallets-click:1852-82a83fd",
+    "pinned_image": "docker.io/swerebenchv2/pallets-click@sha256:706b6eb0b87271abeec284bcaba1ce4364d22226d762666370ceec9d3d8ba410",
+    "layer_bytes": 756498142,
+    "layers": 11,
+    "config_digest": "sha256:13e5f82db1bf9ca9853f5985d503ad99e214109f7963cd5e47de58808dbd2151",
+    "os": "linux",
+    "architecture": "amd64",
+    "workdir": "/click",
+    "user": "",
+    "status": "anonymous_registry_manifest_and_config_verified; no layer pulled or runtime executed"
+  },
+  {
+    "instance_id": "pallets__werkzeug-2442",
+    "repo": "pallets/werkzeug",
+    "base_commit": "446afc9dc21b786531b1171d14ca31adf4f084a3",
+    "published_image": "docker.io/swerebenchv2/pallets-werkzeug:2442-446afc9",
+    "pinned_image": "docker.io/swerebenchv2/pallets-werkzeug@sha256:f9f100ddd16f2e1084542f014997dc18caf1c7a76c6b11eb7736fc60fafa2a29",
+    "layer_bytes": 783138800,
+    "layers": 11,
+    "config_digest": "sha256:4c8621cb4171be1da526a1ba02145c5cf0ffb337d452ec6cc22b00d702284948",
+    "os": "linux",
+    "architecture": "amd64",
+    "workdir": "/werkzeug",
+    "user": "",
+    "status": "anonymous_registry_manifest_and_config_verified; no layer pulled or runtime executed"
+  },
+  {
+    "instance_id": "sindresorhus__query-string-195",
+    "repo": "sindresorhus/query-string",
+    "base_commit": "17315ad730cc8e74815e2a198ceec7532cce7927",
+    "published_image": "docker.io/swerebenchv2/sindresorhus-query-string:195-17315ad",
+    "pinned_image": "docker.io/swerebenchv2/sindresorhus-query-string@sha256:5b6bd8ce3de64a5eeacb6d1bff24a60eaf3681d04ff85831fe5711aca6788001",
+    "layer_bytes": 1161795474,
+    "layers": 12,
+    "config_digest": "sha256:ab46a4c9fde5bb49f90054a388bf6e078c9b22e860639e281703e8252c2fd21c",
+    "os": "linux",
+    "architecture": "amd64",
+    "workdir": "/query-string",
+    "user": "",
+    "status": "anonymous_registry_manifest_and_config_verified; no layer pulled or runtime executed"
+  }
+]

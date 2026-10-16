@@ -1,0 +1,39 @@
+{
+  "rows_before_checks": 500,
+  "rows_after_checks": 500,
+  "category_counts": {
+    "Math": 204,
+    "Other": 47,
+    "Engineering": 22,
+    "Computer Science/AI": 48,
+    "Humanities/Social Science": 44,
+    "Biology/Medicine": 56,
+    "Physics": 46,
+    "Chemistry": 33
+  },
+  "readiness_counts": {
+    "candidate_with_publisher_reference": 204,
+    "candidate_teacher_matches_publisher_gold": 296
+  },
+  "rejection_counts": {},
+  "rejected": [],
+  "complete_sequence_tokens": {
+    "sum": 243140,
+    "max": 1531,
+    "mean": 486.28
+  },
+  "max_assistant_body_tokens_proxy": 1423,
+  "fixed_tokenizer_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "chat_template_sha256": "e84f32a23fdda27689f868aa4a1a5621f41133e51a48d7f3efcbea2839574259",
+  "template_flags": {
+    "enable_thinking": false,
+    "preserve_thinking": false
+  },
+  "sha256": "894e40b947e204c205f1046e5b1999fb8c5622c560ef3dedf1d7217347965a43",
+  "training_released": false,
+  "limitations": [
+    "Sequence token counts are exact for the fixed rendered candidate file, not final Swift labels or processed window budget.",
+    "13-gram exclusion does not prove semantic or paper/exam-family independence.",
+    "Science no-independent-gold holds remain; nothing was trained."
+  ]
+}

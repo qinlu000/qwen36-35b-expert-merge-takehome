@@ -1,0 +1,26 @@
+{
+  "recorded_at": "2026-10-15T18:39:48.923890+00:00",
+  "purpose": "exclusion only; no answers, rationale, patches, tests or task execution",
+  "normalization": "NFKC -> collapse Unicode whitespace -> strip -> casefold -> SHA256 UTF-8",
+  "hle": {
+    "revision": "5a81a4c7271a2a2a312b9a690f0c2fde837e4c29",
+    "file_sha256": "6d0ee0602e8aea6b159509577e884f48ecac7b8e3f6822a35f51335a446c726a",
+    "columns": [
+      "id",
+      "question"
+    ],
+    "rows": 2500,
+    "unique_question_hashes": 2499
+  },
+  "terminal": {
+    "task_count": 89,
+    "unique_instruction_hashes": 89,
+    "manifest_sha256": "ca3f520b435716e351e95d25a8d5300e26b0eb7af0180973add284b4aae5b461"
+  },
+  "index_sha256": "4977eea22cdbd67224725e493a0f4d19351fc0680cf19064933e860874464e98",
+  "index_location": "artifacts/data/audits/formal_input_fingerprints_20261016/index.json",
+  "limits": [
+    "Exact normalized full-input equality only; embedded prompts, paraphrases, images and source-lineage overlap are not ruled out by zero matches.",
+    "No final training or validation split is created."
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "bytes_verified": 3653370550,
+  "candidate_language_counts": {
+    "c": 12,
+    "cpp": 4,
+    "go": 852,
+    "java": 46,
+    "js": 775,
+    "php": 286,
+    "python": 6319,
+    "rust": 54,
+    "ts": 1088
+  },
+  "candidate_observation_format_counts": {
+    "json_only": 4598,
+    "xml_only": 4838
+  },
+  "candidate_protocol_status_counts": {
+    "multi_call_source_order_unverified": 7962,
+    "single_call_pairing_observed": 1474
+  },
+  "candidate_shared_old_families": 8824,
+  "candidate_source_counts": {
+    "scale-swe": 4598,
+    "swe-rebench-v2": 4838
+  },
+  "candidate_source_language_split_counts": {
+    "train|scale-swe|python": 4166,
+    "train|swe-rebench-v2|c": 12,
+    "train|swe-rebench-v2|cpp": 4,
+    "train|swe-rebench-v2|go": 763,
+    "train|swe-rebench-v2|java": 43,
+    "train|swe-rebench-v2|js": 697,
+    "train|swe-rebench-v2|php": 262,
+    "train|swe-rebench-v2|python": 1573,
+    "train|swe-rebench-v2|rust": 52,
+    "train|swe-rebench-v2|ts": 996,
+    "val|scale-swe|python": 432,
+    "val|swe-rebench-v2|go": 89,
+    "val|swe-rebench-v2|java": 3,
+    "val|swe-rebench-v2|js": 78,
+    "val|swe-rebench-v2|php": 24,
+    "val|swe-rebench-v2|python": 148,
+    "val|swe-rebench-v2|rust": 2,
+    "val|swe-rebench-v2|ts": 92
+  },
+  "candidate_source_observation_format_counts": {
+    "scale-swe|json_only": 4598,
+    "swe-rebench-v2|xml_only": 4838
+  },
+  "candidate_split_counts": {
+    "train": 8568,
+    "val": 868
+  },
+  "candidate_unique_families": 9436,
+  "candidate_valid_rows": 9436,
+  "expected_files": 16,
+  "files_scanned": 16,
+  "metadata": {
+    "bugfix_source_success_after_exact_exclusion": 9451,
+    "exact_repo_excluded_rows": 0,
+    "rows": 36577,
+    "source_success_rows": 17807
+  },
+  "metadata_counts": {
+    "category": {
+      "bug-fix": 18799,
+      "enhancement": 4565,
+      "feature-request": 10831,
+      "other": 2382
+    },
+    "language": {
+      "c": 77,
+      "cpp": 28,
+      "go": 4867,
+      "java": 1259,
+      "js": 2865,
+      "php": 999,
+      "python": 20756,
+      "rust": 2196,
+      "ts": 3530
+    },
+    "source": {
+      "scale-swe": 16063,
+      "swe-rebench-v2": 20514
+    },
+    "source_language_category": {
+      "scale-swe|python|bug-fix": 6766,
+      "scale-swe|python|enhancement": 2376,
+      "scale-swe|python|feature-request": 5583,
+      "scale-swe|python|other": 1338,
+      "swe-rebench-v2|cpp|bug-fix": 23,
+      "swe-rebench-v2|cpp|enhancement": 1,
+      "swe-rebench-v2|cpp|feature-request": 2,
+      "swe-rebench-v2|cpp|other": 2,
+      "swe-rebench-v2|c|bug-fix": 51,
+      "swe-rebench-v2|c|enhancement": 9,
+      "swe-rebench-v2|c|feature-request": 5,
+      "swe-rebench-v2|c|other": 12,
+      "swe-rebench-v2|go|bug-fix": 2532,
+      "swe-rebench-v2|go|enhancement": 509,
+      "swe-rebench-v2|go|feature-request": 1470,
+      "swe-rebench-v2|go|other": 356,
+      "swe-rebench-v2|java|bug-fix": 710,
+      "swe-rebench-v2|java|enhancement": 169,
+      "swe-rebench-v2|java|feature-request": 320,
+      "swe-rebench-v2|java|other": 60,
+      "swe-rebench-v2|js|bug-fix": 1703,
+      "swe-rebench-v2|js|enhancement": 297,
+      "swe-rebench-v2|js|feature-request": 757,
+      "swe-rebench-v2|js|other": 108,
+      "swe-rebench-v2|php|bug-fix": 699,
+      "swe-rebench-v2|php|enhancement": 74,
+      "swe-rebench-v2|php|feature-request": 199,
+      "swe-rebench-v2|php|other": 27,
+      "swe-rebench-v2|python|bug-fix": 2757,
+      "swe-rebench-v2|python|enhancement": 567,
+      "swe-rebench-v2|python|feature-request": 1084,
+      "swe-rebench-v2|python|other": 285,
+      "swe-rebench-v2|rust|bug-fix": 1378,
+      "swe-rebench-v2|rust|enhancement": 250,
+      "swe-rebench-v2|rust|feature-request": 497,
+      "swe-rebench-v2|rust|other": 71,
+      "swe-rebench-v2|ts|bug-fix": 2180,
+      "swe-rebench-v2|ts|enhancement": 313,
+      "swe-rebench-v2|ts|feature-request": 914,
+      "swe-rebench-v2|ts|other": 123
+    },
+    "teacher": {
+      "Qwen3.8-Flash-Next": 36577
+    },
+    "thinking": {
+      "True": 36577
+    }
+  },
+  "native_multi_call_fixture": {
+    "calls": 2,
+    "observation_ids_in_input_order": true,
+    "parsed_in_input_order": true,
+    "passed": true,
+    "shell_execution": false
+  },
+  "native_source_sha256": {
+    "artifacts/envs/mini-swe/lib/python3.12/site-packages/minisweagent/agents/default.py": "e8ef8aa365942d739c2ec5cb0879f60f377d2dc2de8ec670aaedf3bafb45a4c2",
+    "artifacts/envs/mini-swe/lib/python3.12/site-packages/minisweagent/models/utils/actions_toolcall.py": "47b666412e4f838508b50009cf34c7f63fe15e9e40affc257a17c0829896526f"
+  },
+  "old_pool_join": {
+    "files": 39,
+    "purpose": "cross-teacher family grouping only; old source is not selected",
+    "rows": 95291,
+    "shared_new_families": 34274,
+    "unique_families": 39540
+  },
+  "partition": "minisweagent/qwen38_flash_next",
+  "quarantine_counts": {
+    "noncanonical_bash_argument_keys": 15
+  },
+  "quarantined_rows": 15,
+  "recorded_at_utc": "2026-10-15T18:51:22.671133+00:00",
+  "revision": "1db674173119d71df45c22007af99e214600711a",
+  "scope": "Candidate split/ranking only, no ms-swift body export, no training/API/GPU or task execution. Candidate resolved=1 is publisher label. Source exact agent/container revisions and tool result ordering are unverified; local native fixture proves target supports ordered multiple calls but cannot prove source ordering. Source messages lack tool_call_id. Exact official11 repositories excluded; forks/renames and semantic/PR lineage beyond exact repository+instance remain pending. val is a grouped teacher-forced holdout candidate, execution environment restoration and final quota pending.",
+  "seconds": 29.472178146243095,
+  "source_repo": "nvidia/Open-SWE-Traces",
+  "split_design": {
+    "benchmark_ratio": "SWE fixed51 source category is uniformly debugging. Select source bug-fix only. No validated benchmark language frequency; no invented numeric language weights.",
+    "budget": "ranked reservoir only; final train/val quotas and token budget not frozen",
+    "family_key": "sha256(lowercase owner/repo + NUL + instance_id)",
+    "method": "shared helper family_rank=sha256(seed+NUL+family_key); int(rank[:16],16)%10==0 val; stable rank within source\u00d7language\u00d7bug-fix",
+    "seed": "apex-new-data-v1-20261016",
+    "total_hash_bins": 10,
+    "val_hash_bins": 1
+  },
+  "unique_new_families": 36577,
+  "verified_files": [
+    {
+      "bytes": 236962825,
+      "file": "data/minisweagent/qwen38_flash_next/scale-swe/train-00000-of-00007.parquet",
+      "sha256": "5610510e5bd3e33037af02c2fec996198da92212402bb9479b964aadbacb8121",
+      "upstream_sha256": "5610510e5bd3e33037af02c2fec996198da92212402bb9479b964aadbacb8121"
+    },
+    {
+      "bytes": 245142079,
+      "file": "data/minisweagent/qwen38_flash_next/scale-swe/train-00001-of-00007.parquet",
+      "sha256": "9bca529a403c8a8ef52eacde70c1ddd1f2a42ed34b4e52d591114a39ac7fa053",
+      "upstream_sha256": "9bca529a403c8a8ef52eacde70c1ddd1f2a42ed34b4e52d591114a39ac7fa053"
+    },
+    {
+      "bytes": 243715255,
+      "file": "data/minisweagent/qwen38_flash_next/scale-swe/train-00002-of-00007.parquet",
+      "sha256": "e61a195d319710060c1b575051252d1dfd678d9719b99374a48b5b5f15ff61c9",
+      "upstream_sha256": "e61a195d319710060c1b575051252d1dfd678d9719b99374a48b5b5f15ff61c9"
+    },
+    {
+      "bytes": 239313756,
+      "file": "data/minisweagent/qwen38_flash_next/scale-swe/train-00003-of-00007.parquet",
+      "sha256": "1d89b2fc1614c67dd7aaceccd1e5adeff3158259b6c013245e169ec902fd1533",
+      "upstream_sha256": "1d89b2fc1614c67dd7aaceccd1e5adeff3158259b6c013245e169ec902fd1533"
+    },
+    {
+      "bytes": 241931894,
+      "file": "data/minisweagent/qwen38_flash_next/scale-swe/train-00004-of-00007.parquet",
+      "sha256": "428a9799cdbaeb5802e1781ff49ea18fda30a173bdaca0b600a5a5624244930b",
+      "upstream_sha256": "428a9799cdbaeb5802e1781ff49ea18fda30a173bdaca0b600a5a5624244930b"
+    },
+    {
+      "bytes": 239016111,
+      "file": "data/minisweagent/qwen38_flash_next/scale-swe/train-00005-of-00007.parquet",
+      "sha256": "79509994eaa4a50675f122a75293671c42a2e82ef725f0abe9413ae18c78aec6",
+      "upstream_sha256": "79509994eaa4a50675f122a75293671c42a2e82ef725f0abe9413ae18c78aec6"
+    },
+    {
+      "bytes": 104415022,
+      "file": "data/minisweagent/qwen38_flash_next/scale-swe/train-00006-of-00007.parquet",
+      "sha256": "74cf4a6fdab24be0be4979c63e05fea47f98d486fb1f81b8405b4bb4f05b9205",
+      "upstream_sha256": "74cf4a6fdab24be0be4979c63e05fea47f98d486fb1f81b8405b4bb4f05b9205"
+    },
+    {
+      "bytes": 255643218,
+      "file": "data/minisweagent/qwen38_flash_next/swe-rebench-v2/train-00000-of-00009.parquet",
+      "sha256": "1167119bc1795df50352a98331d2d1595a6a0c248055b119390bbcc16140ad88",
+      "upstream_sha256": "1167119bc1795df50352a98331d2d1595a6a0c248055b119390bbcc16140ad88"
+    },
+    {
+      "bytes": 259889098,
+      "file": "data/minisweagent/qwen38_flash_next/swe-rebench-v2/train-00001-of-00009.parquet",
+      "sha256": "4b90b501ab2b69ded90f39cfeb79a8c99e1c3803345c61a0f496c2f603b8c176",
+      "upstream_sha256": "4b90b501ab2b69ded90f39cfeb79a8c99e1c3803345c61a0f496c2f603b8c176"
+    },
+    {
+      "bytes": 260439277,
+      "file": "data/minisweagent/qwen38_flash_next/swe-rebench-v2/train-00002-of-00009.parquet",
+      "sha256": "70ba019dfdc8c7cf3a63f419230e2ffa91470250b2af9e144498f48fa576c848",
+      "upstream_sha256": "70ba019dfdc8c7cf3a63f419230e2ffa91470250b2af9e144498f48fa576c848"
+    },
+    {
+      "bytes": 253884900,
+      "file": "data/minisweagent/qwen38_flash_next/swe-rebench-v2/train-00003-of-00009.parquet",
+      "sha256": "ca5335c80e03823bfaab9c906fe8a3e7ae780cef49cc7281319c9c27380a2520",
+      "upstream_sha256": "ca5335c80e03823bfaab9c906fe8a3e7ae780cef49cc7281319c9c27380a2520"
+    },
+    {
+      "bytes": 254628585,
+      "file": "data/minisweagent/qwen38_flash_next/swe-rebench-v2/train-00004-of-00009.parquet",
+      "sha256": "afd1f88d451b71827da919bb012ef9a5e50c4659a3ab6b5f0db8da25c8f2eadc",
+      "upstream_sha256": "afd1f88d451b71827da919bb012ef9a5e50c4659a3ab6b5f0db8da25c8f2eadc"
+    },
+    {
+      "bytes": 260304563,
+      "file": "data/minisweagent/qwen38_flash_next/swe-rebench-v2/train-00005-of-00009.parquet",
+      "sha256": "e9c2f615fdfb02b87b403b7b11779d43e766da610fcaeb98f0d29ded88f7a62c",
+      "upstream_sha256": "e9c2f615fdfb02b87b403b7b11779d43e766da610fcaeb98f0d29ded88f7a62c"
+    },
+    {
+      "bytes": 253062200,
+      "file": "data/minisweagent/qwen38_flash_next/swe-rebench-v2/train-00006-of-00009.parquet",
+      "sha256": "7db7d8c4b231277cd67dc6bbbd1aeef386d27d42ff19e415f0007080ea82d7e9",
+      "upstream_sha256": "7db7d8c4b231277cd67dc6bbbd1aeef386d27d42ff19e415f0007080ea82d7e9"
+    },
+    {
+      "bytes": 250835763,
+      "file": "data/minisweagent/qwen38_flash_next/swe-rebench-v2/train-00007-of-00009.parquet",
+      "sha256": "31e9d03d633cf0c1f32e94dc28b256db74982d201db6f728115258861606905c",
+      "upstream_sha256": "31e9d03d633cf0c1f32e94dc28b256db74982d201db6f728115258861606905c"
+    },
+    {
+      "bytes": 54186004,
+      "file": "data/minisweagent/qwen38_flash_next/swe-rebench-v2/train-00008-of-00009.parquet",
+      "sha256": "a7dd7052ae30e7762fbb0c1327b1988dffbd88a0c169747ceda49140b84d701c",
+      "upstream_sha256": "a7dd7052ae30e7762fbb0c1327b1988dffbd88a0c169747ceda49140b84d701c"
+    }
+  ]
+}

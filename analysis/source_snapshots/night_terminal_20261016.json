@@ -1,0 +1,2182 @@
+{
+  "as_of": "2026-10-16",
+  "sources": {
+    "terminal_horizon_traces": {
+      "repo": "shunzou05/TerminalHorizon-3K",
+      "revision": "45f1e98e317d3639437f0eb02f4e8bc5825732f3",
+      "expected_bytes": 1754720383,
+      "expected_sha256": "285c8c673563cce2d7ff49367f0fb8bef429aaacaf143241181158fb87fded76",
+      "download_complete": true,
+      "verified_lfs": true,
+      "actual_rows": 2852
+    },
+    "terminal_horizon_environments": {
+      "repo": "shunzou05/TerminalHorizon-Environment",
+      "revision": "e55b3e99927ed6b9b2e4abf2fa93e965dd0503ef",
+      "metadata_rows": 1535,
+      "metadata_sha256": "5c5a14d168dfe617a9da2277b4f4c3501ed8785ff08963bb812851fcd79078b4",
+      "metadata_lfs_verified": true
+    }
+  },
+  "quality": "Author process-filtered SFT trajectories; not verified-success-only. No per-row reward in released JSONL conversations.",
+  "prefix_check": {
+    "http_range": [
+      0,
+      16777215
+    ],
+    "total_bytes": 1754720383,
+    "sha256": "5a93b2fa421cdbf5fcf75c15d7e0f731cf3e2872d1be4eb70aea6e8e1a423e60",
+    "complete_rows": 26,
+    "unique_metadata_instruction_join_rows": 26,
+    "representative_sample": false
+  },
+  "formal_tb_exact_instruction_hits": 0,
+  "val_quotas": {
+    "software-engineering": 29,
+    "system-administration": 10,
+    "security": 9,
+    "scientific-computing": 9,
+    "data-science": 9,
+    "debugging": 6,
+    "file-operations": 6,
+    "mathematics": 5,
+    "data-processing": 5,
+    "model-training": 4,
+    "machine-learning": 3,
+    "games": 1,
+    "personal-assistant": 1,
+    "optimization": 1,
+    "data-querying": 1,
+    "video-processing": 1
+  },
+  "train_quotas": {
+    "software-engineering": 146,
+    "system-administration": 50,
+    "security": 45,
+    "scientific-computing": 45,
+    "data-science": 45,
+    "debugging": 28,
+    "file-operations": 28,
+    "mathematics": 22,
+    "data-processing": 22,
+    "model-training": 22,
+    "machine-learning": 17,
+    "games": 6,
+    "personal-assistant": 6,
+    "optimization": 6,
+    "data-querying": 6,
+    "video-processing": 6
+  },
+  "classification_budget_cny": 10,
+  "classification_cost_upper_cny": 4.269956544,
+  "environment_validation_completed": 0,
+  "training_released_rows": 0,
+  "gpu_jobs": 0,
+  "formal_benchmark_tasks_executed": 0,
+  "prefix_token_audit": {
+    "complete_rows": 26,
+    "source_order_prefix": true,
+    "clean_sequence_mean": 83984.26923076923,
+    "clean_sequence_p50": 69979,
+    "clean_sequence_p95": 128562,
+    "clean_sequence_max": 212975,
+    "clean_sequences_within_65536": 10,
+    "raw_sequence_mean": 182409.5,
+    "max_assistant_message_tokens": 8684,
+    "parser_error_rows": 2,
+    "parser_error_messages": 3,
+    "malformed_think_rows": 0,
+    "required_analysis_plan_preserved": true
+  },
+  "download_note": "Initial full response truncated after 191684581 received bytes; exact 32MiB HTTP Range resume underway, final LFS hash required.",
+  "classification": {
+    "annotated_tasks": 1535,
+    "calls": 64,
+    "cost_upper_cny": 4.269956544,
+    "budget_cny": 10,
+    "script_sha256": "72b3818e94fac5717061dff02e013148a7335cf83161ae3367b5392875d10b62"
+  },
+  "selection": {
+    "source_tasks": 1535,
+    "annotated_tasks": 1535,
+    "annotation_categories": {
+      "system-administration": 325,
+      "data-processing": 172,
+      "scientific-computing": 189,
+      "personal-assistant": 35,
+      "file-operations": 45,
+      "machine-learning": 35,
+      "software-engineering": 350,
+      "optimization": 134,
+      "video-processing": 28,
+      "debugging": 10,
+      "security": 128,
+      "model-training": 32,
+      "games": 12,
+      "data-science": 30,
+      "data-querying": 5,
+      "mathematics": 4,
+      "uncertain": 1
+    },
+    "annotation_confidence": {
+      "medium": 601,
+      "high": 884,
+      "low": 50
+    },
+    "conservative_families": 1535,
+    "families_with_multiple_tasks": 0,
+    "source_genealogy_complete": false,
+    "tfidf_pairs_at_least_035": 5,
+    "tfidf_group_threshold": 0.65,
+    "train_val_near_hold_threshold": 0.35,
+    "calibration_reserved_task_ids": [
+      "adapt-a-seismic-acquisition-geometry-from-in-field-qc",
+      "blind-transient-thermal-hydraulic-model-validation"
+    ],
+    "eligible_provisional_family_candidates": 1483,
+    "val_requested": 100,
+    "train_requested": 500,
+    "val_selected_provisional": 99,
+    "train_selected_provisional": 427,
+    "near_val_train_held": 1,
+    "val_quota": {
+      "software-engineering": 29,
+      "system-administration": 10,
+      "security": 9,
+      "scientific-computing": 9,
+      "data-science": 9,
+      "debugging": 6,
+      "file-operations": 6,
+      "mathematics": 5,
+      "data-processing": 5,
+      "model-training": 4,
+      "machine-learning": 3,
+      "games": 1,
+      "personal-assistant": 1,
+      "optimization": 1,
+      "data-querying": 1,
+      "video-processing": 1
+    },
+    "train_quota": {
+      "software-engineering": 146,
+      "system-administration": 50,
+      "security": 45,
+      "scientific-computing": 45,
+      "data-science": 45,
+      "debugging": 28,
+      "file-operations": 28,
+      "mathematics": 22,
+      "data-processing": 22,
+      "model-training": 22,
+      "machine-learning": 17,
+      "games": 6,
+      "personal-assistant": 6,
+      "optimization": 6,
+      "data-querying": 6,
+      "video-processing": 6
+    },
+    "val_counts": {
+      "software-engineering": 29,
+      "system-administration": 10,
+      "security": 9,
+      "scientific-computing": 9,
+      "data-science": 9,
+      "debugging": 6,
+      "file-operations": 6,
+      "mathematics": 4,
+      "data-processing": 5,
+      "model-training": 4,
+      "machine-learning": 3,
+      "games": 1,
+      "personal-assistant": 1,
+      "optimization": 1,
+      "data-querying": 1,
+      "video-processing": 1
+    },
+    "train_counts": {
+      "software-engineering": 146,
+      "system-administration": 50,
+      "security": 45,
+      "scientific-computing": 45,
+      "data-science": 20,
+      "debugging": 4,
+      "file-operations": 28,
+      "data-processing": 22,
+      "model-training": 22,
+      "machine-learning": 17,
+      "games": 6,
+      "personal-assistant": 6,
+      "optimization": 6,
+      "data-querying": 4,
+      "video-processing": 6
+    },
+    "val_gaps": {
+      "mathematics": 1
+    },
+    "train_gaps": {
+      "data-science": 25,
+      "debugging": 24,
+      "mathematics": 22,
+      "data-querying": 2
+    },
+    "training_released": false,
+    "executable_val_ready": false,
+    "note": "Proportional review candidates only. Source lineage, semantics, trajectory join/success and native runtime are unresolved; no short-trace selection or old-data fallback."
+  },
+  "first_environment_archive": {
+    "bytes": 864092605,
+    "sha256": "a17d18eb14481528d91fa1623486f19c0f608549fc773989c137059408fdc8a1",
+    "verified_lfs": true,
+    "tasks": 186,
+    "compose_tasks": 31,
+    "calibration_tasks": 2
+  },
+  "whole_pool_structure": {
+    "rows": 2852,
+    "unique_environment_join_rows": 2843,
+    "environment_task_ids_with_traces": 1531,
+    "parser_error_rows": 419,
+    "parser_error_messages": 602,
+    "malformed_think_rows": 0,
+    "invalid_role_chain_rows": 0,
+    "formal_exact_hit_rows": 0
+  },
+  "messages_v1": {
+    "train_tasks": 414,
+    "val_teacher_traces": 91,
+    "train_assistant_messages": 21180,
+    "val_assistant_messages": 4799,
+    "train_bytes": 103744170,
+    "train_sha256": "cf79682c7c017f396e2dd38690af7a6c37133ead9e2a02f98940864c911a8eae",
+    "source_success_verified": false,
+    "training_window_validation_pending": true,
+    "executable_val_ready": false
+  },
+  "messages_v2": {
+    "source_sha256": "285c8c673563cce2d7ff49367f0fb8bef429aaacaf143241181158fb87fded76",
+    "counts": {
+      "val": 91,
+      "val_assistant_messages": 4799,
+      "val_final_completion_proxy": 91,
+      "train": 427,
+      "train_assistant_messages": 21728,
+      "train_final_completion_proxy": 423
+    },
+    "categories": {
+      "val": {
+        "debugging": 6,
+        "data-science": 8,
+        "model-training": 4,
+        "system-administration": 9,
+        "data-processing": 4,
+        "video-processing": 1,
+        "software-engineering": 27,
+        "scientific-computing": 8,
+        "security": 9,
+        "data-querying": 1,
+        "file-operations": 6,
+        "mathematics": 4,
+        "machine-learning": 2,
+        "personal-assistant": 1,
+        "optimization": 1
+      },
+      "train": {
+        "data-science": 20,
+        "file-operations": 28,
+        "system-administration": 50,
+        "security": 45,
+        "personal-assistant": 6,
+        "data-processing": 22,
+        "scientific-computing": 45,
+        "optimization": 6,
+        "software-engineering": 146,
+        "machine-learning": 17,
+        "video-processing": 6,
+        "model-training": 22,
+        "data-querying": 4,
+        "debugging": 4,
+        "games": 6
+      }
+    },
+    "dropped_tasks": [
+      {
+        "split": "train",
+        "task_id": "tune-a-shared-linux-host-for-latency-and-throughput",
+        "category": "system-administration",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          14
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "build-a-point-in-time-correct-event-time-join-under-partition-skew",
+        "category": "data-processing",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          903,
+          2228
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "bring-a-mixed-signal-pcb-to-fabrication-and-electrical-release",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          63
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "qualify-a-field-acoustic-detection-stream-for-ecological-monitoring",
+        "category": "data-processing",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          292,
+          2123
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "cancellation-safe-shutdown-for-a-durable-async-worker-service",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          970,
+          1737
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "build-an-interoperable-distributed-version-control-cli",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1196,
+          2239
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "promote-a-signed-multi-architecture-oci-release-without-breaking-provena",
+        "category": "system-administration",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": []
+      },
+      {
+        "split": "train",
+        "task_id": "quantitative-microscopy-acquisition-qualification",
+        "category": "scientific-computing",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1151
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "add-coordinated-failover-to-planned-redis-cluster-shutdown",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1423
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "remediate-a-tagged-pdf-for-semantic-accessibility",
+        "category": "file-operations",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1504,
+          2171
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "implement-an-auditable-multi-entity-accounting-consolidation-engine",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1228,
+          2641
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "implement-and-validate-a-reusable-full-speed-usb-2-0-device-controller",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          960
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "qualify-hybrid-post-quantum-x-509-tls-interoperability",
+        "category": "security",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          874,
+          2422
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "build-a-conformant-webassembly-core-runtime-from-its-specification",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1184,
+          1877
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "extend-a-mature-http-2-proxy-s-backpressure-and-stream-lifecycle",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1337,
+          2810
+        ]
+      },
+      {
+        "split": "val",
+        "task_id": "complete-and-prove-a-trading-partner-edi-exchange",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1333,
+          2840
+        ]
+      },
+      {
+        "split": "val",
+        "task_id": "implement-and-validate-a-tilelink-c-coherent-interconnect",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          835,
+          1729
+        ]
+      },
+      {
+        "split": "val",
+        "task_id": "make-a-linux-usb-host-driver-survive-power-and-hotplug-lifecycles",
+        "category": "system-administration",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          993,
+          2661
+        ]
+      },
+      {
+        "split": "val",
+        "task_id": "qualify-a-raw-to-quantitative-mri-reconstruction-pipeline",
+        "category": "scientific-computing",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          309
+        ]
+      },
+      {
+        "split": "val",
+        "task_id": "validate-sample-specific-proteogenomic-peptide-evidence",
+        "category": "data-science",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          516
+        ]
+      },
+      {
+        "split": "val",
+        "task_id": "reconcile-a-cadastral-parcel-coverage-without-erasing-legal-exceptions",
+        "category": "data-processing",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          956
+        ]
+      },
+      {
+        "split": "val",
+        "task_id": "transfer-a-live-feature-family-into-canonical-shared-ownership",
+        "category": "machine-learning",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          502
+        ]
+      },
+      {
+        "split": "val",
+        "task_id": "make-deterministic-rollback-simulation-converge-under-adverse-delivery",
+        "category": "games",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1041,
+          2102
+        ]
+      }
+    ],
+    "initial_contract_hashes": {
+      "c115067a875398efed908dd82c3a71178205c027ea0ce88c5eb5739a576e1847": 518
+    },
+    "artifacts": {
+      "train": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/data/candidates/new_terminal_horizon_20261016/messages_v2/train.messages.jsonl",
+        "sha256": "b22d3ef722f75bb8bf79bc58b74ba913e4efb482b98d45fb72e6cadbfe076a2f",
+        "bytes": 106701187
+      },
+      "val": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/data/candidates/new_terminal_horizon_20261016/messages_v2/val.messages.jsonl",
+        "sha256": "4bf27068b43b7a96d22f9d85e29f462c2a1153c642b9d22912206e3edbcda916",
+        "bytes": 22786931
+      }
+    },
+    "quality_basis": "Apache-2.0 source; publisher full-trajectory process review; exact environment join, alternating roles, balanced think strip and native JSON parser pass locally. No independent task-success label.",
+    "native_grader_success_verified": false,
+    "executable_val_ready": false,
+    "val_note": "val messages can support held-out teacher-trace loss only; task-success val requires original environment/verifier runtime acceptance.",
+    "long_sequences": "Every exported source episode is complete. No sequence/assistant truncation or short-sample selection. CPU windowing and labels still required before formal SFT.",
+    "loss_contract": "Only assistant content may be supervised; user/observations masked. Hidden leading think removed, required visible Terminus JSON analysis/plan/commands preserved. No structured tool calls; tools=[] and terminal observations are user messages."
+  },
+  "source_contract_comparison": {
+    "source_chars": 2834,
+    "target_rendered_chars": 2834,
+    "identical_after_native_format_render": true,
+    "source_sha256": "c115067a875398efed908dd82c3a71178205c027ea0ce88c5eb5739a576e1847",
+    "target_rendered_sha256": "c115067a875398efed908dd82c3a71178205c027ea0ce88c5eb5739a576e1847",
+    "whole_source_rows_with_same_contract": 2852
+  },
+  "latest_training_messages_version": "messages_v3",
+  "messages_v3": {
+    "source_sha256": "285c8c673563cce2d7ff49367f0fb8bef429aaacaf143241181158fb87fded76",
+    "counts": {
+      "val": 91,
+      "val_assistant_messages": 4799,
+      "val_final_completion_proxy": 91,
+      "train": 427,
+      "train_assistant_messages": 21211,
+      "train_final_completion_proxy": 427
+    },
+    "categories": {
+      "val": {
+        "debugging": 6,
+        "data-science": 8,
+        "model-training": 4,
+        "system-administration": 9,
+        "data-processing": 4,
+        "video-processing": 1,
+        "software-engineering": 27,
+        "scientific-computing": 8,
+        "security": 9,
+        "data-querying": 1,
+        "file-operations": 6,
+        "mathematics": 4,
+        "machine-learning": 2,
+        "personal-assistant": 1,
+        "optimization": 1
+      },
+      "train": {
+        "data-science": 20,
+        "file-operations": 28,
+        "system-administration": 50,
+        "security": 45,
+        "personal-assistant": 6,
+        "data-processing": 22,
+        "scientific-computing": 45,
+        "optimization": 6,
+        "software-engineering": 146,
+        "machine-learning": 17,
+        "video-processing": 6,
+        "model-training": 22,
+        "data-querying": 4,
+        "debugging": 4,
+        "games": 6
+      }
+    },
+    "dropped_tasks": [
+      {
+        "split": "train",
+        "task_id": "tune-a-shared-linux-host-for-latency-and-throughput",
+        "category": "system-administration",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          14
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "build-a-point-in-time-correct-event-time-join-under-partition-skew",
+        "category": "data-processing",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          903,
+          2228
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "bring-a-mixed-signal-pcb-to-fabrication-and-electrical-release",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          63
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "qualify-a-field-acoustic-detection-stream-for-ecological-monitoring",
+        "category": "data-processing",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          292,
+          2123
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "cancellation-safe-shutdown-for-a-durable-async-worker-service",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          970,
+          1737
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "build-an-interoperable-distributed-version-control-cli",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1196,
+          2239
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "promote-a-signed-multi-architecture-oci-release-without-breaking-provena",
+        "category": "system-administration",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": []
+      },
+      {
+        "split": "train",
+        "task_id": "quantitative-microscopy-acquisition-qualification",
+        "category": "scientific-computing",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1151
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "expose-dlmopen-namespaces-without-breaking-the-r-debug-abi",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          677,
+          1696
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "add-coordinated-failover-to-planned-redis-cluster-shutdown",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1423
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "remediate-a-tagged-pdf-for-semantic-accessibility",
+        "category": "file-operations",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1504,
+          2171
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "px4-closed-loop-flight-software-fault-qualification",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1407
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "implement-an-auditable-multi-entity-accounting-consolidation-engine",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1228,
+          2641
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "implement-and-validate-a-reusable-full-speed-usb-2-0-device-controller",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          960
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "establish-a-truthful-c-package-graph-compatibility-boundary",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          559,
+          2057
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "qualify-hybrid-post-quantum-x-509-tls-interoperability",
+        "category": "security",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          874,
+          2422
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "complete-partial-ech-with-transactional-live-rotation",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1411
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "build-a-conformant-webassembly-core-runtime-from-its-specification",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1184,
+          1877
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "extend-a-mature-http-2-proxy-s-backpressure-and-stream-lifecycle",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1337,
+          2810
+        ]
+      },
+      {
+        "split": "train",
+        "task_id": "postgresql-explain-node-memory-instrumentation",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1484,
+          2846
+        ]
+      },
+      {
+        "split": "val",
+        "task_id": "complete-and-prove-a-trading-partner-edi-exchange",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1333,
+          2840
+        ]
+      },
+      {
+        "split": "val",
+        "task_id": "implement-and-validate-a-tilelink-c-coherent-interconnect",
+        "category": "software-engineering",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          835,
+          1729
+        ]
+      },
+      {
+        "split": "val",
+        "task_id": "make-a-linux-usb-host-driver-survive-power-and-hotplug-lifecycles",
+        "category": "system-administration",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          993,
+          2661
+        ]
+      },
+      {
+        "split": "val",
+        "task_id": "qualify-a-raw-to-quantitative-mri-reconstruction-pipeline",
+        "category": "scientific-computing",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          309
+        ]
+      },
+      {
+        "split": "val",
+        "task_id": "validate-sample-specific-proteogenomic-peptide-evidence",
+        "category": "data-science",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          516
+        ]
+      },
+      {
+        "split": "val",
+        "task_id": "reconcile-a-cadastral-parcel-coverage-without-erasing-legal-exceptions",
+        "category": "data-processing",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          956
+        ]
+      },
+      {
+        "split": "val",
+        "task_id": "transfer-a-live-feature-family-into-canonical-shared-ownership",
+        "category": "machine-learning",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          502
+        ]
+      },
+      {
+        "split": "val",
+        "task_id": "make-deterministic-rollback-simulation-converge-under-adverse-delivery",
+        "category": "games",
+        "reason": "no_complete_structurally_valid_source_trace",
+        "source_rows": [
+          1041,
+          2102
+        ]
+      }
+    ],
+    "initial_contract_hashes": {
+      "c115067a875398efed908dd82c3a71178205c027ea0ce88c5eb5739a576e1847": 518
+    },
+    "artifacts": {
+      "train": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/data/candidates/new_terminal_horizon_20261016/messages_v3/train.messages.jsonl",
+        "sha256": "dbe05f654a20e7d6beacba334f9ee18d106cad788fe3290838ef2857660b8f71",
+        "bytes": 104679709
+      },
+      "val": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/data/candidates/new_terminal_horizon_20261016/messages_v3/val.messages.jsonl",
+        "sha256": "4bf27068b43b7a96d22f9d85e29f462c2a1153c642b9d22912206e3edbcda916",
+        "bytes": 22786931
+      }
+    },
+    "quality_basis": "Apache-2.0 source; publisher full-trajectory process review; exact environment join, alternating roles, balanced think strip and native JSON parser pass locally. No independent task-success label.",
+    "native_grader_success_verified": false,
+    "executable_val_ready": false,
+    "require_final_completion_proxy": true,
+    "val_note": "val messages can support held-out teacher-trace loss only; task-success val requires original environment/verifier runtime acceptance.",
+    "long_sequences": "Every exported source episode is complete. No sequence/assistant truncation or short-sample selection. CPU windowing and labels still required before formal SFT.",
+    "loss_contract": "Only assistant content may be supervised; user/observations masked. Hidden leading think removed, required visible Terminus JSON analysis/plan/commands preserved. No structured tool calls; tools=[] and terminal observations are user messages."
+  },
+  "messages_v3_lengths": {
+    "all_exported_episodes_measured": true,
+    "messages_dir": "/data/caoqinlu/projects/apex-takehome/artifacts/data/candidates/new_terminal_horizon_20261016/messages_v3",
+    "stats": {
+      "train": {
+        "complete_sequence": {
+          "n": 427,
+          "sum": 33956071,
+          "mean": 79522.41451990632,
+          "p50": 67571,
+          "p95": 172665,
+          "max": 402023,
+          "within_8192": 0,
+          "within_16384": 0,
+          "within_65536": 203
+        },
+        "assistant_content_total_by_episode": {
+          "n": 427,
+          "sum": 10530453,
+          "mean": 24661.48243559719,
+          "p50": 19684,
+          "p95": 55178,
+          "max": 193234,
+          "within_8192": 33,
+          "within_16384": 152,
+          "within_65536": 417
+        },
+        "assistant_message": {
+          "n": 21211,
+          "sum": 10530453,
+          "mean": 496.4618829852435,
+          "p50": 319,
+          "p95": 1459,
+          "max": 14564,
+          "within_8192": 21186,
+          "within_16384": 21211,
+          "within_65536": 21211
+        },
+        "complete_unit_with_initial_instruction": {
+          "n": 21211,
+          "sum": 66103314,
+          "mean": 3116.463815944557,
+          "p50": 2727,
+          "p95": 5733,
+          "max": 17009,
+          "within_8192": 21069,
+          "within_16384": 21209,
+          "within_65536": 21211
+        }
+      },
+      "val": {
+        "complete_sequence": {
+          "n": 91,
+          "sum": 7297217,
+          "mean": 80189.1978021978,
+          "p50": 67128,
+          "p95": 164212,
+          "max": 247984,
+          "within_8192": 0,
+          "within_16384": 0,
+          "within_65536": 42
+        },
+        "assistant_content_total_by_episode": {
+          "n": 91,
+          "sum": 2265479,
+          "mean": 24895.373626373625,
+          "p50": 20694,
+          "p95": 54900,
+          "max": 80241,
+          "within_8192": 7,
+          "within_16384": 33,
+          "within_65536": 88
+        },
+        "assistant_message": {
+          "n": 4799,
+          "sum": 2265479,
+          "mean": 472.07314023754947,
+          "p50": 310,
+          "p95": 1313,
+          "max": 8481,
+          "within_8192": 4797,
+          "within_16384": 4799,
+          "within_65536": 4799
+        },
+        "complete_unit_with_initial_instruction": {
+          "n": 4799,
+          "sum": 14449215,
+          "mean": 3010.880391748281,
+          "p50": 2632,
+          "p95": 5545,
+          "max": 12022,
+          "within_8192": 4771,
+          "within_16384": 4799,
+          "within_65536": 4799
+        }
+      }
+    },
+    "reused_identical_source_row_measurements": 514,
+    "tokenizer_sha256": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+    "template_sha256": "e84f32a23fdda27689f868aa4a1a5621f41133e51a48d7f3efcbea2839574259",
+    "unit_definition": "One complete user/assistant pair, retaining the original initial instruction user as prefix for later pairs. No turn or response truncation.",
+    "not_training_processed_tokens": "Actual complete-turn windows can combine units and repeat prefixes; root ms-swift labels/window audit remains authoritative.",
+    "no_gpu_or_model_calls": true
+  },
+  "messages_v3_protocol_warnings": {
+    "counts": {
+      "train_rows": 427,
+      "train_warning_rows": 79,
+      "train_non_strict_json_rows": 0,
+      "train_duration_over60_rows": 0,
+      "val_rows": 91,
+      "val_warning_rows": 16,
+      "val_non_strict_json_rows": 0,
+      "val_duration_over60_rows": 0
+    },
+    "note": "Native parser pass includes warnings/automatic repair. Raw accepted source action text retained, not silently changed; >60 durations tracked as source contract deviations."
+  },
+  "formal_tb_span_exclusion": {
+    "purpose": "decontamination only; official instruction.md text only, no answers/tests/results read",
+    "normalization": "NFKC -> casefold -> Unicode word tokens",
+    "formal_tasks": 89,
+    "source_tasks": 1535,
+    "span_lengths": [
+      13,
+      14
+    ],
+    "matching_spans": 0,
+    "hit_pairs": [],
+    "limits": "No span overlap is not proof of no semantic near-duplicate or source-lineage overlap."
+  },
+  "selected_val_package_sizes": {
+    "selected_val_tasks": 99,
+    "source_regular_file_bytes_sum": 2624913442,
+    "source_regular_file_bytes_max": 1716002717,
+    "source_files_sum": 4524,
+    "top_packages": [
+      {
+        "task_id": "reconstruct-and-contain-a-memory-resident-host-compromise",
+        "bytes": 1716002717
+      },
+      {
+        "task_id": "recover-a-luks-volume-from-damaged-metadata",
+        "bytes": 521875175
+      },
+      {
+        "task_id": "reconstruct-a-bootable-squashfs-root-and-initramfs",
+        "bytes": 128840395
+      },
+      {
+        "task_id": "validate-a-behavioral-preservation-environment-for-legacy-software",
+        "bytes": 121152564
+      },
+      {
+        "task_id": "cross-venue-market-abuse-case-reconstruction",
+        "bytes": 42134039
+      },
+      {
+        "task_id": "harmonize-a-heterogeneous-geospatial-delivery-into-a-common-reference-st",
+        "bytes": 31618449
+      },
+      {
+        "task_id": "implement-bounded-variable-length-lookbehind-in-a-regex-engine",
+        "bytes": 13217345
+      },
+      {
+        "task_id": "calibrate-and-verify-a-probabilistic-ensemble-forecast-product",
+        "bytes": 11036876
+      }
+    ],
+    "note": "Package index only; excludes base/container image sizes, dependencies downloaded at build time and runtime outputs. Not disk demand proof."
+  },
+  "updated_at_beijing": "2026-10-16 13:22",
+  "window_capacity_audit": {
+    "capacity_only_no_training_windows_emitted": true,
+    "template_additivity_checked_all_episodes": 518,
+    "policy_assessed": "Non-overlapping consecutive complete user/assistant pairs; repeat original initial user in later windows; no summary/history carry; omit a whole unit only if it cannot fit alone. This is an accounting scenario, not the selected training policy.",
+    "history_limitation": "Any later window lacks earlier execution history and may depend on files/state/actions absent from its text. Unit coverage is not semantic sufficiency or complete trajectory preservation.",
+    "evaluation_context": "Frozen evaluation remains 65536 total / 8192 per call. Training capacity scenarios do not change it.",
+    "statistics": {
+      "train": {
+        "16384": {
+          "episodes": 427,
+          "episodes_fitting_single_window": 0,
+          "source_units": 21211,
+          "source_assistant_content_tokens": 10530453,
+          "retained_assistant_content_tokens": 10504671,
+          "windows_lacking_earlier_source_history": 2215,
+          "window_count": 2642,
+          "total_window_tokens": 37421652,
+          "retained_units": 21209,
+          "unrepresentable_complete_units": 2,
+          "episodes_with_no_unit_omitted": 425,
+          "unit_coverage": 0.9999057093017774,
+          "assistant_content_token_coverage": 0.9975516722784861
+        },
+        "32768": {
+          "episodes": 427,
+          "episodes_fitting_single_window": 13,
+          "source_units": 21211,
+          "source_assistant_content_tokens": 10530453,
+          "retained_assistant_content_tokens": 10530453,
+          "windows_lacking_earlier_source_history": 886,
+          "window_count": 1313,
+          "total_window_tokens": 35350845,
+          "retained_units": 21211,
+          "unrepresentable_complete_units": 0,
+          "episodes_with_no_unit_omitted": 427,
+          "unit_coverage": 1.0,
+          "assistant_content_token_coverage": 1.0
+        },
+        "65536": {
+          "episodes": 427,
+          "episodes_fitting_single_window": 203,
+          "source_units": 21211,
+          "source_assistant_content_tokens": 10530453,
+          "retained_assistant_content_tokens": 10530453,
+          "windows_lacking_earlier_source_history": 294,
+          "window_count": 721,
+          "total_window_tokens": 34419666,
+          "retained_units": 21211,
+          "unrepresentable_complete_units": 0,
+          "episodes_with_no_unit_omitted": 427,
+          "unit_coverage": 1.0,
+          "assistant_content_token_coverage": 1.0
+        }
+      },
+      "val": {
+        "16384": {
+          "episodes": 91,
+          "episodes_fitting_single_window": 0,
+          "source_units": 4799,
+          "source_assistant_content_tokens": 2265479,
+          "retained_assistant_content_tokens": 2265479,
+          "windows_lacking_earlier_source_history": 465,
+          "window_count": 556,
+          "total_window_tokens": 8017500,
+          "retained_units": 4799,
+          "unrepresentable_complete_units": 0,
+          "episodes_with_no_unit_omitted": 91,
+          "unit_coverage": 1.0,
+          "assistant_content_token_coverage": 1.0
+        },
+        "32768": {
+          "episodes": 91,
+          "episodes_fitting_single_window": 1,
+          "source_units": 4799,
+          "source_assistant_content_tokens": 2265479,
+          "retained_assistant_content_tokens": 2265479,
+          "windows_lacking_earlier_source_history": 189,
+          "window_count": 280,
+          "total_window_tokens": 7589755,
+          "retained_units": 4799,
+          "unrepresentable_complete_units": 0,
+          "episodes_with_no_unit_omitted": 91,
+          "unit_coverage": 1.0,
+          "assistant_content_token_coverage": 1.0
+        },
+        "65536": {
+          "episodes": 91,
+          "episodes_fitting_single_window": 42,
+          "source_units": 4799,
+          "source_assistant_content_tokens": 2265479,
+          "retained_assistant_content_tokens": 2265479,
+          "windows_lacking_earlier_source_history": 63,
+          "window_count": 154,
+          "total_window_tokens": 7394518,
+          "retained_units": 4799,
+          "unrepresentable_complete_units": 0,
+          "episodes_with_no_unit_omitted": 91,
+          "unit_coverage": 1.0,
+          "assistant_content_token_coverage": 1.0
+        }
+      }
+    },
+    "unrepresentable_units": [
+      {
+        "split": "train",
+        "task_id": "construct-an-incremental-full-text-search-product",
+        "budget": 16384,
+        "unit_index": 5,
+        "source_user_turn": 10,
+        "unit_tokens_with_initial_instruction": 16991,
+        "assistant_content_tokens": 14564,
+        "reason": "one_complete_pair_plus_retained_instruction_exceeds_capacity"
+      },
+      {
+        "split": "train",
+        "task_id": "audit-and-calibrate-a-stochastic-general-insurance-capital-model",
+        "budget": 16384,
+        "unit_index": 5,
+        "source_user_turn": 10,
+        "unit_tokens_with_initial_instruction": 17009,
+        "assistant_content_tokens": 11218,
+        "reason": "one_complete_pair_plus_retained_instruction_exceeds_capacity"
+      }
+    ],
+    "cost_note": "Totals include repeated instruction and template; exclude padding, batch packing and alternative carry/overlap strategies. Actual root ms-swift loader accounting is authoritative."
+  },
+  "training_recipe_source_comparison": {
+    "paper": "https://arxiv.org/html/2610.13166v1#A1.SS1",
+    "publisher_maximum_sequence_length": 262144,
+    "publisher_packing": false,
+    "publisher_sft_epochs": 3,
+    "publisher_parameter_scope": "full-parameter",
+    "project_training_windows_selected": false,
+    "evaluation_context_unchanged": 65536
+  },
+  "complete_history_64k_audit": {
+    "train_pool_families": 1383,
+    "native_qualified_complete_episodes_measured": 2162,
+    "all_requested_lengths_measured": true,
+    "whole_source_lfs_sha256": "285c8c673563cce2d7ff49367f0fb8bef429aaacaf143241181158fb87fded76",
+    "strict_json_or_residual_tag_rejected_episodes": 0,
+    "valid_train_pool_task_families": 1309,
+    "families_with_valid_complete_episode_le64k": 696,
+    "per_category": {
+      "software-engineering": {
+        "current_v3_tasks": 146,
+        "current_v3_selected_episodes_le64k": 69,
+        "current_v3_tasks_with_any_valid_episode_le64k": 73,
+        "same_task_alternate_rollout_rescues": 4,
+        "available_valid_complete64k_task_families": 136,
+        "available_complete64k_families_also_all_outputs_le8k": 132,
+        "possible_same_category_new_family_replacements": 63,
+        "max_fulfillable_preserving_current_class_count": 136,
+        "gap_preserving_current_class_count": 10,
+        "original_500_quota": 146,
+        "max_fulfillable_original_500_quota": 136,
+        "all_valid_family_min_episode_lengths": {
+          "n": 282,
+          "sum": 23856145,
+          "mean": 84596.25886524822,
+          "p50": 66484,
+          "p95": 193999,
+          "max": 386991
+        },
+        "short_valid_family_min_episode_lengths": {
+          "n": 136,
+          "sum": 6475066,
+          "mean": 47610.779411764706,
+          "p50": 47737,
+          "p95": 62679,
+          "max": 65463
+        },
+        "current_v3_episode_lengths": {
+          "n": 146,
+          "sum": 12678276,
+          "mean": 86837.50684931508,
+          "p50": 67609,
+          "p95": 198251,
+          "max": 386991
+        },
+        "current_v3_assistant_turns": {
+          "n": 146,
+          "sum": 9162,
+          "mean": 62.75342465753425,
+          "p50": 41,
+          "p95": 168,
+          "max": 313
+        },
+        "short_pool_family_min_assistant_turns": {
+          "n": 136,
+          "sum": 3842,
+          "mean": 28.25,
+          "p50": 27,
+          "p95": 43,
+          "max": 49
+        }
+      },
+      "system-administration": {
+        "current_v3_tasks": 50,
+        "current_v3_selected_episodes_le64k": 26,
+        "current_v3_tasks_with_any_valid_episode_le64k": 30,
+        "same_task_alternate_rollout_rescues": 4,
+        "available_valid_complete64k_task_families": 175,
+        "available_complete64k_families_also_all_outputs_le8k": 175,
+        "possible_same_category_new_family_replacements": 20,
+        "max_fulfillable_preserving_current_class_count": 50,
+        "gap_preserving_current_class_count": 0,
+        "original_500_quota": 50,
+        "max_fulfillable_original_500_quota": 50,
+        "all_valid_family_min_episode_lengths": {
+          "n": 299,
+          "sum": 20529125,
+          "mean": 68659.28093645484,
+          "p50": 59903,
+          "p95": 132908,
+          "max": 363594
+        },
+        "short_valid_family_min_episode_lengths": {
+          "n": 175,
+          "sum": 8228245,
+          "mean": 47018.54285714286,
+          "p50": 47555,
+          "p95": 63695,
+          "max": 65245
+        },
+        "current_v3_episode_lengths": {
+          "n": 50,
+          "sum": 3403509,
+          "mean": 68070.18,
+          "p50": 58838,
+          "p95": 118740,
+          "max": 175990
+        },
+        "current_v3_assistant_turns": {
+          "n": 50,
+          "sum": 1930,
+          "mean": 38.6,
+          "p50": 33,
+          "p95": 77,
+          "max": 129
+        },
+        "short_pool_family_min_assistant_turns": {
+          "n": 175,
+          "sum": 4795,
+          "mean": 27.4,
+          "p50": 26,
+          "p95": 46,
+          "max": 78
+        }
+      },
+      "security": {
+        "current_v3_tasks": 45,
+        "current_v3_selected_episodes_le64k": 24,
+        "current_v3_tasks_with_any_valid_episode_le64k": 27,
+        "same_task_alternate_rollout_rescues": 3,
+        "available_valid_complete64k_task_families": 68,
+        "available_complete64k_families_also_all_outputs_le8k": 68,
+        "possible_same_category_new_family_replacements": 18,
+        "max_fulfillable_preserving_current_class_count": 45,
+        "gap_preserving_current_class_count": 0,
+        "original_500_quota": 45,
+        "max_fulfillable_original_500_quota": 45,
+        "all_valid_family_min_episode_lengths": {
+          "n": 117,
+          "sum": 8287140,
+          "mean": 70830.2564102564,
+          "p50": 56382,
+          "p95": 147402,
+          "max": 382284
+        },
+        "short_valid_family_min_episode_lengths": {
+          "n": 68,
+          "sum": 3076910,
+          "mean": 45248.67647058824,
+          "p50": 44882,
+          "p95": 62429,
+          "max": 65171
+        },
+        "current_v3_episode_lengths": {
+          "n": 45,
+          "sum": 3077792,
+          "mean": 68395.37777777777,
+          "p50": 63329,
+          "p95": 103984,
+          "max": 251837
+        },
+        "current_v3_assistant_turns": {
+          "n": 45,
+          "sum": 1848,
+          "mean": 41.06666666666667,
+          "p50": 33,
+          "p95": 82,
+          "max": 153
+        },
+        "short_pool_family_min_assistant_turns": {
+          "n": 68,
+          "sum": 1621,
+          "mean": 23.83823529411765,
+          "p50": 23,
+          "p95": 37,
+          "max": 44
+        }
+      },
+      "scientific-computing": {
+        "current_v3_tasks": 45,
+        "current_v3_selected_episodes_le64k": 13,
+        "current_v3_tasks_with_any_valid_episode_le64k": 18,
+        "same_task_alternate_rollout_rescues": 5,
+        "available_valid_complete64k_task_families": 75,
+        "available_complete64k_families_also_all_outputs_le8k": 73,
+        "possible_same_category_new_family_replacements": 27,
+        "max_fulfillable_preserving_current_class_count": 45,
+        "gap_preserving_current_class_count": 0,
+        "original_500_quota": 45,
+        "max_fulfillable_original_500_quota": 45,
+        "all_valid_family_min_episode_lengths": {
+          "n": 169,
+          "sum": 14994733,
+          "mean": 88726.23076923077,
+          "p50": 70295,
+          "p95": 172665,
+          "max": 583177
+        },
+        "short_valid_family_min_episode_lengths": {
+          "n": 75,
+          "sum": 3828347,
+          "mean": 51044.62666666666,
+          "p50": 53896,
+          "p95": 63540,
+          "max": 64550
+        },
+        "current_v3_episode_lengths": {
+          "n": 45,
+          "sum": 4244524,
+          "mean": 94322.75555555556,
+          "p50": 76173,
+          "p95": 157098,
+          "max": 402023
+        },
+        "current_v3_assistant_turns": {
+          "n": 45,
+          "sum": 2316,
+          "mean": 51.46666666666667,
+          "p50": 42,
+          "p95": 94,
+          "max": 177
+        },
+        "short_pool_family_min_assistant_turns": {
+          "n": 75,
+          "sum": 2054,
+          "mean": 27.386666666666667,
+          "p50": 28,
+          "p95": 40,
+          "max": 44
+        }
+      },
+      "data-science": {
+        "current_v3_tasks": 20,
+        "current_v3_selected_episodes_le64k": 6,
+        "current_v3_tasks_with_any_valid_episode_le64k": 7,
+        "same_task_alternate_rollout_rescues": 1,
+        "available_valid_complete64k_task_families": 7,
+        "available_complete64k_families_also_all_outputs_le8k": 6,
+        "possible_same_category_new_family_replacements": 0,
+        "max_fulfillable_preserving_current_class_count": 7,
+        "gap_preserving_current_class_count": 13,
+        "original_500_quota": 45,
+        "max_fulfillable_original_500_quota": 7,
+        "all_valid_family_min_episode_lengths": {
+          "n": 20,
+          "sum": 1407024,
+          "mean": 70351.2,
+          "p50": 74354,
+          "p95": 97460,
+          "max": 109761
+        },
+        "short_valid_family_min_episode_lengths": {
+          "n": 7,
+          "sum": 322612,
+          "mean": 46087.42857142857,
+          "p50": 46208,
+          "p95": 64829,
+          "max": 64883
+        },
+        "current_v3_episode_lengths": {
+          "n": 20,
+          "sum": 1539961,
+          "mean": 76998.05,
+          "p50": 74931,
+          "p95": 110737,
+          "max": 135522
+        },
+        "current_v3_assistant_turns": {
+          "n": 20,
+          "sum": 784,
+          "mean": 39.2,
+          "p50": 38,
+          "p95": 63,
+          "max": 77
+        },
+        "short_pool_family_min_assistant_turns": {
+          "n": 7,
+          "sum": 133,
+          "mean": 19.0,
+          "p50": 18,
+          "p95": 23,
+          "max": 29
+        }
+      },
+      "debugging": {
+        "current_v3_tasks": 4,
+        "current_v3_selected_episodes_le64k": 3,
+        "current_v3_tasks_with_any_valid_episode_le64k": 3,
+        "same_task_alternate_rollout_rescues": 0,
+        "available_valid_complete64k_task_families": 3,
+        "available_complete64k_families_also_all_outputs_le8k": 3,
+        "possible_same_category_new_family_replacements": 0,
+        "max_fulfillable_preserving_current_class_count": 3,
+        "gap_preserving_current_class_count": 1,
+        "original_500_quota": 28,
+        "max_fulfillable_original_500_quota": 3,
+        "all_valid_family_min_episode_lengths": {
+          "n": 4,
+          "sum": 204560,
+          "mean": 51140.0,
+          "p50": 42446,
+          "p95": 59349,
+          "max": 70815
+        },
+        "short_valid_family_min_episode_lengths": {
+          "n": 3,
+          "sum": 133745,
+          "mean": 44581.666666666664,
+          "p50": 42446,
+          "p95": 42446,
+          "max": 59349
+        },
+        "current_v3_episode_lengths": {
+          "n": 4,
+          "sum": 212818,
+          "mean": 53204.5,
+          "p50": 42446,
+          "p95": 59349,
+          "max": 70815
+        },
+        "current_v3_assistant_turns": {
+          "n": 4,
+          "sum": 148,
+          "mean": 37.0,
+          "p50": 31,
+          "p95": 47,
+          "max": 52
+        },
+        "short_pool_family_min_assistant_turns": {
+          "n": 3,
+          "sum": 88,
+          "mean": 29.333333333333332,
+          "p50": 31,
+          "p95": 31,
+          "max": 47
+        }
+      },
+      "file-operations": {
+        "current_v3_tasks": 28,
+        "current_v3_selected_episodes_le64k": 15,
+        "current_v3_tasks_with_any_valid_episode_le64k": 17,
+        "same_task_alternate_rollout_rescues": 2,
+        "available_valid_complete64k_task_families": 18,
+        "available_complete64k_families_also_all_outputs_le8k": 17,
+        "possible_same_category_new_family_replacements": 1,
+        "max_fulfillable_preserving_current_class_count": 18,
+        "gap_preserving_current_class_count": 10,
+        "original_500_quota": 28,
+        "max_fulfillable_original_500_quota": 18,
+        "all_valid_family_min_episode_lengths": {
+          "n": 33,
+          "sum": 2400677,
+          "mean": 72747.78787878787,
+          "p50": 63248,
+          "p95": 127083,
+          "max": 178473
+        },
+        "short_valid_family_min_episode_lengths": {
+          "n": 18,
+          "sum": 836979,
+          "mean": 46498.833333333336,
+          "p50": 46348,
+          "p95": 63248,
+          "max": 64804
+        },
+        "current_v3_episode_lengths": {
+          "n": 28,
+          "sum": 2060857,
+          "mean": 73602.03571428571,
+          "p50": 64804,
+          "p95": 131751,
+          "max": 178473
+        },
+        "current_v3_assistant_turns": {
+          "n": 28,
+          "sum": 1065,
+          "mean": 38.035714285714285,
+          "p50": 32,
+          "p95": 84,
+          "max": 87
+        },
+        "short_pool_family_min_assistant_turns": {
+          "n": 18,
+          "sum": 445,
+          "mean": 24.72222222222222,
+          "p50": 23,
+          "p95": 36,
+          "max": 44
+        }
+      },
+      "mathematics": {
+        "current_v3_tasks": 0,
+        "current_v3_selected_episodes_le64k": 0,
+        "current_v3_tasks_with_any_valid_episode_le64k": 0,
+        "same_task_alternate_rollout_rescues": 0,
+        "available_valid_complete64k_task_families": 0,
+        "available_complete64k_families_also_all_outputs_le8k": 0,
+        "possible_same_category_new_family_replacements": 0,
+        "max_fulfillable_preserving_current_class_count": 0,
+        "gap_preserving_current_class_count": 0,
+        "original_500_quota": 22,
+        "max_fulfillable_original_500_quota": 0,
+        "all_valid_family_min_episode_lengths": {
+          "n": 0
+        },
+        "short_valid_family_min_episode_lengths": {
+          "n": 0
+        },
+        "current_v3_episode_lengths": {
+          "n": 0
+        },
+        "current_v3_assistant_turns": {
+          "n": 0
+        },
+        "short_pool_family_min_assistant_turns": {
+          "n": 0
+        }
+      },
+      "data-processing": {
+        "current_v3_tasks": 22,
+        "current_v3_selected_episodes_le64k": 10,
+        "current_v3_tasks_with_any_valid_episode_le64k": 11,
+        "same_task_alternate_rollout_rescues": 1,
+        "available_valid_complete64k_task_families": 84,
+        "available_complete64k_families_also_all_outputs_le8k": 84,
+        "possible_same_category_new_family_replacements": 11,
+        "max_fulfillable_preserving_current_class_count": 22,
+        "gap_preserving_current_class_count": 0,
+        "original_500_quota": 22,
+        "max_fulfillable_original_500_quota": 22,
+        "all_valid_family_min_episode_lengths": {
+          "n": 156,
+          "sum": 10809620,
+          "mean": 69292.43589743589,
+          "p50": 62280,
+          "p95": 121914,
+          "max": 259397
+        },
+        "short_valid_family_min_episode_lengths": {
+          "n": 84,
+          "sum": 4175860,
+          "mean": 49712.619047619046,
+          "p50": 49195,
+          "p95": 62312,
+          "max": 65371
+        },
+        "current_v3_episode_lengths": {
+          "n": 22,
+          "sum": 1672994,
+          "mean": 76045.18181818182,
+          "p50": 70081,
+          "p95": 105836,
+          "max": 153569
+        },
+        "current_v3_assistant_turns": {
+          "n": 22,
+          "sum": 906,
+          "mean": 41.18181818181818,
+          "p50": 38,
+          "p95": 53,
+          "max": 107
+        },
+        "short_pool_family_min_assistant_turns": {
+          "n": 84,
+          "sum": 2474,
+          "mean": 29.452380952380953,
+          "p50": 27,
+          "p95": 43,
+          "max": 53
+        }
+      },
+      "model-training": {
+        "current_v3_tasks": 22,
+        "current_v3_selected_episodes_le64k": 11,
+        "current_v3_tasks_with_any_valid_episode_le64k": 12,
+        "same_task_alternate_rollout_rescues": 1,
+        "available_valid_complete64k_task_families": 15,
+        "available_complete64k_families_also_all_outputs_le8k": 15,
+        "possible_same_category_new_family_replacements": 3,
+        "max_fulfillable_preserving_current_class_count": 15,
+        "gap_preserving_current_class_count": 7,
+        "original_500_quota": 22,
+        "max_fulfillable_original_500_quota": 15,
+        "all_valid_family_min_episode_lengths": {
+          "n": 27,
+          "sum": 1831879,
+          "mean": 67847.37037037036,
+          "p50": 59821,
+          "p95": 109874,
+          "max": 176641
+        },
+        "short_valid_family_min_episode_lengths": {
+          "n": 15,
+          "sum": 704632,
+          "mean": 46975.46666666667,
+          "p50": 45602,
+          "p95": 59821,
+          "max": 60010
+        },
+        "current_v3_episode_lengths": {
+          "n": 22,
+          "sum": 1721170,
+          "mean": 78235.0,
+          "p50": 60010,
+          "p95": 127644,
+          "max": 246993
+        },
+        "current_v3_assistant_turns": {
+          "n": 22,
+          "sum": 1074,
+          "mean": 48.81818181818182,
+          "p50": 40,
+          "p95": 85,
+          "max": 161
+        },
+        "short_pool_family_min_assistant_turns": {
+          "n": 15,
+          "sum": 441,
+          "mean": 29.4,
+          "p50": 28,
+          "p95": 39,
+          "max": 44
+        }
+      },
+      "machine-learning": {
+        "current_v3_tasks": 17,
+        "current_v3_selected_episodes_le64k": 13,
+        "current_v3_tasks_with_any_valid_episode_le64k": 14,
+        "same_task_alternate_rollout_rescues": 1,
+        "available_valid_complete64k_task_families": 21,
+        "available_complete64k_families_also_all_outputs_le8k": 21,
+        "possible_same_category_new_family_replacements": 3,
+        "max_fulfillable_preserving_current_class_count": 17,
+        "gap_preserving_current_class_count": 0,
+        "original_500_quota": 17,
+        "max_fulfillable_original_500_quota": 17,
+        "all_valid_family_min_episode_lengths": {
+          "n": 31,
+          "sum": 1832898,
+          "mean": 59125.74193548387,
+          "p50": 48044,
+          "p95": 90680,
+          "max": 178717
+        },
+        "short_valid_family_min_episode_lengths": {
+          "n": 21,
+          "sum": 907277,
+          "mean": 43203.666666666664,
+          "p50": 40459,
+          "p95": 63575,
+          "max": 64345
+        },
+        "current_v3_episode_lengths": {
+          "n": 17,
+          "sum": 1024583,
+          "mean": 60269.58823529412,
+          "p50": 48812,
+          "p95": 102817,
+          "max": 178717
+        },
+        "current_v3_assistant_turns": {
+          "n": 17,
+          "sum": 599,
+          "mean": 35.23529411764706,
+          "p50": 29,
+          "p95": 58,
+          "max": 91
+        },
+        "short_pool_family_min_assistant_turns": {
+          "n": 21,
+          "sum": 516,
+          "mean": 24.571428571428573,
+          "p50": 24,
+          "p95": 38,
+          "max": 44
+        }
+      },
+      "games": {
+        "current_v3_tasks": 6,
+        "current_v3_selected_episodes_le64k": 2,
+        "current_v3_tasks_with_any_valid_episode_le64k": 2,
+        "same_task_alternate_rollout_rescues": 0,
+        "available_valid_complete64k_task_families": 2,
+        "available_complete64k_families_also_all_outputs_le8k": 2,
+        "possible_same_category_new_family_replacements": 0,
+        "max_fulfillable_preserving_current_class_count": 2,
+        "gap_preserving_current_class_count": 4,
+        "original_500_quota": 6,
+        "max_fulfillable_original_500_quota": 2,
+        "all_valid_family_min_episode_lengths": {
+          "n": 8,
+          "sum": 899564,
+          "mean": 112445.5,
+          "p50": 92505,
+          "p95": 156736,
+          "max": 269587
+        },
+        "short_valid_family_min_episode_lengths": {
+          "n": 2,
+          "sum": 78306,
+          "mean": 39153.0,
+          "p50": 14072,
+          "p95": 14072,
+          "max": 64234
+        },
+        "current_v3_episode_lengths": {
+          "n": 6,
+          "sum": 529161,
+          "mean": 88193.5,
+          "p50": 74528,
+          "p95": 121203,
+          "max": 156736
+        },
+        "current_v3_assistant_turns": {
+          "n": 6,
+          "sum": 334,
+          "mean": 55.666666666666664,
+          "p50": 46,
+          "p95": 75,
+          "max": 99
+        },
+        "short_pool_family_min_assistant_turns": {
+          "n": 2,
+          "sum": 69,
+          "mean": 34.5,
+          "p50": 11,
+          "p95": 11,
+          "max": 58
+        }
+      },
+      "personal-assistant": {
+        "current_v3_tasks": 6,
+        "current_v3_selected_episodes_le64k": 5,
+        "current_v3_tasks_with_any_valid_episode_le64k": 5,
+        "same_task_alternate_rollout_rescues": 0,
+        "available_valid_complete64k_task_families": 5,
+        "available_complete64k_families_also_all_outputs_le8k": 5,
+        "possible_same_category_new_family_replacements": 0,
+        "max_fulfillable_preserving_current_class_count": 5,
+        "gap_preserving_current_class_count": 1,
+        "original_500_quota": 6,
+        "max_fulfillable_original_500_quota": 5,
+        "all_valid_family_min_episode_lengths": {
+          "n": 6,
+          "sum": 333230,
+          "mean": 55538.333333333336,
+          "p50": 40447,
+          "p95": 63592,
+          "max": 98249
+        },
+        "short_valid_family_min_episode_lengths": {
+          "n": 5,
+          "sum": 234981,
+          "mean": 46996.2,
+          "p50": 40447,
+          "p95": 61697,
+          "max": 63592
+        },
+        "current_v3_episode_lengths": {
+          "n": 6,
+          "sum": 352119,
+          "mean": 58686.5,
+          "p50": 42149,
+          "p95": 63592,
+          "max": 114225
+        },
+        "current_v3_assistant_turns": {
+          "n": 6,
+          "sum": 242,
+          "mean": 40.333333333333336,
+          "p50": 34,
+          "p95": 48,
+          "max": 74
+        },
+        "short_pool_family_min_assistant_turns": {
+          "n": 5,
+          "sum": 167,
+          "mean": 33.4,
+          "p50": 33,
+          "p95": 40,
+          "max": 48
+        }
+      },
+      "optimization": {
+        "current_v3_tasks": 6,
+        "current_v3_selected_episodes_le64k": 1,
+        "current_v3_tasks_with_any_valid_episode_le64k": 2,
+        "same_task_alternate_rollout_rescues": 1,
+        "available_valid_complete64k_task_families": 73,
+        "available_complete64k_families_also_all_outputs_le8k": 73,
+        "possible_same_category_new_family_replacements": 4,
+        "max_fulfillable_preserving_current_class_count": 6,
+        "gap_preserving_current_class_count": 0,
+        "original_500_quota": 6,
+        "max_fulfillable_original_500_quota": 6,
+        "all_valid_family_min_episode_lengths": {
+          "n": 127,
+          "sum": 8675436,
+          "mean": 68310.51968503937,
+          "p50": 59069,
+          "p95": 110746,
+          "max": 280035
+        },
+        "short_valid_family_min_episode_lengths": {
+          "n": 73,
+          "sum": 3450824,
+          "mean": 47271.561643835616,
+          "p50": 48541,
+          "p95": 61780,
+          "max": 65442
+        },
+        "current_v3_episode_lengths": {
+          "n": 6,
+          "sum": 567666,
+          "mean": 94611.0,
+          "p50": 69822,
+          "p95": 107554,
+          "max": 177405
+        },
+        "current_v3_assistant_turns": {
+          "n": 6,
+          "sum": 336,
+          "mean": 56.0,
+          "p50": 51,
+          "p95": 68,
+          "max": 70
+        },
+        "short_pool_family_min_assistant_turns": {
+          "n": 73,
+          "sum": 2112,
+          "mean": 28.931506849315067,
+          "p50": 27,
+          "p95": 47,
+          "max": 55
+        }
+      },
+      "data-querying": {
+        "current_v3_tasks": 4,
+        "current_v3_selected_episodes_le64k": 3,
+        "current_v3_tasks_with_any_valid_episode_le64k": 3,
+        "same_task_alternate_rollout_rescues": 0,
+        "available_valid_complete64k_task_families": 3,
+        "available_complete64k_families_also_all_outputs_le8k": 3,
+        "possible_same_category_new_family_replacements": 0,
+        "max_fulfillable_preserving_current_class_count": 3,
+        "gap_preserving_current_class_count": 1,
+        "original_500_quota": 6,
+        "max_fulfillable_original_500_quota": 3,
+        "all_valid_family_min_episode_lengths": {
+          "n": 4,
+          "sum": 304797,
+          "mean": 76199.25,
+          "p50": 43737,
+          "p95": 47270,
+          "max": 172282
+        },
+        "short_valid_family_min_episode_lengths": {
+          "n": 3,
+          "sum": 132515,
+          "mean": 44171.666666666664,
+          "p50": 43737,
+          "p95": 43737,
+          "max": 47270
+        },
+        "current_v3_episode_lengths": {
+          "n": 4,
+          "sum": 304797,
+          "mean": 76199.25,
+          "p50": 43737,
+          "p95": 47270,
+          "max": 172282
+        },
+        "current_v3_assistant_turns": {
+          "n": 4,
+          "sum": 165,
+          "mean": 41.25,
+          "p50": 26,
+          "p95": 30,
+          "max": 87
+        },
+        "short_pool_family_min_assistant_turns": {
+          "n": 3,
+          "sum": 74,
+          "mean": 24.666666666666668,
+          "p50": 22,
+          "p95": 22,
+          "max": 30
+        }
+      },
+      "video-processing": {
+        "current_v3_tasks": 6,
+        "current_v3_selected_episodes_le64k": 2,
+        "current_v3_tasks_with_any_valid_episode_le64k": 3,
+        "same_task_alternate_rollout_rescues": 1,
+        "available_valid_complete64k_task_families": 11,
+        "available_complete64k_families_also_all_outputs_le8k": 11,
+        "possible_same_category_new_family_replacements": 3,
+        "max_fulfillable_preserving_current_class_count": 6,
+        "gap_preserving_current_class_count": 0,
+        "original_500_quota": 6,
+        "max_fulfillable_original_500_quota": 6,
+        "all_valid_family_min_episode_lengths": {
+          "n": 26,
+          "sum": 2271158,
+          "mean": 87352.23076923077,
+          "p50": 73576,
+          "p95": 141838,
+          "max": 153209
+        },
+        "short_valid_family_min_episode_lengths": {
+          "n": 11,
+          "sum": 543125,
+          "mean": 49375.0,
+          "p50": 48539,
+          "p95": 58104,
+          "max": 61800
+        },
+        "current_v3_episode_lengths": {
+          "n": 6,
+          "sum": 565844,
+          "mean": 94307.33333333333,
+          "p50": 90337,
+          "p95": 119907,
+          "max": 141838
+        },
+        "current_v3_assistant_turns": {
+          "n": 6,
+          "sum": 302,
+          "mean": 50.333333333333336,
+          "p50": 37,
+          "p95": 57,
+          "max": 103
+        },
+        "short_pool_family_min_assistant_turns": {
+          "n": 11,
+          "sum": 305,
+          "mean": 27.727272727272727,
+          "p50": 27,
+          "p95": 40,
+          "max": 51
+        }
+      }
+    },
+    "current_v3_tasks_with_any_valid_episode_le64k": 227,
+    "same_task_alternate_rollout_rescues": 24,
+    "max_fulfillable_preserving_current_class_counts": 380,
+    "remaining_gap_preserving_current_class_counts": 47,
+    "max_fulfillable_original_500_quotas": 380,
+    "original_v3_source_domain_counts": {
+      "Finance, accounting and economic operations": 12,
+      "Operating systems and low-level systems": 18,
+      "Transport, logistics and operational decisions": 6,
+      "Knowledge organization, humanities and public affairs": 26,
+      "Cybersecurity, cryptography and privacy": 51,
+      "Life sciences, medicine and health": 21,
+      "Earth, geospatial and environmental sciences": 22,
+      "Energy and public infrastructure": 8,
+      "Industrial manufacturing and production engineering": 8,
+      "Cloud platforms and distributed infrastructure": 21,
+      "Networking and communications": 20,
+      "Machine learning and artificial intelligence": 42,
+      "Databases and storage systems": 34,
+      "Software engineering and developer tools": 56,
+      "Mechanical, thermal and aerospace engineering": 8,
+      "Data engineering and analytics": 9,
+      "Programming languages, compilers and runtimes": 24,
+      "Physics, astronomy and instrumentation": 8,
+      "Chips, electronics and embedded systems": 10,
+      "Graphics, media and content tools": 15,
+      "Chemistry, materials and molecular simulation": 3,
+      "Agriculture, forestry and fisheries": 1,
+      "Robotics and autonomous systems": 1,
+      "Mathematics, statistics and formal methods": 1,
+      "Education and educational assessment": 2
+    },
+    "available_complete64k_source_domain_counts": {
+      "Finance, accounting and economic operations": 25,
+      "Cloud platforms and distributed infrastructure": 39,
+      "Cybersecurity, cryptography and privacy": 69,
+      "Software engineering and developer tools": 73,
+      "Operating systems and low-level systems": 41,
+      "Machine learning and artificial intelligence": 35,
+      "Knowledge organization, humanities and public affairs": 28,
+      "Life sciences, medicine and health": 35,
+      "Networking and communications": 45,
+      "Physics, astronomy and instrumentation": 16,
+      "Earth, geospatial and environmental sciences": 28,
+      "Transport, logistics and operational decisions": 44,
+      "Industrial manufacturing and production engineering": 21,
+      "Agriculture, forestry and fisheries": 5,
+      "Education and educational assessment": 2,
+      "Robotics and autonomous systems": 14,
+      "Chemistry, materials and molecular simulation": 10,
+      "Graphics, media and content tools": 15,
+      "Chips, electronics and embedded systems": 12,
+      "Energy and public infrastructure": 27,
+      "Data engineering and analytics": 29,
+      "Databases and storage systems": 48,
+      "Mechanical, thermal and aerospace engineering": 14,
+      "Programming languages, compilers and runtimes": 20,
+      "Mathematics, statistics and formal methods": 1
+    },
+    "artifact_scope": "Availability and length-bias statistics only. Frozen val99 and messages_v3 untouched. No training samples/windows selected or emitted, no GPU/model/API use.",
+    "quality_limit": "Publisher process-filtered, native parse valid and completion proxy true; no independent success label. Original source family-lineage limitations remain.",
+    "length_bias": "64K threshold selects shorter executions even inside a fixed task class; alternate rollout rescues preserve task identity, cross-family substitution can change difficulty/domain/stage depth. A supply count does not establish equivalent task distribution.",
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "cpu_worker_processes": 3,
+    "max_fulfillable_current_class_counts_and_output8k": 374
+  },
+  "prior_environment_download_snapshot": {
+    "repo": "shunzou05/TerminalHorizon-Environment",
+    "revision": "e55b3e99927ed6b9b2e4abf2fa93e965dd0503ef",
+    "expected_archives": 8,
+    "verified_archives": 4,
+    "receipts": [
+      {
+        "url": "https://huggingface.co/datasets/shunzou05/TerminalHorizon-Environment/resolve/e55b3e99927ed6b9b2e4abf2fa93e965dd0503ef/data/tasks-00000-of-00008.tar.gz",
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/data/candidates/new_terminal_horizon_20261016/environments/tasks-00000-of-00008.tar.gz",
+        "bytes": 864092605,
+        "sha256": "a17d18eb14481528d91fa1623486f19c0f608549fc773989c137059408fdc8a1",
+        "expected_sha256": "a17d18eb14481528d91fa1623486f19c0f608549fc773989c137059408fdc8a1",
+        "verified_lfs": true
+      },
+      {
+        "url": "https://huggingface.co/datasets/shunzou05/TerminalHorizon-Environment/resolve/e55b3e99927ed6b9b2e4abf2fa93e965dd0503ef/data/tasks-00001-of-00008.tar.gz",
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/data/candidates/new_terminal_horizon_20261016/environments/tasks-00001-of-00008.tar.gz",
+        "bytes": 864070349,
+        "sha256": "3743e9df98efec33334ef1667666e4d3161885f84d30a8d15e6511f3a4e2cf6b",
+        "expected_sha256": "3743e9df98efec33334ef1667666e4d3161885f84d30a8d15e6511f3a4e2cf6b",
+        "verified_lfs": true
+      },
+      {
+        "url": "https://huggingface.co/datasets/shunzou05/TerminalHorizon-Environment/resolve/e55b3e99927ed6b9b2e4abf2fa93e965dd0503ef/data/tasks-00002-of-00008.tar.gz",
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/data/candidates/new_terminal_horizon_20261016/environments/tasks-00002-of-00008.tar.gz",
+        "bytes": 864080960,
+        "sha256": "9d019b0b046fdba5a7e40126342cbd9e946a245653e765326a39228427b5fd4b",
+        "expected_sha256": "9d019b0b046fdba5a7e40126342cbd9e946a245653e765326a39228427b5fd4b",
+        "verified_lfs": true
+      },
+      {
+        "url": "https://huggingface.co/datasets/shunzou05/TerminalHorizon-Environment/resolve/e55b3e99927ed6b9b2e4abf2fa93e965dd0503ef/data/tasks-00003-of-00008.tar.gz",
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/data/candidates/new_terminal_horizon_20261016/environments/tasks-00003-of-00008.tar.gz",
+        "bytes": 864091773,
+        "sha256": "1e926fd1dd746a22074bdb351372d039941be33f850bcfaa4592fdc24da891a1",
+        "expected_sha256": "1e926fd1dd746a22074bdb351372d039941be33f850bcfaa4592fdc24da891a1",
+        "verified_lfs": true
+      }
+    ],
+    "all_verified": false
+  },
+  "final_handoff": {
+    "recorded_at_beijing": "2026-10-16 13:22",
+    "stop_basis": "Parent requested first-night handoff; stop new downloads/API/scans, preserve useful existing processes.",
+    "source_file_verified": true,
+    "source_rows": 2852,
+    "classification_tasks": 1535,
+    "classification_generation_requests": 64,
+    "classification_cost_upper_cny": 4.269956544,
+    "source_environment_archives_expected": 8,
+    "source_environment_archives_verified_by_per_file_receipts": 7,
+    "global_download_summary_stale_count": 6,
+    "inventory_archives": 7,
+    "inventory_source_tasks": 1342,
+    "frozen_val_task_candidates": 99,
+    "val_source_packages_extracted": 88,
+    "val_compose_packages_extracted": 11,
+    "val_prebuilt_image_configured": 0,
+    "native_runtime_validated_tasks": 0,
+    "reference_or_verifier_executed": 0,
+    "environment_extraction_errors": 0,
+    "remaining_archive": {
+      "filename": "tasks-00007-of-00008.tar.gz",
+      "expected_bytes": 864087916,
+      "expected_sha256": "446ec922496dffec7b7c7332fa458ed52f080068da8a148c63364180c7e36fcf",
+      "last_observed_partial_bytes": 0,
+      "failure": "HF and mirror TLS EOF through Mac/80 proxy; no access/license/404 evidence"
+    },
+    "latest_frozen_train_messages": "messages_v3/train.messages.jsonl",
+    "latest_frozen_train_tasks": 427,
+    "latest_frozen_train_sha256": "dbe05f654a20e7d6beacba334f9ee18d106cad788fe3290838ef2857660b8f71",
+    "frozen_val99_manifest_sha256": "15b14f3a2fe424ce908f226a97c25b89c0972bb6c2920ffef59316f523359144",
+    "frozen_val_teacher_traces": 91,
+    "native_eval_val_ready": false,
+    "complete64k_same_task_limit": 227,
+    "complete64k_same_class_max_tasks": 380,
+    "complete64k_and_output8k_same_class_max_tasks": 374,
+    "gpu_jobs_this_branch": 0,
+    "formal_benchmark_tasks_executed_this_branch": 0,
+    "training_windows_emitted": 0,
+    "report": "analysis/night_terminal_20261016.md"
+  }
+}

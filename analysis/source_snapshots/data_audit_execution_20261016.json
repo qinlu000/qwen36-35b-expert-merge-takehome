@@ -1,0 +1,882 @@
+{
+  "as_of": "2026-10-16",
+  "scope": "CPU-only static census, training input hashes and metadata. No benchmark question/answer/test read, model/API/GPU/container/trajectory execution, training export or final train/val selection.",
+  "terminal": {
+    "revision": "a1667c4ffdadea02a89bffe4f1bb7ca2ff19f8d9",
+    "task_revision": "7e53648e183cee7bcb0aed623cc91a121d37fa38",
+    "counts": {
+      "assistant_messages": 1117390,
+      "leading_think_blocks": 1115129,
+      "unbalanced_leading_think_messages": 0,
+      "parser_error_messages": 72267,
+      "parser_warning_messages": 82617,
+      "command_entries": 3769820,
+      "rows": 139841,
+      "extracted_instruction_rows": 139841,
+      "pack_exact_rows": 5689,
+      "pack_whitespace_rows": 5689,
+      "strict_alternation_rows": 139841,
+      "any_complete_proxy_rows": 59572,
+      "last_complete_proxy_rows": 59023,
+      "all_assistant_actions_parse_rows": 83145,
+      "pack_exact_and_all_actions_parse_rows": 3906
+    },
+    "files": [
+      {
+        "path": "synthetic_tasks/skill_based/easy/data_processing/data_filtered.parquet",
+        "rows": 4987,
+        "counts": {
+          "rows": 4987,
+          "extracted_instruction_rows": 4987,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 4987,
+          "any_complete_proxy_rows": 4778,
+          "last_complete_proxy_rows": 4757,
+          "all_assistant_actions_parse_rows": 2477,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/easy/data_querying/data_filtered.parquet",
+        "rows": 5000,
+        "counts": {
+          "rows": 5000,
+          "extracted_instruction_rows": 5000,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 5000,
+          "any_complete_proxy_rows": 4490,
+          "last_complete_proxy_rows": 4480,
+          "all_assistant_actions_parse_rows": 3168,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/easy/data_science/data_filtered.parquet",
+        "rows": 4976,
+        "counts": {
+          "rows": 4976,
+          "extracted_instruction_rows": 4976,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 4976,
+          "any_complete_proxy_rows": 4589,
+          "last_complete_proxy_rows": 4576,
+          "all_assistant_actions_parse_rows": 3020,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/easy/debugging/data_filtered.parquet",
+        "rows": 4965,
+        "counts": {
+          "rows": 4965,
+          "extracted_instruction_rows": 4965,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 4965,
+          "any_complete_proxy_rows": 3676,
+          "last_complete_proxy_rows": 3659,
+          "all_assistant_actions_parse_rows": 2159,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/easy/dependency_management/data_filtered.parquet",
+        "rows": 4994,
+        "counts": {
+          "rows": 4994,
+          "extracted_instruction_rows": 4994,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 4994,
+          "any_complete_proxy_rows": 1983,
+          "last_complete_proxy_rows": 1971,
+          "all_assistant_actions_parse_rows": 4104,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/easy/file_operations/data_filtered.parquet",
+        "rows": 4954,
+        "counts": {
+          "rows": 4954,
+          "extracted_instruction_rows": 4954,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 4954,
+          "any_complete_proxy_rows": 4638,
+          "last_complete_proxy_rows": 4626,
+          "all_assistant_actions_parse_rows": 2013,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/easy/scientific_computing/data_filtered.parquet",
+        "rows": 4999,
+        "counts": {
+          "rows": 4999,
+          "extracted_instruction_rows": 4999,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 4999,
+          "any_complete_proxy_rows": 4318,
+          "last_complete_proxy_rows": 4286,
+          "all_assistant_actions_parse_rows": 1491,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/easy/security/data_filtered.parquet",
+        "rows": 4977,
+        "counts": {
+          "rows": 4977,
+          "extracted_instruction_rows": 4977,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 4977,
+          "any_complete_proxy_rows": 2706,
+          "last_complete_proxy_rows": 2666,
+          "all_assistant_actions_parse_rows": 2020,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/easy/software_engineering/data_filtered.parquet",
+        "rows": 4957,
+        "counts": {
+          "rows": 4957,
+          "extracted_instruction_rows": 4957,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 4957,
+          "any_complete_proxy_rows": 4840,
+          "last_complete_proxy_rows": 4834,
+          "all_assistant_actions_parse_rows": 2099,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/medium/data_processing/data_filtered.parquet",
+        "rows": 3343,
+        "counts": {
+          "rows": 3343,
+          "extracted_instruction_rows": 3343,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 3343,
+          "any_complete_proxy_rows": 385,
+          "last_complete_proxy_rows": 356,
+          "all_assistant_actions_parse_rows": 2358,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/medium/data_querying/data_filtered.parquet",
+        "rows": 4535,
+        "counts": {
+          "rows": 4535,
+          "extracted_instruction_rows": 4535,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 4535,
+          "any_complete_proxy_rows": 928,
+          "last_complete_proxy_rows": 913,
+          "all_assistant_actions_parse_rows": 3235,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/medium/data_science/data_filtered.parquet",
+        "rows": 11645,
+        "counts": {
+          "rows": 11645,
+          "extracted_instruction_rows": 11645,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 11645,
+          "any_complete_proxy_rows": 4417,
+          "last_complete_proxy_rows": 4358,
+          "all_assistant_actions_parse_rows": 8102,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/medium/debugging/data_filtered.parquet",
+        "rows": 11467,
+        "counts": {
+          "rows": 11467,
+          "extracted_instruction_rows": 11467,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 11467,
+          "any_complete_proxy_rows": 2352,
+          "last_complete_proxy_rows": 2321,
+          "all_assistant_actions_parse_rows": 5622,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/medium/dependency_management/data_filtered.parquet",
+        "rows": 4941,
+        "counts": {
+          "rows": 4941,
+          "extracted_instruction_rows": 4941,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 4941,
+          "any_complete_proxy_rows": 2774,
+          "last_complete_proxy_rows": 2753,
+          "all_assistant_actions_parse_rows": 3820,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/medium/file_operations/data_filtered.parquet",
+        "rows": 10291,
+        "counts": {
+          "rows": 10291,
+          "extracted_instruction_rows": 10291,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 10291,
+          "any_complete_proxy_rows": 3695,
+          "last_complete_proxy_rows": 3629,
+          "all_assistant_actions_parse_rows": 5997,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/medium/model_training/data_filtered.parquet",
+        "rows": 214,
+        "counts": {
+          "rows": 214,
+          "extracted_instruction_rows": 214,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 214,
+          "any_complete_proxy_rows": 190,
+          "last_complete_proxy_rows": 190,
+          "all_assistant_actions_parse_rows": 138,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/medium/scientific_computing/data_filtered.parquet",
+        "rows": 13483,
+        "counts": {
+          "rows": 13483,
+          "extracted_instruction_rows": 13483,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 13483,
+          "any_complete_proxy_rows": 3952,
+          "last_complete_proxy_rows": 3881,
+          "all_assistant_actions_parse_rows": 7049,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/medium/security/data_filtered.parquet",
+        "rows": 11046,
+        "counts": {
+          "rows": 11046,
+          "extracted_instruction_rows": 11046,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 11046,
+          "any_complete_proxy_rows": 1159,
+          "last_complete_proxy_rows": 1135,
+          "all_assistant_actions_parse_rows": 8576,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/medium/software_engineering/data_filtered.parquet",
+        "rows": 10602,
+        "counts": {
+          "rows": 10602,
+          "extracted_instruction_rows": 10602,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 10602,
+          "any_complete_proxy_rows": 2163,
+          "last_complete_proxy_rows": 2124,
+          "all_assistant_actions_parse_rows": 6476,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/medium/system_administration/data_filtered.parquet",
+        "rows": 7776,
+        "counts": {
+          "rows": 7776,
+          "extracted_instruction_rows": 7776,
+          "pack_exact_rows": 0,
+          "pack_whitespace_rows": 0,
+          "strict_alternation_rows": 7776,
+          "any_complete_proxy_rows": 795,
+          "last_complete_proxy_rows": 771,
+          "all_assistant_actions_parse_rows": 5315,
+          "pack_exact_and_all_actions_parse_rows": 0
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/mixed/data_processing/data_filtered.parquet",
+        "rows": 957,
+        "counts": {
+          "rows": 957,
+          "extracted_instruction_rows": 957,
+          "pack_exact_rows": 957,
+          "pack_whitespace_rows": 957,
+          "strict_alternation_rows": 957,
+          "any_complete_proxy_rows": 217,
+          "last_complete_proxy_rows": 215,
+          "all_assistant_actions_parse_rows": 667,
+          "pack_exact_and_all_actions_parse_rows": 667
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/mixed/data_science/data_filtered.parquet",
+        "rows": 944,
+        "counts": {
+          "rows": 944,
+          "extracted_instruction_rows": 944,
+          "pack_exact_rows": 944,
+          "pack_whitespace_rows": 944,
+          "strict_alternation_rows": 944,
+          "any_complete_proxy_rows": 148,
+          "last_complete_proxy_rows": 147,
+          "all_assistant_actions_parse_rows": 714,
+          "pack_exact_and_all_actions_parse_rows": 714
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/mixed/debugging/data_filtered.parquet",
+        "rows": 950,
+        "counts": {
+          "rows": 950,
+          "extracted_instruction_rows": 950,
+          "pack_exact_rows": 950,
+          "pack_whitespace_rows": 950,
+          "strict_alternation_rows": 950,
+          "any_complete_proxy_rows": 143,
+          "last_complete_proxy_rows": 142,
+          "all_assistant_actions_parse_rows": 698,
+          "pack_exact_and_all_actions_parse_rows": 698
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/mixed/file_operations/data_filtered.parquet",
+        "rows": 851,
+        "counts": {
+          "rows": 851,
+          "extracted_instruction_rows": 851,
+          "pack_exact_rows": 851,
+          "pack_whitespace_rows": 851,
+          "strict_alternation_rows": 851,
+          "any_complete_proxy_rows": 156,
+          "last_complete_proxy_rows": 154,
+          "all_assistant_actions_parse_rows": 552,
+          "pack_exact_and_all_actions_parse_rows": 552
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/mixed/scientific_computing/data_filtered.parquet",
+        "rows": 1000,
+        "counts": {
+          "rows": 1000,
+          "extracted_instruction_rows": 1000,
+          "pack_exact_rows": 1000,
+          "pack_whitespace_rows": 1000,
+          "strict_alternation_rows": 1000,
+          "any_complete_proxy_rows": 60,
+          "last_complete_proxy_rows": 60,
+          "all_assistant_actions_parse_rows": 677,
+          "pack_exact_and_all_actions_parse_rows": 677
+        }
+      },
+      {
+        "path": "synthetic_tasks/skill_based/mixed/security/data_filtered.parquet",
+        "rows": 987,
+        "counts": {
+          "rows": 987,
+          "extracted_instruction_rows": 987,
+          "pack_exact_rows": 987,
+          "pack_whitespace_rows": 987,
+          "strict_alternation_rows": 987,
+          "any_complete_proxy_rows": 20,
+          "last_complete_proxy_rows": 19,
+          "all_assistant_actions_parse_rows": 598,
+          "pack_exact_and_all_actions_parse_rows": 598
+        }
+      }
+    ],
+    "pack_tasks": 5984,
+    "pack_domains": {
+      "data_processing": 1000,
+      "data_science": 1000,
+      "debugging": 1000,
+      "file_operations": 997,
+      "scientific_computing": 1000,
+      "security": 987
+    },
+    "metadata": {
+      "agent": {
+        "terminus-2": 139841
+      },
+      "model": {
+        "deepseek-ai/DeepSeek-V3.2": 139841
+      },
+      "model_provider": {
+        "hosted_vllm": 139841
+      },
+      "enable_thinking": {
+        "True": 139841
+      },
+      "difficulty": {
+        "easy": 44809,
+        "medium": 89343,
+        "mixed": 5689
+      },
+      "domain": {
+        "data_processing": 9287,
+        "data_querying": 9535,
+        "data_science": 17565,
+        "debugging": 17382,
+        "dependency_management": 9935,
+        "file_operations": 16096,
+        "scientific_computing": 19482,
+        "security": 17010,
+        "software_engineering": 15559,
+        "model_training": 214,
+        "system_administration": 7776
+      }
+    },
+    "identities": {
+      "task": {
+        "unique": 82955,
+        "repeated_keys": 41869,
+        "excess_rows": 56886
+      },
+      "episode": {
+        "unique": 37,
+        "repeated_keys": 32,
+        "excess_rows": 139804
+      },
+      "run_id": {
+        "unique": 33,
+        "repeated_keys": 33,
+        "excess_rows": 139808
+      },
+      "trial_name": {
+        "unique": 139841,
+        "repeated_keys": 0,
+        "excess_rows": 0
+      },
+      "conversation_sha256": {
+        "unique": 139841,
+        "repeated_keys": 0,
+        "excess_rows": 0
+      },
+      "instruction_ws_sha256": {
+        "unique": 139815,
+        "repeated_keys": 26,
+        "excess_rows": 26
+      }
+    },
+    "family_groups": 82955,
+    "family_excess_rows": 56886,
+    "same_raw_id_multiple_instruction_variants": 41843,
+    "same_raw_id_instruction_variant_histogram": {
+      "2": 28451,
+      "1": 41112,
+      "3": 11767,
+      "4": 1625
+    },
+    "exact_pack_mapped_family_groups": 5689,
+    "target_category_metadata_crosswalk": {
+      "software-engineering": {
+        "target_tasks": 26,
+        "source_rows": 15559,
+        "source_family_groups": 9813
+      },
+      "system-administration": {
+        "target_tasks": 9,
+        "source_rows": 7776,
+        "source_family_groups": 7776
+      },
+      "security": {
+        "target_tasks": 8,
+        "source_rows": 17010,
+        "source_family_groups": 9744
+      },
+      "scientific-computing": {
+        "target_tasks": 8,
+        "source_rows": 19482,
+        "source_family_groups": 11346
+      },
+      "data-science": {
+        "target_tasks": 8,
+        "source_rows": 17565,
+        "source_family_groups": 10269
+      },
+      "debugging": {
+        "target_tasks": 5,
+        "source_rows": 17382,
+        "source_family_groups": 9811
+      },
+      "file-operations": {
+        "target_tasks": 5,
+        "source_rows": 16096,
+        "source_family_groups": 9009
+      },
+      "mathematics": {
+        "target_tasks": 4,
+        "source_rows": 0,
+        "source_family_groups": 0
+      },
+      "data-processing": {
+        "target_tasks": 4,
+        "source_rows": 9287,
+        "source_family_groups": 4999
+      },
+      "model-training": {
+        "target_tasks": 4,
+        "source_rows": 214,
+        "source_family_groups": 188
+      },
+      "machine-learning": {
+        "target_tasks": 3,
+        "source_rows": 0,
+        "source_family_groups": 0
+      },
+      "games": {
+        "target_tasks": 1,
+        "source_rows": 0,
+        "source_family_groups": 0
+      },
+      "personal-assistant": {
+        "target_tasks": 1,
+        "source_rows": 0,
+        "source_family_groups": 0
+      },
+      "optimization": {
+        "target_tasks": 1,
+        "source_rows": 0,
+        "source_family_groups": 0
+      },
+      "data-querying": {
+        "target_tasks": 1,
+        "source_rows": 9535,
+        "source_family_groups": 5000
+      },
+      "video-processing": {
+        "target_tasks": 1,
+        "source_rows": 0,
+        "source_family_groups": 0
+      }
+    },
+    "non_target_source_domains": [
+      "dependency_management"
+    ],
+    "source_success": {
+      "unknown_no_row_result_field": 139841
+    },
+    "group_rule": "Union shared (source domain, bare task ID) across difficulty AND identical whitespace-normalized instruction. Conservative grouping, not proof of semantic equivalence; no template provenance field.",
+    "environment_status": "Exact instruction join only; package input manifests hashed, runtime initialization/assets/permissions/validators not replayed.",
+    "parser": {
+      "path": "artifacts/benchmarks/harbor/src/harbor/agents/terminus_2/terminus_json_plain_parser.py",
+      "sha256": "ba7eeaeb28e2f72ecdc5850617c77cc571692c68698306637cc2cfed41130688",
+      "scope": "Static official parser after leading balanced think removal; errors may be recoverable intermediate actions, flags are not final exclusion or verifier success."
+    }
+  },
+  "d3": {
+    "revision": "b21b5006956d7d246cf3e35277b13323780a45b2",
+    "task_revision": "8499689ac98882a7cac9b5ef9e93365cc37df57e",
+    "counts": {
+      "rows": 2153,
+      "uniquely_mapped_rows": 2131,
+      "ambiguous_rows": 0,
+      "unmapped_rows": 22,
+      "exact_instruction_mapped_rows": 2131,
+      "full_preview_exact_contained_rows": 1083,
+      "full_preview_whitespace_contained_rows": 1083,
+      "rows_with_parseable_python_fence": 2149,
+      "rows_without_parseable_python_fence": 4,
+      "leading_think_removed_rows": 2153,
+      "remaining_leading_think_rows": 0
+    },
+    "task_metadata_rows": 565,
+    "mapped_unique_tasks": 228,
+    "mapped_source_repositories": 119,
+    "source_repo_row_counts": {
+      "https://github.com/ryan-rhys/the-photoswitch-dataset": 12,
+      "https://github.com/whd14/de-anonymization-of-mobility-trajectories": 14,
+      "genericmappingtools/pygmt": 8,
+      "ruokaiyin/sata_sim": 9,
+      "isat-office/isat": 15,
+      "https://github.com/superzchen/ilearn": 39,
+      "eidoslab/contrastive-brain-age-prediction": 8,
+      "https://github.com/drzeeshanahmed/intelligenes": 12,
+      "hkaneko1985/python_data_analysis_ohmsha": 234,
+      "rougier/ml-recipes": 12,
+      "helena-yuhan-liu/mdgl-main": 16,
+      "https://github.com/jlsteenwyk/phykit": 81,
+      "dido1998/causalmbrl": 11,
+      "fenggo/i-reaxff": 134,
+      "furman-lab/patchman": 6,
+      "https://github.com/fenggo/i-reaxff": 60,
+      "forgi86/dynonet": 7,
+      "https://github.com/sidsriv/bioinformatics-1-finding-hidden-messages-in-dna": 59,
+      "https://github.com/ddofer/profet": 13,
+      "hazedt/phmgnnbenchmark": 3,
+      "https://github.com/jakelever/knowledgediscovery": 15,
+      "pykt-team/pykt-toolkit": 28,
+      "https://github.com/paucablop/chemotools": 15,
+      "dll-ncai/eeg_pre-diagnostic_screening": 11,
+      "https://github.com/smartflowai/emollm": 32,
+      "invictus717/mico": 13,
+      "kiven-ykw/dhdrl": 13,
+      "https://github.com/emmaking-smith/modular_latent_space": 19,
+      "iyytdeed/automatic-modulation-classification": 70,
+      "wtsi-hgi/yascp": 30,
+      "microbelab/deepmicrobes": 9,
+      "qdata/fastsk": 6,
+      "lmbett/introduction-to-urban-science-course-materials": 8,
+      "whd14/de-anonymization-of-mobility-trajectories": 12,
+      "dongchen06/gans-agriculture": 14,
+      "multimediaeval/2019-emotion-and-theme-recognition-in-music-task": 8,
+      "justchenhao/sili_cd": 14,
+      "aeromaps/aeroscope": 15,
+      "garywei944/fmol": 2,
+      "zhangxiaoyu11/omivae": 21,
+      "tsudalab/chemge": 27,
+      "luckyone7777/llm-trading-lab": 5,
+      "ql3c20/rl-based-usv-path-planning-under-the-marine-multimodal-features-considerations": 16,
+      "yanjianzhang/sds-course-project": 31,
+      "mims-harvard/timex": 12,
+      "johnkendrick/pdielec": 25,
+      "stevenygd/pnf": 12,
+      "braincog-x/brain-cog": 16,
+      "https://github.com/gdalessi/openmore": 35,
+      "eunomia-bpf/code-survey": 55,
+      "memtensor/memos": 32,
+      "bonidia/mathfeature": 38,
+      "https://github.com/bonidia/featureextraction_biologicalsequences": 16,
+      "bootphon/shennong": 33,
+      "tsinghua-fib-lab/kstdiff-urban-flow-generation": 11,
+      "https://github.com/firefly-cpp/niaaml": 4,
+      "simonom/pycham": 25,
+      "superzchen/ifeature": 25,
+      "molecule-generator-collection/chemtsv2": 9,
+      "grimme-lab/dxtb": 3,
+      "hamedbabaei/llms4ol": 7,
+      "hjkgrp/molsimplify": 12,
+      "sensaas/sensaas": 15,
+      "songlab-cal/tape": 17,
+      "jonas-verhellen/bayesian-illumination": 11,
+      "bonidia/featureextraction_biologicalsequences": 16,
+      "gangcaolab/coolbox": 9,
+      "usnistgov/chemnlp": 28,
+      "gdalessi/openmore": 17,
+      "https://github.com/ql3c20/rl-based-usv-path-planning-under-the-marine-multimodal-features-considerations": 31,
+      "tsinghua-fib-lab/agentmove": 14,
+      "torcheeg/torcheeg": 7,
+      "scikit-mobility/scikit-mobility": 12,
+      "mobicom24/rf-diffusion": 62,
+      "haoran-s/tsp-dnn": 6,
+      "geophyai/seistorch": 16,
+      "nbchub/bgcflow": 16,
+      "servicenow/agentlab": 4,
+      "thejacksonlab/openmacromoleculargenome": 6,
+      "https://github.com/dataverselabs/pyinterpolate": 8,
+      "https://github.com/linminhtoo/neuralsym": 15,
+      "chenruduan/oareactdiff": 7,
+      "https://github.com/rekerlab/deepdelta": 8,
+      "https://github.com/djgroen/flee-release": 4,
+      "https://github.com/zjjerica/whu-ohs-pytorch": 6,
+      "https://github.com/zhang35/staypointdetection": 25,
+      "wyuaq/fpn-oamp-thz-channel-estimation": 6,
+      "immel-f/m3tr": 7,
+      "https://github.com/pharmbio/sciluigi": 16,
+      "patwalters/free-wilson": 8,
+      "https://github.com/artificial-scientist-lab/scimuse": 25,
+      "https://github.com/myungjoon/sgcnn": 11,
+      "https://github.com/giscience/ohsome2label": 15,
+      "spcl/mbti-in-thoughts": 8,
+      "debathelol/quantura-research": 5,
+      "morgancthomas/molscore": 13,
+      "jerryji1993/dnabert": 6,
+      "https://github.com/chester75321/genepi": 2,
+      "modeci/mdf": 12,
+      "mrline/chimera": 11,
+      "rekerlab/deepdelta": 2,
+      "0b3d/image-map-embeddings": 11,
+      "wmd-group/macrodensity": 3,
+      "fiwy0527/aaai25_sgdn": 2,
+      "fyancy/metafd": 3,
+      "https://github.com/gilbertoq/bioinformatics": 15,
+      "https://github.com/raphael-group/hierarchical-hotnet": 3,
+      "geods/lstm-trajgan": 5,
+      "luzihen/pymatgen_examples": 5,
+      "tanganke/fusion_bench": 1,
+      "https://github.com/pygbe/pygbe": 3,
+      "alan-turing-institute/tcpd": 3,
+      "ebgu/selfee": 4,
+      "chokyotager/notyetanothernightshade": 2,
+      "bioinfomachinelearning/gcdm-sbdd": 1,
+      "wmd-group/gqca_alloys": 3,
+      "mingyxu/mamr": 1,
+      "kunglab/ddnn": 1,
+      "mac-vo/mac-vo": 1
+    },
+    "metadata_discipline_counts": {
+      "Chemistry": 204,
+      "Psychology and Cognitive Neuroscience": 179,
+      "Geographic Information Science": 61,
+      "Bioinformatics": 103,
+      "chemistry": 11,
+      "bioinformatics": 7
+    },
+    "mapped_discipline_row_counts": {
+      "chemistry": 31,
+      "Geographic Information Science": 309,
+      "Psychology and Cognitive Neuroscience": 462,
+      "Bioinformatics": 442,
+      "bioinformatics": 46,
+      "Chemistry": 841
+    },
+    "identities": {
+      "input_ws_sha256": {
+        "unique": 231,
+        "repeated_keys": 217,
+        "excess_rows": 1922
+      },
+      "input_output_sha256": {
+        "unique": 2153,
+        "repeated_keys": 0,
+        "excess_rows": 0
+      },
+      "clean_output_sha256": {
+        "unique": 2153,
+        "repeated_keys": 0,
+        "excess_rows": 0
+      }
+    },
+    "task_rollout_count_histogram": {
+      "12": 21,
+      "9": 13,
+      "8": 16,
+      "15": 23,
+      "16": 29,
+      "3": 11,
+      "10": 3,
+      "11": 11,
+      "2": 14,
+      "6": 10,
+      "7": 9,
+      "13": 14,
+      "4": 14,
+      "14": 12,
+      "5": 14,
+      "1": 14
+    },
+    "source_success": {
+      "publisher_reports_silver_filter_no_row_receipt": 2153
+    },
+    "target_discipline_strict_crosswalk": {
+      "math": {
+        "target_tasks": 12,
+        "source_rows_strict_label": 0,
+        "source_tasks_strict_label": 0
+      },
+      "computer_science": {
+        "target_tasks": 9,
+        "source_rows_strict_label": 0,
+        "source_tasks_strict_label": 0
+      },
+      "physics": {
+        "target_tasks": 8,
+        "source_rows_strict_label": 0,
+        "source_tasks_strict_label": 0
+      },
+      "robotics": {
+        "target_tasks": 7,
+        "source_rows_strict_label": 0,
+        "source_tasks_strict_label": 0
+      },
+      "biology": {
+        "target_tasks": 6,
+        "source_rows_strict_label": 0,
+        "source_tasks_strict_label": 0
+      },
+      "chemistry": {
+        "target_tasks": 6,
+        "source_rows_strict_label": 872,
+        "source_tasks_strict_label": 92
+      },
+      "earth_science": {
+        "target_tasks": 4,
+        "source_rows_strict_label": 0,
+        "source_tasks_strict_label": 0
+      },
+      "astronomy": {
+        "target_tasks": 3,
+        "source_rows_strict_label": 0,
+        "source_tasks_strict_label": 0
+      },
+      "electrical_engineering": {
+        "target_tasks": 2,
+        "source_rows_strict_label": 0,
+        "source_tasks_strict_label": 0
+      },
+      "materials": {
+        "target_tasks": 2,
+        "source_rows_strict_label": 0,
+        "source_tasks_strict_label": 0
+      },
+      "biostat": {
+        "target_tasks": 1,
+        "source_rows_strict_label": 0,
+        "source_tasks_strict_label": 0
+      }
+    },
+    "adjacent_unmapped_labels": {
+      "Geographic Information Science": 309,
+      "Psychology and Cognitive Neuroscience": 462,
+      "Bioinformatics": 442,
+      "bioinformatics": 46
+    },
+    "group_rule": "All mapped tasks from the same original_repo are one conservative family; task rollouts never split. Exact/whitespace instruction containment gives source mapping, not runtime or input equivalence.",
+    "qualification": "Static single-program SFT candidate; no multi-turn tool observations. Author-reported silver selection is not local per-row validator evidence. Task images/input data/hidden verifier isolation not executed; not yet task-dev qualified.",
+    "task_metadata_columns_read": [
+      "task_id",
+      "task_instruction",
+      "dataset_previews",
+      "original_repo",
+      "discipline"
+    ],
+    "excluded_columns": [
+      "eval_script"
+    ]
+  },
+  "seconds": 340.81,
+  "script_sha256": "0176ec94b3741428b8df547beb7795472ddd832a18d9587ffbfad299fc6952e2",
+  "limits": "One Python process, PyArrow CPU/IO threads=1. No semantic near-duplicate/template inference; exact/whitespace identity and source repo/ID group only.",
+  "artifacts": {
+    "terminal_row_family_map.jsonl": {
+      "bytes": 169193097,
+      "sha256": "fe3fcfe0d91f7733ff5711a5ccd58f7e013fb2383b7bbc9a187ef385b81b5e07"
+    },
+    "terminal_task_pack_manifest.jsonl": {
+      "bytes": 3580550,
+      "sha256": "565291e4484646783f7d406b8b065adf72dc12fa1e0377835d49673a15a4ef38"
+    },
+    "d3_row_task_family_map.jsonl": {
+      "bytes": 1808955,
+      "sha256": "9bfb6bd08819ea7cb7b1f00479113185426ed4bd90013ff829a937ce53033086"
+    }
+  }
+}

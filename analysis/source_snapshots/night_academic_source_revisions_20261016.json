@@ -1,0 +1,54 @@
+[
+  {
+    "repo": "osunlp/D3-Gym-Trajectories",
+    "revision": "b21b5006956d7d246cf3e35277b13323780a45b2",
+    "license": "mit",
+    "card_sha256": "563e14d970c58d29c995262311e6333be733757ac482ae91ddc8ba4159b64fab"
+  },
+  {
+    "repo": "OpenDataArena/Spark-234K",
+    "revision": "9cbf7513c53bdb8d0074906d7db92edeb97aa706",
+    "license": "apache-2.0",
+    "card_sha256": "26e96b412ace7f4f9f198d2fdf5b6fea20d18b70a1142542741acc33aadbd9f4"
+  },
+  {
+    "repo": "r0b0tlab/qwen3.8-max-glm5.2-kimi-k3-distillation",
+    "revision": "7a3473446840bcc397928cd8183d4b3ba3ca13a7",
+    "license": "other",
+    "card_sha256": "69c9b2776d57c7450aca5ffee91a472631cc931749d32d6ab340fad20fc81cad"
+  },
+  {
+    "repo": "openbmb/UltraData-SFT-2605",
+    "revision": "affda6aca75e7cff78e73f93ad08d4c3b01f097c",
+    "license": "apache-2.0",
+    "card_sha256": "9f6848a1b662fe94ad55057b52ecd0c62232c177eb3914c1f355bdc5137465f9"
+  },
+  {
+    "repo": "PrentisAI/AutoResearchEval",
+    "revision": "412fb4908a3a7b98dd50cfa3e5c6cd40750d2d4f",
+    "license": "cc-by-4.0",
+    "card_sha256": "c29e3562c04989685170cc24741188e142a9e583407ff3703c9c082ef46c2237"
+  },
+  {
+    "repo": "FrontisAI/NatureBench-traces",
+    "revision": "40beb74d21412655a5471b1032ec91256b40e55b",
+    "license": "cc-by-4.0",
+    "card_sha256": "938db6fe5f94913c3963c0d9ced1b5c568c761b4ca11282a9123588d3bbe5ade"
+  },
+  {
+    "repo": "trillionlabs/SimScholar-SFT",
+    "revision": "db65ed940ae56b94ed5dc3f26a8c1d8506f2d4d9",
+    "license": "apache-2.0",
+    "card_sha256": "4699af7033dbfaf222d12c1c243ea6c5d9e86fc777cf84d837dd37813161cf26"
+  },
+  {
+    "repo": "m-a-p/SuperGPQA",
+    "revision": "4430d4458112c7d4497fdcf94d7cc223313d6acf",
+    "license": "odc-by"
+  },
+  {
+    "repo": "TIGER-Lab/MMLU-Pro",
+    "revision": "b189ec765aa7ed75c8acfea42df31fdae71f97be",
+    "license": "mit"
+  }
+]

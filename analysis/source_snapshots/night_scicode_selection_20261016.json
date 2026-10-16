@@ -1,0 +1,64 @@
+{
+  "source_revision": "eea11a866be6860725258702b39ef8651ed26abd",
+  "source_main_families": 64,
+  "source_substep_descriptors": 290,
+  "formal_input_files_read": 240,
+  "formal_gold_read": false,
+  "all_source_exact_hits": 0,
+  "all_source_13gram_flagged_main_families": [],
+  "selected": [
+    {
+      "problem_id": "5",
+      "problem_name": "Lanczos",
+      "exact_overlap": false,
+      "shared_13gram_formal_families": [],
+      "main_family": "scicode_verified:5",
+      "substeps": 1,
+      "domain": "mathematics/numerical_linear_algebra",
+      "dataset": "shhu2001/SciCode-Verified",
+      "dataset_revision": "eea11a866be6860725258702b39ef8651ed26abd",
+      "split": "train_calibration",
+      "source_split": "test",
+      "prompt_sha256": "521b9ab90b63d24e2734afa01459598f655eeaf509f0ee3e4f8af95e255ecedc",
+      "prompt_utf8_bytes_with_system": 3108,
+      "references_sent_to_teacher": false,
+      "test_cases_sent_to_teacher": false
+    },
+    {
+      "problem_id": "8",
+      "problem_name": "Spatial_filters_III",
+      "exact_overlap": false,
+      "shared_13gram_formal_families": [],
+      "main_family": "scicode_verified:8",
+      "substeps": 1,
+      "domain": "physics/fourier_optics",
+      "dataset": "shhu2001/SciCode-Verified",
+      "dataset_revision": "eea11a866be6860725258702b39ef8651ed26abd",
+      "split": "train_calibration",
+      "source_split": "test",
+      "prompt_sha256": "237569f2af7f90bcfe73872c09652fd87968d824046ea62e90a1140678e386a5",
+      "prompt_utf8_bytes_with_system": 3234,
+      "references_sent_to_teacher": false,
+      "test_cases_sent_to_teacher": false
+    }
+  ],
+  "selected_named_method_family_hits": {
+    "5": [],
+    "8": []
+  },
+  "sourcefamily_limit": "No per-task paper/author identifiers in SciCode JSONL; main problem IDs and named-method search are the available family guards. No absence-of-overlap proof beyond these checks.",
+  "api_bound": {
+    "model": "deepseek-v4-pro",
+    "thinking": false,
+    "calls": 2,
+    "max_output_tokens_per_call": 8192,
+    "input_token_upper_bound": 8390,
+    "maximum_usd": 0.07595544,
+    "budget_factor": 8,
+    "maximum_budget_cny": 0.60764352,
+    "branch_previous_budget_cny": 2.58201072,
+    "maximum_branch_cny_after_two_calls": 3.18965424
+  },
+  "not_formal_asi_score": true,
+  "not_500_100_ready": true
+}

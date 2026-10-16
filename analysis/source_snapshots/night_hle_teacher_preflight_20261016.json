@@ -1,0 +1,38 @@
+{
+  "model_requested": "deepseek-v4-pro",
+  "thinking": false,
+  "max_tokens": 8192,
+  "target": {
+    "Computer Science/AI": 48,
+    "Other": 47,
+    "Humanities/Social Science": 44,
+    "Engineering": 22
+  },
+  "accepted": {
+    "Other": 2,
+    "Engineering": 1,
+    "Computer Science/AI": 1,
+    "Humanities/Social Science": 1
+  },
+  "attempts": 8,
+  "status_counts": {
+    "gold_mismatch": 3,
+    "accepted": 5
+  },
+  "missing": {
+    "Computer Science/AI": 47,
+    "Other": 45,
+    "Humanities/Social Science": 43,
+    "Engineering": 21
+  },
+  "conservative_cost_usd": 0.0067174800000000005,
+  "conservative_budget_cny": 0.053739840000000004,
+  "budget_cny_hard_cap": 20.0,
+  "stop_reason": "attempt_cap",
+  "total_prompt_tokens": 2197,
+  "total_completion_tokens": 964,
+  "maximum_completion_tokens": 200,
+  "gold_not_sent_to_teacher": true,
+  "validation_teacher_calls": 0,
+  "training_released": false
+}

@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "expected_commit": "82a83fda1fafd4a43c67755140555bfd5afbd592",
+  "actual_commit": "82a83fda1fafd4a43c67755140555bfd5afbd592",
+  "cwd": "/click",
+  "python": "3.10.19 (main, Dec 30 2025, 00:42:16) [GCC 14.2.0]",
+  "packages": {
+    "click": "8.0.0a2",
+    "pytest": "9.0.2",
+    "setuptools": "80.9.0",
+    "pip": "25.3"
+  },
+  "git_status": "",
+  "testbed_exists": false,
+  "testbed_is_symlink": false,
+  "testbed_realpath": "/testbed",
+  "scope": "Independent dev image initial-state inspection only. No task commands, patches, tests or grader executed; source collector remapping is not proven.",
+  "job_id": "724276",
+  "sif_sha256": "bb458c5e27062fae9de5a6175bc8506c7ff2ed82c5a5efe1f1a6a631b5e65d14",
+  "teacher_initial_observation_commit_prefix": "82a83fd",
+  "teacher_reported_path": "/testbed",
+  "alignment_conclusion": "Published independent dev image and first source observation agree on base commit. Source collector remapped the repository path; exact implementation and dependencies not fully recovered."
+}

@@ -1,0 +1,25 @@
+{
+  "all_verified": true,
+  "files": {
+    "train": {
+      "rows": 500,
+      "sha256": "66dbd5012b560bc7b2358bdd05001fb0fa95e56f56498685288cb5ed7f649b38"
+    },
+    "train_provenance": {
+      "rows": 500,
+      "sha256": "b490c60ddbebc3907966418c1a1e93f1be15934f328b12df1cd1d8700788ba9b"
+    },
+    "val_loss": {
+      "rows": 100,
+      "sha256": "dca83f108ab2d33b5d9ac6c308b09b673d588d5a5d5122e505fc0c5a6b6ff59d"
+    },
+    "val_tasks": {
+      "rows": 100,
+      "sha256": "b096203887a82b835da069f0162373e162bf4a89ebb3415f19910f3743dcd517"
+    },
+    "val_provenance": {
+      "rows": 100,
+      "sha256": "082b41e6c756a3a2d3ae9debc0e6304eeddd32bd1b075fa839388fb72773bbd6"
+    }
+  }
+}

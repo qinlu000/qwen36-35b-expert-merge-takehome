@@ -1,0 +1,97 @@
+{
+  "install_config_fields": {
+    "base_image_name": 443,
+    "docker_specs": 431,
+    "install": 443,
+    "log_parser": 443,
+    "test_cmd": 443
+  },
+  "manifest_sha256": "6b1a2869d942878a2dd6eb2bd713581379c754d24db8e2a178e08818c552a2dc",
+  "matched": 443,
+  "matched_by_split": {
+    "train": 343,
+    "val": 100
+  },
+  "published_base_commits": 443,
+  "published_images": 443,
+  "scope": "Environment-only upstream join. No source patch, test_patch, problem_statement, hidden tests or formal outcomes read. No container or task commands executed. Matching a published image/base is not runtime, dependency or verifier validation. NVIDIA source collector task snapshot and /testbed remapping remain unknown.",
+  "source": {
+    "bytes": 428839266,
+    "columns_read": [
+      "repo",
+      "instance_id",
+      "base_commit",
+      "image_name",
+      "language",
+      "license",
+      "install_config"
+    ],
+    "dataset": "nebius/SWE-rebench-V2",
+    "file": "data/train-00000-of-00001.parquet",
+    "revision": "10483de0f50fe5da545942705a76c6150171af7f",
+    "rows": 32079,
+    "sha256": "0e0bf9355f892ad74ae98d4e1c404f39fd6654a8e351ee3e6ab162e4a64cd3ad"
+  },
+  "unmatched": 157,
+  "unmatched_by_reason": {
+    "Scale-SWE upstream metadata not downloaded; source trace remains candidate only": 157
+  },
+  "val_examples": [
+    {
+      "base_commit": "e93dbff598efddaec2e51e3bc34ced2785f92f1f",
+      "image_name": "docker.io/swerebenchv2/final-form-react-final-form:118-e93dbff",
+      "instance_id": "final-form__react-final-form-118",
+      "language": "js",
+      "repo": "final-form/react-final-form"
+    },
+    {
+      "base_commit": "f4e06053b27e0737be50d9569feb86cf91d5fb80",
+      "image_name": "docker.io/swerebenchv2/moment-luxon:1071-f4e0605",
+      "instance_id": "moment__luxon-1071",
+      "language": "js",
+      "repo": "moment/luxon"
+    },
+    {
+      "base_commit": "17315ad730cc8e74815e2a198ceec7532cce7927",
+      "image_name": "docker.io/swerebenchv2/sindresorhus-query-string:195-17315ad",
+      "instance_id": "sindresorhus__query-string-195",
+      "language": "js",
+      "repo": "sindresorhus/query-string"
+    },
+    {
+      "base_commit": "55ce9d68b491cc5be41a0cbb273d6ad537b6627c",
+      "image_name": "docker.io/swerebenchv2/viacominc-data-point:203-55ce9d6",
+      "instance_id": "viacominc__data-point-203",
+      "language": "js",
+      "repo": "ViacomInc/data-point"
+    },
+    {
+      "base_commit": "1529bf173500956f8bb1fa677bda932350fd2e6b",
+      "image_name": "docker.io/swerebenchv2/tailwindlabs-tailwindcss-jit:127-1529bf1",
+      "instance_id": "tailwindlabs__tailwindcss-jit-127",
+      "language": "js",
+      "repo": "tailwindlabs/tailwindcss-jit"
+    },
+    {
+      "base_commit": "a6bb7ece3f86384278dfa63fd260e1fd710d8ded",
+      "image_name": "docker.io/swerebenchv2/lesshint-lesshint:247-a6bb7ec",
+      "instance_id": "lesshint__lesshint-247",
+      "language": "js",
+      "repo": "lesshint/lesshint"
+    },
+    {
+      "base_commit": "651a4d759442b7eb1c6c257da8c90fe0b94f4b8b",
+      "image_name": "docker.io/swerebenchv2/import-js-eslint-plugin-import:2282-651a4d7",
+      "instance_id": "import-js__eslint-plugin-import-2282",
+      "language": "js",
+      "repo": "import-js/eslint-plugin-import"
+    },
+    {
+      "base_commit": "6e6f5c2feaf658f116a18423762ff491d71c6580",
+      "image_name": "docker.io/swerebenchv2/processmaker-modeler:801-6e6f5c2",
+      "instance_id": "processmaker__modeler-801",
+      "language": "js",
+      "repo": "ProcessMaker/modeler"
+    }
+  ]
+}

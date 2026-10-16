@@ -1,0 +1,40 @@
+{
+  "rows_before_checks": 500,
+  "rows_after_checks": 500,
+  "category_counts": {
+    "Math": 204,
+    "Biology/Medicine": 56,
+    "Physics": 46,
+    "Chemistry": 33,
+    "Other": 47,
+    "Engineering": 22,
+    "Computer Science/AI": 48,
+    "Humanities/Social Science": 44
+  },
+  "readiness_counts": {
+    "candidate_with_publisher_reference": 204,
+    "candidate_needs_answer_verification": 135,
+    "candidate_teacher_matches_publisher_gold": 161
+  },
+  "rejection_counts": {},
+  "rejected": [],
+  "complete_sequence_tokens": {
+    "sum": 271334,
+    "max": 1769,
+    "mean": 542.668
+  },
+  "max_assistant_body_tokens_proxy": 1423,
+  "fixed_tokenizer_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "chat_template_sha256": "e84f32a23fdda27689f868aa4a1a5621f41133e51a48d7f3efcbea2839574259",
+  "template_flags": {
+    "enable_thinking": false,
+    "preserve_thinking": false
+  },
+  "sha256": "5cb9f40ae3e1cd9751d51727c16295c410ef19eb06574913362f999d3ad2de52",
+  "training_released": false,
+  "limitations": [
+    "Sequence token counts are exact for the fixed rendered candidate file, not final Swift labels or processed window budget.",
+    "13-gram exclusion does not prove semantic or paper/exam-family independence.",
+    "Science no-independent-gold holds remain; nothing was trained."
+  ]
+}

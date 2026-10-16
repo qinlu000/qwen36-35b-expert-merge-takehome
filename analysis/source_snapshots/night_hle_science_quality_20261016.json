@@ -1,0 +1,18 @@
+{
+  "selected": 12,
+  "reviewed": 12,
+  "category_counts": {
+    "Biology/Medicine": 4,
+    "Chemistry": 4,
+    "Physics": 4
+  },
+  "verdict_counts": {
+    "reject": 3,
+    "needs_review": 8,
+    "accept": 1
+  },
+  "review_cost_usd": 0.005783699999999999,
+  "cumulative_branch_budget_cny": 1.4282356800000007,
+  "evidence_type": "critic-model quality signal; no human or executable gold",
+  "training_policy": "Publisher-only answers remain unverified distillation supervision; no correctness claim or formal-score-based filtering."
+}

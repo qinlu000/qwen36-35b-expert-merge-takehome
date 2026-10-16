@@ -1,0 +1,133 @@
+{
+  "training_target": {
+    "Math": 204,
+    "Biology/Medicine": 56,
+    "Computer Science/AI": 48,
+    "Other": 47,
+    "Physics": 46,
+    "Humanities/Social Science": 44,
+    "Chemistry": 33,
+    "Engineering": 22
+  },
+  "validation_target": {
+    "Math": 41,
+    "Biology/Medicine": 11,
+    "Computer Science/AI": 10,
+    "Other": 9,
+    "Physics": 9,
+    "Humanities/Social Science": 9,
+    "Chemistry": 7,
+    "Engineering": 4
+  },
+  "mmlu_revision": "b189ec765aa7ed75c8acfea42df31fdae71f97be",
+  "mmlu_rows_scanned": 12102,
+  "mmlu_rejection_counts": {
+    "duplicate_question_stem": 391,
+    "potential_missing_visual_or_external_context": 11,
+    "formal_HLE_exact_or_13gram_overlap": 2,
+    "unmapped_subject": 599
+  },
+  "mmlu_candidate_partition_category_counts": {
+    "train:Humanities/Social Science": 3708,
+    "val:Humanities/Social Science": 400,
+    "train:Biology/Medicine": 1206,
+    "val:Biology/Medicine": 121,
+    "train:Chemistry": 1012,
+    "val:Chemistry": 122,
+    "train:Other": 450,
+    "val:Other": 50,
+    "train:Math": 1209,
+    "val:Math": 139,
+    "train:Physics": 1172,
+    "val:Physics": 126,
+    "train:Computer Science/AI": 369,
+    "val:Computer Science/AI": 43,
+    "val:Engineering": 106,
+    "train:Engineering": 866
+  },
+  "existing_new_train_candidates": 204,
+  "existing_new_train_readiness": {
+    "candidate_with_publisher_reference": 204
+  },
+  "new_teacher_target": {
+    "Biology/Medicine": 56,
+    "Computer Science/AI": 48,
+    "Other": 47,
+    "Physics": 46,
+    "Humanities/Social Science": 44,
+    "Chemistry": 33,
+    "Engineering": 22
+  },
+  "replace_science_with_gold_tasks": true,
+  "new_teacher_reservoir": 592,
+  "validation_rows": 100,
+  "validation_categories": {
+    "Math": 41,
+    "Biology/Medicine": 11,
+    "Computer Science/AI": 10,
+    "Other": 9,
+    "Physics": 9,
+    "Humanities/Social Science": 9,
+    "Chemistry": 7,
+    "Engineering": 4
+  },
+  "validation_reference_types": {
+    "exactMatch": 41,
+    "multipleChoice": 59
+  },
+  "validation_mmlu_original_sources": {
+    "ori_mmlu-nutrition": 1,
+    "ori_mmlu-college_medicine": 1,
+    "ori_mmlu-high_school_biology": 3,
+    "ori_mmlu-college_biology": 1,
+    "stemez-Biology": 3,
+    "ori_mmlu-anatomy": 1,
+    "ori_mmlu-professional_medicine": 1,
+    "theoremQA-EECS": 4,
+    "ori_mmlu-computer_security": 1,
+    "ori_mmlu-high_school_computer_science": 1,
+    "ori_mmlu-machine_learning": 3,
+    "stemez-ComputerScience": 1,
+    "ori_mmlu-miscellaneous": 5,
+    "ori_mmlu-formal_logic": 1,
+    "ori_mmlu-high_school_geography": 2,
+    "ori_mmlu-logical_fallacies": 1,
+    "scibench-thermo": 2,
+    "ori_mmlu-college_physics": 1,
+    "scibench-class": 1,
+    "theoremQA-Physics": 1,
+    "ori_mmlu-conceptual_physics": 1,
+    "ori_mmlu-astronomy": 1,
+    "stemez-Physics": 2,
+    "ori_mmlu-high_school_macroeconomics": 1,
+    "ori_mmlu-moral_disputes": 1,
+    "stemez-Psychology": 3,
+    "ori_mmlu-philosophy": 1,
+    "stemez-Business": 1,
+    "ori_mmlu-professional_law": 1,
+    "ori_mmlu-high_school_psychology": 1,
+    "scibench-chemmc": 1,
+    "stemez-OrganicChemistry": 1,
+    "stemez-Chemistry": 4,
+    "scibench-matter": 1,
+    "stemez-MachineDesign": 1,
+    "stemez-TransportPhenomena": 1,
+    "stemez-Electromagnetics": 1,
+    "stemez-ElectronicCommunications": 1
+  },
+  "validation_image_tasks": 0,
+  "training_released": false,
+  "formal_HLE_columns_read": [
+    "question"
+  ],
+  "formal_overlap_check": "normalized question exact SHA256 + normalized word 13-gram SHA256; no answers read",
+  "train_val_exclusion": "normalized question stem family + 13-gram between new teacher reservoir and MMLU val",
+  "limitations": [
+    "This is a proxy dev; HLE difficulty is not reproduced.",
+    "0 images and 59 MCQ versus HLE 342/2500 images and 591/2500 MCQ.",
+    "Other covers trivia, geography, and logic; music/art/ballet/games are largely absent.",
+    "Source exam/paper family and semantic paraphrase exclusion incomplete.",
+    "Publisher-only Science answers remain a separate unverified hold pool when replaced.",
+    "Final 41 Math gold scoring still requires a validated answer matcher."
+  ]
+}

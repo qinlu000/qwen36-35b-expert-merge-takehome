@@ -1,0 +1,502 @@
+{
+  "dataset": "shhu2001/SciCode-Verified",
+  "dataset_revision": "eea11a866be6860725258702b39ef8651ed26abd",
+  "release": "v2",
+  "license": "Apache-2.0",
+  "source_url": "https://huggingface.co/datasets/shhu2001/SciCode-Verified/blob/eea11a866be6860725258702b39ef8651ed26abd/README.md",
+  "harness_repository": "https://github.com/flyingwagner/scicode-verified",
+  "harness_commit": "ddab4a92f8d80a7113ab946628e994b52354d838",
+  "upstream_cmp_commit": "e3158ea011d4235245a547460d3688d7ccbf9900",
+  "hdf_integrity": {
+    "bytes": 1108078257,
+    "sha256": "8fb6e575b7b6dda5e48b04dea338fc6af4fe185774b8f19221c96945df9b4142",
+    "md5": "2b41a7df40ddc23ce651ec05b8ecb6f8"
+  },
+  "selection": {
+    "source_revision": "eea11a866be6860725258702b39ef8651ed26abd",
+    "source_main_families": 64,
+    "source_substep_descriptors": 290,
+    "formal_input_files_read": 240,
+    "formal_gold_read": false,
+    "all_source_exact_hits": 0,
+    "all_source_13gram_flagged_main_families": [],
+    "selected": [
+      {
+        "problem_id": "5",
+        "problem_name": "Lanczos",
+        "exact_overlap": false,
+        "shared_13gram_formal_families": [],
+        "main_family": "scicode_verified:5",
+        "substeps": 1,
+        "domain": "mathematics/numerical_linear_algebra",
+        "dataset": "shhu2001/SciCode-Verified",
+        "dataset_revision": "eea11a866be6860725258702b39ef8651ed26abd",
+        "split": "train_calibration",
+        "source_split": "test",
+        "prompt_sha256": "521b9ab90b63d24e2734afa01459598f655eeaf509f0ee3e4f8af95e255ecedc",
+        "prompt_utf8_bytes_with_system": 3108,
+        "references_sent_to_teacher": false,
+        "test_cases_sent_to_teacher": false
+      },
+      {
+        "problem_id": "8",
+        "problem_name": "Spatial_filters_III",
+        "exact_overlap": false,
+        "shared_13gram_formal_families": [],
+        "main_family": "scicode_verified:8",
+        "substeps": 1,
+        "domain": "physics/fourier_optics",
+        "dataset": "shhu2001/SciCode-Verified",
+        "dataset_revision": "eea11a866be6860725258702b39ef8651ed26abd",
+        "split": "train_calibration",
+        "source_split": "test",
+        "prompt_sha256": "237569f2af7f90bcfe73872c09652fd87968d824046ea62e90a1140678e386a5",
+        "prompt_utf8_bytes_with_system": 3234,
+        "references_sent_to_teacher": false,
+        "test_cases_sent_to_teacher": false
+      }
+    ],
+    "selected_named_method_family_hits": {
+      "5": [],
+      "8": []
+    },
+    "sourcefamily_limit": "No per-task paper/author identifiers in SciCode JSONL; main problem IDs and named-method search are the available family guards. No absence-of-overlap proof beyond these checks.",
+    "api_bound": {
+      "model": "deepseek-v4-pro",
+      "thinking": false,
+      "calls": 2,
+      "max_output_tokens_per_call": 8192,
+      "input_token_upper_bound": 8390,
+      "maximum_usd": 0.07595544,
+      "budget_factor": 8,
+      "maximum_budget_cny": 0.60764352,
+      "branch_previous_budget_cny": 2.58201072,
+      "maximum_branch_cny_after_two_calls": 3.18965424
+    },
+    "not_formal_asi_score": true,
+    "not_500_100_ready": true
+  },
+  "verification": {
+    "results": [
+      {
+        "problem_id": "5",
+        "problem_name": "Lanczos",
+        "main_family": "scicode_verified:5",
+        "passed": true,
+        "returncode": 0,
+        "timeout": false,
+        "execution_seconds": 0.501,
+        "test_results": [
+          {
+            "test": 1,
+            "passed": true,
+            "arrays": [
+              {
+                "actual_shape": [
+                  7,
+                  6
+                ],
+                "reference_shape": [
+                  7,
+                  6
+                ],
+                "allclose": true,
+                "max_abs_error": 3.3306690738754696e-16
+              }
+            ],
+            "rtol": 1e-05,
+            "atol": 1e-08
+          },
+          {
+            "test": 2,
+            "passed": true,
+            "arrays": [
+              {
+                "actual_shape": [
+                  7,
+                  6
+                ],
+                "reference_shape": [
+                  7,
+                  6
+                ],
+                "allclose": true,
+                "max_abs_error": 6.869504964868156e-16
+              }
+            ],
+            "rtol": 1e-05,
+            "atol": 1e-08
+          },
+          {
+            "test": 3,
+            "passed": true,
+            "arrays": [
+              {
+                "actual_shape": [
+                  7,
+                  5
+                ],
+                "reference_shape": [
+                  7,
+                  5
+                ],
+                "allclose": true,
+                "max_abs_error": 1.117189023583376e-15
+              }
+            ],
+            "rtol": 1e-05,
+            "atol": 1e-08
+          }
+        ],
+        "limits_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/data/candidates/night_scicode_20261016/limits_5.json",
+        "cpu_list": [
+          124,
+          125,
+          126,
+          127
+        ],
+        "frozen_helper_sha256": "1a32b603cb4ff3594f32d16560045ab3b462b15cccf6d08b1eaa9e2c7db9279f",
+        "reference_visible_to_generated_code": false,
+        "source_main_family_counted_as": 1,
+        "official_scicode_score": false,
+        "protocol_deviation": "Complete one-shot program with imports; 180s single-current-env cap and stricter equal-shape check; official uses cumulative substeps, 1800s and 2024/2025 OR environments."
+      },
+      {
+        "problem_id": "8",
+        "problem_name": "Spatial_filters_III",
+        "main_family": "scicode_verified:8",
+        "passed": false,
+        "returncode": 0,
+        "timeout": false,
+        "execution_seconds": 0.624,
+        "test_results": [
+          {
+            "test": 1,
+            "passed": false,
+            "arrays": [
+              {
+                "actual_shape": [
+                  800,
+                  800
+                ],
+                "reference_shape": [
+                  800,
+                  800
+                ],
+                "allclose": false,
+                "max_abs_error": 1.0
+              },
+              {
+                "actual_shape": [
+                  800,
+                  800
+                ],
+                "reference_shape": [
+                  800,
+                  800
+                ],
+                "allclose": true,
+                "max_abs_error": 1.1102230246251565e-16
+              }
+            ],
+            "rtol": 1e-05,
+            "atol": 1e-08
+          },
+          {
+            "test": 2,
+            "passed": false,
+            "arrays": [
+              {
+                "actual_shape": [
+                  800,
+                  800
+                ],
+                "reference_shape": [
+                  800,
+                  800
+                ],
+                "allclose": false,
+                "max_abs_error": 1.0
+              },
+              {
+                "actual_shape": [
+                  800,
+                  800
+                ],
+                "reference_shape": [
+                  800,
+                  800
+                ],
+                "allclose": true,
+                "max_abs_error": 0.0
+              }
+            ],
+            "rtol": 1e-05,
+            "atol": 1e-08
+          },
+          {
+            "test": 3,
+            "passed": false,
+            "arrays": [
+              {
+                "actual_shape": [
+                  800,
+                  800
+                ],
+                "reference_shape": [
+                  800,
+                  800
+                ],
+                "allclose": false,
+                "max_abs_error": 1.0
+              },
+              {
+                "actual_shape": [
+                  800,
+                  800
+                ],
+                "reference_shape": [
+                  800,
+                  800
+                ],
+                "allclose": true,
+                "max_abs_error": 0.0
+              }
+            ],
+            "rtol": 1e-05,
+            "atol": 1e-08
+          },
+          {
+            "test": 4,
+            "passed": true,
+            "arrays": [
+              {
+                "actual_shape": [],
+                "reference_shape": [],
+                "allclose": true,
+                "max_abs_error": 0.0
+              }
+            ],
+            "rtol": 1e-05,
+            "atol": 1e-08
+          }
+        ],
+        "limits_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/data/candidates/night_scicode_20261016/limits_8.json",
+        "cpu_list": [
+          124,
+          125,
+          126,
+          127
+        ],
+        "frozen_helper_sha256": "1a32b603cb4ff3594f32d16560045ab3b462b15cccf6d08b1eaa9e2c7db9279f",
+        "reference_visible_to_generated_code": false,
+        "source_main_family_counted_as": 1,
+        "official_scicode_score": false,
+        "protocol_deviation": "Complete one-shot program with imports; 180s single-current-env cap and stricter equal-shape check; official uses cumulative substeps, 1800s and 2024/2025 OR environments."
+      }
+    ],
+    "accepted_main_families": 1,
+    "attempted_main_families": 2,
+    "unchanged_frozen_helper_sha256": "1a32b603cb4ff3594f32d16560045ab3b462b15cccf6d08b1eaa9e2c7db9279f",
+    "generated_programs_executed_on_host": false,
+    "formal_asi_gold_read": false,
+    "memory_bytes": 8589934592,
+    "cpu_list": [
+      124,
+      125,
+      126,
+      127
+    ],
+    "network": "unshare-all/offline",
+    "not_full_scientific_train_val_ready": true
+  },
+  "optics_failure": {
+    "mismatch_pixels": 2880,
+    "reference_mask_sum": 516961.0,
+    "teacher_mask_sum": 519841.0,
+    "observed_reference_zero_at_bandwidth_edge": true,
+    "mismatch_coordinate_examples": [
+      [
+        0,
+        360
+      ],
+      [
+        0,
+        440
+      ],
+      [
+        1,
+        360
+      ],
+      [
+        1,
+        440
+      ],
+      [
+        2,
+        360
+      ],
+      [
+        2,
+        440
+      ],
+      [
+        3,
+        360
+      ],
+      [
+        3,
+        440
+      ]
+    ]
+  },
+  "api": {
+    "calls": 2,
+    "usage_prompt_tokens": 1569,
+    "usage_completion_tokens": 885,
+    "conservative_cost_usd": 0.0055756799999999995,
+    "budget_cny": 0.044605439999999996,
+    "branch_total_budget_cny": 2.62661616,
+    "prior_hle_budget_cny": 2.58201072,
+    "branch_hard_cap_cny": 20,
+    "records": [
+      {
+        "problem_id": "5",
+        "main_family": "scicode_verified:5",
+        "requested_model": "deepseek-v4-pro",
+        "thinking": false,
+        "max_tokens": 8192,
+        "requested_at": "2026-10-15T20:06:03.630579+00:00",
+        "prompt_sha256": "521b9ab90b63d24e2734afa01459598f655eeaf509f0ee3e4f8af95e255ecedc",
+        "references_sent": false,
+        "pricing_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+        "peak_usd_per_million": {
+          "input_cache_miss": 1.32,
+          "output": 3.96
+        },
+        "budget_factor": 8,
+        "budget_cny": 0.0258192,
+        "http_status": 200,
+        "usage": {
+          "prompt_tokens": 894,
+          "completion_tokens": 517,
+          "total_tokens": 1411,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 894
+        },
+        "returned_model": "deepseek-v4-pro",
+        "response_id": "9dbdfda0-40aa-41fb-944d-56cb66acdb9b",
+        "conservative_cost_usd": 0.0032274,
+        "finish_reason": "stop",
+        "status": "generated_ungraded",
+        "code_sha256": "60244bb3a8728b6c8b24e6232a22ea776a4adeb68faaa45e2dd931a1ef75374d",
+        "elapsed_seconds": 3.612,
+        "branch_total_budget_cny": 2.60782992
+      },
+      {
+        "problem_id": "8",
+        "main_family": "scicode_verified:8",
+        "requested_model": "deepseek-v4-pro",
+        "thinking": false,
+        "max_tokens": 8192,
+        "requested_at": "2026-10-15T20:06:07.242615+00:00",
+        "prompt_sha256": "237569f2af7f90bcfe73872c09652fd87968d824046ea62e90a1140678e386a5",
+        "references_sent": false,
+        "pricing_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+        "peak_usd_per_million": {
+          "input_cache_miss": 1.32,
+          "output": 3.96
+        },
+        "budget_factor": 8,
+        "budget_cny": 0.01878624,
+        "http_status": 200,
+        "usage": {
+          "prompt_tokens": 675,
+          "completion_tokens": 368,
+          "total_tokens": 1043,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 675
+        },
+        "returned_model": "deepseek-v4-pro",
+        "response_id": "b0cb3a63-cf1d-4507-843f-b0420eb3b1c2",
+        "conservative_cost_usd": 0.00234828,
+        "finish_reason": "stop",
+        "status": "generated_ungraded",
+        "code_sha256": "17e16b12de5c60b9073dadc6acc03f33d465d3343f03bab73e2da7af1eeba0ad",
+        "elapsed_seconds": 3.087,
+        "branch_total_budget_cny": 2.6266161599999998
+      }
+    ]
+  },
+  "materialized_accepted_function_programs": 1,
+  "asi_main_train_released": 0,
+  "new_validation_released": 0,
+  "files": {
+    "two_task_candidates.jsonl": {
+      "sha256": "a42fcf1f41e610bef183d4ce6dcad392586330e7f52d738048a091afcd696e74",
+      "bytes": 18294
+    },
+    "accepted.function_program.messages.jsonl": {
+      "sha256": "123360947b2490e23b602543b6c47712976122d474452f51ac4faafa5f595e02",
+      "bytes": 5339
+    },
+    "accepted.function_program.provenance.jsonl": {
+      "sha256": "16e12d93d59828c692a8dc9cc3debc96f64141e5f54edfc1f167ff1c543914c0",
+      "bytes": 2086
+    },
+    "scicode_api_ledger.jsonl": {
+      "sha256": "24cbf909622946d76b4db4a76a075d9d82eefc3af09702e633e718de12a6c7a1",
+      "bytes": 2056
+    },
+    "verification_summary.json": {
+      "sha256": "85b5078d1b4af12f9ae8fe3f3dd9ecc12962244ee389e9df7e7ab5c05c3a942b",
+      "bytes": 6023
+    },
+    "limits_5.json": {
+      "sha256": "6628935ce90ce86ca7c78cc3713f8133e66415cc9e5831feb2ff30bac3c89e3c",
+      "bytes": 2498
+    },
+    "limits_8.json": {
+      "sha256": "9023d7f433b68b4f033149d8f7abdffec6ef9a8bb75aa2e942465beebdff42e5",
+      "bytes": 2498
+    }
+  },
+  "formal_asi_categories": {
+    "robotics": 7,
+    "physics": 8,
+    "electrical_engineering": 2,
+    "computer_science": 9,
+    "biology": 6,
+    "math": 12,
+    "earth_science": 4,
+    "astronomy": 3,
+    "chemistry": 6,
+    "biostat": 1,
+    "materials": 2
+  },
+  "scaling": {
+    "source_main_families": 64,
+    "single_substep_main_count": 4,
+    "total_substep_descriptors": 290,
+    "official_scored_substeps": 287,
+    "all64_prompt_utf8_upper_bound_with_per_call_allowance": 629114,
+    "all64_8192_output_worst_budget_cny": 23.25288768,
+    "suggested_future_source_split": "At most 50 train / 14 dev main families, stratified by domain; both current calibration families fixed to train before generation. Not yet selected or authorized for expansion.",
+    "sample_runtime_limit": "Two deliberately simple single-step tasks; no justified runtime or pass-rate extrapolation to 60 multistep mains.",
+    "main_family_limit": "64 cannot supply 500 train plus100 val; main IDs and substeps must never be double-counted."
+  },
+  "protocol_limits": [
+    "Scientific function return-value task, not ASI named-file artifact contract; needs explicit trusted I/O adaptation before ASI-main SFT.",
+    "180s one-current-environment isolated calibration versus official SciCode1800s and2024/2025 OR scoring.",
+    "Verified vendored tree lacks cmp module required by selected published tests; numeric comparator semantics checked against pinned upstream source.",
+    "No per-task paper/author IDs in JSONL; public input fingerprints and selected named-method searches do not prove all source-family independence."
+  ],
+  "candidate_dir_80": "/data/caoqinlu/projects/apex-takehome/artifacts/data/candidates/night_scicode_20261016",
+  "background_processes_remaining": []
+}

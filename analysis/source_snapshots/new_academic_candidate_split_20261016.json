@@ -1,0 +1,554 @@
+{
+  "status": "ranked_candidate_partitions_only_NOT_final_training_export_or_frozen_taskdev",
+  "seed": "apex-new-data-v1-20261016",
+  "source_revisions": {
+    "Math-v4": "84d42ad0cb960f07f951b9baa9ed2b46a5a18c66",
+    "Science-v2": "6536a5021222a94126968e8c92f29ee47fc8a7df"
+  },
+  "target": {
+    "benchmark": "HLE",
+    "class_counts": {
+      "Mathematics": 1021,
+      "Biology": 280,
+      "Computer Science": 241,
+      "Other": 233,
+      "Physics": 230,
+      "Humanities": 219,
+      "Chemistry": 165,
+      "Engineering": 111
+    },
+    "image_marginal": {
+      "target": "342/2500",
+      "available_new_pool": 0
+    },
+    "allocation_policy": "Keep all 8 category shares explicit; do not renormalize missing classes into Math. Per-category rankings support later token/time quota selection."
+  },
+  "holdout_rule": "Shared candidate_selection.py: rank=sha256((SPLIT_SEED+'\\0'+family_key).encode()); int(rank[:16],16)%10==0 holds out ~10%; no fixed task count; one representative per observed exact family. Independent of HLE class fractions.",
+  "grouping": "Transitive union by normalized prompt hash, canonical source URL, or published UUID; no semantic deduplication. Family aliases/row indices remain in ignored remote metadata.",
+  "normalization": "NFKC -> collapse Unicode whitespace -> strip -> casefold -> SHA256 UTF8",
+  "scope": "Math first verified shard; Science 8x8MiB byte ranges/file, first+7 evenly distributed offsets. Byte-stratified convenience scan, not uniform row sampling or full population estimate.",
+  "scanned_row_counts": {
+    "Math-v4_scanned": 23605,
+    "Science-v2/rqa.jsonl_scanned": 3190,
+    "Science-v2/so.jsonl_scanned": 8341,
+    "Science-v2/syn_mcq.jsonl_scanned": 11793,
+    "Science-v2/vendor.jsonl_scanned": 688
+  },
+  "observed_topics": [
+    {
+      "source": "Math-v4",
+      "topic": "Mathematics",
+      "rows": 23605
+    },
+    {
+      "source": "Science-v2/rqa.jsonl",
+      "topic": "Biology",
+      "rows": 91
+    },
+    {
+      "source": "Science-v2/rqa.jsonl",
+      "topic": "Chemistry",
+      "rows": 2289
+    },
+    {
+      "source": "Science-v2/rqa.jsonl",
+      "topic": "Mathematics",
+      "rows": 23
+    },
+    {
+      "source": "Science-v2/rqa.jsonl",
+      "topic": "Other",
+      "rows": 5
+    },
+    {
+      "source": "Science-v2/rqa.jsonl",
+      "topic": "Physics",
+      "rows": 782
+    },
+    {
+      "source": "Science-v2/so.jsonl",
+      "topic": "Biology",
+      "rows": 590
+    },
+    {
+      "source": "Science-v2/so.jsonl",
+      "topic": "Chemistry",
+      "rows": 1062
+    },
+    {
+      "source": "Science-v2/so.jsonl",
+      "topic": "Mathematics",
+      "rows": 69
+    },
+    {
+      "source": "Science-v2/so.jsonl",
+      "topic": "Other",
+      "rows": 15
+    },
+    {
+      "source": "Science-v2/so.jsonl",
+      "topic": "Physics",
+      "rows": 6605
+    },
+    {
+      "source": "Science-v2/syn_mcq.jsonl",
+      "topic": "Biology",
+      "rows": 2396
+    },
+    {
+      "source": "Science-v2/syn_mcq.jsonl",
+      "topic": "Chemistry",
+      "rows": 2639
+    },
+    {
+      "source": "Science-v2/syn_mcq.jsonl",
+      "topic": "Mathematics",
+      "rows": 25
+    },
+    {
+      "source": "Science-v2/syn_mcq.jsonl",
+      "topic": "Other",
+      "rows": 4
+    },
+    {
+      "source": "Science-v2/syn_mcq.jsonl",
+      "topic": "Physics",
+      "rows": 6729
+    },
+    {
+      "source": "Science-v2/vendor.jsonl",
+      "topic": "Biology",
+      "rows": 458
+    },
+    {
+      "source": "Science-v2/vendor.jsonl",
+      "topic": "Chemistry",
+      "rows": 78
+    },
+    {
+      "source": "Science-v2/vendor.jsonl",
+      "topic": "Math",
+      "rows": 65
+    },
+    {
+      "source": "Science-v2/vendor.jsonl",
+      "topic": "Physics",
+      "rows": 87
+    }
+  ],
+  "teacher_counts_in_scanned_bytes_only": [
+    {
+      "source": "Math-v4",
+      "teacher": "publisher_DeepSeek-V4-Pro_High",
+      "rows": 23605
+    },
+    {
+      "source": "Science-v2/rqa.jsonl",
+      "teacher": "DeepSeek-V3.2",
+      "rows": 734
+    },
+    {
+      "source": "Science-v2/rqa.jsonl",
+      "teacher": "DeepSeek-V4-Pro",
+      "rows": 62
+    },
+    {
+      "source": "Science-v2/rqa.jsonl",
+      "teacher": "Kimi-K2-Instruct",
+      "rows": 1666
+    },
+    {
+      "source": "Science-v2/rqa.jsonl",
+      "teacher": "gpt-oss-120b",
+      "rows": 728
+    },
+    {
+      "source": "Science-v2/so.jsonl",
+      "teacher": "DeepSeek-V3.2",
+      "rows": 450
+    },
+    {
+      "source": "Science-v2/so.jsonl",
+      "teacher": "Kimi-K2-Instruct",
+      "rows": 2210
+    },
+    {
+      "source": "Science-v2/so.jsonl",
+      "teacher": "gpt-oss-120b",
+      "rows": 5681
+    },
+    {
+      "source": "Science-v2/syn_mcq.jsonl",
+      "teacher": "DeepSeek-V3.2",
+      "rows": 169
+    },
+    {
+      "source": "Science-v2/syn_mcq.jsonl",
+      "teacher": "Kimi-K2-Instruct",
+      "rows": 675
+    },
+    {
+      "source": "Science-v2/syn_mcq.jsonl",
+      "teacher": "gpt-oss-120b",
+      "rows": 10949
+    },
+    {
+      "source": "Science-v2/vendor.jsonl",
+      "teacher": "DeepSeek-V4-Pro",
+      "rows": 688
+    }
+  ],
+  "method_counts_in_scanned_bytes_only": [
+    {
+      "source": "Math-v4",
+      "method": "CoT_no_tool",
+      "rows": 23605
+    },
+    {
+      "source": "Science-v2/rqa.jsonl",
+      "method": "CoT_no_tool",
+      "rows": 2170
+    },
+    {
+      "source": "Science-v2/rqa.jsonl",
+      "method": "python_or_TIR",
+      "rows": 1020
+    },
+    {
+      "source": "Science-v2/so.jsonl",
+      "method": "CoT_no_tool",
+      "rows": 7749
+    },
+    {
+      "source": "Science-v2/so.jsonl",
+      "method": "python_or_TIR",
+      "rows": 592
+    },
+    {
+      "source": "Science-v2/syn_mcq.jsonl",
+      "method": "CoT_no_tool",
+      "rows": 11618
+    },
+    {
+      "source": "Science-v2/syn_mcq.jsonl",
+      "method": "other_tool",
+      "rows": 19
+    },
+    {
+      "source": "Science-v2/syn_mcq.jsonl",
+      "method": "python_or_TIR",
+      "rows": 123
+    },
+    {
+      "source": "Science-v2/syn_mcq.jsonl",
+      "method": "search_tool",
+      "rows": 33
+    },
+    {
+      "source": "Science-v2/vendor.jsonl",
+      "method": "CoT_no_tool",
+      "rows": 688
+    }
+  ],
+  "isolation_counts": [
+    {
+      "source": "Science-v2/rqa.jsonl",
+      "reason": "structural_or_cleaning_ValueError",
+      "rows": 421
+    },
+    {
+      "source": "Science-v2/rqa.jsonl",
+      "reason": "tool_contract_not_HLE_no_tools",
+      "rows": 1020
+    },
+    {
+      "source": "Science-v2/rqa.jsonl",
+      "reason": "tools_declared_under_no_tool_label",
+      "rows": 21
+    },
+    {
+      "source": "Science-v2/rqa.jsonl",
+      "reason": "unmapped_topic_no_forced_HLE_category",
+      "rows": 5
+    },
+    {
+      "source": "Science-v2/so.jsonl",
+      "reason": "tool_contract_not_HLE_no_tools",
+      "rows": 588
+    },
+    {
+      "source": "Science-v2/so.jsonl",
+      "reason": "tools_declared_under_no_tool_label",
+      "rows": 18
+    },
+    {
+      "source": "Science-v2/so.jsonl",
+      "reason": "unmapped_topic_no_forced_HLE_category",
+      "rows": 15
+    },
+    {
+      "source": "Science-v2/syn_mcq.jsonl",
+      "reason": "tool_contract_not_HLE_no_tools",
+      "rows": 175
+    },
+    {
+      "source": "Science-v2/syn_mcq.jsonl",
+      "reason": "tools_declared_under_no_tool_label",
+      "rows": 10
+    },
+    {
+      "source": "Science-v2/syn_mcq.jsonl",
+      "reason": "unmapped_topic_no_forced_HLE_category",
+      "rows": 4
+    }
+  ],
+  "qualified_rows_before_family_collapse": 45340,
+  "observed_exact_families": 35340,
+  "partition_category_counts": [
+    {
+      "partition": "train",
+      "category": "Biology",
+      "families": 3001
+    },
+    {
+      "partition": "train",
+      "category": "Chemistry",
+      "families": 4133
+    },
+    {
+      "partition": "train",
+      "category": "Mathematics",
+      "families": 12880
+    },
+    {
+      "partition": "train",
+      "category": "Physics",
+      "families": 11759
+    },
+    {
+      "partition": "val",
+      "category": "Biology",
+      "families": 323
+    },
+    {
+      "partition": "val",
+      "category": "Chemistry",
+      "families": 454
+    },
+    {
+      "partition": "val",
+      "category": "Mathematics",
+      "families": 1474
+    },
+    {
+      "partition": "val",
+      "category": "Physics",
+      "families": 1316
+    }
+  ],
+  "readiness_counts": {
+    "validation_needs_gold": 21138,
+    "publisher_reference_available_needs_scorer_validation": 14202
+  },
+  "readiness_by_partition": [
+    {
+      "partition": "train",
+      "readiness": "publisher_reference_available_needs_scorer_validation",
+      "families": 12739
+    },
+    {
+      "partition": "train",
+      "readiness": "validation_needs_gold",
+      "families": 19034
+    },
+    {
+      "partition": "val",
+      "readiness": "publisher_reference_available_needs_scorer_validation",
+      "families": 1463
+    },
+    {
+      "partition": "val",
+      "readiness": "validation_needs_gold",
+      "families": 2104
+    }
+  ],
+  "candidate_teacher_category_counts": [
+    {
+      "partition": "train",
+      "teacher": "DeepSeek-V4-Pro",
+      "category": "Biology",
+      "families": 350
+    },
+    {
+      "partition": "train",
+      "teacher": "DeepSeek-V4-Pro",
+      "category": "Chemistry",
+      "families": 104
+    },
+    {
+      "partition": "train",
+      "teacher": "DeepSeek-V4-Pro",
+      "category": "Mathematics",
+      "families": 48
+    },
+    {
+      "partition": "train",
+      "teacher": "DeepSeek-V4-Pro",
+      "category": "Physics",
+      "families": 71
+    },
+    {
+      "partition": "train",
+      "teacher": "Kimi-K2-Instruct",
+      "category": "Biology",
+      "families": 320
+    },
+    {
+      "partition": "train",
+      "teacher": "Kimi-K2-Instruct",
+      "category": "Chemistry",
+      "families": 1454
+    },
+    {
+      "partition": "train",
+      "teacher": "Kimi-K2-Instruct",
+      "category": "Mathematics",
+      "families": 93
+    },
+    {
+      "partition": "train",
+      "teacher": "Kimi-K2-Instruct",
+      "category": "Physics",
+      "families": 2056
+    },
+    {
+      "partition": "train",
+      "teacher": "gpt-oss-120b",
+      "category": "Biology",
+      "families": 2331
+    },
+    {
+      "partition": "train",
+      "teacher": "gpt-oss-120b",
+      "category": "Chemistry",
+      "families": 2575
+    },
+    {
+      "partition": "train",
+      "teacher": "gpt-oss-120b",
+      "category": "Physics",
+      "families": 9632
+    },
+    {
+      "partition": "train",
+      "teacher": "publisher_DeepSeek-V4-Pro_High",
+      "category": "Mathematics",
+      "families": 12739
+    },
+    {
+      "partition": "val",
+      "teacher": "DeepSeek-V4-Pro",
+      "category": "Biology",
+      "families": 39
+    },
+    {
+      "partition": "val",
+      "teacher": "DeepSeek-V4-Pro",
+      "category": "Chemistry",
+      "families": 10
+    },
+    {
+      "partition": "val",
+      "teacher": "DeepSeek-V4-Pro",
+      "category": "Mathematics",
+      "families": 4
+    },
+    {
+      "partition": "val",
+      "teacher": "DeepSeek-V4-Pro",
+      "category": "Physics",
+      "families": 15
+    },
+    {
+      "partition": "val",
+      "teacher": "Kimi-K2-Instruct",
+      "category": "Biology",
+      "families": 31
+    },
+    {
+      "partition": "val",
+      "teacher": "Kimi-K2-Instruct",
+      "category": "Chemistry",
+      "families": 157
+    },
+    {
+      "partition": "val",
+      "teacher": "Kimi-K2-Instruct",
+      "category": "Mathematics",
+      "families": 7
+    },
+    {
+      "partition": "val",
+      "teacher": "Kimi-K2-Instruct",
+      "category": "Physics",
+      "families": 253
+    },
+    {
+      "partition": "val",
+      "teacher": "gpt-oss-120b",
+      "category": "Biology",
+      "families": 253
+    },
+    {
+      "partition": "val",
+      "teacher": "gpt-oss-120b",
+      "category": "Chemistry",
+      "families": 287
+    },
+    {
+      "partition": "val",
+      "teacher": "gpt-oss-120b",
+      "category": "Physics",
+      "families": 1048
+    },
+    {
+      "partition": "val",
+      "teacher": "publisher_DeepSeek-V4-Pro_High",
+      "category": "Mathematics",
+      "families": 1463
+    }
+  ],
+  "old_source_overlap_families": 10,
+  "old_source_overlap_policy": "Retain newer teacher representative; link known old UUID/prompt aliases to same family/partition. Old source overlap is not a formal benchmark hit and is not auto-excluded. No prior final old val exists.",
+  "formal_HLE_fingerprint_index_sha256": "4977eea22cdbd67224725e493a0f4d19351fc0680cf19064933e860874464e98",
+  "formal_HLE_exact_hit_rows": 0,
+  "old_teacher_isolation_scope": {
+    "files": 10,
+    "rows": 93733,
+    "columns": [
+      "problem",
+      "uuid"
+    ],
+    "purpose": "cross-teacher family linkage only, no old rows added or auto-excluded",
+    "limits": "OpenScience 1.6M old input rows not scanned; no semantic or paraphrase matching."
+  },
+  "downloaded_science_bytes": 268435456,
+  "missing_HLE_classes": [
+    "Computer Science",
+    "Other",
+    "Humanities",
+    "Engineering"
+  ],
+  "limits": [
+    "Zero exact HLE hits does not prove no contamination: paraphrases, embedded prompts, image content and lineage aliases remain pending.",
+    "Science has no independent gold/verification field; val needs_gold never counted as runnable taskdev. New teacher name does not establish correctness.",
+    "AoPS source URL absent; prompt hashes and publisher UUIDs cannot fully isolate modified versions of the same original problem.",
+    "Cross-source matching spans current new scan and old OpenR1 problem/uuid metadata only; known old aliases are retained in the same candidate family/partition; old OpenScience and unscanned new records remain pending.",
+    "No fixed training quota, train window, ms-swift labels, GPU throughput or final dataset chosen. Candidate partitions may change if new family aliases are discovered."
+  ],
+  "artifacts": {
+    "ranked_candidates": "artifacts/data/candidates/new_academic_20261016/ranked_candidates.jsonl",
+    "ranked_candidates_sha256": "ecb4e688535ed91196eed6463e727027b9d8011adc91dc7e6bff78be0cb8e412",
+    "quarantine": "artifacts/data/candidates/new_academic_20261016/quarantined_metadata.jsonl"
+  }
+}

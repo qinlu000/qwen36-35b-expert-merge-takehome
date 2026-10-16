@@ -1,0 +1,195 @@
+{
+  "candidate_input_sha256": "acb7dad34c4fb5f8517e4f92f497fba17fc9e5699cb2ac78ac834bfc7df590d4",
+  "chat_template_sha256": "e84f32a23fdda27689f868aa4a1a5621f41133e51a48d7f3efcbea2839574259",
+  "cleaning_counts": {
+    "reasoning_nonempty_messages": 24916
+  },
+  "converted": 600,
+  "fixed_hard51_metadata_sha256": "a888cc7fb7673798e98acf6152ff9f4843de2595028081c64626488f53707bef",
+  "observation_conversion_counts": {
+    "json_unchanged": 7864,
+    "xml_head_tail": 272,
+    "xml_short": 22201
+  },
+  "quarantined": 0,
+  "scope": "CPU candidate preparation. No trajectory commands, containers, model API, training, GPU backward or formal evaluations run. No truncation, packing or windows selected. Publisher resolved label not replayed. Tool IDs assigned in source order, whose source collector revision/order remains unproven. XML conversion preserves visible fields and exact native roundtrip; source warning wrapping changed and unseen elided text never reconstructed. Val only heldout loss until task runtime and independent grader verified. Actual Swift supervision masks remain pending.",
+  "seconds": 87.60937548987567,
+  "selection": {
+    "fixed_official_repo_language_counts": {
+      "go": 20,
+      "js": 10,
+      "python": 20,
+      "ts": 1
+    },
+    "language_basis": "Fixed official HF hard/test repo_language, exact match to locked HARD-51 IDs. This is the published task metadata label. No problem statements, hidden tests, reference patches or formal outcomes read.",
+    "official_issue_category_combinations": {
+      "[\"api_knowledge\",\"security_knowledge\"]": 1,
+      "[\"authentication_authorization_knowledge\",\"front_end_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"api_knowledge\",\"database_knowledge\",\"devops_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"api_knowledge\",\"database_knowledge\"]": 3,
+      "[\"back_end_knowledge\",\"api_knowledge\",\"devops_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"api_knowledge\",\"infrastructure_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"api_knowledge\",\"ml_ai_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"api_knowledge\",\"performance_knowledge\",\"devops_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"api_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"authentication_authorization_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"cloud_knowledge\",\"devops_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"database_knowledge\",\"api_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"database_knowledge\",\"authentication_authorization_knowledge\",\"ui_ux_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"database_knowledge\",\"cloud_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"database_knowledge\",\"infrastructure_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"database_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"desktop_knowledge\",\"web_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"devops_knowledge\",\"api_knowledge\",\"infrastructure_knowledge\"]": 2,
+      "[\"back_end_knowledge\",\"devops_knowledge\",\"security_knowledge\",\"authentication_authorization_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"devops_knowledge\"]": 2,
+      "[\"back_end_knowledge\",\"full_stack_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"infrastructure_knowledge\",\"devops_knowledge\",\"api_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"infrastructure_knowledge\",\"devops_knowledge\"]": 2,
+      "[\"back_end_knowledge\",\"infrastructure_knowledge\",\"networking_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"iot_embed_knowledge\",\"api_knowledge\",\"security_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"ml_ai_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"security_knowledge\",\"api_knowledge\"]": 1,
+      "[\"back_end_knowledge\",\"security_knowledge\",\"database_knowledge\"]": 1,
+      "[\"back_end_knowledge\"]": 1,
+      "[\"cloud_knowledge\",\"authentication_authorization_knowledge\",\"back_end_knowledge\"]": 1,
+      "[\"desktop_knowledge\",\"performance_knowledge\"]": 1,
+      "[\"desktop_knowledge\"]": 2,
+      "[\"devops_knowledge\",\"back_end_knowledge\",\"infrastructure_knowledge\"]": 1,
+      "[\"front_end_knowledge\",\"api_knowledge\",\"performance_knowledge\"]": 1,
+      "[\"front_end_knowledge\",\"back_end_knowledge\",\"ui_ux_knowledge\"]": 1,
+      "[\"front_end_knowledge\",\"ui_ux_knowledge\",\"performance_knowledge\",\"web_knowledge\"]": 1,
+      "[\"front_end_knowledge\",\"ui_ux_knowledge\",\"performance_knowledge\"]": 1,
+      "[\"front_end_knowledge\",\"ui_ux_knowledge\"]": 1,
+      "[\"front_end_knowledge\",\"web_knowledge\",\"api_knowledge\",\"performance_knowledge\"]": 1,
+      "[\"front_end_knowledge\",\"web_knowledge\",\"ui_ux_knowledge\",\"blockchain_knowledge\"]": 1,
+      "[\"front_end_knowledge\",\"web_knowledge\",\"ui_ux_knowledge\"]": 1,
+      "[\"infrastructure_knowledge\",\"devops_knowledge\",\"api_knowledge\"]": 1,
+      "[\"security_knowledge\",\"api_knowledge\",\"back_end_knowledge\"]": 1,
+      "[\"security_knowledge\",\"back_end_knowledge\"]": 1,
+      "[\"security_knowledge\",\"infrastructure_knowledge\",\"devops_knowledge\",\"back_end_knowledge\"]": 1
+    },
+    "quotas": {
+      "train": {
+        "go": 196,
+        "js": 98,
+        "python": 196,
+        "ts": 10
+      },
+      "val": {
+        "go": 39,
+        "js": 20,
+        "python": 39,
+        "ts": 2
+      }
+    },
+    "source_mix": "Within train language, proportional to eligible source counts; all val from rebench to prioritize published task environments.",
+    "supersedes": "night_v1 used current GitHub repo primary language proxy (JS1/TS10), which disagrees with fixed official JS10/TS1. night_v1 is not the selected dataset.",
+    "target_tasks": 51,
+    "train_repository_count": 346,
+    "train_val_exact_user_text_overlap": 0,
+    "train_val_family_overlap": 0,
+    "train_val_repository_overlap": 0,
+    "type_scope": "publisher successful bug-fix only, per explicit user approval; not a general SWE task distribution",
+    "val_repository_count": 95,
+    "val_tasks_per_repository_cap": 8
+  },
+  "sha256": {
+    "lengths.jsonl": "ab30677854c5c8e6df96b34fd6777f5d604421cd4273bb7c27772ddcd122b752",
+    "quarantined.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "train.cleaned.candidate.jsonl": "90c68d0d6d80a88e6708301eee9c0272787e5a5fb9358ab831bd80c11169f699",
+    "train.manifest.jsonl": "655e8f9a2bb15839763fe400acc9ef424b871e30bd4464529981e3ef2c7b1e09",
+    "val.cleaned.candidate.jsonl": "133c4ed26b3c1e1aa34f8883a7c480031e1e712f66cab9b30c9aa6c8bdcbb56e",
+    "val.manifest.jsonl": "175e0e2c1b801787283ca3b86cee6688231e7ebd7b7389a2f6472e6297b1c43b"
+  },
+  "source_revision": "1db674173119d71df45c22007af99e214600711a",
+  "source_teacher": "Qwen3.8-Flash-Next",
+  "splits": {
+    "train": {
+      "assistant_content_tool_json_proxy_tokens": 5038216,
+      "full_sequence_tokens": {
+        "fraction_le": {
+          "16384": 0.068,
+          "32768": 0.434,
+          "65536": 0.896,
+          "8192": 0.008
+        },
+        "max": 157163,
+        "mean": 39947.036,
+        "median": 35650,
+        "n": 500,
+        "p90": 66515,
+        "p95": 77226
+      },
+      "languages": {
+        "go": 196,
+        "js": 98,
+        "python": 196,
+        "ts": 10
+      },
+      "max_assistant_content_tool_json_proxy": {
+        "fraction_le": {
+          "16384": 1.0,
+          "32768": 1.0,
+          "65536": 1.0,
+          "8192": 1.0
+        },
+        "max": 5113,
+        "mean": 1216.282,
+        "median": 1066,
+        "n": 500,
+        "p90": 1980,
+        "p95": 2324
+      },
+      "rows": 500,
+      "sources": {
+        "scale-swe": 157,
+        "swe-rebench-v2": 343
+      },
+      "total_full_sequence_tokens": 19973518
+    },
+    "val": {
+      "assistant_content_tool_json_proxy_tokens": 1027625,
+      "full_sequence_tokens": {
+        "fraction_le": {
+          "16384": 0.06,
+          "32768": 0.43,
+          "65536": 0.87,
+          "8192": 0.0
+        },
+        "max": 111626,
+        "mean": 40835.12,
+        "median": 37071,
+        "n": 100,
+        "p90": 69559,
+        "p95": 81790
+      },
+      "languages": {
+        "go": 39,
+        "js": 20,
+        "python": 39,
+        "ts": 2
+      },
+      "max_assistant_content_tool_json_proxy": {
+        "fraction_le": {
+          "16384": 1.0,
+          "32768": 1.0,
+          "65536": 1.0,
+          "8192": 0.99
+        },
+        "max": 12137,
+        "mean": 1311.55,
+        "median": 1035,
+        "n": 100,
+        "p90": 2031,
+        "p95": 2556
+      },
+      "rows": 100,
+      "sources": {
+        "swe-rebench-v2": 100
+      },
+      "total_full_sequence_tokens": 4083512
+    }
+  },
+  "tokenizer_sha256": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42"
+}

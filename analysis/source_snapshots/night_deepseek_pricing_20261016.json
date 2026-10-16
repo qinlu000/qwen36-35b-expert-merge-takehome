@@ -1,0 +1,23 @@
+{
+  "verified_on": "2026-10-16 Asia/Shanghai",
+  "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+  "currency": "USD",
+  "unit": "per million tokens",
+  "models": {
+    "deepseek-v4-pro": {
+      "documented_version": "DeepSeek-V4-Pro-0813",
+      "peak_input_uncached": 1.32,
+      "peak_output": 3.96
+    },
+    "deepseek-flash": {
+      "documented_version": "DeepSeek-V4.1-Flash",
+      "peak_input_uncached": 0.3,
+      "peak_output": 1.2
+    }
+  },
+  "budget_safety_factor_cny_per_usd": 8,
+  "factor_is_not_a_claim_of_current_fx_rate": true,
+  "branch_budget_cny": 20,
+  "thinking": "disabled",
+  "per_call_max_tokens": 8192
+}

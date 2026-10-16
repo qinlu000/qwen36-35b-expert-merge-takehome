@@ -934,3 +934,10 @@
 - 两个独立修复driver验收中：最多8个future，每次准入health，transport异常熔断停止新准入/取消在途/保存checkpoint；旧生产源码/runtime SHA不改，桥绿之后也需断网stub通过才启动。原全trial自动重试0、人工infra最多2次、同HTTP read/ambiguous不得自动再发的协议保持。
 - 尝试仅延长本线724241/724242/724254的Slurm TimeLimit，被权限拒绝，未升级/换账户；仍各8h，ASI11:30:57、TB11:31:29、SWE11:52:47到期（CST）。巡检至少提前1小时有序checkpoint/服务换班，避免到期被杀。
 - ASI评分独立stub/校准及reference隔离准备继续；当前零付费，不挤占另一会话夜间30元数据预算。apex-baseline半小时heartbeat已更新事故分类/新桥/人工补跑/到期处理；本线持续推进baseline，另一线训练授权保持。
+
+## 2026-10-16 13:25：实际终局核对与训练启动修复
+
+- 当前核实而非复述旧排队记录：四卡724277实于04:16:05分配、04:21:30 FAILED，datasets loader试写/data/apps/apptainer/1.4.5/.cache报PermissionError。尚无反向成功/正式SFT/专家权重。CPU meta与实际Swift监督mask已经PASS（310目标、21,166,080参数），不能用其冒称GPU已通过。当前只按最新训练授权修同配方cache路径并做CPU红→绿后重提；不追加新参数/长度实验。
+- HLE724196于11:26达到8h上限；本轮2500保存记录=309完整答卷+512预算超时+1671生成前infra+8生成后断连。完整答卷冻结，原失败/请求/时间保留；不读正确性、不回流训练、不直接称全量baseline有效。后续服务准入/到期熔断和显式infra补评另记录。
+- 夜间新数据核证收束：Terminal可完整保留≤64K且同类数量的替换供给最多380/427（若每assistant≤8K则374），不能谎称427全部可短窗完整保留；val环境实际7/8片、88/99任务包，0native runtime验收。SciCode两主族校准1通过/1拒收，1条函数候选尚未适配ASI产物契约，ASI主训练发布仍0。
+- 学术API累计¥2.62661616、Terminal¥4.269956544，合计保守¥6.896572704。新研究/下载已停止；首段heartbeat apex已PAUSED，未改另一会话automation/作业/代理。统一文档顶部增加最新真实状态，历史预计启动时间不再当当前状态。

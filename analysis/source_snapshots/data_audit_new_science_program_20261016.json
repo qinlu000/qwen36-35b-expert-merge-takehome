@@ -1,0 +1,90 @@
+{
+  "recorded_at": "2026-10-15T18:47:43.264396+00:00",
+  "repo": "alrobles/ecocoder-scientific-reasoning",
+  "revision": "09591b2b7b261aeb37d7db464f2af31eaa24baa0",
+  "source_rows": 1586,
+  "source_split_counts": {
+    "test": 159,
+    "train": 1268,
+    "val": 159
+  },
+  "language_counts": {
+    "Python": 597,
+    "R": 987,
+    "null": 2
+  },
+  "source_model_counts": {
+    "deepseek-v4-pro": 1586
+  },
+  "doi_present": 77,
+  "paper_id_present": 117,
+  "method_count": 73,
+  "conservative_joined_families": 71,
+  "python_candidate_families": 31,
+  "candidate_partitions": {
+    "train": 30,
+    "val": 1
+  },
+  "python_rows_quarantined": {
+    "python_syntax_error": 227
+  },
+  "family_overlap_train_val": 0,
+  "sample_records": 128,
+  "sample_quarantine": {},
+  "token_statistics": {
+    "raw_full_sequence": {
+      "n": 128,
+      "mean": 670.5390625,
+      "median": 568,
+      "p95": 1235,
+      "max": 2670
+    },
+    "raw_assistant_content_proxy": {
+      "n": 128,
+      "mean": 545.6171875,
+      "median": 446,
+      "p95": 1138,
+      "max": 2454
+    },
+    "clean_full_sequence": {
+      "n": 128,
+      "mean": 670.5390625,
+      "median": 568,
+      "p95": 1235,
+      "max": 2670
+    },
+    "clean_assistant_content_proxy": {
+      "n": 128,
+      "mean": 545.6171875,
+      "median": 446,
+      "p95": 1138,
+      "max": 2454
+    }
+  },
+  "all_python_candidate_token_statistics": {
+    "clean_full_sequence": {
+      "n": 31,
+      "mean": 1070.967741935484,
+      "median": 742,
+      "p95": 2441,
+      "max": 2670
+    },
+    "assistant_content_proxy": {
+      "n": 31,
+      "mean": 931.741935483871,
+      "median": 587,
+      "p95": 2240,
+      "max": 2454
+    }
+  },
+  "supervision_measure": "assistant content token proxy only, not final Swift labels or windowed processed tokens",
+  "candidate_target_category": "ASI biology only; ecology/R/Python source is not an 11-domain replacement",
+  "source_verification": "publisher quality score is not execution success; code AST parsed only, never executed",
+  "split_policy": "all published synthetic source splits jointly grouped by method, DOI/paper_id and question hash; global candidate family hash reserve; no source test score used",
+  "training_or_model_calls": false,
+  "limitations": [
+    "No independent verifier or runtime environment yet; no executable task-dev claimed.",
+    "ASI source-lineage exclusion pending; candidates are not approved training data.",
+    "Target HLE/ASI image, other science disciplines, and terminal skills are not supplied."
+  ]
+}

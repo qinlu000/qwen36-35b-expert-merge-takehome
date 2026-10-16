@@ -1,0 +1,1028 @@
+{
+  "as_of": "2026-10-16",
+  "revision": "45fb28fcc38d352133cb28a1c8a43a2f14fea97b",
+  "license": "apache-2.0",
+  "scope": "All pinned shard non-conversation metadata via verified bounded HTTP ranges; only first shard captured body prefix audited. No trajectory code/validator/container/model/API/GPU executed. No training-format export.",
+  "metadata_rows": 94334,
+  "metadata_counts": {
+    "result": {
+      "None": 60296,
+      "AgentTimeoutError": 32764,
+      "DaytonaError": 136,
+      "DaytonaNotFoundError": 143,
+      "ContextLengthExceededError": 916,
+      "RuntimeError": 27,
+      "AgentEnvironmentTimeoutError": 6,
+      "CancelledError": 46
+    },
+    "trace_source": {
+      "main": 75879,
+      "summarization-1-summary": 3149,
+      "summarization-1-answers": 2170,
+      "summarization-3-summary": 430,
+      "summarization-3-answers": 421,
+      "summarization-5-answers": 150,
+      "summarization-5-summary": 160,
+      "summarization-7-answers": 32,
+      "summarization-7-summary": 33,
+      "summarization-9-answers": 7,
+      "summarization-9-summary": 6,
+      "summarization-11-answers": 1,
+      "summarization-11-summary": 1,
+      "None": 11895
+    },
+    "agent": {
+      "terminus-2": 94334
+    },
+    "model": {
+      "hosted_vllm/glm": 94334
+    },
+    "model_provider": {
+      "hosted_vllm": 94334
+    },
+    "source_prefix": {
+      "swesmith": 25000,
+      "superuser": 22848,
+      "issue": 25000,
+      "tezos": 19551,
+      "tezos-issue": 1935
+    },
+    "unknown_trace_role_source_prefix": {
+      "tezos": 10148,
+      "tezos-issue": 1747
+    }
+  },
+  "family_groups": 37186,
+  "main_family_groups": 33277,
+  "family_row_count_histogram": {
+    "2": 6627,
+    "1": 18778,
+    "6": 1120,
+    "3": 3570,
+    "10": 453,
+    "8": 620,
+    "4": 2408,
+    "5": 1706,
+    "12": 102,
+    "11": 194,
+    "9": 468,
+    "7": 937,
+    "13": 63,
+    "17": 19,
+    "14": 52,
+    "15": 26,
+    "18": 11,
+    "16": 16,
+    "25": 1,
+    "20": 2,
+    "49": 1,
+    "33": 1,
+    "29": 1,
+    "19": 6,
+    "22": 3,
+    "21": 1
+  },
+  "main_rows": 75879,
+  "numeric_positive_reward_main_rows": 0,
+  "unknown_trace_role_rows": 11895,
+  "formal_exact_excluded_family_groups": 0,
+  "candidate_reserve": {
+    "train": {
+      "main_rows": 68531,
+      "representative_rows_in_manifest": 30074,
+      "main_family_groups": 30074
+    },
+    "val": {
+      "main_rows": 7348,
+      "representative_rows_in_manifest": 3203,
+      "main_family_groups": 3203
+    }
+  },
+  "split_seed": "apex-new-data-v1-20261016",
+  "split_rule": "Root shared family_partition; strip _copyNNNN and group all summaries/answers/rollouts of same base task, union identical inspected instructions. Exclude known formal-hit families; source repo/template mapping unresolved.",
+  "body_capture": {
+    "path": "artifacts/data/candidates/new_terminal_20261016/raw/ot100k-train-00000.parquet",
+    "bytes_captured_before_view": 241281937,
+    "expected_full_size": 241281937,
+    "full_LFS_sha256_verified": true,
+    "row_groups_read": [
+      0,
+      1,
+      2
+    ],
+    "counts": {
+      "rows": 5736,
+      "main_rows": 4636,
+      "instruction_extracted_rows": 5736,
+      "formal_exact_hit_rows": 0,
+      "all_actions_parse_rows": 4392,
+      "any_completion_proxy_rows": 3394,
+      "assistant_messages": 112557,
+      "parser_error_messages": 1901,
+      "assistant_messages_with_leading_think": 112247
+    },
+    "unique_instruction_hashes": 5084
+  },
+  "category_coverage": {
+    "software-engineering": {
+      "target_tasks": 26,
+      "project_annotated_family_representatives": 23,
+      "official_source_labels": 0
+    },
+    "system-administration": {
+      "target_tasks": 9,
+      "project_annotated_family_representatives": 6,
+      "official_source_labels": 0
+    },
+    "security": {
+      "target_tasks": 8,
+      "project_annotated_family_representatives": 1,
+      "official_source_labels": 0
+    },
+    "scientific-computing": {
+      "target_tasks": 8,
+      "project_annotated_family_representatives": 1,
+      "official_source_labels": 0
+    },
+    "data-science": {
+      "target_tasks": 8,
+      "project_annotated_family_representatives": 0,
+      "official_source_labels": 0
+    },
+    "debugging": {
+      "target_tasks": 5,
+      "project_annotated_family_representatives": 7,
+      "official_source_labels": 0
+    },
+    "file-operations": {
+      "target_tasks": 5,
+      "project_annotated_family_representatives": 7,
+      "official_source_labels": 0
+    },
+    "mathematics": {
+      "target_tasks": 4,
+      "project_annotated_family_representatives": 0,
+      "official_source_labels": 0
+    },
+    "data-processing": {
+      "target_tasks": 4,
+      "project_annotated_family_representatives": 2,
+      "official_source_labels": 0
+    },
+    "model-training": {
+      "target_tasks": 4,
+      "project_annotated_family_representatives": 0,
+      "official_source_labels": 0
+    },
+    "machine-learning": {
+      "target_tasks": 3,
+      "project_annotated_family_representatives": 0,
+      "official_source_labels": 0
+    },
+    "games": {
+      "target_tasks": 1,
+      "project_annotated_family_representatives": 0,
+      "official_source_labels": 0
+    },
+    "personal-assistant": {
+      "target_tasks": 1,
+      "project_annotated_family_representatives": 0,
+      "official_source_labels": 0
+    },
+    "optimization": {
+      "target_tasks": 1,
+      "project_annotated_family_representatives": 0,
+      "official_source_labels": 0
+    },
+    "data-querying": {
+      "target_tasks": 1,
+      "project_annotated_family_representatives": 1,
+      "official_source_labels": 0
+    },
+    "video-processing": {
+      "target_tasks": 1,
+      "project_annotated_family_representatives": 0,
+      "official_source_labels": 0
+    }
+  },
+  "unknown_category_main_rows": 75718,
+  "manual_annotation": {
+    "source_task_instructions": 48,
+    "method": "project_manual_task_instruction_v1",
+    "official_labels": false,
+    "quality_hold_retained": true,
+    "task_labels": [
+      {
+        "base_task_id": "swesmith-07225",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "修复 TinyDB MemoryStorage 的容器类型错误",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "swesmith-04790",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "修复缓存库未采用用户配置 logger",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "swesmith-10487",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "修复 markdownify 行内元素空白处理",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "swesmith-18844",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "修复数据库后端 JSON/JSONB 类型选择",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "swesmith-04902",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "修复 go-prompt CursorLeft 的方向行为",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "swesmith-15467",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "修复 PDF 提取库属性访问回归",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "swesmith-30508",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "修复 SunPy 依赖版本解析函数作用域",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "swesmith-17539",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "修复 DSPy 包的 import 路径语法",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "swesmith-17838",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "修复 ASN.1 库二进制字符串表示",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "swesmith-14753",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "修复 Hydra override visitor 继承",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "swesmith-27090",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "修复 astroid AugAssign 节点继承",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "swesmith-01216",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "修复 pydicom UID 属性返回契约",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "superuser-006179",
+        "category": "file-operations",
+        "confidence": "high",
+        "evidence": "使用 Vim 按键序列批量修改文件",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "superuser-003033",
+        "category": "file-operations",
+        "confidence": "high",
+        "evidence": "成对图片文件名互换并处理缺配对",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "superuser-011975",
+        "category": "file-operations",
+        "confidence": "high",
+        "evidence": "目录树列出文件并限制显示数量",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "superuser-005975",
+        "category": "system-administration",
+        "confidence": "high",
+        "evidence": "解释 Linux modprobe 的 option 内核模块",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "superuser-001572",
+        "category": "file-operations",
+        "confidence": "medium",
+        "evidence": "批量 SVG 转 PNG；原题指定 Windows10，运行兼容待核",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "superuser-007392",
+        "category": "file-operations",
+        "confidence": "high",
+        "evidence": "递归目录中的文本文件拼接",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "superuser-007725",
+        "category": "system-administration",
+        "confidence": "high",
+        "evidence": "NixOS/Mac EFI 双启动配置；原题平台兼容待核",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "superuser-005738",
+        "category": "system-administration",
+        "confidence": "high",
+        "evidence": "应用安装后因系统动态库依赖无法启动",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "superuser-009452",
+        "category": "file-operations",
+        "confidence": "high",
+        "evidence": "rsync 备份删除行为与源盘故障处理",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "superuser-009088",
+        "category": "debugging",
+        "confidence": "high",
+        "evidence": "诊断 shell 文件查找中的 CRLF 与通配符故障",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "superuser-004213",
+        "category": "system-administration",
+        "confidence": "high",
+        "evidence": "Apache 403、DocumentRoot 和虚拟主机配置",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "superuser-012004",
+        "category": "file-operations",
+        "confidence": "high",
+        "evidence": "流式拼接 tar 归档及有效性",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "issue-001039",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "修改库源文件与回归测试修复图形 pickle",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "issue-004673",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "构建 C 环形缓冲 API 与测试及 Makefile",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "issue-004815",
+        "category": "data-processing",
+        "confidence": "high",
+        "evidence": "离线 OHLCV CSV 调整、滑动平均与输出核验",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "issue-003849",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "构建 localhost HTTP client/server 基准项目",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "issue-003425",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "实现 Node CSS 编译及 variation 合并项目",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "issue-003920",
+        "category": "scientific-computing",
+        "confidence": "medium",
+        "evidence": "实现固定随机种子的 Monte Carlo 逐像素方差计算",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "issue-000274",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "修改迁移序列化库以保存嵌套类限定名",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "issue-000416",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "修改 Django 内部方法签名并添加回归测试",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "issue-001611",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "修复 mock GBDT warm-start 分割种子；不等于实际模型训练",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "issue-000934",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "修改 matplotlib/Sphinx 构建依赖检查逻辑",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "issue-002948",
+        "category": "security",
+        "confidence": "medium",
+        "evidence": "实现认证 CLI 与 HMAC 签名 token 验证；兼有软件工程属性",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "issue-000804",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "修改 Django runserver 地址显示逻辑",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "tezos-02237",
+        "category": "debugging",
+        "confidence": "high",
+        "evidence": "诊断 Node ed25519 库函数不存在错误",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "tezos-03704",
+        "category": "debugging",
+        "confidence": "high",
+        "evidence": "诊断合约 mint 调用参数不匹配；链服务依赖待核",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "tezos-04036",
+        "category": "system-administration",
+        "confidence": "high",
+        "evidence": "迁移烘焙节点至 VPS 并配置密钥 scheme；真实节点环境待核",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "tezos-00176",
+        "category": "debugging",
+        "confidence": "medium",
+        "evidence": "诊断节点启动 Bus error；执行初态未恢复",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "tezos-04284",
+        "category": "debugging",
+        "confidence": "high",
+        "evidence": "诊断前端 npm 依赖包 exports 路径错误",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "tezos-02357",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "编写合约回调入口读取余额",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "tezos-03464",
+        "category": "data-querying",
+        "confidence": "medium",
+        "evidence": "通过快照 API 查询并筛选/去重结构化记录",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "tezos-00072",
+        "category": "data-processing",
+        "confidence": "medium",
+        "evidence": "将 RPC 返回的字节编码转换为合约地址",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "tezos-03588",
+        "category": "software-engineering",
+        "confidence": "high",
+        "evidence": "组织合约 mint 调用与金额参数",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "tezos-00156",
+        "category": "debugging",
+        "confidence": "medium",
+        "evidence": "诊断 Michelson 类型检查与规格不一致",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "tezos-04508",
+        "category": "system-administration",
+        "confidence": "high",
+        "evidence": "协议版本相关的节点软件包与服务配置",
+        "annotation_method": "project_manual_task_instruction_v1"
+      },
+      {
+        "base_task_id": "tezos-02162",
+        "category": "debugging",
+        "confidence": "high",
+        "evidence": "诊断交易提交与确认的 JS 调用故障；链服务依赖待核",
+        "annotation_method": "project_manual_task_instruction_v1"
+      }
+    ],
+    "sha256": "4c762ece4da2a984749fb6fb8c08d0fd6331db6a9d78b8fb429e01c6dcc9a4bd",
+    "reserve": {
+      "train": {
+        "software-engineering": 21,
+        "system-administration": 6,
+        "file-operations": 7,
+        "debugging": 7,
+        "scientific-computing": 1,
+        "data-processing": 1,
+        "security": 1,
+        "data-querying": 1
+      },
+      "val": {
+        "software-engineering": 2,
+        "data-processing": 1
+      }
+    }
+  },
+  "proportional_target_template_for_89_families": {
+    "software-engineering": 26,
+    "system-administration": 9,
+    "security": 8,
+    "scientific-computing": 8,
+    "data-science": 8,
+    "debugging": 5,
+    "file-operations": 5,
+    "mathematics": 4,
+    "data-processing": 4,
+    "model-training": 4,
+    "machine-learning": 3,
+    "games": 1,
+    "personal-assistant": 1,
+    "optimization": 1,
+    "data-querying": 1,
+    "video-processing": 1
+  },
+  "training_released_rows": 0,
+  "executable_task_dev_qualified": 0,
+  "representative_rule": "One main trace per family: prefer numeric positive reward, then no recorded exception, then inspected parse consistency and completion proxy, deterministic file/row tie. No preference for shorter/easier trajectories. Held candidates, not verified successful demonstrations.",
+  "blocking_gaps": [
+    "Only 48 manually annotated task instructions; no full TB16 distribution fit or task-binary mapping",
+    "Source repository/template families not restored",
+    "Teacher row field is alias; exact weights revision absent",
+    "No numeric verifier rewards; no recorded exception is not success",
+    "Exact exclusion only covers inspected instructions, not all metadata-only rows",
+    "No independent runtime/verifier replay"
+  ],
+  "athena_footer_only": {
+    "athena_vanilla": {
+      "rows": 1045,
+      "files": 6,
+      "range_bytes": 393216,
+      "license": null,
+      "README": false,
+      "training_released": false
+    },
+    "athena_advanced": {
+      "rows": 1045,
+      "files": 6,
+      "range_bytes": 393216,
+      "license": null,
+      "README": false,
+      "training_released": false
+    }
+  },
+  "metadata_receipts": [
+    {
+      "path": "data/train-00000-of-00010.parquet",
+      "revision": "45fb28fcc38d352133cb28a1c8a43a2f14fea97b",
+      "logical_size": 241281937,
+      "download_scope": "Sparse footer and non-conversation column chunks only; not a complete shard or LFS hash verification",
+      "footer_sha256": "fafa9a405aefb318c3d50457f2f26e64cd634abcb4f6df652d0658c3a6336571",
+      "ranges": [
+        [
+          4,
+          64
+        ],
+        [
+          49256852,
+          49340561
+        ],
+        [
+          97844052,
+          97927662
+        ],
+        [
+          146188643,
+          146272209
+        ],
+        [
+          196033104,
+          196117484
+        ],
+        [
+          241160893,
+          241239382
+        ]
+      ],
+      "fetched_bytes": 479356,
+      "rows": 9434,
+      "schema": "agent: string\nconversations: list<element: struct<content: string, role: string>>\n  child 0, element: struct<content: string, role: string>\n      child 0, content: string\n      child 1, role: string\ndate: string\nepisode: string\nmodel: string\nmodel_provider: string\nresult: string\nrun_id: string\ntask: string\ntrace_source: string\ntrial_name: string\n-- schema metadata --\nhuggingface: '{\"info\": {\"features\": {\"agent\": {\"dtype\": \"string\", \"_type\"' + 614"
+    },
+    {
+      "path": "data/train-00001-of-00010.parquet",
+      "revision": "45fb28fcc38d352133cb28a1c8a43a2f14fea97b",
+      "logical_size": 241724750,
+      "download_scope": "Sparse footer and non-conversation column chunks only; not a complete shard or LFS hash verification",
+      "footer_sha256": "140f9d81fcdf1f174b77ab0ea8557365fba31e1d116fa04ee05c8bf14e034763",
+      "ranges": [
+        [
+          4,
+          64
+        ],
+        [
+          48925891,
+          49010343
+        ],
+        [
+          97232981,
+          97317138
+        ],
+        [
+          145932733,
+          146017027
+        ],
+        [
+          194868960,
+          194952662
+        ],
+        [
+          241612555,
+          241690256
+        ]
+      ],
+      "fetched_bytes": 479908,
+      "rows": 9434,
+      "schema": "agent: string\nconversations: list<element: struct<content: string, role: string>>\n  child 0, element: struct<content: string, role: string>\n      child 0, content: string\n      child 1, role: string\ndate: string\nepisode: string\nmodel: string\nmodel_provider: string\nresult: string\nrun_id: string\ntask: string\ntrace_source: string\ntrial_name: string\n-- schema metadata --\nhuggingface: '{\"info\": {\"features\": {\"agent\": {\"dtype\": \"string\", \"_type\"' + 614"
+    },
+    {
+      "path": "data/train-00002-of-00010.parquet",
+      "revision": "45fb28fcc38d352133cb28a1c8a43a2f14fea97b",
+      "logical_size": 198767586,
+      "download_scope": "Sparse footer and non-conversation column chunks only; not a complete shard or LFS hash verification",
+      "footer_sha256": "8e125daaf16f2f994d868cfea2748d378e3455a26dfd8aa9c779a4aa0cfeacb9",
+      "ranges": [
+        [
+          4,
+          64
+        ],
+        [
+          49607310,
+          49691680
+        ],
+        [
+          99360756,
+          99444540
+        ],
+        [
+          148866252,
+          148950287
+        ],
+        [
+          177929866,
+          178012009
+        ],
+        [
+          198652728,
+          198729448
+        ]
+      ],
+      "fetched_bytes": 476654,
+      "rows": 9434,
+      "schema": "agent: string\nconversations: list<element: struct<content: string, role: string>>\n  child 0, element: struct<content: string, role: string>\n      child 0, content: string\n      child 1, role: string\ndate: string\nepisode: string\nmodel: string\nmodel_provider: string\nresult: string\nrun_id: string\ntask: string\ntrace_source: string\ntrial_name: string\n-- schema metadata --\nhuggingface: '{\"info\": {\"features\": {\"agent\": {\"dtype\": \"string\", \"_type\"' + 614"
+    },
+    {
+      "path": "data/train-00003-of-00010.parquet",
+      "revision": "45fb28fcc38d352133cb28a1c8a43a2f14fea97b",
+      "logical_size": 113388327,
+      "download_scope": "Sparse footer and non-conversation column chunks only; not a complete shard or LFS hash verification",
+      "footer_sha256": "a4cb4ba016423fb6c87528e32c1466bfa85c92f108f047765e18ded370a68ee3",
+      "ranges": [
+        [
+          4,
+          64
+        ],
+        [
+          22664555,
+          22745361
+        ],
+        [
+          45439276,
+          45520848
+        ],
+        [
+          70008797,
+          70087959
+        ],
+        [
+          92055532,
+          92136898
+        ],
+        [
+          113277361,
+          113353295
+        ]
+      ],
+      "fetched_bytes": 464442,
+      "rows": 9434,
+      "schema": "agent: string\nconversations: list<element: struct<content: string, role: string>>\n  child 0, element: struct<content: string, role: string>\n      child 0, content: string\n      child 1, role: string\ndate: string\nepisode: string\nmodel: string\nmodel_provider: string\nresult: string\nrun_id: string\ntask: string\ntrace_source: string\ntrial_name: string\n-- schema metadata --\nhuggingface: '{\"info\": {\"features\": {\"agent\": {\"dtype\": \"string\", \"_type\"' + 614"
+    },
+    {
+      "path": "data/train-00004-of-00010.parquet",
+      "revision": "45fb28fcc38d352133cb28a1c8a43a2f14fea97b",
+      "logical_size": 115260502,
+      "download_scope": "Sparse footer and non-conversation column chunks only; not a complete shard or LFS hash verification",
+      "footer_sha256": "2eca3d3aef4a2704ee11e74182f4d7abe1a936a78a5694fa0a1b39dcfb74a736",
+      "ranges": [
+        [
+          4,
+          64
+        ],
+        [
+          24187329,
+          24266574
+        ],
+        [
+          46330517,
+          46411926
+        ],
+        [
+          69756942,
+          69837052
+        ],
+        [
+          93541317,
+          93621086
+        ],
+        [
+          115150472,
+          115225936
+        ]
+      ],
+      "fetched_bytes": 461599,
+      "rows": 9433,
+      "schema": "agent: string\nconversations: list<element: struct<content: string, role: string>>\n  child 0, element: struct<content: string, role: string>\n      child 0, content: string\n      child 1, role: string\ndate: string\nepisode: string\nmodel: string\nmodel_provider: string\nresult: string\nrun_id: string\ntask: string\ntrace_source: string\ntrial_name: string\n-- schema metadata --\nhuggingface: '{\"info\": {\"features\": {\"agent\": {\"dtype\": \"string\", \"_type\"' + 614"
+    },
+    {
+      "path": "data/train-00005-of-00010.parquet",
+      "revision": "45fb28fcc38d352133cb28a1c8a43a2f14fea97b",
+      "logical_size": 164252566,
+      "download_scope": "Sparse footer and non-conversation column chunks only; not a complete shard or LFS hash verification",
+      "footer_sha256": "531b4a08413b59d0a932a0d69833bcae6eb7ab26bf92d57104c069c5f8221dfb",
+      "ranges": [
+        [
+          4,
+          64
+        ],
+        [
+          31215983,
+          31299257
+        ],
+        [
+          64929961,
+          65014365
+        ],
+        [
+          99026533,
+          99110826
+        ],
+        [
+          132465040,
+          132549388
+        ],
+        [
+          164142055,
+          164220744
+        ]
+      ],
+      "fetched_bytes": 480610,
+      "rows": 9433,
+      "schema": "agent: string\nconversations: list<element: struct<content: string, role: string>>\n  child 0, element: struct<content: string, role: string>\n      child 0, content: string\n      child 1, role: string\ndate: string\nepisode: string\nmodel: string\nmodel_provider: string\nresult: string\nrun_id: string\ntask: string\ntrace_source: string\ntrial_name: string\n-- schema metadata --\nhuggingface: '{\"info\": {\"features\": {\"agent\": {\"dtype\": \"string\", \"_type\"' + 614"
+    },
+    {
+      "path": "data/train-00006-of-00010.parquet",
+      "revision": "45fb28fcc38d352133cb28a1c8a43a2f14fea97b",
+      "logical_size": 168345151,
+      "download_scope": "Sparse footer and non-conversation column chunks only; not a complete shard or LFS hash verification",
+      "footer_sha256": "e077db28a96c11f16dc4ed23bcb25420defb5c9ccf3e07e453f777e84a629a13",
+      "ranges": [
+        [
+          4,
+          64
+        ],
+        [
+          34017413,
+          34101790
+        ],
+        [
+          68397710,
+          68481904
+        ],
+        [
+          102805042,
+          102889291
+        ],
+        [
+          136394299,
+          136478664
+        ],
+        [
+          168231599,
+          168310363
+        ]
+      ],
+      "fetched_bytes": 481551,
+      "rows": 9433,
+      "schema": "agent: string\nconversations: list<element: struct<content: string, role: string>>\n  child 0, element: struct<content: string, role: string>\n      child 0, content: string\n      child 1, role: string\ndate: string\nepisode: string\nmodel: string\nmodel_provider: string\nresult: string\nrun_id: string\ntask: string\ntrace_source: string\ntrial_name: string\n-- schema metadata --\nhuggingface: '{\"info\": {\"features\": {\"agent\": {\"dtype\": \"string\", \"_type\"' + 614"
+    },
+    {
+      "path": "data/train-00007-of-00010.parquet",
+      "revision": "45fb28fcc38d352133cb28a1c8a43a2f14fea97b",
+      "logical_size": 152168832,
+      "download_scope": "Sparse footer and non-conversation column chunks only; not a complete shard or LFS hash verification",
+      "footer_sha256": "2c2be4cc147113d36d287bb483e82ee5fdc33a37b5dd965b6911db99824253bf",
+      "ranges": [
+        [
+          4,
+          64
+        ],
+        [
+          33945710,
+          34029936
+        ],
+        [
+          67566190,
+          67650467
+        ],
+        [
+          101218792,
+          101303006
+        ],
+        [
+          130583939,
+          130664777
+        ],
+        [
+          152071266,
+          152137631
+        ]
+      ],
+      "fetched_bytes": 465522,
+      "rows": 9433,
+      "schema": "agent: string\nconversations: list<element: struct<content: string, role: string>>\n  child 0, element: struct<content: string, role: string>\n      child 0, content: string\n      child 1, role: string\ndate: string\nepisode: string\nmodel: string\nmodel_provider: string\nresult: string\nrun_id: string\ntask: string\ntrace_source: string\ntrial_name: string\n-- schema metadata --\nhuggingface: '{\"info\": {\"features\": {\"agent\": {\"dtype\": \"string\", \"_type\"' + 614"
+    },
+    {
+      "path": "data/train-00008-of-00010.parquet",
+      "revision": "45fb28fcc38d352133cb28a1c8a43a2f14fea97b",
+      "logical_size": 228388868,
+      "download_scope": "Sparse footer and non-conversation column chunks only; not a complete shard or LFS hash verification",
+      "footer_sha256": "9d45241135df2937372706814dce7a75214a796ba4947bd763d4b059f2d097d2",
+      "ranges": [
+        [
+          4,
+          64
+        ],
+        [
+          45547050,
+          45618026
+        ],
+        [
+          102623738,
+          102697315
+        ],
+        [
+          167112173,
+          167186984
+        ],
+        [
+          203285584,
+          203358653
+        ],
+        [
+          228287296,
+          228357011
+        ]
+      ],
+      "fetched_bytes": 427750,
+      "rows": 9433,
+      "schema": "agent: string\nconversations: list<element: struct<content: string, role: string>>\n  child 0, element: struct<content: string, role: string>\n      child 0, content: string\n      child 1, role: string\ndate: string\nepisode: string\nmodel: string\nmodel_provider: string\nresult: string\nrun_id: string\ntask: string\ntrace_source: string\ntrial_name: string\n-- schema metadata --\nhuggingface: '{\"info\": {\"features\": {\"agent\": {\"dtype\": \"string\", \"_type\"' + 614"
+    },
+    {
+      "path": "data/train-00009-of-00010.parquet",
+      "revision": "45fb28fcc38d352133cb28a1c8a43a2f14fea97b",
+      "logical_size": 125920337,
+      "download_scope": "Sparse footer and non-conversation column chunks only; not a complete shard or LFS hash verification",
+      "footer_sha256": "f560762616e249a167ed4eb994b10f10cdb36147c63dba5e2772b6754afcd549",
+      "ranges": [
+        [
+          4,
+          64
+        ],
+        [
+          27585599,
+          27656651
+        ],
+        [
+          55040458,
+          55111522
+        ],
+        [
+          80734367,
+          80809865
+        ],
+        [
+          103715698,
+          103794165
+        ],
+        [
+          125816197,
+          125889317
+        ]
+      ],
+      "fetched_bytes": 434803,
+      "rows": 9433,
+      "schema": "agent: string\nconversations: list<element: struct<content: string, role: string>>\n  child 0, element: struct<content: string, role: string>\n      child 0, content: string\n      child 1, role: string\ndate: string\nepisode: string\nmodel: string\nmodel_provider: string\nresult: string\nrun_id: string\ntask: string\ntrace_source: string\ntrial_name: string\n-- schema metadata --\nhuggingface: '{\"info\": {\"features\": {\"agent\": {\"dtype\": \"string\", \"_type\"' + 614"
+    }
+  ],
+  "network_this_run": {},
+  "metadata_unique_range_bytes": 4652195,
+  "metadata_unique_range_requests": 70,
+  "additional_body_ranges": {
+    "receipts": [
+      {
+        "file": "data/train-00005-of-00010.parquet",
+        "row_group": 0,
+        "range_start": 65,
+        "range_end": 31215982,
+        "body_bytes": 31215918,
+        "body_sha256": "f02d2d67b1fd7863cd3a092bb622f8db3f6eb21204e3d1871f62f88b9a475e04",
+        "partial_path": "artifacts/data/candidates/new_terminal_20261016/raw/train-00005-of-00010.body-rg0.parquet"
+      },
+      {
+        "file": "data/train-00007-of-00010.parquet",
+        "row_group": 4,
+        "range_start": 130664778,
+        "range_end": 152071265,
+        "body_bytes": 21406488,
+        "body_sha256": "6dce3986de1cab60a5d56a9d388d34a1228ba683334bdbfa0f4b46de4289f2e4",
+        "partial_path": "artifacts/data/candidates/new_terminal_20261016/raw/train-00007-of-00010.body-rg4.parquet"
+      }
+    ],
+    "network": {
+      "range_requests": 2,
+      "bytes": 52622406
+    }
+  },
+  "seconds": 13.68,
+  "script_sha256": "e6943eec65a35b981ad4ecf774992349c02e6ff8f77f4edddc48f6d70b3f209a",
+  "candidate_manifests": {
+    "annotated_val_candidate_hold.jsonl": {
+      "bytes": 3498,
+      "sha256": "da8b8aa1a8523386c761b8ca20eb1e190d32b1aba8b83be3e17b068b71d2f3bc"
+    },
+    "annotated_train_candidate_hold.jsonl": {
+      "bytes": 49696,
+      "sha256": "dddbcec5c9420863fc530a1327cf8c738f760e2ff2911c346e6f4665be155db3"
+    },
+    "train_candidate_hold.jsonl": {
+      "bytes": 23019760,
+      "sha256": "f43a815431e7e3c5d1f594c12f17a869e64fd1e9f8e52e4aabe732d20a7da3c6"
+    },
+    "val_candidate_hold.jsonl": {
+      "bytes": 2444823,
+      "sha256": "0d4a18c7b216c807b5939025c3be28c127b50f99cebf20540e54d1888edada5a"
+    }
+  }
+}

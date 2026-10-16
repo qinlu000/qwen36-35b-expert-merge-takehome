@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "family_key": "b544edb855553143a8458be486f62cbd5faa0f4a9378100be4f24625bf215131",
+      "split": "val",
+      "assistant_turn": 26,
+      "exact_generation_suffix_tokens_including_end_markers": 12095,
+      "fits_8192": false,
+      "proxy_tokens": 12137
+    }
+  ],
+  "scope": "Only turns with content/tool JSON proxy >=6000; exact fixed chat-template generation suffix, no model inference."
+}

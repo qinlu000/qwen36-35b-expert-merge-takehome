@@ -1,0 +1,35 @@
+{
+  "as_of": "2026-10-16",
+  "sources": [
+    {
+      "repo": "nvidia/Nemotron-SFT-Agentic-v4",
+      "revision": "a4593a26ea83a700035bbe0ec1edc9ef3810669d",
+      "license": [
+        "openmdw-1.1"
+      ],
+      "scope": "metadata/card only; not downloaded or selected",
+      "card_sha256": "1eeaabe06729d01f91e31cd8547e154824ce38687a1cbaab0be9feec0a1b1e01"
+    },
+    {
+      "repo": "nvidia/Nemotron-SFT-Instruction-Following-Chat-v4",
+      "revision": "1cd362945d7a00b136b95b96892bbfea8798686e",
+      "license": [
+        "openmdw-1.1"
+      ],
+      "scope": "metadata/card only; not downloaded or selected",
+      "card_sha256": "5def0e2b56fd908e4f2bbd91beca7f6e2c630236a82665dc37b6c40b40398d7c"
+    },
+    {
+      "repo": "nvidia/Nemotron-SFT-SWE-v3.5",
+      "revision": "ad64129216649f86179a759a6df65d0975c5df07",
+      "license": "cc-by-4.0",
+      "scope": "metadata/card only; not downloaded or selected",
+      "card_sha256": "f9ae6f0fb2616968ea1ff03c73617515ffb92d4aaff719d67e02ff556a377495"
+    }
+  ],
+  "decisions": {
+    "agentic_v4": "generic function/document tools; no Terminal native sandbox or ASI scientific verifier evidence; do not replace aligned pool merely because newer",
+    "chat_v4": "general instruction following, no HLE-style gold/category or scientific program verifier proof",
+    "swe_v35": "OpenCode harness, while chosen main SWE candidate is mini; no switch for recency alone"
+  }
+}

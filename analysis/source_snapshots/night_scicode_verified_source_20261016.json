@@ -1,0 +1,39 @@
+{
+  "repo": "shhu2001/SciCode-Verified",
+  "revision": "eea11a866be6860725258702b39ef8651ed26abd",
+  "license": "apache-2.0",
+  "main_tasks": 64,
+  "substep_descriptions": 290,
+  "main_solution_fields_nonempty": 0,
+  "substep_ground_truth_code_fields_nonempty": 0,
+  "published_scored_substeps": 287,
+  "hdf_target_asset_bytes": 1108078257,
+  "hdf_downloaded": false,
+  "receipts": [
+    {
+      "path": "README.md",
+      "bytes": 3437,
+      "sha256": "dd6e721dbcc957996f8d9a04082cbdd0d5b561915c0f3a4e538052c62957adfd",
+      "source_identity_verified": true
+    },
+    {
+      "path": "data/problems_test.jsonl",
+      "bytes": 947776,
+      "sha256": "427771cb8bceb5058e8b510af0ee2c8210827a1491e0cdf8e6db56d4ed1440ba",
+      "source_identity_verified": true
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 2667,
+      "sha256": "5e17afe722e127d120d6e48793cdf0379d430068eea8efb94a25503c6b3e83f9",
+      "source_identity_verified": true
+    }
+  ],
+  "admission_status": "candidate_task_source_only; not SFT traces; no teacher programs or execution performed",
+  "limits": [
+    "64 main families cannot supply 500 train plus 100 val independently",
+    "No ready teacher programs: requires bounded generation and isolated numeric verifier",
+    "Direct-LLM code contract is closer than native Claude Code, but function tests differ from ASI artifact contract",
+    "ASI source lineage and discipline mapping not yet cleared"
+  ]
+}

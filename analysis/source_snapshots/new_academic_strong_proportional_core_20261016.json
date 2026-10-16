@@ -1,0 +1,154 @@
+{
+  "benchmark": "hle",
+  "target_counts": {
+    "Math": 1021,
+    "Biology/Medicine": 280,
+    "Computer Science/AI": 241,
+    "Other": 233,
+    "Physics": 230,
+    "Humanities/Social Science": 219,
+    "Chemistry": 165,
+    "Engineering": 111
+  },
+  "input_rows": 35340,
+  "teacher_filter": "v4-pro",
+  "explicit_target_category_aliases": {
+    "Mathematics": "Math",
+    "Biology": "Biology/Medicine",
+    "Computer Science": "Computer Science/AI",
+    "Humanities": "Humanities/Social Science"
+  },
+  "teacher_counts_after_filter": {
+    "DeepSeek-V4-Pro": 641,
+    "publisher_DeepSeek-V4-Pro_High": 14202
+  },
+  "selection": "maximum available proportional candidate core over covered categories",
+  "partitions": {
+    "train": {
+      "available_counts": {
+        "Math": 12787,
+        "Biology/Medicine": 350,
+        "Computer Science/AI": 0,
+        "Other": 0,
+        "Physics": 71,
+        "Humanities/Social Science": 0,
+        "Chemistry": 104,
+        "Engineering": 0
+      },
+      "selected": 523,
+      "selected_counts": {
+        "Biology/Medicine": 86,
+        "Chemistry": 51,
+        "Math": 315,
+        "Physics": 71
+      },
+      "conditional_ratio_only": true,
+      "full_target_reference_slots_not_final_size": 771,
+      "full_target_reference_quotas": {
+        "Math": 315,
+        "Biology/Medicine": 86,
+        "Computer Science/AI": 74,
+        "Other": 72,
+        "Physics": 71,
+        "Humanities/Social Science": 68,
+        "Chemistry": 51,
+        "Engineering": 34
+      },
+      "unfilled_reference_category_slots": {
+        "Math": 0,
+        "Biology/Medicine": 0,
+        "Computer Science/AI": 74,
+        "Other": 72,
+        "Physics": 0,
+        "Humanities/Social Science": 68,
+        "Chemistry": 0,
+        "Engineering": 34
+      },
+      "unmapped_rows": 0,
+      "missing_categories": [
+        "Computer Science/AI",
+        "Other",
+        "Humanities/Social Science",
+        "Engineering"
+      ],
+      "covered_target_task_weight": 1696,
+      "total_target_task_weight": 2500,
+      "modality_counts": {
+        "text_only": 523
+      },
+      "validation_readiness": {
+        "validation_needs_gold": 208,
+        "publisher_reference_available_needs_scorer_validation": 315
+      },
+      "train_readiness": {
+        "candidate_needs_answer_verification": 208,
+        "candidate_with_publisher_reference": 315
+      },
+      "output": "/data/caoqinlu/projects/apex-takehome/artifacts/data/candidates/new_academic_20261016/strong_teacher_proportional_core/train.proportional_core.jsonl"
+    },
+    "val": {
+      "available_counts": {
+        "Math": 1467,
+        "Biology/Medicine": 39,
+        "Computer Science/AI": 0,
+        "Other": 0,
+        "Physics": 15,
+        "Humanities/Social Science": 0,
+        "Chemistry": 10,
+        "Engineering": 0
+      },
+      "selected": 102,
+      "selected_counts": {
+        "Biology/Medicine": 17,
+        "Chemistry": 10,
+        "Math": 61,
+        "Physics": 14
+      },
+      "conditional_ratio_only": true,
+      "full_target_reference_slots_not_final_size": 150,
+      "full_target_reference_quotas": {
+        "Math": 61,
+        "Biology/Medicine": 17,
+        "Computer Science/AI": 14,
+        "Other": 14,
+        "Physics": 14,
+        "Humanities/Social Science": 13,
+        "Chemistry": 10,
+        "Engineering": 7
+      },
+      "unfilled_reference_category_slots": {
+        "Math": 0,
+        "Biology/Medicine": 0,
+        "Computer Science/AI": 14,
+        "Other": 14,
+        "Physics": 0,
+        "Humanities/Social Science": 13,
+        "Chemistry": 0,
+        "Engineering": 7
+      },
+      "unmapped_rows": 0,
+      "missing_categories": [
+        "Computer Science/AI",
+        "Other",
+        "Humanities/Social Science",
+        "Engineering"
+      ],
+      "covered_target_task_weight": 1696,
+      "total_target_task_weight": 2500,
+      "modality_counts": {
+        "text_only": 102
+      },
+      "validation_readiness": {
+        "validation_needs_gold": 41,
+        "publisher_reference_available_needs_scorer_validation": 61
+      },
+      "train_readiness": {
+        "candidate_needs_answer_verification": 41,
+        "candidate_with_publisher_reference": 61
+      },
+      "output": "/data/caoqinlu/projects/apex-takehome/artifacts/data/candidates/new_academic_20261016/strong_teacher_proportional_core/val.proportional_core.jsonl"
+    }
+  },
+  "scope": "Not a training token budget or executable task-dev release. Missing categories are not silently replaced.",
+  "family_overlap_train_val": 0
+}

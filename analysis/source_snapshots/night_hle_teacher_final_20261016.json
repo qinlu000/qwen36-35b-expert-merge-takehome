@@ -1,0 +1,49 @@
+{
+  "model_requested": "deepseek-v4-pro",
+  "thinking": false,
+  "max_tokens": 8192,
+  "target": {
+    "Biology/Medicine": 56,
+    "Computer Science/AI": 48,
+    "Other": 47,
+    "Physics": 46,
+    "Humanities/Social Science": 44,
+    "Chemistry": 33,
+    "Engineering": 22
+  },
+  "accepted": {
+    "Other": 47,
+    "Engineering": 22,
+    "Computer Science/AI": 48,
+    "Humanities/Social Science": 44,
+    "Biology/Medicine": 56,
+    "Physics": 46,
+    "Chemistry": 33
+  },
+  "attempts": 362,
+  "status_counts": {
+    "gold_mismatch": 65,
+    "accepted": 296,
+    "request_or_protocol_error": 1
+  },
+  "missing": {
+    "Biology/Medicine": 0,
+    "Computer Science/AI": 0,
+    "Other": 0,
+    "Physics": 0,
+    "Humanities/Social Science": 0,
+    "Chemistry": 0,
+    "Engineering": 0
+  },
+  "conservative_cost_usd": 0.32275134000000016,
+  "conservative_budget_cny": 2.5820107200000013,
+  "science_quality_review_cost_included_usd": 0.005783699999999999,
+  "budget_cny_hard_cap": 20.0,
+  "stop_reason": "quotas_satisfied",
+  "total_prompt_tokens": 96772,
+  "total_completion_tokens": 47785,
+  "maximum_completion_tokens": 933,
+  "gold_not_sent_to_teacher": true,
+  "validation_teacher_calls": 0,
+  "training_released": false
+}
