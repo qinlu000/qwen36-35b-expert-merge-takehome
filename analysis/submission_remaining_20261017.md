@@ -32,6 +32,8 @@
 
 Terminal当前全89×5并不等于满足原题的3h/32CPU/48GB/256K/80K；目前实际为1800s/4CPU/8GiB/64K/8K，仍无面试方例外批准证据。这个缺口不能靠README或PDF措辞补成“已达标”，最终需如实披露并说明接受情况。HLE/ASI替代Judge、ASI公开local而非Portal、SWE缩短预算、历史Base与后续服务/并发差异也应进入一页报告的限制或明确链接，不能因完整任务数而消失。
 
+另，用户取消独立task-val后，主模型AVG64按先验固定，249条SFT loss-only对照在其固定后完成。该对照没有被用作开发集选择，也不能写成已经完成原题“最终配方用独立开发集选择”的过程；继续遵守取消val的决定，同时如实记录这个过程偏离。
+
 本清单不要求扩训练、再采数据、重启已完成训练、重复发布模型或恢复已取消的独立任务级validation。最小主线是 **收齐有效正式结果 → 真实20案例 → 一页报告与已完成对照整理 → 资产取用与最终提交**；无法完成的条目必须保留真实未完成状态。
 
 本次动态输出只读来源（均以`/data/caoqinlu/projects/apex-takehome/`为根）：`artifacts/eval/avg64_swe_hard51_20261017/summary.json`（as_of2026-10-16T18:12:25Z、仍waiting）、`artifacts/eval/avg64_terminal_full445_20261017/summary.json`（updated2026-10-16T19:03:20.992602Z，即10月17日03:03:20 CST）、`artifacts/eval/avg64_hle2500_20261017/scoring/summary.json`（缺失）、`artifacts/eval/avg64_asi240_20261017/scoring/local_score_seed31415.json`（缺失）。这些是审核时点的保存状态，不当作持续进度。

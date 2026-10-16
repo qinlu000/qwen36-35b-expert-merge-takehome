@@ -1540,3 +1540,12 @@
 - analysis/current_status_20261017.md汇总已完成、当前队列和六项不确定，链接持续日志与最小交付清单；README已接索引。正式全量/评分异常/20真实AVG64失败/最终成本与报告仍是主线，不恢复独立task-val。
 - PDF skill生成一页阶段报告，摘要178汉字（含标点190字符）、A4一页、字体子集嵌入；pypdf检查和实际PNG目视均通过。矩阵只显示完整Base ASI，其余待齐备；已完成CE与HF/GitHub事实有原收据来源。PDF页尾明确阶段性草稿、实际生成时间和正式02:29快照，不当最终report.pdf。
 - 最新实验代码已推lab及私人GitHub默认master至fb633bd；保留其他会话WIP和原模板main。本段与本轮自有文档/脚本/PDF单独提交，无外部通知或仓库邀请。
+
+
+## 2026-10-17：补齐复现资产索引与过程差异
+
+- 新建analysis/reproduction_asset_index_20261017.md，列公开固定来源、80/HPC实际路径、四份最终JSONL/选择材料、140SIF、训练SIF/wheelhouse/Python/Swift、Terminal470合成代码及五层overlay、ASI/SWE评分runtime、全部训练/原始作答/patch/原生判分与费用原件位置和重建顺序。
+- 轻读确认完整训练logs/config/trainer_state仅HPC，80同名run不是完整镜像；训练底座缺公开完整构建链。Terminal470及源overlay主要在80且artifacts为symlink，不能当自包含安装包；精确HLE重导出依赖原accepted教师回答。列最小离线移交清单，未打包、上传、扫描大hash或新增API/GPU。
+- README和当前进展链接该索引；本地存在但未进Git的prepare_swe_sft64k入口明确标为待补离线原件，没有留下假定可由GitHub下载的链接。
+- 明确披露取消task-val后AVG64按先验固定，后续loss-only未用作开发集择优，与原题的该选择过程存在差异；继续遵守取消任务级val，不按正式分调模型或恢复val。
+- 一页草稿及本轮进展/审计/结果文档已同步80/HPC；代码与报告已推至私人GitHub及lab至a926f90。本轮仅自有文件和共享文档追加纳Git，原baseline会话WIP保留，正式队列继续运行。

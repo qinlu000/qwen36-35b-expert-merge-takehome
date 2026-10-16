@@ -28,6 +28,8 @@
 
 五个完成 run 的 train/val 曲线、CSV和原生JSON见 [训练曲线索引](analysis/training_curves_20261017.md)。HLE250依据取消前已完成的独立100题结果冻结，ASI128依据原生val loss；Mixed用完整一轮final883，不能以最低loss的step64替代同等训练量对照。独立任务级validation已取消，不再用正式测试选择checkpoint或扫描合版系数。
 
+取消task-val后，AVG64按先验固定；新增249条loss对照在它固定后完成，未用于开发集择优。这与原题“用独立开发集选择最终配方”的过程存在差异，保留披露。
+
 AVG64表示 `Δ = Σ_i 0.25 × (32/16) B_i A_i`，通过因子拼接精确保存平均更新，输出rank64/alpha64；不是分别平均A/B。AVG16对同一更新做薄QR+SVD的rank16近似，全局相对Frobenius截断误差约0.144715。AVG64已在新增loss比较和正式评测前固定为最终模型；容量是单个rank16专家/Mixed的4倍，线性平均可能抵消冲突方向。原理、验证和配方见 [合版记录](analysis/merge_execution_20261017.md)、[固定配置](configs/merge/four_experts_avg_v1.json)。
 
 相同249条原生SFT留出集、64K上限、相同监督mask的loss-only对照已全部完成：Base **2.105976**、AVG64 **1.357921**、AVG16 **1.379223**、Mixed883 **1.672463**。AVG16与AVG64的差值为0.021302，记录固定压缩/容量消融；没有生成新答案、运行task-val或据此重新选择主模型。Mixed883重复原训练最终val loss的数值完全一致。这里是原生Trainer的teacher-forced loss，不能作为任务准确率或benchmark提升。详见 [结果、图及重画命令](analysis/sft_loss_only_plan_20261017.md)。
@@ -52,6 +54,8 @@ Terminal保留全89×5范围，但 **30min/4CPU/8GiB/64K/8K低于原题3h/32CPU/
 ## 在原环境复现
 
 这是依赖已保留资产的实验仓库。大权重、原始训练/评测数据、参考答案、SIF、task cache、完整日志和私有凭据位于被Git忽略的`artifacts/`，不随clone自动取得；仓库中的source snapshots、配置和曲线用于追溯。HPC根为 `/data/user/qinlucao/projects/apex-takehome`，CPU评测机根为 `/data/caoqinlu/projects/apex-takehome`。现有脚本含这些固定路径、账号和CPU租约，移植时必须按实际环境改配置并重验隔离，不能直接承诺fresh portable安装。
+
+[复现资产索引](analysis/reproduction_asset_index_20261017.md)列明公开来源、精确离线位置与重建依赖顺序。完整训练日志和训练二进制底座在HPC；Terminal470代码overlay与完整执行资产主要在80，`runtime/artifacts`仍是symlink。两台机器均不能单独当作整个实验的完整备份，最终还需按索引移交必要离线材料。
 
 训练环境使用Apptainer1.4.5及 `/data/user/qinlucao/software/containers/slime-39be6cbb00f9.sif`，现成Python与离线wheelhouse位于 `/data/user/qinlucao/datasets/training_mix_hpc_wheelhouse_v1/`、`training_mix_sft_wheelhouse_v1/`，项目还需`artifacts/wheels/sft`、固定ms-swift源码和Liger wheel。版本锁见 [SFT](scripts/requirements-sft-runtime.lock)、[Base推理](scripts/requirements-base-runtime.lock)、[HLE](scripts/requirements-hle.lock)、[ASI](scripts/requirements-asi.lock)、[CPU合版](configs/merge/cpu_runtime_20261017.freeze.txt)。SFT关键版本为Torch2.11.0+cu130、Transformers5.15.1、PEFT0.20.0；FLA要求的Triton3.7.1覆盖Torch元数据旧pin，不能忽略安装脚本中的兼容处理。
 
