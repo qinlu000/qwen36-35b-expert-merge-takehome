@@ -1,8 +1,7 @@
 {
-  "expert": "execution",
-  "expert_display_name": "终端与科研编程",
+  "expert": "asi",
+  "expert_display_name": "科研编程（ASI）",
   "protocols": {
-    "terminal": "Terminus2 multi-turn terminal interaction",
     "science_program": "ASI direct_llm-style single-turn complete Python generation"
   },
   "source": "osunlp/ScienceAgentBench",

@@ -1092,3 +1092,11 @@
 - SWE四卡726017首长batch在FLA反向Triton autotune OOM，0步；终端与科研编程四卡726065在大词表CE/反向OOM，0步，均无checkpoint且失败日志保留。
 - 独立sft新增官方Liger0.8.2；通用入口只启用fused-linear交叉熵，rope/rmsnorm/swiglu/cross_entropy替换均关闭。保持原shift/-100 mask、交叉熵目标、完整数据、64K/r16/global8。验证只返回相同val loss，prediction_loss_only让官方Trainer跳过巨大logits，不再计算token_acc。HLE已完成的旧入口不变。
 - 唯一SWE四卡替代726162已提交；Mixed726073依赖已更新afterok:726162，执行由其owner按同入口重提。提交不等于优化步成功，继续看真实首长batch。
+
+
+## 2026-10-16：四专家拆分与SFT数据量调研
+
+- 四专家已按用户要求拆为SWE448/87、Terminal374/42、HLE500/100、ASI82/20；Mixed仍1404/249，四份来源各一次，按原HLE→SWE→Terminal→SAB次序登记。HLE已完成权重保留，旧合训execution文件保留，不删任何训练内容。矩阵configs/train/four_experts_v1.json，Terminal拆分scripts/split_terminal_sft.py，SAB配置归属改为ASI。
+- 用户追问2000条与一般SFT需要多少数据。本轮只研究，未擅自扩量或复制样本。按research技能核原论文/作者卡：LIMA1000、Long Is More1000、SWE-smith500与5016、Tulu约94万；没有统一最低条数，现500/82不能视为已证明足够。详见analysis/sft_data_size_evidence_20261016.md及其一手来源链接。
+- 2000条是可讨论的高质量独立任务目标，优先考虑HLE/SWE扩量；Terminal仅该源1535环境，SAB仅102题，需新增来源而不是重复凑数。按当前平均完整长度粗推SWE约70M、Terminal约100M token，加对应Mixed份额约340M；HLE同长度单卡粗推约3小时。64K长序列尚无成功吞吐，不承诺小时数。
+- 当前训练栈的Liger dict CLI解析修复由terminal单writer处理；SWE保持hold，其余依赖未满足，不为调研启动新GPU或旧小池重训。保留完整数据/64K/8K/r16，没有以数量调研为由手动缩减。

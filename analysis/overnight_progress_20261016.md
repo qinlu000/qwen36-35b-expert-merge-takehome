@@ -210,3 +210,11 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 
 - 用户指出ASI采用direct_llm，不应统称交互执行。第二专家对外统一称“终端与科研编程专家”：Terminal为Terminus2多轮终端，SAB为单轮完整Python生成、ASI评测仍direct_llm。按终端操作/科研编程能力归组，不意味着harness相同。
 - 三专家数量、456/62训练分区、消息正文、内部execution路径、评测协议及合版对象均不变；Mixed仍是对照。更新configs/data/scienceagentbench_sft_v1.json显示名和协议说明，不更改正式推理配置。
+
+
+## 2026-10-16：四专家拆分与SFT数据量调研
+
+- 四专家已按用户要求拆为SWE448/87、Terminal374/42、HLE500/100、ASI82/20；Mixed仍1404/249，四份来源各一次，按原HLE→SWE→Terminal→SAB次序登记。HLE已完成权重保留，旧合训execution文件保留，不删任何训练内容。矩阵configs/train/four_experts_v1.json，Terminal拆分scripts/split_terminal_sft.py，SAB配置归属改为ASI。
+- 用户追问2000条与一般SFT需要多少数据。本轮只研究，未擅自扩量或复制样本。按research技能核原论文/作者卡：LIMA1000、Long Is More1000、SWE-smith500与5016、Tulu约94万；没有统一最低条数，现500/82不能视为已证明足够。详见analysis/sft_data_size_evidence_20261016.md及其一手来源链接。
+- 2000条是可讨论的高质量独立任务目标，优先考虑HLE/SWE扩量；Terminal仅该源1535环境，SAB仅102题，需新增来源而不是重复凑数。按当前平均完整长度粗推SWE约70M、Terminal约100M token，加对应Mixed份额约340M；HLE同长度单卡粗推约3小时。64K长序列尚无成功吞吐，不承诺小时数。
+- 当前训练栈的Liger dict CLI解析修复由terminal单writer处理；SWE保持hold，其余依赖未满足，不为调研启动新GPU或旧小池重训。保留完整数据/64K/8K/r16，没有以数量调研为由手动缩减。

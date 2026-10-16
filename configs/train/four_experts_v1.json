@@ -1,0 +1,57 @@
+{
+  "base": "Qwen3.6-35B-A3B@995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "shared_recipe": "configs/train/lora_r16_shared_v1.json",
+  "global_batch_size": 8,
+  "epochs": 1,
+  "experts": [
+    {
+      "name": "swe",
+      "display_name": "仓库修复",
+      "benchmark": "SWE-bench Pro v2-hard",
+      "data_dir": "artifacts/data/candidates/new_swe_20261016/night_v2/swift_ready64k",
+      "train_rows": 448,
+      "val_rows": 87,
+      "max_length": 65536
+    },
+    {
+      "name": "terminal",
+      "display_name": "终端操作",
+      "benchmark": "Terminal-Bench 2.0",
+      "data_dir": "artifacts/data/candidates/terminal_sft_20261016",
+      "train_rows": 374,
+      "val_rows": 42,
+      "max_length": 65536
+    },
+    {
+      "name": "hle",
+      "display_name": "学术推理",
+      "benchmark": "HLE",
+      "data_dir": "artifacts/data/candidates/night_hle_20261016/swift_ready",
+      "train_rows": 500,
+      "val_rows": 100,
+      "max_length": 2048,
+      "completed_run": "artifacts/runs/hle-sft-r16-725704"
+    },
+    {
+      "name": "asi",
+      "display_name": "科研编程",
+      "benchmark": "ASI-Bench",
+      "data_dir": "artifacts/data/candidates/scienceagentbench_verified_9c6e96c9/swift_ready",
+      "train_rows": 82,
+      "val_rows": 20,
+      "max_length": 65536,
+      "checkpoint_steps": 4
+    }
+  ],
+  "mixed_control": {
+    "data_dir": "artifacts/data/candidates/mixed_sft_20261016",
+    "train_rows": 1404,
+    "val_rows": 249,
+    "rule": "Same four expert partitions, each example once; excluded from merging"
+  },
+  "merging": {
+    "experts": ["swe", "terminal", "hle", "asi"],
+    "methods": ["uniform_average", "TIES"],
+    "selection": "Independent development sets only"
+  }
+}
