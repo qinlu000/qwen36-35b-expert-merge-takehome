@@ -1,0 +1,19 @@
+{
+  "at_utc": "2026-10-16T20:41:47.192811+00:00",
+  "source": "HPC squeue qinlucao and scontrol show job -d for each current apex service",
+  "gpu_index_convention": "Slurm allocation GRES IDX, not an asserted container CUDA ordinal",
+  "running_jobs": 5,
+  "allocated_h100": 10,
+  "partition": "acd_u",
+  "nice": 1000,
+  "emergency_jobs": 0,
+  "jobs": [
+    {"job_id": 727912, "purpose": "Terminal expert", "node": "ACD1-22", "slurm_gpu_indices": [4, 5]},
+    {"job_id": 727913, "purpose": "AVG64 SWE and Terminal", "node": "ACD1-22", "slurm_gpu_indices": [6, 7]},
+    {"job_id": 727879, "purpose": "ASI expert", "node": "ACD1-8", "slurm_gpu_indices": [5, 6]},
+    {"job_id": 727856, "purpose": "AVG64 HLE, then reuse for ASI", "node": "ACD1-20", "slurm_gpu_indices": [6, 7]},
+    {"job_id": 727857, "purpose": "HLE control AVG16 after Mixed", "node": "ACD1-30", "slurm_gpu_indices": [2, 4]}
+  ],
+  "new_gpu_allocations": 0,
+  "read_only_inventory": true
+}

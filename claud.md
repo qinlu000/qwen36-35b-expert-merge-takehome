@@ -1638,3 +1638,9 @@
 - 本机工作区6.3GiB、Git41MiB；所在盘93%已用、剩约30GiB、inode充足。80项目artifacts约440.12GiB＋其他2.58GiB，均在/data，79%已用、约2.096TiB可用、inode4%。80系统/home/tmp同根盘97%已用、剩31.44GiB需关注；/tmp可读下界94.80GiB包含其他用户/任务，不当本题缓存清理。用户.cache2.37GiB。
 - HPC/data共享40%用量、inode约1%；现有四计算节点/tmp2–3%、inode约1%，五作业缓存父目录和子目录可写。80当前24控制日志及最新100原生日志尾段、HPC五服务日志有界尾段均未检出ENOSPC/quota/readonly/write-I/O故障。未证明存储阻塞当前评测；80根盘与本机空间偏紧须继续关注。80 quota工具缺失，HPC quota查询无有效结果，个人配额未知，不能把共享df当无限配额。
 - 新增progress_and_storage_20261017_0436.md及队列/Direct/本机/80/HPC小收据，更新current_status顶端；时间点明确，HLE生成总数与会话数、已判分与invalid分开。此次没有API/模型调用、任务重跑、文件清理或资源分配；仅自有文档/收据与共享文档追加入Git，保留其他会话工作，无coauthor或对外消息。
+
+
+## 2026-10-17 04:41 CST：当前具体GPU分配
+
+- 用户询问现在用了哪些卡。HPC squeue与逐作业scontrol show job -d只读确认5个RUNNING服务共10H100，全acd_u/Nice1000、emergency0。Slurm GRES IDX为：ACD1-22卡4/5 Terminal专家727912、卡6/7 AVG64 SWE+Terminal727913；ACD1-8卡5/6 ASI专家727879；ACD1-20卡6/7 AVG64 HLE727856（后复用ASI）；ACD1-30卡2/4 AVG16 HLE对照727857。
+- 卡号按Slurm分配IDX记录，不把容器CUDA编号当物理编号。HLE专家此前已完成并释放，其余原已释放服务未重建。本轮没有新增/取消作业、GPU申请或模型请求；仅记录分配快照，保留其他会话工作。
