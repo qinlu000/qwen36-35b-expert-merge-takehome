@@ -1585,3 +1585,9 @@
 - Terminal六项依赖/公共数据缺口于03:19全部原生补评完成，仅CLI seed3=1，其余五项=0；原生覆盖442/445、90正确。另三项900秒候选计算超时保留原null，单独按实际Harbor默认Mean聚合失败，445分母五seed mean20.2247191011%、sample SD2.6350650336个百分点，严格原生均值仍null。CPU92–95真实scope退出、共享锁释放；无新增ENOSPC。
 - SWE于03:28:43达到51/51计分结论、10通过、19.6078431373%：两条原native0候选错误恢复，Vuls同patch原生0；NodeBB311官方测试完整解析（307pass/4fail），保存完整stdout/stderr与原parser后审定0，受控清理挂退出scope，原reward仍null。Teleport原patch正式25测试23pass/2fail，原race检测命中候选数据竞争，为有效native0、exception=null；测试前musl shim漏配失败完整保留，入口已固化shim，/data缓存与原预算不变。11容器和guard均退出、租约已释放。
 - 独立补缺collector读取明确replay-selection路径，原始失败尝试全部保留；主collector额外披露NodeBB审计来源与三Terminal预算聚合，不冒称445条原生reward。03:29最终预算口径齐备、严格原生标记仍false，四项等权宏平均11.3408876613%；两个纯读collector已在完成后退出。最终小型收据、脚本/配置与报告统一入Git，保留其他会话WIP，无coauthor。
+
+## 2026-10-17 03:47 CST：Base收尾后的HPC占用实查
+
+- HPC账号8个RUNNING作业、每项2H100，共16卡，达到既定上限；12卡服务已有正式消费者，另727654两卡为合版ASI等专家ASI释放CPU的暖等待。新HLE专家727821、AVG64727822及Mixed对照727831均已进入正式生成，各50并发；不把启动瞬时0请求称长期闲置。
+- 727113旧SWE推理服务51项模型消费已结束，03:43:49Z对应完成标记为true且scoring_may_still_be_running=false，当前0请求，可列最明确2卡释放候选。本次用户仅问资源状态，未取消另会话作业。Base两个TP2原于01:21:49退出，本轮缺口补评只释放80上的CPU，没有新占HPC GPU。
+- 只读证据analysis/source_snapshots/hpc_status_20261017_0347.json；未新增模型请求或作业。Slurm compute SSH有GPU索引命名空间重映射，物理IDX定向NVML样本不完整，不据此声称16卡均满载或闲置。

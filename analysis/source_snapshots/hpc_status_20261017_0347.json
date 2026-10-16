@@ -1,0 +1,63 @@
+{
+  "as_of_cst": "2026-10-17 03:47",
+  "slurm_snapshot_cst": "2026-10-17 03:45:18",
+  "allocated_gpu_count": 16,
+  "allocated_job_count": 8,
+  "gpus_with_formal_consumers": 12,
+  "gpus_waiting_for_cpu": 2,
+  "completed_consumer_gpu_release_candidates": 2,
+  "jobs": [
+    {
+      "job_id": 727113,
+      "node": "ACD1-24",
+      "allocated_gpus": 2,
+      "consumer_state": "SWE expert; model consumer finished"
+    },
+    {
+      "job_id": 727831,
+      "node": "ACD1-30",
+      "allocated_gpus": 2,
+      "consumer_state": "Mixed883 HLE active50"
+    },
+    {
+      "job_id": 727821,
+      "node": "ACD1-1",
+      "allocated_gpus": 2,
+      "consumer_state": "HLE expert active50"
+    },
+    {
+      "job_id": 727822,
+      "node": "ACD1-30",
+      "allocated_gpus": 2,
+      "consumer_state": "AVG64 HLE active50"
+    },
+    {
+      "job_id": 727660,
+      "node": "ACD1-50",
+      "allocated_gpus": 2,
+      "consumer_state": "AVG64 SWE/Terminal requests active"
+    },
+    {
+      "job_id": 727654,
+      "node": "ACD1-36",
+      "allocated_gpus": 2,
+      "consumer_state": "AVG64 ASI waiting for expert ASI CPU"
+    },
+    {
+      "job_id": 727643,
+      "node": "ACD1-2",
+      "allocated_gpus": 2,
+      "consumer_state": "ASI expert active8"
+    },
+    {
+      "job_id": 727640,
+      "node": "ACD1-28",
+      "allocated_gpus": 2,
+      "consumer_state": "Terminal expert requests active"
+    }
+  ],
+  "finished_model_consumer_marker": "artifacts/eval/swe249_hard51_20261016/model-consumer-finished.json",
+  "finished_model_consumer_marker_utc": "2026-10-16T19:43:49.856645+00:00",
+  "base_gpu_services_released_cst": "2026-10-17 01:21:49",
+  "note": "Allocation and consumers are distinct from instantaneous GPU utilization. Read-only check; no job cancellation or new inference."
+}
