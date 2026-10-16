@@ -1419,3 +1419,10 @@
 - 同既有Base的mini2.4.6、原生PATH与glibc/musl修复、30min、64K/8K、非思考、原官方初评和fresh replay，独立输出artifacts/eval/swe249_hard51_20261016。现有Base clean28/历史native23继续复用，不重跑或修改。
 - 等direct5份生成summary全部完成与Base/repair永久CPU门闩通过后自动准入。正式运行后只读原生running/waiting/KV/preemption指标，保留逐请求usage/时长；maxseq20不变，不新增GPU或synthetic负载。09:30:32停止新准入，防10:05:32服务到期。
 - 已核51份实际TrialConfig纯专家alias/环境分类、语法及真实服务日志路径。Base历史与专家实际服务并发不同，报告披露，不能将分差全部因果归到权重。完整执行报告analysis/swe_expert_benchmark_execution_20261016.md。自有文件纳Git，保留其他会话WIP，无coauthor信息。
+
+
+## 2026-10-16 23:09：解释SWE专家的资源等待
+
+- 用户询问“等待HLE/ASI生成批次及CPU释放”的含义。只读核实：Base HLE100与Base SAB20已完成，HLE16已保存11/100，HLE250/ASI128尚未开始；SWE51 pending、active0、valid0。
+- 等待包含两个当前部署条件：SWE与HLE/ASI验证共用727113两卡推理服务，现按模型块串行；80目标CPU0–9仍由Terminal Base/repair预留。repair187项中45有效、31active、110pending，CPU永久释放标记未写。31个4CPU槽覆盖0–123，另正式SWE Base使用124/126/127。
+- 这是现有共享资源的接续调度，SWE不依赖HLE/ASI的结果，训练和正式51题环境已完成。并发10是就绪后的运行上限，当前尚未实际启用。此次仅解释与记录，不改排期、预算、Base或队列。
