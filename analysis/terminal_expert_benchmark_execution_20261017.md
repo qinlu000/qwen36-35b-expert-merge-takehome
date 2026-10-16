@@ -1,8 +1,8 @@
 # Terminal250 正式完整评测执行记录
 
-截至 **2026-10-17 02:17 CST**，Terminal 专家服务 **727640** 已实际部署并通过一次原生终端命令验收；80 上正式完整 **89题 × seeds0–4 = 445次** 的自动队列已常驻，当前 controller **PID2782415**，**0正式准入 / 445待跑**。队列依赖 SWE 专家与合版 SWE 的全部模型和 CPU 消费者结束，不再依赖独立 task-val benchmark。没有生成任何 Base 答卷。
+**2026-10-17 02:40:29 CST**，Terminal 专家服务 **727640** 对应的正式完整 **89题 × seeds0–4 = 445次** 队列已准入；controller **PID2878518**，准入时 **10 active / 435 pending / 0 terminal**。它与AVG64 Terminal队列在互不重叠的CPU池各运行10槽，不再等待SWE或另一Terminal队列。这里记录的是实际启动状态，不是最新成绩。没有生成任何 Base 答卷。
 
-输出：80 `/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/`。真实启动与队列回执见 [queue snapshot](source_snapshots/terminal_expert_queue_20261017.json)、[launch snapshot](source_snapshots/terminal_expert_launch_20261017.json)。
+输出：80 `/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/`。最初服务与等待队列回执见 [queue snapshot](source_snapshots/terminal_expert_queue_20261017.json)、[launch snapshot](source_snapshots/terminal_expert_launch_20261017.json)；当前调度以 [并行迁移收据](source_snapshots/terminal_parallel_schedule_20261017.json) 和 [两模型部署记录](merged_execution_deployment_20261017.md) 为准。
 
 ## 权重与独立服务
 
@@ -28,14 +28,19 @@
 
 每次答题保留相同资源受限协议：原生 Harbor Terminus2，solver1800秒、native verifier900秒、4CPU、8GiB、65536上下文、8192输出，temperature1 / top_p0.95 / top_k20、nonthinking；原生问题、工具行为、测试和 reward 不变。该结果应明确称为资源受限协议，不能当作原3小时 / 32CPU设置的结果。
 
-最初分配 **23个任务槽，CPU0–91**。准入同时检查：Base 永久 CPU release；SWE249 的51个 terminal、active/pending清空、model-consumer receipt；合版 SWE 的 `artifacts/eval/avg64_swe_hard51_20261017/all_cpu_consumers_finished.json` 明确为true；目标实际 scopes 清空；本服务原生命令验收通过；服务至少还剩2100秒。
+初始专家租约为offset12,16,…48，即 **10槽、CPU12–51**；AVG64使用另10槽、CPU52–91。准入仅检查Base永久CPU release、自己的初始CPU池真实清空、原生命令验收、端点健康与服务剩余至少2100秒。两个原等待parent均在0正式准入时停止和替换，没有中断或重生成答卷。
 
-CPU92–95留给 ASI grader，96–127留给 ASI 专家及合版生成。仅在下列两份回执均为 `state=finished` 且实际 CPU92–123 scopes 清空后，自动增加8个槽，达到 **31槽、CPU0–123**：
+后续两个扩容stage互相独立，可按任意顺序触发；每个stage还须确认自己新增CPU没有残留scope：
+
+- 合版SWE的 `artifacts/eval/avg64_swe_hard51_20261017/all_cpu_consumers_finished.json` 为true后，专家新增offset0,4，AVG64新增offset8，共释放并使用CPU0–11。
+- 下列两份ASI all-CPU回执均完成后，专家新增offset92,96,100,104，AVG64新增offset108,112,116,120，共8槽。
 
 - `artifacts/eval/asi128_asi240_20261017/all_cpu_consumers_finished.json`
 - `artifacts/eval/avg64_asi240_20261017/all_cpu_consumers_finished.json`
 
-与 repaired Base 的每题预算相同，但 Base 使用两个推理副本，本实验只有一个 TP2/maxseq20 服务，并受上述23→31准入调度影响；分数差异不能只归因于权重。
+ASI producer以finished、generation_worker_pool_shutdown、grader_process_finished、active_program_scopes为空和generation_conditions240证明释放。已启动单次兼容sidecar，在原回执产生且五项全部符合后保存原文并补同义 `all_cpu_consumers_finished=true`，不重启producer或Terminal parent；[兼容收据](source_snapshots/asi_cpu_marker_normalizer_20261017.json)保留精确检查。缺失或未完成的回执不会触发扩容。
+
+最终是 **专家16槽 + AVG6415槽 = 总31槽/124CPU**，不是每个模型31槽。现有Base每题预算相同，但Base使用两个推理副本，各模型的服务与全局准入不同；分数差异不能只归因于权重。每题CPU、内存、时限、上下文、采样和固定445份native manifest未改变。
 
 入口：[fixed config](../configs/eval/terminal250_full445_20261017.json)、[preparer](../scripts/prepare_terminal_expert_benchmark.py)、[controller](../scripts/run_terminal_expert_benchmark.py)。所有实际依赖层按 Base 最终优先顺序合并到本输出 `runtime/scripts`，包括 runtime-v2 repair、runtime11 verifier、runtime7 native、runtime3 recovery 与 Base runtime2/Harbor。保留 native PATH、当前 task verifier cache、独立可写 cache inode、超时后 solver 清理与 verifier 前完整状态保存。`runtime/source_inventory.json` 记录470份实际文件来源和一次性 SHA；没有重扫权重、SIF或大型资产。
 
@@ -43,6 +48,6 @@ CPU92–95留给 ASI grader，96–127留给 ASI 专家及合版生成。仅在�
 
 每个预定键仅生成一次新答卷；已有 trial 目录会阻止自动再次生成。保留所有答案、报错与原生测试输出，不按 reward 选择重试。原生正常超时、context/output预算及程序错误按原规则评分；verifier基础设施问题单独保留为未评分，不补成0。
 
-summary固定分母445与每seed89，只有各seed89份有效评分齐备才计算五轮平均和 ddof1 SD。所有445次尝试与 CPU 子进程结束后，进一步检查实际使用过的CPU池中 Terminal、ASI与原生 grader scopes 均已清空，才写 `all_cpu_consumers_finished.json`，记录 `used_cpu_ids` 与 `remaining_cpu_scopes=[]`；未扩容时只检查0–91，避免误等预留的 ASI 池。`benchmark_complete` 单独反映评分是否完整；这份资源释放回执供合版 Terminal 队列等待。合版 agent 已收到同一完整445 preparer/launcher、协议与回执路径。
+summary固定分母445与每seed89，只有各seed89份有效评分齐备才计算五轮平均和 ddof1 SD。所有445次尝试与 CPU 子进程结束后，进一步检查实际使用过的自有CPU租约中 Terminal、ASI与原生 grader scopes 均已清空，才写 `all_cpu_consumers_finished.json`，记录 `used_cpu_ids` 与 `remaining_cpu_scopes=[]`；不会等待另一Terminal队列占用的CPU。`benchmark_complete` 单独反映评分是否完整，null分数不阻止真实资源释放。合版Terminal已并行运行，不以本回执作为初始准入前序。
 
 本轮仅为资源协调重启过自己的零准入等待 controller，保留了启动历史；服务727113、SWE controller824673、Base与训练均未停止或改变。Git与 `claud.md` 由 root agent统一更新。

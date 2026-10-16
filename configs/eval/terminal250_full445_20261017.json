@@ -10,12 +10,37 @@
   "service_node": "ACD1-28",
   "service_port": 18003,
   "service_ends": "2026-10-18T02:01:37+08:00",
-  "wait_for_swe_outputs": ["artifacts/eval/swe249_hard51_20261016"],
-  "wait_for_all_cpu_markers": ["artifacts/eval/avg64_swe_hard51_20261017/all_cpu_consumers_finished.json"],
   "base_cpu_release_marker": "artifacts/eval/validation_direct_20261016/shared_cpu_ready.json",
-  "cpu_offsets": [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120],
-  "initial_cpu_offsets": [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88],
-  "expansion_cpu_release_markers": ["artifacts/eval/asi128_asi240_20261017/all_cpu_consumers_finished.json", "artifacts/eval/avg64_asi240_20261017/all_cpu_consumers_finished.json"],
+  "cpu_offsets": [
+    0,
+    4,
+    12,
+    16,
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    92,
+    96,
+    100,
+    104
+  ],
+  "initial_cpu_offsets": [
+    12,
+    16,
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    44,
+    48
+  ],
   "base_full_manifest": "artifacts/runs/base-terminal-recovery-v2-20261016/runtime11/manifest.json",
   "base_runtime_script_layers": [
     "artifacts/results/base-terminal-independent-repair32-20261016/runtime-v2/scripts",
@@ -26,7 +51,13 @@
   ],
   "protocol": "apex-eval-v2-unified64k8k",
   "expected_tasks": 89,
-  "seeds": [0, 1, 2, 3, 4],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
   "expected_trials": 445,
   "agent": "Harbor Terminus2; repaired native Base runtime",
   "cpus_per_task": 4,
@@ -43,5 +74,31 @@
   "automatic_answer_regeneration": false,
   "independent_task_validation_required": false,
   "acceptance": "One synthetic echo/read native command in the cached official bn-fit-modify environment; no benchmark question generation",
-  "resource_protocol_caveat": "Resource-constrained result: 1800s solver / 4CPU / 8GiB differs from original task 3h / 32CPU settings. Same frozen Base constrained protocol. Terminal expert uses one TP2 maxseq20 service, initially23 task slots on0-91 after both SWE expert and mergedSWE drain; expands to31 slots on0-123 only after both ASI expert and mergedASI generation+grading finish. Repaired Base used two model replicas; global admission and service throughput differ."
+  "resource_protocol_caveat": "Same fixed445 native constrained protocol (4CPU8GiB,1800s/900s,64K8K,sampling unchanged). Two accepted TP2 services run simultaneously, initially10 task slots each on disjoint12-91; after mergedSWE CPU completion add3 total slots on0-11; after both ASI CPU completions add8 total slots on92-123. Final16 expert+15 AVG slots=31 total. Stages may occur in either order. Base used two model replicas with its own global admission/routing; resource topology/scheduling remain disclosed differences.",
+  "expansion_stages": [
+    {
+      "name": "swe_finished",
+      "cpu_offsets": [
+        0,
+        4
+      ],
+      "release_markers": [
+        "artifacts/eval/avg64_swe_hard51_20261017/all_cpu_consumers_finished.json"
+      ]
+    },
+    {
+      "name": "asi_finished",
+      "cpu_offsets": [
+        92,
+        96,
+        100,
+        104
+      ],
+      "release_markers": [
+        "artifacts/eval/asi128_asi240_20261017/all_cpu_consumers_finished.json",
+        "artifacts/eval/avg64_asi240_20261017/all_cpu_consumers_finished.json"
+      ]
+    }
+  ],
+  "scheduling_policy": "Parallel disjoint Terminal controllers:10 initial slots each; independent SWE and ASI release stages; check only own initial/new/current CPU lease, never wait for the other Terminal controller."
 }

@@ -1,0 +1,35 @@
+{
+  "state": "resident_waiting_for_producer_final_markers",
+  "pid": 2945577,
+  "script": "scripts/normalize_asi_cpu_markers.py",
+  "log": "artifacts/eval/asi-cpu-marker-normalization-20261017/normalizer.log",
+  "markers": [
+    "artifacts/eval/asi128_asi240_20261017/all_cpu_consumers_finished.json",
+    "artifacts/eval/avg64_asi240_20261017/all_cpu_consumers_finished.json"
+  ],
+  "terminal_parents_unchanged": [
+    2878518,
+    2878519
+  ],
+  "worker_or_producer_restarts": 0,
+  "recorded_at": "2026-10-16T18:46:00.180705+00:00",
+  "required_original_fields": {
+    "state": "finished",
+    "generation_worker_pool_shutdown": true,
+    "grader_process_finished": true,
+    "active_program_scopes": [],
+    "generation_conditions": 240
+  },
+  "producer_source": "scripts/run_direct_formal_pipeline.py:202",
+  "original_source_text_snapshots": "artifacts/eval/asi-cpu-marker-normalization-20261017/<asi128_asi240_20261017|avg64_asi240_20261017>.original.json",
+  "preserves_original_json_and_times": true,
+  "replacement": "atomic replace only after final producer file exists and all required original fields match",
+  "exit_condition": "both fixed markers normalized",
+  "cpu_test": {
+    "passed": true,
+    "missing_source_not_created": true,
+    "all_five_required_fields_checked": true,
+    "original_text_and_fields_preserved": true,
+    "score_validity_not_used_for_cpu_release": true
+  }
+}

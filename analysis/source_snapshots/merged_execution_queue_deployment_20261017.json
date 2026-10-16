@@ -511,5 +511,6 @@
   "scoring_policy": "Invalid/error rewards remain null; primary scores only when all51/445 valid. No reward-based retries or regeneration.",
   "independent_task_validation_started": false,
   "extra_gpu_evaluation_started": false,
-  "git_and_claud": "Root owns review/commit/claud update."
+  "git_and_claud": "Root owns review/commit/claud update.",
+  "terminal_schedule_superseded_by": "analysis/source_snapshots/terminal_parallel_schedule_20261017.json"
 }

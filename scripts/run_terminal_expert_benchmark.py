@@ -1,4 +1,4 @@
-"""Run the complete Terminal expert experiment after SWE releases the CPU pool."""
+"""Run fixed Terminal445 on a disjoint CPU lease with independent release stages."""
 import argparse
 import asyncio
 from collections import deque
@@ -55,29 +55,24 @@ def busy_scopes(cpus):
     return sorted(busy)
 
 
+def cpu_ids(offsets):
+    return {cpu + index for cpu in offsets for index in range(4)}
+
+
+def markers_finished(root, markers):
+    return all((root / relative).is_file() and
+               json.loads((root / relative).read_text()).get('all_cpu_consumers_finished') is True
+               for relative in markers)
+
+
 def resource_gate(root, config):
-    swe_states = []
-    for relative in config['wait_for_swe_outputs']:
-        swe = root / relative
-        path, model_marker = swe / 'checkpoint.json', swe / 'model-consumer-finished.json'
-        checkpoint = json.loads(path.read_text()) if path.exists() else {}
-        model_done = model_marker.exists() and json.loads(model_marker.read_text()).get('model_consumer_finished') is True
-        drained = (checkpoint.get('active') == {} and checkpoint.get('pending') == [] and
-                   len(checkpoint.get('terminal', {})) == 51 and model_done)
-        swe_states.append({'output': relative, 'all_cpu_and_model_consumers_finished': drained,
-            'active': len(checkpoint.get('active', {})), 'pending': len(checkpoint.get('pending', [])),
-            'terminal': len(checkpoint.get('terminal', {}))})
     released = json.loads((root / config['base_cpu_release_marker']).read_text())
-    markers = [root / relative for relative in config['wait_for_all_cpu_markers']]
-    prior_done = all(path.exists() and json.loads(path.read_text()).get('all_cpu_consumers_finished') is True
-                     for path in markers)
-    drained = all(row['all_cpu_and_model_consumers_finished'] for row in swe_states) and prior_done
-    busy = busy_scopes(set(range(92)))
-    return {'ready': drained and released.get('cpu_consumers_finished') is True and not busy,
-            'swe_all_cpu_and_model_consumers_finished': drained,
-            'swe_consumers': swe_states, 'busy_scopes_on_cpus0_91': busy,
-            'required_all_cpu_markers_finished': prior_done,
-            'base_cpu_release_confirmed': released.get('cpu_consumers_finished') is True}
+    lease = cpu_ids(config['initial_cpu_offsets'])
+    busy = busy_scopes(lease)
+    return {'ready': released.get('cpu_consumers_finished') is True and not busy,
+            'initial_cpu_ids': sorted(lease), 'busy_scopes_on_own_initial_lease': busy,
+            'base_cpu_release_confirmed': released.get('cpu_consumers_finished') is True,
+            'swe_or_other_terminal_completion_required': False}
 
 
 async def main(args):
@@ -130,7 +125,8 @@ async def main(args):
             'active': active, 'pending': list(pending), 'terminal': terminal, 'scores': scores,
             'per_seed': per_seed, 'primary_mean_percent': statistics.mean(values) if complete else None,
             'sample_sd_percent_ddof1': statistics.stdev(values) if complete else None,
-            'infrastructure_unscored_finished': len(terminal) - len(valid)}
+            'infrastructure_unscored_finished': len(terminal) - len(valid),
+            'leased_cpu_offsets': sorted(used_offsets), 'max_parallel_tasks': len(used_offsets)}
         save(output / 'checkpoint.json', value)
         save(output / 'summary.json', value)
         used_cpus = {cpu + index for cpu in used_offsets for index in range(4)}
@@ -146,7 +142,7 @@ async def main(args):
     def service_safe():
         return (datetime.fromisoformat(config['service_ends']) - datetime.now(timezone.utc)).total_seconds() >= 2100
 
-    checkpoint('waiting_swe_cpu_and_model_consumers')
+    checkpoint('waiting_own_initial_cpu_lease')
     while True:
         if not service_safe() or (output / 'STOP_ADMISSION').exists():
             checkpoint('service_expiring' if not service_safe() else 'stopped_admission')
@@ -154,13 +150,21 @@ async def main(args):
         gate = resource_gate(root, config)
         acceptance = output / 'acceptance/acceptance.json'
         accepted = acceptance.exists() and json.loads(acceptance.read_text()).get('ready') is True
-        save(output / 'resource_gate.json', dict(gate, at=now(), endpoint_accepted=accepted))
-        if gate['ready'] and accepted:
+        healthy = False
+        try:
+            async with httpx.AsyncClient(trust_env=False, timeout=5) as client:
+                (await client.get(config['endpoint'] + '/health')).raise_for_status()
+                healthy = True
+        except httpx.HTTPError:
+            pass
+        save(output / 'resource_gate.json', dict(gate, at=now(), endpoint_accepted=accepted, endpoint_healthy=healthy))
+        if gate['ready'] and accepted and healthy:
             break
         await asyncio.sleep(15)
-    save(output / 'admission-opened.json', {'at': now(), 'cpus': list(range(92)),
+    save(output / 'admission-opened.json', {'at': now(), 'cpus': sorted(cpu_ids(config['initial_cpu_offsets'])),
         'cpu_offsets': config['initial_cpu_offsets'], 'initial_max_parallel_tasks': len(config['initial_cpu_offsets']),
-        'native_endpoint_accepted': True, 'all_swe_consumers_finished': True})
+        'native_endpoint_accepted': True, 'endpoint_healthy': True,
+        'swe_or_other_terminal_completion_required': False})
 
     async def worker(cpu):
         async with httpx.AsyncClient(trust_env=False, timeout=5) as client:
@@ -189,6 +193,12 @@ async def main(args):
                         '--output=' + str(output), '--single-key=' + key, '--single-cpu=' + str(cpu),
                         stdout=log, stderr=log)
                     active[key]['pid'] = child.pid
+                    if not (output / 'first-admission.json').exists():
+                        save(output / 'first-admission.json', {'at': now(), 'key': key,
+                            'model': config['model'], 'native_trial_name': name, 'child_pid': child.pid,
+                            'parent_pid': os.getpid(), 'cpu_offset': cpu, 'cpu_ids': list(range(cpu, cpu + 4)),
+                            'memory_mib': 8192, 'solver_seconds': 1800, 'expected_trials': 445,
+                            'context_tokens': 65536, 'output_tokens': 8192})
                     checkpoint('running')
                     while child.returncode is None:
                         try:
@@ -201,17 +211,23 @@ async def main(args):
                 print(json.dumps({'event': 'finished', 'key': key, **terminal[key]}), flush=True)
 
     workers = [asyncio.create_task(worker(cpu)) for cpu in config['initial_cpu_offsets']]
-    expanded = False
+    completed_stages = set()
     while any(not task.done() for task in workers):
-        markers = [root / relative for relative in config['expansion_cpu_release_markers']]
-        ready = all(path.exists() and json.loads(path.read_text()).get('state') == 'finished' for path in markers)
-        if not expanded and ready and not busy_scopes(set(range(92, 124))):
-            expanded = True
-            extra = [cpu for cpu in config['cpu_offsets'] if cpu not in config['initial_cpu_offsets']]
-            used_offsets.update(extra)
-            workers.extend(asyncio.create_task(worker(cpu)) for cpu in extra)
-            save(output / 'cpu-expansion.json', {'at': now(), 'additional_cpu_offsets': extra,
-                'all_asi_cpu_consumers_finished': True, 'max_parallel_tasks': len(config['cpu_offsets'])})
+        for stage in config['expansion_stages']:
+            extra = stage['cpu_offsets']
+            if (pending and stage['name'] not in completed_stages
+                    and markers_finished(root, stage['release_markers'])
+                    and not busy_scopes(cpu_ids(extra))):
+                assert not used_offsets.intersection(extra)
+                completed_stages.add(stage['name'])
+                used_offsets.update(extra)
+                workers.extend(asyncio.create_task(worker(cpu)) for cpu in extra)
+                save(output / ('cpu-expansion-' + stage['name'] + '.json'), {
+                    'at': now(), 'stage': stage['name'], 'additional_cpu_offsets': extra,
+                    'checked_new_cpu_ids': sorted(cpu_ids(extra)), 'remaining_new_cpu_scopes': [],
+                    'release_markers': stage['release_markers'],
+                    'leased_cpu_offsets': sorted(used_offsets), 'max_parallel_tasks': len(used_offsets),
+                    'other_stage_required': False})
         checkpoint('running')
         await asyncio.sleep(10)
     await asyncio.gather(*workers)

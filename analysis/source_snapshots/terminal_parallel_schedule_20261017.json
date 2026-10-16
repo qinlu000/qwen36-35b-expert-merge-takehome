@@ -1,0 +1,223 @@
+{
+  "at": "2026-10-16T18:40:28.785882+00:00",
+  "state": "parallel_controllers_actual_native_admissions_verified",
+  "controllers": [
+    {
+      "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017",
+      "model": "apex-terminal250",
+      "new_parent_pid": 2878518,
+      "argv": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py",
+        "--output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017"
+      ],
+      "initial_cpu_offsets": [
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48
+      ],
+      "final_cpu_offsets": [
+        0,
+        4,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        92,
+        96,
+        100,
+        104
+      ],
+      "initial_slots": 10,
+      "final_slots": 16,
+      "native_445_manifest_unchanged": true,
+      "protocol_unchanged": true,
+      "first_admission": {
+        "at": "2026-10-16T18:40:29.808118+00:00",
+        "key": "adaptive-rejection-sampler/seed0",
+        "model": "apex-terminal250",
+        "native_trial_name": "adaptive-rejection-sampler__seed0",
+        "child_pid": 2878526,
+        "parent_pid": 2878518,
+        "cpu_offset": 12,
+        "cpu_ids": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "memory_mib": 8192,
+        "solver_seconds": 1800,
+        "expected_trials": 445,
+        "context_tokens": 65536,
+        "output_tokens": 8192
+      },
+      "verified_running_checkpoint": {
+        "active": 10,
+        "pending": 435,
+        "terminal": 0,
+        "native_trial_dirs": 10
+      }
+    },
+    {
+      "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017",
+      "model": "apex-avg64",
+      "new_parent_pid": 2878519,
+      "argv": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py",
+        "--output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017"
+      ],
+      "initial_cpu_offsets": [
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88
+      ],
+      "final_cpu_offsets": [
+        8,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        108,
+        112,
+        116,
+        120
+      ],
+      "initial_slots": 10,
+      "final_slots": 15,
+      "native_445_manifest_unchanged": true,
+      "protocol_unchanged": true,
+      "first_admission": {
+        "at": "2026-10-16T18:40:29.904465+00:00",
+        "key": "adaptive-rejection-sampler/seed0",
+        "model": "apex-avg64",
+        "native_trial_name": "adaptive-rejection-sampler__seed0",
+        "child_pid": 2878546,
+        "parent_pid": 2878519,
+        "cpu_offset": 52,
+        "cpu_ids": [
+          52,
+          53,
+          54,
+          55
+        ],
+        "memory_mib": 8192,
+        "solver_seconds": 1800,
+        "expected_trials": 445,
+        "context_tokens": 65536,
+        "output_tokens": 8192
+      },
+      "verified_running_checkpoint": {
+        "active": 10,
+        "pending": 435,
+        "terminal": 0,
+        "native_trial_dirs": 10
+      }
+    }
+  ],
+  "cpu_protocol_checks": {
+    "initial_terminal_cpus": 80,
+    "initial_total_with_swe_asi_grader": 126,
+    "after_swe_total_with_asi_grader": 128,
+    "final_terminal_cpus": 124,
+    "final_terminal_slots": 31,
+    "cross_controller_lease_overlap": false,
+    "independent_stage_tests": [
+      {
+        "mode": "neither",
+        "stages": []
+      },
+      {
+        "mode": "swe_only",
+        "stages": [
+          "swe_finished"
+        ]
+      },
+      {
+        "mode": "asi_only",
+        "stages": [
+          "asi_finished"
+        ]
+      },
+      {
+        "mode": "both",
+        "stages": [
+          "swe_finished",
+          "asi_finished"
+        ]
+      }
+    ]
+  },
+  "raw_preflight": "artifacts/eval/terminal-parallel-schedule-preflight-20261017.json",
+  "new_gpu_jobs": 0,
+  "loss_only727689_unchanged": true,
+  "preflight": {
+    "at": "2026-10-16T18:39:18.919517+00:00",
+    "old_waiting_parents_stopped": [
+      {
+        "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017",
+        "previous_pid": 2782415,
+        "pending": 445,
+        "active": 0,
+        "terminal": 0,
+        "formal_trial_dirs": 0
+      },
+      {
+        "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017",
+        "previous_pid": 2781816,
+        "pending": 445,
+        "active": 0,
+        "terminal": 0,
+        "formal_trial_dirs": 0
+      }
+    ],
+    "initial_scope_checks": {
+      "fixture_cpu12_15": [],
+      "expert_cpu12_51": [],
+      "avg_cpu52_91": []
+    },
+    "native_attempts_interrupted": 0,
+    "models_or_services_changed": false
+  },
+  "recorded_at": "2026-10-16T18:41:50.168311+00:00",
+  "source": "scripts/run_terminal_expert_benchmark.py",
+  "configs": [
+    "configs/eval/terminal250_full445_20261017.json",
+    "configs/eval/avg64_terminal_full445_20261017.json"
+  ],
+  "base_topology_caveat": "Same constrained per-trial native protocol and fixed445 questions/seeds; Base used two serving replicas with a different global admission/routing schedule; do not attribute all runtime/score differences solely to weights.",
+  "asi_marker_compatibility": {
+    "receipt": "analysis/source_snapshots/asi_cpu_marker_normalizer_20261017.json",
+    "pid": 2945577,
+    "parents_not_restarted": true,
+    "all_cpu_consumers_finished": "Derived true only after producer state=finished, pool shutdown, grader finished, scopes=[], generation_conditions=240; original JSON fields/times preserved",
+    "own_new_cpu_actual_scope_gate_retained": true
+  }
+}

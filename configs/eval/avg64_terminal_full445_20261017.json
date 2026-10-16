@@ -10,29 +10,9 @@
   "service_node": "ACD1-50",
   "service_port": 18000,
   "service_ends": "2026-10-18T02:09:48+08:00",
-  "wait_for_swe_outputs": [
-    "artifacts/eval/swe249_hard51_20261016",
-    "artifacts/eval/avg64_swe_hard51_20261017"
-  ],
-  "wait_for_all_cpu_markers": [
-    "artifacts/eval/avg64_swe_hard51_20261017/all_cpu_consumers_finished.json",
-    "artifacts/eval/terminal250_full445_20261017/all_cpu_consumers_finished.json"
-  ],
   "base_cpu_release_marker": "artifacts/eval/validation_direct_20261016/shared_cpu_ready.json",
   "cpu_offsets": [
-    0,
-    4,
     8,
-    12,
-    16,
-    20,
-    24,
-    28,
-    32,
-    36,
-    40,
-    44,
-    48,
     52,
     56,
     60,
@@ -43,29 +23,12 @@
     80,
     84,
     88,
-    92,
-    96,
-    100,
-    104,
     108,
     112,
     116,
     120
   ],
   "initial_cpu_offsets": [
-    0,
-    4,
-    8,
-    12,
-    16,
-    20,
-    24,
-    28,
-    32,
-    36,
-    40,
-    44,
-    48,
     52,
     56,
     60,
@@ -76,10 +39,6 @@
     80,
     84,
     88
-  ],
-  "expansion_cpu_release_markers": [
-    "artifacts/eval/asi128_asi240_20261017/all_cpu_consumers_finished.json",
-    "artifacts/eval/avg64_asi240_20261017/all_cpu_consumers_finished.json"
   ],
   "base_full_manifest": "artifacts/runs/base-terminal-recovery-v2-20261016/runtime11/manifest.json",
   "base_runtime_script_layers": [
@@ -114,7 +73,32 @@
   "automatic_answer_regeneration": false,
   "independent_task_validation_required": false,
   "acceptance": "One synthetic echo/read native command in the cached official bn-fit-modify environment; no benchmark question generation",
-  "resource_protocol_caveat": "Resource-constrained445: same fixed native repaired Base tasks,seeds,4CPU8GiB,1800s/900s and64K8K sampling. PrimaryAVG64 TP2maxseq20. Initially23slots0-91 only after SWEexpert,mergedSWE andTerminalexpertfull445 allCPUdrain; expand31slots0-123 only both ASIexpert andmergedASI generation+grading receipts finished and scopesclear. Base used two model replicas; throughput/admission differ.",
+  "resource_protocol_caveat": "Same fixed445 native constrained protocol (4CPU8GiB,1800s/900s,64K8K,sampling unchanged). Two accepted TP2 services run simultaneously, initially10 task slots each on disjoint12-91; after mergedSWE CPU completion add3 total slots on0-11; after both ASI CPU completions add8 total slots on92-123. Final16 expert+15 AVG slots=31 total. Stages may occur in either order. Base used two model replicas with its own global admission/routing; resource topology/scheduling remain disclosed differences.",
   "base_alias": "apex-avg64-base",
-  "acceptance_cpu_offset": 12
+  "acceptance_cpu_offset": 12,
+  "expansion_stages": [
+    {
+      "name": "swe_finished",
+      "cpu_offsets": [
+        8
+      ],
+      "release_markers": [
+        "artifacts/eval/avg64_swe_hard51_20261017/all_cpu_consumers_finished.json"
+      ]
+    },
+    {
+      "name": "asi_finished",
+      "cpu_offsets": [
+        108,
+        112,
+        116,
+        120
+      ],
+      "release_markers": [
+        "artifacts/eval/asi128_asi240_20261017/all_cpu_consumers_finished.json",
+        "artifacts/eval/avg64_asi240_20261017/all_cpu_consumers_finished.json"
+      ]
+    }
+  ],
+  "scheduling_policy": "Parallel disjoint Terminal controllers:10 initial slots each; independent SWE and ASI release stages; check only own initial/new/current CPU lease, never wait for the other Terminal controller."
 }

@@ -464,10 +464,18 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - 原生吞吐、rank0 peak-reserved语义、逐作业allocation/费用来源与轻量重跑脚本保留analysis/resource_ledger_20261017.md及source_snapshots/resource_ledger_20261017。随后Terminal并发优化不回写旧时点快照。
 
 
-## 2026-10-17 02:49 CST：五个Public HF模型已完成匿名验收
+## 2026-10-17 02:47 CST：五个Public HF模型已完成匿名验收
 
 - 四专家与主AVG64已真实发布到csminion/apex-qwen36-{swe,terminal,hle,asi,avg64}，均public/ungated；每仓只发README、adapter config/weights、LICENSE、NOTICE和标准Apache全文六文件。每份按真实immutable SHA以token=False完整下载、尺寸/stream字节/620张量头核对，并再次与源权重逐字节一致；未增加人工大哈希扫描或模型生成。
 - 只在发布副本把base_model_name_or_path改为公共Qwen ID并显式pin995ad96...revision，原checkpoint、服务与训练产物不变。模型卡保留原生训练数量、HLE250选择、容量差异、来源/许可/血缘局限与正式评分未完成状态，不写占位分数。models/README.md与release_manifest记录5真实URL/SHA，analysis/source_snapshots/hf_publication_20261017.json保存匿名验收。
 - 按原始HTML题面，以官方template实际建立个人Private仓库https://github.com/qinlu000/qwen36-35b-expert-merge-takehome；当前template main保留来源，实验master待本轮推送/设默认。根README补真实研究设计、数据、协议、原环境命令、统计与剩余交付，未冒称portable安装或全部评测完成。
 - 用户此前要求睡觉时持续推进，已在当前thread创建每小时heartbeat“笔试评测持续推进”，截止北京时间10/18 02:20，保留最后12小时；先读最新claud和原生状态、尊重16卡/互斥CPU、禁止复活task-val和重生成Base、固定模型不按正式结果调参，进展/问题持续入文档，不发邮件或消息给他人。
 - 公共上传不含训练原文、benchmark包、私有日志或凭据；本地hf_token保持0600且被Git忽略，跟踪文本历史的credential-shaped literal检查为0。此轮不纳另一会话WIP，不加coauthor。
+
+
+## 2026-10-17 03:07 CST：两个Terminal正式队列并行执行
+
+- 专家与AVG64均在02:40:29真实准入各10槽，原两个零准入等待parent已停止；没有中断/重复生成trial。专家CPU12–51，AVG64 CPU52–91，终态/active/pending与原生trial均已保存。
+- 后续SWE释放只分别增2/1槽，两个ASI全CPU释放只分别增4/4槽；两个stage独立，最终专家16槽、AVG6415槽，总31槽。scope仅检查自身新增或已使用CPU，不会互相等待另一Terminal队列。
+- ASI既有producer以五个原生字段证明全CPU排空；单次sidecar等待原回执、保留原文后补同义bool，供已运行parent读取，不重启队列、不提前释放资源。固定445范围、64K/8K、每题4CPU/8GiB/1800s协议未变。
+- 同步更新两模型部署文档与旧Terminal执行说明，明确初始10+10、最终16+15的实际调度，保留原服务/等待回执作历史；不把启动状态写成最终成绩。Python语法与Slurm shell检查通过。
