@@ -1549,3 +1549,13 @@
 - README和当前进展链接该索引；本地存在但未进Git的prepare_swe_sft64k入口明确标为待补离线原件，没有留下假定可由GitHub下载的链接。
 - 明确披露取消task-val后AVG64按先验固定，后续loss-only未用作开发集择优，与原题的该选择过程存在差异；继续遵守取消任务级val，不按正式分调模型或恢复val。
 - 一页草稿及本轮进展/审计/结果文档已同步80/HPC；代码与报告已推至私人GitHub及lab至a926f90。本轮仅自有文件和共享文档追加纳Git，原baseline会话WIP保留，正式队列继续运行。
+
+
+## 2026-10-17 03:00起：执行Base缺口补齐
+
+- 用户明确授权补齐Base。保留所有原答案/patch/测试和失败记录，0新增Base求解调用；只做评分恢复。HLE于02:56:55已2500/2500有效、99正确、3.96%、0invalid。原两次4096截断JSON不能可靠解析；新增唯一一次grader仅压短解释/先序列化verdict，原criteria/gold/答案/model/4096/nonthinking不变，62输出token完整JSON为no。旧1056账本保留，独立recovery费.00122625，合计1057次/1.6010295元<10，collector费用已含新账本。
+- Base SWE两项原生0经明确证据恢复：Protonmail新增组件useConfig函数错误；Flipt candidate新增错误go.sum，两条均与原prep和官方Go checksum数据库匹配为candidate失败，未改其校验或patch。Vuls同patch仅重放03:10已有效0(Go unused import)，现49/51。NodeBB3102264在CPU11原3000s重放；Teleport等待Terminal共享槽后用92。SWE scope guard连续保留11防切换被接管；父3102265只安排尚未启动项。所有newreplay/data scratch，后续Go cache原样落盘，0model调用。
+- Terminal六项依赖/公共数据native补评分常驻，共享direct_asi_grader_cpu92_95.lock，4CPU8GiB/900s，不占专家/合版12–91或ASI96–127。Python3.11、原SAM git commit依赖/官方权重、MNIST、原Doom datedsnapshot43.deb已备齐并实际接线。/etc全量tar遇FUSE copy-up和目录unlink/覆盖错误，所有失败setup记录保留且0官方tests；改为小etc差异逐叶恢复后真实pytest已通。dpkg type/mode差异来自native setup_dpkg_for_overlay复制重建，不误称模型修改。
+- 03:13原生coverage439/445：trainFasttext seed3/4官方2test各失败(原候选无model.bin)为有效0；CLI seed3补MNIST后6test全过为1。CLI4及Doom3/SAM3继续native补评。父3080870不依赖Mac，scope92–95与8GiB实证；任一setup失败停止准入，不让其余题重复撞错。
+- 3个真计算timeout(FEAL0/4、modelExtract4)已独立审定：官方pytest真正开始并耗尽900s，无reward且无依赖/磁盘故障，candidate静态循环计算大。原始null与strict覆盖不改。实际Harbor Mean源码将None聚合0，所以另列完整分母的固定预算聚合，绝不伪造3条native0；其他6项完成后strict最多442/445、预算聚合可445项，对比所有模型须同口径。
+- 新纯读collector outputs artifacts/results/base-gap-completion-20261017，读取new native/逐result audit；主report优先新SWE及Terminal strict，历史旧5/51和436 partial保留，并额外公开Harbor预算均值/SD。main collector3061357固定metadata125；gap reader3061355不调用模型或测试。所有远端native controllers/CPU leases/日志原样保留，最终指标齐前不报完整score或macro。本轮先提交HLE恢复、timeout审定与纯读总汇代码/记录，后续native收尾另纳Git；无coauthor信息。

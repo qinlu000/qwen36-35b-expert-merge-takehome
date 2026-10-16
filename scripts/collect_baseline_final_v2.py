@@ -16,6 +16,7 @@ SOURCES = {
     "TB": (445, "artifacts/results/base-terminal-v2-recovery-20261016/final_summary.json"),
 }
 TB_CORRECTED_SOURCE = "artifacts/results/base-terminal-independent-repair32-20261016/corrected445_summary.json"
+GAP_OUTPUT = "artifacts/results/base-gap-completion-20261017"
 NOTES = {
     "HLE": "Retain all original answers and normal budget ends. At1424 outcomes, serving changed from max_num_seqs4 to20, with8 incomplete migration infrastructure retry2. User then requests server/client50; the next natural handoff transfers only never-started questions and adds no retry. Actual transitions are recorded separately. Queue time is inside the300s budget, so earlier timeouts cannot be interpreted as model ability alone. Judge uses school DeepSeek-V4-Flash and original criteria/JSONwrapper/4096/nonthinking; infrastructure-invalid outcomes are not zeros.",
     "ASI": "Public local240-condition single-shot/8K score, not Portal-certified. Of237 new answers,29 hit length8192;28 then failed with a leading code fence after native extraction fallback.49 runtime missing-import outcomes used the frozen declared-dependency task sandbox, which differs from default none/full host execution. These limits confound a broad model-ability interpretation. Soil b2 empty-array hard-gate repair and native adapters remain disclosed; formal Judge0calls.",
@@ -41,7 +42,10 @@ def save(path, value):
 def benchmark(project, name, expected, source):
     path = project / source
     original_path = path
-    if name == "TB" and (project / TB_CORRECTED_SOURCE).exists():
+    recovered = project / GAP_OUTPUT / ('terminal_strict_summary.json' if name == 'TB' else 'swe51_summary.json')
+    if name in ('TB', 'SWE') and recovered.exists():
+        path = recovered
+    elif name == "TB" and (project / TB_CORRECTED_SOURCE).exists():
         path = project / TB_CORRECTED_SOURCE
     row = {"expected": expected, "valid_scored": None, "unscored": None, "complete": False,
         "primary_score_percent": None, "source": str(path), "note": NOTES[name]}
@@ -79,6 +83,13 @@ def benchmark(project, name, expected, source):
                 scoring_complete=bool(raw["complete"]), usable_as_clean_model_comparison=False,
                 legacy_generation_environment_tasks=28, corrected_generation_environment_tasks=23,
                 clean_generation_rerun_started=False)
+            if path != original_path:
+                historical = read(original_path)
+                row.update(original_source=str(original_path),
+                    original_primary_score_percent=historical['primary_score_percent'],
+                    usable_as_clean_model_comparison=True, legacy28_replaced_as_fixed_cohort=True,
+                    note='Fixed legacy28 were regenerated independently, all native23 retained; grade-only gap recovery preserves original patches and first valid zeros/ones. Historical affected5/51 remains separately available.')
+                row['grade_only_replays_active'] = raw.get('grade_only_replays_active', 0)
             clean_path = project / 'artifacts/eval/base_swe_v2_20261016_clean28/checkpoint.json'
             if clean_path.exists():
                 clean = read(clean_path)
@@ -88,9 +99,9 @@ def benchmark(project, name, expected, source):
                     clean_generation_rerun_expected=28,
                     clean_generation_rerun_active=len(clean['active']),
                     clean_generation_rerun_pending=len(clean['pending']),
-                    clean_generation_rerun_valid_scored=clean['valid_scored'],
-                    clean_generation_rerun_complete=clean['complete'],
-                    separate_corrected51_score_percent=corrected['primary_score_percent'])
+                    clean_generation_rerun_valid_scored=raw.get('clean28_valid_scored', clean['valid_scored']),
+                    clean_generation_rerun_complete=(raw.get('clean28_valid_scored') == 28 if path != original_path else clean['complete']),
+                    separate_corrected51_score_percent=(raw['primary_score_percent'] if path != original_path else corrected['primary_score_percent']))
             score = raw["primary_score_percent"]
         else:
             assert raw["expected_trials"] == expected
@@ -121,6 +132,17 @@ def benchmark(project, name, expected, source):
             row["owner_primary_mean_percent"] = raw["primary_mean_percent"]
             row["owner_sample_sd_percent_ddof1"] = raw["sample_sd_percent_ddof1"]
             row["first_valid_chronology"] = raw.get("first_valid_chronology")
+            budget_path = project / GAP_OUTPUT / 'terminal_budget_summary.json'
+            if budget_path.exists():
+                budget = read(budget_path)
+                row.update(harbor_budget_aggregation_source=str(budget_path),
+                    harbor_budget_aggregation_complete=budget['complete'],
+                    harbor_budget_mean_percent=budget['primary_mean_percent'],
+                    harbor_budget_sample_sd_percent_ddof1=budget['sample_sd_percent_ddof1'],
+                    native_reward_trials=budget['native_reward_trials'],
+                    derived_candidate_compute_timeout_failures=budget['derived_timeout_failures'],
+                    native_rewards_modified=False,
+                    aggregation_note='Harbor default Mean maps None to zero. Only three independently audited candidate-computation900s timeouts are derived failures here; native rewards and strict coverage remain unchanged. Apply the same budget policy to every compared model.')
         row["complete"] = bool(raw["complete"] and row["valid_scored"] == expected and score is not None)
         row["primary_score_percent"] = score if row["complete"] else None
     except (OSError, ValueError, KeyError, AssertionError) as error:
@@ -137,6 +159,9 @@ def report(project):
         "method": "Read owner summaries only; missing/infrastructure-invalid values never become scored zeros."}
     if rows['SWE'].get('clean_generation_rerun_started'):
         result['complete'] = result['complete'] and rows['SWE']['clean_generation_rerun_complete']
+    result['complete_under_disclosed_harbor_budget_aggregation'] = bool(
+        all(rows[name]['complete'] for name in ('HLE', 'ASI', 'SWE'))
+        and rows['TB'].get('harbor_budget_aggregation_complete'))
     migration_path = project / "artifacts/runs/base_hle_v2_724196_seq20/handoff-receipt.json"
     if migration_path.exists():
         migration = read(migration_path)
@@ -164,6 +189,14 @@ def report(project):
             "settled_usage_cny": sum(item["charged_cny"] for item in calls if item["status"] == "completed"),
             "failed_or_inflight_reserved_cny": sum(item["charged_cny"] for item in calls if item["status"] != "completed"),
             "accounted_cny": sum(item["charged_cny"] for item in calls), "hard_limit_cny": ledger["max_cny"]}
+        recovery_path = budget_path.parent / 'single-judge-recovery-20261017/budget.json'
+        if recovery_path.exists():
+            recovery = read(recovery_path)
+            result['hle_judge_cost']['calls'] += 1
+            result['hle_judge_cost']['accounted_cny'] += recovery['charged_cny']
+            key = 'settled_usage_cny' if recovery['status'] == 'completed' else 'failed_or_inflight_reserved_cny'
+            result['hle_judge_cost'][key] += recovery['charged_cny']
+            result['hle_judge_cost']['recovery_ledger'] = str(recovery_path)
     shared_path = project / "analysis/source_snapshots/night_api_budget_20261016.json"
     if shared_path.exists():
         shared = read(shared_path)
@@ -178,14 +211,18 @@ def markdown(result):
     def number(value):
         return f"{value:.8f}%" if value is not None else "null（未完整有效评分）"
     lines = ["# Base baseline 持续最终汇总", "", "更新时间（UTC）：" + result["updated_at_utc"], "",
-        "四项全部完成：" + ("是" if result["complete"] else "否"), "",
+        "严格原生评分齐备：" + ("是" if result["complete"] else "否"), "",
+        "按披露的Harbor固定预算聚合齐备：" + ("是" if result.get('complete_under_disclosed_harbor_budget_aggregation') else "否"), "",
         "| Benchmark | 有效评分／固定分母 | 主成绩 | 未有效评分 |", "|---|---:|---:|---:|"]
     for name, row in result["benchmarks"].items():
         covered = row["valid_scored"] if row["valid_scored"] is not None else "待源summary"
         lines.append(f"| {name} | {covered}/{row['expected']} | {number(row['primary_score_percent'])} | {row['unscored']} |")
     swe = result['benchmarks']['SWE']
     if swe.get('clean_generation_rerun_started'):
-        lines += ['', f"SWE 上表保留受旧生成环境干扰的历史成绩。独立 clean28：{swe['clean_generation_rerun_valid_scored']}/28 有效评分，{swe['clean_generation_rerun_active']} 项在途，{swe['clean_generation_rerun_pending']} 项待准入；整组替换后的独立51项成绩：{number(swe['separate_corrected51_score_percent'])}。", '']
+        if swe.get('legacy28_replaced_as_fixed_cohort'):
+            lines += ['', f"SWE 上表为固定28整组替换并补评分后的独立51项结果；原生成环境受影响的历史成绩保留在 `{swe['original_source']}`。独立clean28已有{swe['clean_generation_rerun_valid_scored']}/28有效，当前仅补评在途{swe.get('grade_only_replays_active', 0)}。", '']
+        else:
+            lines += ['', f"SWE 上表保留受旧生成环境干扰的历史成绩。独立 clean28：{swe['clean_generation_rerun_valid_scored']}/28 有效评分，{swe['clean_generation_rerun_active']} 项在途，{swe['clean_generation_rerun_pending']} 项待准入；整组替换后的独立51项成绩：{number(swe['separate_corrected51_score_percent'])}。", '']
     tb = result["benchmarks"]["TB"]
     lines += ["", "TB 每seed固定89题；只有该seed89个有效结果齐全才给seed分。", "",
               "| Seed | 有效／89 | 正确数 | 分数 |", "|---|---:|---:|---:|"]
@@ -193,6 +230,9 @@ def markdown(result):
         lines.append(f"| {seed['seed']} | {seed['valid_scored']}/89 | {seed['correct']} | {number(seed['score_percent'])} |")
     lines += ["", "TB 五seed mean：" + number(tb["primary_score_percent"]),
               "TB sample SD（ddof=1，百分点）：" + str(tb.get("sample_sd_percent_ddof1")), ""]
+    if 'harbor_budget_aggregation_complete' in tb:
+        lines += ["TB Harbor默认固定预算mean：" + number(tb['harbor_budget_mean_percent']),
+            f"原生reward覆盖{tb['native_reward_trials']}/445；另{tb['derived_candidate_compute_timeout_failures']}项已核实的候选计算超时按默认Mean规则聚合为失败，原始reward仍null。", ""]
     cost = result.get("hle_judge_cost")
     if cost:
         lines += [f"HLE Judge累计{cost['calls']}次；成功usage计费估算¥{cost['settled_usage_cny']:.8f}，失败／在途保守预留¥{cost['failed_or_inflight_reserved_cny']:.8f}，合计占用¥{cost['accounted_cny']:.8f}／硬限¥{cost['hard_limit_cny']:.2f}。校内公开价输入0.75／输出2.25元每百万token，非PBMS实账。", ""]

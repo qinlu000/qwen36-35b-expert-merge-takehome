@@ -1,0 +1,132 @@
+{
+  "original_failed_attempts": [
+    {
+      "attempt": 1,
+      "http_status": 200,
+      "provider_request_id": "chatcmpl-377646dd-33ee-4073-a3ea-69f7355ff7a1",
+      "finish_reason": "length",
+      "usage": {
+        "completion_tokens": 4096,
+        "prompt_tokens": 1397,
+        "total_tokens": 5493
+      },
+      "content": "{\"extracted_final_answer\":\"tris(2,3-dimethoxyphenyl)methanol\",\"reasoning\":\"The extracted final answer is 'tris(2,3-dimethoxyphenyl)methanol', which does not match the correct answer 'Xanthenium ion'. These are chemically different compounds, so the answer",
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/responses/672ecc6946f619ca9b0495c5.1.json"
+    },
+    {
+      "attempt": 2,
+      "http_status": 200,
+      "provider_request_id": "chatcmpl-377646dd-33ee-4073-a3ea-69f7355ff7a1",
+      "finish_reason": "length",
+      "usage": {
+        "completion_tokens": 4096,
+        "prompt_tokens": 1397,
+        "total_tokens": 5493
+      },
+      "content": "{\"extracted_final_answer\":\"tris(2,3-dimethoxyphenyl)methanol\",\"reasoning\":\"The extracted final answer is 'tris(2,3-dimethoxyphenyl)methanol', which does not match the correct answer 'Xanthenium ion'. These are chemically different compounds, so the answer",
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/responses/672ecc6946f619ca9b0495c5.2.json"
+    }
+  ],
+  "protocol": {
+    "task_id": "672ecc6946f619ca9b0495c5",
+    "original_system": "Return exactly one JSON object containing ALL FIVE required keys: extracted_final_answer (string), reasoning (string), correct (yes or no), confidence (integer 0-100), strict (true). Include the constant key \"strict\": true on EVERY response. Example JSON: {\"extracted_final_answer\":\"9\",\"reasoning\":\"Matches.\",\"correct\":\"yes\",\"confidence\":100,\"strict\":true}. Apply the criteria in the user message. Do not add extra keys.",
+    "wrapper_change": "Same five-key schema; short reasoning, verdict fields serialized first",
+    "question_gold_answer_criteria_and_solver_response_unchanged": true,
+    "original_attempts_parseable": false,
+    "original_attempts_preserved": true,
+    "original_failed_requests_share_same_provider_request_id": true
+  },
+  "recovery_budget": {
+    "call": "672ecc6946f619ca9b0495c5.authorised-recovery1",
+    "status": "completed",
+    "charged_cny": 0.00122625,
+    "reserved_cny": 0.0147015,
+    "original_accounted_cost_cny": 1.5998032500000001,
+    "combined_max_cny": 10,
+    "max_calls_this_recovery": 1,
+    "started_at_utc": "2026-10-16T18:56:52.681893+00:00",
+    "reason": "User authorised completing the one invalid grader result; no solver regeneration",
+    "input_token_bound": 7314,
+    "output_token_cap": 4096,
+    "usage": {
+      "completion_tokens": 62,
+      "prompt_tokens": 1449,
+      "total_tokens": 1511
+    },
+    "finished_at_utc": "2026-10-16T18:56:55.924200+00:00"
+  },
+  "recovered_result": {
+    "id": "672ecc6946f619ca9b0495c5",
+    "evaluation_status": "judged",
+    "correct": false,
+    "judge_response": {
+      "correct": "no",
+      "confidence": 100,
+      "strict": true,
+      "extracted_final_answer": "tris(2,3-dimethoxyphenyl)methanol",
+      "reasoning": "The extracted answer is a triaryl methanol, which does not match the correct answer, Xanthenium ion."
+    },
+    "judge_calls": 3,
+    "source_result": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_infra1/questions/672ecc6946f619ca9b0495c5.json",
+    "is_image": true,
+    "reported_identity": {
+      "requested_model": "DeepSeek-V4-Flash",
+      "reported_model": "DeepSeek-V4-Flash",
+      "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+      "provider_revision_pinned": false
+    },
+    "usage": {
+      "completion_tokens": 62,
+      "prompt_tokens": 1449,
+      "total_tokens": 1511
+    },
+    "finished_at_utc": "2026-10-16T18:56:55.924384+00:00",
+    "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/single-judge-recovery-20261017",
+    "original_invalid_result": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/single-judge-recovery-20261017/original-invalid-result.json"
+  },
+  "final_summary": {
+    "complete": true,
+    "expected": 2500,
+    "frozen_terminal_results": 2500,
+    "judged_answers": 1055,
+    "native_no_answer": 1445,
+    "evaluation_invalid": 0,
+    "scored": 2500,
+    "pending": 0,
+    "correct": 99,
+    "accuracy_percent": 3.96,
+    "score": 3.96,
+    "partial_correct_over_full_denominator_percent": 3.96,
+    "subgroups": {
+      "text": {
+        "denominator": 2158,
+        "scored": 2158,
+        "correct": 86,
+        "accuracy_percent": 3.99
+      },
+      "image": {
+        "denominator": 342,
+        "scored": 342,
+        "correct": 13,
+        "accuracy_percent": 3.8
+      }
+    },
+    "selection_states": {
+      "native_no_answer": 1445,
+      "answer": 1055
+    },
+    "judge_generation_calls": 1057,
+    "accounted_cost_cny": 1.6010295,
+    "budget_halted": false,
+    "max_cny": 10,
+    "max_calls": 5000,
+    "updated_at_utc": "2026-10-16T18:56:55.997197+00:00",
+    "provider": "DeepSeek-V4-Flash",
+    "official": false,
+    "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed",
+    "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/single-judge-recovery-20261017",
+    "recovery_judge_calls": 1,
+    "original_budget_ledger_unchanged": true,
+    "recovery_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/single-judge-recovery-20261017/budget.json"
+  }
+}

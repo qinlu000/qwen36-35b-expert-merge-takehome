@@ -1,0 +1,204 @@
+{
+  "created_at_utc": "2026-10-16T19:01:03.688940+00:00",
+  "scope": "Fixed three Base Terminal candidate-computation verifier timeouts only",
+  "read_only_audit": true,
+  "original_results_and_summaries_modified": false,
+  "new_model_or_test_calls": 0,
+  "native_grade_unchanged": true,
+  "aggregation_default_none_to_zero": true,
+  "collector_policy": "Apply derived_budget_reward only for an exact original result path, task, seed, native reward None and matching900s evidence. Keep native scores and strict valid coverage unchanged; do not apply to dependency/infrastructure failures.",
+  "comparison_policy": "All compared models must use the same fixed-budget aggregation and report native coverage/errors separately. This audit does not retrofit three synthetic native rewards or satisfy the original takehome resource requirements.",
+  "strict_native_coverage_after_other_six_repairs": 442,
+  "expected_full_scope": 445,
+  "source_evidence": [
+    {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-724242/runtime2/scripts/harbor/metrics/base.py",
+      "start_line": 14,
+      "end_line": 35,
+      "text": "def aggregate_reward_dicts(\n    rewards: list[RewardDict | None],\n    metric_name: str,\n    aggregate: Callable[[list[NumericReward]], NumericReward],\n) -> RewardDict:\n    reward_keys = sorted(\n        {key for reward in rewards if reward is not None for key in reward}\n    )\n\n    if len(reward_keys) <= 1:\n        values = [\n            0 if reward is None else next(iter(reward.values()), 0)\n            for reward in rewards\n        ]\n        return {metric_name: aggregate(values)}\n\n    return {\n        key: aggregate(\n            [0 if reward is None else reward.get(key, 0) for reward in rewards]\n        )\n        for key in reward_keys\n    }"
+    },
+    {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-724242/runtime2/scripts/harbor/metrics/mean.py",
+      "start_line": 5,
+      "end_line": 12,
+      "text": "class Mean(BaseMetric[RewardDict]):\n    @override\n    def compute(self, rewards: list[RewardDict | None]) -> RewardDict:\n        return aggregate_reward_dicts(\n            rewards,\n            metric_name=\"mean\",\n            aggregate=lambda values: sum(values) / len(values),\n        )"
+    },
+    {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-724242/runtime2/scripts/harbor/trial/trial.py",
+      "start_line": 855,
+      "end_line": 865,
+      "text": "    async def _verify_with_timeout(\n        self, verifier: BaseVerifier, timeout_sec: float | None\n    ) -> VerifierResult:\n        try:\n            return await asyncio.wait_for(verifier.verify(), timeout=timeout_sec)\n        except EnvironmentStartTimeoutError:\n            raise\n        except TimeoutError as exc:\n            raise VerifierTimeoutError(\n                f\"Verifier execution timed out after {timeout_sec} seconds\"\n            ) from exc"
+    },
+    {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-724242/runtime2/scripts/harbor/verifier/verifier.py",
+      "start_line": 257,
+      "end_line": 268,
+      "text": "        if self.trial_paths.reward_json_path.exists():\n            rewards = self._parse_reward_json()\n        elif self.trial_paths.reward_text_path.exists():\n            rewards = self._parse_reward_text()\n        else:\n            raise RewardFileNotFoundError(\n                f\"No reward file found at {self.trial_paths.reward_text_path} or {\n                    self.trial_paths.reward_json_path\n                }\"\n            )\n\n        return VerifierResult(rewards=rewards)"
+    }
+  ],
+  "entries": [
+    {
+      "key": "feal-differential-cryptanalysis/seed0",
+      "exact_original_result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/feal-differential-cryptanalysis__seed0__independent1/result.json",
+      "task_name": "feal-differential-cryptanalysis",
+      "seed": 0,
+      "native_reward": null,
+      "native_verifier_result": null,
+      "native_grade_unchanged": true,
+      "strict_valid_scored": false,
+      "derived_budget_reward": 0,
+      "derivation": 0,
+      "aggregation_default_none_to_zero": true,
+      "derivation_kind": "Harbor Mean default aggregation of None reward after fixed verifier budget exhausted",
+      "eligibility": {
+        "original_result_path_must_match_exactly": true,
+        "verifier_timeout_sec": 900,
+        "verifier_wall_seconds": 900.101206,
+        "native_verifier_timeout_in_trial_log": true,
+        "official_pytest_collected": 1,
+        "official_test_started": true,
+        "native_reward_files_absent": true,
+        "preverifier_snapshot_complete": true,
+        "matched_infrastructure_error_markers": []
+      },
+      "evidence": {
+        "verifier_timing": {
+          "started_at": "2026-10-16T14:54:04.739665Z",
+          "finished_at": "2026-10-16T15:09:04.840871Z"
+        },
+        "trial_log": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/feal-differential-cryptanalysis__seed0__independent1/trial.log",
+        "verifier_stdout": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/feal-differential-cryptanalysis__seed0__independent1/verifier/test-stdout.txt",
+        "verifier_stdout_tail": "    source $HOME/.local/bin/env (sh, bash, zsh)\n    source $HOME/.local/bin/env.fish (fish)\nWARN: The following commands are shadowed by other commands in your PATH: uv uvx\nInstalled 7 packages in 13ms\n============================= test session starts ==============================\nplatform linux -- Python 3.13.9, pytest-8.4.1, pluggy-1.7.0 -- /staging/verifier_assets/uv-cache/archive-v0/xXLgYOnnVimjpSNGfSsYr/bin/python\ncachedir: .pytest_cache\nrootdir: /tests\nplugins: json-ctrf-0.3.5\ncollecting ... collected 1 item\n\n../tests/test_outputs.py::test_feal_differential_cryptanalysis_attack ",
+        "snapshot_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/feal-differential-cryptanalysis__seed0__independent1/artifacts/logs/artifacts/final-task-state.json",
+        "snapshot_archive": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/feal-differential-cryptanalysis__seed0__independent1/artifacts/logs/artifacts/final-task-state.tar",
+        "candidate_member": "app/attack.py",
+        "candidate_computation_snippets": [
+          {
+            "line": 28,
+            "text": "    for seed5 in range(65536):"
+          },
+          {
+            "line": 66,
+            "text": "        for X in range(65536):"
+          },
+          {
+            "line": 136,
+            "text": "        for e in range(65536):"
+          }
+        ],
+        "official_test": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/feal-differential-cryptanalysis/tests/test_outputs.py"
+      },
+      "limits": "Observed official test entry and budget timeout plus static candidate loops support computation-bound classification; no interrupted test assertion or native reward is invented."
+    },
+    {
+      "key": "feal-differential-cryptanalysis/seed4",
+      "exact_original_result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/feal-differential-cryptanalysis__seed4__independent1/result.json",
+      "task_name": "feal-differential-cryptanalysis",
+      "seed": 4,
+      "native_reward": null,
+      "native_verifier_result": null,
+      "native_grade_unchanged": true,
+      "strict_valid_scored": false,
+      "derived_budget_reward": 0,
+      "derivation": 0,
+      "aggregation_default_none_to_zero": true,
+      "derivation_kind": "Harbor Mean default aggregation of None reward after fixed verifier budget exhausted",
+      "eligibility": {
+        "original_result_path_must_match_exactly": true,
+        "verifier_timeout_sec": 900,
+        "verifier_wall_seconds": 900.061156,
+        "native_verifier_timeout_in_trial_log": true,
+        "official_pytest_collected": 1,
+        "official_test_started": true,
+        "native_reward_files_absent": true,
+        "preverifier_snapshot_complete": true,
+        "matched_infrastructure_error_markers": []
+      },
+      "evidence": {
+        "verifier_timing": {
+          "started_at": "2026-10-16T16:28:53.669185Z",
+          "finished_at": "2026-10-16T16:43:53.730341Z"
+        },
+        "trial_log": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/feal-differential-cryptanalysis__seed4__independent1/trial.log",
+        "verifier_stdout": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/feal-differential-cryptanalysis__seed4__independent1/verifier/test-stdout.txt",
+        "verifier_stdout_tail": "    source $HOME/.local/bin/env (sh, bash, zsh)\n    source $HOME/.local/bin/env.fish (fish)\nWARN: The following commands are shadowed by other commands in your PATH: uv uvx\nInstalled 7 packages in 15ms\n============================= test session starts ==============================\nplatform linux -- Python 3.13.9, pytest-8.4.1, pluggy-1.7.0 -- /staging/verifier_assets/uv-cache/archive-v0/GOdZ8O4VUmhB5jkn3DIWE/bin/python\ncachedir: .pytest_cache\nrootdir: /tests\nplugins: json-ctrf-0.3.5\ncollecting ... collected 1 item\n\n../tests/test_outputs.py::test_feal_differential_cryptanalysis_attack ",
+        "snapshot_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/feal-differential-cryptanalysis__seed4__independent1/artifacts/logs/artifacts/final-task-state.json",
+        "snapshot_archive": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/feal-differential-cryptanalysis__seed4__independent1/artifacts/logs/artifacts/final-task-state.tar",
+        "candidate_member": "app/attack.py",
+        "candidate_computation_snippets": [
+          {
+            "line": 145,
+            "text": "    for k5_seed in range(0x10000):"
+          },
+          {
+            "line": 155,
+            "text": "        for k4_seed in range(0x10000):"
+          }
+        ],
+        "official_test": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/feal-differential-cryptanalysis/tests/test_outputs.py"
+      },
+      "limits": "Observed official test entry and budget timeout plus static candidate loops support computation-bound classification; no interrupted test assertion or native reward is invented."
+    },
+    {
+      "key": "model-extraction-relu-logits/seed4",
+      "exact_original_result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/model-extraction-relu-logits__seed4__independent1/result.json",
+      "task_name": "model-extraction-relu-logits",
+      "seed": 4,
+      "native_reward": null,
+      "native_verifier_result": null,
+      "native_grade_unchanged": true,
+      "strict_valid_scored": false,
+      "derived_budget_reward": 0,
+      "derivation": 0,
+      "aggregation_default_none_to_zero": true,
+      "derivation_kind": "Harbor Mean default aggregation of None reward after fixed verifier budget exhausted",
+      "eligibility": {
+        "original_result_path_must_match_exactly": true,
+        "verifier_timeout_sec": 900,
+        "verifier_wall_seconds": 900.101949,
+        "native_verifier_timeout_in_trial_log": true,
+        "official_pytest_collected": 1,
+        "official_test_started": true,
+        "native_reward_files_absent": true,
+        "preverifier_snapshot_complete": true,
+        "matched_infrastructure_error_markers": []
+      },
+      "evidence": {
+        "verifier_timing": {
+          "started_at": "2026-10-16T16:40:22.471120Z",
+          "finished_at": "2026-10-16T16:55:22.573069Z"
+        },
+        "trial_log": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/model-extraction-relu-logits__seed4__independent1/trial.log",
+        "verifier_stdout": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/model-extraction-relu-logits__seed4__independent1/verifier/test-stdout.txt",
+        "verifier_stdout_tail": "\n    source $HOME/.local/bin/env (sh, bash, zsh)\n    source $HOME/.local/bin/env.fish (fish)\nWARN: The following commands are shadowed by other commands in your PATH: uv uvx\nInstalled 7 packages in 15ms\n============================= test session starts ==============================\nplatform linux -- Python 3.13.9, pytest-8.4.1, pluggy-1.7.0\nrootdir: /tests\nplugins: json-ctrf-0.3.5\ncollected 1 item\n\n../tests/test_outputs.py ",
+        "snapshot_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/model-extraction-relu-logits__seed4__independent1/artifacts/logs/artifacts/final-task-state.json",
+        "snapshot_archive": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/model-extraction-relu-logits__seed4__independent1/artifacts/logs/artifacts/final-task-state.tar",
+        "candidate_member": "app/steal.py",
+        "candidate_computation_snippets": [
+          {
+            "line": 11,
+            "text": "    for i in range(INPUT_DIM):"
+          },
+          {
+            "line": 21,
+            "text": "for dim in range(INPUT_DIM):"
+          },
+          {
+            "line": 24,
+            "text": "    for t in np.linspace(-50, 50, 10000):"
+          },
+          {
+            "line": 51,
+            "text": "for atom in atoms:"
+          },
+          {
+            "line": 55,
+            "text": "    for existing in final_atoms:"
+          }
+        ],
+        "official_test": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/model-extraction-relu-logits/tests/test_outputs.py"
+      },
+      "limits": "Observed official test entry and budget timeout plus static candidate loops support computation-bound classification; no interrupted test assertion or native reward is invented."
+    }
+  ]
+}
