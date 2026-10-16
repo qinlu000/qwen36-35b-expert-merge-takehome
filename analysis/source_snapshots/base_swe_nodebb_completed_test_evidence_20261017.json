@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-16T19:14:14.175055+00:00",
+  "task_id": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+  "source_patch": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/generation/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/agent/model.patch",
+  "live_original_stdout_preserved": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017/evidence/nodebb-completed-live-stdout.txt",
+  "official_parser": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/tasks/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/tests/parser.py",
+  "official_parsed_output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017/evidence/nodebb-completed-official-output.json",
+  "official_parser_return_code": 0,
+  "official_required_tests": 311,
+  "official_parsed_tests": 311,
+  "required_passed": 307,
+  "required_missing_or_failed": [
+    "test/groups.js | Groups groups cover should remove cover",
+    "test/user.js | User profile methods should remove cover image",
+    "test/user.js | User profile methods user.uploadCroppedPicture should remove uploaded picture",
+    "test/user.js | User socket methods should clean profile images after account deletion"
+  ],
+  "parsed_failed_count": 4,
+  "parsed_failed_tests": [
+    {
+      "name": "test/groups.js | Groups groups cover should remove cover",
+      "status": "FAILED"
+    },
+    {
+      "name": "test/user.js | User profile methods should remove cover image",
+      "status": "FAILED"
+    },
+    {
+      "name": "test/user.js | User profile methods user.uploadCroppedPicture should remove uploaded picture",
+      "status": "FAILED"
+    },
+    {
+      "name": "test/user.js | User socket methods should clean profile images after account deletion",
+      "status": "FAILED"
+    }
+  ],
+  "official_native_verifier_still_running": true,
+  "native_reward_fabricated": false,
+  "new_model_calls": 0,
+  "tests_modified": false,
+  "budget_modified": false
+}

@@ -90,6 +90,8 @@ def benchmark(project, name, expected, source):
                     usable_as_clean_model_comparison=True, legacy28_replaced_as_fixed_cohort=True,
                     note='Fixed legacy28 were regenerated independently, all native23 retained; grade-only gap recovery preserves original patches and first valid zeros/ones. Historical affected5/51 remains separately available.')
                 row['grade_only_replays_active'] = raw.get('grade_only_replays_active', 0)
+                row['raw_native_reward_present_count'] = raw.get('raw_native_reward_present_count')
+                row['complete_official_test_report_audits'] = raw.get('complete_official_test_report_audits', 0)
             clean_path = project / 'artifacts/eval/base_swe_v2_20261016_clean28/checkpoint.json'
             if clean_path.exists():
                 clean = read(clean_path)
@@ -221,6 +223,8 @@ def markdown(result):
     if swe.get('clean_generation_rerun_started'):
         if swe.get('legacy28_replaced_as_fixed_cohort'):
             lines += ['', f"SWE 上表为固定28整组替换并补评分后的独立51项结果；原生成环境受影响的历史成绩保留在 `{swe['original_source']}`。独立clean28已有{swe['clean_generation_rerun_valid_scored']}/28有效，当前仅补评在途{swe.get('grade_only_replays_active', 0)}。", '']
+            if swe.get('complete_official_test_report_audits'):
+                lines += [f"其中{swe['raw_native_reward_present_count']}项有原生reward；另1项NodeBB已完整解析311个官方测试（307通过、4失败），单独审定失败，其原始reward仍null，保留全部输出和清理记录。", '']
         else:
             lines += ['', f"SWE 上表保留受旧生成环境干扰的历史成绩。独立 clean28：{swe['clean_generation_rerun_valid_scored']}/28 有效评分，{swe['clean_generation_rerun_active']} 项在途，{swe['clean_generation_rerun_pending']} 项待准入；整组替换后的独立51项成绩：{number(swe['separate_corrected51_score_percent'])}。", '']
     tb = result["benchmarks"]["TB"]
@@ -245,7 +249,7 @@ def markdown(result):
             lines += [f"TB 历史原run summary：`{row['original_source']}`；有效评分{row['original_valid_scored']}/445，历史主成绩：{number(row['original_primary_score_percent'])}。上表使用独立修复后的corrected445来源；历史评分文件保留。", ""]
         if row.get("source_unavailable_or_incompatible"):
             lines += ["源summary尚不可用／schema未满足：" + row["source_unavailable_or_incompatible"] + "，保留主score=null。", ""]
-    lines += ["各benchmark独立计分，不合成未经定义的总分。此汇总器只读现成summary，每30秒更新；全部完整有效后自动退出。未调用模型／API、未扫描trial、未运行测试或hash。"]
+    lines += ["各benchmark独立计分，不合成未经定义的总分。此汇总器只读现成summary，每30秒更新；全部完整或已披露的固定预算口径齐备后自动退出，严格原生覆盖仍分别记录。未调用模型／API、未扫描trial、未运行测试或hash。"]
     return "\n".join(lines) + "\n"
 
 
@@ -271,7 +275,7 @@ def main():
         temporary.replace(output / "report.md")
         print(json.dumps({"updated_at_utc": result["updated_at_utc"], "complete": result["complete"],
             "coverage": {key: row["valid_scored"] for key, row in result["benchmarks"].items()}}), flush=True)
-        if result["complete"] or args.once:
+        if result["complete"] or result['complete_under_disclosed_harbor_budget_aggregation'] or args.once:
             break
         time.sleep(30)
 

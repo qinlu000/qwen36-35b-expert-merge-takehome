@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-16T19:30:08.115865+00:00",
+  "task_id": "instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+  "result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017/replay_attempt2/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/result.json",
+  "native_reward": 0,
+  "exception_type": null,
+  "valid_candidate_failure": true,
+  "parsed_test_count": 25,
+  "passed_count": 23,
+  "failed_tests": [
+    "TestChat_Complete/text_completion",
+    "TestChat_Complete"
+  ],
+  "official_required_count": 14,
+  "required_passed": 12,
+  "reason": "Official -race verifier reports data races in candidate-modified Agent.plan and AsynchronousTokenCounter during TestChat_Complete/text_completion. No runtime/transport failure.",
+  "candidate_stack_locations": [
+    "lib/ai/model/agent.go:291,306,307",
+    "lib/ai/model/tokencount.go:135,154,155"
+  ],
+  "raw_evidence": [
+    "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017/replay_attempt2/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/verifier/test-stdout.txt",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017/replay_attempt2/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/verifier/run-script-stdout.txt",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017/replay_attempt2/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/verifier/run-script-stderr.txt",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017/replay_attempt2/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/verifier/output.json"
+  ],
+  "resource_events": {
+    "memory.events": "low 0\nhigh 0\nmax 61158\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "memory.current": "1957773312\n",
+    "memory.peak": "4298985472\n",
+    "cpu.stat": "usage_usec 430250734\nuser_usec 360015661\nsystem_usec 70235073\ncore_sched.force_idle_usec 0\n"
+  },
+  "model_calls": 0,
+  "source_patch_unchanged": true
+}

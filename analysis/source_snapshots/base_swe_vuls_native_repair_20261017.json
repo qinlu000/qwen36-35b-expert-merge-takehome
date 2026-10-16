@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-16T19:10:11.216109+00:00",
+  "task_id": "instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e",
+  "result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017/replay/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/result.json",
+  "reward": 0.0,
+  "invalid_reason": null,
+  "finished_at": "2026-10-16T19:10:11.214152Z",
+  "test_count": 0,
+  "patch_unchanged": true,
+  "model_calls": 0,
+  "active_scopes_after": [
+    "apex-baseline-base-swe-repair11-20261017.scope",
+    "apex-baseline-final-collector-seq20-20261016.service"
+  ],
+  "exception_type": null
+}

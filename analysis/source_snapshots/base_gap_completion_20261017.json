@@ -1,0 +1,129 @@
+{
+  "updated_at_utc": "2026-10-16T19:29:32.269251+00:00",
+  "pid": 3210604,
+  "complete_under_disclosed_harbor_budget_aggregation": true,
+  "strict_native_complete": false,
+  "TB": {
+    "expected": 445,
+    "native_reward_trials": 442,
+    "derived_timeout_failures": 3,
+    "accounted_trials": 445,
+    "complete": true,
+    "strict_native_complete": false,
+    "primary_mean_percent": 20.224719101123597,
+    "sample_sd_percent_ddof1": 2.6350650336086683,
+    "per_seed": [
+      {
+        "seed": 0,
+        "expected": 89,
+        "valid_covered": 88,
+        "correct_count": 16.0,
+        "score_percent": 17.97752808988764,
+        "native_reward_trials": 88,
+        "derived_timeout_failures": 1,
+        "accounted_trials": 89
+      },
+      {
+        "seed": 1,
+        "expected": 89,
+        "valid_covered": 89,
+        "correct_count": 20.0,
+        "score_percent": 22.471910112359552,
+        "native_reward_trials": 89,
+        "derived_timeout_failures": 0,
+        "accounted_trials": 89
+      },
+      {
+        "seed": 2,
+        "expected": 89,
+        "valid_covered": 89,
+        "correct_count": 17.0,
+        "score_percent": 19.10112359550562,
+        "native_reward_trials": 89,
+        "derived_timeout_failures": 0,
+        "accounted_trials": 89
+      },
+      {
+        "seed": 3,
+        "expected": 89,
+        "valid_covered": 89,
+        "correct_count": 21.0,
+        "score_percent": 23.59550561797753,
+        "native_reward_trials": 89,
+        "derived_timeout_failures": 0,
+        "accounted_trials": 89
+      },
+      {
+        "seed": 4,
+        "expected": 89,
+        "valid_covered": 87,
+        "correct_count": 16.0,
+        "score_percent": 17.97752808988764,
+        "native_reward_trials": 87,
+        "derived_timeout_failures": 2,
+        "accounted_trials": 89
+      }
+    ],
+    "derived": {
+      "feal-differential-cryptanalysis/seed0": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/feal-differential-cryptanalysis__seed0__independent1/result.json",
+        "native_reward": null,
+        "derived_budget_reward": 0,
+        "audit": "/data/caoqinlu/projects/apex-takehome/analysis/source_snapshots/terminal_three_compute_timeout_audit_20261017.json"
+      },
+      "feal-differential-cryptanalysis/seed4": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/feal-differential-cryptanalysis__seed4__independent1/result.json",
+        "native_reward": null,
+        "derived_budget_reward": 0,
+        "audit": "/data/caoqinlu/projects/apex-takehome/analysis/source_snapshots/terminal_three_compute_timeout_audit_20261017.json"
+      },
+      "model-extraction-relu-logits/seed4": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/model-extraction-relu-logits__seed4__independent1/result.json",
+        "native_reward": null,
+        "derived_budget_reward": 0,
+        "audit": "/data/caoqinlu/projects/apex-takehome/analysis/source_snapshots/terminal_three_compute_timeout_audit_20261017.json"
+      }
+    },
+    "metric": "Harbor default Mean: existing native rewards plus zero for three audited candidate-computation verifier timeouts",
+    "native_rewards_modified": false,
+    "same_policy_required_for_all_compared_models": true
+  },
+  "SWE": {
+    "as_of": "2026-10-16T19:29:32.247455+00:00",
+    "expected": 51,
+    "valid_scored": 51,
+    "unscored": 0,
+    "resolved": 10,
+    "invalid_pending": 0,
+    "awaiting_generation_or_replay": 0,
+    "complete": true,
+    "primary_score_percent": 19.607843137254903,
+    "manual_retry_task_count": 3,
+    "manual_retry_planned_task_count": 3,
+    "clean28_valid_scored": 28,
+    "retained_native23": 23,
+    "selection": "Preserve first valid frozen answer grades, including zeros; original patch replay only",
+    "historical_source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/corrected51_summary.json",
+    "new_model_calls": 0,
+    "grade_only_replays_active": 0,
+    "audited_candidate_failures": 3,
+    "raw_native_reward_present_count": 50,
+    "complete_official_test_report_audits": 1
+  },
+  "HLE": {
+    "scored": 2500,
+    "expected": 2500,
+    "score_percent": 3.96,
+    "accounted_cost_cny": 1.6010295,
+    "judge_calls": 1057
+  },
+  "ASI": {
+    "scored": 240,
+    "expected": 240,
+    "score_percent": 1.5709884069083986
+  },
+  "new_model_generations": 0,
+  "original_raw_results_preserved": true,
+  "equal_weight_macro_percent": 11.340887661321725,
+  "macro_policy": "Equal weight of four percentage metrics; Terminal uses the separately disclosed Harbor default fixed-budget aggregation."
+}

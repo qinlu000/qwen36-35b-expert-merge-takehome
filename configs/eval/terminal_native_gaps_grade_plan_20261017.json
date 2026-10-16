@@ -1,0 +1,82 @@
+{
+  "plan_id": "terminal-native-gaps-20261017",
+  "created_at_utc": "2026-10-16T18:59:45.654567+00:00",
+  "entries": [
+    {
+      "key": "train-fasttext/seed3",
+      "task_id": "train-fasttext",
+      "seed": 3,
+      "mode": "grade_only",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed3__independent1/result.json",
+      "restore_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/native-gaps-20261017/manifests/train-fasttext__seed3/restore.json",
+      "cache_receipt": null,
+      "attempt_tag": "__restoreinfra4",
+      "prior_restore_failure_retained": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-native-gaps-20261017/trials/train-fasttext__seed3/result.json",
+      "prior_native_tests_run": 0,
+      "prior_delta_directory_failure_retained": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-native-gaps-20261017/trials/train-fasttext__seed3__restoreinfra1/result.json",
+      "prior_delta_unlink_first_failure_retained": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-native-gaps-20261017/trials/train-fasttext__seed3__restoreinfra2/result.json",
+      "prior_setup_failure_retained": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-native-gaps-20261017/trials/train-fasttext__seed3__restoreinfra3/result.json"
+    },
+    {
+      "key": "pytorch-model-cli/seed3",
+      "task_id": "pytorch-model-cli",
+      "seed": 3,
+      "mode": "grade_only",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed3__independent1/result.json",
+      "restore_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/native-gaps-20261017/manifests/pytorch-model-cli__seed3/restore.json",
+      "cache_receipt": null,
+      "attempt_tag": "__restoreinfra3",
+      "prior_restore_failure_retained": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-native-gaps-20261017/trials/pytorch-model-cli__seed3/result.json",
+      "prior_native_tests_run": 0,
+      "prior_delta_directory_failure_retained": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-native-gaps-20261017/trials/pytorch-model-cli__seed3__restoreinfra1/result.json",
+      "prior_setup_failure_retained": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-native-gaps-20261017/trials/pytorch-model-cli__seed3__restoreinfra2/result.json"
+    },
+    {
+      "key": "train-fasttext/seed4",
+      "task_id": "train-fasttext",
+      "seed": 4,
+      "mode": "grade_only",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed4__independent1/result.json",
+      "restore_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/native-gaps-20261017/manifests/train-fasttext__seed4/restore.json",
+      "cache_receipt": null
+    },
+    {
+      "key": "pytorch-model-cli/seed4",
+      "task_id": "pytorch-model-cli",
+      "seed": 4,
+      "mode": "grade_only",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed4__independent1/result.json",
+      "restore_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/native-gaps-20261017/manifests/pytorch-model-cli__seed4/restore.json",
+      "cache_receipt": null
+    },
+    {
+      "key": "make-doom-for-mips/seed3",
+      "task_id": "make-doom-for-mips",
+      "seed": 3,
+      "mode": "grade_only",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/make-doom-for-mips__seed3__independent1/result.json",
+      "restore_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/native-gaps-20261017/manifests/make-doom-for-mips__seed3/restore.json",
+      "cache_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/native-gaps-20261017/doom-apt/receipt.json"
+    },
+    {
+      "key": "sam-cell-seg/seed3",
+      "task_id": "sam-cell-seg",
+      "seed": 3,
+      "mode": "grade_only",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/sam-cell-seg__seed3__independent1/result.json",
+      "restore_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/native-gaps-20261017/manifests/sam-cell-seg__seed3/restore.json",
+      "cache_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/native-gaps-20261017/sam-cache/receipt.json"
+    }
+  ],
+  "excluded_computation_timeouts": [
+    "feal-differential-cryptanalysis/seed0",
+    "feal-differential-cryptanalysis/seed4",
+    "model-extraction-relu-logits/seed4"
+  ],
+  "selection": "All six missing-dependency/public-data verifier failures; retain each original answer.",
+  "model_calls": 0,
+  "cpus": 4,
+  "memory_mb": 8192,
+  "native_verifier_seconds": 900,
+  "source_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/corrected445_summary.json"
+}

@@ -1578,3 +1578,10 @@
 - 人工例与实际两个视图检查通过，Base source_issues为空；03:27另薄读确认actual Base active_trials/pending_not_admitted字段存在为0、原模型alias全apex-qwen，完整预算gate已通过。实际检查/汇总约1.6秒，CPU10释放，无新API/GPU/任务或容器。SWE已有审计字段逐行透传。
 - README/统计说明/资产索引与当前进展已接新owner路径和预算视图，初次快照保留日期。后续heartbeat先刷新collect_swe249_audited.py，再运行summarize_experiment.py并带上述policy，分别读strict与预算结果；不要按哪个结果更好切换政策或对未审计null补0。
 - 阶段PDF更新为03:25严格矩阵与独立预算行，03:29:34实际生成；摘要178汉字、A4一页、字体嵌入、重渲染目视通过。仍是阶段草稿，最终20真实合版失败/完整正式模型矩阵/最终成本及report.pdf待完成。本轮仅13自有文件和共享文档追加纳Git，原会话WIP保留。
+
+## 2026-10-17：Base评分缺口最终收尾
+
+- 本轮只恢复已有答案评分，未新增Base求解。HLE最后一条Judge已恢复，完整2500/2500、99正确、3.96%；累计1057次Judge、估计1.6010295元，旧账本与失败响应保留。ASI既有240/240、1.5709884069%，无重跑。
+- Terminal六项依赖/公共数据缺口于03:19全部原生补评完成，仅CLI seed3=1，其余五项=0；原生覆盖442/445、90正确。另三项900秒候选计算超时保留原null，单独按实际Harbor默认Mean聚合失败，445分母五seed mean20.2247191011%、sample SD2.6350650336个百分点，严格原生均值仍null。CPU92–95真实scope退出、共享锁释放；无新增ENOSPC。
+- SWE于03:28:43达到51/51计分结论、10通过、19.6078431373%：两条原native0候选错误恢复，Vuls同patch原生0；NodeBB311官方测试完整解析（307pass/4fail），保存完整stdout/stderr与原parser后审定0，受控清理挂退出scope，原reward仍null。Teleport原patch正式25测试23pass/2fail，原race检测命中候选数据竞争，为有效native0、exception=null；测试前musl shim漏配失败完整保留，入口已固化shim，/data缓存与原预算不变。11容器和guard均退出、租约已释放。
+- 独立补缺collector读取明确replay-selection路径，原始失败尝试全部保留；主collector额外披露NodeBB审计来源与三Terminal预算聚合，不冒称445条原生reward。03:29最终预算口径齐备、严格原生标记仍false，四项等权宏平均11.3408876613%；两个纯读collector已在完成后退出。最终小型收据、脚本/配置与报告统一入Git，保留其他会话WIP，无coauthor。

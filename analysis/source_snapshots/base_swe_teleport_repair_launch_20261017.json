@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-16T19:20:46.222841+00:00",
+  "pid": 3166965,
+  "cpu": 11,
+  "guard_pid": 3166964,
+  "model_calls": 0,
+  "replay_subdir": "replay_attempt2",
+  "fix": "Reuse previously proven musl cohort singularity shim --ignore-fakeroot-command",
+  "original_bootstrap_attempt_preserved": true,
+  "actual_path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/swe_v2/musl_compat/shim:/data/caoqinlu/projects/apex-takehome/artifacts/tools/apptainer-1.4.5/rootfs/usr/bin:/data/caoqinlu/projects/apex-takehome/artifacts/tools/fakeroot-1.25.3/rootfs/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+  "actual_command": [
+    "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+    "/data/caoqinlu/projects/apex-takehome/scripts/repair_base_swe_gaps_20261017.py",
+    "--cpu",
+    "11",
+    "--task",
+    "teleport",
+    "--replay-subdir",
+    "replay_attempt2"
+  ],
+  "actual_environment_recorded_from_proc": true
+}

@@ -1,0 +1,109 @@
+{
+  "as_of": "2026-10-16T19:16:20.370844+00:00",
+  "scope": "Base clean28 frozen results only",
+  "audits": [
+    {
+      "task_id": "instance_protonmail__webclients-5f0745dd6993bb1430a951c62a49807c6635cd77",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/replay/instance_protonmail__webclients-5f0745dd6993bb1430a951c62a49807c6635cd77/result.json",
+      "source_patch": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/generation/instance_protonmail__webclients-5f0745dd6993bb1430a951c62a49807c6635cd77/agent/model.patch",
+      "patch_bytes": 10656,
+      "source_patch_sha256": "6debb1826abafe254e8826b7ab17a3d34dd4afc6347ac314f57becf791add9d7",
+      "native_reward": 0.0,
+      "audited_reward": 0,
+      "model_calls": 0,
+      "original_result_unchanged": true,
+      "original_patch_unchanged": true,
+      "tests_unchanged": true,
+      "original_invalid_reason": "empty_tests_requires_audit",
+      "audit_reason": "Candidate-added BitcoinInfoMessage.tsx imports useConfig from the wrong hooks module and throws before test reporting; native failure is a candidate runtime error.",
+      "evidence": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/replay/instance_protonmail__webclients-5f0745dd6993bb1430a951c62a49807c6635cd77/verifier/run-script-stderr.txt",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/replay/instance_protonmail__webclients-5f0745dd6993bb1430a951c62a49807c6635cd77/verifier/test-stdout.txt"
+      ],
+      "candidate_added_line": "import { useConfig } from '../../../hooks';",
+      "runtime_error": "TypeError: (0 , _hooks.useConfig) is not a function at BitcoinInfoMessage.tsx:11:35"
+    },
+    {
+      "task_id": "instance_flipt-io__flipt-c188284ff0c094a4ee281afebebd849555ebee59",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/replay/instance_flipt-io__flipt-c188284ff0c094a4ee281afebebd849555ebee59/result.json",
+      "source_patch": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/generation/instance_flipt-io__flipt-c188284ff0c094a4ee281afebebd849555ebee59/agent/model.patch",
+      "patch_bytes": 12955,
+      "source_patch_sha256": "fd587b1129182da27f0052e8abd0f73567fc0fbf0e12683fd9c7cc2595365f4b",
+      "native_reward": 0.0,
+      "audited_reward": 0,
+      "model_calls": 0,
+      "original_result_unchanged": true,
+      "original_patch_unchanged": true,
+      "tests_unchanged": true,
+      "original_invalid_reason": "verifier_public_go_dependency_timeout",
+      "audit_reason": "The frozen candidate adds ECR v1.30.0 with two incorrect go.sum entries. Original native preparation fails checksum verification, and the official Go checksum database confirms that downloaded checksum. The later network timeout does not make this candidate buildable. No dependency or checksum is changed.",
+      "evidence": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/replay/instance_flipt-io__flipt-c188284ff0c094a4ee281afebebd849555ebee59/agent/native-go-workspace-preparation.json",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/generation/instance_flipt-io__flipt-c188284ff0c094a4ee281afebebd849555ebee59/agent/model.patch"
+      ],
+      "candidate_go_mod_sum": "h1:llcoVwwEApfkkMRXVjpIwazMtP3i3Sk2GZdkp3tKu2M=",
+      "official_go_mod_sum": "h1:WadVIk+UrTvWuAsCp6BKGX4i2snurpz8mPWhJQnS7Dg=",
+      "candidate_module_sum": "h1:Zvgqv7vu8OcMpmuwM0NXnlkqxUfMmZErUI+AbsF3XqU=",
+      "official_module_sum": "h1:WsWG+jupMFNpMCF3g4y1jVWbXKBsG1DyTs2tM48yuJE=",
+      "security_validation_preserved": true
+    },
+    {
+      "task_id": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/replay/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/result.json",
+      "evidence_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017/replay/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/result.json",
+      "official_test_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017/nodebb-completed-test-evidence.json",
+      "source_patch": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/generation/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/agent/model.patch",
+      "source_patch_sha256": "d8656fdc4b624ec685abe11846660803b4ce85b7233f986757fa8a322efcf276",
+      "patch_bytes": 198102,
+      "native_reward": null,
+      "audited_reward": 0,
+      "audit_kind": "complete_official_test_report_with_failures",
+      "test_count": 311,
+      "failed_count": 4,
+      "passed_count": 307,
+      "all_required_tests_reported": true,
+      "required_missing_or_failed": [
+        "test/groups.js | Groups groups cover should remove cover",
+        "test/user.js | User profile methods should remove cover image",
+        "test/user.js | User profile methods user.uploadCroppedPicture should remove uploaded picture",
+        "test/user.js | User socket methods should clean profile images after account deletion"
+      ],
+      "evidence": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017/nodebb-completed-test-evidence.json",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017/evidence/nodebb-completed-live-stdout.txt",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017/evidence/nodebb-completed-live-stderr.txt",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017/evidence/nodebb-completed-official-output.json"
+      ],
+      "official_parser": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/tasks/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/tests/parser.py",
+      "native_report_completed_at": "2026-10-16T19:12:50.153Z",
+      "native_stats": {
+        "suites": 57,
+        "tests": 335,
+        "passes": 331,
+        "pending": 0,
+        "failures": 4,
+        "start": "2026-10-16T19:12:25.705Z",
+        "end": "2026-10-16T19:12:50.153Z",
+        "duration": 24448
+      },
+      "intentional_cleanup_after_completed_failure": true,
+      "cleanup_authorized_at": "2026-10-16T19:16:20.370844+00:00",
+      "cleanup_scope": "apex-baseline-b52c8ab6295b",
+      "model_calls": 0,
+      "original_patch_unchanged": true,
+      "tests_unchanged": true,
+      "native_reward_fabricated": false,
+      "audit_reason": "The unchanged fresh native replay completed the official tests; the original parser reports all 311 required tests, 307 PASSED and 4 FAILED. Raw Mocha counts 335 invocations including duplicates. Only process exit remains hung. Root authorized ending this owned scope after preserving the complete report; raw missing reward and any cleanup exception remain unchanged.",
+      "native_exception_type": "RemoteProtocolError",
+      "owned_scope_members_after_cleanup": [],
+      "cleanup_confirmed_at": "2026-10-16T19:16:51.850027+00:00"
+    }
+  ],
+  "canonical_scores_modified": false,
+  "model_calls": 0,
+  "official_checksum_database": {
+    "url": "https://sum.golang.org/lookup/github.com/aws/aws-sdk-go-v2/service/ecr@v1.30.0",
+    "tls_verification_preserved": true,
+    "response": "27734940\ngithub.com/aws/aws-sdk-go-v2/service/ecr v1.30.0 h1:WsWG+jupMFNpMCF3g4y1jVWbXKBsG1DyTs2tM48yuJE=\ngithub.com/aws/aws-sdk-go-v2/service/ecr v1.30.0/go.mod h1:WadVIk+UrTvWuAsCp6BKGX4i2snurpz8mPWhJQnS7Dg=\n\ngo.sum database tree\n69257470\nemPxVJPX5gydaF/b6x7yqBeOaqlLuZ0anIHuC9YNCok=\n\n\u2014 sum.golang.org Az3griQdsyM8xXf8Pw2RYnZaeebcz2vXCqepE2d+S1he+15LyKWlxz3KP7Nk7yhHEeHTFK3MUJH9CAFwvqaVqWieqAM=\n"
+  }
+}

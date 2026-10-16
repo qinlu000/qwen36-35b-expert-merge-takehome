@@ -82,22 +82,37 @@ def swe(root, output):
     frozen = read(original / 'corrected51_summary.json')
     audits_path = repair / 'candidate-failure-audits.json'
     audits = {row['task_id']: row for row in read(audits_path)['audits']} if audits_path.exists() else {}
+    selection_path = repair / 'replay-selection.json'
+    selections = read(selection_path)['selections'] if selection_path.exists() else {}
     rows = []
     for prior in frozen['tasks']:
         row = dict(prior)
         name = row['task_id']
         valid = row.get('status') == 'valid_scored' or row.get('reward') in (0, 1) and not row.get('invalid_reason')
-        if not valid and name in audits:
+        if (not valid and name in audits and
+                Path(audits[name].get('evidence_result', audits[name]['original_result'])).exists()):
             audit = audits[name]
-            result = read(Path(audit['original_result']))
+            result = read(Path(audit.get('evidence_result', audit['original_result'])))
             reward = ((result.get('verifier_result') or {}).get('rewards') or {}).get('reward')
-            assert reward == audit['native_reward'] == audit['audited_reward'] == 0
+            assert reward == audit['native_reward'] and audit['audited_reward'] == 0
             assert row.get('result') == audit['original_result']
             assert Path(audit['source_patch']).stat().st_size == audit['patch_bytes']
-            row.update(reward=reward, invalid_reason=None, audit_source=str(audits_path),
+            if audit.get('audit_kind') == 'complete_official_test_report_with_failures':
+                evidence = read(Path(audit['official_test_evidence']))
+                tests = read(Path(evidence['official_parsed_output']))['tests']
+                assert evidence['task_id'] == name and evidence['official_parser_return_code'] == 0
+                assert len(tests) == evidence['official_required_tests'] == evidence['official_parsed_tests'] == 311
+                assert sum(test['status'] == 'FAILED' for test in tests) == 4
+                assert sum(test['status'] == 'PASSED' for test in tests) == 307
+            else:
+                assert reward == 0
+            row.update(reward=0, native_reward=reward, invalid_reason=None, audit_source=str(audits_path),
                        audit_reason=audit['audit_reason'], original_invalid_reason=prior['invalid_reason'])
+            if 'evidence_result' in audit:
+                row.update(result=audit['evidence_result'], previous_invalid_result=audit['original_result'],
+                           score_source='Complete official parser report with failed required tests; raw reward unchanged')
             valid = True
-        replay = repair / 'replay' / name / 'result.json'
+        replay = Path(selections[name]['result_path']) if name in selections else repair / 'replay' / name / 'result.json'
         if not valid and replay.exists():
             new = swe_score(replay)
             if new['invalid_reason'] is None:
@@ -118,8 +133,12 @@ def swe(root, output):
                'clean28_valid_scored': len(valid) - 23, 'retained_native23': 23,
                'selection': 'Preserve first valid frozen answer grades, including zeros; original patch replay only',
                'historical_source': str(original / 'corrected51_summary.json'), 'new_model_calls': 0, 'tasks': rows}
-    summary['grade_only_replays_active'] = sum((p.parent / 'config.json').exists() and not p.exists()
-        for p in (repair / 'replay' / row['task_id'] / 'result.json' for row in rows))
+    summary['grade_only_replays_active'] = sum(
+        Path(f"/proc/{item['controller_pid']}").exists() and not Path(item['result_path']).exists()
+        for item in selections.values() if item.get('controller_pid'))
+    summary['audited_candidate_failures'] = sum('audit_source' in row for row in valid)
+    summary['raw_native_reward_present_count'] = sum(row.get('native_reward', row['reward']) in (0, 1) for row in valid)
+    summary['complete_official_test_report_audits'] = sum('score_source' in row for row in valid)
     save(output / 'swe51_summary.json', summary)
     return summary
 
@@ -141,7 +160,7 @@ def main():
         complete = budget['complete'] and sw['complete'] and hle['complete'] and asi['scored_instance_count'] == 240
         summary = {'updated_at_utc': datetime.now(timezone.utc).isoformat(), 'pid': os.getpid(),
                    'complete_under_disclosed_harbor_budget_aggregation': complete,
-                   'strict_native_complete': strict['complete'] and sw['complete'] and hle['complete'],
+                   'strict_native_complete': strict['complete'] and sw['raw_native_reward_present_count'] == 51 and hle['complete'],
                    'TB': budget, 'SWE': {k: v for k, v in sw.items() if k != 'tasks'},
                    'HLE': {'scored': hle['scored'], 'expected': 2500, 'score_percent': hle['score'],
                            'accounted_cost_cny': hle['accounted_cost_cny'], 'judge_calls': hle['judge_generation_calls']},
@@ -153,19 +172,21 @@ def main():
         summary['macro_policy'] = 'Equal weight of four percentage metrics; Terminal uses the separately disclosed Harbor default fixed-budget aggregation.'
         save(args.output / 'summary.json', summary)
         with (args.output / 'swe_task_scores.csv').open('w') as stream:
-            writer = csv.DictWriter(stream, fieldnames=['task_id', 'status', 'reward', 'source', 'audit'])
+            writer = csv.DictWriter(stream, fieldnames=['task_id', 'status', 'reward', 'source', 'audit'], lineterminator='\n')
             writer.writeheader()
             for row in sw['tasks']:
                 writer.writerow({'task_id': row['task_id'], 'status': row['status'], 'reward': row.get('reward'),
                                  'source': row.get('result') or row.get('accepted_result'), 'audit': row.get('audit_source')})
         lines = ['# Base gap completion', '', summary['updated_at_utc'], '',
-                 '| Benchmark | Native score coverage | Complete score (%) |', '|---|---:|---:|',
+                 '| Benchmark | Valid task outcomes / fixed scope | Complete score (%) |', '|---|---:|---:|',
                  f"| HLE | {hle['scored']}/2500 | {hle['score']} |",
                  f"| ASI (public local) | {asi['scored_instance_count']}/240 | {asi['mean_percent']} |",
                  f"| SWE | {sw['valid_scored']}/51 | {sw['primary_score_percent']} |",
                  f"| Terminal | {budget['native_reward_trials']}/445 | {budget['primary_mean_percent']} |", '',
                  'Terminal score uses Harbor default Mean for exactly three audited candidate-computation timeouts. '
                  'Their original native rewards stay null; no dependency/infrastructure failure is silently assigned zero.', '',
+                 'SWE includes an explicitly audited zero from a complete official parser report with failed required tests; '
+                 'its original missing reward file and controlled cleanup record are retained.', '',
                  'New Base model generations: 0. All original answers, patches and unsuccessful grading attempts are retained.', '',
                  'Equal-weight four-benchmark macro (%): ' + str(summary['equal_weight_macro_percent']), '']
         (args.output / 'report.md').write_text('\n'.join(lines))

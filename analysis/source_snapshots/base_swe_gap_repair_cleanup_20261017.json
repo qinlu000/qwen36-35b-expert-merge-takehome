@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-16T19:29:00.164240+00:00",
+  "scope": "apex-baseline-093707571691.scope",
+  "guard": "apex-baseline-base-swe-repair11-20261017.scope",
+  "scope_and_guard_members": [],
+  "controller_pid": 3166965,
+  "controller_alive": false,
+  "all_cpu_consumers_finished": true,
+  "final_native_result": {
+    "at": "2026-10-16T19:28:43.088787+00:00",
+    "task_id": "instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+    "result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017/replay_attempt2/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/result.json",
+    "reward": 0.0,
+    "invalid_reason": null,
+    "finished_at": "2026-10-16T19:28:43.086888Z",
+    "test_count": 25,
+    "patch_unchanged": true,
+    "model_calls": 0,
+    "active_scopes_after": [
+      "apex-baseline-base-swe-repair11-20261017.scope"
+    ],
+    "exception_type": null
+  },
+  "candidate_audits": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017/candidate-failure-audits.json",
+  "new_model_calls": 0,
+  "private_scratch_cleanup": {
+    "at": "2026-10-16T19:30:12.040950+00:00",
+    "deleted_private_scratch_paths": [
+      "/data/caoqinlu/apex-base-swe-repair-tmp/native-0aqlyo9k",
+      "/data/caoqinlu/apex-base-swe-repair-tmp/native-bml_gjhs",
+      "/data/caoqinlu/apex-base-swe-repair-tmp/native-l8k52783",
+      "/data/caoqinlu/apex-base-swe-repair-tmp/native-xlnmmpgx"
+    ],
+    "data_free_before": 2339388301312,
+    "data_free_after": 2344749383680,
+    "observed_free_delta_bytes": 5361082368,
+    "shared_go_cache_untouched": true,
+    "sif_untouched": true,
+    "all_raw_results_logs_patches_audits_retained": true,
+    "scope_consumers_confirmed_drained": true
+  }
+}

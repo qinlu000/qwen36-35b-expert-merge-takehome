@@ -1,0 +1,994 @@
+{
+  "train-fasttext/seed3": {
+    "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed3__independent1/result.json",
+    "files": [
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar",
+        "target": "/staging/saved-final-state.tar"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/native-gaps-20261017/manifests/train-fasttext__seed3/etc-delta.tar",
+        "target": "/staging/saved-etc-delta.tar"
+      }
+    ],
+    "commands": [
+      {
+        "command": "tar -xf /staging/saved-final-state.tar -C / -- app usr var",
+        "timeout_sec": 180,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "mkdir -p /etc/dpkg && mkdir -p /etc/dpkg/dpkg.cfg.d && mkdir -p /etc/dpkg/origins",
+        "timeout_sec": 30,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "rm -f -- /etc/apt/apt.conf.d/99-apex-rootmap /etc/dpkg/dpkg.cfg.d/docker /etc/dpkg/dpkg.cfg.d/singularity-compat /etc/dpkg/dpkg.cfg.d/docker-apt-speedup /etc/dpkg/dpkg.cfg /etc/dpkg/origins/debian /etc/dpkg/origins/default",
+        "timeout_sec": 30,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "tar --overwrite -xf /staging/saved-etc-delta.tar -C /",
+        "timeout_sec": 60,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "chmod 775 /etc/dpkg && chmod 775 /etc/dpkg/dpkg.cfg.d && chmod 775 /etc/dpkg/origins",
+        "timeout_sec": 30,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      }
+    ],
+    "restored_from_pre_verifier_artifact": true,
+    "reconstructed_from_transcript": false,
+    "archived_file_contents_preserved": true,
+    "unchanged_candidate_answer": true,
+    "native_tests_unchanged": true,
+    "restore_scope_complete_for_verifier": true,
+    "original_native_verifier_timeout_seconds": 900,
+    "new_model_calls": 0,
+    "new_verifier_runs_by_preparation": 0,
+    "one_additional_verifier_attempt_only": true,
+    "state_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed3__independent1/artifacts/logs/artifacts/final-task-state.json",
+    "etc_restore": {
+      "same_sif": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/alexgshaw_train-fasttext_20251031.sif",
+      "method": "Direct byte comparison, no content hashing; preserve original archived changed entries.",
+      "unchanged_lower_layer_entries": 467,
+      "changed_entries": [
+        "etc/apt/apt.conf.d/99-apex-rootmap",
+        "etc/dpkg",
+        "etc/dpkg/dpkg.cfg.d",
+        "etc/dpkg/dpkg.cfg.d/docker",
+        "etc/dpkg/dpkg.cfg.d/singularity-compat",
+        "etc/dpkg/dpkg.cfg.d/docker-apt-speedup",
+        "etc/dpkg/dpkg.cfg",
+        "etc/dpkg/origins",
+        "etc/dpkg/origins/debian",
+        "etc/dpkg/origins/default"
+      ],
+      "absent_entries": [],
+      "changed_entry_details": [
+        {
+          "path": "etc/apt/apt.conf.d/99-apex-rootmap",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o644",
+          "added": true
+        },
+        {
+          "path": "etc/dpkg",
+          "kind": "directory",
+          "symlink_target": null,
+          "mode": "0o775",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d",
+          "kind": "directory",
+          "symlink_target": null,
+          "mode": "0o775",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d/docker",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d/singularity-compat",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": true
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d/docker-apt-speedup",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/origins",
+          "kind": "directory",
+          "symlink_target": null,
+          "mode": "0o775",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/origins/debian",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/origins/default",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        }
+      ],
+      "runtime_managed_entries": [
+        {
+          "path": "etc/resolv.conf",
+          "captured_content": "nameserver 10.0.2.3\n",
+          "restore": "Do not overwrite read-only NetworkNamespace resolver bind; normal public phase recreates its resolver."
+        }
+      ],
+      "reason": "Full /etc extraction stalls in fuse-overlayfs copy-up of unchanged dpkg/origins/debian; preserve original state through the smallest exact delta."
+    }
+  },
+  "pytorch-model-cli/seed3": {
+    "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed3__independent1/result.json",
+    "files": [
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar",
+        "target": "/staging/saved-final-state.tar"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/t10k-images-idx3-ubyte",
+        "target": "/staging/mnist/t10k-images-idx3-ubyte"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/t10k-images-idx3-ubyte.gz",
+        "target": "/staging/mnist/t10k-images-idx3-ubyte.gz"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/t10k-labels-idx1-ubyte",
+        "target": "/staging/mnist/t10k-labels-idx1-ubyte"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/t10k-labels-idx1-ubyte.gz",
+        "target": "/staging/mnist/t10k-labels-idx1-ubyte.gz"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/train-images-idx3-ubyte",
+        "target": "/staging/mnist/train-images-idx3-ubyte"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/train-images-idx3-ubyte.gz",
+        "target": "/staging/mnist/train-images-idx3-ubyte.gz"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/train-labels-idx1-ubyte",
+        "target": "/staging/mnist/train-labels-idx1-ubyte"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/train-labels-idx1-ubyte.gz",
+        "target": "/staging/mnist/train-labels-idx1-ubyte.gz"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/native-gaps-20261017/manifests/pytorch-model-cli__seed3/etc-delta.tar",
+        "target": "/staging/saved-etc-delta.tar"
+      }
+    ],
+    "commands": [
+      {
+        "command": "tar -xf /staging/saved-final-state.tar -C / -- app usr var",
+        "timeout_sec": 180,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "mkdir -p /etc/dpkg && mkdir -p /etc/dpkg/dpkg.cfg.d && mkdir -p /etc/dpkg/origins",
+        "timeout_sec": 30,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "rm -f -- /etc/apt/apt.conf.d/99-apex-rootmap /etc/dpkg/dpkg.cfg.d/docker /etc/dpkg/dpkg.cfg.d/singularity-compat /etc/dpkg/dpkg.cfg.d/docker-apt-speedup /etc/dpkg/dpkg.cfg /etc/dpkg/origins/debian /etc/dpkg/origins/default",
+        "timeout_sec": 30,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "tar --overwrite -xf /staging/saved-etc-delta.tar -C /",
+        "timeout_sec": 60,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "chmod 775 /etc/dpkg && chmod 775 /etc/dpkg/dpkg.cfg.d && chmod 775 /etc/dpkg/origins",
+        "timeout_sec": 30,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "mkdir -p /app/data/MNIST/raw && cp /staging/mnist/* /app/data/MNIST/raw/",
+        "timeout_sec": 30,
+        "source_evidence": "Official tests use MNIST(root=./data, train=False, download=True); public upstream bytes already frozen."
+      }
+    ],
+    "restored_from_pre_verifier_artifact": true,
+    "reconstructed_from_transcript": false,
+    "archived_file_contents_preserved": true,
+    "unchanged_candidate_answer": true,
+    "native_tests_unchanged": true,
+    "restore_scope_complete_for_verifier": true,
+    "original_native_verifier_timeout_seconds": 900,
+    "new_model_calls": 0,
+    "new_verifier_runs_by_preparation": 0,
+    "one_additional_verifier_attempt_only": true,
+    "state_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed3__independent1/artifacts/logs/artifacts/final-task-state.json",
+    "etc_restore": {
+      "same_sif": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/alexgshaw_pytorch-model-cli_20251031.sif",
+      "method": "Direct byte comparison, no content hashing; preserve original archived changed entries.",
+      "unchanged_lower_layer_entries": 466,
+      "changed_entries": [
+        "etc/apt/apt.conf.d/99-apex-rootmap",
+        "etc/dpkg",
+        "etc/dpkg/dpkg.cfg.d",
+        "etc/dpkg/dpkg.cfg.d/docker",
+        "etc/dpkg/dpkg.cfg.d/singularity-compat",
+        "etc/dpkg/dpkg.cfg.d/docker-apt-speedup",
+        "etc/dpkg/dpkg.cfg",
+        "etc/dpkg/origins",
+        "etc/dpkg/origins/debian",
+        "etc/dpkg/origins/default"
+      ],
+      "absent_entries": [],
+      "changed_entry_details": [
+        {
+          "path": "etc/apt/apt.conf.d/99-apex-rootmap",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o644",
+          "added": true
+        },
+        {
+          "path": "etc/dpkg",
+          "kind": "directory",
+          "symlink_target": null,
+          "mode": "0o775",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d",
+          "kind": "directory",
+          "symlink_target": null,
+          "mode": "0o775",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d/docker",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d/singularity-compat",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": true
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d/docker-apt-speedup",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/origins",
+          "kind": "directory",
+          "symlink_target": null,
+          "mode": "0o775",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/origins/debian",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/origins/default",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        }
+      ],
+      "runtime_managed_entries": [
+        {
+          "path": "etc/resolv.conf",
+          "captured_content": "nameserver 10.0.2.3\n",
+          "restore": "Do not overwrite read-only NetworkNamespace resolver bind; normal public phase recreates its resolver."
+        }
+      ],
+      "reason": "Full /etc extraction stalls in fuse-overlayfs copy-up of unchanged dpkg/origins/debian; preserve original state through the smallest exact delta."
+    }
+  },
+  "train-fasttext/seed4": {
+    "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed4__independent1/result.json",
+    "files": [
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed4__independent1/artifacts/logs/artifacts/final-task-state.tar",
+        "target": "/staging/saved-final-state.tar"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/native-gaps-20261017/manifests/train-fasttext__seed4/etc-delta.tar",
+        "target": "/staging/saved-etc-delta.tar"
+      }
+    ],
+    "commands": [
+      {
+        "command": "tar -xf /staging/saved-final-state.tar -C / -- app usr",
+        "timeout_sec": 180,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed4__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "mkdir -p /etc/dpkg && mkdir -p /etc/dpkg/dpkg.cfg.d && mkdir -p /etc/dpkg/origins",
+        "timeout_sec": 30,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed4__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "rm -f -- /etc/apt/apt.conf.d/99-apex-rootmap /etc/dpkg/dpkg.cfg.d/docker /etc/dpkg/dpkg.cfg.d/singularity-compat /etc/dpkg/dpkg.cfg.d/docker-apt-speedup /etc/dpkg/dpkg.cfg /etc/dpkg/origins/debian /etc/dpkg/origins/default",
+        "timeout_sec": 30,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed4__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "tar --overwrite -xf /staging/saved-etc-delta.tar -C /",
+        "timeout_sec": 60,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed4__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "chmod 775 /etc/dpkg && chmod 775 /etc/dpkg/dpkg.cfg.d && chmod 775 /etc/dpkg/origins",
+        "timeout_sec": 30,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed4__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      }
+    ],
+    "restored_from_pre_verifier_artifact": true,
+    "reconstructed_from_transcript": false,
+    "archived_file_contents_preserved": true,
+    "unchanged_candidate_answer": true,
+    "native_tests_unchanged": true,
+    "restore_scope_complete_for_verifier": true,
+    "original_native_verifier_timeout_seconds": 900,
+    "new_model_calls": 0,
+    "new_verifier_runs_by_preparation": 0,
+    "one_additional_verifier_attempt_only": true,
+    "state_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed4__independent1/artifacts/logs/artifacts/final-task-state.json",
+    "etc_restore": {
+      "same_sif": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/alexgshaw_train-fasttext_20251031.sif",
+      "method": "Direct byte comparison, no content hashing; preserve original archived changed entries.",
+      "unchanged_lower_layer_entries": 467,
+      "changed_entries": [
+        "etc/apt/apt.conf.d/99-apex-rootmap",
+        "etc/dpkg",
+        "etc/dpkg/dpkg.cfg.d",
+        "etc/dpkg/dpkg.cfg.d/docker",
+        "etc/dpkg/dpkg.cfg.d/singularity-compat",
+        "etc/dpkg/dpkg.cfg.d/docker-apt-speedup",
+        "etc/dpkg/dpkg.cfg",
+        "etc/dpkg/origins",
+        "etc/dpkg/origins/debian",
+        "etc/dpkg/origins/default"
+      ],
+      "absent_entries": [],
+      "changed_entry_details": [
+        {
+          "path": "etc/apt/apt.conf.d/99-apex-rootmap",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o644",
+          "added": true
+        },
+        {
+          "path": "etc/dpkg",
+          "kind": "directory",
+          "symlink_target": null,
+          "mode": "0o775",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d",
+          "kind": "directory",
+          "symlink_target": null,
+          "mode": "0o775",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d/docker",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d/singularity-compat",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": true
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d/docker-apt-speedup",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/origins",
+          "kind": "directory",
+          "symlink_target": null,
+          "mode": "0o775",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/origins/debian",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/origins/default",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        }
+      ],
+      "runtime_managed_entries": [
+        {
+          "path": "etc/resolv.conf",
+          "captured_content": "nameserver 10.0.2.3\n",
+          "restore": "Do not overwrite read-only NetworkNamespace resolver bind; normal public phase recreates its resolver."
+        }
+      ],
+      "reason": "Full /etc extraction stalls in fuse-overlayfs copy-up of unchanged dpkg/origins/debian; preserve original state through the smallest exact delta."
+    }
+  },
+  "pytorch-model-cli/seed4": {
+    "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed4__independent1/result.json",
+    "files": [
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed4__independent1/artifacts/logs/artifacts/final-task-state.tar",
+        "target": "/staging/saved-final-state.tar"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/t10k-images-idx3-ubyte",
+        "target": "/staging/mnist/t10k-images-idx3-ubyte"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/t10k-images-idx3-ubyte.gz",
+        "target": "/staging/mnist/t10k-images-idx3-ubyte.gz"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/t10k-labels-idx1-ubyte",
+        "target": "/staging/mnist/t10k-labels-idx1-ubyte"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/t10k-labels-idx1-ubyte.gz",
+        "target": "/staging/mnist/t10k-labels-idx1-ubyte.gz"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/train-images-idx3-ubyte",
+        "target": "/staging/mnist/train-images-idx3-ubyte"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/train-images-idx3-ubyte.gz",
+        "target": "/staging/mnist/train-images-idx3-ubyte.gz"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/train-labels-idx1-ubyte",
+        "target": "/staging/mnist/train-labels-idx1-ubyte"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public/mnist/raw/train-labels-idx1-ubyte.gz",
+        "target": "/staging/mnist/train-labels-idx1-ubyte.gz"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/native-gaps-20261017/manifests/pytorch-model-cli__seed4/etc-delta.tar",
+        "target": "/staging/saved-etc-delta.tar"
+      }
+    ],
+    "commands": [
+      {
+        "command": "tar -xf /staging/saved-final-state.tar -C / -- app usr var",
+        "timeout_sec": 180,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed4__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "mkdir -p /etc/dpkg && mkdir -p /etc/dpkg/dpkg.cfg.d && mkdir -p /etc/dpkg/origins",
+        "timeout_sec": 30,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed4__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "rm -f -- /etc/apt/apt.conf.d/99-apex-rootmap /etc/dpkg/dpkg.cfg.d/docker /etc/dpkg/dpkg.cfg.d/singularity-compat /etc/dpkg/dpkg.cfg.d/docker-apt-speedup /etc/dpkg/dpkg.cfg /etc/dpkg/origins/debian /etc/dpkg/origins/default",
+        "timeout_sec": 30,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed4__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "tar --overwrite -xf /staging/saved-etc-delta.tar -C /",
+        "timeout_sec": 60,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed4__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "chmod 775 /etc/dpkg && chmod 775 /etc/dpkg/dpkg.cfg.d && chmod 775 /etc/dpkg/origins",
+        "timeout_sec": 30,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed4__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "mkdir -p /app/data/MNIST/raw && cp /staging/mnist/* /app/data/MNIST/raw/",
+        "timeout_sec": 30,
+        "source_evidence": "Official tests use MNIST(root=./data, train=False, download=True); public upstream bytes already frozen."
+      }
+    ],
+    "restored_from_pre_verifier_artifact": true,
+    "reconstructed_from_transcript": false,
+    "archived_file_contents_preserved": true,
+    "unchanged_candidate_answer": true,
+    "native_tests_unchanged": true,
+    "restore_scope_complete_for_verifier": true,
+    "original_native_verifier_timeout_seconds": 900,
+    "new_model_calls": 0,
+    "new_verifier_runs_by_preparation": 0,
+    "one_additional_verifier_attempt_only": true,
+    "state_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed4__independent1/artifacts/logs/artifacts/final-task-state.json",
+    "etc_restore": {
+      "same_sif": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/alexgshaw_pytorch-model-cli_20251031.sif",
+      "method": "Direct byte comparison, no content hashing; preserve original archived changed entries.",
+      "unchanged_lower_layer_entries": 466,
+      "changed_entries": [
+        "etc/apt/apt.conf.d/99-apex-rootmap",
+        "etc/dpkg",
+        "etc/dpkg/dpkg.cfg.d",
+        "etc/dpkg/dpkg.cfg.d/docker",
+        "etc/dpkg/dpkg.cfg.d/singularity-compat",
+        "etc/dpkg/dpkg.cfg.d/docker-apt-speedup",
+        "etc/dpkg/dpkg.cfg",
+        "etc/dpkg/origins",
+        "etc/dpkg/origins/debian",
+        "etc/dpkg/origins/default"
+      ],
+      "absent_entries": [],
+      "changed_entry_details": [
+        {
+          "path": "etc/apt/apt.conf.d/99-apex-rootmap",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o644",
+          "added": true
+        },
+        {
+          "path": "etc/dpkg",
+          "kind": "directory",
+          "symlink_target": null,
+          "mode": "0o775",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d",
+          "kind": "directory",
+          "symlink_target": null,
+          "mode": "0o775",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d/docker",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d/singularity-compat",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": true
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d/docker-apt-speedup",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/origins",
+          "kind": "directory",
+          "symlink_target": null,
+          "mode": "0o775",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/origins/debian",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/origins/default",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        }
+      ],
+      "runtime_managed_entries": [
+        {
+          "path": "etc/resolv.conf",
+          "captured_content": "nameserver 10.0.2.3\n",
+          "restore": "Do not overwrite read-only NetworkNamespace resolver bind; normal public phase recreates its resolver."
+        }
+      ],
+      "reason": "Full /etc extraction stalls in fuse-overlayfs copy-up of unchanged dpkg/origins/debian; preserve original state through the smallest exact delta."
+    }
+  },
+  "make-doom-for-mips/seed3": {
+    "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/make-doom-for-mips__seed3__independent1/result.json",
+    "files": [
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/make-doom-for-mips__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar",
+        "target": "/staging/saved-final-state.tar"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/native-gaps-20261017/manifests/make-doom-for-mips__seed3/etc-delta.tar",
+        "target": "/staging/saved-etc-delta.tar"
+      }
+    ],
+    "commands": [
+      {
+        "command": "tar -xf /staging/saved-final-state.tar -C / -- app root",
+        "timeout_sec": 180,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/make-doom-for-mips__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "mkdir -p /etc/dpkg && mkdir -p /etc/dpkg/dpkg.cfg.d && mkdir -p /etc/dpkg/origins",
+        "timeout_sec": 30,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/make-doom-for-mips__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "rm -f -- /etc/apt/apt.conf.d/99-apex-rootmap /etc/apt/sources.list.d/debian.sources /etc/dpkg/dpkg.cfg.d/docker /etc/dpkg/dpkg.cfg.d/singularity-compat /etc/dpkg/dpkg.cfg.d/docker-apt-speedup /etc/dpkg/dpkg.cfg /etc/dpkg/origins/debian /etc/dpkg/origins/default /etc/hosts",
+        "timeout_sec": 30,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/make-doom-for-mips__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "tar --overwrite -xf /staging/saved-etc-delta.tar -C /",
+        "timeout_sec": 60,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/make-doom-for-mips__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "chmod 775 /etc/dpkg && chmod 775 /etc/dpkg/dpkg.cfg.d && chmod 775 /etc/dpkg/origins",
+        "timeout_sec": 30,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/make-doom-for-mips__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      }
+    ],
+    "restored_from_pre_verifier_artifact": true,
+    "reconstructed_from_transcript": false,
+    "archived_file_contents_preserved": true,
+    "unchanged_candidate_answer": true,
+    "native_tests_unchanged": true,
+    "restore_scope_complete_for_verifier": true,
+    "original_native_verifier_timeout_seconds": 900,
+    "new_model_calls": 0,
+    "new_verifier_runs_by_preparation": 0,
+    "one_additional_verifier_attempt_only": true,
+    "state_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/make-doom-for-mips__seed3__independent1/artifacts/logs/artifacts/final-task-state.json",
+    "etc_restore": {
+      "same_sif": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/alexgshaw_make-doom-for-mips_20251031.sif",
+      "method": "Direct byte comparison, no content hashing; preserve original archived changed entries.",
+      "unchanged_lower_layer_entries": 477,
+      "changed_entries": [
+        "etc/apt/apt.conf.d/99-apex-rootmap",
+        "etc/apt/sources.list.d/debian.sources",
+        "etc/dpkg",
+        "etc/dpkg/dpkg.cfg.d",
+        "etc/dpkg/dpkg.cfg.d/docker",
+        "etc/dpkg/dpkg.cfg.d/singularity-compat",
+        "etc/dpkg/dpkg.cfg.d/docker-apt-speedup",
+        "etc/dpkg/dpkg.cfg",
+        "etc/dpkg/origins",
+        "etc/dpkg/origins/debian",
+        "etc/dpkg/origins/default",
+        "etc/hosts"
+      ],
+      "absent_entries": [],
+      "changed_entry_details": [
+        {
+          "path": "etc/apt/apt.conf.d/99-apex-rootmap",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o644",
+          "added": true
+        },
+        {
+          "path": "etc/apt/sources.list.d/debian.sources",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o644",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg",
+          "kind": "directory",
+          "symlink_target": null,
+          "mode": "0o775",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d",
+          "kind": "directory",
+          "symlink_target": null,
+          "mode": "0o775",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d/docker",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d/singularity-compat",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": true
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d/docker-apt-speedup",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/origins",
+          "kind": "directory",
+          "symlink_target": null,
+          "mode": "0o775",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/origins/debian",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/origins/default",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/hosts",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        }
+      ],
+      "runtime_managed_entries": [
+        {
+          "path": "etc/resolv.conf",
+          "captured_content": "nameserver 10.0.2.3\n",
+          "restore": "Do not overwrite read-only NetworkNamespace resolver bind; normal public phase recreates its resolver."
+        }
+      ],
+      "reason": "Full /etc extraction stalls in fuse-overlayfs copy-up of unchanged dpkg/origins/debian; preserve original state through the smallest exact delta."
+    }
+  },
+  "sam-cell-seg/seed3": {
+    "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/sam-cell-seg__seed3__independent1/result.json",
+    "files": [
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/sam-cell-seg__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar",
+        "target": "/staging/saved-final-state.tar"
+      },
+      {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/native-gaps-20261017/manifests/sam-cell-seg__seed3/etc-delta.tar",
+        "target": "/staging/saved-etc-delta.tar"
+      }
+    ],
+    "commands": [
+      {
+        "command": "tar -xf /staging/saved-final-state.tar -C / -- app usr var",
+        "timeout_sec": 180,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/sam-cell-seg__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "mkdir -p /etc/dpkg && mkdir -p /etc/dpkg/dpkg.cfg.d && mkdir -p /etc/dpkg/origins",
+        "timeout_sec": 30,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/sam-cell-seg__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "rm -f -- /etc/apt/apt.conf.d/99-apex-rootmap /etc/dpkg/dpkg.cfg.d/singularity-compat /etc/dpkg/dpkg.cfg.d/docker-apt-speedup /etc/dpkg/dpkg.cfg /etc/dpkg/origins/debian /etc/dpkg/origins/default /etc/dpkg/shlibs.override /etc/dpkg/shlibs.default",
+        "timeout_sec": 30,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/sam-cell-seg__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "tar --overwrite -xf /staging/saved-etc-delta.tar -C /",
+        "timeout_sec": 60,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/sam-cell-seg__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      },
+      {
+        "command": "chmod 775 /etc/dpkg && chmod 775 /etc/dpkg/dpkg.cfg.d && chmod 775 /etc/dpkg/origins",
+        "timeout_sec": 30,
+        "source_evidence": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/sam-cell-seg__seed3__independent1/artifacts/logs/artifacts/final-task-state.tar"
+      }
+    ],
+    "restored_from_pre_verifier_artifact": true,
+    "reconstructed_from_transcript": false,
+    "archived_file_contents_preserved": true,
+    "unchanged_candidate_answer": true,
+    "native_tests_unchanged": true,
+    "restore_scope_complete_for_verifier": true,
+    "original_native_verifier_timeout_seconds": 900,
+    "new_model_calls": 0,
+    "new_verifier_runs_by_preparation": 0,
+    "one_additional_verifier_attempt_only": true,
+    "state_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/sam-cell-seg__seed3__independent1/artifacts/logs/artifacts/final-task-state.json",
+    "etc_restore": {
+      "same_sif": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/alexgshaw_sam-cell-seg_20251031.sif",
+      "method": "Direct byte comparison, no content hashing; preserve original archived changed entries.",
+      "unchanged_lower_layer_entries": 695,
+      "changed_entries": [
+        "etc/apt/apt.conf.d/99-apex-rootmap",
+        "etc/dpkg",
+        "etc/dpkg/dpkg.cfg.d",
+        "etc/dpkg/dpkg.cfg.d/singularity-compat",
+        "etc/dpkg/dpkg.cfg.d/docker-apt-speedup",
+        "etc/dpkg/dpkg.cfg",
+        "etc/dpkg/origins",
+        "etc/dpkg/origins/debian",
+        "etc/dpkg/origins/default",
+        "etc/dpkg/shlibs.override",
+        "etc/dpkg/shlibs.default"
+      ],
+      "absent_entries": [],
+      "changed_entry_details": [
+        {
+          "path": "etc/apt/apt.conf.d/99-apex-rootmap",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o644",
+          "added": true
+        },
+        {
+          "path": "etc/dpkg",
+          "kind": "directory",
+          "symlink_target": null,
+          "mode": "0o775",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d",
+          "kind": "directory",
+          "symlink_target": null,
+          "mode": "0o775",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d/singularity-compat",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": true
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg.d/docker-apt-speedup",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/dpkg.cfg",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/origins",
+          "kind": "directory",
+          "symlink_target": null,
+          "mode": "0o775",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/origins/debian",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/origins/default",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/shlibs.override",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        },
+        {
+          "path": "etc/dpkg/shlibs.default",
+          "kind": "file",
+          "symlink_target": null,
+          "mode": "0o664",
+          "added": false
+        }
+      ],
+      "runtime_managed_entries": [
+        {
+          "path": "etc/resolv.conf",
+          "captured_content": "nameserver 10.0.2.3\n",
+          "restore": "Do not overwrite read-only NetworkNamespace resolver bind; normal public phase recreates its resolver."
+        }
+      ],
+      "reason": "Full /etc extraction stalls in fuse-overlayfs copy-up of unchanged dpkg/origins/debian; preserve original state through the smallest exact delta."
+    }
+  }
+}
