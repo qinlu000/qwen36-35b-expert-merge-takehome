@@ -1,0 +1,199 @@
+{
+  "as_of_utc": "2026-10-16T18:29:11.697507+00:00",
+  "source_output_80": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/final_aggregation_20261017",
+  "path_config_80": "/data/caoqinlu/projects/apex-takehome/configs/eval/final_results_20261017.json",
+  "complete_primary_comparison": false,
+  "statistics": {
+    "repetitions": 10000,
+    "seed": 20261015,
+    "confidence_level": 0.95,
+    "numpy_version": "2.5.4",
+    "bit_generator": "PCG64",
+    "benchmark_stream_order": [
+      "swe",
+      "hle",
+      "asi",
+      "terminal"
+    ],
+    "stream_rule": "SeedSequence(20261015).spawn(4); independent benchmark streams",
+    "resampling_units": {
+      "swe": "51 task IDs",
+      "hle": "2500 question IDs",
+      "asi": "60 project IDs retaining all four conditions",
+      "terminal": "89 task IDs retaining all five seeds"
+    },
+    "interpretation": "Conditional on fixed task versions, resource budgets, evaluated runs and disclosed scheduling/judge differences"
+  },
+  "models": {
+    "base": {
+      "macro_primary_percent": null,
+      "benchmarks": {
+        "swe": {
+          "expected": 51,
+          "valid_scored": 46,
+          "wrong": 36,
+          "invalid": 5,
+          "pending": 0,
+          "missing": 0,
+          "complete": false,
+          "primary_score_percent": null,
+          "primary_ci95_percent": null
+        },
+        "hle": {
+          "expected": 2500,
+          "valid_scored": 2499,
+          "wrong": 2400,
+          "invalid": 1,
+          "pending": 0,
+          "missing": 0,
+          "complete": false,
+          "primary_score_percent": null,
+          "primary_ci95_percent": null
+        },
+        "asi": {
+          "expected": 240,
+          "valid_scored": 240,
+          "invalid": 0,
+          "pending": 0,
+          "missing": 0,
+          "complete": true,
+          "primary_score_percent": 1.5709884069083986,
+          "primary_ci95_percent": {
+            "lower": 0.6570874151070668,
+            "upper": 2.725587842137692,
+            "method": "percentile cluster bootstrap"
+          }
+        },
+        "terminal": {
+          "expected": 445,
+          "valid_scored": 436,
+          "wrong": 347,
+          "invalid": 9,
+          "pending": 0,
+          "missing": 0,
+          "complete": false,
+          "primary_score_percent": null,
+          "primary_ci95_percent": null,
+          "sample_sd_percent_ddof1": null,
+          "five_seed_mean_percent": null
+        }
+      }
+    },
+    "swe249": {
+      "macro_primary_percent": null,
+      "benchmarks": {
+        "swe": {
+          "expected": 51,
+          "valid_scored": 19,
+          "wrong": 19,
+          "invalid": 4,
+          "pending": 28,
+          "missing": 0,
+          "complete": false,
+          "primary_score_percent": null,
+          "primary_ci95_percent": null
+        }
+      }
+    },
+    "hle250": {
+      "macro_primary_percent": null,
+      "benchmarks": {
+        "hle": {
+          "expected": 2500,
+          "valid_scored": 0,
+          "wrong": 0,
+          "invalid": 0,
+          "pending": 0,
+          "missing": 2500,
+          "complete": false,
+          "primary_score_percent": null,
+          "primary_ci95_percent": null
+        }
+      }
+    },
+    "asi128": {
+      "macro_primary_percent": null,
+      "benchmarks": {
+        "asi": {
+          "expected": 240,
+          "valid_scored": 0,
+          "invalid": 0,
+          "pending": 0,
+          "missing": 240,
+          "complete": false,
+          "primary_score_percent": null,
+          "primary_ci95_percent": null
+        }
+      }
+    },
+    "terminal250": {
+      "macro_primary_percent": null,
+      "benchmarks": {
+        "terminal": {
+          "expected": 445,
+          "valid_scored": 0,
+          "wrong": 0,
+          "invalid": 0,
+          "pending": 445,
+          "missing": 0,
+          "complete": false,
+          "primary_score_percent": null,
+          "primary_ci95_percent": null,
+          "sample_sd_percent_ddof1": null,
+          "five_seed_mean_percent": null
+        }
+      }
+    },
+    "avg64": {
+      "macro_primary_percent": null,
+      "benchmarks": {
+        "swe": {
+          "expected": 51,
+          "valid_scored": 0,
+          "wrong": 0,
+          "invalid": 0,
+          "pending": 51,
+          "missing": 0,
+          "complete": false,
+          "primary_score_percent": null,
+          "primary_ci95_percent": null
+        },
+        "hle": {
+          "expected": 2500,
+          "valid_scored": 0,
+          "wrong": 0,
+          "invalid": 0,
+          "pending": 0,
+          "missing": 2500,
+          "complete": false,
+          "primary_score_percent": null,
+          "primary_ci95_percent": null
+        },
+        "asi": {
+          "expected": 240,
+          "valid_scored": 0,
+          "invalid": 0,
+          "pending": 0,
+          "missing": 240,
+          "complete": false,
+          "primary_score_percent": null,
+          "primary_ci95_percent": null
+        },
+        "terminal": {
+          "expected": 445,
+          "valid_scored": 0,
+          "wrong": 0,
+          "invalid": 0,
+          "pending": 445,
+          "missing": 0,
+          "complete": false,
+          "primary_score_percent": null,
+          "primary_ci95_percent": null,
+          "sample_sd_percent_ddof1": null,
+          "five_seed_mean_percent": null
+        }
+      }
+    }
+  },
+  "actions": "Read owner outputs only; no scoring, generation, queues, Base collectors, Git or claud edits"
+}

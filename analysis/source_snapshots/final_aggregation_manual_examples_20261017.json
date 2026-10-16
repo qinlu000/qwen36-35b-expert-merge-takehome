@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "fixture_scope": "Hand-calculated artificial scores only; no benchmark questions or model calls",
+  "bootstrap_repetitions": 10000,
+  "seed": 20261015,
+  "checks": {
+    "wrong_is_valid_zero_but_verifier_invalid_is_unscored": true,
+    "missing_duplicate_unexpected_or_owner_mismatch_blocks_primary": true,
+    "pair_by_ID_not_physical_row_order": {
+      "lower": 0.0,
+      "upper": 0.0,
+      "method": "percentile cluster bootstrap"
+    },
+    "TB_all_five_seeds_resampled_as_one_task_cluster": {
+      "lower": -100.0,
+      "upper": 100.0,
+      "method": "percentile cluster bootstrap"
+    },
+    "TB_mean40_sample_SD_sqrt1750": {
+      "mean": 40,
+      "sample_sd": 41.83300132670378
+    },
+    "ASI_native_275_over800_and_four_condition_clusters": true,
+    "four_benchmarks_equal_weight_missing_benchmark_blocks_macro": true
+  }
+}

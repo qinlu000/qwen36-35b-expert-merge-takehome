@@ -1482,3 +1482,11 @@
 - 原生val loss：SWE249=.31768048，Terminal250=.42291749，ASI128=.58268344，HLE250=3.49751949；Mixed883=1.67246282，最低64=1.21849561。这些不是benchmark准确率；HLE短gold格式偏差仍披露。
 - 五个成功run wall×GPU合计约46.542GPU小时，只是成功训练子集，失败训练/完整Slurm占用/推理需另计。Swift源码核实memory(GiB)是rank0当前CUDA设备allocator peak reserved，不能冒称所有GPU完整峰值。
 - 汇总见analysis/training_curves_20261017.md，源curves/training_20261017/source；无需模型调用或GPU可重画。后续loss-only作业727689使用原249条留出数据比较固定Base/AVG64/AVG16/Mixed，不新增任务级val、不训练/生成/改主模型。
+
+
+## 2026-10-17 02:33 CST：正式结果聚合与配对统计已实际跑通
+
+- 新增独立summarize_experiment.py与显式final_results配置，不修改另一会话Base collector。固定四项百分数等权macro，任一missing/pending/invalid阻止主分和CI；目标专家只报目标项，不拼成假想单模型。
+- 10000次paired cluster bootstrap，master seed20261015；SWE51/HLE2500按ID，ASI60项目保留4条件，TB89任务保留5seed。五轮TB均值/sample SD ddof1、ASI native分子/分母均保存。原始来源、ID异常、null与有效0分分开；人工金标准与80真实部分产物适配通过。
+- 汇总快照Base SWE46/51、HLE2499/2500、ASI240/240、TB436/445；SWE专家19/51有效。仅Base ASI目前完整，1.5709884069%，四项macro及提升均null。HLE仍1Judge JSON invalid；SWE5与TB9原生verifier/基础设施缺口逐项记录，不偷偷当错题或重新答卷。
+- 本次只读未发现上述Base缺口的匹配在途修复脚本，未抢另一会话的Base重判/执行。后续仍需解决15个判分缺口或如实披露未完整，不能仅称“队列已结束”就满足全部有效评测。完整证据analysis/final_aggregation_20261017.md。

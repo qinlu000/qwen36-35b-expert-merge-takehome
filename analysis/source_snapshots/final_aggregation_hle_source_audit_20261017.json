@@ -1,0 +1,22 @@
+{
+  "as_of_utc": "2026-10-16T18:26:11.749435+00:00",
+  "judge_directory": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016",
+  "selection_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_infra1/manual_retry_manifest.json",
+  "selection_rule": "Retain original309 responses and512 genuine budget timeouts; same ID/seed/budget; first terminal result in retry order; no answer selection.",
+  "retained_count": 821,
+  "selected_count": 1679,
+  "frozen_input_count": 2500,
+  "IDs_match_fixed2500": true,
+  "generation_source_root_counts": {
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_infra1": 1679,
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196": 821
+  },
+  "frozen_input_selection_reference_mismatches": [],
+  "scored_result_frozen_source_mismatches": [],
+  "evaluation_status_counts": {
+    "native_no_answer": 1445,
+    "judged": 1054,
+    "evaluation_invalid": 1
+  },
+  "action": "Read metadata references only; no answer selection, scoring, generation or queue changes"
+}
