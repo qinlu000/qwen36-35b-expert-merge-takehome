@@ -1261,3 +1261,12 @@
 - SWE实际保留原模板完整token67,446,810，少288,516，assistant输出代理14,685,184；946仓库仍保留，语言Python952/Go517/JS477/TS47，source1224/769。Mixed对应原模板保留token140,826,718。这些不是原生精确label/padding计算量，无新增编码或hash审计。
 - 实际状态：SWE726335已19:55完成249步/bestcp249 val.31768048（run为swe2k-sft-r16-726335）；ASI726336完成134/best128；HLE726664已31/250且原生2000/100；Mixed726666已6/883且7066/249；Terminal726665仍待启动无native run。四个已启run有training_config/command/args/logging，完成两项有summary。
 - 更新训练矩阵，明确train_rows为导出量、native_loaded_train_rows为预处理后量；实际SWE/Mixed加载数与并集保持一致。不为补齐7条取消/重做训练，不改数据或冻结评测。claud/overnight只提交本轮自有追加段，Git无coauthor信息。
+
+
+## 2026-10-16 20:17 CST：Base进度只读巡查
+
+- 用户问当前Base进度。20:16正式汇总HLE2103/2500有效(84.12%)、生成终态2104，50并发仍在；ASI240/240完成，公开本地mean1.5709884%。Terminal117/445有效(26.29%)、30在途、265待准入，另33项基础设施/评分异常仍未有效计分，旧保存状态grader在query-optimize补评。
+- SWE原51评分维持5/51=9.80392%，环境受扰历史标记不变；新clean28为3生成中/25待准入、0生成终态/0正式评分。总控3045818及原3子进程均活着，checkpoint持续更新，20:16三项实际API调用31/18/45，均有新工具轨迹，无新driver-error。corrected51当前resolved3来自保留native23，不是新28已解决3题，不提前发布新主分。
+- 实测20:17HPC原生日志：HLE726663 Running50/Waiting0、739.3输出token/s；Terminal/SWE共享A726635 Running12/Waiting0、144.3token/s，B726629 Running15/Waiting0、211.4token/s。基线当前6GPU，旧726129/725705两份共4GPU已退出且consumer marker true；全账号13GPU包含SFT6与其他项目1，不改其作业或参数。
+- HLE唯一新增评分异常id672ecc6946f619ca9b0495c5：既定两次Judge均HTTP200但4096输出截断导致未闭JSON，正确性仍null，不能按学生答错0计分。不是网络断线；两次既定Judge尝试已耗尽，本轮未改4096/评分协议、追加第三次或重生成原答案。其余全量继续，保留该异常单列待处理。
+- 本轮仅检查正式summary、活进程、既有HPC服务日志和原始异常，不跑模型/API探针/fixture/hash、不重启在途任务。完整汇总快照analysis/source_snapshots/base_progress_20261016_2016.json；只追加本轮claud内容并单独Git提交，保留另一会话SFT/数据工作区，无coauthor信息。

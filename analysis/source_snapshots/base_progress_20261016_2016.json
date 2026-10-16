@@ -1,0 +1,195 @@
+{
+  "updated_at_utc": "2026-10-16T12:17:06.601662+00:00",
+  "complete": false,
+  "benchmarks": {
+    "HLE": {
+      "expected": 2500,
+      "valid_scored": 2114,
+      "unscored": 386,
+      "complete": false,
+      "primary_score_percent": null,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/summary.json",
+      "note": "Retain all original answers and normal budget ends. At1424 outcomes, serving changed from max_num_seqs4 to20, with8 incomplete migration infrastructure retry2. User then requests server/client50; the next natural handoff transfers only never-started questions and adds no retry. Actual transitions are recorded separately. Queue time is inside the300s budget, so earlier timeouts cannot be interpreted as model ability alone. Judge uses school DeepSeek-V4-Flash and original criteria/JSONwrapper/4096/nonthinking; infrastructure-invalid outcomes are not zeros.",
+      "source_mtime_utc": "2026-10-16T12:16:59.110474+00:00",
+      "infrastructure_or_evaluator_invalid": 1,
+      "generation_terminal": 2115,
+      "judged_answers": 920,
+      "native_no_answer": 1194,
+      "correct": 86,
+      "subgroups": {
+        "text": {
+          "denominator": 2158,
+          "scored": 1846,
+          "correct": 77,
+          "accuracy_percent": null
+        },
+        "image": {
+          "denominator": 342,
+          "scored": 268,
+          "correct": 9,
+          "accuracy_percent": null
+        }
+      },
+      "budget_halted": false,
+      "judge_calls": 922,
+      "accounted_cny": 1.361943,
+      "cost_cap_cny": 10,
+      "source_updated_at": "2026-10-16T12:16:59.111156+00:00",
+      "serving_transition": {
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_seq20/handoff-receipt.json",
+        "at_utc": "2026-10-16T11:10:06.887453+00:00",
+        "retained_terminal_outcomes": 1424,
+        "selected_for_new_service": 1076,
+        "incomplete_migration_retries": 8,
+        "old_max_num_seqs": 4,
+        "new_max_num_seqs": 20,
+        "outer_solver_concurrency": 8,
+        "question_walltime_includes_queue": true
+      },
+      "serving_transitions": [
+        {
+          "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_seq20/handoff-receipt.json",
+          "at_utc": "2026-10-16T11:10:06.887453+00:00",
+          "retained_terminal_outcomes": 1424,
+          "selected_for_new_service": 1076,
+          "incomplete_migration_retries": 8,
+          "old_max_num_seqs": 4,
+          "new_max_num_seqs": 20,
+          "outer_solver_concurrency": 8,
+          "question_walltime_includes_queue": true
+        },
+        {
+          "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_seq50/handoff-receipt.json",
+          "at_utc": "2026-10-16T11:35:16.310495+00:00",
+          "retained_terminal_outcomes": 1487,
+          "selected_for_new_service": 1013,
+          "old_max_num_seqs": 20,
+          "new_max_num_seqs": 50,
+          "outer_solver_concurrency": 50,
+          "additional_manual_retries": 0,
+          "question_walltime_includes_queue": true
+        }
+      ]
+    },
+    "ASI": {
+      "expected": 240,
+      "valid_scored": 240,
+      "unscored": 0,
+      "complete": true,
+      "primary_score_percent": 1.5709884069083986,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016/local_score_seed31415.json",
+      "note": "Public local240-condition single-shot/8K score, not Portal-certified. Of237 new answers,29 hit length8192;28 then failed with a leading code fence after native extraction fallback.49 runtime missing-import outcomes used the frozen declared-dependency task sandbox, which differs from default none/full host execution. These limits confound a broad model-ability interpretation. Soil b2 empty-array hard-gate repair and native adapters remain disclosed; formal Judge0calls.",
+      "source_mtime_utc": "2026-10-16T07:50:52.394665+00:00",
+      "infrastructure_or_evaluator_invalid": 0,
+      "total_score": 377.03721765801566,
+      "total_max_score": 24000.0,
+      "judge_calls": 0,
+      "accounted_cny": 0,
+      "repair_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016/soil_empty_prediction_repair/receipt.json"
+    },
+    "SWE": {
+      "expected": 51,
+      "valid_scored": 51,
+      "unscored": 0,
+      "complete": true,
+      "primary_score_percent": 9.803921568627452,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_final/final_summary.json",
+      "note": "Scoring is complete using the first environment-valid fresh replay of each frozen patch. Earlier28 generation tasks used legacy PATH/Python isolation; real agent self-tests hit missing pytest/jinja2/yaml. Repairing replay cannot restore lost agent feedback. The5/51 result is an affected historical run, not a clean model-comparison baseline. A separate outcome-independent clean rerun of all28 legacy tasks is required;23 tasks already used the corrected native runtime. Complete answers have not been regenerated within this run.",
+      "source_mtime_utc": "2026-10-16T08:59:45.290081+00:00",
+      "infrastructure_or_evaluator_invalid": 0,
+      "awaiting_generation_or_replay": 0,
+      "resolved": 5,
+      "source_updated_at": "2026-10-16T08:59:45.289646+00:00",
+      "manual_retry_task_count": 6,
+      "manual_retry_planned_task_count": 6,
+      "task_scores_csv": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_final/task_scores.csv",
+      "scoring_complete": true,
+      "usable_as_clean_model_comparison": false,
+      "legacy_generation_environment_tasks": 28,
+      "corrected_generation_environment_tasks": 23,
+      "clean_generation_rerun_started": true,
+      "clean_generation_rerun_source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/checkpoint.json",
+      "clean_generation_rerun_expected": 28,
+      "clean_generation_rerun_active": 3,
+      "clean_generation_rerun_pending": 25,
+      "clean_generation_rerun_valid_scored": 0,
+      "clean_generation_rerun_complete": false,
+      "separate_corrected51_score_percent": null
+    },
+    "TB": {
+      "expected": 445,
+      "valid_scored": 117,
+      "unscored": 328,
+      "complete": false,
+      "primary_score_percent": null,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/final_summary.json",
+      "note": "Five fixed seeds×89. Owner excludes verifier/bootstrap/tmux infrastructure failures from valid scores; private harness tools/native PATH/transport-deadline repairs preserve original prompts/tests/budget and old attempts. See owner source summary for accepted chronology and restoration disclosures.",
+      "source_mtime_utc": "2026-10-16T12:17:00.170443+00:00",
+      "infrastructure_or_evaluator_invalid": 33,
+      "active_trials": 30,
+      "pending_not_admitted": 265,
+      "sample_sd_percent_ddof1": null,
+      "per_seed": [
+        {
+          "seed": 0,
+          "expected": 89,
+          "valid_scored": 59,
+          "correct": 16.0,
+          "score_percent": null
+        },
+        {
+          "seed": 1,
+          "expected": 89,
+          "valid_scored": 58,
+          "correct": 18.0,
+          "score_percent": null
+        },
+        {
+          "seed": 2,
+          "expected": 89,
+          "valid_scored": 0,
+          "correct": 0,
+          "score_percent": null
+        },
+        {
+          "seed": 3,
+          "expected": 89,
+          "valid_scored": 0,
+          "correct": 0,
+          "score_percent": null
+        },
+        {
+          "seed": 4,
+          "expected": 89,
+          "valid_scored": 0,
+          "correct": 0,
+          "score_percent": null
+        }
+      ],
+      "owner_primary_mean_percent": null,
+      "owner_sample_sd_percent_ddof1": null,
+      "first_valid_chronology": null
+    }
+  },
+  "combined_score": null,
+  "combined_score_note": "Four different benchmark metrics are not averaged into one score.",
+  "method": "Read owner summaries only; missing/infrastructure-invalid values never become scored zeros.",
+  "hle_judge_cost": {
+    "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/budget.json",
+    "calls": 922,
+    "settled_usage_cny": 1.3329255000000007,
+    "failed_or_inflight_reserved_cny": 0.0290175,
+    "accounted_cny": 1.3619430000000006,
+    "hard_limit_cny": 10
+  },
+  "shared_budget_receipt": {
+    "source": "/data/caoqinlu/projects/apex-takehome/analysis/source_snapshots/night_api_budget_20261016.json",
+    "night_limit_cny": 30.0,
+    "data_accounted_cny": {
+      "academic_teacher_and_scicode": 2.62661616,
+      "terminal_classification": 4.269956544
+    },
+    "asi_calibration_reserved_cny": 0.3157632,
+    "note": "Parent-maintained historical receipt; other writers do not share this collector's lock. GPU/resource fees are not priced here."
+  }
+}
