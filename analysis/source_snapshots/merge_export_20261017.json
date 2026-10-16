@@ -1,0 +1,86 @@
+{
+  "recorded_at": "2026-10-16T18:06:30.418168+00:00",
+  "status": "exported_and_serialized_delta_verified",
+  "primary_selected_a_priori": "avg-r64",
+  "config": "configs/merge/four_experts_avg_v1.json",
+  "script": "scripts/merge_expert_adapters.py",
+  "execution": {
+    "host": "10.123.4.80",
+    "cpu_affinity": "10-13",
+    "torch_threads": 4,
+    "gpu_count": 0,
+    "seconds": 8.437,
+    "python": "3.12.13",
+    "torch": "2.5.1+cpu",
+    "safetensors": "0.6.2"
+  },
+  "base_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "inputs": [
+    {
+      "expert": "swe",
+      "adapter": "artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+      "weight": 0.25
+    },
+    {
+      "expert": "terminal",
+      "adapter": "artifacts/runs/terminal-retry-sft-r16-726665/training/checkpoint-250",
+      "weight": 0.25
+    },
+    {
+      "expert": "asi",
+      "adapter": "artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128",
+      "weight": 0.25
+    },
+    {
+      "expert": "hle",
+      "adapter": "artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-250",
+      "weight": 0.25
+    }
+  ],
+  "module_count": 310,
+  "tensor_count_per_adapter": 620,
+  "remote_artifacts": {
+    "hpc3": "/data/user/qinlucao/projects/apex-takehome/artifacts/merges/four-experts-avg-v1-20261017",
+    "80": "/data/caoqinlu/projects/apex-takehome/artifacts/merges/four-experts-avg-v1-20261017"
+  },
+  "candidate_summaries": {
+    "avg-r64": {
+      "global_ideal_relative_error": 0.0,
+      "global_saved_factor_relative_error": 2.9339606972004233e-07,
+      "max_layer_saved_factor_relative_error": 4.610406697787884e-07,
+      "parameter_count": 84664320,
+      "serialized_factors_bitwise_equal": true
+    },
+    "avg-svd-r16": {
+      "global_ideal_relative_error": 0.144715144918612,
+      "global_saved_factor_relative_error": 0.14471514698448804,
+      "max_layer_saved_factor_relative_error": 0.19231894923355847,
+      "parameter_count": 21166080,
+      "serialized_factors_bitwise_equal": true
+    }
+  },
+  "dense_delta_serialization_verification": {
+    "passed": true,
+    "modules_checked": 310,
+    "all_source_factor_blocks_bitwise_exact": true,
+    "dense_rows_per_module": 16,
+    "dense_rows": "evenly spaced across output dimension",
+    "global_sampled_dense_relative_error": 1.6062150852867295e-07,
+    "max_layer_sampled_dense_relative_error": 1.8339560604778418e-07,
+    "checks": [
+      "all AVG64 source A blocks exactly scaled by0.5",
+      "all source B blocks unchanged",
+      "output alpha/r=1",
+      "actual serialized AVG64 delta equals sum of four source deltas on16 rows of every module"
+    ]
+  },
+  "artifact_bytes": {
+    "avg-r64": 338754768,
+    "avg-svd-r16": 84760832
+  },
+  "precision": "Source and output factors FP32; source A blocks scaled by exact power-of-two0.5; no quantization or rank truncation for AVG64.",
+  "task_level_validation": "Not run; cancelled by user.",
+  "sft_loss_validation": "Not run by merge subagent; may be separately arranged by root.",
+  "serving": "AVG64 requires max_lora_rank64; this receipt verifies tensors and dense algebra, not vLLM runtime loading.",
+  "hashing": "No gratuitous whole-file hashes; all output tensors reloaded and compared exactly to the generated FP32 tensors."
+}

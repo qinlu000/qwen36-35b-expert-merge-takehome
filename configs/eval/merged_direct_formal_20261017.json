@@ -1,0 +1,135 @@
+{
+  "deployment_id": "apex-merged-direct-formal-20261017",
+  "protocol": "configs/eval/protocol_v2_unified64k8k.json",
+  "base_scheduling_reference": "configs/eval/deployment_hle_asi_seq50_v5.json",
+  "service_job_id": 727654,
+  "node": "ACD1-36",
+  "port": 18001,
+  "endpoint": "http://127.0.0.1:28093",
+  "tensor_parallel_size": 2,
+  "max_num_seqs": 50,
+  "max_lora_rank": 64,
+  "adapters": {
+    "hle": {
+      "alias": "apex-avg64",
+      "checkpoint": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+      "selection": "Frozen primary equal-weight exact4-expert merge; no benchmark-based selection"
+    },
+    "asi": {
+      "alias": "apex-avg64",
+      "checkpoint": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+      "selection": "Frozen primary equal-weight exact4-expert merge; no benchmark-based selection"
+    }
+  },
+  "hle": {
+    "conditions": 2500,
+    "image_conditions": 342,
+    "concurrency": 50,
+    "walltime_seconds": 300
+  },
+  "asi": {
+    "conditions": 240,
+    "dataset_seed": 31415,
+    "prompt_levels": [
+      "b1",
+      "b2",
+      "b3",
+      "b4"
+    ],
+    "cpus_per_program": 4,
+    "memory_bytes_per_program": 8589934592,
+    "walltime_seconds": 1200,
+    "scheduling": "Root assigned fixed CPU96\u2013127 before HLE; preserve Base eight workers and continuous1200s deadline. Wait for Terminal acceptance120\u2013123 to drain.",
+    "parallel": 8,
+    "cpu_sets": [
+      [
+        96,
+        97,
+        98,
+        99
+      ],
+      [
+        100,
+        101,
+        102,
+        103
+      ],
+      [
+        104,
+        105,
+        106,
+        107
+      ],
+      [
+        108,
+        109,
+        110,
+        111
+      ],
+      [
+        112,
+        113,
+        114,
+        115
+      ],
+      [
+        116,
+        117,
+        118,
+        119
+      ],
+      [
+        120,
+        121,
+        122,
+        123
+      ],
+      [
+        124,
+        125,
+        126,
+        127
+      ]
+    ]
+  },
+  "generation": {
+    "context_tokens": 65536,
+    "max_tokens": 8192,
+    "thinking": false,
+    "preserve_thinking": false,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "min_p": 0,
+    "presence_penalty": 0,
+    "repetition_penalty": 1,
+    "seed": 0
+  },
+  "judge_budgets_cny": {
+    "hle": 20,
+    "asi": 20
+  },
+  "formal_output_paths": {
+    "hle": "artifacts/eval/avg64_hle2500_20261017",
+    "asi": "artifacts/eval/avg64_asi240_20261017"
+  },
+  "base_generation_regenerated": false,
+  "independent_task_validation_cancelled": true,
+  "pipeline": {
+    "script": "scripts/run_direct_formal_pipeline.py",
+    "profile": "merged",
+    "pid_on_host80": 2792244,
+    "asi_generation_pid_on_host80": null,
+    "cpu_gate": "artifacts/eval/asi128_asi240_20261017/generation_cpu_finished.json",
+    "generation_marker": "artifacts/eval/avg64_asi240_20261017/generation_cpu_finished.json",
+    "all_cpu_marker": "artifacts/eval/avg64_asi240_20261017/all_cpu_consumers_finished.json",
+    "grader_cpu_ids": [
+      92,
+      93,
+      94,
+      95
+    ],
+    "grader_shared_lock": "artifacts/eval/direct_asi_grader_cpu92_95.lock",
+    "grader_additional_gate": "artifacts/eval/asi128_asi240_20261017/all_cpu_consumers_finished.json"
+  }
+}

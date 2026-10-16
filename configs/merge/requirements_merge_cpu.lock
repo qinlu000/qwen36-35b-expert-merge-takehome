@@ -1,0 +1,5 @@
+# Python 3.12.13. For CPU: install torch from https://download.pytorch.org/whl/cpu.
+torch==2.5.1
+safetensors==0.6.2
+numpy==2.2.6
+packaging==25.0

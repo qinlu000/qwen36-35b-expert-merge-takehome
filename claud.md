@@ -1464,3 +1464,12 @@
 - 四专家训练均完成；Terminal726665确认为COMPLETED0:0、250/250，final/best val=.42291749。02:19 Mixed726666最新880/883，原生剩1m16s但仍RUNNING、最终保存未确认，不能提前写完成。
 - 另一会话正式专家评测02:19实况：SWE249为21尝试结束/17有效(0通过)/10active/20pending，4终态未有效评分；ASI128生成8/240、8active、未评分；Terminal250完整445及AVG64 SWE/Terminal等待两套SWE消费者/CPU释放，HLE专家安排在ASI后，尚未正式准入。独立task-val已被用户取消，不复活或把历史代理val当正式结果。
 - 原Base两个TP2服务已01:21:49按model-consumer标记自动释放；当前6作业14GPU为Mixed4及5个TP2服务10。80根盘约31.68GiB、/data约2.17TiB可用。证据baseline_status_20261017_0220.json入Git；只提交本轮快照和claud追加，保留其他会话工作区，无coauthor信息。
+
+
+## 2026-10-17 02:28 CST：四专家实际合版与正式全量队列部署
+
+- 四专家固定SWE249/Terminal250/HLE250/ASI128，各r16 alpha32。已实际导出等权真实delta AVG64（r64 alpha64，0.5ΣBiAi，无交叉项）和固定SVD rank16压缩消融。AVG64在正式评测及新增loss比较前选定；620张量回读、310模块源块和采样dense delta核验通过。rank16保留约97.906%更新平方范数，不冒称任务提升。
+- 独立服务727640 Terminal、727643 HLE/ASI专家、727654 merged direct、727660 merged execution均已真实启动并验收实际adapter alias；merged rank64、HLE图像/tokenizer/nonthinking、Terminal原生echo/read执行均通过。各2H100，旧727113供SWE专家继续；不重生成Base、不复活已取消task-val。
+- SWE249按10路正式51题继续；ASI128正式240条件已8路开跑（CPU96–127），其后各自接HLE2500。AVG64 direct等待专家ASI generation CPU释放；SWE与Terminal两套完整队列常驻，Terminal各445次等待前序SWE和CPU真实释放。ASI grader固定92–95串行，Terminal先23槽0–91，两ASI全部CPU消费者结束才扩31槽0–123。solver/model结束与全部CPU清理分开记marker，包含ai4sci-submission原生评分scope。
+- 全部现成runtime、正式任务/seed、64K/8K、nonthinking及既有资源受限协议保留；环境/评分invalid保持null，不为凑齐分数自动重新答题。当前尚无完整专家/合版成绩；正式执行报告与小型收据已落盘。
+- 初始多专家题面附件优先于当前线上模板不同的SFT→第二阶段版本。所有本轮部署代码/配置/记录纳Git，保留另一会话WIP；Git不添加coauthor。

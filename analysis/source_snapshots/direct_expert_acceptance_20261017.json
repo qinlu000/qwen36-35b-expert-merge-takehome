@@ -1,0 +1,96 @@
+{
+  "ready": true,
+  "at_utc": "2026-10-16T18:12:31.855498+00:00",
+  "model_requests": 2,
+  "synthetic_only": true,
+  "formal_or_validation_questions": 0,
+  "checks": [
+    {
+      "task": "asi",
+      "model": "apex-asi128",
+      "vision": false,
+      "prompt_tokens": 22,
+      "usage": {
+        "prompt_tokens": 22,
+        "total_tokens": 54,
+        "completion_tokens": 32,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "task": "hle",
+      "model": "apex-hle250",
+      "vision": true,
+      "prompt_tokens": 87,
+      "usage": {
+        "prompt_tokens": 87,
+        "total_tokens": 97,
+        "completion_tokens": 10,
+        "prompt_tokens_details": null
+      }
+    }
+  ],
+  "returned_model_aliases_verified": {
+    "asi": "apex-asi128",
+    "hle": "apex-hle250"
+  },
+  "startup_ignored_adapter_warning_matches": [],
+  "first_formal_asi_admission": {
+    "pid_on_host80": 2752099,
+    "started_conditions": 8,
+    "parallel": 8,
+    "cpu_sets": [
+      [
+        96,
+        97,
+        98,
+        99
+      ],
+      [
+        100,
+        101,
+        102,
+        103
+      ],
+      [
+        104,
+        105,
+        106,
+        107
+      ],
+      [
+        108,
+        109,
+        110,
+        111
+      ],
+      [
+        112,
+        113,
+        114,
+        115
+      ],
+      [
+        116,
+        117,
+        118,
+        119
+      ],
+      [
+        120,
+        121,
+        122,
+        123
+      ],
+      [
+        124,
+        125,
+        126,
+        127
+      ]
+    ],
+    "state": "running",
+    "started_at_utc": "2026-10-16T18:12:31.856969+00:00"
+  },
+  "terminal_acceptance_cpu120_123_active_scopes_before_admission": []
+}

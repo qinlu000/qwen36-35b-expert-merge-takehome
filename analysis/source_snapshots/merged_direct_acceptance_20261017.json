@@ -1,0 +1,48 @@
+{
+  "ready": true,
+  "at_utc": "2026-10-16T18:18:46.413627+00:00",
+  "model_requests": 2,
+  "synthetic_only": true,
+  "formal_or_validation_questions": 0,
+  "checks": [
+    {
+      "task": "asi",
+      "model": "apex-avg64",
+      "vision": false,
+      "prompt_tokens": 22,
+      "usage": {
+        "prompt_tokens": 22,
+        "total_tokens": 54,
+        "completion_tokens": 32,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "task": "hle",
+      "model": "apex-avg64",
+      "vision": true,
+      "prompt_tokens": 87,
+      "usage": {
+        "prompt_tokens": 87,
+        "total_tokens": 119,
+        "completion_tokens": 32,
+        "prompt_tokens_details": null
+      }
+    }
+  ],
+  "returned_model_aliases_verified": {
+    "asi": "apex-avg64",
+    "hle": "apex-avg64"
+  },
+  "service_job_id": 727654,
+  "max_lora_rank": 64,
+  "base_multimodal_processor_retained": true,
+  "startup_ignored_adapter_warning_matches": [],
+  "actual_kv_cache": {
+    "gib": 32.24,
+    "tokens": 3177503,
+    "full_context_concurrency": 48.48,
+    "max_num_seqs": 50
+  },
+  "pipeline_state": "waiting_expert_ASI_generation_cpu_finished"
+}

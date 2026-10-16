@@ -1,0 +1,45 @@
+{
+  "as_of_utc": "2026-10-16T18:15:03.201615+00:00",
+  "benchmark": "ASI240",
+  "model": "apex-asi128",
+  "service_job": 727643,
+  "controller_pid_on_host80": 2752099,
+  "completed_conditions": 2,
+  "admitted_conditions": 10,
+  "active_conditions": 8,
+  "samples": [
+    {
+      "condition": "astronomy.nbody_close_encounters__seed31415__b3",
+      "native_status": "failed",
+      "elapsed_seconds": 104.78072214126587,
+      "prompt_tokens": 473,
+      "completion_tokens": 839,
+      "program_cpus": [
+        104,
+        105,
+        106,
+        107
+      ]
+    },
+    {
+      "condition": "astronomy.planet_activity_sep__seed31415__b3",
+      "native_status": "failed",
+      "elapsed_seconds": 144.55505537986755,
+      "prompt_tokens": 692,
+      "completion_tokens": 1175,
+      "program_cpus": [
+        120,
+        121,
+        122,
+        123
+      ]
+    }
+  ],
+  "actual_limits": {
+    "memory_max_bytes": 8589934592,
+    "memory_swap_max_bytes": 0,
+    "affinity_expansion": "seccomp EPERM"
+  },
+  "failed_program_answers_regenerated": false,
+  "scoring": "pending; native execution status is not scientific correctness"
+}

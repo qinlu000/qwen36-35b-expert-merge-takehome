@@ -1,0 +1,33 @@
+{
+  "as_of_utc": "2026-10-16T18:11:53.158508+00:00",
+  "job_id": "727640",
+  "hostname": "ACD1-28",
+  "port": 18003,
+  "model_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "expert_alias": "apex-terminal250",
+  "adapter": {
+    "path": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/terminal-retry-sft-r16-726665/training/checkpoint-250",
+    "tensors": 620,
+    "modules": 310,
+    "rank": 16,
+    "alpha": 32
+  },
+  "max_num_seqs": 20,
+  "context_tokens": 65536,
+  "output_tokens": 8192,
+  "thinking": false,
+  "startup_application_complete": true,
+  "ignored_adapter_warning_matches": [],
+  "no_ignored_adapter_warnings": true,
+  "last_eval": {
+    "epoch": 1.0,
+    "eval_loss": 0.4229174852371216,
+    "eval_runtime": 40.1147,
+    "eval_samples_per_second": 1.047,
+    "eval_steps_per_second": 0.274,
+    "step": 250
+  },
+  "best_metric": 0.42291749,
+  "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/terminal-retry-sft-r16-726665/training/checkpoint-250",
+  "slurm_job": "JobId=727640 JobName=apex-terminal250\n   UserId=qinlucao(14348) GroupId=formal(10034) MCS_label=N/A\n   Priority=10020 Nice=0 Account=qinlucao QOS=formal-user\n   JobState=RUNNING Reason=None Dependency=(null)\n   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0\n   RunTime=00:10:16 TimeLimit=1-00:00:00 TimeMin=N/A\n   SubmitTime=2026-10-17T02:01:36 EligibleTime=2026-10-17T02:01:36\n   AccrueTime=2026-10-17T02:01:36\n   StartTime=2026-10-17T02:01:37 EndTime=2026-10-18T02:01:37 Deadline=N/A\n   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-17T02:01:37 Scheduler=Main\n   Partition=emergency_acd AllocNode:Sid=ACD-Login-3:1481965\n   ReqNodeList=(null) ExcNodeList=ACD1-59\n   NodeList=ACD1-28\n   BatchHost=ACD1-28\n   NumNodes=1 NumCPUs=16 NumTasks=1 CPUs/Task=16 ReqB:S:C:T=0:0:*:*\n   ReqTRES=cpu=16,mem=128G,node=1,billing=16,gres/gpu=2\n   AllocTRES=cpu=16,mem=128G,node=1,billing=16,gres/gpu=2\n   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*\n   MinCPUsNode=16 MinMemoryNode=128G MinTmpDiskNode=0\n   Features=(null) DelayBoot=00:00:00\n   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)\n   Command=/data/user/qinlucao/projects/apex-takehome/scripts/serve_terminal_expert.slurm\n   WorkDir=/data/user/qinlucao/projects/apex-takehome\n   StdErr=/data/user/qinlucao/projects/apex-takehome/artifacts/eval/terminal-service-727640.log\n   StdIn=/dev/null\n   StdOut=/data/user/qinlucao/projects/apex-takehome/artifacts/eval/terminal-service-727640.log\n   Power=\n   TresPerNode=gres/gpu:2\n   TresPerTask=cpu:16\n   \n\n"
+}

@@ -1,0 +1,20 @@
+{
+  "version": "four-experts-avg-v1-20261017",
+  "base_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "merge_space": "parameter_delta: sum_i weight_i * (alpha_i / r_i) * B_i @ A_i",
+  "cpu_threads": 4,
+  "inputs": [
+    {"expert": "swe", "adapter": "artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249", "weight": 0.25},
+    {"expert": "terminal", "adapter": "artifacts/runs/terminal-retry-sft-r16-726665/training/checkpoint-250", "weight": 0.25},
+    {"expert": "asi", "adapter": "artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128", "weight": 0.25},
+    {"expert": "hle", "adapter": "artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-250", "weight": 0.25}
+  ],
+  "hle_checkpoint_selection": "Frozen final250 from completed independent proxy100: 48 correct vs cp16 43 correct + 2 invalid, so cp16 upper bound is 45. No additional judge or generation.",
+  "candidates": [
+    {"name": "avg-r64", "rank": 64, "representation": "exact_concatenation", "role": "primary"},
+    {"name": "avg-svd-r16", "rank": 16, "representation": "truncated_svd", "role": "fixed_output_rank_ablation"}
+  ],
+  "selected_final": "avg-r64",
+  "selection_policy": "AVG64 selected a priori before any formal benchmark or new loss validation; rank16 is a capacity/compression ablation only. No weights, density, or rank search. No new task-level validation benchmarks.",
+  "output_root": "artifacts/merges/four-experts-avg-v1-20261017"
+}

@@ -1,0 +1,83 @@
+{
+  "at": "2026-10-16T18:10:20.546386+00:00",
+  "ready": true,
+  "scope": "One synthetic echo/read native Terminus2 command fixture; no benchmark questions or scores",
+  "cached_official_environment": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/bn-fit-modify",
+  "original_official_task_unchanged": true,
+  "model": "apex-terminal250",
+  "model_requests": 2,
+  "base_generations": 0,
+  "fixture_reward": 1,
+  "actual_cpu_affinity": [
+    120,
+    121,
+    122,
+    123
+  ],
+  "memory_limit_bytes": 8589934592,
+  "memory_enforcement": "Unchanged Base launcher verifies systemd MemoryMax before launching the namespace",
+  "final_state_saved_before_verifier": true,
+  "models": {
+    "object": "list",
+    "data": [
+      {
+        "id": "apex-terminal-base",
+        "object": "model",
+        "created": 1792174108,
+        "owned_by": "vllm",
+        "root": "/data/user/qinlucao/projects/apex-takehome/artifacts/models/Qwen3.6-35B-A3B/995ad96eacd98c81ed38be0c5b274b04031597b0",
+        "parent": null,
+        "max_model_len": 65536,
+        "permission": [
+          {
+            "id": "modelperm-bd31abc6d18284e9",
+            "object": "model_permission",
+            "created": 1792174108,
+            "allow_create_engine": false,
+            "allow_sampling": true,
+            "allow_logprobs": true,
+            "allow_search_indices": false,
+            "allow_view": true,
+            "allow_fine_tuning": false,
+            "organization": "*",
+            "group": null,
+            "is_blocking": false
+          }
+        ]
+      },
+      {
+        "id": "apex-terminal250",
+        "object": "model",
+        "created": 1792174108,
+        "owned_by": "vllm",
+        "root": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/terminal-retry-sft-r16-726665/training/checkpoint-250",
+        "parent": "apex-terminal-base",
+        "max_model_len": null,
+        "permission": [
+          {
+            "id": "modelperm-ad295fca8cb2e1d8",
+            "object": "model_permission",
+            "created": 1792174108,
+            "allow_create_engine": false,
+            "allow_sampling": true,
+            "allow_logprobs": true,
+            "allow_search_indices": false,
+            "allow_view": true,
+            "allow_fine_tuning": false,
+            "organization": "*",
+            "group": null,
+            "is_blocking": false
+          }
+        ]
+      }
+    ]
+  },
+  "context_tokens": 65536,
+  "output_tokens": 8192,
+  "sampling": {
+    "temperature": 1,
+    "top_p": 0.95,
+    "top_k": 20,
+    "thinking": false
+  }
+}
