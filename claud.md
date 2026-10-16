@@ -1279,3 +1279,11 @@
 - 21:10核本题实际运行HLE2+Mixed4+Base两个TP2共4=10 GPU，加Terminal4为14≤16，故只执行scontrol update JobId=726665 Dependency=0解除旧afterany:726664:725705；21:12实查Dependency=(null)、PENDING(Resources)、无分配/run/optimizer。调度器暂估10/17 01:11，仅估计。未改数据、64K/8K/r16/global8配方或Base/无关项目作业。
 - Base另一会话只读21:09：ASI240/240本地mean1.5709884%；HLE2499/2500有效，余1评分异常，完整分null；Terminal184/445有效，30在途197待准入34异常/未评分；SWE固定clean28已3/28评分、3在途22待准入，旧受环境影响5/51不作为干净最终结果，corrected51仍null。
 - 训练矩阵/主进度/两份原始快照/OOM后续证据已更新。待完成Terminal/HLE/Mixed，按独立val选checkpoint，再做专家与合版/Mixed效果评测。训练数据与原始记录沿用已冻结版本，无新增教师API、数据hash或提示重训；Git仅提交本轮自有内容与共享文档追加，无coauthor信息。
+
+
+## 2026-10-16 21:16 CST：Terminal慢的原因实查
+
+- 用户问Terminal为什么慢。726665仍PENDING(Priority)、RunTime0、Dependency=null，当前耗时主要是调度等待。emergency_acd40节点合计空闲6GPU，但单节点最多3张，没有同节点4卡可立即满足。正式账号仅formal-user权限，当前已在emergency_acd分区；未盲改QOS或其他项目作业。
+- 前一轮资源释放后旧依赖保留偏久，属于执行方调度不及时；21:10已清除。当前暂估01:13开训仅为Slurm计划。此次未修改作业/数据/预算。
+- 旧726345真实16步耗13m46，首步2m38，其后均44.5秒/步；首次eval OOM未落checkpoint，需从0重训。修复已在Mixed全量val含42条Terminal轨迹通过7次真实GPU验证，独立Terminal仍待卡。
+- Terminal2000条有71,660,040完整token（均35,830），HLE2000仅1,125,593（均563），题数同为2k不等于训练量相同；token量约64倍不等于耗时64倍。开训后宽泛规划数小时，3–5h只是早期16步推测，需64/128步与实际eval后更新，不含排队。快照analysis/source_snapshots/terminal_delay_20261016_2116.json。

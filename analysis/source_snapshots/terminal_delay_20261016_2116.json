@@ -1,0 +1,45 @@
+{
+  "time_beijing": "2026-10-16T21:16:00+08:00",
+  "job_id": 726665,
+  "job_state": "PENDING",
+  "reason": "Priority",
+  "dependency": null,
+  "runtime": "00:00:00",
+  "partition": "emergency_acd",
+  "priority": 10033,
+  "request": {
+    "nodes": 1,
+    "gpus": 4,
+    "cpus": 24,
+    "memory": "256G"
+  },
+  "scheduler_estimated_start": "2026-10-17T01:13:09",
+  "estimate_is_not_allocation": true,
+  "partition_snapshot": {
+    "node_count": 40,
+    "total_free_gpus": 6,
+    "max_free_gpus_on_one_node": 3,
+    "nodes_with_at_least_four_free_gpus": []
+  },
+  "old_run": {
+    "job_id": 726345,
+    "steps": 16,
+    "max_steps": 250,
+    "elapsed_at_step_16": "13m46s",
+    "step1_elapsed": "2m38s",
+    "steps_2_to_16_mean_seconds": 44.5,
+    "first_eval_oom": true,
+    "checkpoint_saved": false
+  },
+  "full_sequence_tokens": {
+    "terminal": 71660040,
+    "hle": 1125593
+  },
+  "mutations_this_turn": false,
+  "notes": [
+    "Old resource dependency was cleared by root at21:10:29 in prior turn; it had been retained too long after Base services released resources.",
+    "Same-node four-GPU allocation is blocked by fragmentation; current scheduling reason is Priority.",
+    "No data, 64K/8K budget, batch recipe or baseline service changed.",
+    "3-5 hours after allocation is only broad planning from limited early steps, not a measured full run time."
+  ]
+}
