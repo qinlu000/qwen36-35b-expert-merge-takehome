@@ -1045,3 +1045,16 @@
 - HLE15:39:217network-repair attempts ended,225admitted/8active;821original retained gives1038/2500ended. Ended counts include failures/timeouts, not only full responses.
 - SWE15:39:glibc15terminal/1active/17pending, musl root10terminal/0active/0pending; plus2older normal-budget replays gives27terminal records. The audited25replays contain1official reward1,24reward0, but7need environment review:pytest4,pip1,Go download timeout2.18have no such environment error flag; do not call7unreviewed errors model failures.6old premature cancellations remain incomplete. Original patches are retained; owner continues grader-only repairs/replay, without regenerating answers or extra synthetic tests. New8-sequence service handoff remains in natural drain until the last old trial ends.
 - ASI remains239valid/1native-evaluator-invalid/0pending.49missing-import execution errors were audited:37pandas,4sklearn,4scipy,3numpy,1markdown all use packages absent from the official corresponding TaskEnv declarations. All declared packages satisfy the16cached environments checked; no declared dependency missing-install evidence, so no package-addition execution reruns. HKUST route available for future API calls; current ASI formal API count0 and existing completed scores were not moved.
+
+
+## 2026-10-16：单卡短序列与64K显存边界
+
+- 用户问一张H100能否SFT：学术专家LoRA/2K单卡已实跑完成，35,128.348M总参数、21.1661M可训练(0.0603%)，峰显存70.9238GiB；不能把该结果外推到64K。
+- SWE725982与执行725987均在双卡首个64K长batch的原生大词表logits/交叉熵处OOM，0 optimizer step、无checkpoint，旧日志保留。已按既定fallback提交唯一四卡SWE726017与执行726065，完整数据/64K/r16/global8不变，GA改2；baseline8+两专家各4最大16卡。
+- Mixed725984在loader因原行附带的不同顶层metadata列CastError失败（0步），不是OOM。正在最小规范化为messages/tools，原消息及工具正文不变、1404/249不变；四卡Mixed需依赖SWE释放再跑，避免超16卡。没有偷偷裁序列或换训练题目。
+
+
+## 2026-10-16：用户确认序列上限与禁止自行缩减
+
+- 用户接受较小max_length，只要完整样本不超过上限、没有内容被截断；现有学术数据最长1531token可完整放入2K，不因配置数字较小而无意义重训。
+- 后续不得自行删减训练数据、截断轨迹、降低64K上下文/8K输出预算或调整rank等有实质影响的内容。显存不足先加卡或做等价内存优化；确需改变实验内容，先说明影响并与用户讨论。已通知三条训练监控线，现有冻结分区保持。
