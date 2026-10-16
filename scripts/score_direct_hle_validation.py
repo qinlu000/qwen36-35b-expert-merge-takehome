@@ -12,6 +12,9 @@ from score_hle_baseline_v2 import (Budget, BudgetExhausted, HOST, MODEL, SchoolT
 
 def run(args):
     output = args.output.resolve()
+    if (output.parent / 'STOP_ADMISSION').exists() or (output.parent / 'CANCELLED_BY_USER.json').exists():
+        print('Independent validation cancelled by user; no Judge requests', flush=True)
+        return
     output.mkdir(parents=True, exist_ok=True)
     for name in ('results', 'requests', 'responses'):
         (output / name).mkdir(exist_ok=True)
@@ -28,6 +31,8 @@ def run(args):
     budget = Budget(output, args.max_cny, 2 * 100 * len(generations))
 
     def score(item):
+        if (output.parent / 'STOP_ADMISSION').exists():
+            return
         name, task, answer = item
         identifier = name + '.' + task['id']
         destination = output / 'results' / (identifier + '.json')
@@ -47,6 +52,8 @@ def run(args):
         bound = len(system.encode()) + len(prompt.encode()) + 1024
         attempted = [call for call in budget.transaction()['calls'] if call.startswith(identifier + '.')]
         for attempt in range(len(attempted) + 1, 3):
+            if (output.parent / 'STOP_ADMISSION').exists():
+                return
             call = identifier + '.' + str(attempt)
             try:
                 budget.reserve(call, bound)
@@ -108,6 +115,8 @@ def run(args):
         return all(model['saved'] == 100 for model in models.values())
 
     while True:
+        if (output.parent / 'STOP_ADMISSION').exists():
+            break
         todo = []
         for name, directory in generations.items():
             for task in tasks:

@@ -1,0 +1,82 @@
+{
+  "cancelled_by": "explicit_user_request",
+  "request": "把val set benchmark删掉，不用跑了",
+  "at_utc": "2026-10-16T17:22:43.292097+00:00",
+  "scope": "independent HLE/SAB task-level validation only",
+  "preserve": "raw answers, judgments, ledgers, SFT val-loss data and final benchmarks",
+  "matched_processes": [
+    {
+      "pid": 576253,
+      "argv": [
+        "artifacts/envs/asi-py312/bin/python",
+        "-u",
+        "scripts/run_sab_validation_queue.py",
+        "--tasks=artifacts/data/candidates/asi_sft_expanded_20261016/val.tasks.jsonl",
+        "--generations=artifacts/eval/validation_direct_20261016",
+        "--output=artifacts/eval/validation_direct_20261016/sab_scores",
+        "--env-dir=artifacts/envs/sab-validation-py310",
+        "--ready-file=artifacts/eval/validation_direct_20261016/sab_cpu_ready.json",
+        "--env-ready-file=artifacts/eval/validation_direct_20261016/sab_env_ready.json"
+      ],
+      "ppid": 1
+    },
+    {
+      "pid": 741047,
+      "argv": [
+        "artifacts/envs/hle/bin/python",
+        "-u",
+        "scripts/summarize_direct_validation.py",
+        "--tasks=artifacts/data/candidates/hle_existing_2k_20261016/swift_ready/val.tasks.jsonl",
+        "--output=artifacts/eval/validation_direct_20261016",
+        "--follow"
+      ],
+      "ppid": 1
+    }
+  ],
+  "terminated_sab_units": [
+    "apex-sab-val-base-sab-18-1792171341162468067.scope"
+  ],
+  "remaining_matching_processes": [],
+  "completed_generation_blocks_before_cancellation": {
+    "base_hle": {
+      "terminal_results": 100,
+      "native_summary_present": true
+    },
+    "base_asi": {
+      "terminal_results": 20,
+      "native_summary_present": true
+    },
+    "hle16": {
+      "terminal_results": 100,
+      "native_summary_present": true
+    },
+    "hle250": {
+      "terminal_results": 100,
+      "native_summary_present": true
+    },
+    "asi128": {
+      "terminal_results": 20,
+      "native_summary_present": true
+    }
+  },
+  "all_five_generation_blocks_naturally_finished_before_cancellation": true,
+  "retained_hle_scored_result_files": 300,
+  "retained_sab_result_files": 7,
+  "remaining_own_scopes": "",
+  "preserved_shared_processes": [
+    {
+      "role": "shared_validation_and_formal_swe_tunnel",
+      "pid": 4182991
+    }
+  ],
+  "protected_hpc_service_job": 727113,
+  "guarded_entrypoints": [
+    "run_direct_validation.py",
+    "run_direct_validation_blocks.py",
+    "run_sab_validation_queue.py",
+    "score_direct_hle_validation.py",
+    "summarize_direct_validation.py"
+  ],
+  "cancelled_inflight_scope_semantics": "base SAB task18 stopped at user request; original workspace retained without creating a scored zero",
+  "verified_at_utc": "2026-10-16T17:24:12.556866+00:00"
+}

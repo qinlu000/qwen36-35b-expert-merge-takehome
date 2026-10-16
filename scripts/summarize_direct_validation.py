@@ -90,6 +90,9 @@ if __name__ == '__main__':
     parser.add_argument('--follow', action='store_true')
     args = parser.parse_args()
     while True:
+        if (args.output / 'STOP_ADMISSION').exists() or (args.output / 'CANCELLED_BY_USER.json').exists():
+            print('Independent validation cancelled by user; summarizer stopped', flush=True)
+            break
         complete = summarize(args)
         if not args.follow or complete:
             break

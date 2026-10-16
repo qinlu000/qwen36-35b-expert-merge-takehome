@@ -31,6 +31,10 @@ def inputs(project, tasks, kind):
 
 async def run(args):
     project, output = args.project.resolve(), args.output.resolve()
+    if any((p / 'STOP_ADMISSION').exists() or (p / 'CANCELLED_BY_USER.json').exists()
+           for p in (output, output.parent)):
+        print('Independent validation cancelled by user; no requests admitted', flush=True)
+        return
     output.mkdir(parents=True, exist_ok=True)
     questions = inputs(project, args.tasks.resolve(), args.kind)
     assert len({q['id'] for q in questions}) == len(questions)
@@ -70,6 +74,8 @@ async def run(args):
             if path.exists():
                 return
             async with semaphore:
+                if any((p / 'STOP_ADMISSION').exists() for p in (output, output.parent)):
+                    return
                 started = time.monotonic()
                 record = {'id': row['id'], 'category': row['category'], 'model': args.model,
                           'started_at_utc': datetime.now(timezone.utc).isoformat(),
@@ -120,6 +126,9 @@ async def run(args):
                 save(path, record)
                 print(json.dumps({k: record[k] for k in ('id', 'status', 'elapsed_seconds')}), flush=True)
         await asyncio.gather(*(solve(row) for row in questions))
+    if any((p / 'STOP_ADMISSION').exists() for p in (output, output.parent)):
+        print('Independent validation cancelled; existing answers retained', flush=True)
+        return
     results = [json.loads((result_dir / (row['id'] + '.json')).read_text()) for row in questions]
     save(output / 'summary.json', {'count': len(questions), 'saved': len(results),
          'status_counts': dict(Counter(r['status'] for r in results)),

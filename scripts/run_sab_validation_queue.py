@@ -21,6 +21,8 @@ from asi_score_transport import DeepSeekJudgeTransport, input_token_bound, write
 
 
 def vision_grade(args, task, workspace, condition):
+    if (args.generations / 'STOP_ADMISSION').exists():
+        raise InterruptedError('Independent validation cancelled by user')
     source = args.project / 'artifacts/data/_metadata/sab_validation_source_20261016/gpt4_visual_judge.py'
     prompt = next(ast.literal_eval(node.value) for node in ast.parse(source.read_text()).body
                   if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == 'PROMPT_ORIGIN'
@@ -54,6 +56,8 @@ def vision_grade(args, task, workspace, condition):
             else:
                 data = None
                 for attempt in range(2):
+                    if (args.generations / 'STOP_ADMISSION').exists():
+                        raise InterruptedError('Independent validation cancelled by user')
                     identifier = condition + '.' + str(sample) + '.' + str(attempt)
                     started_file = directory / (identifier + '.started.json')
                     if started_file.exists():
@@ -120,9 +124,16 @@ def main(args):
     args.project, args.output, args.env_dir = args.project.resolve(), args.output.resolve(), args.env_dir.resolve()
     args.benchmark = args.project / 'artifacts/data/raw/scienceagentbench/verified_asset/benchmark'
     args.output.mkdir(parents=True, exist_ok=True)
+    def cancelled():
+        return (args.generations / 'STOP_ADMISSION').exists() or (args.generations / 'CANCELLED_BY_USER.json').exists()
+    if cancelled():
+        print('Independent validation cancelled by user; no execution or Judge requests', flush=True)
+        return
     results = args.output / 'results'
     results.mkdir(exist_ok=True)
     while not (args.ready_file.is_file() and args.env_ready_file.is_file()):
+        if cancelled():
+            return
         print('Waiting for SAB exclusive four-CPU and dependency readiness', flush=True)
         time.sleep(30)
     gate = json.loads(args.ready_file.read_text())
@@ -132,8 +143,12 @@ def main(args):
     adapter = DirectLLMAdapter()
     runs = {'base': args.generations / 'base_asi', 'asi128': args.generations / 'asi128'}
     while True:
+        if cancelled():
+            return
         for model, directory in runs.items():
             for task in tasks:
+                if cancelled():
+                    return
                 label = model + '.sab-' + str(task['task_id'])
                 source, target = directory / 'questions' / ('sab-' + str(task['task_id']) + '.json'), results / (label + '.json')
                 if target.exists() or not source.exists():

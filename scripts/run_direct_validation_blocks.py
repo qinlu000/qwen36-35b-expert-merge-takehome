@@ -10,7 +10,14 @@ import time
 def main(args):
     root, output = args.project.resolve(), args.output.resolve()
     output.mkdir(parents=True, exist_ok=True)
+    def cancelled():
+        return (output / 'STOP_ADMISSION').exists() or (output / 'CANCELLED_BY_USER.json').exists()
+    if cancelled():
+        print('Independent validation cancelled by user; no blocks launched', flush=True)
+        return
     while not args.ready_file.is_file():
+        if cancelled():
+            return
         print('Waiting for the dedicated service acceptance receipt', flush=True)
         time.sleep(15)
     hle = root / 'artifacts/data/candidates/hle_existing_2k_20261016/swift_ready/val.tasks.jsonl'
@@ -21,6 +28,8 @@ def main(args):
               ('hle250', 'hle', 'apex-val-hle250', hle),
               ('asi128', 'asi', 'apex-val-asi128', asi)]
     for label, kind, model, tasks in blocks:
+        if cancelled():
+            return
         command = [sys.executable, str(root / 'scripts/run_direct_validation.py'),
                    '--project=' + str(root), '--kind=' + kind, '--tasks=' + str(tasks),
                    '--endpoint=' + args.endpoint, '--key-file=' + str(args.key_file),

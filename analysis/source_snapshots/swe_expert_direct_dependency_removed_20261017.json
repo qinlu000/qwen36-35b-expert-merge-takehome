@@ -1,0 +1,66 @@
+{
+  "at_utc": "2026-10-16T17:23:24.342937+00:00",
+  "user_decision": "Cancel all independent task-val benchmarks; continue only expert official HARD51",
+  "existing_controller_pid": 824673,
+  "existing_controller_alive": true,
+  "controller_restarted": false,
+  "active_formal_tasks_preserved": 10,
+  "pending_formal_tasks": 41,
+  "valid_scored": 0,
+  "state": "running",
+  "original_admission_opened": {
+    "at": "2026-10-16T17:21:19.779286+00:00",
+    "cpu_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "permanent_marker": "artifacts/eval/validation_direct_20261016/shared_cpu_ready.json",
+    "direct_generation_blocks_finished": true,
+    "base_scopes_on_target_cpus": [],
+    "max_parallel": 10
+  },
+  "physical_upstream_request_records": 87,
+  "guard_request_records": 88,
+  "upstream_alias_counts": {
+    "apex-val-swe249": 87
+  },
+  "partially_written_records_skipped": 0,
+  "cpu_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "max_parallel": 10,
+  "independent_task_validation_required": false,
+  "future_startup_dependencies": [
+    "permanent_cpu_release",
+    "target_cpus_unoccupied",
+    "service_health",
+    "minimum2100seconds_service_remaining"
+  ],
+  "old_parent_direct_gate_already_passed": true,
+  "current_parent_future_admission_never_rechecks_direct": true,
+  "no_fabricated_direct_summary": true,
+  "base_training_service_tunnel_untouched": true,
+  "source_val_remains_cancelled": true,
+  "solver_seconds": 1800,
+  "context_tokens": 65536,
+  "max_output_tokens_per_call": 8192,
+  "service_ends": "2026-10-17T10:05:32+08:00",
+  "stop_new_tasks_after": "2026-10-17T09:30:32+08:00"
+}

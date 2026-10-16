@@ -1,0 +1,37 @@
+{
+  "checks": [
+    {
+      "script": "scripts/run_direct_validation_blocks.py",
+      "returncode": 0,
+      "stdout": "Independent validation cancelled by user; no blocks launched",
+      "stderr": ""
+    },
+    {
+      "script": "scripts/run_direct_validation.py",
+      "returncode": 0,
+      "stdout": "Independent validation cancelled by user; no requests admitted",
+      "stderr": ""
+    },
+    {
+      "script": "scripts/score_direct_hle_validation.py",
+      "returncode": 0,
+      "stdout": "Independent validation cancelled by user; no Judge requests",
+      "stderr": ""
+    },
+    {
+      "script": "scripts/run_sab_validation_queue.py",
+      "returncode": 0,
+      "stdout": "Independent validation cancelled by user; no execution or Judge requests",
+      "stderr": ""
+    },
+    {
+      "script": "scripts/summarize_direct_validation.py",
+      "returncode": 0,
+      "stdout": "Independent validation cancelled by user; summarizer stopped",
+      "stderr": ""
+    }
+  ],
+  "started_records_before": 343,
+  "started_records_after": 343,
+  "new_model_or_judge_admissions": 0
+}

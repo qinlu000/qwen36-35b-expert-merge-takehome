@@ -1,6 +1,10 @@
 # 已完成 SFT 模型的独立题目验证
 
-2026-10-16 22:57 CST。用户明确要求把已完成 SFT 的专家跑 validation。**HLE代理验证的Base100题已经完整跑完，后续专家对照自动接续；不是继续看teacher-forcing loss。** 不重训，不修改冻结训练数据、验证金标或另一会话的正式Base评测。
+**2026-10-17 01:22 CST，用户明确取消全部独立任务级validation：“把val set benchmark删掉，不用跑了”。本目录已停止准入和全部自有执行/评分/持续汇总；以下运行说明仅保留为历史记录，不再自动接续。** 保留已生成答案、已判分记录和API账本，不把用户取消计作模型失败或0分；SFT训练及其val-loss文件、正式benchmark不受影响。
+
+取消前HLE三个100题块及Base/ASI128各20题生成均已自然完成，HLE代理评分进程也已自然结束；实际仍活的是SAB执行队列与纯结果汇总。本轮先写80结果根目录 `CANCELLED_BY_USER.json`/`STOP_ADMISSION`，按真实argv匹配并停止SAB队列576253与汇总741047，再终止 `apex-sab-val-base-sab-18-1792171341162468067.scope` 的全部进程。保留现有7条SAB结果；在途task18按用户取消停止，没有补写失败结果。复查自有进程/该scope均为空。五个入口增加最小取消guard，防止以后误恢复本轮已取消task-dev。
+
+推理服务727113、80的28089隧道、CPU释放监控553293均保留，SWE正式51题已使用这些共用资源，本轮未操作它们。取消回执见 `analysis/source_snapshots/validation_task_benchmarks_cancelled_20261017.json`。
 
 ## 当前固定范围
 

@@ -8,7 +8,6 @@
   "task_manifest": "analysis/source_snapshots/protocol/swe_hard_task_ids.json",
   "musl_manifest": "configs/eval/swe_clean_musl10_task_ids_20261016.json",
   "cpu_release_marker": "artifacts/eval/validation_direct_20261016/shared_cpu_ready.json",
-  "direct_output": "artifacts/eval/validation_direct_20261016",
   "cpu_ids": [
     0,
     1,
@@ -44,8 +43,15 @@
   "model_http_attempts_actual": 1,
   "job_model_retries": 0,
   "automatic_answer_regeneration": false,
-  "serving_profile": "Dedicated TP2 BF16 max_num_seqs20, max_loras1; only SWE249 after direct generation blocks",
+  "serving_profile": "Dedicated TP2 BF16 max_num_seqs20, max_loras1; only SWE249; no independent task-val prerequisite",
   "scheduling_caveat": "Expert10 fixedCPU slots; Base clean28 has3 slots and shared TP2 endpoints, native23 retained. No Base regeneration; score differences do not isolate weights alone.",
   "max_parallel_tasks": 10,
-  "native_service_log_hpc": "/data/user/qinlucao/projects/apex-takehome/artifacts/validation/lora-service-727113.log"
+  "native_service_log_hpc": "/data/user/qinlucao/projects/apex-takehome/artifacts/validation/lora-service-727113.log",
+  "independent_task_validation_required": false,
+  "startup_dependencies": [
+    "permanent_cpu_release",
+    "target_cpus_unoccupied",
+    "service_health",
+    "minimum2100seconds_service_remaining"
+  ]
 }

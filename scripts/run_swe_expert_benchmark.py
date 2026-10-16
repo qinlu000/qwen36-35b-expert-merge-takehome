@@ -23,13 +23,6 @@ def now():
     return datetime.now(timezone.utc).isoformat()
 
 
-def direct_finished(path):
-    blocks = {'base_hle': 100, 'base_asi': 20, 'hle16': 100, 'hle250': 100, 'asi128': 20}
-    return all((path / label / 'summary.json').is_file() and
-        json.loads((path / label / 'summary.json').read_text())['saved'] == count
-        for label, count in blocks.items())
-
-
 def service_safe(config):
     return (datetime.fromisoformat(config['service_ends']) - datetime.now(timezone.utc)).total_seconds() >= 2100
 
@@ -136,7 +129,7 @@ async def main(args):
             save_json(output / 'model-consumer-finished.json', {'at': now(), 'model_consumer_finished': True,
                 'model': config['model'], 'expected': 51, 'scoring_may_still_be_running': bool(active)})
 
-    checkpoint('waiting_direct_generation_blocks_and_permanent_cpu_release')
+    checkpoint('waiting_permanent_cpu_release')
     while True:
         if (output / 'STOP_ADMISSION').exists():
             checkpoint('stopped_admission')
@@ -146,13 +139,13 @@ async def main(args):
             return
         marker = ROOT / config['cpu_release_marker']
         released = json.loads(marker.read_text()) if marker.is_file() else {}
-        if (direct_finished(ROOT / config['direct_output']) and released.get('ready') is True
+        if (released.get('ready') is True
                 and released.get('cpu_consumers_finished') is True
                 and not base_scopes(set(config['cpu_ids']))):
             break
         await asyncio.sleep(15)
     save_json(output / 'admission-opened.json', {'at': now(), 'cpu_ids': config['cpu_ids'],
-        'permanent_marker': config['cpu_release_marker'], 'direct_generation_blocks_finished': True,
+        'permanent_marker': config['cpu_release_marker'], 'independent_task_validation_required': False,
         'base_scopes_on_target_cpus': [], 'max_parallel': len(config['cpu_ids'])})
 
     async def worker(cpu):
