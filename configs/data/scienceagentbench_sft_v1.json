@@ -1,0 +1,24 @@
+{
+  "expert": "interactive_execution",
+  "source": "osunlp/ScienceAgentBench",
+  "revision": "9c6e96c9e74572e979b0930ee735041cef528cb7",
+  "split": "verified",
+  "benchmark_root": "artifacts/data/raw/scienceagentbench/verified_asset/benchmark",
+  "metadata": "artifacts/data/candidates/scienceagentbench_verified_9c6e96c9/tasks.raw.jsonl",
+  "output_dir": "artifacts/data/candidates/scienceagentbench_verified_9c6e96c9/swift_ready",
+  "train_file": "artifacts/data/candidates/scienceagentbench_verified_9c6e96c9/swift_ready/train.messages.jsonl",
+  "val_file": "artifacts/data/candidates/scienceagentbench_verified_9c6e96c9/swift_ready/val.messages.jsonl",
+  "train_rows": 82,
+  "val_rows": 20,
+  "supervision": "All 102 official human reference Python programs; single-turn ASI direct_llm format; no synthetic tool observations or hidden reasoning",
+  "partition": {
+    "group_by": "github_name",
+    "train_fraction": 0.8,
+    "seed": 20261016
+  },
+  "selection": "Include all 102 tasks; no task-runtime, dependency, CPU/GPU, or local execution gate. Exclude only confirmed overlap with the four formal evaluation task sets.",
+  "verification": "Publisher verified references; tasks 5 and 92 passed local native checkers. Local reruns are optional evidence, not an SFT admission requirement.",
+  "sampling": "One pass, no duplication to reach a target task count",
+  "mixed_control": "Use the same SAB training rows once in the Mixed control",
+  "attribution": "Retain original source, license, and canary. Six tasks retain their upstream licenses; do not label every task CC BY 4.0. Do not redistribute the raw benchmark bundle."
+}

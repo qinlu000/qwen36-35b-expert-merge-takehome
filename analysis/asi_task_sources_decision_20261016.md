@@ -2,6 +2,10 @@
 
 ## 最新纠正与决定
 
+**用户最新已明确加入训练，并要求全部参考代码可用于SFT，不以任务运行环境筛选。已导出全部102题：82 train、20 val，按30个来源仓库整组隔离，seed=20261016，已同步80与HPC。** CPU/GPU、依赖、外网、科研模型训练及本地是否重跑均不作SFT入集条件；6个原许可任务保留各自许可链接。单纯共享Scanpy等方法库不构成正式同题证据，不再据此排题。沿用已有正式输入exact/13gram零命中记录，不做重复hash。
+
+数据采用原生ASI direct_llm的系统提示与完整Python回答格式，保留作者完整gold及来源，不伪造工具观察，不导出隐藏thinking。执行专家采用该SAB train分区；Mixed对照使用相同训练分区一次。配方为`configs/data/scienceagentbench_sft_v1.json`，可复跑脚本为`scripts/prepare_sab_sft.py`，数据位于ignored `artifacts/data/candidates/scienceagentbench_verified_9c6e96c9/swift_ready/`。下文此前CPU验收优先、用途待定等文字仅保留为过程，以上述实际结果为准。
+
 用户指出 HF ScienceAgentBench 可以直接取得，已据此纠正先前过早的放弃建议：**102条 verified 公开任务已在80落地，完整人工参考包也已下载成功（1,769,478,786字节），可读取gold/checker。** 没有再计算整包hash；按用户要求优先速度。
 
 真实浏览器已进入作者公开 `benchmark_verified.zip`，随后完成下载并打开955条归档目录项。因此旧curl `302→401`只是该命令行访问方式的失败，不能当作资源不可取得的结论。任务92的原始gold、checker、期望结果和4个NumPy输入已单独同步80，供最小运行验证；整包同步进行中。

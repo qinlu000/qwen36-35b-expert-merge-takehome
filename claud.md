@@ -997,3 +997,10 @@
 - 按用户效率要求，跳过新整包hash与重复审计。ScienceAgentBench verified完整包已下载并同步80解压，1,769,478,786字节；92号官方gold/checker在既有4CPU/8GiB断网环境一次通过，共0.595秒，无新增API。
 - 代码头的勿入训练语料/canary是作者防止SAB测试污染的声明。官方README同时注明多数任务CC BY 4.0、代码MIT，少数沿用上游许可；不能把此提示直接等同统一许可证禁训。此前据此一律排除SAB辅助训练的结论过强，撤回。
 - 本题正式评测是ASI等四项，SAB仍可保留辅助数据候选；具体选择需隔离train/dev来源、排除正式ASI重叠并披露。当前SAB仅做参考环境验证，SFT导出0，不把参考运行成功称模型成绩。
+
+
+## 2026-10-16：SAB全部参考加入SFT数据
+
+- 用户明确“加入训练集”，随后强调“全都训练行了，SFT又不需要环境”。已取消CPU/GPU、依赖、外网、模型训练任务与本地复验门槛，不再把常见科学库相似直接判同题；全部102题完整纳入，无筛除。
+- 按30个来源仓库整组隔离为82训练/20验证，seed20261016。Swift JSONL、来源manifest及summary已落地本地/80/HPC：artifacts/data/candidates/scienceagentbench_verified_9c6e96c9/swift_ready/。原始gold/code/canary保留，6题保留原仓库许可来源，不一律标CC BY。
+- 科研程序采用ASI direct_llm的完整Python回答格式，加入交互执行专家的数据配方；Mixed使用相同SAB训练分区一次。scripts/prepare_sab_sft.py只需官方metadata+gold，既有运行回执可选；configs/data/scienceagentbench_sft_v1.json记录实际82/20和数据路径。没有新增教师API、hash、逐题运行门槛，也未声称所有样本均本地通过。
