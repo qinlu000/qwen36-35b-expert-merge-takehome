@@ -1,5 +1,10 @@
 {
-  "expert": "interactive_execution",
+  "expert": "execution",
+  "expert_display_name": "终端与科研编程",
+  "protocols": {
+    "terminal": "Terminus2 multi-turn terminal interaction",
+    "science_program": "ASI direct_llm-style single-turn complete Python generation"
+  },
   "source": "osunlp/ScienceAgentBench",
   "revision": "9c6e96c9e74572e979b0930ee735041cef528cb7",
   "split": "verified",

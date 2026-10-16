@@ -1065,3 +1065,12 @@
 - 用户询问其他SFT及专家数：仍是三个专家——仓库修复(SWE)、交互执行(Terminal+ASI/SAB)、学术推理(HLE)；另训同并集Mixed对照，不算专家、不参与合版。学术725704已完成63步。
 - 实查SWE四卡726017首batch在FLA backward autotune OOM失败，0步；执行四卡726065已RUNNING进入首长batch，尚无optimizer loss。Mixed四卡726073因SWE依赖失败暂DependencyNeverSatisfied，不占卡；更新依赖由academic与SWE单writer协作。
 - Mixed已最小规范化顶层messages/tools，原内容与1404/249不变，原生datasets CPU加载通过，修复不涉及删样。当前继续官方等价显存优化，遵守用户不自行缩减约束。
+
+
+- 后续实际更新：执行四卡726065也在首长batch CE/反向OOM（16:03:18–20），0/57步、无checkpoint。已通知SWE/academic统一查官方fused-linear/chunked CE等价内存路径，停止原配置反复重提；数据、64K/8K、r16均不缩减。
+
+
+## 2026-10-16：第二专家名称与ASI协议澄清
+
+- 用户指出ASI采用direct_llm，不应统称交互执行。第二专家对外统一称“终端与科研编程专家”：Terminal为Terminus2多轮终端，SAB为单轮完整Python生成、ASI评测仍direct_llm。按终端操作/科研编程能力归组，不意味着harness相同。
+- 三专家数量、456/62训练分区、消息正文、内部execution路径、评测协议及合版对象均不变；Mixed仍是对照。更新configs/data/scienceagentbench_sft_v1.json显示名和协议说明，不更改正式推理配置。
