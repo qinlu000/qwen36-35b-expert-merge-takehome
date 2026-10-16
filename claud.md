@@ -1650,3 +1650,8 @@
 
 - 用户询问为何Terminal用了SWE。已核两份80冻结Terminal manifest/runtime，实际入口TerminalRepairAgent经RecoveryTerminalBaselineV2/TerminalBaselineV2继承Harbor Terminus2；mini-swe-agent2.4.6仅用于SWE HARD51。上表“AVG64 SWE＋Terminal”指同一AVG64推理服务/GPU被两套独立评测客户端共享，不表示用SWE agent跑Terminal，也不合并prompt、沙箱或任务。
 - Terminal当前2000条训练轨迹实际为TerminalHorizon1107＋Terminal-Pivot893，属于Terminus JSON/tmux类；不是因为训练数据用了SWE而替换正式harness。源精确环境、摘要和未公开确认尾部等仍有已披露差异，不声称训练与评测完全相同。本轮只读核验、补充GPU分配收据的含义并更新记录，没有改评测协议或运行任务。
+
+
+## 2026-10-17：AVG命名说明
+
+- 用户询问AVG含义。AVG为average，即四专家LoRA有效权重增量等权平均，各占25%，形成一个固定合版模型；推理不需要调用四个专家投票或路由。AVG64为精确合版的rank64适配器，64不是模型数量或GPU数量；AVG16是其固定rank16压缩对照。仅补充术语记录，未改权重、训练、评测或服务。
