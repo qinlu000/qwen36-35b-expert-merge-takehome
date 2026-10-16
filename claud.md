@@ -1296,3 +1296,10 @@
 - 最近32个新20序列端点完成样本，20个正常耗尽1800s；wall中位1815.8s、solver中位1800.6s，模型请求等待加推理占solver汇总76.5%，verifier仅占wall2.3%；每题请求数中位27.5、episodes范围4–54。当前主要是多轮模型求解与超时预算；没有新排队指标，不将HTTP耗时进一步虚构为纯GPU计算/队列/网络。
 - 19:00旧runtime10的8seq两副本均有6waiting属历史，后来已换20seq；不能继续当当前限制。累计墙钟还包括SSH中断/服务到期、依赖/根分区写满/短socket路径修复和自然迁移，工程故障损失不能全归因benchmark计算。
 - 新解释文档analysis/terminal_base_latency_20261016.md及独立只读快照已整理。未改445分母、种子、30min/CPU/64K8K协议，没有新模型/API/metrics探针、任务重答或调度变更；Git仅提交本轮自有文件和claud/overnight追加，无coauthor信息。
+
+
+## 2026-10-16 21:24 CST：Terminal Base剩余时间估计
+
+- 用户问多久跑完。只读21:23:50 owner：193/445有效，30在途188待准入34infra未有效。按已接受结果finished_at统计最近30min完成39(78/h)、60min完成70(70/h)，均新服务；不是重新跑collector或新API。
+- 正常218项按70–78/h外推2.8–3.1h，留尾部/难度/验证波动报再3–4h，预计10/17 00:30–01:30清空正常队列。34infra/未评分单列，无法按正常速率承诺完整445/445的总ETA；不将其误计成已完成或答错0分。
+- ETA及方法已补analysis/terminal_base_latency_20261016.md，结构化快照terminal_base_eta_20261016.json。仅更新记录，无任何作业、服务、预算或答案变更，Git仅纳本轮自有内容，无coauthor信息。

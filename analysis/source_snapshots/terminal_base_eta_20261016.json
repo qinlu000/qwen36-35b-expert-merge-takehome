@@ -1,0 +1,47 @@
+{
+  "read_at_beijing": "2026-10-16T21:23:50+08:00",
+  "scope": "Read existing Terminal owner summary/checkpoint and explicitly referenced accepted result timing only; no collector, API, metrics, filesystem-wide scan or mutation",
+  "owner_summary_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/final_summary.json",
+  "owner_summary_updated_at_utc": "2026-10-16T13:23:46.201238+00:00",
+  "expected_trials": 445,
+  "valid_covered": 193,
+  "active_trials": 30,
+  "pending_not_admitted": 188,
+  "infrastructure_unscored": 34,
+  "normal_remaining_task_seed_runs": 218,
+  "timing_method": "Count distinct owner accepted_first_valid results whose native finished_at is within each window of 2026-10-16T13:23:50.565249+00:00. This is completion timing, not a historical observer-count replay.",
+  "recent_windows": [
+    {
+      "minutes": 30,
+      "valid_result_completions": 39,
+      "new_20seq_endpoint_result_completions": 39,
+      "rate_per_hour": 78,
+      "completed_solver_phases_within_window_among_recent_valid_results": 38,
+      "solver_ge1790_seconds": 26,
+      "endpoint_counts": {"28085": 19, "28086": 20}
+    },
+    {
+      "minutes": 60,
+      "valid_result_completions": 70,
+      "new_20seq_endpoint_result_completions": 70,
+      "rate_per_hour": 70,
+      "completed_solver_phases_within_window_among_recent_valid_results": 63,
+      "solver_ge1790_seconds": 48,
+      "endpoint_counts": {"28085": 34, "28086": 36}
+    }
+  ],
+  "eta": {
+    "normal_queue_simple_extrapolation_hours": [2.79, 3.12],
+    "normal_queue_communicated_range_hours": [3, 4],
+    "normal_queue_approximate_finish_beijing": "2026-10-17 00:30 to 01:30",
+    "conditions": "Two new model services stay available,30 admitted task slots continue, similar task mix, no new infrastructure interruption. Range includes practical tail/mix uncertainty and is not a service guarantee.",
+    "infrastructure34_eta": null,
+    "all445_complete_eta": null,
+    "reason": "34 infrastructure-invalid keys require separate owner recovery. They cannot be extrapolated from normal completion throughput or silently treated as scored zeros."
+  },
+  "limitations": [
+    "Window rates are from completed accepted task/seed results, not a GPU throughput benchmark.",
+    "Five-seed task scheduling and remaining difficulty can change future rates.",
+    "No benchmark total score or complete mean/SD is available yet."
+  ]
+}
