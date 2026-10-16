@@ -1,3 +1,25 @@
+# Terminal baseline runtime5 is running — 2026-10-16 14:27 CST
+
+Actual remote controller PID **359147**, service **725545** (`ACD1-24:18002`), direct bridge **28082**. Runtime5 resumed only **429 never-admitted attempts**. Current checkpoint: **8 admitted, 421 pending, 16 earlier infrastructure attempts retained, 0 valid covered**, halted=false. Fixed denominator remains445. Original runtime2/3/4 and every earlier response/result directory remain unchanged. No prior failed/cancelled attempt was automatically regenerated.
+
+Read-only progress check at14:27 CST: controller remains alive,8 active/421 pending/16 infrastructure attempts retained,0 final valid results. Current active trials have 120 complete policy responses and 8 requests in flight. Raw request/response JSON is atomically replaced at every HTTP state transition; trial checkpoint is atomically replaced on admission/finalization, so its timestamp can remain unchanged while all8 solvers are active. Existing first-valid records are preserved with setdefault and reconstructed from valid result files on resume. Incomplete admitted trials are retained for audit; they are not silently replayed. Canonical logs are already sufficient; no new polling framework, tests or production-code changes were added. Current aggregate is in `analysis/source_snapshots/terminal_runtime5_status_20261016.json` and an observation was appended to `artifacts/runs/base-terminal-recovery-v2-20261016/observed-progress.jsonl`.
+
+Runtime3 paused because the generic Harbor bootstrap silently waited300s in apt update. Runtime4 then exposed a separate generic bootstrap requirement for `/usr/bin/python3` in an image where the already-mounted server Python was sufficient; its8 attempts stopped before any new model request. Runtime5 inherits the frozen resource/network/cleanup backend and original native Terminus agent. It only uses read-only cached Harbor server/Python, supplies missing tmux/asciinema from a separate cache, skips generic apt/Python installation, and passes dash-leading control tokens safely to argparse. The original task setup is still sourced. The private cache was completed before launch and is frozen during this run.
+
+Self-authored environment probes on build-cython and compile-compcert images passed Harbor startup and actual tmux3.2a / asciinema2.4 recording with zero model calls. No benchmark instructions, answers, tests or patches were used to tune this fix. Launch receipt: `artifacts/runs/base-terminal-recovery-v2-20261016/launch-bootstrap5.json`; log: `runner-bootstrap5.log`; synthetic receipt: `artifacts/preflight/terminal-v2/bootstrap-fix/result.json`. The16 retained attempts require later explicit infrastructure disposition and are not counted as completed scores.
+
+## Concurrency16 handoff preparation — 2026-10-16
+
+Two new files are ready: `scripts/run_terminal_concurrent_v2.py` and `scripts/terminal_admission_v2.py`. They accept up to16 solver futures, use CPU0–63 as16 four-core slots, preserve8GiB and1800s per trial, and reuse the stable runtime5 environment/cache and existing445 checkpoint/results without repeated hashing. Creating `OUTPUT/STOP_ADMISSION` stops only future admissions; active trials finish naturally and the process writes `OUTPUT/nextpoint.json` with the remaining keys. A minimal32-item synthetic fixture passed16 actual admissions,16 natural completions and16 untouched pending items, with no cancellation or duplicate execution. The new driver has not been launched or pointed at a new service.
+
+The already-running runtime5 controller has no drain file or signal handler. Its pending list is held in memory. No source edit, signal or process injection was used to change it; a read-only debugger attach was rejected by host Yama policy and did not attach. Writing a drain file cannot affect that older process. It continues its existing8 solver profile until a natural safe boundary; a16 profile must wait for such a boundary rather than cancel or duplicate current trials.
+
+Native summarization calls summary/questions/answers sequentially within a trial;16 solvers do not create48 parallel helper calls. Parser and summaries run in the host controller, with current8-task controller measured about225MiB RSS and0.7% CPU. The host has128 logical CPUs and about1.8TiB available RAM;16×8GiB task caps total128GiB and CPU0–63 do not overlap SWE64–71. Main practical constraint remains the model queue: helper work and queue waiting still consume the unchanged1800s solver clock. No parser, prompt, history, sampling or summary-budget changes were made.
+
+All sections below are historical snapshots; the latest running controller is runtime5 above.
+
+---
+
 # Terminal baseline recovery is running — 2026-10-16 13:49 CST
 
 The frozen recovery controller is alive on host80 as **PID3895633**, using replacement TP2 service **job725545**, node **ACD1-24:18002**, through the independently supervised host80 bridge **http://127.0.0.1:28082**. The direct bridge supervisor is PID3864879; model traffic no longer depends on the Mac. The controller holds the same `artifacts/runs/base-terminal-724242.lock`.

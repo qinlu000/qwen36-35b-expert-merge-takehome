@@ -1,0 +1,30 @@
+{
+  "deployment_id": "apex-base-concurrency-x2-v3-20261016",
+  "authorization": "User requests concurrency x2, then explicitly directs full production without spending time on tests; preserve logs and checkpoints. No hash or synthetic acceptance gates.",
+  "core_protocol": "configs/eval/protocol_v2_unified64k8k.json",
+  "parent_deployment": "configs/eval/deployment_direct_hpc_v2.json",
+  "scheduler_overrides": {
+    "max_active_model_sequences": 8,
+    "max_admitted_solver_tasks": 16,
+    "tensor_parallel_gpus": 2,
+    "max_num_batched_tokens": 8192
+  },
+  "unchanged": "Model/revision/BF16, prompts, native agents, context65536, per-call output8192, seeds, per-trial CPU/RAM/time, task denominators and scoring.",
+  "activation": "Health readiness only, followed directly by full formal cohorts; no synthetic or extra acceptance requests. Old live services/controllers are not interrupted.",
+  "initial_production": {
+    "benchmark": "swe",
+    "source_job_id": 725561,
+    "source_bridge_port_on_80": 28083,
+    "source_max_active_model_sequences": 4,
+    "target_job_id": 725705,
+    "target_bridge_port_on_80": 28084,
+    "target_max_active_model_sequences": 8,
+    "solver_slots": 16,
+    "cpus": "64-71,76-83",
+    "scope": "43 never-generated tasks, including seven zero-generation setup failures and two images still downloading. Eight already-generated tasks are retained. Fixed51 denominator.",
+    "handoff": "Run full available scope on the existing endpoint immediately; when the new service is healthy, stop new admission, finish all active trials naturally, then continue pending IDs on the new endpoint. Never interrupt trials to change concurrency."
+  },
+  "terminal_future_profile": {"solver_slots": 16, "cpus": "0-63", "status": "prepared; old controller has no graceful stop-admission interface"},
+  "measurement": "Observe actual formal run logs, request latency, queue depth and progress checkpoints. Do not run a separate throughput test or assume2x speedup.",
+  "disclosure": "Concurrency profiles can affect queue time within fixed task budgets; record profile with each cohort and disclose the change in the final baseline."
+}

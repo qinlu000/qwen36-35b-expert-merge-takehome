@@ -24,6 +24,13 @@
       "node": "ACD1-36",
       "service_port": 18003,
       "bridge_port": 28083
+    },
+    {
+      "benchmark": "swe_x2",
+      "job_id": 725705,
+      "node": "ACD1-12",
+      "service_port": 18001,
+      "bridge_port": 28084
     }
   ]
 }

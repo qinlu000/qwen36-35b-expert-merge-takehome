@@ -1004,3 +1004,16 @@
 - 用户明确“加入训练集”，随后强调“全都训练行了，SFT又不需要环境”。已取消CPU/GPU、依赖、外网、模型训练任务与本地复验门槛，不再把常见科学库相似直接判同题；全部102题完整纳入，无筛除。
 - 按30个来源仓库整组隔离为82训练/20验证，seed20261016。Swift JSONL、来源manifest及summary已落地本地/80/HPC：artifacts/data/candidates/scienceagentbench_verified_9c6e96c9/swift_ready/。原始gold/code/canary保留，6题保留原仓库许可来源，不一律标CC BY。
 - 科研程序采用ASI direct_llm的完整Python回答格式，加入交互执行专家的数据配方；Mixed使用相同SAB训练分区一次。scripts/prepare_sab_sft.py只需官方metadata+gold，既有运行回执可选；configs/data/scienceagentbench_sft_v1.json记录实际82/20和数据路径。没有新增教师API、hash、逐题运行门槛，也未声称所有样本均本地通过。
+
+
+## 2026-10-16 14:32 CST: full production, concurrency x2, no extra tests
+
+- Latest human instruction: run the full baseline directly, spend no more time on tests, preserve logs and checkpoints. Synthetic concurrency/boundary probes were cancelled before any model request. No new hash gates. New server only waits for HTTP health.
+- New TP2 job725705 requests2H100/16CPU/128GiB/12h, max_active_sequences8; still PENDING(Resources). Existing HLE725539/TB725545/SWE725561 use6H100. Training725704 uses1GPU; leave it untouched. Actual per-task64K/8K, seed, CPU/RAM, timeout, native agent and fixed denominators stay unchanged; disclose concurrency profile in final results.
+- Remote80 one-time continuation PID449163 is resident: artifacts/runs/baseline-x2-725705/{state.json,events.jsonl,controller.log}. It waits for the fixed job, adds28084 forwarding, then executes swe-launch.json on health readiness. No laptop dependency or app automation.
+- SWE full first-generation cohort43 is RUNNING, parent PID452167, artifacts/eval/base_swe_v2_20261016_full: glibc33+musl10, two8-slot groups on CPU64-71/76-83, existing28083(max_model_sequences4) until the new8-sequence service is healthy. Two missing images remain in the download queue and are admitted when ready. Handoff writes STOP_ADMISSION, waits for all active trials naturally, then moves only pending never-started IDs to28084; no task is cancelled merely to change concurrency.
+- SWE old NodeBB and Ansible d624 hit normal budget exit124; retain their patches for fresh replay, never regenerate. Six prematurely cancelled tasks retain all trajectories/patches and remain incomplete rather than silently becoming normal1800s failures. Old7 zero-generation setup tasks are included in the43 first generations. Fixed denominator51 remains.
+- TB runtime5 still runs full445: observed14:27 eight active/421pending/16historical infra,120complete policy responses+8inflight, no final valid trial yet. Native request/raw response files and checkpoint writes are atomic, first_valid uses setdefault. New16 runner has natural STOP_ADMISSION drain and nextpoint; old live runner has no such interface and was not hot-patched.
+- HLE infra1 continues1679 with original821 results retained; observed14:26 admitted79/completed71/active8. Raw complete responses are saved before validation. ASI240 answers stay frozen; native CPU grading continues.
+
+- 14:35 follow-up: job725705 is now RUNNING on ACD1-12, model loading. Inference allocations total8H100 plus the other chat single training GPU=9; no extra synthetic model requests. Remote waiter has added the new28084 forwarding target and is waiting for model health.

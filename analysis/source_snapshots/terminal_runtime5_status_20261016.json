@@ -1,0 +1,25 @@
+{
+  "at_utc": "2026-10-16T06:26:56.973922+00:00",
+  "pid": 359147,
+  "alive": true,
+  "fixed_denominator": 445,
+  "states": {
+    "failed_attempt": 16,
+    "admitted": 8,
+    "pending": 421
+  },
+  "first_valid": 0,
+  "halted": false,
+  "stop_reason": null,
+  "checkpoint_updated": "2026-10-16T06:04:52.448313+00:00",
+  "checkpoint_save_policy": "atomic replace on admission and trial finalization; per-response atomic raw request records during active trials",
+  "active_policy_requests": {
+    "completed": 120,
+    "request_in_flight": 8
+  },
+  "newest_request_record_age_seconds": 4.5,
+  "resume_policy": "preserve first_valid via setdefault; existing valid result files recovered at startup; never-admitted pending only; incomplete admitted trial kept for audit",
+  "output": "artifacts/results/base-terminal-v2-recovery-20261016",
+  "runtime": "runtime5",
+  "service_job": 725545
+}

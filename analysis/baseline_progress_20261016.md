@@ -126,3 +126,16 @@ rank/window仍未确定，本会话不启动训练或GPU反向。DeepSeek夜间�
 - HLE15秒实际aggregate decode62.78 tokens/s，4active/4waiting稳定。分配到本服务的两卡15个样本GPU util均值100%与20%（rank1范围19–21%）；说明当前4序列软件上限在跑满，但不能声称两卡算力/整个HPC利用最优。另两组在该瞬时NVML样本均0%（之后SWE已进入4 active）。优先修生产阻塞，暂不继续增加闲置副本。
 - ASI评分最初prepare遗漏public参数导致8个evaluator KeyError；原结果parameters为空，grader已从原framework_task_info.json补齐内存参数，不改答卷/gold/rubric。旧评分API0、回执保留；新--skip-hashes正式score PID4019427，目录scoring_v2_formal_params_20261016，240固定scope、¥6/396硬限，正在推进。
 - ASI203 failed只读类别审计：49ModuleNotFound（pandas37/sklearn4/scipy4/numpy3/markdown1）、2ImportError，另Key/Syntax/Value/Type等；未命中网络/权限/OOMpattern。缺依赖/文件59项需审计声明环境后判断，不能一概叫模型失败，也不能重生完整答案。
+
+
+## 2026-10-16 14:32 CST: full production, concurrency x2, no extra tests
+
+- Latest human instruction: run the full baseline directly, spend no more time on tests, preserve logs and checkpoints. Synthetic concurrency/boundary probes were cancelled before any model request. No new hash gates. New server only waits for HTTP health.
+- New TP2 job725705 requests2H100/16CPU/128GiB/12h, max_active_sequences8; still PENDING(Resources). Existing HLE725539/TB725545/SWE725561 use6H100. Training725704 uses1GPU; leave it untouched. Actual per-task64K/8K, seed, CPU/RAM, timeout, native agent and fixed denominators stay unchanged; disclose concurrency profile in final results.
+- Remote80 one-time continuation PID449163 is resident: artifacts/runs/baseline-x2-725705/{state.json,events.jsonl,controller.log}. It waits for the fixed job, adds28084 forwarding, then executes swe-launch.json on health readiness. No laptop dependency or app automation.
+- SWE full first-generation cohort43 is RUNNING, parent PID452167, artifacts/eval/base_swe_v2_20261016_full: glibc33+musl10, two8-slot groups on CPU64-71/76-83, existing28083(max_model_sequences4) until the new8-sequence service is healthy. Two missing images remain in the download queue and are admitted when ready. Handoff writes STOP_ADMISSION, waits for all active trials naturally, then moves only pending never-started IDs to28084; no task is cancelled merely to change concurrency.
+- SWE old NodeBB and Ansible d624 hit normal budget exit124; retain their patches for fresh replay, never regenerate. Six prematurely cancelled tasks retain all trajectories/patches and remain incomplete rather than silently becoming normal1800s failures. Old7 zero-generation setup tasks are included in the43 first generations. Fixed denominator51 remains.
+- TB runtime5 still runs full445: observed14:27 eight active/421pending/16historical infra,120complete policy responses+8inflight, no final valid trial yet. Native request/raw response files and checkpoint writes are atomic, first_valid uses setdefault. New16 runner has natural STOP_ADMISSION drain and nextpoint; old live runner has no such interface and was not hot-patched.
+- HLE infra1 continues1679 with original821 results retained; observed14:26 admitted79/completed71/active8. Raw complete responses are saved before validation. ASI240 answers stay frozen; native CPU grading continues.
+
+- 14:35 follow-up: job725705 is now RUNNING on ACD1-12, model loading. Inference allocations total8H100 plus the other chat single training GPU=9; no extra synthetic model requests. Remote waiter has added the new28084 forwarding target and is waiting for model health.
