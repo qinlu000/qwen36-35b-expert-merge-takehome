@@ -1370,3 +1370,13 @@
 - 原validation授权继续：专属2GPU服务727113已在ACD1-24:18000启动，项目12+2=14GPU；四专家LoRA+Base别名注册，80专桥28089/监督PID4182990驻留，不改现有Base隧道。HLE/ASI生成client4183881与HLE评分4183925驻留等待服务真实验收，预算HLE10+ASI至多10，总不超过20元；尚未把等待进程冒称正式答题已完成。
 - SWE100独立任务准备与源镜像缓存继续；CPU125实测空闲、只有collector和本轮轻HTTPclient，可先1路SWE val(1CPU4GiB)共享此核，其他Base执行核不抢。ASI实际独立val为20题，100题方案缺口如实披露；20题生成/实际执行/机械及视觉评分分阶段记录，不混为SFT loss。
 - cp16来源报告/独立JSON与数据分析链接已更新；没有重训、缩窗口或取消validation。Git仅纳本轮自有内容和claud/overnight追加，无coauthor信息。
+
+
+## 2026-10-16 22:26 CST：Base baseline 接管后进度实核
+
+- 用户询问当前任务进度。本轮只读现成summary/checkpoint、真实子进程/容器scope/轨迹和HPC队列；无新模型probe、测试、调度或driver修改。Terminal已于22:23:57拿到旧全局锁并接管153个未开始pending及2个新增终态未评分，独立队列总187=原固定32+155接管项；原成绩/答案保留。
+- Terminal独立corrected445为261/445有效（58.65%）、31在途、153待准入；当前独立队列无已终态未评分项，不等于旧34问题已全部评分完，其余均已转新生成在途/队列。3只补评现全部有效：makeDoom0、PyTorch1、rstan0；rstan启用offline后已实际执行评分，原TLS无test包装器0保留不采纳。
+- 22:25:38实核31 active子进程全部非Z存活；31 scope CPU0-3/4-7/.../120-123各8GiB，无重叠、不碰SWE124/126/127。adaptive0已28请求(27完成1在途)/28轨迹步，buildCython及buildPmars各4请求(3完成1在途)/4步，已真实求解、非卡setup。新31并发刚扩满，不能以此前单槽/drain速度推断后续吞吐。
+- SWE独立clean28：9有效（2通过）、3在途、15待准入、1已终态原生verifier超时未评分；整套51含保留native23为32有效，未给未齐全主分。受旧环境影响的历史5/51=9.8039%仍单独保留。
+- ASI240/240完成，公开本地均分1.5709884%，非Portal认证；HLE2500生成终态全齐、2499有效评分（99正确）、1Judge JSON无效，未声称全量有效完成。共享Base726629/726635两TP2共4GPU在跑；其他会话SFT/validation不改。80根盘约32.60GiB可用、/data约2.33TiB，无再次爆盘。
+- 状态与实际scope/轨迹观察保存baseline_status_20261016_2225.json，Git仅纳本轮快照和本节claud追加，保留其他会话未提交工作区。
