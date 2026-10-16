@@ -1,7 +1,7 @@
 {
-  "as_of": "2026-10-16T04:01:56+08:00",
-  "state": "8_gpus_running_transport_restored_formal_repair_acceptance_pending",
-  "total_project_gpus": 8,
+  "as_of": "2026-10-16T13:27:18+08:00",
+  "state": "services_expired_no_active_gpu_jobs",
+  "total_project_gpus": 0,
   "per_replica": {
     "gpus": 2,
     "cpus": 16,
@@ -17,7 +17,8 @@
       "node": "ACD1-61",
       "port": 18000,
       "port_on_80": 18061,
-      "owner": "整体推进"
+      "owner": "整体推进",
+      "state": "TIMEOUT"
     },
     {
       "benchmark": "asi",
@@ -25,7 +26,8 @@
       "node": "ACD1-61",
       "port": 18001,
       "port_on_80": 18071,
-      "probe_pid_on_80": 2136213
+      "probe_pid_on_80": 2136213,
+      "state": "TIMEOUT"
     },
     {
       "benchmark": "terminal",
@@ -33,7 +35,8 @@
       "node": "ACD1-54",
       "port": 18002,
       "port_on_80": 18072,
-      "probe_pid_on_80": 2136214
+      "probe_pid_on_80": 2136214,
+      "state": "TIMEOUT"
     },
     {
       "benchmark": "swe",
@@ -42,28 +45,29 @@
       "port": 18003,
       "port_on_80": 18073,
       "owner": "side 推进",
-      "state": "RUNNING"
+      "state": "TIMEOUT"
     }
   ],
   "formal_base_trials_this_workflow": {
     "asi": {
-      "saved_attempt0": 240,
-      "original_answers_retained": 3,
-      "verified_infrastructure_retry1_pending": 237,
-      "scored": 0
+      "retained_answers": 240,
+      "execution_status_completed": 37,
+      "execution_status_failed": 203,
+      "judge_scored": 0,
+      "generation_checkpoint_completed_cst": "2026-10-16T09:32:57+08:00"
     },
     "terminal": {
-      "saved_attempt_r2": 21,
+      "original_saved_infrastructure_results": 21,
       "normal_completed": 0,
-      "verified_infrastructure_retry1_pending": 21,
-      "not_admitted": 424
+      "expected": 445,
+      "recovery_launch_unconfirmed": true
     },
     "swe": {
-      "admitted": 0,
-      "fixed_denominator": 51
+      "formal_output_directory_found": false,
+      "expected": 51
     }
   },
-  "note": "Allocation, native acceptance, valid formal coverage and scoring are distinct. Historical attempt0 failures are preserved; explicit retry manifests required.",
+  "note": "Current status audit; historical allocations expired. No full benchmark score available. Execution status is not scientific correctness.",
   "tunnel_supervisor": {
     "pid": 11878,
     "config": "configs/eval/baseline_tunnels_20261016.json",
@@ -75,5 +79,8 @@
     "724242": "2026-10-16T11:31:29+08:00",
     "724254": "2026-10-16T11:52:47+08:00"
   },
-  "timelimit_extension": "User-owned scontrol update rejected with Access/permission denied; unchanged8h."
+  "timelimit_extension": "User-owned scontrol update rejected with Access/permission denied; unchanged8h.",
+  "last_allocated_project_gpus": 8,
+  "allocated_service_gpu_hours_approx": 64,
+  "heartbeat_state": "PAUSED"
 }

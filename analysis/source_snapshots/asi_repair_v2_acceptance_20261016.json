@@ -1,0 +1,121 @@
+{
+  "passed": true,
+  "as_of_utc": "2026-10-15T20:05:28.995040+00:00",
+  "real_model_calls": 0,
+  "benchmark_conditions_executed": 0,
+  "admission": {
+    "passed": true,
+    "run_dir": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi/repair-admission-s_l3yxx1",
+    "real_model_calls": 0,
+    "benchmark_conditions_executed": 0,
+    "outage": {
+      "passed": true,
+      "admitted": 8,
+      "untouched": 229,
+      "checkpoint": "paused_infrastructure"
+    },
+    "recovery": {
+      "passed": true,
+      "remaining_completed": 229,
+      "failed_attempts_regenerated": 0
+    },
+    "initial_offline": {
+      "passed": true,
+      "admitted": 0
+    },
+    "max_outstanding_futures": 8,
+    "classification_cases": [
+      {
+        "name": "received_parse_failure",
+        "passed": true,
+        "pause_reason": false,
+        "pause_does_not_authorize_retry": false
+      },
+      {
+        "name": "received_program_failure",
+        "passed": true,
+        "pause_reason": false,
+        "pause_does_not_authorize_retry": false
+      },
+      {
+        "name": "genuine_budget_timeout",
+        "passed": true,
+        "pause_reason": false,
+        "pause_does_not_authorize_retry": false
+      },
+      {
+        "name": "context_budget_failure",
+        "passed": true,
+        "pause_reason": false,
+        "pause_does_not_authorize_retry": false
+      },
+      {
+        "name": "transport_failure",
+        "passed": true,
+        "pause_reason": "transport_failure_review_required",
+        "pause_does_not_authorize_retry": true
+      },
+      {
+        "name": "unknown_failure",
+        "passed": true,
+        "pause_reason": "unknown_before_answer_review_required",
+        "pause_does_not_authorize_retry": true
+      }
+    ]
+  },
+  "cleanup": {
+    "passed": true,
+    "run_dir": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi/repair-cleanup-1oela8ln",
+    "benchmark_conditions_executed": 0,
+    "real_model_calls": 0,
+    "state": {
+      "state": "paused_infrastructure",
+      "reason": "endpoint_health_failed",
+      "admitted_this_session": [
+        "synthetic-case0__seed31415__b1",
+        "synthetic-case1__seed31415__b1"
+      ],
+      "completed_this_session": [],
+      "active": [
+        "synthetic-case0__seed31415__b1",
+        "synthetic-case1__seed31415__b1"
+      ],
+      "unsubmitted_this_session": 0
+    },
+    "cleanup": {
+      "stopped_worker_pids": [
+        3317369,
+        3317374
+      ],
+      "owned_scopes": [
+        "apex-asi-54dff825a15e4da897e9f44c9937f655.scope"
+      ],
+      "remaining_active_scopes": [],
+      "worker_alive": []
+    },
+    "heartbeat_stopped": true,
+    "remaining_namespace_processes": [],
+    "frozen_old_worker_reused": true
+  },
+  "manual_scope": {
+    "selected": 237,
+    "pre_generation_failures": 229,
+    "ambiguous_disconnects_explicit_manual_full_trial_retry": 8,
+    "original_received_answers_frozen": 3,
+    "manual_retry_index": 1
+  },
+  "source_sha256": {
+    "repair_asi_infrastructure_v2.py": "0c1153b450074186628e72c31b268963d8046857006fd3208257e77f31adf1e3",
+    "smoke_asi_repair_admission_v2.py": "cf4d370d9ea3af55e41ee7a85ce61dc48674e7afb0c9edce7fdb858527c60fbd",
+    "smoke_asi_repair_cleanup_v2.py": "583c8c7a4120fec2cc616c66750edee8c4773a7be7acfb55dec6974a91b9fc66"
+  },
+  "launched": {
+    "pid": 3334671,
+    "attempt_dir": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2_20261016_infra1",
+    "initial_active_futures": 8,
+    "initial_admitted_journals": 8,
+    "initial_unsubmitted": 229,
+    "original_physical_workspaces_preserved": 240,
+    "original_workspace_symlinks_preserved": 240
+  }
+}

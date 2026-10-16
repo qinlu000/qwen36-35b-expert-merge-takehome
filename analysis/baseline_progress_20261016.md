@@ -2,6 +2,10 @@
 
 开始：2026-10-16T03:28:30+08:00。用户已授权本会话持续推进正式Base，并每30分钟检查。本文是本会话baseline工作入口；总体数据/费用/其他会话交接见[夜间总记录](overnight_progress_20261016.md)。正式执行以[协议v2](evaluation_protocol.md)与其JSON为准，不以安装成功代替原生验收。
 
+## 最新实核状态（2026-10-16T13:27:18+08:00）
+
+四项尚无完整可报告的baseline分数。ASI240份答卷齐（原始执行状态37 completed/203 failed），Judge未跑；HLE309完整答卷+512预算超时+1679连接基础设施失败；TB仅21基础设施失败/取消，无正常完成；SWE无正式输出目录。原四个2GPU服务均8小时TIMEOUT，当前squeue空，本线heartbeat为PAUSED。历史运行/预计启动段落不代表当前现场。
+
 ## 调度与所有权
 
 - 当前会话side推进：`01a14017-2078-7490-9d13-6246c400173c`。heartbeat `apex-baseline` 已由应用确认ACTIVE，每30分钟恢复本会话检查与推进。
@@ -83,3 +87,13 @@ rank/window仍未确定，本会话不启动训练或GPU反向。DeepSeek夜间�
 - 两个独立修复driver验收中：最多8个future，每次准入health，transport异常熔断停止新准入/取消在途/保存checkpoint；旧生产源码/runtime SHA不改，桥绿之后也需断网stub通过才启动。原全trial自动重试0、人工infra最多2次、同HTTP read/ambiguous不得自动再发的协议保持。
 - 尝试仅延长本线724241/724242/724254的Slurm TimeLimit，被权限拒绝，未升级/换账户；仍各8h，ASI11:30:57、TB11:31:29、SWE11:52:47到期（CST）。巡检至少提前1小时有序checkpoint/服务换班，避免到期被杀。
 - ASI评分独立stub/校准及reference隔离准备继续；当前零付费，不挤占另一会话夜间30元数据预算。apex-baseline半小时heartbeat已更新事故分类/新桥/人工补跑/到期处理；本线持续推进baseline，另一线训练授权保持。
+
+
+### 2026-10-16T13:27:18+08:00：用户询问后的baseline现场核对
+
+- 当前HPC squeue(qinlucao)为空。sacct确认724196/724241/724242/724254均TIMEOUT，各占2H100约8小时；不能再把03:xx的8卡运行当当前状态。累计这四个服务约64 GPU小时，不等于有效求解GPU小时。
+- ASI独立手工infra1的checkpoint在09:32:57(CST)完成237/237，237份原始response与237份精确condition result都存在；沿用旧3份答卷，固定240全部取得一次保留回答。原始执行status：新237中37 completed/200 failed，加旧3 failed，共37 completed/203 failed；执行失败尚未做完整原因审计，不把它们冒充最终正确率。正式Judge尚未执行，无最终得分。
+- HLE由整体推进核实：2500保存记录中309完整回答、512真实300秒预算超时、1671生成前infra、8已发生成后断连；尚未评分/未完成有效全量。原答卷与失败均保留。
+- TB目前现场仅旧r2的21结果(13transport+8取消)，没有正常完成的正式trial；owner已核recovery从未launch，无runtime3或445恢复manifest；当前仅两个新恢复源码通过语法检查，断网/恢复stub尚未完成。SWE未见正式result目录，最后文档仍native闭环验收中，正在核最新回执。
+- 本线半小时automation apex-baseline当前toml状态PAUSED，未证实此时后台仍在自动检查；上轮设置ACTIVE不代表已实际完成到期服务续接。本轮已向用户明确夜间续跑/到期衔接没有做好。未擅自改他线自动任务、作业或代理。
+- 另一会话训练724277已拿4卡，但数据加载cache权限错误FAILED，未到反向/正式训练；该会话正修同一配方。此处仅交叉核验，不接管其训练。
