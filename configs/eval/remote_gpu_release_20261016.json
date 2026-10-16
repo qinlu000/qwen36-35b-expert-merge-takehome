@@ -11,13 +11,18 @@
     },
     {
       "benchmark": "terminal",
-      "job_id": 725545,
-      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/checkpoint.json"
+      "job_id": 726129,
+      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/followon/full445.COMPLETE.json"
     },
     {
       "benchmark": "swe",
       "job_id": 725561,
       "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/swe-base-725561/model-consumer-finished.json"
+    },
+    {
+      "benchmark": "swe_x2",
+      "job_id": 725705,
+      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/swe-base-725705/model-consumer-finished.json"
     }
   ]
 }

@@ -1,0 +1,49 @@
+{
+  "current_production_sources": [
+    "scripts/swe_baseline_v2.py",
+    "scripts/swe_baseline_sitepackages_v2.py",
+    "scripts/swe_baseline_native_v2.py",
+    "scripts/swe_runtime_environment.py",
+    "scripts/swe_runtime_bootstrap.sh",
+    "scripts/swe_runtime_rootmap.sh",
+    "scripts/swe_score_runtime.py",
+    "scripts/setup_swe_runtime_v2.py",
+    "scripts/swe_logged_relay.py",
+    "scripts/swe_logged_model_bridge.py",
+    "scripts/run_swe_baseline_v2_next.py",
+    "scripts/run_swe_baseline_v2_native.py",
+    "scripts/run_swe_full_cohort.py",
+    "scripts/run_swe_full_cohort_root.py",
+    "scripts/handoff_swe_x2.py",
+    "scripts/replay_swe_preserved_budget.py",
+    "scripts/swe_manual1_relay.py",
+    "scripts/swe_manual1_model_bridge.py",
+    "scripts/run_swe_baseline_v2_manual1.py",
+    "scripts/continue_swe_incomplete_group1.py",
+    "scripts/replay_swe_score_environment.py",
+    "scripts/swe_score_go_runtime.py",
+    "scripts/swe_score_go_preseed.py",
+    "scripts/swe_score_go_environments.py",
+    "scripts/swe_score_go_preseed_environments.py",
+    "scripts/cache_swe_go_graph.py",
+    "scripts/collect_swe_final.py"
+  ],
+  "prior_attempt_sources": [
+    "scripts/run_swe_baseline_v2.py",
+    "scripts/run_swe_baseline_v2_materialized.py",
+    "scripts/run_swe_baseline_v2_setup_recovery.py",
+    "scripts/recover_swe_setup_once.py",
+    "scripts/continue_swe_incomplete.py"
+  ],
+  "musl_frozen_helper_source_archive": "analysis/source_snapshots/swe_musl_compat_source",
+  "status": "analysis/baseline_swe_v2_status.md",
+  "unlaunched_prototypes_not_required": [
+    "scripts/launch_swe_musl_x2.py",
+    "scripts/smoke_swe_queue_v2.py"
+  ],
+  "final_summary": "artifacts/eval/base_swe_v2_20261016_final/final_summary.json",
+  "final_table": "artifacts/eval/base_swe_v2_20261016_final/task_scores.csv",
+  "fixed_denominator": 51,
+  "primary_score_units": "percent 0..100, null until all51 valid",
+  "no_stage_or_commit": true
+}

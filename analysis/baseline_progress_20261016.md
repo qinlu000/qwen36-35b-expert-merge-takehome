@@ -159,3 +159,14 @@ rank/window仍未确定，本会话不启动训练或GPU反向。DeepSeek夜间�
 - HLE15:39:217network-repair attempts ended,225admitted/8active;821original retained gives1038/2500ended. Ended counts include failures/timeouts, not only full responses.
 - SWE15:39:glibc15terminal/1active/17pending, musl root10terminal/0active/0pending; plus2older normal-budget replays gives27terminal records. The audited25replays contain1official reward1,24reward0, but7need environment review:pytest4,pip1,Go download timeout2.18have no such environment error flag; do not call7unreviewed errors model failures.6old premature cancellations remain incomplete. Original patches are retained; owner continues grader-only repairs/replay, without regenerating answers or extra synthetic tests. New8-sequence service handoff remains in natural drain until the last old trial ends.
 - ASI remains239valid/1native-evaluator-invalid/0pending.49missing-import execution errors were audited:37pandas,4sklearn,4scipy,3numpy,1markdown all use packages absent from the official corresponding TaskEnv declarations. All declared packages satisfy the16cached environments checked; no declared dependency missing-install evidence, so no package-addition execution reruns. HKUST route available for future API calls; current ASI formal API count0 and existing completed scores were not moved.
+
+
+## 2026-10-16：完善四项完整 baseline 结果（16:08 CST）
+
+- 用户要求继续完善并跑完。远端80生产、评分、补跑、汇总常驻，不重建app定时任务，不增加hash或额外测试；保留原始答案、全部attempt和成本，以及固定范围与预算。
+- ASI已完整240/240有效、0invalid/0pending，百分分1.5709884069%（377.0372176580/24000）。soil b2原(3650,0)预测违反公开(n_days,5)契约；定点adapter使空min异常成为原hard-gate失败，其余239条记录保留，官方src/rubric/gold未改；正式Judge0次/0元。
+- HLE保持原300s/64K8K生成。正式streaming Judge PID2370521，校内DeepSeek-V4-Flash，经80专属TLS28443通过HPC访问校内API，保持原SNI和CA验证，2并发/10元与5000calls硬限。16:06已969/2500有效，0judgeinvalid，未齐主分null；原生预算无答卷记0，网络或评分错误不冒充0。
+- SWE当前17项在maxseq8服务725705上16并发；已27有效、2resolved，Flipt原patch官方评分继续补精确Go缓存。历史6项获当前用户授权infra retry，旧部分轨迹、patch和成本保留；group1自然完成并确认旧namespace进程归零后复用76至81提前接6，与group0重叠最多14solver。GPU完成marker等待17加6全部消费结束。
+- Terminal发现runtime6单题tmux缺libutempter又取消15peer，当前396从未准入；至少5旧reward0是curl/uvx缺失导致原生tests未运行，必须改infra-invalid并恢复原答卷评分。owner正隔离单项infra错误、补私有harness/原PATH/官方依赖、纠正隐藏600s verifier HTTP deadline为官方3600s；后续评分失败在cleanup前保留必要输出或就地恢复评分。
+- Terminal无在途，已把旧maxseq4服务725545替换为新726129/ACD1-32/36h/TP2/maxseq8，仍80:28082；新模型加载中，健康后直接全量16solver/CPU0至63。旧服务已释放；新job固定release白名单和常驻release配置同步。短暂部署8张baseline卡，稳定仍6张，不触碰其他会话SFT。
+- 统一只读最终汇总PID2380282/scope apex-baseline-final-collector-20261016，CPU86/256MiB，每30秒读各owner摘要，输出80 artifacts/results/base_baseline_final_20261016/{summary.json,report.md}，四项完整有效才complete。固定2500/240/51/445；TB5乘89仅齐全才报mean与sample SD(ddof1)，不把四种指标平均，不把缺失或infra填0。

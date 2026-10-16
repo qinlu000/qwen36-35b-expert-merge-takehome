@@ -1,0 +1,22 @@
+{
+  "as_of_cst": "2026-10-16T16:08:00+08:00",
+  "benchmark": "terminal",
+  "source_job_id": 725545,
+  "source_max_active_model_sequences": 4,
+  "target_job_id": 726129,
+  "target_node": "ACD1-32",
+  "service_port": 18002,
+  "bridge_on_80": "http://127.0.0.1:28082",
+  "target_max_active_model_sequences": 8,
+  "tensor_parallel_gpus": 2,
+  "solver_slots": 16,
+  "solver_cpu_affinity": "0-63",
+  "allocation_hours": 36,
+  "state": "loading_model; owner waits for HTTP health before formal admission",
+  "handoff": "Owner confirmed old runtime6 dead and no active model request. Updated direct tunnel then released idle old725545; existing HLE/SWE/API tunnels unchanged.",
+  "source_release": "scancel725545 returned0",
+  "native_budgets": "context65536/output8192; fixed1800s/4CPU/8GiB trial; official verifier3600s; original prompts/seeds/models",
+  "new_synthetic_or_calibration_requests": 0,
+  "completion_receipt": "artifacts/runs/base-terminal-recovery-v2-20261016/followon/full445.COMPLETE.json",
+  "release_watcher_pid": 52101
+}

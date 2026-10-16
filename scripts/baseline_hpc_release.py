@@ -5,7 +5,7 @@ import shlex
 import subprocess
 import sys
 
-ALLOWED_JOBS = {'725539', '725545', '725561', '725705'}
+ALLOWED_JOBS = {'725539', '725545', '725561', '725705', '726129'}
 request = shlex.split(os.environ.get('SSH_ORIGINAL_COMMAND', ''))
 if len(request) != 2 or request[0] not in {'status', 'release'} or request[1] not in ALLOWED_JOBS:
     sys.exit('Only this workflow\'s fixed GPU status/release requests are allowed')

@@ -24,7 +24,19 @@
     "scope": "43 never-generated tasks, including seven zero-generation setup failures and two images still downloading. Eight already-generated tasks are retained. Fixed51 denominator.",
     "handoff": "Run full available scope on the existing endpoint immediately; when the new service is healthy, stop new admission, finish all active trials naturally, then continue pending IDs on the new endpoint. Never interrupt trials to change concurrency."
   },
-  "terminal_future_profile": {"solver_slots": 16, "cpus": "0-63", "status": "prepared; old controller has no graceful stop-admission interface"},
   "measurement": "Observe actual formal run logs, request latency, queue depth and progress checkpoints. Do not run a separate throughput test or assume2x speedup.",
-  "disclosure": "Concurrency profiles can affect queue time within fixed task budgets; record profile with each cohort and disclose the change in the final baseline."
+  "disclosure": "Concurrency profiles can affect queue time within fixed task budgets; record profile with each cohort and disclose the change in the final baseline.",
+  "terminal_production": {
+    "activated_at_cst": "2026-10-16T16:05:00+08:00",
+    "source_job_id": 725545,
+    "target_job_id": 726129,
+    "target_node": "ACD1-32",
+    "bridge_port_on_80": 28082,
+    "max_active_model_sequences": 8,
+    "solver_slots": 16,
+    "cpus": "0-63",
+    "service_timelimit_hours": 36,
+    "scope": "Only pending and explicitly authorized infrastructure-incomplete trials; completed answers retained",
+    "handoff": "Old runtime6 halted with no active solver or model request; owner fences new admission until the new endpoint is healthy."
+  }
 }

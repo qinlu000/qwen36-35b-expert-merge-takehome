@@ -1,11 +1,11 @@
 # ASI v2 本地评分最终状态
 
-2026-10-16 只读核验：固定240条件已全部经过原生评分，**239有效、1 evaluator-invalid、0 pending**。报告最后写盘 **15:14:37 CST**；PID376749已退出，owned native submission scopes为空。实际报告名为 `artifacts/asi/scoring_v2_formal_params_20261016/local_score_seed31415.json`，不是summary.json。
+2026-10-16 **15:50:52 CST**：在用户授权收敛完整结果后，仅修复soil b2的空预测gate崩溃并重评这一条。固定240条件现为 **240有效、0 evaluator-invalid、0 pending，complete=true**。其余239条结果原样保留。实际报告为 `artifacts/asi/scoring_v2_formal_params_20261016/local_score_seed31415.json`。
 
-- 严格主 `mean_percent=null`、`complete=false`：不能把1个评分器异常冒作有效零分。
-- 239有效子集 `native_valid_subset_mean_percent=1.5775615801590612%`。
-- 保留全240／24000分母的辅助零填充 `auxiliary_zero_fill_mean_percent=1.5709884069083986%`，累计得分377.03721765801566。该辅助值不是完整有效主成绩。
-- 唯一异常为 `earth_science.2_e_soil_carbon_nitrogen_cycling__seed31415__b2`，原生file_match对空数组执行min而崩溃。依root最新指令保留invalid，不新增测试或更改gold／rubric／阈值。
+- 完整主 `mean_percent=1.5709884069083986%`，累计377.03721765801566／24000分。
+- 本轮之前的239有效子集为1.5775615801590612%；该历史不完整报告仍保存，未用其替代完整主结果。
+- 原唯一异常是 `earth_science.2_e_soil_carbon_nitrogen_cycling__seed31415__b2`：两预测均为`(3650, 0)`，原file_match对空数组执行min而崩溃。公开`prompt_b2.md:43–44`明确要求两数组`(n_days, 5)` float64；`task_eval.yaml:21–30`规定value_range/min0 hard gate。YAML本身没有shape gate。本次仅在该条件两指定文件size==0时返回正常hard-gate fail，沿用原hard-fail零分聚合；未改rubric／阈值／gold／官方源码，也未把其他评分器异常泛化为零。
+- 原invalid条件和完整旧报告分别保存在`soil_empty_prediction_repair/condition_before.json`、`report_before.json`；新评分、独立adapter源码patch、receipt并存。本地回执为`analysis/source_snapshots/asi_soil_empty_prediction_repair_20261016.json`，完整240条件报告为`analysis/source_snapshots/asi_scoring_final_20261016.json`。
 - 正式Judge API **0次、¥0**。原生gates未触发付费Judge；网络不是当前评分阻塞。此前所有模型答案继续冻结，不重生、不回流训练。
 
 ## 依赖缺失的最小只读核查
@@ -37,3 +37,15 @@ Max3SAT／TSP原二阶段SubmissionRunSpec映射到bwrap＋systemd scope，继�
 正式最多4way grader曾限CPU72–75，未占TB0–63／SWE64–71／76–83；当前进程已退出。潜在Judge132原native轮、全部重试上限396；事前保守估计≤¥5.7539952，授权硬限396次／¥6，跨进程flock逐请求预留、失败不释放、缓存0新增。正式实际0调用，预算文件仍由root统一维护。
 
 这些是seed31415公开本地替代Judge实验结果，不是Portal认证成绩。所有原始logs、选集、执行产物、评分attempt和最终JSON继续保存；未stage／commit／修改claud或根索引。
+
+## 空数组修复的可重放入口
+
+`scripts/repair_asi_soil_empty_prediction.py`只评soil b2，禁止Judge调用；已完成目录再次运行会直接返回现有receipt。80实际执行命令：
+
+```bash
+taskset -c 72 artifacts/envs/asi-py312/bin/python scripts/repair_asi_soil_empty_prediction.py \
+  --project /data/caoqinlu/projects/apex-takehome \
+  --output /data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016
+```
+
+如需独立重新评这一个条件，使用新的输出目录，链接原`runtime`，复制原`scoring_config.json`，将`soil_empty_prediction_repair/report_before.json`放为`local_score_seed31415.json`、`condition_before.json`放为`conditions/earth_science.2_e_soil_carbon_nitrogen_cycling__seed31415__b2.json`，再把`--output`指向新目录。无需复制或重评另外239条condition文件，完整旧报告已包含它们。仅公开冻结产物被读取，不再执行／生成答案，不读取API凭据，不做新hash。

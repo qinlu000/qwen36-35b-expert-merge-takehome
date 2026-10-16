@@ -1,5 +1,5 @@
 {
-  "status": "all_conditions_scored_with_one_evaluator_invalid",
+  "status": "complete_240_conditions_with_documented_soil_empty_prediction_gate_repair",
   "formal_directory": "artifacts/asi/scoring_v2_formal_params_20261016",
   "launch": {
     "pid": 376749,
@@ -114,14 +114,16 @@
   "source_runtime_files": 105,
   "snapshot_reuses_existing_receipts_no_new_hash_walks": true,
   "latest_coverage": {
+    "complete": true,
     "expected_instance_count": 240,
-    "scored_instance_count": 239,
-    "scorer_error_count": 1,
+    "scored_instance_count": 240,
+    "scorer_error_count": 0,
     "pending_count": 0,
-    "mean_percent": null,
-    "native_valid_subset_mean_percent": 1.5775615801590612,
+    "mean_percent": 1.5709884069083986,
+    "native_valid_subset_mean_percent": 1.5709884069083986,
     "auxiliary_zero_fill_mean_percent": 1.5709884069083986,
     "total_score": 377.03721765801566,
+    "total_max_score": 24000.0,
     "expected_total_max_score": 24000
   },
   "first_fullpass": {
@@ -164,10 +166,8 @@
   "report_path": "artifacts/asi/scoring_v2_formal_params_20261016/local_score_seed31415.json",
   "formal_scoring_process_alive": false,
   "formal_owned_native_scopes": [],
-  "last_report_write_utc": "2026-10-16T07:14:37.275105+00:00",
   "formal_paid_api_cost_cny": 0,
-  "remaining_evaluator_invalid": "earth_science.2_e_soil_carbon_nitrogen_cycling__seed31415__b2: native file_match empty-array reduction",
-  "soil_further_repair_not_authorized_or_needed_for_this_status": true,
+  "remaining_evaluator_invalid": null,
   "dependency_audit": {
     "read_only": true,
     "generation_calls": 0,
@@ -199,5 +199,88 @@
     "new_generation_calls": 0,
     "current_formal_asi_migrated": false,
     "network_is_current_scoring_blocker": false
-  }
+  },
+  "previous_incomplete_coverage": {
+    "expected_instance_count": 240,
+    "scored_instance_count": 239,
+    "scorer_error_count": 1,
+    "pending_count": 0,
+    "mean_percent": null,
+    "native_valid_subset_mean_percent": 1.5775615801590612,
+    "auxiliary_zero_fill_mean_percent": 1.5709884069083986,
+    "total_score": 377.03721765801566,
+    "expected_total_max_score": 24000
+  },
+  "final_repair_completed_at_utc": "2026-10-16T07:50:52.349957+00:00",
+  "soil_empty_prediction_repair": {
+    "status": "completed",
+    "completed_at_utc": "2026-10-16T07:50:52.349957+00:00",
+    "condition": "earth_science.2_e_soil_carbon_nitrogen_cycling__seed31415__b2",
+    "repair_scope": "Only this condition, two named prediction files, size==0",
+    "original_exception": "Scorer crashed: ValueError: zero-size array to reduction operation minimum which has no identity",
+    "public_contract": {
+      "prompt": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/instances_seed31415/earth_science.2_e_soil_carbon_nitrogen_cycling__seed31415/prompt_b2.md",
+      "lines": [
+        43,
+        44
+      ],
+      "shape": "(n_days, 5)",
+      "gate": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/asi/tasks/earth_science/2_e_soil_carbon_nitrogen_cycling/task_eval.yaml:21-30",
+      "crash": "ai4sci_bench/scorers/file_match.py:137-146",
+      "hard_fail_zero": "ai4sci_bench/core/scoring.py:158-167"
+    },
+    "empty_prediction_checks": [
+      {
+        "passed": false,
+        "check": "value_range",
+        "file": "results/carbon_pools.npy",
+        "actual_shape": [
+          3650,
+          0
+        ],
+        "required_pool_columns": 5,
+        "failure_kind": "empty_prediction_contract_violation",
+        "message": "Empty prediction violates public prompt required shape (n_days, 5)"
+      },
+      {
+        "passed": false,
+        "check": "value_range",
+        "file": "results/nitrogen_pools.npy",
+        "actual_shape": [
+          3650,
+          0
+        ],
+        "required_pool_columns": 5,
+        "failure_kind": "empty_prediction_contract_violation",
+        "message": "Empty prediction violates public prompt required shape (n_days, 5)"
+      }
+    ],
+    "final_score": 0.0,
+    "official_source_modified": false,
+    "rubric_threshold_gold_modified": false,
+    "unrelated_evaluator_exceptions_mapped_to_zero": false,
+    "other_condition_records_preserved": 239,
+    "generation_calls": 0,
+    "judge_api_calls": 0,
+    "judge_api_cost_cny": 0,
+    "new_hash_walks": 0,
+    "original_invalid": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016/soil_empty_prediction_repair/condition_before.json",
+    "original_report": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016/soil_empty_prediction_repair/report_before.json",
+    "source_patch": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016/soil_empty_prediction_repair/source_patch.diff",
+    "report": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016/local_score_seed31415.json",
+    "score_status": "Complete public local score with documented gate crash repair"
+  },
+  "repair_replay_command": [
+    "taskset",
+    "-c",
+    "72",
+    "artifacts/envs/asi-py312/bin/python",
+    "scripts/repair_asi_soil_empty_prediction.py",
+    "--project",
+    "/data/caoqinlu/projects/apex-takehome",
+    "--output",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016"
+  ],
+  "full_condition_report_local": "analysis/source_snapshots/asi_scoring_final_20261016.json",
+  "final_summary_table": "analysis/asi_baseline_final_summary_20261016.md"
 }

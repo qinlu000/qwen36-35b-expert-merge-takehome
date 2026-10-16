@@ -13,8 +13,8 @@
     },
     {
       "benchmark": "terminal",
-      "job_id": 725545,
-      "node": "ACD1-24",
+      "job_id": 726129,
+      "node": "ACD1-32",
       "service_port": 18002,
       "bridge_port": 28082
     },
@@ -31,6 +31,14 @@
       "node": "ACD1-12",
       "service_port": 18001,
       "bridge_port": 28084
+    },
+    {
+      "benchmark": "hkust_api",
+      "job_id": null,
+      "node": "aigc-api.hkust-gz.edu.cn",
+      "service_port": 443,
+      "bridge_port": 28443,
+      "purpose": "Fixed campus API TLS path for host80 native graders; no GPU"
     }
   ]
 }

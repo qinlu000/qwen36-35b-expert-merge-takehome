@@ -10,7 +10,7 @@
   "route": "Call from HPC. Host80 direct access failed; HPC authenticated GET /models returned200 on2026-10-16.",
   "model_inventory_requests": 1,
   "model_generation_requests": 0,
-  "current_use": "Available route for future Judge or teacher API calls. Existing completed scores and Base answer generation are unchanged.",
+  "current_use": "HLE formal streaming Judge now uses school Flash through the fixed HPC TLS route; ASI remains complete with0formal Judge calls.",
   "record_with_calls": [
     "requested_model",
     "reported_model",
@@ -30,5 +30,22 @@
     "campus_model_not_silently_equated_to_calibrated_provider_identity": true,
     "record_actual_provider_identity_and_protocol_if_used": true,
     "new_generation_or_calibration_calls_for_this_update": 0
+  },
+  "current_hle_scoring": {
+    "output": "artifacts/runs/hle_judge_v2_20261016",
+    "model_id": "DeepSeek-V4-Flash",
+    "reported_model": "DeepSeek-V4-Flash",
+    "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+    "provider_revision_pinned": false,
+    "route": "80 stdlib HTTPS over fixed127.0.0.1:28443 SSH tunnel via HPC to campus443; CA/SNI/Host verified",
+    "configured_input_price_cny_per_million": 0.75,
+    "configured_output_price_cny_per_million": 2.25,
+    "pricing_source": "https://docs.hpc.hkust-gz.edu.cn/docs/aigc/api-model-list/",
+    "hard_budget_cny": 10,
+    "hard_call_cap": 5000,
+    "formal_scoring_started": true,
+    "extra_calibration_calls": 0,
+    "previous_external_provider_alias_not_silently_equated": true,
+    "credentials": "Read original80 data-perception/.env in memory; no secret copied into metadata"
   }
 }

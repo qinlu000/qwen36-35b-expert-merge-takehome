@@ -1,16 +1,21 @@
 # SWE v2 baseline status — 2026-10-16
 
-15:38只读快照：固定51项中，当前43项接续队列已有23项generation+fresh replay终态、3项在途、17项未准入；另2项旧正常预算patch的fresh replay完成、6项旧工程熔断提前取消保留incomplete。旧musl的9个0生成setup结果不重复计入覆盖。全51镜像现已缓存，无缺镜像阻塞。
+15:58续记：已部署完整51接续闭环。x2当前16active/1pending，原17不改源、不取消；远端follow-on PID2355044持排他锁，等待自然drain后仅对6个审计确认的CancelledError/空submission incomplete做manual infra retry1，总generation_attempt2、同ID/seed0/1800s，原response/轨迹/费用记录完整保留。没有已验证的剩余预算原生resume入口，未构造resume。汇总器PID2358733持续写`base_swe_v2_20261016_final/final_summary.json`与`task_scores.csv`，未评分为null，只采首个环境有效评分。最终模型consumer marker为`artifacts/runs/swe-base-725705/model-consumer-finished.json`，由follow-on在所有17+6生成消费者结束后写，root已改为仅按该marker释放GPU。
 
-共25个唯一fresh replay已落盘，官方binary reward为1项1、24项0，replay级Harbor异常0。但7项存在verifier环境异常标记，暂不视为可靠模型失败：pytest缺失4、pip缺失1、Go module公网下载timeout2。其中Ansible b748同时有模型缺实现的collection error，环境并非已证实唯一原因。其余18项当前未发现上述异常，包含4项模型Go语法/API/build失败；有效resolved为1，保守已解决比例1/51=1.96%，完整主分未形成。部分tests PASSED只是诊断，官方不按测试比例给部分分。
+当前有效27/51、resolved2（保守3.92%，主分仍null）；Vuls-ca3和Teleport-7744的原patch Go复评已排除网络错误，均因模型Go代码build错误而有效0。仅Flipt-c188原patch仍在实际native go test评分。Go直接cache之外已用原镜像Go下载ecr/netlink完整传递模块图、默认sumdb验证，0tests/0模型；官方test.sh强制GOPROXY的行为保持原样，cache仅合并到native目录。新回执`analysis/source_snapshots/swe_final_progress_20261016.json`。
 
-旧28083生产父PID452167、glibc PID452169仍在自然drain，glibc checkpoint为stopping_admission、3active/17pending/13terminal，无新infra暂停；musl root-map修复PID461500已结束，10/10 generation与replay完成。正常1740s/exit124未再被误判infra，已有patch照常fresh replay，答卷没有重生。
 
-新725705模型实际14:36已ready；root一次性waiter早期因health ConnectionReset退出，root修复后于15:25:55启动consumer2004064自然交接。`base_swe_v2_20261016_full_x2`目录已建，15:38尚无新leaf checkpoint，在等上述3项自然结束。新28084为maxseq8、16solvers、CPU64–71及76–83；旧28083仍maxseq4。
+15:46只读快照：固定51项中，旧批次28项已有generation与fresh replay结果，6项旧工程熔断提前取消保留incomplete。其余17项已自然交接至新28084/maxseq8：`base_swe_v2_20261016_full_x2`为16active/1pending，两个8-slot组使用CPU64–71和76–83，已实际保存150份raw response。51镜像全部缓存。
 
-主log为`artifacts/eval/base_swe_v2_20261016_full/full-controller.log`，有效child状态看`glibc/admission_checkpoint.json`和`musl_root_repair/admission_checkpoint.json`及`additional_children.json`。旧父checkpoint仅含初始children，不能单独代表总数。原始响应位于child的`requests/<taskID>/raw/`，逐chunk落盘后转给mini。
+新17项在准入前改用独立`run_swe_baseline_v2_native.py`、`SweBaselineNativeV2`、`SweNativeRuntimeEnvironment`。恢复SIF原生PATH，不再将managed python3.12/uv bind覆盖task的`/usr/local/bin`；mini只用私有工具路径与原managed3.12、完整constraints，官方prompt/tools/mini2.4.6/采样/预算不变。没有重生此前已生成答案。旧leaf保持原样。
 
-handoff spec固定`artifacts/runs/baseline-x2-725705/swe-launch.json`，只让当前在途自然结束，迁移未准入pending；明确0生成的旧musl setup journal不阻挡repair pending，当前repair自己的started journal仍禁止重答。策略留档`<full>/handoff-selection-policy.json`。25项逐条评分审计在Mac `analysis/source_snapshots/swe_progress_20261016_1536.json`（实际as_of15:38）和远端`<full>/progress-audit-20261016-1536.json`。未新增测试、hash gate、prompt修改或模型重答。
+旧28项原评分中8项出现verifier环境异常标记：pytest4、pip1、Go公网依赖timeout3。Python5项已只用原patch在新`base_swe_v2_20261016_score_envrepair1`完成fresh replay，原生3.9.23/3.11.13/3.12.11的pytest/pip均恢复；官方reward为1项1、4项0，replay级Harbor异常0。旧缺pip的e9e600从无效0恢复到有效1；mixed b748环境问题消失后仍因模型缺少prepare_multipart实现而collection error，保留有效0。旧invalid结果全部保留。
+
+截至15:46，按首个无环境异常标记的结果采纳，当前有效评分25/51、resolved2，保守已解决比例2/51=3.92%，完整主分未形成。部分tests PASSED只是诊断，官方不按测试比例给部分分。3项Go依赖网络失败尚待原patch复评；Flipt-c188/Teleport-7744已用只读官方模块cache开始`score_go_glibc1`/`score_go_musl1`（CPU88/89）；新增Vuls-ca3正在补精确依赖cache。不改原run-script/tests，不关闭sumdb，不生成新答案。
+
+主日志：`<full>/full-controller.log`及`<full_x2>/<group0|group1>/controller.log`；各父/子`checkpoint.json`、`admission_checkpoint.json`保存active/pending/terminal。`<full>/additional_children.json`登记旧musl替换子进程，不能单看旧父checkpoint。原始响应在child的`requests/<taskID>/raw/`，逐chunk落盘后转给mini。所有score repair的checkpoint明确model_calls=0。
+
+评分回执：`analysis/source_snapshots/swe_score_environment_repair_20261016.json`，远端`score_envrepair1/score-repair-summary.json`；逐条保留prior invalid路径、新评分路径与first-valid采纳规则。初次15:38审计回执仍为`swe_progress_20261016_1536.json`。没有新增验收/hash gate、prompt修改、模型替换或重答。
 
 ## 前序验收与启动记录（历史，以上为当前）
 

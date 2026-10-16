@@ -1,0 +1,29 @@
+{
+  "returncode": 0,
+  "command": [
+    "singularity",
+    "exec",
+    "--cleanenv",
+    "--containall",
+    "--no-mount",
+    "home,tmp,bind-paths,hostfs,cwd",
+    "--bind",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/cache/swe-score-go:/cache",
+    "--pwd",
+    "/cache/required-module-graph",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/sha256-8e2458836acf6d14616949c3573584a86449c29eb4a0bb09fab9a9b5ec8b53e9.sif",
+    "env",
+    "GOPATH=/cache/gopath",
+    "GOCACHE=/cache/build",
+    "GOPROXY=https://goproxy.cn,direct",
+    "GOSUMDB=sum.golang.org",
+    "GOTOOLCHAIN=local",
+    "go",
+    "mod",
+    "download",
+    "all"
+  ],
+  "model_calls": 0,
+  "tests_executed": 0,
+  "only_dependency_cache_preparation": true
+}

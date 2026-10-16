@@ -1,0 +1,109 @@
+{
+  "summary": {
+    "complete": false,
+    "expected": 2500,
+    "frozen_terminal_results": 1072,
+    "judged_answers": 36,
+    "native_no_answer": 671,
+    "evaluation_invalid": 0,
+    "scored": 707,
+    "pending": 1793,
+    "correct": 2,
+    "accuracy_percent": null,
+    "score": null,
+    "partial_correct_over_full_denominator_percent": 0.08,
+    "subgroups": {
+      "text": {
+        "denominator": 2158,
+        "scored": 630,
+        "correct": 2,
+        "accuracy_percent": null
+      },
+      "image": {
+        "denominator": 342,
+        "scored": 77,
+        "correct": 0,
+        "accuracy_percent": null
+      }
+    },
+    "selection_states": {
+      "native_no_answer": 671,
+      "answer": 401,
+      "pending_generation": 1428
+    },
+    "judge_generation_calls": 38,
+    "accounted_cost_cny": 0.0802095,
+    "budget_halted": false,
+    "max_cny": 10,
+    "max_calls": 5000,
+    "updated_at_utc": "2026-10-16T07:59:23.545785+00:00",
+    "provider": "DeepSeek-V4-Flash",
+    "official": false,
+    "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+  },
+  "identity": {
+    "requested_model": "DeepSeek-V4-Flash",
+    "reported_model": "DeepSeek-V4-Flash",
+    "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+    "provider_revision_pinned": false
+  },
+  "launch": {
+    "pid": 2370521,
+    "command": [
+      "systemd-run",
+      "--user",
+      "--scope",
+      "--quiet",
+      "--unit",
+      "apex-hle-judge-20261016",
+      "-p",
+      "MemoryMax=8589934592",
+      "-p",
+      "MemorySwapMax=0",
+      "-p",
+      "TasksMax=64",
+      "taskset",
+      "-c",
+      "84,85",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+      "-u",
+      "/data/caoqinlu/projects/apex-takehome/scripts/score_hle_baseline_v2.py",
+      "--project",
+      "/data/caoqinlu/projects/apex-takehome",
+      "--retry",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_infra1",
+      "--output",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016"
+    ],
+    "started_at_unix": 1792137495.7149603,
+    "output": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016",
+    "maximum_cny": 10,
+    "max_calls": 5000,
+    "workers": 2,
+    "tls_route": "80loopback28443 via HPC to school443; certificate/SNI/Host validated",
+    "shared_budget_read_before_launch": {
+      "data_cny": 6.896572704,
+      "asi_calibration_conservative_cny": 0.3157632,
+      "asi_formal_cny": 0,
+      "hle_max_cny": 10,
+      "maximum_total": 17.212335904,
+      "night_maximum": 30
+    },
+    "source_ledger_row_counts": [
+      362,
+      2,
+      64
+    ]
+  },
+  "call_statuses": {
+    "completed": 36,
+    "reserved": 2
+  },
+  "successful_usage_cost_cny": 0.051159,
+  "failed_and_inflight_reserved_cny": 0.0290505,
+  "usage_tokens": {
+    "prompt": 60421,
+    "completion": 2597
+  },
+  "read_at_utc": "2026-10-16T07:59:25.564756+00:00"
+}

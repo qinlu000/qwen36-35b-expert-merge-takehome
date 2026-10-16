@@ -1,0 +1,22 @@
+{
+  "actual_dependency_downloads": [
+    {
+      "name": "flipt",
+      "module": "github.com/aws/aws-sdk-go-v2/service/ecr@v1.38.0",
+      "returncode": 0,
+      "cache": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/swe-score-go",
+      "stdout": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/swe_v2/go-score-cache/flipt.stdout",
+      "stderr": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/swe_v2/go-score-cache/flipt.stderr"
+    },
+    {
+      "name": "teleport",
+      "module": "github.com/mdlayher/netlink@v1.6.0",
+      "returncode": 0,
+      "cache": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/swe-score-go",
+      "stdout": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/swe_v2/go-score-cache/teleport.stdout",
+      "stderr": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/swe_v2/go-score-cache/teleport.stderr"
+    }
+  ],
+  "tests_executed": 0,
+  "model_calls": 0
+}

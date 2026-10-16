@@ -1,0 +1,10 @@
+{
+  "module": "github.com/vulsio/goval-dictionary@v0.7.4-0.20220803092243-4891cffd7a65",
+  "returncode": 0,
+  "cache": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/swe-score-go",
+  "stdout": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/swe_v2/go-score-cache/vuls.stdout",
+  "stderr": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/swe_v2/go-score-cache/vuls.stderr",
+  "tests_executed": 0,
+  "model_calls": 0,
+  "sumdb": "sum.golang.org"
+}

@@ -41,14 +41,14 @@ def main():
         env = dict(os.environ, PYTHONPATH=str(ROOT / 'scripts'))
         prefix = (str(ROOT / 'artifacts/tools/fakeroot-1.25.3/rootfs/usr/bin') + ':' +
                   str(ROOT / 'artifacts/tools/apptainer-1.4.5/rootfs/usr/bin'))
-        runtime = 'swe_runtime_environment:SweRuntimeEnvironment'
+        runtime = 'swe_score_runtime:SweNativeRuntimeEnvironment'
         if is_musl:
             env['PYTHONPATH'] = str(assets) + ':' + env['PYTHONPATH']
             prefix = str(assets / 'shim') + ':' + prefix
             runtime = 'swe_musl_root_runtime:MuslRootRuntimeEnvironment'
         env['PATH'] = prefix + ':' + env['PATH']
         command = [str(ROOT / 'artifacts/envs/harbor/bin/python'), '-u',
-            str(ROOT / 'scripts/run_swe_baseline_v2_next.py'), '--endpoint', args.endpoint,
+            str(ROOT / 'scripts/run_swe_baseline_v2_native.py'), '--endpoint', args.endpoint,
             '--key-path', str(ROOT / 'artifacts/private/base_smoke_api_key'), '--output', str(out),
             '--admit-task-ids', str(manifest), '--concurrency', str(min(8, len(selected))),
             '--cpu-offset', str(offset), '--environment-import-path', runtime,
