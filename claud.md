@@ -1234,3 +1234,12 @@
 - 当前运行15GPU：基线10、SWE训练4、其他项目评估1。新Terminal A726635和复用B726629合计4GPU暂时待接管(已加载/health200/新准入路由true)，因旧10仍有在途，尚未实际生成TB请求。旧726129/725705仍各有原任务消费者；最后求解约19:42结束后还有原生评分，不能为瞬时0模型请求而取消并触发旧driver的健康熔断、丢在途结果。
 - 旧队列自然退出后11自动接30任务，新A+B热模型复用，旧两份8序列服务4GPU按消费者marker自动释放，基线降至6GPU；排队HLE训练726664当前因总GPU配额等待。未取消仍在用的模型/SFT/其他项目作业，也未为已完成ASI或SWE保留独立空闲GPU。过渡阶段并非满利用，已将闲置与实际消费者明确披露；不为这几分钟接续取消已预热替代模型重新排队加载。
 - 证据：hpc_live_utilization_20261016_{1935,1937}.json、hle_seq50_progress_20261016_1936.json、terminal_handoff_progress_20261016_{1932,1936}.json。同步当前实际50服务节点/ready与Terminal双路由，纯观察与文档更新，无新测试/hash/模型验收。
+
+
+## 2026-10-16 19:55 CST：SWE旧28项生成环境根因与重跑范围
+
+- 用户追问Python/PATH偏差及是否需重跑。已直接读取固定Harbor server.py：exec将`/usr/bin:/usr/local/bin`放在镜像原PATH前，旧SweRuntimeEnvironment没有在exec请求中恢复原生PATH；系统Python优先于项目自带解释器。旧层另有public uv/python3.12绑定风险，但不能声称所有原生Python被替换。
+- 4条原始Ansible generation轨迹直接证实自测被干扰：d33bed默认/usr/bin/python（版本3.11.2）缺jinja2，显式/usr/local/bin/python3能导入并运行自测；d62496缺pytest/pip；de5858系统3.11看不到原生3.9的PyYAML；原成功e9e600也先遇缺pytest。没有新跑模型、任务测试或hash验收，不把两次命令之间总间隔全部算环境耗时。
+- 旧28=18glibc+10musl，新23=17首次+6基础设施补跑。5成功中旧2新3。28是按环境确定的暴露范围，未证明每项都受损。原patch fresh replay51/51有效、5/51分数保留；评分完成不能恢复生成阶段丢失的自测反馈，因此该历史分数标为环境受扰，不能作为干净模型比较。
+- 固定独立clean28计划已落configs/eval/swe_clean_generation28_plan_20261016.json，包含旧成功2项，排除新23项；尚未启动，不突破原run不重生完整答案的协议。新实验须独立目录和日志、全28替换且不得新旧择高。18glibc的nativePATH/私有mini工具实现已存在，10musl仍需兼容适配，不能宣称一键就绪。
+- 已更新SWE状态和远端只读总汇警示。ASI仍240/240公开本地1.5709884%，非Portal；237新答中29条8K截断、28条遇未闭代码块后的原生抽取回退，49缺导入与冻结task声明依赖隔离有关，不能直接与none/full宿主环境等价或笼统归为模型能力。没有改生成器/解析器/依赖或重答。证据文档与逐条快照单独纳Git，保留并行SFT工作区改动，无coauthor信息。

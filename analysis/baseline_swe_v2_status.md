@@ -1,5 +1,9 @@
 # SWE v2 baseline status — 2026-10-16
 
+19:55生成环境审计更正：5/51的原patch评分已经完成，但不是干净的模型对照成绩。旧28项生成时，命令服务器将`/usr/bin`置于镜像原生PATH之前，旧适配层没有覆盖恢复；4条Ansible轨迹直接出现系统Python缺pytest/jinja2/yaml，同轨迹显式使用`/usr/local/bin/python`可恢复导入或启动自测。原生Python仍存在，不能概括为全部被managed Python替换。评分修复不能补回生成时的调试机会；28项是环境暴露范围，不等于28项全部受损。
+
+干净对照应独立重跑预先固定的旧28项生成及评分，包含原成功2项；23项已用native runtime（含6项原基础设施补跑）可保留。历史5/51和全部轨迹保持，不按新旧分数择优。计划已保存但未启动：18项glibc已有native实现，10项musl还需同样的原生PATH/私有工具适配。证据与范围见[生成环境审计](swe_generation_path_audit_20261016.md)及`configs/eval/swe_clean_generation28_plan_20261016.json`。
+
 17:00最终：固定51项全部有环境有效的官方fresh replay评分，resolved=5、failed=46，正式resolve rate=5/51=9.8039215686%。`complete=true`，未评分/待修复invalid/待处理infra均0。采首个环境有效结果，逐项已只读核对；不按reward择优，不给未评分填0。65次评分attempt中51次有效、14次历史invalid完整保留，涉及9项（pytest4、pip1、Go公网依赖7次、旧HTTP/verifier timeout1、bootstrap argv1）。原始答卷、patch、轨迹和费用记录均保留；只对6个旧工程提前取消且whole-task未完成的任务做manual infra retry1，同ID/seed0/1800s，已完成模型答案重生0次。
 
 最终源：远端`artifacts/eval/base_swe_v2_20261016_final/{final_summary.json,task_scores.csv,completion-receipt.json}`；Mac镜像回执`analysis/source_snapshots/swe_final_progress_20261016.json`、`swe_final_completion_20261016.json`、`swe_final_task_scores_20261016.csv`。最后Flipt3d5a同进程迁CPU124后官方fresh replay有效0，scope线程已0。GPU与旧CPU64–119完成marker均已true，可按root的独立guard交给Terminal；没有scancel725705。SWE无剩余模型/评分任务，未来若需要原patch审计仍只用CPU124单槽，不重新占旧pool。

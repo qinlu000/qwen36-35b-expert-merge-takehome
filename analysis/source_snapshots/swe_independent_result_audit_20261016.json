@@ -1,0 +1,120 @@
+{
+  "at_cst": "2026-10-16 19:47",
+  "mode": "Read-only source/results/log audit; no new model or test execution",
+  "fixed_tasks": 51,
+  "valid_scored": 51,
+  "resolved": 5,
+  "resolve_percent": 9.803921568627452,
+  "all_score_attempts": 65,
+  "preserved_invalid_attempts": 14,
+  "tasks_with_prior_invalid": [
+    {
+      "task_id": "instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf",
+      "invalid_attempts": 1,
+      "first_valid_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_envrepair1/replay/instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf/result.json",
+      "reward": 0.0
+    },
+    {
+      "task_id": "instance_ansible__ansible-b748edea457a4576847a10275678127895d2f02f-v1055803c3a812189a1133297f7f5468579283f86",
+      "invalid_attempts": 1,
+      "first_valid_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_envrepair1/replay/instance_ansible__ansible-b748edea457a4576847a10275678127895d2f02f-v1055803c3a812189a1133297f7f5468579283f86/result.json",
+      "reward": 0.0
+    },
+    {
+      "task_id": "instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "invalid_attempts": 1,
+      "first_valid_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_envrepair1/replay/instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59/result.json",
+      "reward": 0.0
+    },
+    {
+      "task_id": "instance_ansible__ansible-d62496fe416623e88b90139dc7917080cb04ce70-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "invalid_attempts": 1,
+      "first_valid_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_envrepair1/replay/instance_ansible__ansible-d62496fe416623e88b90139dc7917080cb04ce70-v0f01c69f1e2528b935359cfe578530722bca2c59/result.json",
+      "reward": 0.0
+    },
+    {
+      "task_id": "instance_ansible__ansible-e9e6001263f51103e96e58ad382660df0f3d0e39-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
+      "invalid_attempts": 1,
+      "first_valid_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_envrepair1/replay/instance_ansible__ansible-e9e6001263f51103e96e58ad382660df0f3d0e39-v30a923fb5c164d6cd18280c02422f75e611e8fb2/result.json",
+      "reward": 1.0
+    },
+    {
+      "task_id": "instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
+      "invalid_attempts": 1,
+      "first_valid_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_bootstrap_args1/replay/instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan/result.json",
+      "reward": 0.0
+    },
+    {
+      "task_id": "instance_flipt-io__flipt-c188284ff0c094a4ee281afebebd849555ebee59",
+      "invalid_attempts": 4,
+      "first_valid_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_go_glibc4/replay/instance_flipt-io__flipt-c188284ff0c094a4ee281afebebd849555ebee59/result.json",
+      "reward": 0.0
+    },
+    {
+      "task_id": "instance_future-architect__vuls-ca3f6b1dbf2cd24d1537bfda43e788443ce03a0c",
+      "invalid_attempts": 1,
+      "first_valid_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_go_glibc2/replay/instance_future-architect__vuls-ca3f6b1dbf2cd24d1537bfda43e788443ce03a0c/result.json",
+      "reward": 0.0
+    },
+    {
+      "task_id": "instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "invalid_attempts": 3,
+      "first_valid_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_go_musl3/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
+      "reward": 0.0
+    }
+  ],
+  "earliest_environment_valid_selection_mismatches": [],
+  "accepted_zero_test_count_tasks": [
+    "instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15",
+    "instance_flipt-io__flipt-c1728053367c753688f114ec26e703c8fdeda125",
+    "instance_flipt-io__flipt-c188284ff0c094a4ee281afebebd849555ebee59",
+    "instance_future-architect__vuls-ca3f6b1dbf2cd24d1537bfda43e788443ce03a0c",
+    "instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+    "instance_gravitational__teleport-65438e6e44b6ce51458d09b7bb028a2797cfb0ea-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+    "instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+    "instance_navidrome__navidrome-874b17b8f614056df0ef021b5d4f977341084185",
+    "instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b"
+  ],
+  "zero_test_count_log_audit": {
+    "all_harbor_exceptions": null,
+    "environment_suspicion_lines_found": 0,
+    "flipt_524f": "Candidate imported yaml but did not use it",
+    "flipt_c172": "Candidate malformed go.mod: unknown directive cuelang.org/go/cue",
+    "flipt_c188": "Candidate imported AWS package but did not use it",
+    "vuls_ca3": "Candidate duplicate map keys in config/os.go",
+    "teleport_2b15": "Candidate return-value count mismatch and undefined symbols",
+    "teleport_6543": "Candidate syntax error in lib/auth/touchid/api.go",
+    "teleport_7744": "Candidate unused imports and undefined netlink.AuditFamily",
+    "navidrome_874b": "Candidate added github.com/deluan/rest import without required module declaration",
+    "tutanota_f373": "Candidate TypeScript interface errors TS2322/2345/2416"
+  },
+  "native_tests_recorded_across_selected_results": 4008,
+  "experiment_profile": {
+    "scope": "SWE-bench Pro V2 HARD-51",
+    "agent": "LockedMiniSwe + mini-swe-agent2.4.6",
+    "solver_seconds": 1800,
+    "inner_timeout_seconds": 1740,
+    "task_cpu": 1,
+    "task_memory_gib": 4,
+    "context_tokens": 65536,
+    "max_output_per_call": 8192,
+    "enable_thinking": false,
+    "preserve_thinking": false,
+    "seed": 0,
+    "scoring": "Fresh original sandbox patch replay; earliest environment-valid result"
+  },
+  "public_reference_comparison": "Official locked original task budget is3000s. This experiment uses1800s and explicit64K/8K nonthinking; cannot directly compare to scores from another split or unreproduced model-card harness. mini2.4.6 is pinned by this project, not the unique mandatory official version.",
+  "generation_runtime_caveat": "Some early generation jobs used the older runtime that did not preserve task-native PATH/Python. Later fresh replay repairs validate their submitted patch in native environments, but cannot restore any self-debugging opportunity lost during those original model trajectories. The score is valid for these recorded runs; zero causal environment impact on model generation is not established.",
+  "completed_answers_regenerated": 0,
+  "confirmed_remaining_scoring_environment_false_zeros": 0,
+  "sources": [
+    "analysis/source_snapshots/swe_final_progress_20261016.json",
+    "analysis/source_snapshots/swe_final_completion_20261016.json",
+    "scripts/collect_swe_final.py",
+    "scripts/swe_runtime_environment.py",
+    "scripts/swe_score_runtime.py",
+    "analysis/protocol_swe_review.md",
+    "analysis/evaluation_protocol.md",
+    "Remote selected fresh-replay native stdout/stderr for all9zero-test results"
+  ]
+}

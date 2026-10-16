@@ -17,8 +17,8 @@ SOURCES = {
 }
 NOTES = {
     "HLE": "Retain all original answers and normal budget ends. At1424 outcomes, serving changed from max_num_seqs4 to20, with8 incomplete migration infrastructure retry2. User then requests server/client50; the next natural handoff transfers only never-started questions and adds no retry. Actual transitions are recorded separately. Queue time is inside the300s budget, so earlier timeouts cannot be interpreted as model ability alone. Judge uses school DeepSeek-V4-Flash and original criteria/JSONwrapper/4096/nonthinking; infrastructure-invalid outcomes are not zeros.",
-    "ASI": "Public local240-condition score. Only soil b2 empty (3650,0) arrays violate public required(n_days,5): targeted hard-gate fail repair; original invalid retained, other239 unchanged. CMOS ngspice44.2 and native submission bwrap mappings documented; formal Judge0calls.",
-    "SWE": "First environment-valid fresh replay of frozen patches. Restore native SIF PATH/private mini runtime; missing pytest/pip scores retained as infrastructure-invalid until repaired replay. Go uses exact verified official modules in native cache. Already complete answers are not regenerated.",
+    "ASI": "Public local240-condition single-shot/8K score, not Portal-certified. Of237 new answers,29 hit length8192;28 then failed with a leading code fence after native extraction fallback.49 runtime missing-import outcomes used the frozen declared-dependency task sandbox, which differs from default none/full host execution. These limits confound a broad model-ability interpretation. Soil b2 empty-array hard-gate repair and native adapters remain disclosed; formal Judge0calls.",
+    "SWE": "Scoring is complete using the first environment-valid fresh replay of each frozen patch. Earlier28 generation tasks used legacy PATH/Python isolation; real agent self-tests hit missing pytest/jinja2/yaml. Repairing replay cannot restore lost agent feedback. The5/51 result is an affected historical run, not a clean model-comparison baseline. A separate outcome-independent clean rerun of all28 legacy tasks is required;23 tasks already used the corrected native runtime. Complete answers have not been regenerated within this run.",
     "TB": "Five fixed seeds×89. Owner excludes verifier/bootstrap/tmux infrastructure failures from valid scores; private harness tools/native PATH/transport-deadline repairs preserve original prompts/tests/budget and old attempts. See owner source summary for accepted chronology and restoration disclosures.",
 }
 
@@ -71,7 +71,10 @@ def benchmark(project, name, expected, source):
                 resolved=raw["resolved"], source_updated_at=raw["as_of"],
                 manual_retry_task_count=raw["manual_retry_task_count"],
                 manual_retry_planned_task_count=raw["manual_retry_planned_task_count"],
-                task_scores_csv=str(path.with_name("task_scores.csv")))
+                task_scores_csv=str(path.with_name("task_scores.csv")),
+                scoring_complete=bool(raw["complete"]), usable_as_clean_model_comparison=False,
+                legacy_generation_environment_tasks=28, corrected_generation_environment_tasks=23,
+                clean_generation_rerun_started=False)
             score = raw["primary_score_percent"]
         else:
             assert raw["expected_trials"] == expected
