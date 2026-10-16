@@ -17,8 +17,8 @@
       "benchmarks": {
         "swe": {
           "adapter": "swe_tasks",
-          "summary": "artifacts/eval/base_swe_v2_20261016_clean28/corrected51_summary.json",
-          "notes": ["Canonical owner correction: all predetermined legacy28 replaced, native23 retained. Do not use historical5/51 or overlay newer answers."]
+          "summary": "artifacts/results/base-gap-completion-20261017/swe51_summary.json",
+          "notes": ["Owner grade-only completion of frozen clean28+native23 answers: explicit native-zero audits and same-patch infrastructure replays. Historical canonical artifacts/eval/base_swe_v2_20261016_clean28/corrected51_summary.json is preserved; no new Base answers or reward-based selection."]
         },
         "hle": {
           "adapter": "hle_results",
@@ -35,9 +35,9 @@
         },
         "terminal": {
           "adapter": "terminal_accepted",
-          "summary": "artifacts/results/base-terminal-independent-repair32-20261016/corrected445_summary.json",
+          "summary": "artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json",
           "status_only_source": "artifacts/results/base-terminal-independent-repair32-20261016/checkpoint.json",
-          "notes": ["Only canonical accepted_first_valid supplies scores; the187-row repair checkpoint supplies absent-key failure status only, never another answer or score.", "Full89x5 constrained protocol; independent repaired Base experiment and original outputs remain traceable."]
+          "notes": ["Owner strict summary includes accepted_first_valid grade-only recoveries of the same frozen answers. The original187-row repair checkpoint supplies absent-key failure status only, never another answer or score.", "Native null remains invalid in this strict view, including separately audited computation timeouts. Optional audited fixed-budget aggregation is saved in a separate output view, never as fabricated native rewards.", "Full89x5 constrained protocol; independent repaired Base experiment and original outputs remain traceable."]
         }
       }
     },
@@ -45,7 +45,7 @@
       "label": "SWE249专家",
       "artifact": "artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
       "benchmarks": {
-        "swe": {"adapter": "swe_tasks", "summary": "artifacts/eval/swe249_hard51_20261016/summary.json"}
+        "swe": {"adapter": "swe_tasks", "summary": "artifacts/eval/swe249_audited_hard51_20261017/summary.json", "notes": ["Read-only, explicitly audited native-zero overlay of the frozen SWE249 answers; original queue and invalid attempts preserved. No answer regeneration or automatic addition of unaudited failures."]}
       }
     },
     "hle250": {

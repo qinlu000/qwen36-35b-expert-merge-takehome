@@ -513,3 +513,12 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - README和当前进展链接该索引；本地存在但未进Git的prepare_swe_sft64k入口明确标为待补离线原件，没有留下假定可由GitHub下载的链接。
 - 明确披露取消task-val后AVG64按先验固定，后续loss-only未用作开发集择优，与原题的该选择过程存在差异；继续遵守取消任务级val，不按正式分调模型或恢复val。
 - 一页草稿及本轮进展/审计/结果文档已同步80/HPC；代码与报告已推至私人GitHub及lab至a926f90。本轮仅自有文件和共享文档追加纳Git，原baseline会话WIP保留，正式队列继续运行。
+
+
+## 2026-10-17：SWE专家显式审计汇总与Base补评来源
+
+- 独立核审后采纳四份精确native0：Ansible c1/d33、Flipt524原结果及Teleport7744唯一网络恢复后的同patch评分。manifest固定任务、原/采用result、小结果与patch身份、原invalid原因及证据；只读collector不改原队列、Base、原始summary/result，不搜索最佳reward或自动新增审计项。
+- 80 CPU10纯读快照来源19:20:33Z为原37＋4＝41/51有效、0resolved、43terminal/8active/pending0。complete=false、正式主分null，NodeBB与未审计项仍空；原网络timeout和新原生0分开保留，无新求解/API/GPU/评分。
+- 原始51attempt/有效分与model-finished、scoring=false为完成前提；CPU排空可用当前空scope或精确、同CPU集合且晚于最终marker的AVG SWE历史admission交接证明。避免CPU交给新模型后，已完成专家分数被新消费者永远阻塞。原80七组文件算例通过，后修订本地九组通过，41快照未重跑/改写。
+- final_results明确改用该专家audited summary；Base SWE/TB指原owner的base-gap-completion严格来源，HLE原source现已2500完整/99正确/3.96%。原Base答案与历史canonical保留，新增均为评分恢复。README补单次纯读刷新命令；后续每次最终统计/heartbeat先刷新SWE专家audited summary再汇总。
+- Terminal真实计算超时的Harbor None→0语义另以平行预算视图实现，默认严格原生字段与原始null不变；本提交未把该新功能的在改文件纳入。只提交本轮自有8文件及共享文档追加，原baseline WIP保留。

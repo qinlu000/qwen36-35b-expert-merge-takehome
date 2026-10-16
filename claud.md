@@ -1559,3 +1559,12 @@
 - 03:13原生coverage439/445：trainFasttext seed3/4官方2test各失败(原候选无model.bin)为有效0；CLI seed3补MNIST后6test全过为1。CLI4及Doom3/SAM3继续native补评。父3080870不依赖Mac，scope92–95与8GiB实证；任一setup失败停止准入，不让其余题重复撞错。
 - 3个真计算timeout(FEAL0/4、modelExtract4)已独立审定：官方pytest真正开始并耗尽900s，无reward且无依赖/磁盘故障，candidate静态循环计算大。原始null与strict覆盖不改。实际Harbor Mean源码将None聚合0，所以另列完整分母的固定预算聚合，绝不伪造3条native0；其他6项完成后strict最多442/445、预算聚合可445项，对比所有模型须同口径。
 - 新纯读collector outputs artifacts/results/base-gap-completion-20261017，读取new native/逐result audit；主report优先新SWE及Terminal strict，历史旧5/51和436 partial保留，并额外公开Harbor预算均值/SD。main collector3061357固定metadata125；gap reader3061355不调用模型或测试。所有远端native controllers/CPU leases/日志原样保留，最终指标齐前不报完整score或macro。本轮先提交HLE恢复、timeout审定与纯读总汇代码/记录，后续native收尾另纳Git；无coauthor信息。
+
+
+## 2026-10-17：SWE专家显式审计汇总与Base补评来源
+
+- 独立核审后采纳四份精确native0：Ansible c1/d33、Flipt524原结果及Teleport7744唯一网络恢复后的同patch评分。manifest固定任务、原/采用result、小结果与patch身份、原invalid原因及证据；只读collector不改原队列、Base、原始summary/result，不搜索最佳reward或自动新增审计项。
+- 80 CPU10纯读快照来源19:20:33Z为原37＋4＝41/51有效、0resolved、43terminal/8active/pending0。complete=false、正式主分null，NodeBB与未审计项仍空；原网络timeout和新原生0分开保留，无新求解/API/GPU/评分。
+- 原始51attempt/有效分与model-finished、scoring=false为完成前提；CPU排空可用当前空scope或精确、同CPU集合且晚于最终marker的AVG SWE历史admission交接证明。避免CPU交给新模型后，已完成专家分数被新消费者永远阻塞。原80七组文件算例通过，后修订本地九组通过，41快照未重跑/改写。
+- final_results明确改用该专家audited summary；Base SWE/TB指原owner的base-gap-completion严格来源，HLE原source现已2500完整/99正确/3.96%。原Base答案与历史canonical保留，新增均为评分恢复。README补单次纯读刷新命令；后续每次最终统计/heartbeat先刷新SWE专家audited summary再汇总。
+- Terminal真实计算超时的Harbor None→0语义另以平行预算视图实现，默认严格原生字段与原始null不变；本提交未把该新功能的在改文件纳入。只提交本轮自有8文件及共享文档追加，原baseline WIP保留。

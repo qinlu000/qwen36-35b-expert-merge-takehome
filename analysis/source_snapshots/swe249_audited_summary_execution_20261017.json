@@ -1,0 +1,175 @@
+{
+  "snapshot": {
+    "as_of": "2026-10-16T19:20:33.832522+00:00",
+    "source_as_of": "2026-10-16T19:20:33.491575+00:00",
+    "expected": 51,
+    "valid_scored": 41,
+    "original_valid_scored": 37,
+    "audited_native_zero_count": 4,
+    "resolved": 0,
+    "unscored": 10,
+    "invalid_pending": 2,
+    "awaiting_generation_or_replay": 8,
+    "complete": false,
+    "primary_score_percent": null,
+    "completion_gates": {
+      "all51_effectively_scored": false,
+      "all51_original_attempts_terminal": false,
+      "original_active_empty": false,
+      "original_pending_empty": true,
+      "original_model_consumer_finished": false,
+      "original_scoring_explicitly_finished": false,
+      "source_cpu_scopes_empty": false
+    },
+    "active_source_cpu_scopes": [
+      "apex-baseline-026818ae80f6.scope",
+      "apex-baseline-07ee58e947b1.scope",
+      "apex-baseline-0e3bd08803eb.scope",
+      "apex-baseline-283262a56a85.scope",
+      "apex-baseline-2a489febc874.scope",
+      "apex-baseline-2fcfd35ab8ab.scope",
+      "apex-baseline-7e177e4814b2.scope",
+      "apex-baseline-fce8405d45d9.scope"
+    ],
+    "source_summary_sha256": "951a91e6cec39b92cca7911e49beb1c84ad74a305c055bac7daa2952e313bea7",
+    "audit_manifest_sha256": "4ee93b4235db772aab20f1ecf9cd2e1c72fdf4cacb0c34d652f9725cbf0c1c30"
+  },
+  "terminal_count": 43,
+  "active_count": 8,
+  "pending_count": 0,
+  "summary_sha256": "f710700251cf35e238d48a2d84f3c8e6b90644a06c0d2cdf0026e74f1bc0a94e",
+  "manual_examples": {
+    "passed": true,
+    "scope": "Artificial JSON/file identities only",
+    "checks": {
+      "unapproved_invalid_native_zero_stays_unscored": true,
+      "wrong_result_source_rejected": true,
+      "nonzero_native_reward_rejected_even_with_matching_digest": true,
+      "foreign_generation_source_rejected": true,
+      "all_valid_but_missing_resource_marker_blocks_complete": true,
+      "all_valid_terminal_and_drained_can_complete": true,
+      "active_original_attempt_blocks_complete": true
+    },
+    "model_calls": 0,
+    "task_or_verifier_executions": 0
+  },
+  "execution": {
+    "cpu": 10,
+    "scope_prefix": "apex-baseline-",
+    "cpu10_scopes_before": [],
+    "collector_stdout": {
+      "expected": 51,
+      "valid_scored": 41,
+      "original_valid_scored": 37,
+      "audited_native_zero_count": 4,
+      "resolved": 0,
+      "complete": false,
+      "primary_score_percent": null
+    },
+    "manual_examples_passed": true,
+    "model_calls": 0,
+    "task_or_verifier_executions": 0,
+    "cpu10_scopes_after": []
+  },
+  "approved_rows": [
+    {
+      "task_id": "instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2",
+      "reward": 0.0,
+      "accepted_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/result.json",
+      "previous_invalid_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/result.json",
+      "previous_invalid_reason": "empty_tests_requires_audit"
+    },
+    {
+      "task_id": "instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "reward": 0.0,
+      "accepted_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59/result.json",
+      "previous_invalid_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59/result.json",
+      "previous_invalid_reason": "empty_tests_requires_audit"
+    },
+    {
+      "task_id": "instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15",
+      "reward": 0.0,
+      "accepted_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15/result.json",
+      "previous_invalid_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15/result.json",
+      "previous_invalid_reason": "empty_tests_requires_audit"
+    },
+    {
+      "task_id": "instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "reward": 0.0,
+      "accepted_result": "artifacts/eval/swe249_teleport7744_proxy_repair_20261017/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
+      "previous_invalid_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
+      "previous_invalid_reason": "verifier_public_go_dependency_timeout"
+    }
+  ],
+  "nodebb": [
+    {
+      "task_id": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+      "reward": null,
+      "status": "invalid_requires_audit",
+      "invalid_reason": "harbor_replay_exception:VerifierTimeoutError"
+    }
+  ],
+  "output": "artifacts/eval/swe249_audited_hard51_20261017/summary.json",
+  "mode": "one_shot_pure_read_sources_new_output_only",
+  "source_files_modified": false,
+  "base_modified": false,
+  "existing_collector_modified": false,
+  "canonical_config_modified": false,
+  "new_model_calls": 0,
+  "new_replays": 0,
+  "code_sha256": {
+    "scripts/collect_swe249_audited.py": "2815e15d693c22e108427f003d7c7686bc03f070fcdd61e832cf62820a44a04f",
+    "scripts/check_swe249_audited_examples.py": "31295e569891b73ae3334af16c20f1d589f7d007a59a2cc5d54e076561d7fbc6"
+  },
+  "historical_execution_code_sha256": {
+    "scripts/collect_swe249_audited.py": "3083378b3a74d1731602bbb13ff62992177429209c74119d54b9869364134651",
+    "scripts/check_swe249_audited_examples.py": "df2767b150116ef9912c0b4a05378867e0cd2c7b52ef5bc9abac82b9b0361ff1"
+  },
+  "gate_revision": {
+    "checked_at": "2026-10-16T19:24:47.817645+00:00",
+    "purpose": "Accept the exact historically drained expert-to-merged CPU handoff after source completion",
+    "handoff_path": "artifacts/eval/avg64_swe_hard51_20261017/admission-opened.json",
+    "producer": "scripts/run_swe_merged_benchmark.py:121",
+    "required_handoff_fields": {
+      "cpu_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "swe_expert_all_cpu_and_model_consumers_finished": true,
+      "base_scopes_on_target_cpus": []
+    },
+    "time_rule": "Timezone-aware handoff.at >= final original model-consumer-finished.at",
+    "current_scopes_are_snapshot_only_after_proven_handoff": true,
+    "historical_snapshot_unchanged": true,
+    "actual_collector_rerun": false,
+    "cpu10_used": false,
+    "local_manual_examples": {
+      "passed": true,
+      "scope": "Artificial JSON/file identities only",
+      "checks": {
+        "unapproved_invalid_native_zero_stays_unscored": true,
+        "wrong_result_source_rejected": true,
+        "nonzero_native_reward_rejected_even_with_matching_digest": true,
+        "foreign_generation_source_rejected": true,
+        "all_valid_but_missing_resource_marker_blocks_complete": true,
+        "all_valid_terminal_and_drained_can_complete": true,
+        "foreign_scope_with_exact_valid_handoff_can_complete": true,
+        "wrong_cpu_or_handoff_before_final_marker_blocks_complete": true,
+        "active_original_attempt_blocks_complete": true
+      },
+      "model_calls": 0,
+      "task_or_verifier_executions": 0
+    },
+    "current_manifest_sha256": "ee214fa90b55d50322b2585ab8c0ee4456a88e98f67eaef106e4dc5269889fda",
+    "new_model_calls": 0,
+    "new_replays": 0
+  }
+}

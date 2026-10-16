@@ -1,0 +1,77 @@
+{
+  "scope": "Four explicitly reviewed SWE249 native-zero results only",
+  "approval": "Root independently reviewed and explicitly approved these exact results on 2026-10-17",
+  "model": "apex-val-swe249",
+  "checkpoint": "artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+  "source_output": "artifacts/eval/swe249_hard51_20261016",
+  "source_summary": "artifacts/eval/swe249_hard51_20261016/summary.json",
+  "task_manifest": "analysis/source_snapshots/protocol/swe_hard_task_ids.json",
+  "resource_marker": "artifacts/eval/swe249_hard51_20261016/model-consumer-finished.json",
+  "source_cpu_handoff": "artifacts/eval/avg64_swe_hard51_20261017/admission-opened.json",
+  "source_cpu_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "output": "artifacts/eval/swe249_audited_hard51_20261017",
+  "evidence_audit": "analysis/swe_formal_scoring_audit_20261017.md",
+  "approved_native_zero": [
+    {
+      "task_id": "instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2",
+      "original_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/result.json",
+      "accepted_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/result.json",
+      "original_result_sha256": "7777f492686a5500135a15467edb206e353ef5887c56e5c85e681696a65c2036",
+      "accepted_result_sha256": "7777f492686a5500135a15467edb206e353ef5887c56e5c85e681696a65c2036",
+      "source_patch": "artifacts/eval/swe249_hard51_20261016/generation/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/agent/model.patch",
+      "patch_bytes": 0,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_invalid_reason": "empty_tests_requires_audit",
+      "reason": "Empty patch omits the task-required new target module; native test collection imports the missing deliverable."
+    },
+    {
+      "task_id": "instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "original_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59/result.json",
+      "accepted_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59/result.json",
+      "original_result_sha256": "dde6033550066a06442eee24998de1d0d00fc128a6ad0f5b6ce196841a6c2677",
+      "accepted_result_sha256": "dde6033550066a06442eee24998de1d0d00fc128a6ad0f5b6ce196841a6c2677",
+      "source_patch": "artifacts/eval/swe249_hard51_20261016/generation/instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59/agent/model.patch",
+      "patch_bytes": 10153,
+      "patch_sha256": "6ea9969b02047251c07f36efe912206f94ee20472edfeac591ecd9d1835a9c38",
+      "original_invalid_reason": "empty_tests_requires_audit",
+      "reason": "Patch adds a future import after executable code; native import trace fails at that added line."
+    },
+    {
+      "task_id": "instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15",
+      "original_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15/result.json",
+      "accepted_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15/result.json",
+      "original_result_sha256": "5bdf75d9612e68d15bbcfedfd93eba198eced7dcb61724597247b0b7aa110223",
+      "accepted_result_sha256": "5bdf75d9612e68d15bbcfedfd93eba198eced7dcb61724597247b0b7aa110223",
+      "source_patch": "artifacts/eval/swe249_hard51_20261016/generation/instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15/agent/model.patch",
+      "patch_bytes": 0,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_invalid_reason": "empty_tests_requires_audit",
+      "reason": "Native required TestExport, TestImport and TestDBTestSuite fail; official parser omits top-level FAIL and indented PASS."
+    },
+    {
+      "task_id": "instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "original_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
+      "accepted_result": "artifacts/eval/swe249_teleport7744_proxy_repair_20261017/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
+      "original_result_sha256": "95dc4b6854149b42abd07760990f6ca4425275ea4ba8e7ff078ae9f239f2581a",
+      "accepted_result_sha256": "753aa64711f8d635e0f07ae3738e016996d9dcf238c68c60b8ea0aeb11eeef50",
+      "source_patch": "artifacts/eval/swe249_hard51_20261016/generation/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/agent/model.patch",
+      "patch_bytes": 0,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_invalid_reason": "verifier_public_go_dependency_timeout",
+      "reason": "Use only the network-repaired same-patch replay; the empty deliverable omits compatible dependency declarations required by the task. Original public-proxy timeout remains invalid."
+    }
+  ],
+  "no_reward_search": true,
+  "new_audits_require_explicit_review": true
+}
