@@ -1,0 +1,704 @@
+{
+  "audit_at_utc": "2026-10-16T18:49:41Z",
+  "mode": "read_only_saved_artifacts",
+  "expert_snapshot": {
+    "as_of": "2026-10-16T18:49:40.831097+00:00",
+    "expected": 51,
+    "valid_scored": 28,
+    "resolved": 0,
+    "active": 10,
+    "pending": 8,
+    "invalid": 5,
+    "score_not_recomputed": true
+  },
+  "expert_tasks": [
+    {
+      "original_reason": "harbor_replay_exception:VerifierTimeoutError",
+      "raw_reward": null,
+      "patch_bytes": 7422,
+      "patch_sha256": "aff1970c0bf1d670854f4a268ae4172d83574a9fff6f6db12d82e4fc0817ff77",
+      "audit_classification": "unresolved_timeout_with_test_config_deletions",
+      "recommended_score": null,
+      "excerpts": [
+        {
+          "file": "verifier/test-stdout.txt",
+          "line": 7,
+          "text": "Terminated"
+        },
+        {
+          "file": "trial.log",
+          "line": 3,
+          "text": "Verifier execution timed out after 3000.0 seconds"
+        }
+      ],
+      "facts": {
+        "deleted_files": 6,
+        "deleted_lines": 225,
+        "mocha_exit_true_deleted": true,
+        "saved_solver_bash_calls": 40,
+        "saved_solver_commands_all_read_only": true,
+        "mini_exit_status": "BadRequestError",
+        "initial_dirty_status_saved": false
+      },
+      "task_id": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+      "result": "artifacts/eval/swe249_hard51_20261016/replay/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/result.json",
+      "patch": "artifacts/eval/swe249_hard51_20261016/generation/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/agent/model.patch",
+      "original_test_count": 0,
+      "actual_score_override_applied": false
+    },
+    {
+      "original_reason": "empty_tests_requires_audit",
+      "raw_reward": 0.0,
+      "patch_bytes": 0,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit_classification": "missing_required_target_implementation",
+      "recommended_score": 0,
+      "excerpts": [
+        {
+          "file": "verifier/run-script-stdout.txt",
+          "line": 9,
+          "text": "collecting ... collected 0 items / 1 error"
+        },
+        {
+          "file": "verifier/run-script-stdout.txt",
+          "line": 18,
+          "text": "ModuleNotFoundError: No module named 'library'"
+        },
+        {
+          "file": "verifier/run-script-stdout.txt",
+          "line": 40,
+          "text": "ModuleNotFoundError: No module named 'ansible.modules.network.f5.bigip_message_routing_route'"
+        }
+      ],
+      "facts": {
+        "task_requires_new_target_module": true,
+        "saved_patch_empty": true
+      },
+      "task_id": "instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2",
+      "result": "artifacts/eval/swe249_hard51_20261016/replay/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/result.json",
+      "patch": "artifacts/eval/swe249_hard51_20261016/generation/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/agent/model.patch",
+      "original_test_count": 0,
+      "actual_score_override_applied": false
+    },
+    {
+      "original_reason": "empty_tests_requires_audit",
+      "raw_reward": 0.0,
+      "patch_bytes": 10153,
+      "patch_sha256": "6ea9969b02047251c07f36efe912206f94ee20472edfeac591ecd9d1835a9c38",
+      "audit_classification": "patch_introduced_syntax_error",
+      "recommended_score": 0,
+      "excerpts": [
+        {
+          "file": "verifier/run-script-stderr.txt",
+          "line": 8,
+          "text": "File /app/lib/ansible/config/manager.py, line 69"
+        },
+        {
+          "file": "verifier/run-script-stderr.txt",
+          "line": 9,
+          "text": "from __future__ import annotations"
+        },
+        {
+          "file": "verifier/run-script-stderr.txt",
+          "line": 11,
+          "text": "SyntaxError: from __future__ imports must occur at the beginning of the file"
+        }
+      ],
+      "facts": {
+        "patch_file": "lib/ansible/config/manager.py",
+        "patch_line_inserting_future_import": 9
+      },
+      "task_id": "instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "result": "artifacts/eval/swe249_hard51_20261016/replay/instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59/result.json",
+      "patch": "artifacts/eval/swe249_hard51_20261016/generation/instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59/agent/model.patch",
+      "original_test_count": 0,
+      "actual_score_override_applied": false
+    },
+    {
+      "original_reason": "empty_tests_requires_audit",
+      "raw_reward": 0.0,
+      "patch_bytes": 0,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit_classification": "native_test_failures_empty_parser_output",
+      "recommended_score": 0,
+      "excerpts": [
+        {
+          "file": "verifier/run-script-stdout.txt",
+          "line": 28,
+          "text": "--- FAIL: TestExport (0.00s)"
+        },
+        {
+          "file": "verifier/run-script-stdout.txt",
+          "line": 373,
+          "text": "--- FAIL: TestDBTestSuite/TestUpdateRollout_OneSegment (0.01s)"
+        },
+        {
+          "file": "verifier/run-script-stdout.txt",
+          "line": 389,
+          "text": "FAIL go.flipt.io/flipt/internal/storage/sql 4.696s"
+        }
+      ],
+      "facts": {
+        "raw_top_level_failures": 3,
+        "raw_subtest_failures": 5,
+        "raw_subtest_passes": 147,
+        "official_parser_tests": 0,
+        "parser_only_top_level_pass": true
+      },
+      "task_id": "instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15",
+      "result": "artifacts/eval/swe249_hard51_20261016/replay/instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15/result.json",
+      "patch": "artifacts/eval/swe249_hard51_20261016/generation/instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15/agent/model.patch",
+      "original_test_count": 0,
+      "actual_score_override_applied": false
+    },
+    {
+      "original_reason": "verifier_public_go_dependency_timeout",
+      "raw_reward": 0.0,
+      "patch_bytes": 0,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit_classification": "original_egress_failure_then_native_zero_candidate_missing_required_dependency_pins",
+      "recommended_score": 0,
+      "excerpts": [
+        {
+          "file": "verifier/run-script-stderr.txt",
+          "line": 4,
+          "text": "lib/auditd/auditd_test.go:28:2: module github.com/mdlayher/netlink: Get https://proxy.golang.org/github.com/mdlayher/netlink/@v/list: dial tcp 142.251.34.209:443: i/o timeout"
+        },
+        {
+          "file": "verifier/run-script-stdout.txt",
+          "line": 2,
+          "text": "FAIL github.com/gravitational/teleport/lib/auditd [setup failed]"
+        }
+      ],
+      "facts": {
+        "native_environment": "swe_clean_musl_runtime:SweCleanMuslScoreEnvironment",
+        "workspace_preparation_return_code": 0,
+        "workspace_preparation_seconds": 29.35188646055758,
+        "cached_netlink_version": "v1.6.0",
+        "cached_netlink_files": 6,
+        "official_test_script_resets_public_goproxy": true,
+        "official_test_patch_imports_netlink": true
+      },
+      "task_id": "instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "result": "artifacts/eval/swe249_hard51_20261016/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
+      "patch": "artifacts/eval/swe249_hard51_20261016/generation/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/agent/model.patch",
+      "original_test_count": 0,
+      "actual_score_override_applied": false,
+      "recommendation_applies_to": "new independent network-repaired replay only; original timeout retained invalid"
+    }
+  ],
+  "base_canonical_summary": "artifacts/eval/base_swe_v2_20261016_clean28/corrected51_summary.json",
+  "base_comparison": [
+    {
+      "task_id": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+      "reason": "harbor_replay_exception:VerifierTimeoutError",
+      "classification": "unresolved_timeout_with_test_config_deletions",
+      "evidence": [
+        "same .mocharc.yml exit:true deletion; no native test results preserved",
+        "verifier/test-stdout.txt:7 Terminated"
+      ],
+      "result": "artifacts/eval/base_swe_v2_20261016_clean28/replay/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/result.json",
+      "owner_output_modified": false
+    },
+    {
+      "task_id": "instance_flipt-io__flipt-c188284ff0c094a4ee281afebebd849555ebee59",
+      "reason": "verifier_public_go_dependency_timeout",
+      "classification": "patch_checksum_mismatch_precedes_network_timeout",
+      "evidence": [
+        "native-go-workspace-preparation return_code=1; ecr@v1.30.0/go.mod checksum mismatch",
+        "patch changes go.mod/go.sum; later public dependency timeout is not the only failure"
+      ],
+      "result": "artifacts/eval/base_swe_v2_20261016_clean28/replay/instance_flipt-io__flipt-c188284ff0c094a4ee281afebebd849555ebee59/result.json",
+      "owner_output_modified": false
+    },
+    {
+      "task_id": "instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e",
+      "reason": "harbor_replay_exception:RemoteProtocolError",
+      "classification": "verifier_transport_failure_no_test_result",
+      "evidence": [
+        "httpx.RemoteProtocolError: Server disconnected without sending a response.",
+        "workspace preparation return_code=0, 104.352s"
+      ],
+      "result": "artifacts/eval/base_swe_v2_20261016_clean28/replay/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/result.json",
+      "owner_output_modified": false
+    },
+    {
+      "task_id": "instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "reason": "harbor_replay_exception:RewardFileNotFoundError",
+      "classification": "missing_reward_root_cause_unresolved",
+      "evidence": [
+        "official test patch applied; no saved run-script stdout/stderr/reward",
+        "workspace preparation return_code=0, 232.857s"
+      ],
+      "result": "artifacts/eval/base_swe_v2_20261016_clean28/replay/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/result.json",
+      "owner_output_modified": false
+    },
+    {
+      "task_id": "instance_protonmail__webclients-5f0745dd6993bb1430a951c62a49807c6635cd77",
+      "reason": "empty_tests_requires_audit",
+      "classification": "patch_added_component_runtime_error",
+      "evidence": [
+        "TypeError: (0 , _hooks.useConfig) is not a function",
+        "BitcoinInfoMessage.tsx:11:35 is a patch-added file"
+      ],
+      "result": "artifacts/eval/base_swe_v2_20261016_clean28/replay/instance_protonmail__webclients-5f0745dd6993bb1430a951c62a49807c6635cd77/result.json",
+      "owner_output_modified": false
+    }
+  ],
+  "readonly_checks": {
+    "existing_classifier_extracted_and_run_on_five_saved_results": true,
+    "classifier_output_matches_saved_original_reasons": true,
+    "flipt_original_parser_run_on_saved_stdout_only": true,
+    "patch_hashes_only_small_saved_patches": true,
+    "new_model_calls": 0,
+    "new_task_or_verifier_executions": 0,
+    "queue_or_score_files_modified": false,
+    "base_regraded": false
+  },
+  "proposed_cpu_lease": {
+    "executed": true,
+    "replay_cpu": 10,
+    "replay_cpus": 1,
+    "replay_memory_mib": 4096,
+    "diagnostic_cpu": 11,
+    "diagnostic_max_seconds": 60,
+    "max_parallel_replays": 1,
+    "gpu": 0,
+    "model_calls": 0,
+    "solver_generation_repeated": false,
+    "native_verifier_timeout_seconds": 3000,
+    "existing_preparation_timeout_seconds": 1800,
+    "upper_lease_minutes": 85,
+    "scope_check_required": true,
+    "released": true
+  },
+  "actual_files_written": [
+    "analysis/swe_formal_scoring_audit_20261017.md",
+    "analysis/source_snapshots/swe_formal_scoring_audit_20261017.json",
+    "scripts/swe_score_original_proxy_repair.py"
+  ],
+  "authorized_score_only_repair": {
+    "state": "network_repaired_native_zero_candidate_after_reference_dependency_audit",
+    "output": "artifacts/eval/swe249_teleport7744_proxy_repair_20261017",
+    "controller_pid": 2982833,
+    "nodebb_controller_pid": 2980253,
+    "native_scope_observed_affinity": [
+      10
+    ],
+    "native_scope_memory_limit_config_mib": 4096,
+    "executed_model_calls": 0,
+    "original_expert_queue_modified": false,
+    "base_output_modified": false,
+    "canonical_score_changed": false,
+    "new_result_environment_valid": null,
+    "no_manual_dependency_or_toolchain_version_change": true,
+    "forwarder_cleanup_confirmed": true,
+    "receipts": {
+      "native_proxy_probe.json": {
+        "at": "2026-10-16T18:54:50.720998+00:00",
+        "url": "https://proxy.golang.org/github.com/mdlayher/netlink/@v/list",
+        "return_code": 0,
+        "http_status": "200",
+        "stderr": null,
+        "scope": "apex-baseline-b951df765612",
+        "cpu": 10,
+        "memory_mib": 4096,
+        "tls_verification_disabled": false,
+        "original_origin_ip": "142.251.34.209",
+        "model_calls": 0,
+        "official_verifier_started": false,
+        "passed": true
+      },
+      "nodebb_pristine_probe.json": {
+        "at": "2026-10-16T18:54:21.537149+00:00",
+        "task": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+        "scope": "apex-baseline-78cffdfdb5c3",
+        "cpu": 11,
+        "return_code": 0,
+        "stdout": "---MOCHA---\n100644 16d8518d1b1fc44b3a6f804f489660f7eb888657 0\t.mocharc.yml\nreporter: dot\ntimeout: 25000\nexit: true\nbail: true\n\n---PRISTINE-DIFFSTAT---",
+        "stderr": null,
+        "model_calls": 0,
+        "agent_ran": false,
+        "verifier_ran": false,
+        "source_task_modified": false
+      },
+      "nodebb_probe_cpu_finished.json": {
+        "at": "2026-10-16T18:54:23.622603+00:00",
+        "active_scopes": [],
+        "cpu": 11
+      },
+      "official_verifier_started.json": {
+        "at": "2026-10-16T18:55:21.103002+00:00",
+        "scope": "apex-baseline-b951df765612",
+        "original_test_command": "(/tests/test.sh) > /logs/verifier/test-stdout.txt 2>&1",
+        "verifier_timeout_seconds": 3000,
+        "model_calls": 0
+      },
+      "repair_finished.json": {
+        "at": "2026-10-16T18:55:48.887164+00:00",
+        "model_calls": 0,
+        "source_patch_unchanged": true,
+        "result": "artifacts/eval/swe249_teleport7744_proxy_repair_20261017/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
+        "exception_type": null,
+        "reward": {
+          "reward": 0.0
+        },
+        "active_scopes": [],
+        "canonical_outputs_modified": false
+      },
+      "repair_manifest.json": {
+        "at": "2026-10-16T18:54:47.500757+00:00",
+        "task": "instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+        "source_generation": "artifacts/eval/swe249_hard51_20261016/generation",
+        "original_invalid_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
+        "source_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "source_patch_bytes": 0,
+        "cpu": 10,
+        "cpus": 1,
+        "memory_mib": 4096,
+        "verifier_timeout_seconds": 3000,
+        "original_origin_ip": "142.251.34.209",
+        "original_uri_unchanged": true,
+        "tls_sni_and_certificate_validation_preserved": true,
+        "model_calls": 0,
+        "canonical_outputs_modified": false,
+        "scope_name_prefix": "apex-baseline-"
+      },
+      "connect_requests": [
+        {
+          "at": "2026-10-16T18:54:50.222810+00:00",
+          "method": "CONNECT",
+          "address": "proxy.golang.org:443",
+          "allowed": true
+        },
+        {
+          "at": "2026-10-16T18:55:29.873335+00:00",
+          "method": "CONNECT",
+          "address": "proxy.golang.org:443",
+          "allowed": true
+        },
+        {
+          "at": "2026-10-16T18:55:29.873938+00:00",
+          "method": "CONNECT",
+          "address": "proxy.golang.org:443",
+          "allowed": true
+        },
+        {
+          "at": "2026-10-16T18:55:29.874305+00:00",
+          "method": "CONNECT",
+          "address": "proxy.golang.org:443",
+          "allowed": true
+        }
+      ],
+      "parsed_tests": {
+        "tests": []
+      },
+      "new_stderr_selected": [
+        {
+          "line": 2,
+          "text": "go: downloading github.com/mdlayher/netlink v1.11.2"
+        },
+        {
+          "line": 4,
+          "text": "go: found github.com/mdlayher/netlink in github.com/mdlayher/netlink v1.11.2"
+        },
+        {
+          "line": 11,
+          "text": "/go/pkg/mod/github.com/mdlayher/netlink@v1.11.2/conn.go:4:2: package iter is not in GOROOT (/usr/local/go/src/iter)"
+        }
+      ],
+      "unchanged_collector_new_result": {
+        "task_id": "instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+        "result": "artifacts/eval/swe249_teleport7744_proxy_repair_20261017/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
+        "reward": 0.0,
+        "invalid_reason": "empty_tests_requires_audit",
+        "finished_at": "2026-10-16T18:55:48.886419Z",
+        "test_count": 0
+      },
+      "active_cpu10_11_scopes": [],
+      "reverse_tls_listener_closed": true,
+      "unix_proxy_socket_removed": true
+    },
+    "collector_requires_explicit_audit": true,
+    "recommended_new_result_score": 0,
+    "causal_interpretation": "Original proxy timeout was infrastructure; after network recovery, empty patch omitted expected compatible module pins and resolver selected an incompatible latest module.",
+    "reference_dependency_metadata_audit": {
+      "authorized_by_root": true,
+      "metadata_only": true,
+      "reference_code_not_copied": true,
+      "source": "artifacts/eval/swe249_hard51_20261016/tasks/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/solution/gold_patch.diff",
+      "changes_go_mod": true,
+      "changes_go_sum": true,
+      "netlink_requirement": {
+        "version": "v1.6.0",
+        "go_mod_patch_line": 9,
+        "go_sum_patch_lines": [
+          46,
+          47
+        ]
+      },
+      "socket_indirect_requirement": {
+        "version": "v0.1.1",
+        "go_mod_patch_line": 25,
+        "go_sum_patch_lines": [
+          48,
+          49
+        ]
+      },
+      "original_base_dependency_observation": {
+        "source": "expert generation/agent/mini-swe-agent.trajectory.json",
+        "grep_netlink_go_mod_output_empty": true,
+        "grep_assistant_message_index": 5,
+        "go_version_observation_message_index": 14,
+        "native_go_version": "go1.18.10 linux/amd64",
+        "original_go_mod_directive": "go 1.18"
+      },
+      "no_reference_code_sent_to_model_or_training": true,
+      "no_additional_execution_after_replay": true
+    }
+  },
+  "unified_scoring_policy_proposal": {
+    "status": "accepted_in_principle_pending_independent_review_no_collector_change",
+    "three_states": [
+      "valid_native_reward_0_or_1",
+      "infrastructure_null",
+      "cause_unresolved_null"
+    ],
+    "required_evidence_groups": [
+      "fixed task image patch and fresh replay identity",
+      "native execution logs failure stage and official reward",
+      "direct causal attribution to patch or missing deliverable versus environment"
+    ],
+    "official_reward_zero_alone_sufficient": false,
+    "empty_parser_output_alone_proves_infrastructure": false,
+    "model_caused_collection_or_build_failure_can_be_valid_zero": true,
+    "same_policy_all_models": true,
+    "same_triggered_attempts_reviewed_across_models": true,
+    "retry_only_proven_infrastructure_same_patch_no_generation": true,
+    "selection": "earliest environment-valid fixed-patch replay independent of reward; valid zero ends retry",
+    "primary_denominator": 51,
+    "any_unresolved_null_blocks_complete_primary_metric": true,
+    "conservative_resolved_over_51_kept_separate": true,
+    "reference_metadata_only_for_ambiguity_not_answer_matching": true,
+    "base_canonical_or_collector_modified": false,
+    "freeze_generation_source_before_replay_selection": true,
+    "no_selection_between_old_and_clean28_generations": true
+  },
+  "five_sample_tool_api_boundary": {
+    "samples": [
+      {
+        "task_id": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+        "trajectory": "artifacts/eval/swe249_hard51_20261016/generation/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/agent/mini-swe-agent.trajectory.json",
+        "tool_calls": 40,
+        "tool_observation_returncodes": {
+          "0": 40
+        },
+        "tool_observation_http400_count": 0,
+        "invalid_tool_schema_message_indices": [],
+        "mini_exit_status": "BadRequestError",
+        "generation_exception_type": null,
+        "logical_requests": 21,
+        "upstream_status_counts": {
+          "200": 20
+        },
+        "upstream_incomplete_count": 0,
+        "local_guard_rejections": [
+          {
+            "status": "rejected",
+            "error_type": "ValueError",
+            "error": "context_budget_exceeded",
+            "prompt_tokens_exact": 58749,
+            "reserved_completion_tokens": 8192,
+            "context_limit": 65536
+          }
+        ],
+        "agent_class": "swe_baseline_native_v2:SweBaselineNativeV2",
+        "model_alias": "openai/apex-val-swe249",
+        "actual_tool_schema_equal_real_synthetic": true,
+        "mini_version": "2.4.6"
+      },
+      {
+        "task_id": "instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf",
+        "trajectory": "artifacts/eval/swe249_hard51_20261016/generation/instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf/agent/mini-swe-agent.trajectory.json",
+        "tool_calls": 45,
+        "tool_observation_returncodes": {
+          "0": 45
+        },
+        "tool_observation_http400_count": 0,
+        "invalid_tool_schema_message_indices": [],
+        "mini_exit_status": "BadRequestError",
+        "generation_exception_type": null,
+        "logical_requests": 37,
+        "upstream_status_counts": {
+          "200": 36
+        },
+        "upstream_incomplete_count": 0,
+        "local_guard_rejections": [
+          {
+            "status": "rejected",
+            "error_type": "ValueError",
+            "error": "context_budget_exceeded",
+            "prompt_tokens_exact": 58339,
+            "reserved_completion_tokens": 8192,
+            "context_limit": 65536
+          }
+        ],
+        "agent_class": "swe_baseline_native_v2:SweBaselineNativeV2",
+        "model_alias": "openai/apex-val-swe249",
+        "actual_tool_schema_equal_real_synthetic": true,
+        "mini_version": "2.4.6"
+      },
+      {
+        "task_id": "instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2",
+        "trajectory": "artifacts/eval/swe249_hard51_20261016/generation/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/agent/mini-swe-agent.trajectory.json",
+        "tool_calls": 40,
+        "tool_observation_returncodes": {
+          "0": 39,
+          "1": 1
+        },
+        "tool_observation_http400_count": 0,
+        "invalid_tool_schema_message_indices": [],
+        "mini_exit_status": "BadRequestError",
+        "generation_exception_type": null,
+        "logical_requests": 39,
+        "upstream_status_counts": {
+          "200": 38
+        },
+        "upstream_incomplete_count": 0,
+        "local_guard_rejections": [
+          {
+            "status": "rejected",
+            "error_type": "ValueError",
+            "error": "context_budget_exceeded",
+            "prompt_tokens_exact": 58759,
+            "reserved_completion_tokens": 8192,
+            "context_limit": 65536
+          }
+        ],
+        "agent_class": "swe_baseline_native_v2:SweBaselineNativeV2",
+        "model_alias": "openai/apex-val-swe249",
+        "actual_tool_schema_equal_real_synthetic": true,
+        "mini_version": "2.4.6"
+      },
+      {
+        "task_id": "instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59",
+        "trajectory": "artifacts/eval/swe249_hard51_20261016/generation/instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59/agent/mini-swe-agent.trajectory.json",
+        "tool_calls": 85,
+        "tool_observation_returncodes": {
+          "0": 83,
+          "1": 2
+        },
+        "tool_observation_http400_count": 0,
+        "invalid_tool_schema_message_indices": [],
+        "mini_exit_status": "",
+        "generation_exception_type": "NonZeroAgentExitCodeError",
+        "logical_requests": 78,
+        "upstream_status_counts": {
+          "200": 77,
+          "None": 1
+        },
+        "upstream_incomplete_count": 1,
+        "local_guard_rejections": [],
+        "agent_class": "swe_baseline_native_v2:SweBaselineNativeV2",
+        "model_alias": "openai/apex-val-swe249",
+        "actual_tool_schema_equal_real_synthetic": true,
+        "mini_version": "2.4.6",
+        "budget_boundary_evidence": {
+          "agent_execution_seconds": 1743.9399628639221,
+          "last_request_start_offset_seconds": 1737.1072602272034,
+          "last_request_end_offset_seconds": 1743.8847408294678,
+          "last_upstream_error_type": "RemoteDisconnected",
+          "last_upstream_error": "Remote end closed connection without response",
+          "native_exit_code": 124,
+          "mini_internal_wall_budget_seconds": 1740
+        }
+      },
+      {
+        "task_id": "instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15",
+        "trajectory": "artifacts/eval/swe249_hard51_20261016/generation/instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15/agent/mini-swe-agent.trajectory.json",
+        "tool_calls": 42,
+        "tool_observation_returncodes": {
+          "0": 42
+        },
+        "tool_observation_http400_count": 0,
+        "invalid_tool_schema_message_indices": [],
+        "mini_exit_status": "BadRequestError",
+        "generation_exception_type": null,
+        "logical_requests": 32,
+        "upstream_status_counts": {
+          "200": 31
+        },
+        "upstream_incomplete_count": 0,
+        "local_guard_rejections": [
+          {
+            "status": "rejected",
+            "error_type": "ValueError",
+            "error": "context_budget_exceeded",
+            "prompt_tokens_exact": 57707,
+            "reserved_completion_tokens": 8192,
+            "context_limit": 65536
+          }
+        ],
+        "agent_class": "swe_baseline_native_v2:SweBaselineNativeV2",
+        "model_alias": "openai/apex-val-swe249",
+        "actual_tool_schema_equal_real_synthetic": true,
+        "mini_version": "2.4.6"
+      }
+    ],
+    "formal_tool_schema": [
+      {
+        "type": "function",
+        "function": {
+          "name": "bash",
+          "description": "Execute a bash command",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string",
+                "description": "The bash command to execute"
+              }
+            },
+            "required": [
+              "command"
+            ]
+          }
+        }
+      }
+    ],
+    "synthetic_real_fixture": "artifacts/preflight/swe_v2/native-lxwl19kv",
+    "synthetic_agent_import_path": "swe_baseline_v2:SweBaselineV2",
+    "synthetic_prompt_tokens": [
+      1053,
+      1157,
+      1279,
+      1369,
+      1744
+    ],
+    "read_only": true,
+    "new_model_calls": 0,
+    "new_task_executions": 0,
+    "summary": {
+      "tool_calls": 252,
+      "tool_rc0": 249,
+      "tool_rc1": 3,
+      "tool_http400": 0,
+      "local_context_guard_rejected_tasks": 4,
+      "new_files": 0,
+      "logical_model_requests": 207,
+      "upstream_http200": 202,
+      "budget_boundary_incomplete_upstream_requests": 1
+    },
+    "synthetic_fixture_boundary": {
+      "same_actual_tools_json": true,
+      "same_locked_mini_lineage": true,
+      "same_exact_tokenizer_guard": true,
+      "same_current_serving_alias": false,
+      "earlier_agent_class": "swe_baseline_v2:SweBaselineV2",
+      "formal_agent_class": "swe_baseline_native_v2:SweBaselineNativeV2",
+      "fixture_receipt_cpu_memory_network": false,
+      "long_context_boundary_exercised": false,
+      "max_fixture_prompt_tokens": 1744
+    }
+  }
+}

@@ -1509,7 +1509,7 @@
 - 公共上传不含训练原文、benchmark包、私有日志或凭据；本地hf_token保持0600且被Git忽略，跟踪文本历史的credential-shaped literal检查为0。此轮不纳另一会话WIP，不加coauthor。
 
 
-## 2026-10-17 03:07 CST：两个Terminal正式队列并行执行
+## 2026-10-17 03:05 CST：两个Terminal正式队列并行执行
 
 - 专家与AVG64均在02:40:29真实准入各10槽，原两个零准入等待parent已停止；没有中断/重复生成trial。专家CPU12–51，AVG64 CPU52–91，终态/active/pending与原生trial均已保存。
 - 后续SWE释放只分别增2/1槽，两个ASI全CPU释放只分别增4/4槽；两个stage独立，最终专家16槽、AVG6415槽，总31槽。scope仅检查自身新增或已使用CPU，不会互相等待另一Terminal队列。
@@ -1517,9 +1517,17 @@
 - 同步更新两模型部署文档与旧Terminal执行说明，明确初始10+10、最终16+15的实际调度，保留原服务/等待回执作历史；不把启动状态写成最终成绩。Python语法与Slurm shell检查通过。
 
 
-## 2026-10-17 03:09 CST：249条SFT loss对照完成并归档
+## 2026-10-17 03:05 CST：249条SFT loss对照完成并归档
 
 - 作业727689真实完成，02:27:22–02:56:31、4H100、29分09秒、1.943333 GPUh，四卡自然释放。Base、AVG64、AVG16、Mixed883均使用同249条原生SFT val、65536上限与原mask；global_step0，无优化器/调度器、训练、生成或checkpoint输出。
 - 原生eval_loss依次为2.1059763431549072、1.3579210042953491、1.3792226314544678、1.672462821006775。Mixed883与原训练最终val loss数值完全一致，AVG16相对AVG64增加0.021301627159。AVG64已预先冻结，不据此调rank/系数。
 - 四项结果、实际Slurm和CPU验收已落小型收据；PNG/精确CSV/原始summary/重画脚本齐全并目视检查。图明确249条/64K/非task benchmark，无虚构误差条；CSV使用LF。AVG64 adapter容量为AVG16/Mixed的4倍，loss改善不能称benchmark收益。
 - 私人GitHub仓库已由官方模板创建并推送，默认master、原main保留；官方只读收据记录模板、可见性及初次push SHA。README修正实际loss对照完成状态和真实默认分支，不声称最终评分或交付已齐全。
+
+
+## 2026-10-17：SWE原生评分证据与工具边界审计
+
+- 三态审核建议已记录：模型导致构建/收集/必需测试失败保留native0，明确环境故障保留null，因果不足也保留null；任何已有reward0不能单独证明环境有效。尚未改collector、canonical或Base，后续须统一适用于所有模型。
+- 专家Teleport7744仅对原固定空patch恢复原Go proxy可达性并评分重放，0模型调用。网络探针通过，新原生0暴露缺预期兼容依赖固定；未补答案、pin依赖、改测试或升级Go。新结果与原invalid并存，尚未采用；临时CPU10–11、Unix relay和TLS转发已排空。NodeBB原镜像干净但后续删除来源未明，仍保留未决。
+- 五条已结束专家轨迹共252次bash observation，249次rc0、3次rc1，没有工具HTTP400。四次最终BadRequest来自本地精确guard的prompt+8192超过65536；另一次在1740秒预算边界断连。不是普遍sandbox工具故障，不能以此重新生成答案或放宽冻结协议。旧synthetic与当前部署差异、短历史覆盖范围及实际工具schema比较均披露。
+- Ansible两项及Flipt真实必需测试失败的native0候选、Teleport同patch新重放、NodeBB未决和Base只读对照均落盘。代码AST/语法与收据计数检查通过；本轮不按reward择优重试，不用参考代码修补模型答案。
