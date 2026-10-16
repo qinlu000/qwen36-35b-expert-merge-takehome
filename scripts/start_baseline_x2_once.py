@@ -82,7 +82,7 @@ def main():
             with opener.open('http://127.0.0.1:28084/health', timeout=3) as response:
                 if response.status == 200:
                     break
-        except (URLError, TimeoutError):
+        except (URLError, TimeoutError, ConnectionResetError):
             pass
         if time.monotonic() >= ready_deadline:
             save('model_not_ready_no_formal_admission')

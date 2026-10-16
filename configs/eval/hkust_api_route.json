@@ -1,0 +1,12 @@
+{
+  "base_url": "https://aigc-api.hkust-gz.edu.cn/v1",
+  "deepseek_flash_model_id": "DeepSeek-V4-Flash",
+  "deepseek_pro_model_id": "DeepSeek-V4-Pro",
+  "credential_source_on_80": "/data/caoqinlu/projects/data-perception/.env",
+  "credential_variables": ["OPENAI_BASE_URL", "OPENAI_API_KEY"],
+  "route": "Call from HPC. Host80 direct access failed; HPC authenticated GET /models returned200 on2026-10-16.",
+  "model_inventory_requests": 1,
+  "model_generation_requests": 0,
+  "current_use": "Available route for future Judge or teacher API calls. Existing completed scores and Base answer generation are unchanged.",
+  "record_with_calls": ["requested_model", "reported_model", "system_fingerprint", "usage", "endpoint"]
+}
