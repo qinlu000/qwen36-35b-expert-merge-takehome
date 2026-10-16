@@ -1453,3 +1453,14 @@
 - SWE249正式51已01:21按10路实际启动，取消时10active/41pending，01:57已8有效评分；在途controller824673从未因取消而重启。源码/config移除direct生成依赖，仅保留CPU/服务/时限门闩，防未来卡已取消任务。
 - 727113和28089共用推理服务/桥保留供正式SWE；CPU释放watcher已01:21正常结束。独立Terminal task-val未构建运行，没有误停训练val。四专家训练现已完成；Mixed继续收尾。
 - validation执行与剩余要求文档补了取消状态和历史边界，后续不再开新task-val。此提交仅自有取消/依赖修正与共享文档追加，不纳其他会话WIP，无coauthor信息。
+
+
+## 2026-10-17 02:20 CST：Base主队列结束与正式专家进度实核
+
+- 用户问当前情况。本轮只读现成summary/checkpoint、进程、原生日志/patch、归档与HPC队列；没有新增模型/测试/补评、未修改任何运行driver。Base Terminal在01:20:42结束187接续尝试，corrected445=436有效/9未评分，active和pending均0；Base SWE clean28在01:23:15结束全部28尝试，23有效7通过，合并native23后46/51有效、10通过。主队列结束不等于完整有效评分，现无Base resident补评。
+- Terminal9项均有成功的评分前app+etc归档，372份trial/verifier日志未见新增ENOSPC。6项依赖/公共数据缺口：trainFasttext seed3/4缺Python3.11缓存且downloads=never；makeDoom seed3 apt snapshot安装耗尽900s；samCell seed3依赖下载耗尽900s；PyTorchCLI seed3/4前5/6test通过，最后MNIST下载/50CLI阶段无数据缓存。另3项真计算超时：FEAL seed0/4为65536平方枚举，modelExtract seed4大量差分查询。不能全称基础设施，也不应盲目重复同900s计算评分。
+- SWE5个缺口的原model.patch全保留，无需重答：NodeBB native3000s超时；Flipt c188公共Go依赖下载超时；Vuls 5af评分服务RemoteProtocol断连；Teleport 2b15命令SIGBUS/rc=-7后无reward；Protonmail 5f074零test实际为候选useConfig不是函数，支持审定有效失败0，尚未修改评分。当前无Base SWE补评进程；另会话专家/合版队列未触碰。
+- ASI240/240公开本地完成，1.5709884%非Portal认证；HLE2499/2500有效、99正确、仍1Judge JSON无效，完整主分null。Base累计尚15个未有效评分项，未缩分母或填0；Terminal五seed有效88/89/89/85/85，五轮mean/SD仍null。
+- 四专家训练均完成；Terminal726665确认为COMPLETED0:0、250/250，final/best val=.42291749。02:19 Mixed726666最新880/883，原生剩1m16s但仍RUNNING、最终保存未确认，不能提前写完成。
+- 另一会话正式专家评测02:19实况：SWE249为21尝试结束/17有效(0通过)/10active/20pending，4终态未有效评分；ASI128生成8/240、8active、未评分；Terminal250完整445及AVG64 SWE/Terminal等待两套SWE消费者/CPU释放，HLE专家安排在ASI后，尚未正式准入。独立task-val已被用户取消，不复活或把历史代理val当正式结果。
+- 原Base两个TP2服务已01:21:49按model-consumer标记自动释放；当前6作业14GPU为Mixed4及5个TP2服务10。80根盘约31.68GiB、/data约2.17TiB可用。证据baseline_status_20261017_0220.json入Git；只提交本轮快照和claud追加，保留其他会话工作区，无coauthor信息。

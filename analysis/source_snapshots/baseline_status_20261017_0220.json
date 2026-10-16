@@ -1,0 +1,308 @@
+{
+  "at_utc": "2026-10-16T18:20:10.775754+00:00",
+  "terminal": {
+    "updated_at_utc": "2026-10-16T17:20:42.317544+00:00",
+    "valid_covered": 436,
+    "expected_trials": 445,
+    "active_trials": 0,
+    "pending_not_admitted": 0,
+    "infrastructure_unscored": 9,
+    "complete": false,
+    "primary_mean_percent": null,
+    "per_seed": [
+      {
+        "seed": 0,
+        "valid_scored": 88,
+        "expected": 89,
+        "correct": 16.0,
+        "score_percent": null,
+        "valid_covered": 88,
+        "correct_count": 16.0
+      },
+      {
+        "seed": 1,
+        "valid_scored": 89,
+        "expected": 89,
+        "correct": 20.0,
+        "score_percent": 22.471910112359552,
+        "valid_covered": 89,
+        "correct_count": 20.0
+      },
+      {
+        "seed": 2,
+        "valid_scored": 89,
+        "expected": 89,
+        "correct": 17.0,
+        "score_percent": 19.10112359550562,
+        "valid_covered": 89,
+        "correct_count": 17.0
+      },
+      {
+        "seed": 3,
+        "valid_scored": 85,
+        "expected": 89,
+        "correct": 20.0,
+        "score_percent": null,
+        "valid_covered": 85,
+        "correct_count": 20.0
+      },
+      {
+        "seed": 4,
+        "valid_scored": 85,
+        "expected": 89,
+        "correct": 16.0,
+        "score_percent": null,
+        "valid_covered": 85,
+        "correct_count": 16.0
+      }
+    ]
+  },
+  "terminal_invalid": [
+    {
+      "key": "feal-differential-cryptanalysis/seed0",
+      "score": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/feal-differential-cryptanalysis__seed0__independent1/result.json",
+        "reward": null,
+        "valid": false,
+        "exception": "AgentTimeoutError",
+        "verifier_issue": null
+      }
+    },
+    {
+      "key": "make-doom-for-mips/seed3",
+      "score": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/make-doom-for-mips__seed3__independent1/result.json",
+        "reward": null,
+        "valid": false,
+        "exception": "AgentTimeoutError",
+        "verifier_issue": null
+      }
+    },
+    {
+      "key": "pytorch-model-cli/seed3",
+      "score": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed3__independent1/result.json",
+        "reward": null,
+        "valid": false,
+        "exception": "VerifierTimeoutError",
+        "verifier_issue": null
+      }
+    },
+    {
+      "key": "sam-cell-seg/seed3",
+      "score": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/sam-cell-seg__seed3__independent1/result.json",
+        "reward": null,
+        "valid": false,
+        "exception": "AgentTimeoutError",
+        "verifier_issue": null
+      }
+    },
+    {
+      "key": "train-fasttext/seed3",
+      "score": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed3__independent1/result.json",
+        "reward": null,
+        "valid": false,
+        "exception": "AgentTimeoutError",
+        "verifier_issue": "pytest wrapper returned zero reward without evidence that tests executed"
+      }
+    },
+    {
+      "key": "feal-differential-cryptanalysis/seed4",
+      "score": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/feal-differential-cryptanalysis__seed4__independent1/result.json",
+        "reward": null,
+        "valid": false,
+        "exception": "AgentTimeoutError",
+        "verifier_issue": null
+      }
+    },
+    {
+      "key": "model-extraction-relu-logits/seed4",
+      "score": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/model-extraction-relu-logits__seed4__independent1/result.json",
+        "reward": null,
+        "valid": false,
+        "exception": "AgentTimeoutError",
+        "verifier_issue": null
+      }
+    },
+    {
+      "key": "pytorch-model-cli/seed4",
+      "score": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/pytorch-model-cli__seed4__independent1/result.json",
+        "reward": null,
+        "valid": false,
+        "exception": "VerifierTimeoutError",
+        "verifier_issue": null
+      }
+    },
+    {
+      "key": "train-fasttext/seed4",
+      "score": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/train-fasttext__seed4__independent1/result.json",
+        "reward": null,
+        "valid": false,
+        "exception": "AgentTimeoutError",
+        "verifier_issue": "pytest wrapper returned zero reward without evidence that tests executed"
+      }
+    }
+  ],
+  "swe_clean28": {
+    "as_of": "2026-10-16T17:23:15.194804+00:00",
+    "state": "finished_selected_cohort",
+    "expected": 28,
+    "valid_scored": 23,
+    "resolved": 7,
+    "active": 0,
+    "pending": 0,
+    "complete": false
+  },
+  "swe_corrected51": {
+    "as_of": "2026-10-16T17:23:15.194804+00:00",
+    "expected": 51,
+    "complete": false,
+    "clean28_valid_scored": 23,
+    "retained_native23": 23,
+    "resolved": 10,
+    "primary_score_percent": null,
+    "selection": "Replace all fixed legacy28, retain all native23, no reward selection"
+  },
+  "hle": {
+    "expected": 2500,
+    "scored": 2499,
+    "pending": 1,
+    "correct": 99,
+    "evaluation_invalid": 1,
+    "complete": false,
+    "judge_generation_calls": 1056
+  },
+  "asi": {
+    "expected_instance_count": 240,
+    "scored_instance_count": 240,
+    "mean_percent": 1.5709884069083986,
+    "scorer_error_count": 0
+  },
+  "disk": {
+    "root_free_GiB": 31.674964904785156,
+    "data_free_TiB": 2.171969212591648
+  },
+  "actions": "Read-only status audit; no generation, native test, grading retry, job or runtime modification.",
+  "terminal_audit": {
+    "unscored": 9,
+    "archive_available": 9,
+    "new_enospc_found": false,
+    "resident_regrade_running": false,
+    "dependency_or_public_dataset_cache": 6,
+    "actual_test_compute_timeout": 3,
+    "details": [
+      {
+        "key": "train-fasttext/seed3",
+        "reason": "Python3.11cachemissing;offline download forbidden"
+      },
+      {
+        "key": "train-fasttext/seed4",
+        "reason": "Python3.11cachemissing;offline download forbidden"
+      },
+      {
+        "key": "make-doom-for-mips/seed3",
+        "reason": "native900s exhausted during apt snapshot installation"
+      },
+      {
+        "key": "sam-cell-seg/seed3",
+        "reason": "native900s exhausted during dependency downloads"
+      },
+      {
+        "key": "pytorch-model-cli/seed3",
+        "reason": "5/6passed;MNIST absent at finaltest"
+      },
+      {
+        "key": "pytorch-model-cli/seed4",
+        "reason": "5/6passed;MNIST absent at finaltest"
+      },
+      {
+        "key": "feal-differential-cryptanalysis/seed0",
+        "reason": "native900s during65536squared candidate enumeration"
+      },
+      {
+        "key": "feal-differential-cryptanalysis/seed4",
+        "reason": "native900s during65536squared candidate enumeration"
+      },
+      {
+        "key": "model-extraction-relu-logits/seed4",
+        "reason": "native900s during numericaldifference candidate loops"
+      }
+    ]
+  },
+  "swe_audit": {
+    "unscored": 5,
+    "all_five_model_patches_retained": true,
+    "resident_regrade_running": false,
+    "items": {
+      "NodeBB": "native3000s timeout",
+      "Flipt_c188": "public AWS ECR Go dependency download timeout",
+      "Vuls_5af1": "RemoteProtocolError",
+      "Teleport_2b152": "commandrc=-7 SIGBUS then missingreward",
+      "Protonmail_5f074": "zero-tests audit; candidate useConfig is not a function; potential valid failure pending review"
+    }
+  },
+  "training_at_0219_cst": {
+    "terminal": {
+      "job": 726665,
+      "state": "COMPLETED",
+      "step": 250,
+      "total": 250,
+      "best_and_final_val_loss": 0.4229174852371216
+    },
+    "mixed": {
+      "job": 726666,
+      "state": "RUNNING",
+      "step": 880,
+      "total": 883,
+      "native_remaining": "1m16s; dynamic estimate, final save not confirmed"
+    }
+  },
+  "formal_expert_at_0219_cst": {
+    "swe249": {
+      "expected": 51,
+      "attempts_ended": 21,
+      "valid_scored": 17,
+      "resolved": 0,
+      "active": 10,
+      "pending": 20
+    },
+    "asi128": {
+      "expected": 240,
+      "generation_ended": 8,
+      "active": 8,
+      "scored": 0
+    },
+    "terminal250": {
+      "expected": 445,
+      "admitted": 0,
+      "waiting_for": "SWE expert and AVG64 SWE CPU/model consumers"
+    },
+    "hle": {
+      "expected": 2500,
+      "admitted": 0,
+      "waiting_for": "ASI generation block"
+    },
+    "avg64": {
+      "swe_admitted": 0,
+      "terminal_admitted": 0,
+      "direct_formal_admitted": 0,
+      "services_ready": true
+    }
+  },
+  "independent_task_validation": "Cancelled by user in other session; retained historical proxy results are not reported as formal benchmark scores.",
+  "hpc_jobs": [
+    "726666|apex-mixed-existing2k-sft|R|6:24:46|ACD1-2|gres/gpu:4",
+    "727113|apex-validation-lora|R|4:14:38|ACD1-24|gres/gpu:2",
+    "727660|apex-avg64-execution|R|10:22|ACD1-50|gres/gpu:2",
+    "727654|apex-merged-direct|R|11:22|ACD1-36|gres/gpu:2",
+    "727643|apex-direct-experts|R|15:39|ACD1-2|gres/gpu:2",
+    "727640|apex-terminal250|R|18:33|ACD1-28|gres/gpu:2"
+  ],
+  "hpc_gpus": 14
+}
