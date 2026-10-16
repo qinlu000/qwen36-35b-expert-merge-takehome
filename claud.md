@@ -1210,3 +1210,12 @@
 - 远端HLE50 binder2899601常驻CPU127/128MiB，固定forced status726663，实际R后才配置真node→28088，health200后才置route.ready=true。handoff helper2897516随后自动对旧seq20 STOP新入场，8在途自然结束/锁释放，只将从未started条目转入seq50；不新增infra3，不重答正常终态。新50首项实际准入后才将726629/28085追加TB路由并写HLE角色完成标记，726629继续保留给TB。
 - GPU释放已区分“模型消费者结束”与“445项评分完成”：新TB服务只在当前manifest自然跑尽、pending0/active0/无HTTP/未halt时释放，CPU原态评分和无效项披露继续；旧8序列TB服务则等10退出、11存活且无旧端点在途才释放。HLE50按其summary statecompleted释放；未动其他聊天的SFT作业。正式汇总会记录4→20及将来的20→50实际交接，不把旧排队超时归咎模型能力或假称同一调度配置。
 - 仅观察原生启动/health与真实生产结果，不做额外fixture/hash/模型验收；50是否更快以完成题/分钟及超时率判断，不声称线性提速。所有后续就绪、自然交接、模型服务角色移交与退卡都由80常驻脚本完成，不依赖当前turn或Mac在线。
+
+## 2026-10-16：SFT与评测harness提示对齐核查
+
+- 用户问能否向目标harness调整轨迹，例如同system。本轮只读当前新2k/1073数据与实际源码，未改训练数据/作业/评测，无API。按各benchmark分别对齐，四项不共用同system。
+- SWE新2k已经用目标system、原生bash schema、XML→目标JSON观察、单echo提交；源PR/patch.txt用户约束与/testbed真实历史仍保留。不能只换文字/路径就假称环境和流程完全相同。
+- Terminal当前Horizon1107＋Pivot893，两源首样本首user 2834字符元提示与目标逐字相同，无需加system；保留JSON analysis/plan、持久tmux语义和真实完成历史，不编造Pivot未公开的第二次确认。
+- ASI82主任务train和20val已有官方同system；991辅助可统一该单Python代码块system，但须将旧system中的函数/片段/缩进接口约束移入user，仍不是1073完整产物程序。
+- HLE2000/100没有system；HPC Swift qwen3_5 default_system=None也不自动补。train Explanation0/Answer789/Confidence0，不能直接强加三字段指令却保留冲突标签。已有可靠解释/答案可规范，缺confidence不编造100%；judge的缺省提取兜底不是训练标注。
+- 若实施用新副本、保留题面划分/真实历史，检查64K/8K不截断，同步Mixed；不改冻结评测，不热改在训JSONL。仅提示文案差异不值得自动全量重采/重训，需看独立val的协议失败。具体方案analysis/sft_harness_alignment_20261016.md，两个分项报告保存代码路径与实数；本轮仅提交自有文档及共享追加段，无coauthor信息。

@@ -275,3 +275,12 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - 初次HLE726647在19:20:53获调度后2秒0步失败，未加载模型。集群/data/apps/apptainer/1.4.5/bin/apptainer Bash包装器错误扫描全部argv，独立/data目录被当sandbox；CPU原样条件loop已实证bare --data-dir目录拒绝、--data-dir=目录通过。
 - 已仅将script argv统一改--key=value重提HLE726664；原0运行Pending Terminal726648/Mixed726649取消并重提726665/726666，真实依赖afterany:726664:725705与afterok:726335。未移动数据、转换镜像、改训练参数或操作Base/其他项目。
 - HLE目前仍PENDING，未开始optimizer；Terminal/Mixed等待依赖。QOSMaxGRESPerUser曾短暂出现，当前为Priority，不能将重新提交或CPU解析通过当GPU训练成功。配置/进度/执行报告与独立重提回执均已更新，原失败和旧回执保留。
+
+## 2026-10-16：SFT与评测harness提示对齐核查
+
+- 用户问能否向目标harness调整轨迹，例如同system。本轮只读当前新2k/1073数据与实际源码，未改训练数据/作业/评测，无API。按各benchmark分别对齐，四项不共用同system。
+- SWE新2k已经用目标system、原生bash schema、XML→目标JSON观察、单echo提交；源PR/patch.txt用户约束与/testbed真实历史仍保留。不能只换文字/路径就假称环境和流程完全相同。
+- Terminal当前Horizon1107＋Pivot893，两源首样本首user 2834字符元提示与目标逐字相同，无需加system；保留JSON analysis/plan、持久tmux语义和真实完成历史，不编造Pivot未公开的第二次确认。
+- ASI82主任务train和20val已有官方同system；991辅助可统一该单Python代码块system，但须将旧system中的函数/片段/缩进接口约束移入user，仍不是1073完整产物程序。
+- HLE2000/100没有system；HPC Swift qwen3_5 default_system=None也不自动补。train Explanation0/Answer789/Confidence0，不能直接强加三字段指令却保留冲突标签。已有可靠解释/答案可规范，缺confidence不编造100%；judge的缺省提取兜底不是训练标注。
+- 若实施用新副本、保留题面划分/真实历史，检查64K/8K不截断，同步Mixed；不改冻结评测，不热改在训JSONL。仅提示文案差异不值得自动全量重采/重训，需看独立val的协议失败。具体方案analysis/sft_harness_alignment_20261016.md，两个分项报告保存代码路径与实数；本轮仅提交自有文档及共享追加段，无coauthor信息。
