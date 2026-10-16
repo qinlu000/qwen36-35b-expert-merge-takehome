@@ -117,3 +117,49 @@ root一次提交修复后的727967（`apex-ties-pilot2`）；sacct为COMPLETED/0
 按shape模块数加权的310层计算估时为 **97.572秒**。首个32×2048模块用1.070秒，其中真实Δ matmul0.154秒、TIES0.642秒有明显冷启动成本，却被乘60次；因此该估时重复计入一次性成本。另一方面它没计外层GC/逐层report写入、进程/容器启动、最终adapter序列化和文件系统同步。每shape仅一个样本，矩阵数据和I/O可变，不给虚假置信区间，也不把97.6秒作为保证时限。
 
 root据此**暂不批准SVD64全量导出**。保持density=.2、total、全1、λ=1不变，可以研究逐模块直接dense TIES、跳过SVD，再将 `W0.float()+D_TIES` 写入独立完整HF snapshot；该路径无低秩截断，但FP32计算和最终存储dtype舍入仍必须披露。尤其BF16写回误差应相对原FP32合成权重及D_TIES分别记录，不能称数学完全无近似；不可原地覆盖Base或与Base共享硬链接的待改shard。具体分片/容量由direct agent只读核验，尚未实现、导出或申请新资源。主AVG64身份保持不变。
+
+## 10. TIES-Dense实现待root审阅（未提交）
+
+按root决定保留同一density=.2/total/ones/λ=1配方，新增 [merge_ties_dense.py](../scripts/merge_ties_dense.py)、[固定dense配置](../configs/merge/four_experts_ties_dense_v1.json) 与 [普通Slurm入口](../scripts/merge_ties_dense.slurm)。产物是根目录 `artifacts/merges/four-experts-ties-dense-v1-20261017/` 的独立完整HF模型，不是adapter；原SVD pilot和主AVG64保持不变。服务路径/别名由direct agent单独接入，不由本脚本启动。
+
+只读Base26片的safetensors header共131,368字节、未读tensor payload，确认1045个key完整、310目标映射/shape均命中、310目标及735非目标均BF16，目标共1,409,024,000元素。具体Base分片/容量primary metadata与映射依据另见direct agent的 [dense feasibility](ties_dense_export_feasibility_20261017.md)。所有26片都命中目标，故全部新写，不做hardlink或修改冻结Base。实际全量写约71.9GB仍未执行，不能把pilot十秒当成全量IO时长或quota证明。
+
+代码复用已核实的 `load_ties/input_inventory/true_delta`：只保留一个Base shard字典，每个目标矩阵一次计算真实Δ、官方TIES、FP32的W0+D再回存原BF16。写独立临时shard后rename、重新打开；310目标与写入前预期bits比较，735非目标用uint8视图与源bits比较（含dtype/shape），不以浮点相等替代bitwise。最终核1045唯一key、26片、原index logical total_size、所有源文件size/mtime未变；原HF index/config/tokenizer/chat/vision processor/LICENSE复制成自足普通文件。`merge_report.json`及manifest完成后，最后原子写 `EXPORT_COMPLETE.json`；半成品没有完成marker，不能用于服务。
+
+误差按每目标和全局分别报告：BF16 cast绝对Frobenius及相对FP32合成权重/真实TIES更新D；FP32加法相对输入float值的高精度算术误差；有效更新 `(stored-W0)-D` 相对D的偏差；量化后数值未变的元素数。目标总范数不会掩盖更新误差。保留Base原tensor shape/架构并不等于与AVG64相同低秩自由度；full-snapshot BF16写回与LoRA运行时加法的舍入顺序也不同，均需披露。
+
+本机PyTorch2.5.1与HPC实际容器2.11.0+cu130，CPU单线程均通过共享七项tiny checks与新增五项dense checks。新增测试用两片/五tensor跑真实writer和reopen：两个目标、三个非目标，NaN/符号零bits保持、BF16舍入及有效更新偏差可测、新文件非hardlink。spy使dense路径任何SVD调用即失败，实际0调用。共享历史tiny checks仍含两个纯人工CPU SVD，但只在显式 `--self-test` 执行；真正导出运行只调用无SVD的dense checks，真实导出路径无SVD。
+
+三文件已同步HPC；待审核命令为项目cwd `sbatch scripts/merge_ties_dense.slurm`，普通acd_u/nice1000、1H100/8CPU/64G/30min。提交前由root核实时GPU总量与唯一claim。**本轮未sbatch、未导出真实权重、未申请GPU或发模型/评分/loss请求。** [准备小收据](source_snapshots/ties_dense_preparation_20261017.json)
+
+## 11. TIES-Dense728007完整导出与最终artifact契约
+
+root核验实时10GPU及唯一claim后一次提交728007。作业在ACD1-24以普通acd_u/nice1000、1H100/8CPU/64G运行，sacct **COMPLETED/0:0，129秒**；脚本实际导出阶段 **98.655秒**。收尾时squeue已空，导出卡自然释放。没有提交其他作业、启动服务、调用模型或运行loss/任务评测。[最终精简收据](source_snapshots/ties_dense_export_728007_20261017.json)，[原始小metadata收据](../artifacts/eval/ties-dense-728007/export_receipt_raw.json)；没有下载约72GB权重到80或本地。
+
+标准artifact身份为 `four-experts-ties-dense-v1-20261017`，完整HF目录位于HPC：
+
+```text
+/data/user/qinlucao/projects/apex-takehome/artifacts/merges/four-experts-ties-dense-v1-20261017/
+```
+
+目录根包含原26个safetensors shard、原index及11个自足HF资产（config/generation、tokenizer/vocab/merges/chat template、image/video processor、LICENSE），全部为普通文件；无adapter_config。26片实际总大小 **71,903,776,776字节（66.966GiB）**，index logical tensor bytes为71,903,645,408；逐片大小见收据。全部1045 tensor保持BF16及原shape；310个目标处理完成，735个非目标逐bit保持。每片写入后重新打开，全部key/shape/dtype和目标输出bits一致，非目标与Base bits一致；源adapter/Base/资产size和mtime检查未变。没有embedding、vision、router或routed-expert更新，真实SVD调用0。
+
+精度结果（分母是310个目标构成的真实dense TIES更新D，非Base总模型）：
+
+| 指标 | 实测 |
+|---|---:|
+| `||D||F²` | 55.4761948431 |
+| BF16 cast绝对 `||cast(W0FP32+D)-(W0FP32+D)||F` | 0.7843734549 |
+| BF16 cast误差 / `||D||F` | **0.1053099861（10.5310%）** |
+| BF16 cast误差 / FP32合成目标权重范数 | 0.0012621630（0.126216%） |
+| 有效更新偏差 `||(stored-W0)-D||F / ||D||F` | **0.1053099862** |
+| FP32加法roundoff范数平方 | 1.3814118857e-10 |
+| 各目标BF16 cast相对D误差范围 | 0.0234509–0.2002444 |
+| 原值数值未变元素 | 623,006,268 / 1,409,024,000（44.2154%） |
+| 整块数值完全未变的目标tensor | 0 / 310 |
+
+“44.2154%未变”包含TIES本来就产生D=0的坐标，**不能全部归因为BF16损失**；本报告没有重新计算额外零向量分解。结果没有低秩/SVD截断，但不能称完全无损；相对Base总范数的较小误差不替代10.53%的更新相对误差。full-snapshot/BF16写回与AVG64 LoRA的自由度、运行时加法顺序仍不同，必须披露。配方density=.2、total、全1、λ=1未因这些数值或任务成绩调整，主AVG64不变。
+
+最大PyTorch allocator allocated峰值为1,644,167,680字节（1.531GiB）、reserved峰值2,273,312,768（2.117GiB），不是整卡物理显存峰值；CPU进程RSS生命周期高水位9,574,625,280字节（8.917GiB）。这些是实际逐shard导出数据，不能继续用pilot十秒估完整IO或未来推理峰值。
+
+完成契约已实际检查：`merge_report.json`为state=finished，计数310/735/1045/26、reload_verified/sources_unchanged均true；`EXPORT_COMPLETE.json`为passed=true/snapshot_type=full_hf_model/固定revision/real_weight_svd_calls=0/selected_final=false。文件mtime按**全部26片 → manifest → finished report → EXPORT_COMPLETE**排序，纳秒以字符串存入收据避免精度损失。完成marker已交direct agent用于未来完整模型profile guard；仅普通HF loader不会自动检查marker，因此需显式保留guard。此交付只证明导出工程契约，尚未进行tokenizer/text/image服务接入验收，也不授权额外服务或正式任务生成，后续由root决定。

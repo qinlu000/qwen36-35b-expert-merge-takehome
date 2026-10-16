@@ -1,0 +1,45 @@
+{
+  "purpose": "Fixed dense TIES HLE-only method comparison; not checkpoint/method selection or four-benchmark macro",
+  "model": "apex-ties-dense",
+  "model_format": "full_hf_model_without_lora",
+  "artifact": "artifacts/merges/four-experts-ties-dense-v1-20261017",
+  "export_marker": "EXPORT_COMPLETE.json",
+  "source_base_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "protocol": "configs/eval/protocol_v2_unified64k8k.json",
+  "output": "artifacts/eval/ties_dense_hle2500_20261017",
+  "controller_output": "artifacts/eval/ties_dense_hle2500_20261017/controller",
+  "hpc_project": "/data/user/qinlucao/projects/apex-takehome",
+  "service": {
+    "profile": "ties-dense",
+    "job_name": "apex-hle-ties-dense-20261017",
+    "port": 18006,
+    "bridge_port": 28097,
+    "partition": "acd_u",
+    "nice": 1000,
+    "gpus": 2,
+    "max_project_gpus": 16,
+    "requested_minutes": 240,
+    "minimum_runway_seconds": 10800,
+    "core_cap": "2026-10-18T02:20:00+08:00",
+    "drain_seconds": 300,
+    "health_wait_seconds": 1200
+  },
+  "generation": {
+    "questions": 2500,
+    "images": 342,
+    "concurrency": 50,
+    "context_tokens": 65536,
+    "max_tokens": 8192,
+    "question_walltime_seconds": 300,
+    "thinking": false,
+    "preserve_thinking": false
+  },
+  "judge": {
+    "max_cny_combined": 20,
+    "max_calls_combined": 5000,
+    "workers": 2,
+    "original_attempts_per_answer": 2,
+    "compact_recovery_additional_attempts": 1,
+    "compact_recovery_rule": "Only fixed audited invalids whose two original Judge responses are HTTP200+length and fail the frozen parser; same approved Base compact wrapper. All recovery reservations/calls count within20CNY/5000. No correctness selection or solver regeneration; explicit fixed recovery manifest required."
+  }
+}

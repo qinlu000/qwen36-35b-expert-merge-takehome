@@ -632,3 +632,14 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - 实际资源账本05:17：已结束216.721389GPUh，5普通TP2共10GPU在跑暂计10.406111GPUh，CNY已记录7332calls预算核算11.192305644（含失败reservation0.280551），USD另0.328327020；不是发票或最终成本。补齐Base单项、Mixed/AVG16和恢复独立ledger，不重复summary合计。
 - Terminal去迁移40min终态速度专家19.52/h、AVG18.02/h，AVG略低所需18.99，完整445有风险；CPU未见可直接claim的4核释放块，按真实SWE/ASI marker扩容。nginx cleanup guard继续null，无租约不重评、不装/起缺失nginx、不blind untar resolver。80数据盘余2.1TiB/系统盘31.4GiB，未见新增写失败。
 - 自动推进已更新ACTIVE：每次刷新两SWE collector、承接Dense新方向、保留SVD失败/误差历史、HLE恢复规则/费用和混杂披露。核心截止仍北京时间10月18日02:20。
+
+
+## 2026-10-17 05:48 CST：TIES-Dense已正式评测、ASI释放2卡、nginx持久补评排队
+
+- TIES-Dense728007实际COMPLETED/0:0，1H100/129s（导出98.655s）后释放。新完整HF26片71,903,776,776B，310目标/735非目标bitwise/1045key/source未变/reload全部通过，SVD0，marker最后写。无72GB下载到80或本地。BF16存储相对TIES更新偏差10.531%，相对目标合成权重0.1262%；44.22%未变元素含D原本为0，不能全归因舍入，不能称与AVG64同r64自由度/数值无损。主AVG64不变。
+- TIES HLE单一持久controller782323/start868543002，已一次提交普通acd_u/Nice1000 TP2 728016，ACD1-19，05:33:34–09:33:34 CST，09:28:34停止新题自然收尾。完整模型alias apex-ties-dense，无LoRA；独立28097/tunnel782811。恰2次text/image协议验收05:43:19通过，tokenize与usage一致/nonthinking/schema，semantic_correctness不作筛选。正式gen887555/Judge887556已准入，05:44:12全目录112保存/50在途、14valid判分，尚无完整分。旧watcher、28095 AVG→ASI和原controls不改，不启动TA或SVD64。
+- ASI专家05:38:35全240生成终态，2752099退出/worker pool关闭/240源scope为空，唯一pipeline后续只CPU/API评分及外部HLE。root与独立审阅核无后续GPU消费者、两次原生metrics0、exact ordinary归属后已释放727879两卡；评分3237024/837390继续。当前五TP2共10H100，均普通/Nice1000；727879/28090离线是有意释放，不因旧路由health失败重建。此轮实际峰值12卡，原16卡上限不变。
+- nginx缺口已静态比较同SIF/etc：469同、10差异、1resolver排除、0删除，delta20KiB；原archive/source不变，不重建缺失nginx产品或服务，不blind untar etc/resolver。既有ASI/native-gap契约确认同CPU92–95 global flock支持排它消费者。root审核一次parent并加core前1800s新准入门；唯一851972/start868587717已05:40:53持久启动，05:47:55仍等ASI锁、0native，正式summary未改、原invalid保留。未来native结果须另审test/restore/两scope空和原bytes再接入，禁止重复parent/重试/写ASI marker。
+- 05:46新统计先刷新两SWE collector、通过既有人工统计算例，再保存strict/独立预算双视图；9模型17208固定观测，source issues均空。strict有效：SWE专家48/51（3未决），AVG29/51；TB专家60/445、AVG58/445；ASI专家科学判分94/240；AVG HLE1726/2500、AVG16 1087、TIES86。HLE专家/Mixed全2500仍6.92%/5.84%；完整AVG64宏平均、TIES方法完整差值/CI仍null。部分coverage不冒充完整分。
+- 阶段PDF已05:37更新：真实HLE表替代大幅loss表、专家+2.96pp配对CI[1.80,4.12]和Base无答/服务混杂、TIES截断/舍入与未完成边界；1页A4，摘要182中文字符/含标点199字符，font嵌入/glyph及PNG目视均通过。它仍非最终report.pdf。
+- 本轮仅owned文件commit/push与80/HPC静态同步，保留其他会话WIP，不覆盖动态route/shared全文；claud与统一日志只追加本轮段。未发邮件/邀请/其他会话消息，无新loss-only/task-val/Base求解。每小时automation保持ACTIVE，记录实际job/PID/有意释放及等待parent，核心截止仍10/18 02:20 CST。

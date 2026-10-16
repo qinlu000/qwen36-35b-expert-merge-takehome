@@ -6,7 +6,8 @@
   "statistics": {"repetitions": 10000, "seed": 20261015, "confidence_level": 0.95},
   "additional_comparisons": [
     {"model": "avg64", "reference": "mixed883", "benchmarks": ["hle"]},
-    {"model": "avg64", "reference": "avg16", "benchmarks": ["hle"]}
+    {"model": "avg64", "reference": "avg16", "benchmarks": ["hle"]},
+    {"model": "ties_dense", "reference": "avg64", "benchmarks": ["hle"]}
   ],
   "benchmarks": {
     "swe": {"manifest": "analysis/source_snapshots/protocol/swe_hard_task_ids.json"},
@@ -99,6 +100,19 @@
           "summary": "artifacts/eval/avg16_hle2500_20261017/scoring/summary.json",
           "results": "artifacts/eval/avg16_hle2500_20261017/scoring/results",
           "selection_manifest": "artifacts/eval/avg16_hle2500_20261017/manual_retry_manifest.json"
+        }
+      }
+    },
+    "ties_dense": {
+      "label": "TIES-Dense方法对照",
+      "artifact": "artifacts/merges/four-experts-ties-dense-v1-20261017",
+      "benchmarks": {
+        "hle": {
+          "adapter": "hle_results",
+          "summary": "artifacts/eval/ties_dense_hle2500_20261017/scoring/summary.json",
+          "results": "artifacts/eval/ties_dense_hle2500_20261017/scoring/results",
+          "selection_manifest": "artifacts/eval/ties_dense_hle2500_20261017/manual_retry_manifest.json",
+          "notes": ["Fixed PEFT0.20 per-module true-delta TIES density0.2/total/ones/lambda1, no SVD. Same35B architecture; dense full-BF16 storage differs from AVG64 rank64 adapter parameterization and runtime addition order. Measured global storage deviation relative to TIES delta10.531%; source735 non-target tensors bitwise preserved.", "HLE-only method comparison under the same frozen2500/342image/50/300s/64K8K/nonthinking protocol, not final-model selection or a four-benchmark macro. Primary AVG64 remains unchanged."]
         }
       }
     },

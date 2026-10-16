@@ -1,5 +1,17 @@
 # 当前进展与未决事项
 
+**05:46统计与服务更新**：[新双视图](source_snapshots/formal_aggregation_20261017_0547.json)含9模型、17208固定观测，fixture与所有source schema检查通过。strict有效覆盖：SWE专家48/51、AVG29/51；Terminal专家60/445、AVG58/445；ASI专家94/240（科学评分已启动）；AVG HLE1726/2500、AVG16 1087/2500、TIES-Dense 86/2500。HLE专家/Mixed仍完整6.92%/5.84%。除已完整单项外不公布子集主分，AVG64四项宏平均及TIES方法完整比较仍null。
+
+TIES728016于05:43:19完成恰2次text/image协议验收（不按内容正确筛选），正式generator887555/Judge887556已准入，详见[执行收据](ties_dense_hle_execution_20261017.md)。ASI专家05:38:35全240生成退出，后续仅CPU/API评分；双重审阅、240终态/池关闭/源scope空及两次metrics0后，**727879已释放2卡**，[独立释放收据](source_snapshots/asi_expert_gpu_release_20261017.json)。当前五TP2共**10卡**，均普通acd_u/Nice1000；727879/28090离线是有意释放，不能因旧route失败自动重建。
+
+nginx原答案的一次native补评分parent **851972/start868587717** 已持久启动，[静态准备与锁契约](terminal_nginx_grade_only_preparation_20261017.md)仅恢复原候选差分、保护运行器resolver；目前等ASI评分的同一global锁，不抢占、不额外领取生成池CPU。尚未取得native结果，保持原invalid；若距核心截止不足1800秒就停止新准入。完成后先审独立test证据和两次scope排空，再决定是否接受，不手填0。
+
+[一页阶段PDF](progress_report_20261017.md)已于05:37更新成真实HLE表、混杂与TIES数值结果，摘要182中文字符/含标点199字符，1页及目视检查通过；仍不是最终report.pdf。
+
+**05:34方法实物更新**：[TIES-Dense实际导出](source_snapshots/ties_dense_export_728007_20261017.json)已完成：728007普通1GPU、129秒后释放，完整26片71.90GB，310目标/735非目标bitwise/1045key/source未变/重载全部通过，无SVD。BF16存储相对真实TIES更新偏差**10.531%**；相对目标合成权重0.1262%，两者分母不同。未变元素44.22%含原D=0，不能全归因舍入。
+
+唯一新HLE controller782323（startticks868543002）已提728016，普通acd_u/Nice1000/TP2，ACD1-19，05:33:34–09:33:34 CST；当前总**12张H100**。完整模型alias apex-ties-dense、独立28097，正在冷加载与协议验收；尚不能称正式2500已准入。09:28:34停新题、原300秒自然收尾，模型消费者排空后仅释放自身job。它不使用LoRA、不与AVG64声称同r64自由度，主AVG64/28095→ASI/旧watcher保持。已有唯一claim，不能重复启动。新统计已注册HLE-only `ties_dense_vs_avg64`；未齐备仍null。
+
 **05:22正式统计更新**：[双视图快照](source_snapshots/formal_aggregation_20261017_0522.json)。已依次刷新两份SWE审计collector，再生成strict与独立Terminal预算视图，未发模型/Judge请求。新完整HLE结果：专家**173/2500=6.92%**、Mixed训练对照**146/2500=5.84%**，Base99/2500=3.96%；专家相对Base差值+2.96个百分点，逐题配对bootstrap95%CI[1.80,4.12]，Mixed+1.88[0.80,3.00]。均为含342图的固定2500，非text-only。
 
 **这不是纯权重因果增益**：Base原生no-answer1445，专家30，Mixed41；历史Base与后续的服务并发、队列时间等差异仍在，配对抽样不能消除这些混杂。原Base回答不重生、不按正式结果挑checkpoint。专家/Mixed原8项Judge截断经[一次格式恢复](hle_compact_judge_recovery_20261017.md)后全部有效，原criteria/answer/identity/parser不变，原invalid/budget/requests/responses均保留；新增8次费用合计0.00752625 CNY。明确披露原两次Judge上限之外的一次恢复例外，不能称协议完全没变。

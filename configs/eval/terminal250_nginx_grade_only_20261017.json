@@ -1,0 +1,41 @@
+{
+  "task_id": "nginx-request-logging",
+  "trial_name": "nginx-request-logging__seed0",
+  "model": "apex-terminal250",
+  "seed": 0,
+  "task_checksum": "888ac1ae711acf0400d8631e2603924d716b3bf3f02012775fb06ba29a75cc83",
+  "original_result": "artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/result.json",
+  "archive": "artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/artifacts/logs/artifacts/final-task-state.tar",
+  "snapshot": "artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/artifacts/logs/artifacts/final-task-state.json",
+  "sif_tag": "artifacts/benchmarks/sif/alexgshaw_nginx-request-logging_20251031.sif",
+  "sif_resolved": "artifacts/benchmarks/sif/sha256-693e64431a0dbf45952e8b91a298d54fd60247e501c6623fb8fa3ebc07fc3d3d.sif",
+  "sif_size_bytes": 65810432,
+  "sif_mtime_ns": 1792079077942533995,
+  "output": "artifacts/recovery/terminal250-nginx-grade-only-20261017",
+  "small_file_sha256": {
+    "artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/result.json": "bc3df94fa93163edb3aef4066615771911db06fe3e5afde32f8900d58b368004",
+    "artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/config.json": "d457b05c3961cbfed0dfb56d69496d79a05631fb67365313dd98777a47faa20b",
+    "artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/artifacts/logs/artifacts/final-task-state.tar": "2d7948649da98fd89b08c0a0761cb15358e09ddc2f98a1ef1c8543e7bdd224e3",
+    "artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/artifacts/logs/artifacts/final-task-state.json": "a8ff036ac6de0c807be337a54fcf5868437dea9d983710ba5bc80944a11ff714",
+    "artifacts/results/base-terminal-v2-724242-r2/tasks/nginx-request-logging/task.toml": "397ab70a9eb27a4d700400b43d502c658cbad301e0b733aec3e8ec8c5a4cb5d1",
+    "artifacts/results/base-terminal-v2-724242-r2/tasks/nginx-request-logging/environment/Dockerfile": "43003466d89ab83484a3fa618e35b58cdb74a002b1e8716ef30f12b3ac8302d8",
+    "artifacts/eval/terminal250_full445_20261017/runtime/scripts/baseline_singularity.py": "4c01b92729d94cb4ea700edd2dc79dc857ec378374459930aba00e53907b6532",
+    "artifacts/eval/terminal250_full445_20261017/runtime/scripts/baseline_netns.py": "09303db588a5b15f95116a679140af7eb4ad0b7dfb24d52d033c1d81e3990a23",
+    "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_repair_environment_v2.py": "3f436e877a1fd4019a39d4ea33a4f24f10fd3f9c25d6ec30c2fabac0b7194450",
+    "artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_repair_grade_v2.py": "a65c7868a2455b0dec80c33c6b5d3552310dc829b4789314d8be0cbe92dc8439"
+  },
+  "future_grade": {
+    "approval": "not_yet_authorized_to_run",
+    "shared_lock": "artifacts/eval/direct_asi_grader_cpu92_95.lock",
+    "cpu_ids": [92, 93, 94, 95],
+    "memory_mib": 8192,
+    "native_verifier_seconds": 900,
+    "new_solver_seconds": 0,
+    "new_model_calls": 0,
+    "runtime": "artifacts/eval/terminal250_full445_20261017/runtime",
+    "output": "artifacts/recovery/terminal250-nginx-grade-only-20261017/native-grade",
+    "hold_lock_until": "child exited and all native scopes intersecting92-95 have drained",
+    "modify_asi_completion_markers": false,
+    "modify_generation_pool96_127": false
+  }
+}

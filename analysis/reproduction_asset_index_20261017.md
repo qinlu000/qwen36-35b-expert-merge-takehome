@@ -144,3 +144,12 @@ SWE51＋TB89的140个固定linux/amd64 SIF在80/HPC本轮都按路径存在140/1
 6. **最终运行清单与环境失败判定**：固定final_results配置、各owner source引用、最终完成/排空/有效性receipt。尚在运行或未创建的目录等完成后再固化，不用此索引冒充完成收据。
 
 最重要缺口是：训练底座依赖未公开的HPC SIF/donor目录；Terminal470和五层overlay目前仅80、非自包含；精确重导出依赖离线accepted teacher/选择材料；完整训练日志不在80/Git；部分正式评分和目录尚未完成。五个公开adapter可加载不等于训练、环境、完整实验已可从空机逐字复现。唯一新增tracked文件为本索引，未改现有文件、Git/claud或任何服务。
+
+
+## TIES-Dense新增方法产物（05:43已正式准入）
+
+HPC `artifacts/merges/four-experts-ties-dense-v1-20261017/` 是独立完整HF模型，26片约71.90GB、310目标/735非目标、无SVD，BF16更新偏差单列。不是HF已公开五模型之一，不替换最终AVG64；只在HPC保存，未复制到80/本地。[完成验收](source_snapshots/ties_dense_export_728007_20261017.json)含实际资源/源身份/存储及位一致结果。
+
+重建使用固定Base和同四专家，加[固定配置](../configs/merge/four_experts_ties_dense_v1.json)、[导出源码](../scripts/merge_ties_dense.py)和[普通短1卡入口](../scripts/merge_ties_dense.slurm)。先具备原Base/sft环境及PEFT0.20固定源码，按层TIES、逐片新写，不对冻结Base硬链接原地写入；全部验证后才写EXPORT_COMPLETE。主AVG64既有公开revision仍为最终身份。
+
+方法评测独立输出在80 `artifacts/eval/ties_dense_hle2500_20261017/`，由[固定单HLE控制器](../scripts/run_ties_dense_hle_control.py)服务；真实job/port/claim/PID保存controller与单独launch receipt。它只比较HLE2500，不能复用旧controls watcher或28095 AVG→ASI，也不能由存在完成marker推断任务成绩齐备。

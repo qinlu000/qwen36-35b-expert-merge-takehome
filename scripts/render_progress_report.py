@@ -20,11 +20,12 @@ from pypdf import PdfReader
 
 
 ROOT = Path(__file__).resolve().parents[1]
-ABSTRACT = ('本实验研究按任务领域划分专家后进行参数合版，能否在固定推理预算下兼顾代码修复、终端交互、学术推理与科研编程。'
-            '四个专家和同数据混合对照均已完成监督训练，等权平均主模型及固定低秩压缩消融已真实导出。'
-            '相同留出集的损失比较已经完成，但正式任务评分仍未齐备，暂不报告宏平均提升。'
-            '当前终端资源配置低于原题要求，判分器替换和调度差异均保留披露。'
-            '后续将依据完整有效结果开展失败归因并核算最终成本。')
+ABSTRACT = ('本实验研究以四类任务训练专家，再以参数合版兼顾代码修复、终端交互、学术推理与科研编程。'
+            '四个专家和同源混训对照均已完成监督训练，等权平均主模型已经冻结。'
+            '学术专家及混训对照完成全量评分，其余正式矩阵尚未齐备，不报告总体提升。'
+            '真实层验证发现冲突消解合版的低秩回投影误差较大，已完成完整权重导出。'
+            '实验保留资源预算、替代判分和调度差异，损失仅作训练诊断。'
+            '后续收齐任务结果、配对区间与最终成本，未决项如实列出。')
 NAVY = colors.HexColor('#18354A')
 TEAL = colors.HexColor('#23696A')
 GRAY = colors.HexColor('#586976')
@@ -41,15 +42,16 @@ def render(output, font):
     assert 150 <= han_count <= 200
     pdfmetrics.registerFont(TTFont('Chinese', str(font)))
     training = load('configs/train/four_experts_v1.json')
-    loss = load('analysis/source_snapshots/sft_loss_only_execution_20261017.json')
-    formal_receipt = load('analysis/source_snapshots/terminal_budget_aggregation_execution_20261017.json')
+    formal_receipt = load('analysis/source_snapshots/formal_aggregation_20261017_0522.json')
     formal = formal_receipt['views']['strict']
     budget_terminal = formal_receipt['views']['audited_terminal_budget']['models']['base']['benchmarks']['terminal']
     merge = load('analysis/source_snapshots/merge_export_20261017.json')
+    dense_export = load('analysis/source_snapshots/ties_dense_export_728007_20261017.json')
     publication = load('analysis/source_snapshots/hf_publication_20261017.json')
     github = load('analysis/source_snapshots/github_repository_20261017.json')
-    assert loss['native_summary_complete'] and len(loss['actual_results']) == 4
     assert merge['status'] == 'exported_and_serialized_delta_verified'
+    assert dense_export['state'] == 'export_complete_verified'
+    assert dense_export['verified_checks']['real_weight_svd_calls'] == 0
     assert publication['state'] == 'all_five_public_anonymous_verified'
     assert len(publication['artifacts']) == 5 and github['private'] is True
     generated = datetime.now(ZoneInfo('Asia/Shanghai'))
@@ -111,7 +113,7 @@ def render(output, font):
     pdf.setFillColor(TEAL)
     pdf.drawRightString(page_w - margin, y + 1, '阶段性草稿')
     y -= 22
-    paragraph('Qwen3.6-35B-A3B  |  四专家 + Mixed 对照  |  AVG64 主模型 / AVG16 压缩消融',
+    paragraph('Qwen3.6-35B-A3B  |  四专家 + Mixed 对照  |  AVG64 主模型 / TIES 方法推进',
               size=8.3, leading=12, color=GRAY, after=9)
 
     paragraph('摘要', size=10, color=TEAL, after=3)
@@ -121,10 +123,12 @@ def render(output, font):
     rows = {row['name']: row for row in training['experts']}
     counts = '；'.join(f'{label}{rows[key]["native_loaded_train_rows"]}/{rows[key]["native_loaded_val_rows"]}'
                        for key, label in [('swe', 'SWE'), ('terminal', 'Terminal'), ('hle', 'HLE'), ('asi', 'ASI')])
-    paragraph(f'原生 train/val：{counts}；Mixed 7066/249。五个一轮训练均完成；'
+    paragraph(f'原生 train/诊断留出：{counts}；Mixed 7066/249。五个一轮训练均完成；'
               '共享 LoRA r16/alpha32、BF16、global batch8、64K、非thinking。SWE原2000条中7条角色配对过滤，Mixed继承同样过滤。')
-    paragraph('AVG64将四专家真实参数更新各按0.25平均，以rank64因子拼接保存；AVG16对同一更新作固定rank16 SVD压缩。'
-              '主模型在正式反馈前固定，未按测试结果搜索配方；AVG64的adapter容量为rank16对照的4倍。', after=1)
+    paragraph('AVG64将四专家真实更新各按0.25平均，以rank64拼接精确保存；AVG16只作辅助压缩。'
+              'TIES试跑回投影误差30%-57%，未导出该近似；TIES-Dense已完整导出，无SVD，'
+              f'BF16相对更新误差{100*dense_export["global_rounding"]["effective_update_deviation_relative_to_delta"]:.2f}%。'
+              '主AVG64及答卷不变，不按正式分数择优；loss仅作诊断。', after=1)
 
     section('结果  |  正式 4 × 6 矩阵待齐备')
     model_ids = ['base', 'swe249', 'hle250', 'asi128', 'terminal250', 'avg64']
@@ -149,13 +153,17 @@ def render(output, font):
               f'{budget_terminal["native_valid"]} native+{budget_terminal["derived_timeout"]}审计超时派生0，raw null不变。',
               size=8.1, leading=11.7, color=GRAY, after=2)
 
-    section('固定同249条留出集  |  监督交叉熵，不是benchmark准确率')
-    ids = ['base', 'avg64', 'avg16', 'mixed883']
-    losses = [loss['actual_results'][name]['metrics']['eval_loss'] for name in ids]
-    table([['Base', 'AVG64', 'AVG16', 'Mixed883'], [f'{value:.6f}' for value in losses]],
+    section('已完整的 HLE 任务结果  |  同2500题、含342张图')
+    ids = ['base', 'hle250', 'mixed883']
+    hle = [formal['models'][name]['benchmarks']['hle'] for name in ids]
+    assert all(row['complete'] for row in hle)
+    table([['完整HLE', 'Base', 'HLE专家', 'Mixed训练对照'],
+           ['准确率', *[f'{row["primary_score_percent"]:.2f}%' for row in hle]]],
           [width / 4] * 4, row_height=22)
-    paragraph('四次均保留249行、65,536上限，step0且无训练/生成；CE受答案格式和领域分布影响，'
-              '不能据此承诺任务改善。paired bootstrap固定10000次、seed20261015；TB按任务保留五seed，ASI按项目保留四条件。',
+    ci = formal['comparisons']['hle250_vs_base']['benchmarks']['hle']['delta_ci95_percent_points']
+    paragraph(f'专家较Base +2.96个百分点，逐题配对95%CI [{ci["lower"]:.2f}, {ci["upper"]:.2f}]；'
+              'Base原生无答1445题，专家30、Mixed41，历史队列/服务混杂未消除，不能单独归因权重。'
+              '八项Judge截断采用与Base相同的一次格式恢复，原答卷不变，显式披露两次上限外例外。',
               size=8.1, leading=11.7, color=GRAY, after=1)
 
     section('协议边界与交付')
@@ -164,7 +172,7 @@ def render(output, font):
               size=8.5, leading=12.3, after=4)
     paragraph('已交付：五个Public HF adapter已匿名完整下载核对；Private GitHub已创建并推送默认master。'
               '模型链接与不可变revision见models/README.md。', size=8.5, leading=12.3, after=4)
-    paragraph('真实剩余：完整有效评分 / 至少20个真实合版失败案例 / 最终成本。',
+    paragraph('已整理20个真实失败及3项后续实验。待完成：完整评分 / TIES任务对照 / 最终成本与离线资产。',
               size=9.0, leading=13, color=TEAL, after=0)
 
     assert y > 91, f'Page content reaches footer: y={y}'
@@ -172,8 +180,8 @@ def render(output, font):
     pdf.line(margin, 79, page_w - margin, 79)
     footer = [
         '阶段性草稿，不是最终 report.pdf；生成 ' + generated.strftime('%Y-%m-%d %H:%M:%S CST') + '  |  1 / 1',
-        '结果收据：analysis/source_snapshots/terminal_budget_aggregation_execution_20261017.json（03:25 CST，strict视图）',
-        'loss收据：analysis/source_snapshots/sft_loss_only_execution_20261017.json；合版：merge_export_20261017.json',
+        '结果收据：analysis/source_snapshots/formal_aggregation_20261017_0522.json（05:22 CST，strict与预算分开）',
+        '方法：analysis/merge_method_decision_20261017.md；失败：analysis/avg64_failure_cases_20261017.md',
         '发布收据：analysis/source_snapshots/hf_publication_20261017.json；github_repository_20261017.json',
     ]
     pdf.setFont('Chinese', 6.7)
@@ -196,7 +204,7 @@ def render(output, font):
                       'abstract_han_characters': han_count, 'abstract_all_characters': len(ABSTRACT),
                       'embedded_chinese_font': str(font), 'font_missing_glyphs': missing,
                       'content_bottom_y': round(y, 2), 'formal_snapshot': formal['as_of_utc'],
-                      'losses': dict(zip(ids, losses))}, ensure_ascii=False, indent=2))
+                      'hle_scores': dict(zip(ids, [row['primary_score_percent'] for row in hle]))}, ensure_ascii=False, indent=2))
 
 
 if __name__ == '__main__':

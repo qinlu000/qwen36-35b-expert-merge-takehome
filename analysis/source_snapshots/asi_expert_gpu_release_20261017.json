@@ -1,0 +1,98 @@
+{
+  "job_id": 727879,
+  "gpus": 2,
+  "generation_marker": {
+    "state": "finished",
+    "completed_conditions": 240,
+    "cpu_sets": [
+      [
+        96,
+        97,
+        98,
+        99
+      ],
+      [
+        100,
+        101,
+        102,
+        103
+      ],
+      [
+        104,
+        105,
+        106,
+        107
+      ],
+      [
+        108,
+        109,
+        110,
+        111
+      ],
+      [
+        112,
+        113,
+        114,
+        115
+      ],
+      [
+        116,
+        117,
+        118,
+        119
+      ],
+      [
+        120,
+        121,
+        122,
+        123
+      ],
+      [
+        124,
+        125,
+        126,
+        127
+      ]
+    ],
+    "owned_scope_count": 240,
+    "active_owned_scopes": [],
+    "worker_pool_shutdown": true,
+    "at_utc": "2026-10-16T21:38:35.929286+00:00"
+  },
+  "generation_terminal": 240,
+  "generation_pid_exited": true,
+  "active_generation_scopes": [],
+  "metrics_zero_samples": [
+    {
+      "at_utc": "2026-10-16T21:45:24.209876+00:00",
+      "running_waiting_values": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "at_utc": "2026-10-16T21:45:26.219252+00:00",
+      "running_waiting_values": [
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "endpoint": "http://127.0.0.1:28090",
+  "job_identity": {
+    "JobName": "apex-asi-acdu-migrate-20261017",
+    "WorkDir": "/data/user/qinlucao/projects/apex-takehome",
+    "UserId": "qinlucao(14348)",
+    "Partition": "acd_u",
+    "Nice": "1000",
+    "NodeList": "ACD1-8"
+  },
+  "future_gpu_consumers": 0,
+  "consumer_proof": "Frozen run_direct_formal_pipeline after generation only external CPU/API scoring and delegated HLE; independent HLE2500 finished. Root and independent audit agree.",
+  "external_scoring_continues": true,
+  "new_model_calls": 0,
+  "at_utc": "2026-10-16T21:45:26.219275+00:00",
+  "released_at_utc": "2026-10-16T21:45:28.695938+00:00",
+  "job_absent_from_squeue": true,
+  "final_state": "released_after_generation_consumers_drained"
+}

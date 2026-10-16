@@ -1,0 +1,244 @@
+{
+  "collected_at_utc": "2026-10-16T21:31:19.725693+00:00",
+  "state": "export_complete_verified",
+  "artifact": {
+    "identity": "four-experts-ties-dense-v1-20261017",
+    "type": "full_hf_model",
+    "hpc_root": "/data/user/qinlucao/projects/apex-takehome/artifacts/merges/four-experts-ties-dense-v1-20261017",
+    "source_base_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "method_config": "configs/merge/four_experts_ties_dense_v1.json",
+    "report": "artifacts/merges/four-experts-ties-dense-v1-20261017/merge_report.json",
+    "manifest": "artifacts/merges/four-experts-ties-dense-v1-20261017/merge_manifest.json",
+    "completion_marker": "artifacts/merges/four-experts-ties-dense-v1-20261017/EXPORT_COMPLETE.json",
+    "all_tensors": 1045,
+    "shards": 26,
+    "dtype_counts": {
+      "torch.bfloat16": 1045
+    },
+    "shard_file_total_bytes": 71903776776,
+    "index_logical_tensor_bytes": 71903645408,
+    "full_model_not_peft_adapter": true,
+    "assets_all_regular_files": true,
+    "copied_assets": [
+      "model.safetensors.index.json",
+      "config.json",
+      "generation_config.json",
+      "tokenizer.json",
+      "tokenizer_config.json",
+      "vocab.json",
+      "merges.txt",
+      "chat_template.jinja",
+      "preprocessor_config.json",
+      "video_preprocessor_config.json",
+      "LICENSE"
+    ]
+  },
+  "job": {
+    "id": "728007",
+    "name": "apex-ties-dense",
+    "partition": "acd_u",
+    "configured_nice": 1000,
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "gpus": 1,
+    "cpus": 8,
+    "memory": "64G",
+    "node": "ACD1-24",
+    "slurm_elapsed_seconds": 129,
+    "script_export_seconds": 98.65529554523528,
+    "slurm_reported_start": "2026-10-17T05:28:34",
+    "slurm_reported_end": "2026-10-17T05:30:43",
+    "slurm_time_display": "sacct local times without explicit offset",
+    "squeue_empty_at_collection": true,
+    "started_at_utc": "2026-10-16T21:28:59.868833+00:00",
+    "finished_at_utc": "2026-10-16T21:30:38.524182+00:00",
+    "claim_directory": "artifacts/merges/ties-dense-submit-20261017"
+  },
+  "verified_counts": {
+    "targets_modified": 310,
+    "non_targets_verified_bitwise": 735,
+    "all_tensors": 1045,
+    "shards": 26
+  },
+  "verified_checks": {
+    "sources_unchanged": true,
+    "reload_verified": true,
+    "real_weight_svd_calls": 0,
+    "selected_final": false,
+    "primary_avg64_modified": false,
+    "model_requests": 0,
+    "training_or_loss_evaluations": 0
+  },
+  "actual_completion_marker": {
+    "passed": true,
+    "snapshot_type": "full_hf_model",
+    "source_base_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "report": "merge_report.json",
+    "targets_modified": 310,
+    "non_targets_verified_bitwise": 735,
+    "all_tensors": 1045,
+    "shards": 26,
+    "reload_verified": true,
+    "sources_unchanged": true,
+    "real_weight_svd_calls": 0,
+    "selected_final": false
+  },
+  "finalization_mtimes_ns": {
+    "merge_manifest.json": "1792186238526767000",
+    "merge_report.json": "1792186238550488000",
+    "EXPORT_COMPLETE.json": "1792186238555573000"
+  },
+  "last_shard_mtime_ns": "1792186237566852000",
+  "marker_written_after_report_manifest_all_shards": true,
+  "global_rounding": {
+    "delta_frobenius_squared": 55.47619484306039,
+    "composed_weight_frobenius_squared": 386202.30945907853,
+    "cast_error_squared": 0.6152417167759049,
+    "fp32_addition_roundoff_squared": 1.3814118857115114e-10,
+    "effective_delta_frobenius_squared": 56.248111730007516,
+    "effective_update_deviation_squared": 0.6152417179870803,
+    "cast_error_frobenius": 0.7843734549153897,
+    "cast_error_relative_to_composed_weight": 0.0012621630280071768,
+    "cast_error_relative_to_delta": 0.10530998605700695,
+    "effective_update_deviation_relative_to_delta": 0.10530998616066448,
+    "target_elements": 1409024000,
+    "numerically_unchanged_elements": 623006268,
+    "fully_numerically_unchanged_target_tensors": 0,
+    "numerically_unchanged_fraction": 0.442154475722202
+  },
+  "module_rounding_ranges": {
+    "cast_error_relative_to_delta": [
+      0.0234508940470178,
+      0.20024443264735234
+    ],
+    "effective_update_deviation_relative_to_delta": [
+      0.02345089590996068,
+      0.20024445195909896
+    ],
+    "numerically_unchanged_fraction": [
+      0.42025089263916016,
+      0.5059565305709839
+    ]
+  },
+  "resource_peaks": {
+    "torch_allocator_peak_allocated_bytes": 1644167680,
+    "torch_allocator_peak_reserved_bytes": 2273312768,
+    "cpu_process_lifetime_high_water_bytes": 9574625280
+  },
+  "resource_definitions": "PyTorch allocator peaks, not whole-device physical peaks; CPU RSS is process-lifetime high-water.",
+  "precision_limits": [
+    "No low-rank/SVD truncation. FP32 arithmetic and original BF16 target storage remain numerical approximations.",
+    "Cast error is measured against FP32 W0+D, separately relative to D; effective deviation uses stored-W0-D.",
+    "Unchanged elements include coordinates where dense TIES D was already zero; do not attribute all44.22% to BF16 rounding.",
+    "Dense full-model representation differs from primary AVG64 rank64 adapter; not a same-rank capacity comparison.",
+    "Engineering export verification only; no task-quality, inference or loss evaluation performed."
+  ],
+  "shard_files": [
+    {
+      "name": "model-00001-of-00026.safetensors",
+      "bytes": 3996199712
+    },
+    {
+      "name": "model-00002-of-00026.safetensors",
+      "bytes": 1284907696
+    },
+    {
+      "name": "model-00003-of-00026.safetensors",
+      "bytes": 3357898360
+    },
+    {
+      "name": "model-00004-of-00026.safetensors",
+      "bytes": 3370808712
+    },
+    {
+      "name": "model-00005-of-00026.safetensors",
+      "bytes": 3357898360
+    },
+    {
+      "name": "model-00006-of-00026.safetensors",
+      "bytes": 3959424904
+    },
+    {
+      "name": "model-00007-of-00026.safetensors",
+      "bytes": 1096788232
+    },
+    {
+      "name": "model-00008-of-00026.safetensors",
+      "bytes": 3946842008
+    },
+    {
+      "name": "model-00009-of-00026.safetensors",
+      "bytes": 1096460848
+    },
+    {
+      "name": "model-00010-of-00026.safetensors",
+      "bytes": 3946841992
+    },
+    {
+      "name": "model-00011-of-00026.safetensors",
+      "bytes": 1096460752
+    },
+    {
+      "name": "model-00012-of-00026.safetensors",
+      "bytes": 3409971080
+    },
+    {
+      "name": "model-00013-of-00026.safetensors",
+      "bytes": 1633331664
+    },
+    {
+      "name": "model-00014-of-00026.safetensors",
+      "bytes": 3422553872
+    },
+    {
+      "name": "model-00015-of-00026.safetensors",
+      "bytes": 1633659224
+    },
+    {
+      "name": "model-00016-of-00026.safetensors",
+      "bytes": 3946842136
+    },
+    {
+      "name": "model-00017-of-00026.safetensors",
+      "bytes": 1096460608
+    },
+    {
+      "name": "model-00018-of-00026.safetensors",
+      "bytes": 3946841992
+    },
+    {
+      "name": "model-00019-of-00026.safetensors",
+      "bytes": 1096460808
+    },
+    {
+      "name": "model-00020-of-00026.safetensors",
+      "bytes": 3409971072
+    },
+    {
+      "name": "model-00021-of-00026.safetensors",
+      "bytes": 1633331744
+    },
+    {
+      "name": "model-00022-of-00026.safetensors",
+      "bytes": 3370808752
+    },
+    {
+      "name": "model-00023-of-00026.safetensors",
+      "bytes": 3357898392
+    },
+    {
+      "name": "model-00024-of-00026.safetensors",
+      "bytes": 3370808752
+    },
+    {
+      "name": "model-00025-of-00026.safetensors",
+      "bytes": 3832888256
+    },
+    {
+      "name": "model-00026-of-00026.safetensors",
+      "bytes": 2231416848
+    }
+  ],
+  "raw_metadata_receipt": "artifacts/eval/ties-dense-728007/export_receipt_raw.json",
+  "next_action": "Root authorizes any later full-model service. Merge agent handed completed artifact contract to direct_expert_eval; no service/GPU/model request launched."
+}

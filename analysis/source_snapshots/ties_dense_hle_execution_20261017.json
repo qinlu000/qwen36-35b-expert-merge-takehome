@@ -1,0 +1,430 @@
+{
+  "captured_at_utc": "2026-10-16T21:44:12.543268+00:00",
+  "scope": "Read-only follow-up of the root-launched unique controller; no extra model requests or allocations",
+  "snapshot_is_not_transactional": true,
+  "state": {
+    "pid": 782323,
+    "model": "apex-ties-dense",
+    "phase": "generating",
+    "new_gpu_allocations": 2,
+    "at_utc": "2026-10-16T21:43:19.460656+00:00",
+    "project_gpu_count_before": 10,
+    "job_id": 728016,
+    "node": "ACD1-19",
+    "service_end_utc": "2026-10-17T01:33:34+00:00",
+    "stop_admission_at_utc": "2026-10-17T01:28:34+00:00",
+    "tunnel_supervisor_pid": 782811,
+    "generation_pid": 887555,
+    "scoring_pid": 887556,
+    "endpoint": "http://127.0.0.1:28097"
+  },
+  "launch": {
+    "at_utc": "2026-10-16T21:33:26.004379+00:00",
+    "command": [
+      "taskset",
+      "-c",
+      "10,11",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+      "/data/caoqinlu/projects/apex-takehome/scripts/run_ties_dense_hle_control.py",
+      "--project",
+      "/data/caoqinlu/projects/apex-takehome",
+      "--execute"
+    ],
+    "new_method": "fixed TIES-Dense HLE2500 only, main AVG64 unchanged",
+    "authorization": "Root reviewed completed export728007 and control code/fixtures; ordinary/Nice1000, total cap16 and core deadline checked again in driver",
+    "pid": 782323,
+    "starttime_ticks": "868543002",
+    "launched_at_utc": "2026-10-16T21:33:26.005162+00:00"
+  },
+  "controller_claim": {
+    "pid": 782323,
+    "at_utc": "2026-10-16T21:33:26.118249+00:00"
+  },
+  "submit_intent": {
+    "at_utc": "2026-10-16T21:33:27.524619+00:00",
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--partition=acd_u",
+      "--nice=1000",
+      "--time=240",
+      "--exclude=ACD1-30,ACD1-59",
+      "--job-name=apex-hle-ties-dense-20261017",
+      "/data/user/qinlucao/projects/apex-takehome/scripts/serve_direct_experts.slurm",
+      "ties-dense",
+      "18006"
+    ],
+    "existing_project_gpus": 10,
+    "projected_gpus": 12
+  },
+  "export_admission": {
+    "model_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/merges/four-experts-ties-dense-v1-20261017",
+    "snapshot_type": "full_hf_model",
+    "targets_modified": 310,
+    "non_targets_verified_bitwise": 735,
+    "source_base_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "all_tensors": 1045,
+    "shards": 26,
+    "real_weight_svd_calls": 0,
+    "lora_enabled": false,
+    "tensor_dtype_counts": {
+      "torch.bfloat16": 1045
+    },
+    "global_rounding": {
+      "delta_frobenius_squared": 55.47619484306039,
+      "composed_weight_frobenius_squared": 386202.30945907853,
+      "cast_error_squared": 0.6152417167759049,
+      "fp32_addition_roundoff_squared": 1.3814118857115114e-10,
+      "effective_delta_frobenius_squared": 56.248111730007516,
+      "effective_update_deviation_squared": 0.6152417179870803,
+      "cast_error_frobenius": 0.7843734549153897,
+      "cast_error_relative_to_composed_weight": 0.0012621630280071768,
+      "cast_error_relative_to_delta": 0.10530998605700695,
+      "effective_update_deviation_relative_to_delta": 0.10530998616066448,
+      "target_elements": 1409024000,
+      "numerically_unchanged_elements": 623006268,
+      "fully_numerically_unchanged_target_tensors": 0
+    }
+  },
+  "synthetic_acceptance": {
+    "ready": true,
+    "at_utc": "2026-10-16T21:43:19.420178+00:00",
+    "model": "apex-ties-dense",
+    "synthetic_only": true,
+    "model_requests": 2,
+    "formal_or_validation_questions": 0,
+    "semantic_correctness_used_for_admission": false,
+    "checks": [
+      {
+        "vision": false,
+        "usage": {
+          "prompt_tokens": 22,
+          "total_tokens": 33,
+          "completion_tokens": 11,
+          "prompt_tokens_details": null
+        },
+        "token_guard_passed": true
+      },
+      {
+        "vision": true,
+        "usage": {
+          "prompt_tokens": 87,
+          "total_tokens": 97,
+          "completion_tokens": 10,
+          "prompt_tokens_details": null
+        },
+        "token_guard_passed": true
+      }
+    ]
+  },
+  "synthetic_raw_output_paths": [
+    "artifacts/eval/ties_dense_hle2500_20261017/controller/acceptance-text.response.json",
+    "artifacts/eval/ties_dense_hle2500_20261017/controller/acceptance-image.response.json"
+  ],
+  "processes": {
+    "pid": {
+      "pid": 782323,
+      "alive": true,
+      "state": "S",
+      "starttime_ticks": "868543002",
+      "cpu_affinity": [
+        10,
+        11
+      ]
+    },
+    "tunnel_supervisor_pid": {
+      "pid": 782811,
+      "alive": true,
+      "state": "S",
+      "starttime_ticks": "868544362",
+      "cpu_affinity": [
+        10,
+        11
+      ]
+    },
+    "generation_pid": {
+      "pid": 887555,
+      "alive": true,
+      "state": "S",
+      "starttime_ticks": "868602347",
+      "cpu_affinity": [
+        10,
+        11
+      ]
+    },
+    "scoring_pid": {
+      "pid": 887556,
+      "alive": true,
+      "state": "S",
+      "starttime_ticks": "868602347",
+      "cpu_affinity": [
+        10,
+        11
+      ]
+    }
+  },
+  "global_generation": {
+    "expected": 2500,
+    "expected_images": 342,
+    "saved_terminal_results": 112,
+    "started": 162,
+    "incomplete_started": 50,
+    "saved_images": 8,
+    "status_counts": {
+      "completed": 112
+    }
+  },
+  "session_checkpoint": {
+    "state": "running",
+    "admitted": 162,
+    "completed": 112,
+    "active": 50,
+    "at_utc": "2026-10-16T21:44:12.380107+00:00"
+  },
+  "first_saved_formal_result": {
+    "id": "668825f80a642802bdfeadfa",
+    "mode": "formal",
+    "is_image": false,
+    "status": "completed",
+    "prompt_tokens_exact": 125,
+    "usage": {
+      "prompt_tokens": 125,
+      "total_tokens": 135,
+      "completion_tokens": 10,
+      "prompt_tokens_details": null
+    },
+    "finish_reason": "stop",
+    "elapsed_seconds": 3.7842,
+    "started_at_utc": "2026-10-16T21:43:20.818415+00:00",
+    "finished_at_utc": "2026-10-16T21:43:24.602667+00:00",
+    "attempts": [
+      {
+        "path": "/tokenize",
+        "attempt": 1,
+        "http_status": 200,
+        "elapsed_seconds": 0.0118
+      },
+      {
+        "path": "/v1/chat/completions",
+        "attempt": 1,
+        "http_status": 200,
+        "elapsed_seconds": 3.7718
+      }
+    ],
+    "result_path": "artifacts/eval/ties_dense_hle2500_20261017/questions/668825f80a642802bdfeadfa.json",
+    "reported_model": "apex-ties-dense",
+    "nonthinking_observed": true
+  },
+  "run_config": {
+    "mode": "formal",
+    "protocol_sha256": "dcd28455f0ebd81d9e4b9043694eb57e9e42abb6c72f8bbe41cfa01745c1f081",
+    "task_manifest_sha256": "2e1d5aa73537c513878dd69451b6265d01a1131375c724f31ac6a683b2ebbb49",
+    "input_sha256": "6d0ee0602e8aea6b159509577e884f48ecac7b8e3f6822a35f51335a446c726a",
+    "official_source_sha256": "d2062d8afcfb8968f350bbae953e897d4303a6f72a4ae7d97b7db0137a333b17",
+    "runner_sha256": "78249bbdac5c2b03d0b2cd6958f776c26a8ef348513c78a102f49fbce51b0042",
+    "system_prompt_sha256": "40f399fe8c277e2cb98ad8ca663461141d1abbf01a18da3c4129eccc706b4326",
+    "model_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "served_model": "apex-ties-dense",
+    "endpoint": "http://127.0.0.1:28097",
+    "solver_concurrency": 50,
+    "generation": {
+      "temperature": 0.7,
+      "top_p": 0.8,
+      "top_k": 20,
+      "min_p": 0,
+      "presence_penalty": 0,
+      "repetition_penalty": 1,
+      "max_tokens": 8192,
+      "sampling_seed": 0,
+      "scope": "Explicit non-thinking experiment settings for SWE/ASI/HLE; Terminal overrides temperature/top_p. Exact max_tokens applies to every evaluated-model main/helper call, not to grading services or total trial usage."
+    },
+    "thinking": false,
+    "preserve_thinking": false,
+    "question_walltime_seconds": 300,
+    "total_questions": 2500,
+    "grading": "separate; no gold or grading service accessed"
+  },
+  "formal_manifest": {
+    "retained": 2500,
+    "selected": 0,
+    "formal_model": "apex-ties-dense",
+    "selection_rule": "One fixed terminal result per task ID; no score selection or retries"
+  },
+  "scoring_summary": {
+    "complete": false,
+    "expected": 2500,
+    "frozen_terminal_results": 44,
+    "judged_answers": 14,
+    "native_no_answer": 0,
+    "evaluation_invalid": 0,
+    "scored": 14,
+    "pending": 2486,
+    "correct": 0,
+    "accuracy_percent": null,
+    "score": null,
+    "subgroups": {
+      "text": {
+        "denominator": 2158,
+        "scored": 13,
+        "correct": 0,
+        "accuracy_percent": null
+      },
+      "image": {
+        "denominator": 342,
+        "scored": 1,
+        "correct": 0,
+        "accuracy_percent": null
+      }
+    },
+    "selection_states": {
+      "answer": 44,
+      "pending_generation": 2456
+    },
+    "judge_generation_calls": 15,
+    "accounted_cost_cny": 0.0206055,
+    "budget_halted": false,
+    "max_cny": 20.0,
+    "max_calls": 5000,
+    "updated_at_utc": "2026-10-16T21:44:12.467240+00:00",
+    "provider": "DeepSeek-V4-Flash",
+    "official": false,
+    "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+  },
+  "budget": {
+    "original_ledger": "artifacts/eval/ties_dense_hle2500_20261017/scoring/budget.json",
+    "original_call_status_counts": {
+      "completed": 14,
+      "reserved": 2
+    },
+    "max_cny_combined": 20,
+    "max_calls_combined": 5000,
+    "compact_rule": "Two original attempts plus at most one fixed audited compact recovery; no automatic reward selection; independent recovery reservations/calls must count within the same model cap."
+  },
+  "native_metrics": {
+    "num_requests_running": 50.0,
+    "num_requests_waiting": 0.0
+  },
+  "hpc_snapshot": {
+    "project_gpu_count": 12,
+    "jobs": [
+      {
+        "JobId": "728016",
+        "JobName": "apex-hle-ties-dense-20261017",
+        "Partition": "acd_u",
+        "Nice": "1000",
+        "JobState": "RUNNING",
+        "NodeList": "ACD1-19",
+        "ReqTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+        "StartTime": "2026-10-17T05:33:34",
+        "EndTime": "2026-10-17T09:33:34",
+        "TimeLimit": "04:00:00",
+        "requested_gpus": 2
+      },
+      {
+        "JobId": "727912",
+        "JobName": "apex-term-acdu-20261017",
+        "Partition": "acd_u",
+        "Nice": "1000",
+        "JobState": "RUNNING",
+        "NodeList": "ACD1-22",
+        "ReqTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+        "StartTime": "2026-10-17T04:26:28",
+        "EndTime": "2026-10-18T02:01:28",
+        "TimeLimit": "21:35:00",
+        "requested_gpus": 2
+      },
+      {
+        "JobId": "727913",
+        "JobName": "apex-avgexec-acdu-20261017",
+        "Partition": "acd_u",
+        "Nice": "1000",
+        "JobState": "RUNNING",
+        "NodeList": "ACD1-22",
+        "ReqTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+        "StartTime": "2026-10-17T04:26:28",
+        "EndTime": "2026-10-18T02:09:28",
+        "TimeLimit": "21:43:00",
+        "requested_gpus": 2
+      },
+      {
+        "JobId": "727879",
+        "JobName": "apex-asi-acdu-migrate-20261017",
+        "Partition": "acd_u",
+        "Nice": "1000",
+        "JobState": "RUNNING",
+        "NodeList": "ACD1-8",
+        "ReqTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+        "StartTime": "2026-10-17T04:15:55",
+        "EndTime": "2026-10-18T02:03:55",
+        "TimeLimit": "21:48:00",
+        "requested_gpus": 2
+      },
+      {
+        "JobId": "727856",
+        "JobName": "apex-hle-normal-merged",
+        "Partition": "acd_u",
+        "Nice": "1000",
+        "JobState": "RUNNING",
+        "NodeList": "ACD1-20",
+        "ReqTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+        "StartTime": "2026-10-17T04:02:33",
+        "EndTime": "2026-10-18T02:19:33",
+        "TimeLimit": "22:17:00",
+        "requested_gpus": 2
+      },
+      {
+        "JobId": "727857",
+        "JobName": "apex-hle-normal-controls",
+        "Partition": "acd_u",
+        "Nice": "1000",
+        "JobState": "RUNNING",
+        "NodeList": "ACD1-30",
+        "ReqTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+        "StartTime": "2026-10-17T04:02:33",
+        "EndTime": "2026-10-17T23:39:33",
+        "TimeLimit": "19:37:00",
+        "requested_gpus": 2
+      }
+    ],
+    "service_launch": {
+      "profile": "ties-dense",
+      "port": 18006,
+      "model_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/merges/four-experts-ties-dense-v1-20261017",
+      "base_alias": "apex-ties-dense",
+      "lora_enabled": false,
+      "max_num_seqs": 50,
+      "context_tokens": 65536,
+      "output_cap_per_request": 8192,
+      "thinking": false,
+      "preserve_thinking": false,
+      "dense_export": {
+        "snapshot_type": "full_hf_model",
+        "targets_modified": 310,
+        "non_targets_verified_bitwise": 735,
+        "source_base_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+        "all_tensors": 1045,
+        "shards": 26,
+        "real_weight_svd_calls": 0,
+        "lora_enabled": false,
+        "tensor_dtype_counts": {
+          "torch.bfloat16": 1045
+        },
+        "global_rounding": {
+          "delta_frobenius_squared": 55.47619484306039,
+          "composed_weight_frobenius_squared": 386202.30945907853,
+          "cast_error_squared": 0.6152417167759049,
+          "fp32_addition_roundoff_squared": 1.3814118857115114e-10,
+          "effective_delta_frobenius_squared": 56.248111730007516,
+          "effective_update_deviation_squared": 0.6152417179870803,
+          "cast_error_frobenius": 0.7843734549153897,
+          "cast_error_relative_to_composed_weight": 0.0012621630280071768,
+          "cast_error_relative_to_delta": 0.10530998605700695,
+          "effective_update_deviation_relative_to_delta": 0.10530998616066448,
+          "target_elements": 1409024000,
+          "numerically_unchanged_elements": 623006268,
+          "fully_numerically_unchanged_target_tensors": 0
+        }
+      }
+    }
+  }
+}

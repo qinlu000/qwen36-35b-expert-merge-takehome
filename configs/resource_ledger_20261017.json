@@ -8,7 +8,10 @@
   "account": "qinlucao",
   "extra_jobs": {
     "727689": "analysis/source_snapshots/sft_loss_only_execution_20261017.json; scripts/evaluate_sft_loss_only.py; merge owner confirmed 4-GPU loss-only job",
-    "727948": "artifacts/merges/ties-pilot-submit-20261017/receipt.json; one-GPU fixed six-shape TIES pilot"
+    "727948": "artifacts/merges/ties-pilot-submit-20261017/receipt.json; one-GPU fixed six-shape TIES pilot",
+    "727967": "analysis/source_snapshots/ties_pilot_727967_20261017.json; successful six-shape pilot,10 seconds",
+    "728007": "analysis/source_snapshots/ties_dense_export_728007_20261017.json; full HF TIES-Dense export,129 seconds",
+    "728016": "analysis/source_snapshots/ties_dense_hle_execution_20261017.json; ordinaryTP2 full-model HLE-only method comparison"
   },
   "api_ledgers": [
     {"name": "HLE teacher data", "path": "artifacts/data/candidates/night_hle_20261016/teacher_api_ledger.jsonl", "kind": "usd_rows"},
@@ -27,6 +30,7 @@
     {"name": "Mixed HLE task control Judge", "path": "artifacts/eval/mixed883_hle2500_20261017/scoring/budget.json", "kind": "budget"},
     {"name": "Mixed HLE compact Judge recovery", "path": "artifacts/eval/mixed883_hle2500_20261017/scoring/compact-recovery-20261017/budget.json", "kind": "budget"},
     {"name": "AVG16 HLE compression control Judge", "path": "artifacts/eval/avg16_hle2500_20261017/scoring/budget.json", "kind": "budget"},
+    {"name": "TIES-Dense HLE method Judge", "path": "artifacts/eval/ties_dense_hle2500_20261017/scoring/budget.json", "kind": "budget"},
     {"name": "ASI expert formal Judge", "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls.jsonl", "kind": "journal"},
     {"name": "AVG64 ASI formal Judge", "path": "artifacts/eval/avg64_asi240_20261017/scoring/judge_calls.jsonl", "kind": "journal"}
   ],
@@ -35,6 +39,7 @@
     "artifacts/results/base-gap-completion-20261017/swe51_summary.json",
     "artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json",
     "artifacts/eval/swe249_audited_hard51_20261017/summary.json",
+    "artifacts/eval/avg64_swe_audited_hard51_20261017/summary.json",
     "artifacts/results/base-terminal-independent-repair32-20261016/corrected445_summary.json",
     "artifacts/eval/base_swe_v2_20261016_clean28/corrected51_summary.json",
     "artifacts/runs/hle_judge_v2_20261016/summary.json",
@@ -50,6 +55,7 @@
     "artifacts/eval/hle250_hle2500_20261017/scoring/summary.json",
     "artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
     "artifacts/eval/mixed883_hle2500_20261017/scoring/summary.json",
-    "artifacts/eval/avg16_hle2500_20261017/scoring/summary.json"
+    "artifacts/eval/avg16_hle2500_20261017/scoring/summary.json",
+    "artifacts/eval/ties_dense_hle2500_20261017/scoring/summary.json"
   ]
 }

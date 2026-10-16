@@ -1,0 +1,108 @@
+{
+  "recorded_at_utc": "2026-10-16T21:27:42.132083+00:00",
+  "state": "prepared_for_root_review_not_submitted",
+  "script": "scripts/merge_ties_dense.py",
+  "config": "configs/merge/four_experts_ties_dense_v1.json",
+  "slurm": "scripts/merge_ties_dense.slurm",
+  "output_root": "artifacts/merges/four-experts-ties-dense-v1-20261017",
+  "method": {
+    "density": 0.2,
+    "majority_sign_method": "total",
+    "weights": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "lambda": 1,
+    "real_delta": "(alpha/r)*B@A exactly once",
+    "svd_calls_in_dense_path": 0,
+    "arithmetic_dtype": "FP32",
+    "target_storage_dtype": "original BF16",
+    "selected_final": false
+  },
+  "hpc_base_header_preflight": {
+    "base_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "header_bytes_read": 131368,
+    "tensor_payload_bytes_read": 0,
+    "shards": 26,
+    "all_tensors": 1045,
+    "targets": 310,
+    "non_targets": 735,
+    "target_shapes_match": true,
+    "target_dtype_counts": {
+      "BF16": 310
+    },
+    "non_target_dtype_counts": {
+      "BF16": 735
+    },
+    "target_elements": 1409024000
+  },
+  "checks": {
+    "local_torch": "2.5.1",
+    "hpc_actual_container_torch": "2.11.0+cu130",
+    "local_and_hpc_cpu_tiny_passed": true,
+    "shared_tiny_checks": 7,
+    "dense_tiny_checks": 5,
+    "dense_tiny_shards": 2,
+    "dense_tiny_all_tensors": 5,
+    "dense_tiny_targets": 2,
+    "dense_tiny_non_targets": 3,
+    "dense_svd_spy_calls": 0,
+    "non_target_nan_and_signed_zero_preserved": true,
+    "python_ast_json_bash_checks_passed": true,
+    "shared_tiny_checks_include_only_synthetic_cpu_svd": true,
+    "production_does_not_call_shared_svd_self_test": true
+  },
+  "hpc_three_files_synced": true,
+  "completion_contract": {
+    "marker": "EXPORT_COMPLETE.json",
+    "report": "merge_report.json",
+    "manifest": "merge_manifest.json",
+    "snapshot_type": "full_hf_model",
+    "passed": true,
+    "targets_modified": 310,
+    "non_targets_verified_bitwise": 735,
+    "all_tensors": 1045,
+    "shards": 26,
+    "reload_verified": true,
+    "sources_unchanged": true,
+    "real_weight_svd_calls": 0,
+    "selected_final": false,
+    "note": "These are required final fields, not an already-produced completion marker."
+  },
+  "verification_design": [
+    "write one shard to a new temporary file then atomic rename, never hardlink source weights",
+    "reopen each saved shard; same keys/shapes/dtypes; target output bits and735 non-target source bits compared",
+    "all1045 keys appear once and index total_size matches unchanged logical tensor bytes",
+    "copied HF config/tokenizer/chat/vision/license assets are self-contained ordinary files",
+    "source weight/config/asset size andmtime unchanged before/after",
+    "completion marker written last after full finished report and manifest"
+  ],
+  "rounding_report": [
+    "||cast(W0FP32+D)-(W0FP32+D)||F absolute and relative to composed weight andD",
+    "FP32 addition roundoff vsFP64 arithmetic over inputFP32 values",
+    "||stored-W0-D||F relative toD as effective-update deviation",
+    "per-module/global numerical unchanged counts afterBF16 storage"
+  ],
+  "resources": {
+    "partition": "acd_u",
+    "nice": 1000,
+    "gpus": 1,
+    "cpus": 8,
+    "memory": "64G",
+    "time_limit": "00:30:00",
+    "gpu_total_must_be_rechecked_before_root_submission": true
+  },
+  "review_command": "sbatch scripts/merge_ties_dense.slurm",
+  "constraints": {
+    "job_submitted": false,
+    "real_weight_export_started": false,
+    "gpu_allocations": 0,
+    "model_requests": 0,
+    "training_or_loss_evaluations": 0,
+    "old_svd_artifacts_modified": false,
+    "primary_avg64_modified": false
+  },
+  "independent_review": "terminal_expert_eval static review passed; no blocking mathematics, mapping, memory or completion-order issue"
+}
