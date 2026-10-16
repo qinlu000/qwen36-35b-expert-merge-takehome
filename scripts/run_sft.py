@@ -28,6 +28,10 @@ def main():
         '--val_dataset', str(args.data_dir / 'val.messages.jsonl'),
         '--max_length', str(args.max_length), '--truncation_strategy', 'delete',
         '--group_by_length', 'true',
+        '--use_liger_kernel', 'true', '--liger_kernel_config', json.dumps({
+            'rope': False, 'rms_norm': False, 'swiglu': False,
+            'cross_entropy': False, 'fused_linear_cross_entropy': True}),
+        '--prediction_loss_only', 'true',
         '--num_train_epochs', '1', '--per_device_eval_batch_size', '1',
         '--eval_strategy', 'steps', '--eval_steps', '16', '--save_steps', '16',
         '--output_dir', str(output / 'training')]

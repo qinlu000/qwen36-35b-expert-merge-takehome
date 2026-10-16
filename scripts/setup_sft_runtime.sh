@@ -29,6 +29,9 @@ export DS_BUILD_OPS=0
 # Its supported 3.7.1 compiler overrides Torch 2.11's distribution metadata pin.
 "$APEX_UV" pip install --offline --no-deps --find-links "$APEX_WHEELS" \
     --python-platform x86_64-manylinux_2_35 --python "$APEX_ENV/bin/python" 'triton==3.7.1'
+# Official Qwen3.5-MoE fused linear CE avoids full sequence-by-vocabulary buffers.
+"$APEX_UV" pip install --offline --no-deps --python "$APEX_ENV/bin/python" \
+    "$APEX_PROJECT/artifacts/wheelhouse/liger_kernel-0.8.2-py3-none-any.whl"
 mkdir -p "$APEX_PROJECT/artifacts/preflight/sft-runtime"
 APEX_CHECK="$APEX_PROJECT/artifacts/preflight/sft-runtime/dependency_check.txt"
 # Preserve metadata warnings (Torch's older compiler pin and decord's stale ABI tag).

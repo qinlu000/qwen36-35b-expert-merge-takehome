@@ -1085,3 +1085,10 @@
 - Terminal发现runtime6单题tmux缺libutempter又取消15peer，当前396从未准入；至少5旧reward0是curl/uvx缺失导致原生tests未运行，必须改infra-invalid并恢复原答卷评分。owner正隔离单项infra错误、补私有harness/原PATH/官方依赖、纠正隐藏600s verifier HTTP deadline为官方3600s；后续评分失败在cleanup前保留必要输出或就地恢复评分。
 - Terminal无在途，已把旧maxseq4服务725545替换为新726129/ACD1-32/36h/TP2/maxseq8，仍80:28082；新模型加载中，健康后直接全量16solver/CPU0至63。旧服务已释放；新job固定release白名单和常驻release配置同步。短暂部署8张baseline卡，稳定仍6张，不触碰其他会话SFT。
 - 统一只读最终汇总PID2380282/scope apex-baseline-final-collector-20261016，CPU86/256MiB，每30秒读各owner摘要，输出80 artifacts/results/base_baseline_final_20261016/{summary.json,report.md}，四项完整有效才complete。固定2500/240/51/445；TB5乘89仅齐全才报mean与sample SD(ddof1)，不把四种指标平均，不把缺失或infra填0。
+
+
+## 2026-10-16：长序列SFT等价内存优化
+
+- SWE四卡726017首长batch在FLA反向Triton autotune OOM，0步；终端与科研编程四卡726065在大词表CE/反向OOM，0步，均无checkpoint且失败日志保留。
+- 独立sft新增官方Liger0.8.2；通用入口只启用fused-linear交叉熵，rope/rmsnorm/swiglu/cross_entropy替换均关闭。保持原shift/-100 mask、交叉熵目标、完整数据、64K/r16/global8。验证只返回相同val loss，prediction_loss_only让官方Trainer跳过巨大logits，不再计算token_acc。HLE已完成的旧入口不变。
+- 唯一SWE四卡替代726162已提交；Mixed726073依赖已更新afterok:726162，执行由其owner按同入口重提。提交不等于优化步成功，继续看真实首长batch。
