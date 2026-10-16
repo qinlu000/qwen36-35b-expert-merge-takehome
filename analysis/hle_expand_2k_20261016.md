@@ -1,5 +1,7 @@
 # HLE 强教师 2k 扩量（2026-10-16）
 
+> **已停止（2026-10-16 17:45 CST，覆盖下文旧执行状态）**：用户决定复用已有500/100与已完成的非思考训练模型。新生成PID2603822已按STOP_ADMISSION收尾退出，后续PID2611502已终止，预留HLE训练726344已取消；新High候选不进入当前训练。最后809次尝试、722个合格答案，stop_reason=manual_stop_admission。保守累计69.62712336元含历史与未知返回上界，不是精确扣款。原数据/回答/账本保留。Mixed已按HLE500重建为5573/249；当前方案见[sft_progress](sft_progress_20261016.md)。
+
 状态：数据准备完成，16并发High滚动生成中；交接时最新实读**153/1183 accepted**，21条gold不匹配拒收，另有4个切换时在途用量未知请求。带历史与未知费用上界累计保守**¥17.86745232**。生成PID2603822与后续PID2611502均alive，后续phase为`waiting_for_high_generation`。尚未宣称2k可训文件完成。本分支不提交新GPU作业或Git，不更改历史500/100导出；数据全部确认后仅释放已获授权的held HLE作业726344。
 
 新目录：`artifacts/data/candidates/night_hle_20261016/expanded_2k/`。80项目根为`/data/caoqinlu/projects/apex-takehome`；最终文件完成后同步Mac与HPC。

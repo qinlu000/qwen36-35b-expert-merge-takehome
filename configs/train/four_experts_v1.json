@@ -23,7 +23,7 @@
       "requested_train_rows": 2000,
       "status": "2000 complete trajectories materialized; original val preserved",
       "job_id": 726345,
-      "afterok": [726336, 726344],
+      "afterok": [726336],
       "val_rows": 42,
       "max_length": 65536
     },
@@ -33,12 +33,9 @@
       "benchmark": "HLE",
       "data_dir": "artifacts/data/candidates/night_hle_20261016/swift_ready",
       "train_rows": 500,
-      "requested_train_rows": 2000,
-      "status": "Historical 500-row run retained; new High-teacher 2000-row replacement generating",
-      "planned_data_dir": "artifacts/data/candidates/night_hle_20261016/expanded_2k",
-      "planned_max_length": 65536,
-      "planned_job_id": 726344,
-      "planned_job_state": "held_until_data_and_mixed_ready",
+      "requested_train_rows": 500,
+      "status": "Reuse completed 500-row non-thinking SFT per latest user instruction; no new HLE training",
+      "cancelled_expansion_job_id": 726344,
       "val_rows": 100,
       "max_length": 2048,
       "completed_run": "artifacts/runs/hle-sft-r16-725704"
@@ -57,14 +54,12 @@
     }
   ],
   "mixed_control": {
-    "data_dir": "artifacts/data/candidates/mixed_sft_20261016",
-    "train_rows": 1404,
+    "data_dir": "artifacts/data/candidates/mixed_expanded_20261016",
+    "train_rows": 5573,
     "val_rows": 249,
-    "status": "Historical pool only; rebuild from all new expert partitions before training",
-    "planned_data_dir": "artifacts/data/candidates/mixed_expanded_20261016",
-    "planned_train_rows": 7073,
-    "planned_job_id": 726346,
-    "afterok": [726335, 726344],
+    "status": "Ready on HPC with historical HLE500 reused; waiting for SWE allocation to finish",
+    "job_id": 726346,
+    "afterok": [726335],
     "rule": "Same four expert partitions, each example once; excluded from merging"
   },
   "merging": {

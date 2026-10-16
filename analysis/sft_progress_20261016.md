@@ -1,33 +1,45 @@
-# SFT 进度（2026-10-16）
+# SFT 进度（2026-10-16，17:45 CST）
 
-四专家为仓库修复→SWE、终端操作→Terminal、学术推理→HLE、科研编程→ASI。ASI采用direct_llm一次生成完整Python。Mixed是同一四份训练分区并集各一次的单独对照，不计入专家、不参与合版。
+用户最新决定：HLE不再生成2000条答案，直接复用已有已清理答案和关闭thinking的训练结果。HLE采用原500 train /100 val与已完成725704；不重训HLE，不把新High生成结果自动混入。以下为当前执行方案，覆盖此前High2k与Mixed7073安排。
 
 | 模型 | train / val | 当前状态 |
 |---|---:|---|
-| SWE | **2000 / 87** | 新正式作业**726335**，4H100、16h上限；最后读取PENDING(Resources)，尚无优化步 |
-| Terminal | **2000 / 42** | **726345**，4卡，依赖ASI726336及HLE726344成功后接替 |
-| HLE | 旧500 / 100，新目标2000 / 原100 | 725704完成63步、43分34秒；新主训改用强教师High，旧结果保留 |
-| ASI | **1073 / 20** | **726336**，2卡RUNNING，已完成真实optimizer **7/134步**，最近loss0.6613 |
-| Mixed | 新计划**7073 / 249**，旧池历史保留 | **726346**，4卡依赖SWE726335及HLE726344成功；新并集就绪后才释放HLE |
+| SWE / 仓库修复 | 2000 /87 | 726335，4H100，PENDING(Resources)，尚未训练 |
+| Terminal / 终端操作 | 2000 /42 | 726345，4H100，仅依赖ASI726336成功 |
+| HLE / 学术推理 | **500 /100** | 725704已完成63步；复用已有权重，无新训练 |
+| ASI / 科研编程 | 1073 /20 | 726336，2H100，最新只读快照121/134步，已保存checkpoint112 |
+| Mixed对照 | **5573 /249** | 726346，4H100，仅依赖SWE726335成功；新数据已同步HPC |
 
-旧held SWE726162、旧Mixed726073、旧Terminal726180均在PENDING/0运行时取消，避免旧数据引用或失败依赖。没有取消任何baseline或其他项目作业。新SWE引用artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/，Mac/80/HPC已实读2000/87；原448训练全保留，val逐字节相同。完整序列67,735,326 tokens，946仓库；最长65,424，最长单回复4,702。Go供给不足，缺额按其他目标语言比例重分配，不声称精确匹配benchmark比例。[SWE详情](swe_expand_2k_20261016.md)
+四个专家彼此独立；ASI为direct_llm一次生成Python。Mixed是相同四份训练分区并集各一次，不计入专家，也不参与合版。
 
-Terminal已完成2000条：Horizon1107全留＋Pivot893个不同UID，共1303个来源任务键、71,660,040完整tokens，最长65,507。Pivot选自580个ATCB任务，教师实际unsuffixed GLM-5.1共332、官方FP8共561，原样记录精度名。新目录artifacts/data/candidates/terminal_sft_2k_20261016/已三端同步，原42轨迹val和99任务val不变。作者过滤post-completion confirmations，因此采用完整初始历史至最后发布完成动作、且之后无执行动作的语义；排除较早失败完成尝试，不将31111决策点当完整轨迹。不截断、复制或新造观察。[Terminal详情](terminal_expand_2k_20261016.md)
+## HLE生成与后续已停止
 
-## 教师能力与新HLE/ASI数据
+80生成PID2603822已退出，summary.stop_reason=manual_stop_admission；STOP_ADMISSION已设置，无新增请求。最后809条尝试、722个High答案合格，作为未使用的历史候选保留，未导入当前HLE500或Mixed。原自动后续PID2611502已终止，followup_state.json已记cancelled_by_user_reuse_hle500、released=false。预留HLE2卡726344确认0运行后取消。
 
-用户最新明确：生成轨迹的模型不能比Base弱。官方证据见[教师强度核查](teacher_strength_gate_20261016.md)：GLM-5.1 TB2.0/Terminus2为63.5、Base同harness家族51.5；Qwen3.8-Flash-Next SWE Pro62.5对Base49.5，但scaffold/预算不同；V4-Pro High HLE34.5对Base21.4也非严格同协议证明。优先保留这些有强教师依据的来源，不自动混旧M2/V3.2或Science-v2中的弱教师。
+High分支最终保守累计69.62712336元，含此前学术账2.62661616元、4次未知返回的潜在上界8.55482496元，以及按峰值价格/8元换算安全系数计算的用量；这是内部保守记账，不是精确账单。原始回答、接受/拒收记录和usage仍保留，未因停止而删除。
 
-重要修正：此前fresh HLE296条实际thinking.disabled，不能用V4-Pro High分数背书。旧500数据、已完成权重与原100val保持历史原样；新2000主训计划Math817个现成V4-Pro High题＋七类1183个金标题由V4-Pro High重解（包括原296题），hidden reasoning不进入SFT。教师High生成不改变学生训练/正式评测非思考协议。80现用16并发滚动PID2603822；首4真实题均gold匹配并用于新池，旧4路切换时至多4个未返回请求以未知usage/潜在费用上界8.55482496元计账，已落盘53个accepted保留。新输出使用expanded_2k独立目录，不覆盖历史。HLE2卡726344目前held，待HLE完整2000/100和Mixed7073/249导出、同步、计数通过后才release；80已有SSH私钥直连HPC可供一次性后续流程使用，无需本机常驻。
+## 复用原HLE与Mixed
 
-ASI已补DS-1000人工976与SciCode人工15主任务，加SAB82共1073训练；val20字节原样。完整train594275tokens/max12295，valmax23056，新增最大回答3110，全64K/8K内。24条DS（6族）因与SABval原输入13gram重叠保守排除，正式ASI240公开输入无命中。EcoCoder虽为V4-Pro High且train有459个Python样本，部分将真实实验问题改成随机模拟，未直接全混。辅助原始补全不伪称ASI完整文件任务，现成参考SFT不先搭环境。[ASI记录](asi_expand_20261016.md)
+HLE路径：artifacts/data/candidates/night_hle_20261016/swift_ready，500/100；完整train243140 tokens、最长1531，val最长582。训练enable_thinking=false，messages没有reasoning_content或think标签，2048内部cap没有截断。原teacher provenance为204条现成Math-v4 High加296条DeepSeek非思考生成，不能将500条全部称为教师原始生成都关闭thinking。
 
-## 训练配方与实际限制
+已核旧模型checkpoint16、checkpoint63及retained16文件齐全。checkpoint16 val loss2.62409234、checkpoint63为3.15466952，Trainer最佳记录为16；保留两者用于既定dev选择，不将val loss当HLE benchmark成绩。模型根目录artifacts/runs/hle-sft-r16-725704/training/。
 
-保持r16/alpha32/dropout.05、global8、LR1e-4、weight_decay.1、一epoch、原loss mask。长序列64K/单回复8K，完整样本不截断。旧HLE2K cap没有裁剪（原最长1531），新HLE将按实际完整长度选足够cap，不按旧2K筛数据。Liger仅启用fused-linear CE；旧长序列CE/FLA OOM均0步，无checkpoint，尚未证明真实64K batch已能反向。
+Mixed已实际重建到artifacts/data/candidates/mixed_expanded_20261016，来源顺序HLE500→SWE2000→Terminal2000→ASI1073，每条一次；验证100/87/42/20共249，保持原内容。80/HPC实际行数和summary确认5573/249；没有覆盖已运行的训练目录，没有重采样、截断或新增教师。[复用与Mixed记录](hle_reuse_500_mixed_20261016.md)
 
-run_sft.py和swift_sft_from_config.py保留Liger真dict，ASI726336实际完成前后向并到7/134步，最近loss0.66132712、grad_norm1.24585、Trainer memory42.16GiB；这证明当前ASI完整数据上的Liger/ZeRO3双卡路径通过，不能外推到SWE64K反向。SWE726260实际在ACD1-59因Apptainer helper缺libfuse3挂载失败127/0步；wrapper仅排除该实证故障节点并重提726335，没有为此新增GPU探针。HLE旧checkpoint63和16保留，val loss2.624→3.155，不能宣称HLE提升；曲线curves/hle_sft_725704_loss.*。
+## 其余数据与训练
 
-HLE最新快照为153/1183个新High解答合格，累计保守记账17.8675元（含历史和4个未知返回的潜在上界，不是精确扣款）。生成PID2603822与一次性后续PID2611502均在80存活；后续状态expanded_2k/followup_state.json为waiting_for_high_generation。它在配额满足后自动导出HLE2000/100、构建Mixed7073/249、同步HPC并核数/原val字节，最后仅release726344；失败记状态并保持held，无需本机常驻。入口scripts/finish_hle_2k_and_mixed.py。
+SWE新目录new_swe_20261016/expanded_2k/swift_ready64k：原448全保留、val87原样，67,735,326完整tokens/946仓库；Go供给不足的缺额按其他目标语言比例分配，不声称精确benchmark比例。[SWE记录](swe_expand_2k_20261016.md)
 
-项目GPU上限16；按baseline最多8卡预留，SWE/Terminal各4卡。HLE/ASI小组需排在Terminal之前或专家空位，Mixed接替释放的4卡，避免额外并发超额。没有新建自动化、额外环境验收或数据hash。
+Terminal新目录terminal_sft_2k_20261016：Horizon1107＋Pivot893个不同UID，共1303来源任务键、71,660,040完整tokens，最长65507。Pivot来自580个ATCB任务，GLM-5.1原名332/官方FP8原名561；原val42及独立task-val99不变。恢复完整初始历史至末发布完成动作，排除完成后仍有执行动作的候选，不把决策点当完整轨迹。[Terminal记录](terminal_expand_2k_20261016.md)
+
+ASI新目录asi_sft_expanded_20261016：SAB82完整程序＋DS-1000人工976＋SciCode人工15主解，共1073；val20原样。完整train594275tokens/max12295，valmax23056，新增最大回答3110。辅助代码保留原始片段性质，不伪称ASI完整文件任务。[ASI记录](asi_expand_20261016.md)
+
+ASI726336已真实前后向，最新121/134步train loss0.36261481，checkpoint112 val loss0.583276（step16为0.730787），仅为SFT验证损失，不外推benchmark提升。SWE尚排队，实际64K SWE反向未验证。此前SWE726260在ACD1-59容器挂载缺libfuse3、0步退出；wrapper仅排除该实证故障节点，不另起GPU探针。
+
+## 配方、资源与依赖
+
+保持r16/alpha32/dropout.05、global8、LR1e-4、weight_decay.1、一epoch、原loss mask；长序列64K/单回复8K、完整样本不截断。Liger只启用fused-linear CE；原生dict配置与双卡ASI路径已有真实优化步证据。
+
+Terminal726345依赖仅afterok:726336，Mixed726346依赖仅afterok:726335；已移除取消HLE726344的依赖并用scontrol核实。以baseline最多8卡预留，SWE4与ASI2合计最多14；ASI结束后Terminal4接替，SWE结束后Mixed4接替，最多16卡。未操作其他项目或Base评测作业，没有新hash、环境验收或app自动化。
+
+此前强教师来源研究保留于[教师证据](teacher_strength_gate_20261016.md)；本次按用户最新决定复用已有HLE，不继续追加High生成或以此重训。

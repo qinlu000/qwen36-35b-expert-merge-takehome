@@ -1141,3 +1141,13 @@
 - HLE High已切16并发PID2603822；最新153/1183 accepted，累计保守17.8675元含历史及4次未知返回最大潜在8.5548元。切换仅至多4次教师API可能重试，已按上界记账、既有accepted保留，不影响任何baseline请求。此内部保守累计不等于实际扣款。
 - 80一次性后续PID2611502已常驻（finish_hle_2k_and_mixed.py），等待生成结束后核完整配额/High模式→export HLE2000/原100val→Mixed7073/249→用80已有SSH身份直连HPC同步核数/val原字节→仅release held HLE2卡726344。当前followup_state为waiting_for_high_generation。任何失败留held并记录，不依赖Mac，不新增app自动化。
 - Terminal4卡726345依赖afterok:726336:726344，Mixed4卡726346依赖afterok:726335:726344；Mixed每个新来源各一次，不参与专家合版。按baseline最多8卡，先SWE4+ASI2+HLE2，随后Terminal4接小组/Mixed4接SWE，始终项目最多16卡。四专家矩阵与sft_progress已更新，原已完成HLE500权重只保留历史，不伪称新High2k已训练。
+
+
+## 2026-10-16 17:45 CST：按用户最新决定复用HLE500，停止新生成
+
+- 用户明确“HLE两千条生成答案可能太多，直接用已有不开thinking结果”。已停止新High准入，PID2603822完成在途后退出，summary=manual_stop_admission；原后续PID2611502终止、followup_state改cancelled_by_user_reuse_hle500/released=false，预留726344在0运行时取消，不重训HLE。
+- 回用原500train/100val和已完成725704。原训练enable_thinking=false、messages无reasoning_content/think、max1531完整放入2K；原teacher provenance为204现成MathHigh＋296非思考新解，不声称所有教师原始生成模式都无thinking。checkpoint16/63和retained16完整可用，val分别2.62409/3.15467，最佳记录16；未据此声称HLE成绩提升。
+- High未用候选/原始响应/账本保留：最后809尝试/722accepted，保守累计69.62712336元（含历史2.6266与4次未知返回上界8.5548；不是精确账单），没有自动加进当前HLE或Mixed。
+- Mixed已实际重建并同步HPC **5573/249**：HLE500→SWE2000→Terminal2000→ASI1073各一次，验证100/87/42/20保持原样。目录mixed_expanded_20261016，原目录为空，无7073训练被覆盖，未截断/重采样/新增API或环境验收。
+- Slurm已核依赖：Terminal726345仅afterok:726336(ASI)，Mixed726346仅afterok:726335(SWE)，取消HLE不再阻塞其余组。按baseline最多8卡，训练两组4卡最多16；ASI结束前仅SWE4+ASI2。最新只读ASI121/134步，checkpoint112 val0.583276；SWE仍排资源，未动任何baseline或其他项目。
+- 四专家矩阵与analysis/sft_progress_20261016.md已切回当前方案，旧High扩量报告顶端明确停止。按最新授权不再为HLE模型强度争议追加生成，保持r16/64K8K与其余数据不变；由root只提交本轮自有文件和共享文档追加段，无coauthor信息。
