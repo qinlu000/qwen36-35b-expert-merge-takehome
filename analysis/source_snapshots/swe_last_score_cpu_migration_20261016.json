@@ -1,0 +1,160 @@
+{
+  "as_of": "2026-10-16T16:58:56.757711",
+  "task_id": "instance_flipt-io__flipt-3d5a345f94c2adc8a0eaa102c189c08ad4c0f8e8",
+  "scope": "apex-baseline-accdd68af63a.scope",
+  "current_replay": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_flipt-io__flipt-3d5a345f94c2adc8a0eaa102c189c08ad4c0f8e8",
+  "action": "same live fresh replay scope migrated CPU77 to124 via systemd AllowedCPUs and all-thread sched_setaffinity",
+  "original_cpu_ids": [
+    77
+  ],
+  "after_properties": {
+    "ControlGroup": "/user.slice/user-1012.slice/user@1012.service/app.slice/apex-baseline-accdd68af63a.scope",
+    "AllowedCPUs": "124",
+    "MemoryMax": "4294967296",
+    "MemorySwapMax": "0",
+    "ActiveState": "active"
+  },
+  "after_thread_affinities": {
+    "2574628": [
+      124
+    ],
+    "2574689": [
+      124
+    ],
+    "2574691": [
+      124
+    ],
+    "2574692": [
+      124
+    ],
+    "2574696": [
+      124
+    ],
+    "2574701": [
+      124
+    ],
+    "2574702": [
+      124
+    ],
+    "2574703": [
+      124
+    ],
+    "2574704": [
+      124
+    ],
+    "2574705": [
+      124
+    ],
+    "2574708": [
+      124
+    ],
+    "2574709": [
+      124
+    ],
+    "2574711": [
+      124
+    ],
+    "2574713": [
+      124
+    ],
+    "2574714": [
+      124
+    ],
+    "2574725": [
+      124
+    ],
+    "2574726": [
+      124
+    ],
+    "2574731": [
+      124
+    ],
+    "2574732": [
+      124
+    ],
+    "2574733": [
+      124
+    ],
+    "2574738": [
+      124
+    ],
+    "2574739": [
+      124
+    ],
+    "2574740": [
+      124
+    ],
+    "2574741": [
+      124
+    ],
+    "2574742": [
+      124
+    ],
+    "2574748": [
+      124
+    ],
+    "2574749": [
+      124
+    ],
+    "2574765": [
+      124
+    ],
+    "2574775": [
+      124
+    ],
+    "2574926": [
+      124
+    ],
+    "2575056": [
+      124
+    ],
+    "2575057": [
+      124
+    ],
+    "2575058": [
+      124
+    ],
+    "2578179": [
+      124
+    ],
+    "2578180": [
+      124
+    ],
+    "2578181": [
+      124
+    ],
+    "2578480": [
+      124
+    ],
+    "2578481": [
+      124
+    ],
+    "2578482": [
+      124
+    ],
+    "2578483": [
+      124
+    ],
+    "2578576": [
+      124
+    ],
+    "2590451": [
+      124
+    ],
+    "2590452": [
+      124
+    ],
+    "2590453": [
+      124
+    ]
+  },
+  "cpuset_cpus_effective_file_present": false,
+  "enforcement": "verified all live thread masks124; descendants inherit; original seccomp affinity expansion denial unchanged",
+  "model_repeated": false,
+  "patch_changed": false,
+  "grading_restarted": false,
+  "original_timing_and_process_preserved": true,
+  "no_pending_generation_or_replay": true,
+  "last_condition_after_current_replay": "aggregate then return; no future run_phase/old CPU pool acquisition",
+  "remaining_legacy_scope_processes": []
+}

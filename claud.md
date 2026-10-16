@@ -1151,3 +1151,11 @@
 - Mixed已实际重建并同步HPC **5573/249**：HLE500→SWE2000→Terminal2000→ASI1073各一次，验证100/87/42/20保持原样。目录mixed_expanded_20261016，原目录为空，无7073训练被覆盖，未截断/重采样/新增API或环境验收。
 - Slurm已核依赖：Terminal726345仅afterok:726336(ASI)，Mixed726346仅afterok:726335(SWE)，取消HLE不再阻塞其余组。按baseline最多8卡，训练两组4卡最多16；ASI结束前仅SWE4+ASI2。最新只读ASI121/134步，checkpoint112 val0.583276；SWE仍排资源，未动任何baseline或其他项目。
 - 四专家矩阵与analysis/sft_progress_20261016.md已切回当前方案，旧High扩量报告顶端明确停止。按最新授权不再为HLE模型强度争议追加生成，保持r16/64K8K与其余数据不变；由root只提交本轮自有文件和共享文档追加段，无coauthor信息。
+
+
+## 2026-10-16 18:22 CST：Base两项完成，Terminal磁盘故障恢复中
+
+- 远端正式汇总18:19已核：ASI240/240完成，mean1.5709884069%；SWE51/51完成、5 resolved，9.8039215686%。SWE全部使用首个环境有效fresh patch replay，缺依赖/超时旧评分保留，完整模型答案未重生。
+- HLE1328/2500已有效评分（490条答案Judge＋838条正常预算无答案0），余1172；原生成器8项滚动、服务maxseq4实际4running/4waiting，校内DeepSeek-V4-Flash Judge滚动2请求，已计约0.649元/10元，Judgeinvalid0。主分待2500完整后发布，当前预计仍需约10小时且随实际速率变化。
+- Terminal35/445有效（包括9条原答案评分恢复）；native8曾实际达到30并发，但17:49因系统/tmp空间耗尽退出，407个failed_attempt中大量为模型前OSError，不能称410次模型答错。18:20现场0active/0pending；HPC726129和725705服务健康、4卡空闲，隧道常驻正常，非Mac网络断连。
+- 已立即并行处理：将新Terminal临时目录/容器staging迁至/data大盘，按原445清单仅恢复可确认的未调用模型启动失败项；已完整答案继续独立补评分，原日志/费用/异常结果全部保留，不做全题重生、额外fixture或hash扫描。保留CPU0–119的30×4CPU滚动池和120–123独立grader；不改SFT作业或其他聊天文件。恢复实际进程/模型调用后另记回执，未把计划并发冒充当前并发。

@@ -1,0 +1,90 @@
+{
+  "as_of": "2026-10-16T17:00:41.606683",
+  "fixed_denominator": 51,
+  "valid_scored": 51,
+  "resolved": 5,
+  "resolve_percent": 9.803921568627452,
+  "pending_invalid": 0,
+  "pending_infrastructure": 0,
+  "unscored": 0,
+  "complete": true,
+  "selection_policy": "Earliest environment-valid fresh replay, regardless of reward; old invalid scores retained; no zero for unscored",
+  "score_attempts_total": 65,
+  "tasks_with_preserved_invalid_scores": 9,
+  "preserved_invalid_attempts": 14,
+  "preserved_invalid_attempt_categories": {
+    "verifier_missing_pytest": 4,
+    "verifier_missing_pip": 1,
+    "harbor_replay_exception:RuntimeError": 1,
+    "verifier_public_go_dependency_timeout": 7,
+    "harbor_replay_exception:VerifierTimeoutError": 1
+  },
+  "manual_retry_tasks": [
+    {
+      "task_id": "instance_element-hq__element-web-5dfde12c1c1c0b6e48f17e3405468593e39d9492-vnan",
+      "manual_infrastructure_retries": 1,
+      "generation_attempt": 2,
+      "seed": 0,
+      "original_incomplete_model_api_calls": 71,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_glibc_setup1/generation/instance_element-hq__element-web-5dfde12c1c1c0b6e48f17e3405468593e39d9492-vnan/result.json",
+      "accepted_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_element-hq__element-web-5dfde12c1c1c0b6e48f17e3405468593e39d9492-vnan/result.json",
+      "reward": 0.0
+    },
+    {
+      "task_id": "instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
+      "manual_infrastructure_retries": 1,
+      "generation_attempt": 2,
+      "seed": 0,
+      "original_incomplete_model_api_calls": 56,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_glibc_setup1/generation/instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan/result.json",
+      "accepted_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_bootstrap_args1/replay/instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan/result.json",
+      "reward": 0.0
+    },
+    {
+      "task_id": "instance_element-hq__element-web-772df3021201d9c73835a626df8dcb6334ad9a3e-vnan",
+      "manual_infrastructure_retries": 1,
+      "generation_attempt": 2,
+      "seed": 0,
+      "original_incomplete_model_api_calls": 55,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_glibc_setup1/generation/instance_element-hq__element-web-772df3021201d9c73835a626df8dcb6334ad9a3e-vnan/result.json",
+      "accepted_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_element-hq__element-web-772df3021201d9c73835a626df8dcb6334ad9a3e-vnan/result.json",
+      "reward": 0.0
+    },
+    {
+      "task_id": "instance_element-hq__element-web-ecfd1736e5dd9808e87911fc264e6c816653e1a9-vnan",
+      "manual_infrastructure_retries": 1,
+      "generation_attempt": 2,
+      "seed": 0,
+      "original_incomplete_model_api_calls": 35,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_glibc_setup1/generation/instance_element-hq__element-web-ecfd1736e5dd9808e87911fc264e6c816653e1a9-vnan/result.json",
+      "accepted_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_element-hq__element-web-ecfd1736e5dd9808e87911fc264e6c816653e1a9-vnan/result.json",
+      "reward": 0.0
+    },
+    {
+      "task_id": "instance_flipt-io__flipt-2ca5dfb3513e4e786d2b037075617cccc286d5c3",
+      "manual_infrastructure_retries": 1,
+      "generation_attempt": 2,
+      "seed": 0,
+      "original_incomplete_model_api_calls": 58,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_glibc_setup1/generation/instance_flipt-io__flipt-2ca5dfb3513e4e786d2b037075617cccc286d5c3/result.json",
+      "accepted_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_flipt-io__flipt-2ca5dfb3513e4e786d2b037075617cccc286d5c3/result.json",
+      "reward": 0.0
+    },
+    {
+      "task_id": "instance_flipt-io__flipt-3d5a345f94c2adc8a0eaa102c189c08ad4c0f8e8",
+      "manual_infrastructure_retries": 1,
+      "generation_attempt": 2,
+      "seed": 0,
+      "original_incomplete_model_api_calls": 43,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_glibc_setup1/generation/instance_flipt-io__flipt-3d5a345f94c2adc8a0eaa102c189c08ad4c0f8e8/result.json",
+      "accepted_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_flipt-io__flipt-3d5a345f94c2adc8a0eaa102c189c08ad4c0f8e8/result.json",
+      "reward": 0.0
+    }
+  ],
+  "completed_model_answers_regenerated": 0,
+  "first_valid_selection_verified": true,
+  "model_consumer_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/swe-base-725705/model-consumer-finished.json",
+  "cpu_consumer_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/swe-base-725705/cpu-consumers-finished.json",
+  "final_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_final/final_summary.json",
+  "task_scores_csv": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_final/task_scores.csv"
+}

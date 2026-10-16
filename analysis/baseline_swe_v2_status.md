@@ -1,5 +1,11 @@
 # SWE v2 baseline status — 2026-10-16
 
+17:00最终：固定51项全部有环境有效的官方fresh replay评分，resolved=5、failed=46，正式resolve rate=5/51=9.8039215686%。`complete=true`，未评分/待修复invalid/待处理infra均0。采首个环境有效结果，逐项已只读核对；不按reward择优，不给未评分填0。65次评分attempt中51次有效、14次历史invalid完整保留，涉及9项（pytest4、pip1、Go公网依赖7次、旧HTTP/verifier timeout1、bootstrap argv1）。原始答卷、patch、轨迹和费用记录均保留；只对6个旧工程提前取消且whole-task未完成的任务做manual infra retry1，同ID/seed0/1800s，已完成模型答案重生0次。
+
+最终源：远端`artifacts/eval/base_swe_v2_20261016_final/{final_summary.json,task_scores.csv,completion-receipt.json}`；Mac镜像回执`analysis/source_snapshots/swe_final_progress_20261016.json`、`swe_final_completion_20261016.json`、`swe_final_task_scores_20261016.csv`。最后Flipt3d5a同进程迁CPU124后官方fresh replay有效0，scope线程已0。GPU与旧CPU64–119完成marker均已true，可按root的独立guard交给Terminal；没有scancel725705。SWE无剩余模型/评分任务，未来若需要原patch审计仍只用CPU124单槽，不重新占旧pool。
+
+17:00 CPU交接续记：50/51有效，resolved5；最后Flipt3d5a的冗余初评卡native go work sync后自然HTTP600s超时，原日志保留，实际未发任何kill。随后原controller自动进入正式fresh replay，public Go workspace预取23.33s成功。按root最新异步指令，仅将该同一live scope `apex-baseline-accdd68af63a.scope`从CPU77迁124：systemd AllowedCPUs=124、44个实际线程affinity全部[124]、MemoryMax4GiB/swap0不变；未重启评分/改patch/改计时/生成。当前唯一condition已经是最后replay，所有6份generation结果冻结、pending=[]，以后仅aggregate/return，不会再取旧slot。扫描旧64–119 SWE容器进程=[]，GPU/CPU两永久marker均已写true（CPU字段指旧pool完成，最后评分仍可在124继续）。`swe-last-score-cpu-migration.json`保存实际资源和线程证据；该scope没有cpuset.cpus.effective文件，不额外声称kernel cpuset已校验。只读watcher完成交接后退出，collector持续等最后评分，root可用独立线程guard再验后切Terminal。
+
 16:49续记：23个新17+manual6模型relay.end全部齐、无生成pending/infra并稳定10秒，GPU消费者marker已实际写true（评分仍在途，不释放CPU）。当前47/51有效、resolved5，3项原patch官方回放在途，1项Element66d0是真实bootstrap工程错误：随机urlsafe server token以`-`开头，argparse拒绝`--instance-token <value>`。旧invalid与server.log保留；独立`swe_score_bootstrap_runtime.py`/`.sh`仅将服务端参数传成`--instance-token=value`，原patch/tests不改，CPU124单槽fresh replay PID2563381（score_bootstrap_args1），0模型调用。永久CPU marker仍等旧64–119全部future consumer终态。
 
 16:40续记：46/51有效评分，resolved5，invalid_pending0；新17全部含官方fresh replay终态，manual6首1项也有效0，余5在途。Tutanota是原生tsc的TS2322/2345/2416类型/接口不兼容，保留原官方0并保存classification audit；没有重答或重评分。只读collector的类型错误规则限定这3个已审计错误码，缺包错误不能由该规则直接判有效0。消费者watcher当前PID2519609，两个永久marker均等待真实条件，未来必要复评分pool已改[124]/max1。

@@ -1,14 +1,14 @@
 {
-  "as_of": "2026-10-16T08:41:13.497348+00:00",
+  "as_of": "2026-10-16T08:59:45.289646+00:00",
   "expected": 51,
-  "valid_scored": 46,
+  "valid_scored": 51,
   "resolved": 5,
-  "unscored": 5,
+  "unscored": 0,
   "invalid_pending": 0,
-  "awaiting_generation_or_replay": 5,
-  "primary_score_percent": null,
+  "awaiting_generation_or_replay": 0,
+  "primary_score_percent": 9.803921568627452,
   "conservative_resolved_percent": 9.803921568627452,
-  "complete": false,
+  "complete": true,
   "selection_policy": "Earliest environment-valid fresh replay, regardless of reward; old invalid scores retained; no zero for unscored",
   "manual_retry_task_count": 6,
   "manual_retry_planned_task_count": 6,
@@ -319,10 +319,19 @@
     },
     {
       "task_id": "instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
-      "status": "awaiting_generation_or_replay",
-      "reward": null,
-      "accepted_result": null,
-      "invalid_attempts": [],
+      "status": "valid_scored",
+      "reward": 0.0,
+      "accepted_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_bootstrap_args1/replay/instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan/result.json",
+      "invalid_attempts": [
+        {
+          "task_id": "instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
+          "result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan/result.json",
+          "reward": null,
+          "invalid_reason": "harbor_replay_exception:RuntimeError",
+          "finished_at": "2026-10-16T08:46:17.495193Z",
+          "test_count": 0
+        }
+      ],
       "manual_infrastructure_retries": 1,
       "manual_infrastructure_retry_planned": true,
       "original_incomplete_trial": {
@@ -345,13 +354,30 @@
         "authorization": "User requested complete final baseline; parent explicitly authorized incomplete infrastructure whole-task retry, maximum2 manual retries",
         "resume": "No verified native remaining-budget resume entry; do not invent a trajectory continuation"
       },
-      "all_score_attempts": []
+      "all_score_attempts": [
+        {
+          "task_id": "instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
+          "result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan/result.json",
+          "reward": null,
+          "invalid_reason": "harbor_replay_exception:RuntimeError",
+          "finished_at": "2026-10-16T08:46:17.495193Z",
+          "test_count": 0
+        },
+        {
+          "task_id": "instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
+          "result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_bootstrap_args1/replay/instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan/result.json",
+          "reward": 0.0,
+          "invalid_reason": null,
+          "finished_at": "2026-10-16T08:50:16.068366Z",
+          "test_count": 94
+        }
+      ]
     },
     {
       "task_id": "instance_element-hq__element-web-772df3021201d9c73835a626df8dcb6334ad9a3e-vnan",
-      "status": "awaiting_generation_or_replay",
-      "reward": null,
-      "accepted_result": null,
+      "status": "valid_scored",
+      "reward": 0.0,
+      "accepted_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_element-hq__element-web-772df3021201d9c73835a626df8dcb6334ad9a3e-vnan/result.json",
       "invalid_attempts": [],
       "manual_infrastructure_retries": 1,
       "manual_infrastructure_retry_planned": true,
@@ -375,13 +401,22 @@
         "authorization": "User requested complete final baseline; parent explicitly authorized incomplete infrastructure whole-task retry, maximum2 manual retries",
         "resume": "No verified native remaining-budget resume entry; do not invent a trajectory continuation"
       },
-      "all_score_attempts": []
+      "all_score_attempts": [
+        {
+          "task_id": "instance_element-hq__element-web-772df3021201d9c73835a626df8dcb6334ad9a3e-vnan",
+          "result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_element-hq__element-web-772df3021201d9c73835a626df8dcb6334ad9a3e-vnan/result.json",
+          "reward": 0.0,
+          "invalid_reason": null,
+          "finished_at": "2026-10-16T08:41:32.059772Z",
+          "test_count": 107
+        }
+      ]
     },
     {
       "task_id": "instance_element-hq__element-web-ecfd1736e5dd9808e87911fc264e6c816653e1a9-vnan",
-      "status": "awaiting_generation_or_replay",
-      "reward": null,
-      "accepted_result": null,
+      "status": "valid_scored",
+      "reward": 0.0,
+      "accepted_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_element-hq__element-web-ecfd1736e5dd9808e87911fc264e6c816653e1a9-vnan/result.json",
       "invalid_attempts": [],
       "manual_infrastructure_retries": 1,
       "manual_infrastructure_retry_planned": true,
@@ -405,13 +440,22 @@
         "authorization": "User requested complete final baseline; parent explicitly authorized incomplete infrastructure whole-task retry, maximum2 manual retries",
         "resume": "No verified native remaining-budget resume entry; do not invent a trajectory continuation"
       },
-      "all_score_attempts": []
+      "all_score_attempts": [
+        {
+          "task_id": "instance_element-hq__element-web-ecfd1736e5dd9808e87911fc264e6c816653e1a9-vnan",
+          "result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_element-hq__element-web-ecfd1736e5dd9808e87911fc264e6c816653e1a9-vnan/result.json",
+          "reward": 0.0,
+          "invalid_reason": null,
+          "finished_at": "2026-10-16T08:48:04.585824Z",
+          "test_count": 26
+        }
+      ]
     },
     {
       "task_id": "instance_flipt-io__flipt-2ca5dfb3513e4e786d2b037075617cccc286d5c3",
-      "status": "awaiting_generation_or_replay",
-      "reward": null,
-      "accepted_result": null,
+      "status": "valid_scored",
+      "reward": 0.0,
+      "accepted_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_flipt-io__flipt-2ca5dfb3513e4e786d2b037075617cccc286d5c3/result.json",
       "invalid_attempts": [],
       "manual_infrastructure_retries": 1,
       "manual_infrastructure_retry_planned": true,
@@ -435,13 +479,22 @@
         "authorization": "User requested complete final baseline; parent explicitly authorized incomplete infrastructure whole-task retry, maximum2 manual retries",
         "resume": "No verified native remaining-budget resume entry; do not invent a trajectory continuation"
       },
-      "all_score_attempts": []
+      "all_score_attempts": [
+        {
+          "task_id": "instance_flipt-io__flipt-2ca5dfb3513e4e786d2b037075617cccc286d5c3",
+          "result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_flipt-io__flipt-2ca5dfb3513e4e786d2b037075617cccc286d5c3/result.json",
+          "reward": 0.0,
+          "invalid_reason": null,
+          "finished_at": "2026-10-16T08:48:03.479099Z",
+          "test_count": 11
+        }
+      ]
     },
     {
       "task_id": "instance_flipt-io__flipt-3d5a345f94c2adc8a0eaa102c189c08ad4c0f8e8",
-      "status": "awaiting_generation_or_replay",
-      "reward": null,
-      "accepted_result": null,
+      "status": "valid_scored",
+      "reward": 0.0,
+      "accepted_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_flipt-io__flipt-3d5a345f94c2adc8a0eaa102c189c08ad4c0f8e8/result.json",
       "invalid_attempts": [],
       "manual_infrastructure_retries": 1,
       "manual_infrastructure_retry_planned": true,
@@ -465,7 +518,16 @@
         "authorization": "User requested complete final baseline; parent explicitly authorized incomplete infrastructure whole-task retry, maximum2 manual retries",
         "resume": "No verified native remaining-budget resume entry; do not invent a trajectory continuation"
       },
-      "all_score_attempts": []
+      "all_score_attempts": [
+        {
+          "task_id": "instance_flipt-io__flipt-3d5a345f94c2adc8a0eaa102c189c08ad4c0f8e8",
+          "result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1/replay/instance_flipt-io__flipt-3d5a345f94c2adc8a0eaa102c189c08ad4c0f8e8/result.json",
+          "reward": 0.0,
+          "invalid_reason": null,
+          "finished_at": "2026-10-16T08:59:31.261545Z",
+          "test_count": 1
+        }
+      ]
     },
     {
       "task_id": "instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15",
