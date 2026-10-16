@@ -1,0 +1,63 @@
+{
+  "audit_read_at_beijing": "2026-10-16T21:20:26+08:00",
+  "scope": "Read-only Terminal Base evaluation timing; no SFT queue inference, model/API/metrics call, collector run, mutation or rerun",
+  "remote_project": "/data/caoqinlu/projects/apex-takehome",
+  "owner_summary": {
+    "path": "artifacts/results/base-terminal-v2-recovery-20261016/final_summary.json",
+    "updated_at_utc": "2026-10-16T13:19:45.005857+00:00",
+    "expected_trials": 445,
+    "task_count": 89,
+    "seed_count": 5,
+    "valid_covered": 192,
+    "active_trials": 30,
+    "pending_not_admitted": 189,
+    "infrastructure_unscored": 34,
+    "complete": false,
+    "primary_mean_percent": null,
+    "seed_policy": "Five distinct fixed seeds; each task/seed gets one first valid score. Infrastructure attempts are retained and are not extra credited benchmark repetitions."
+  },
+  "live_route_ledger": {
+    "path": "artifacts/runs/base-terminal-recovery-v2-20261016/model-route-switcher-state.json",
+    "updated_at_utc": "2026-10-16T13:20:26.047215+00:00",
+    "controller_alive": true,
+    "active_trials": 30,
+    "new_routes": [
+      {"endpoint": "http://127.0.0.1:28086", "job_id": 726635, "max_num_seqs": 20, "admit": true, "active_task_count_from_checkpoint": 14},
+      {"endpoint": "http://127.0.0.1:28085", "job_id": 726629, "max_num_seqs": 20, "admit": true, "active_task_count_from_checkpoint": 15}
+    ],
+    "old_endpoint_active_trials": 1,
+    "old_routes_accept_new_tasks": false,
+    "queue_metric_limit": "No fresh saved vLLM running/waiting metrics found. Historical maxseq8 saturation must not be claimed as the current queue state. No metrics HTTP call was made."
+  },
+  "runtime11_completed_timing_sample": {
+    "method": "Read the last45 accepted_first_valid result paths from owner summary; retain the32 records routed to28085/28086. Metadata timing only, no task answers used.",
+    "sample_n": 32,
+    "solver_timeout_seconds": 1800,
+    "solver_ge_1790_seconds": 20,
+    "wall_median_seconds": 1815.82806,
+    "solver_median_seconds": 1800.5911935,
+    "recorded_api_duration_sum_over_solver_duration_sum": 0.7647621980790653,
+    "verifier_duration_sum_over_wall_duration_sum": 0.023257175998036134,
+    "model_requests_per_task_median": 27.5,
+    "agent_episode_range": [4, 54],
+    "api_time_interpretation": "Recorded request wall time includes model wait/inference and client overhead, not isolated GPU decode time; not proof the present queue is full.",
+    "sample_limit": "Bounded, nonrandom completed subset. Does not estimate all445 difficulty, remaining completion time or causal speedup from maxseq20."
+  },
+  "known_runtime_limits": {
+    "outer_admitted_tasks": 30,
+    "cpus_per_task": 4,
+    "ram_mib_per_task": 8192,
+    "solver_timeout_seconds": 1800,
+    "context_tokens": 65536,
+    "max_output_tokens_per_call": 8192,
+    "agent": "Native Terminus2 multistep tmux agent with summary helpers",
+    "source": "scripts/run_terminal_baseline_v2.py and frozen native runtime configs"
+  },
+  "conclusions": [
+    "The benchmark requires445 multistep task/seed executions, not89 one-response prompts.",
+    "Most sampled new-endpoint tasks exhaust the existing30-minute solving budget; model requests dominate recorded solving time, while verification is a small aggregate fraction.",
+    "Earlier transport, ENOSPC/setup, verifier dependency and native-tool failures consumed time and caused retained infrastructure retries;34 keys remain infrastructure-unscored in the snapshot.",
+    "Current new services already have maxseq20 each. Additional acceleration without changing experimental semantics should target inference throughput and avoiding infrastructure stalls; more CPU is not demonstrated to be the dominant fix.",
+    "Reducing seeds, timeout, token budget or interaction turns would shorten work but change the frozen evaluation protocol. Existing five-seed partial results cannot be reported as a complete mean/SD."
+  ]
+}
