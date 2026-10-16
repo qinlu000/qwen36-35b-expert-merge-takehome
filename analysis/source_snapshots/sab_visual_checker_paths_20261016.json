@@ -1,0 +1,224 @@
+{
+  "checks": [
+    {
+      "task_id": 4,
+      "checker": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/eval_elk_analysis.py",
+      "calls": [
+        "encode_image",
+        "encode_image",
+        "score_figure",
+        "print",
+        "int",
+        "eval"
+      ],
+      "has_direct_exists_or_open": false,
+      "pred_fpath": "pred_results/Elk_Analysis.png",
+      "gold_fpath": "benchmark/eval_programs/gold_results/Elk_Analysis_gold.png",
+      "gold_maps_to": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/gold_results/Elk_Analysis_gold.png",
+      "gold_exists": true,
+      "filename_argument_type": "str constant"
+    },
+    {
+      "task_id": 6,
+      "checker": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/eval_dkpes_visualization_1.py",
+      "calls": [
+        "encode_image",
+        "encode_image",
+        "score_figure",
+        "print",
+        "int",
+        "eval"
+      ],
+      "has_direct_exists_or_open": false,
+      "pred_fpath": "pred_results/dkpes_molecular_analysis_pred.png",
+      "gold_fpath": "benchmark/eval_programs/gold_results/dkpes_molecular_analysis_gold.png",
+      "gold_maps_to": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/gold_results/dkpes_molecular_analysis_gold.png",
+      "gold_exists": true,
+      "filename_argument_type": "str constant"
+    },
+    {
+      "task_id": 7,
+      "checker": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/eval_dkpes_visualization_2.py",
+      "calls": [
+        "encode_image",
+        "encode_image",
+        "score_figure",
+        "print",
+        "int",
+        "eval"
+      ],
+      "has_direct_exists_or_open": false,
+      "pred_fpath": "pred_results/dkpes_molecular_activity_analysis_pred.png",
+      "gold_fpath": "benchmark/eval_programs/gold_results/dkpes_molecular_activity_analysis_gold.png",
+      "gold_maps_to": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/gold_results/dkpes_molecular_activity_analysis_gold.png",
+      "gold_exists": true,
+      "filename_argument_type": "str constant"
+    },
+    {
+      "task_id": 8,
+      "checker": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/eval_dkpes_visualization_3.py",
+      "calls": [
+        "encode_image",
+        "encode_image",
+        "score_figure",
+        "print",
+        "int",
+        "eval"
+      ],
+      "has_direct_exists_or_open": false,
+      "pred_fpath": "pred_results/dkpes_feature_selection_analysis_pred.png",
+      "gold_fpath": "benchmark/eval_programs/gold_results/dkpes_feature_selection_analysis_gold.png",
+      "gold_maps_to": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/gold_results/dkpes_feature_selection_analysis_gold.png",
+      "gold_exists": true,
+      "filename_argument_type": "str constant"
+    },
+    {
+      "task_id": 10,
+      "checker": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/eval_toronto_fire.py",
+      "calls": [
+        "encode_image",
+        "encode_image",
+        "score_figure",
+        "print",
+        "int",
+        "eval"
+      ],
+      "has_direct_exists_or_open": false,
+      "pred_fpath": "pred_results/Fire_Service_Analysis.png",
+      "gold_fpath": "benchmark/eval_programs/gold_results/Fire_Service_Analysis_gold.png",
+      "gold_maps_to": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/gold_results/Fire_Service_Analysis_gold.png",
+      "gold_exists": true,
+      "filename_argument_type": "str constant"
+    },
+    {
+      "task_id": 14,
+      "checker": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/eval_flooding_gpd.py",
+      "calls": [
+        "encode_image",
+        "encode_image",
+        "score_figure",
+        "print",
+        "int",
+        "eval"
+      ],
+      "has_direct_exists_or_open": false,
+      "pred_fpath": "pred_results/flooding_analysis.png",
+      "gold_fpath": "benchmark/eval_programs/gold_results/flooding_analysis_gold.png",
+      "gold_maps_to": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/gold_results/flooding_analysis_gold.png",
+      "gold_exists": true,
+      "filename_argument_type": "str constant"
+    },
+    {
+      "task_id": 23,
+      "checker": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/eval_deforestation_predict.py",
+      "calls": [
+        "encode_image",
+        "encode_image",
+        "score_figure",
+        "print",
+        "int",
+        "eval"
+      ],
+      "has_direct_exists_or_open": false,
+      "pred_fpath": "pred_results/predictedRiskyArea.png",
+      "gold_fpath": "benchmark/eval_programs/gold_results/predictedRiskyArea_gold.png",
+      "gold_maps_to": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/gold_results/predictedRiskyArea_gold.png",
+      "gold_exists": true,
+      "filename_argument_type": "str constant"
+    },
+    {
+      "task_id": 27,
+      "checker": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/eval_plots_similarity.py",
+      "calls": [
+        "encode_image",
+        "encode_image",
+        "score_figure",
+        "print",
+        "int",
+        "eval"
+      ],
+      "has_direct_exists_or_open": false,
+      "pred_fpath": "pred_results/similarity_plot.png",
+      "gold_fpath": "benchmark/eval_programs/gold_results/similarity_plot_gold.png",
+      "gold_maps_to": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/gold_results/similarity_plot_gold.png",
+      "gold_exists": true,
+      "filename_argument_type": "str constant"
+    },
+    {
+      "task_id": 33,
+      "checker": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/transit_access_eval.py",
+      "calls": [
+        "encode_image",
+        "encode_image",
+        "score_figure",
+        "print",
+        "int",
+        "eval"
+      ],
+      "has_direct_exists_or_open": false,
+      "pred_fpath": "pred_results/transit_access.png",
+      "gold_fpath": "benchmark/eval_programs/gold_results/transit_access.png",
+      "gold_maps_to": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/gold_results/transit_access.png",
+      "gold_exists": true,
+      "filename_argument_type": "str constant"
+    },
+    {
+      "task_id": 47,
+      "checker": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/mountainLion2_eval.py",
+      "calls": [
+        "encode_image",
+        "encode_image",
+        "score_figure",
+        "print",
+        "int",
+        "eval"
+      ],
+      "has_direct_exists_or_open": false,
+      "pred_fpath": "pred_results/distance_to_habitat.png",
+      "gold_fpath": "benchmark/eval_programs/gold_results/distance_to_habitat_gold.png",
+      "gold_maps_to": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/gold_results/distance_to_habitat_gold.png",
+      "gold_exists": true,
+      "filename_argument_type": "str constant"
+    },
+    {
+      "task_id": 73,
+      "checker": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/eval_eeg2eeg_vis.py",
+      "calls": [
+        "encode_image",
+        "encode_image",
+        "score_figure",
+        "print",
+        "int",
+        "eval"
+      ],
+      "has_direct_exists_or_open": false,
+      "pred_fpath": "pred_results/eeg2eeg_vis_pred.png",
+      "gold_fpath": "benchmark/eval_programs/gold_results/eeg2eeg_vis_gold.png",
+      "gold_maps_to": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/gold_results/eeg2eeg_vis_gold.png",
+      "gold_exists": true,
+      "filename_argument_type": "str constant"
+    },
+    {
+      "task_id": 74,
+      "checker": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/eval_oggm_plotting_glacier_area_and_thickness_change.py",
+      "calls": [
+        "encode_image",
+        "encode_image",
+        "score_figure",
+        "print",
+        "int",
+        "eval"
+      ],
+      "has_direct_exists_or_open": false,
+      "pred_fpath": "pred_results/oggm_plotting_glacier_area_and_thickness_change_pred.png",
+      "gold_fpath": "benchmark/eval_programs/gold_results/oggm_plotting_glacier_area_and_thickness_change_gold.png",
+      "gold_maps_to": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw/scienceagentbench/verified_asset/benchmark/eval_programs/gold_results/oggm_plotting_glacier_area_and_thickness_change_gold.png",
+      "gold_exists": true,
+      "filename_argument_type": "str constant"
+    }
+  ],
+  "count": 12,
+  "actual_sab_results_before_patch": 0,
+  "cpu_gate_present": false,
+  "conclusion": "All 12 checkers access files only via encode_image; shim resolves both paths absolutely, so host cwd cannot cause false zeros."
+}

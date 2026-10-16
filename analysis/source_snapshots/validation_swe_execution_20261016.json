@@ -1,0 +1,73 @@
+{
+  "as_of_utc": "2026-10-16T14:35:26.708043+00:00",
+  "pid": 584499,
+  "alive": true,
+  "preparation": {
+    "tasks": 100,
+    "languages": {
+      "python": 39,
+      "js": 20,
+      "go": 39,
+      "ts": 2
+    },
+    "train_tasks": 2000,
+    "repo_overlap": 0,
+    "instance_overlap": 0,
+    "source_revision": "10483de0f50fe5da545942705a76c6150171af7f",
+    "grader_revision": "c71902a8cf8d2b725f63d51f199f4d3e56f68d2d",
+    "scope": "Held-out source validation, not official SWE Pro51; no teacher messages/gold patch in solver input"
+  },
+  "environment_acceptance": {
+    "at": "2026-10-16T14:30:10.074625+00:00",
+    "task": "pallets__click-1852",
+    "reward": 1.0,
+    "state": "valid_scored",
+    "exception": null
+  },
+  "gold_test_counts": {
+    "passed": 111,
+    "expected": 111,
+    "failed_non_target": 1,
+    "test_exit_code": 1,
+    "official_passed_match": true
+  },
+  "status": {
+    "at": "2026-10-16T14:35:25.937972+00:00",
+    "state": "waiting_direct_generation_blocks",
+    "first_environment_gold_reward": 1,
+    "model_requests": 0
+  },
+  "images": {
+    "instance_pallets__click-1852": {
+      "state": "ready_existing",
+      "bytes": 674586624
+    },
+    "instance_accenture__sfmc-devtools-1098": {
+      "state": "pulling",
+      "attempt": 1,
+      "at": "2026-10-16T14:34:55.906043+00:00"
+    }
+  },
+  "launch": {
+    "pid": 584499,
+    "argv": [
+      "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+      "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_validation.py",
+      "--output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/validation_swe_20261016",
+      "--endpoint=http://127.0.0.1:28089",
+      "--key-file=/data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key",
+      "--direct-output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/validation_direct_20261016",
+      "--cpu-release-marker=/data/caoqinlu/projects/apex-takehome/artifacts/eval/validation_direct_20261016/shared_cpu_ready.json",
+      "--service-ends=2026-10-17T10:05:32+08:00"
+    ],
+    "state": "waiting_direct_generation_blocks",
+    "source_gold_reward": 1,
+    "service_ends": "2026-10-17T10:05:32+08:00",
+    "stop_new_model_tasks_at": "2026-10-17T09:30:32+08:00"
+  },
+  "image_cache_files": 18,
+  "image_cache_bytes": 1198866935,
+  "formal_repo_overlap": [],
+  "formal_repositories": 11,
+  "val_repositories": 95
+}

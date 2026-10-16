@@ -365,3 +365,13 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - 原validation授权继续：专属2GPU服务727113已在ACD1-24:18000启动，项目12+2=14GPU；四专家LoRA+Base别名注册，80专桥28089/监督PID4182990驻留，不改现有Base隧道。HLE/ASI生成client4183881与HLE评分4183925驻留等待服务真实验收，预算HLE10+ASI至多10，总不超过20元；尚未把等待进程冒称正式答题已完成。
 - SWE100独立任务准备与源镜像缓存继续；CPU125实测空闲、只有collector和本轮轻HTTPclient，可先1路SWE val(1CPU4GiB)共享此核，其他Base执行核不抢。ASI实际独立val为20题，100题方案缺口如实披露；20题生成/实际执行/机械及视觉评分分阶段记录，不混为SFT loss。
 - cp16来源报告/独立JSON与数据分析链接已更新；没有重训、缩窗口或取消validation。Git仅纳本轮自有内容和claud/overnight追加，无coauthor信息。
+
+
+## 2026-10-16 22:40：已完成专家的实际 validation 已部署
+
+- HLE checkpoint16来源已核清：HLE726664正常连续完成250步，16是正常保存；第16步OOM的是Terminal726345，且没有保存checkpoint。不基于错误归因重训。
+- 专属两卡LoRA服务727113已验收，Base/SWE249/ASI128/HLE16/HLE250真实生成及工具调用通过；64K/8K、BF16、关闭thinking，不动正式Base服务。
+- HLE Base/16/250各100题真实答题与评分已启动；SWE Base/249各100题已物化，首个源gold原生测试通过；ASI Base/128各20个留出SAB任务的科学环境与独立执行队列已就绪。没有把代理验证冒称正式benchmark全量结果。
+- 80独立隧道、模型块、HLE评分、SAB队列、SWE队列、CPU永久释放监控均常驻。CPU须等Base和repair消费者完全退出才扩并发；SWE镜像经现有代理下载。服务10/17 10:05:32到期，SWE09:30:32停止新准入，保留pending。
+- HLE部分无答卷是本地300s deadline；服务整体健康但缺少逐题服务映射，最吻合慢decode。单列超时，不能说judge判错或8K截断；当前不发布部分题主分，不改预算或重生成。
+- 已完成自有Python语法检查、Slurm shell检查、真实服务/首题gold/首份HLE生成判分闭环。尚待完整覆盖率与实际成绩。详见analysis/validation_execution_20261016.md及三份执行报告。

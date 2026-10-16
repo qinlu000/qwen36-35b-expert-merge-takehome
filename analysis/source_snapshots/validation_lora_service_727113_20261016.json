@@ -1,0 +1,145 @@
+{
+  "accepted_at_utc": "2026-10-16T14:18:06.306224+00:00",
+  "job_id": "727113",
+  "hostname": "ACD1-24",
+  "port": 18000,
+  "aliases": [
+    "apex-val-base",
+    "apex-val-swe249",
+    "apex-val-asi128",
+    "apex-val-hle16",
+    "apex-val-hle250"
+  ],
+  "startup_ignored_adapter_warning": false,
+  "adapter_inventory": {
+    "apex-val-swe249": {
+      "path": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+      "tensors": 620,
+      "modules": 310,
+      "rank": 16,
+      "alpha": 32
+    },
+    "apex-val-asi128": {
+      "path": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128",
+      "tensors": 620,
+      "modules": 310,
+      "rank": 16,
+      "alpha": 32
+    },
+    "apex-val-hle16": {
+      "path": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-16",
+      "tensors": 620,
+      "modules": 310,
+      "rank": 16,
+      "alpha": 32
+    },
+    "apex-val-hle250": {
+      "path": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-250",
+      "tensors": 620,
+      "modules": 310,
+      "rank": 16,
+      "alpha": 32
+    }
+  },
+  "formal_context_tokens": 65536,
+  "formal_output_tokens": 8192,
+  "ready": true,
+  "probes": [
+    {
+      "alias": "apex-val-base",
+      "response_model": "apex-val-base",
+      "finish_reason": "stop",
+      "content": "323",
+      "usage": {
+        "prompt_tokens": 26,
+        "total_tokens": 30,
+        "completion_tokens": 4,
+        "prompt_tokens_details": null
+      },
+      "first_token_logprob": -4.029192859889008e-05
+    },
+    {
+      "alias": "apex-val-swe249",
+      "response_model": "apex-val-swe249",
+      "finish_reason": "stop",
+      "content": "323",
+      "usage": {
+        "prompt_tokens": 26,
+        "total_tokens": 30,
+        "completion_tokens": 4,
+        "prompt_tokens_details": null
+      },
+      "first_token_logprob": -0.0007479969062842429
+    },
+    {
+      "alias": "apex-val-asi128",
+      "response_model": "apex-val-asi128",
+      "finish_reason": "stop",
+      "content": "323",
+      "usage": {
+        "prompt_tokens": 26,
+        "total_tokens": 30,
+        "completion_tokens": 4,
+        "prompt_tokens_details": null
+      },
+      "first_token_logprob": -0.00023862851958256215
+    },
+    {
+      "alias": "apex-val-hle16",
+      "response_model": "apex-val-hle16",
+      "finish_reason": "stop",
+      "content": "323",
+      "usage": {
+        "prompt_tokens": 26,
+        "total_tokens": 30,
+        "completion_tokens": 4,
+        "prompt_tokens_details": null
+      },
+      "first_token_logprob": -0.03067963942885399
+    },
+    {
+      "alias": "apex-val-hle250",
+      "response_model": "apex-val-hle250",
+      "finish_reason": "stop",
+      "content": "323",
+      "usage": {
+        "prompt_tokens": 26,
+        "total_tokens": 30,
+        "completion_tokens": 4,
+        "prompt_tokens_details": null
+      },
+      "first_token_logprob": -0.0018999397289007902
+    }
+  ],
+  "swe_tool_probe": {
+    "model": "apex-val-swe249",
+    "finish_reason": "tool_calls",
+    "tool_calls": [
+      {
+        "id": "chatcmpl-tool-a2ffeb322058b09c",
+        "type": "function",
+        "function": {
+          "name": "bash",
+          "arguments": "{\"command\": \"echo validation-ready\"}"
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 289,
+      "total_tokens": 317,
+      "completion_tokens": 28,
+      "prompt_tokens_details": null
+    }
+  },
+  "launch": {
+    "started_at_utc": "2026-10-16T14:05:34.869568+00:00",
+    "context_tokens": 65536,
+    "output_cap_per_request": 8192,
+    "max_num_seqs": 20,
+    "max_loras": 1,
+    "max_cpu_loras": 4,
+    "thinking": false,
+    "preserve_thinking": false
+  },
+  "source": "Raw launch.json and acceptance.json preserved in artifacts/validation/lora-service-727113 on HPC and local workspace; root performed original GPU acceptance."
+}

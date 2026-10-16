@@ -1,0 +1,117 @@
+{
+  "checked_at_utc": "2026-10-16T14:21:52.119830+00:00",
+  "base_architecture": "Qwen3_5MoeForConditionalGeneration",
+  "layer_types": {
+    "linear_attention": 30,
+    "full_attention": 10
+  },
+  "expected_modules": 310,
+  "expected_tensors": 620,
+  "adapters": {
+    "apex-val-swe249": {
+      "checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+      "module_count": 310,
+      "tensor_count": 620,
+      "missing": [],
+      "unexpected": [],
+      "projection_tensor_counts": {
+        "in_proj_z": 60,
+        "down_proj": 80,
+        "out_proj": 60,
+        "up_proj": 80,
+        "in_proj_a": 60,
+        "in_proj_qkv": 60,
+        "in_proj_b": 60,
+        "k_proj": 20,
+        "gate_proj": 80,
+        "q_proj": 20,
+        "v_proj": 20,
+        "o_proj": 20
+      },
+      "dtype_counts": {
+        "F32": 620
+      }
+    },
+    "apex-val-asi128": {
+      "checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128",
+      "module_count": 310,
+      "tensor_count": 620,
+      "missing": [],
+      "unexpected": [],
+      "projection_tensor_counts": {
+        "in_proj_z": 60,
+        "down_proj": 80,
+        "out_proj": 60,
+        "up_proj": 80,
+        "in_proj_a": 60,
+        "in_proj_qkv": 60,
+        "in_proj_b": 60,
+        "k_proj": 20,
+        "gate_proj": 80,
+        "q_proj": 20,
+        "v_proj": 20,
+        "o_proj": 20
+      },
+      "dtype_counts": {
+        "F32": 620
+      }
+    },
+    "apex-val-hle16": {
+      "checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-16",
+      "module_count": 310,
+      "tensor_count": 620,
+      "missing": [],
+      "unexpected": [],
+      "projection_tensor_counts": {
+        "in_proj_z": 60,
+        "down_proj": 80,
+        "out_proj": 60,
+        "up_proj": 80,
+        "in_proj_a": 60,
+        "in_proj_qkv": 60,
+        "in_proj_b": 60,
+        "k_proj": 20,
+        "gate_proj": 80,
+        "q_proj": 20,
+        "v_proj": 20,
+        "o_proj": 20
+      },
+      "dtype_counts": {
+        "F32": 620
+      }
+    },
+    "apex-val-hle250": {
+      "checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-250",
+      "module_count": 310,
+      "tensor_count": 620,
+      "missing": [],
+      "unexpected": [],
+      "projection_tensor_counts": {
+        "in_proj_z": 60,
+        "down_proj": 80,
+        "out_proj": 60,
+        "up_proj": 80,
+        "in_proj_a": 60,
+        "in_proj_qkv": 60,
+        "in_proj_b": 60,
+        "k_proj": 20,
+        "gate_proj": 80,
+        "q_proj": 20,
+        "v_proj": 20,
+        "o_proj": 20
+      },
+      "dtype_counts": {
+        "F32": 620
+      }
+    }
+  },
+  "method": "Read complete safetensors header and compare exact layer-qualified A/B key set against frozen model config and all trained target projections. No GPU generation or tensor hashing.",
+  "native_mapping_sources": {
+    "hf_to_vllm_mapper": "model_executor/models/qwen3_vl.py:1619-1624",
+    "linear_split_and_pack_mapping": "model_executor/models/qwen3_5.py:617-626",
+    "native_checkpoint_load_and_reject_unknown_projection": "lora/lora_model.py:163-220",
+    "runtime_target_filter": "lora/model_manager.py:621-642 and lora/utils.py:260-300",
+    "linear_attention_variable_slice_lora": "lora/layers/column_parallel_linear.py:620-660"
+  },
+  "limitation": "Static exact key coverage plus native GPU adapter loading and distinct-logprob smoke do not constitute per-layer numerical equivalence against a PEFT merge; no such numerical parity claim is made."
+}

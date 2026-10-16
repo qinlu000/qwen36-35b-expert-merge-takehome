@@ -1380,3 +1380,13 @@
 - SWE独立clean28：9有效（2通过）、3在途、15待准入、1已终态原生verifier超时未评分；整套51含保留native23为32有效，未给未齐全主分。受旧环境影响的历史5/51=9.8039%仍单独保留。
 - ASI240/240完成，公开本地均分1.5709884%，非Portal认证；HLE2500生成终态全齐、2499有效评分（99正确）、1Judge JSON无效，未声称全量有效完成。共享Base726629/726635两TP2共4GPU在跑；其他会话SFT/validation不改。80根盘约32.60GiB可用、/data约2.33TiB，无再次爆盘。
 - 状态与实际scope/轨迹观察保存baseline_status_20261016_2225.json，Git仅纳本轮快照和本节claud追加，保留其他会话未提交工作区。
+
+
+## 2026-10-16 22:40：已完成专家的实际 validation 已部署
+
+- HLE checkpoint16来源已核清：HLE726664正常连续完成250步，16是正常保存；第16步OOM的是Terminal726345，且没有保存checkpoint。不基于错误归因重训。
+- 专属两卡LoRA服务727113已验收，Base/SWE249/ASI128/HLE16/HLE250真实生成及工具调用通过；64K/8K、BF16、关闭thinking，不动正式Base服务。
+- HLE Base/16/250各100题真实答题与评分已启动；SWE Base/249各100题已物化，首个源gold原生测试通过；ASI Base/128各20个留出SAB任务的科学环境与独立执行队列已就绪。没有把代理验证冒称正式benchmark全量结果。
+- 80独立隧道、模型块、HLE评分、SAB队列、SWE队列、CPU永久释放监控均常驻。CPU须等Base和repair消费者完全退出才扩并发；SWE镜像经现有代理下载。服务10/17 10:05:32到期，SWE09:30:32停止新准入，保留pending。
+- HLE部分无答卷是本地300s deadline；服务整体健康但缺少逐题服务映射，最吻合慢decode。单列超时，不能说judge判错或8K截断；当前不发布部分题主分，不改预算或重生成。
+- 已完成自有Python语法检查、Slurm shell检查、真实服务/首题gold/首份HLE生成判分闭环。尚待完整覆盖率与实际成绩。详见analysis/validation_execution_20261016.md及三份执行报告。
