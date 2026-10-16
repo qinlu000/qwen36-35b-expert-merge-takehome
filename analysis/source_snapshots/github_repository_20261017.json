@@ -1,0 +1,15 @@
+{
+  "captured_at_utc": "2026-10-16T18:51:14.718239+00:00",
+  "repository": "qinlu000/qwen36-35b-expert-merge-takehome",
+  "url": "https://github.com/qinlu000/qwen36-35b-expert-merge-takehome",
+  "private": true,
+  "default_branch": "master",
+  "created_at": "2026-10-16T18:39:34Z",
+  "creation_source": "gh repo create --template apexin-ai/qwen36-35b-takehome --private",
+  "template_repository": "apexin-ai/qwen36-35b-takehome",
+  "pushed_experiment_branch": "master",
+  "pushed_commit_at_initial_check": "3748038251dee9ac619742e9eeb4d460df0858c5",
+  "template_main_preserved": true,
+  "complete_submission": false,
+  "remaining": "Full valid benchmark matrix, final failure analysis/report and final commit; no email or invitation sent."
+}

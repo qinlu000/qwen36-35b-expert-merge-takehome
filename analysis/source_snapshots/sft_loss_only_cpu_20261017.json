@@ -1,0 +1,61 @@
+{
+  "recorded_at": "2026-10-16T18:26:12.691475+00:00",
+  "status": "prepared_cpu_verified_awaiting_root_review",
+  "gpu_job_submitted": false,
+  "config": "configs/eval/sft_loss249_only_20261017.json",
+  "script": "scripts/evaluate_sft_loss_only.py",
+  "slurm": "scripts/evaluate_sft_loss_only.slurm",
+  "candidate_order": [
+    "base",
+    "avg64",
+    "avg16",
+    "mixed883"
+  ],
+  "expected_rows": 249,
+  "max_length": 65536,
+  "cpu_hook_check": {
+    "passed": true,
+    "raw_rows": 249,
+    "max_length": 65536,
+    "hook_events": [
+      "freeze_parameters",
+      "remove_ProgressCallbackNew",
+      "remove_PrinterCallbackNew",
+      "evaluate"
+    ],
+    "rejects_missing_validation_row": true,
+    "model_weights_loaded": false,
+    "gpu_used": false,
+    "hook_result": {
+      "metrics": {
+        "cpu_spy_only": true
+      },
+      "native_eval_rows": 249,
+      "global_step": 0,
+      "optimizer_created": false,
+      "scheduler_created": false,
+      "train_called": false,
+      "generate_enabled": false,
+      "checkpoint_written": false
+    },
+    "scope": "CPU spy trainer only; no model score or forward pass"
+  },
+  "mixed_summary_verified": {
+    "passed": true,
+    "global_steps": 883,
+    "final_checkpoint": "artifacts/runs/mixed-existing2k-sft-r16-726666/training/checkpoint-883",
+    "world_size": 4,
+    "wall_seconds": 23164.161021114094
+  },
+  "resource_plan": {
+    "gpus": 4,
+    "max_gpus_single_job": 4,
+    "project_running_after_mixed_release": 10,
+    "project_with_evaluation": 14,
+    "project_limit": 16
+  },
+  "primary_selection_unchanged": "avg64",
+  "new_task_benchmark_started": false,
+  "optimizer_or_training_started": false,
+  "native_cpu_check_limit": "Spy hook and full raw249-row inspection only; no Swift model instantiation/forward. Actual native post-preprocessing249 and zero-optimizer checks execute before/after the approved GPU loss pass."
+}

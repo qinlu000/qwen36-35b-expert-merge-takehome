@@ -2,7 +2,7 @@
 
 研究问题：在相同基座和一轮监督训练下，按代码修复、终端交互、学术推理、科研编程划分专家，再平均参数更新，能否比 Base 和同数据 Mixed 训练更好地兼顾四项任务？重点观察专精收益、跨域冲突、压缩损失和合版退化。
 
-候选人仓库：[qinlu000/qwen36-35b-expert-merge-takehome](https://github.com/qinlu000/qwen36-35b-expert-merge-takehome)，由[官方模板](https://github.com/apexin-ai/qwen36-35b-takehome)实际创建，当前为 Private。实验代码保留在 `master`，模板 `main` 保留来源；远程默认分支由最终提交流程设置。本实验依据最初的多专家题面，需求转录见 [EXPERIMENT_REQUIREMENTS.md](EXPERIMENT_REQUIREMENTS.md)；后续线上模板的 SFT→stage2 路线不覆盖该题面。
+候选人仓库：[qinlu000/qwen36-35b-expert-merge-takehome](https://github.com/qinlu000/qwen36-35b-expert-merge-takehome)，由[官方模板](https://github.com/apexin-ai/qwen36-35b-takehome)实际创建，当前为 Private。实验代码已推送到默认分支 `master`，模板 `main` 保留来源。本实验依据最初的多专家题面，需求转录见 [EXPERIMENT_REQUIREMENTS.md](EXPERIMENT_REQUIREMENTS.md)；后续线上模板的 SFT→stage2 路线不覆盖该题面。
 
 **当前状态（2026-10-17）：四专家和 Mixed 均已完成真实训练，AVG64/AVG16 已导出并验证，正式评测仍在进行。完整指标、宏平均提升和配对区间尚未齐备，未完成项保持 `null`。五个模型均已 Public 发布，并通过匿名完整下载与原权重字节核对；实际链接、不可变 revision、加载方法见 [models/README.md](models/README.md) 和 [release_manifest.json](models/release_manifest.json)。**
 
@@ -26,7 +26,9 @@
 
 五个完成 run 的 train/val 曲线、CSV和原生JSON见 [训练曲线索引](analysis/training_curves_20261017.md)。HLE250依据取消前已完成的独立100题结果冻结，ASI128依据原生val loss；Mixed用完整一轮final883，不能以最低loss的step64替代同等训练量对照。独立任务级validation已取消，不再用正式测试选择checkpoint或扫描合版系数。
 
-AVG64表示 `Δ = Σ_i 0.25 × (32/16) B_i A_i`，通过因子拼接精确保存平均更新，输出rank64/alpha64；不是分别平均A/B。AVG16对同一更新做薄QR+SVD的rank16近似，全局相对Frobenius截断误差约0.144715。它隔离压缩/容量变量，仍需实际loss比较，不能仅凭代数验证宣称任务收益。AVG64已在新增loss比较和正式评测前固定为最终模型；容量是单个rank16专家/Mixed的4倍，线性平均可能抵消冲突方向。原理、验证和配方见 [合版记录](analysis/merge_execution_20261017.md)、[固定配置](configs/merge/four_experts_avg_v1.json)。
+AVG64表示 `Δ = Σ_i 0.25 × (32/16) B_i A_i`，通过因子拼接精确保存平均更新，输出rank64/alpha64；不是分别平均A/B。AVG16对同一更新做薄QR+SVD的rank16近似，全局相对Frobenius截断误差约0.144715。AVG64已在新增loss比较和正式评测前固定为最终模型；容量是单个rank16专家/Mixed的4倍，线性平均可能抵消冲突方向。原理、验证和配方见 [合版记录](analysis/merge_execution_20261017.md)、[固定配置](configs/merge/four_experts_avg_v1.json)。
+
+相同249条原生SFT留出集、64K上限、相同监督mask的loss-only对照已全部完成：Base **2.105976**、AVG64 **1.357921**、AVG16 **1.379223**、Mixed883 **1.672463**。AVG16与AVG64的差值为0.021302，记录固定压缩/容量消融；没有生成新答案、运行task-val或据此重新选择主模型。Mixed883重复原训练最终val loss的数值完全一致。这里是原生Trainer的teacher-forced loss，不能作为任务准确率或benchmark提升。详见 [结果、图及重画命令](analysis/sft_loss_only_plan_20261017.md)。
 
 ## 评测协议与限制
 
@@ -111,4 +113,4 @@ artifacts/envs/asi-py312/bin/python scripts/check_experiment_aggregation.py
 
 代码/配置在`scripts/`、`configs/`；训练图与源数据在`curves/`；研究说明、统计验证和小型执行收据在`analysis/`；模型索引在`models/`。大产物实际使用`artifacts/runs`、`artifacts/eval`、`artifacts/results`、`artifacts/merges`，与模板推荐的`logs/results`布局不同；[结果路径清单](configs/eval/final_results_20261017.json)记录精确映射，不依靠自动挑“最新”或最高奖励结果。
 
-尚未完成：完整正式评分矩阵与宏平均/CI、原Base15个判分缺口、249条SFT loss-only对照的全部候选结果、最终AVG64至少20个失败案例与至少三个后续实验、一页`report.pdf`、最终GitHub提交和通知。五模型发布与匿名验收收据已保存。现有曲线、合版导出或控制器启动均不替代完整评测；最终结论将随完整有效原始结果更新。
+尚未完成：完整正式评分矩阵与宏平均/CI、Base评分缺口的owner修复归档、最终AVG64至少20个失败案例与至少三个后续实验、一页`report.pdf`、最终GitHub提交和通知。五模型发布、匿名验收和249条SFT loss对照均已完成。现有曲线、loss改善、合版导出或控制器启动均不替代完整评测；最终结论将随完整有效原始结果更新。

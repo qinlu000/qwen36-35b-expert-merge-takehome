@@ -1,0 +1,25 @@
+{
+  "experiment_id": "sft_loss249_only_20261017",
+  "gpus": 4,
+  "max_length": 65536,
+  "expected_rows": 249,
+  "candidate_order": ["base", "avg64", "avg16", "mixed883"],
+  "candidates": {
+    "base": {"adapter": null},
+    "avg64": {"adapter": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64"},
+    "avg16": {"adapter": "artifacts/merges/four-experts-avg-v1-20261017/avg-svd-r16"},
+    "mixed883": {"adapter": "artifacts/runs/mixed-existing2k-sft-r16-726666/training/checkpoint-883"}
+  },
+  "native_config_source": "artifacts/runs/mixed-existing2k-sft-r16-726666/training_config.json",
+  "required_mixed_summary": "artifacts/runs/mixed-existing2k-sft-r16-726666/summary.json",
+  "val_dataset": "artifacts/data/candidates/mixed_existing_hle2k_20261016/val.messages.jsonl",
+  "val_provenance": "artifacts/data/candidates/mixed_existing_hle2k_20261016/summary.json",
+  "existing_domain_rows": {"hle": 100, "swe": 87, "terminal": 42, "asi": 20},
+  "output_prefix": "artifacts/eval/sft_loss249_only_20261017",
+  "selection_policy": "AVG64 remains final, chosen a priori; loss comparison does not tune weights/rank or use formal benchmark outcomes.",
+  "evaluation_only": "Single SwiftSft.train hook calls Trainer.evaluate; flags do_train=false/do_eval=true, prediction_loss_only=true, predict_with_generate=false; parameters frozen, no optimizer/scheduler/steps/checkpoint weights.",
+  "dataset_field_note": "Native SftArguments requires nonempty dataset even in evaluation-only. Both dataset and val_dataset point at the same unchanged249-row existing val file; the train hook never reads it for optimization.",
+  "metric": "Native Swift/Trainer eval_loss on identical249 rows at batch1; not claimed as a custom globally token-weighted NLL.",
+  "domain_loss": "Omitted in this minimal pass to avoid extra forwards or changing native metric collection; source domain counts retained.",
+  "scope": "Existing SFT validation loss only. No task-level validation benchmark, answer generation, judge calls or new validation data."
+}
