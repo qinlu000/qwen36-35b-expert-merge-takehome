@@ -1644,3 +1644,9 @@
 
 - 用户询问现在用了哪些卡。HPC squeue与逐作业scontrol show job -d只读确认5个RUNNING服务共10H100，全acd_u/Nice1000、emergency0。Slurm GRES IDX为：ACD1-22卡4/5 Terminal专家727912、卡6/7 AVG64 SWE+Terminal727913；ACD1-8卡5/6 ASI专家727879；ACD1-20卡6/7 AVG64 HLE727856（后复用ASI）；ACD1-30卡2/4 AVG16 HLE对照727857。
 - 卡号按Slurm分配IDX记录，不把容器CUDA编号当物理编号。HLE专家此前已完成并释放，其余原已释放服务未重建。本轮没有新增/取消作业、GPU申请或模型请求；仅记录分配快照，保留其他会话工作。
+
+
+## 2026-10-17：澄清Terminal agent与共享GPU服务
+
+- 用户询问为何Terminal用了SWE。已核两份80冻结Terminal manifest/runtime，实际入口TerminalRepairAgent经RecoveryTerminalBaselineV2/TerminalBaselineV2继承Harbor Terminus2；mini-swe-agent2.4.6仅用于SWE HARD51。上表“AVG64 SWE＋Terminal”指同一AVG64推理服务/GPU被两套独立评测客户端共享，不表示用SWE agent跑Terminal，也不合并prompt、沙箱或任务。
+- Terminal当前2000条训练轨迹实际为TerminalHorizon1107＋Terminal-Pivot893，属于Terminus JSON/tmux类；不是因为训练数据用了SWE而替换正式harness。源精确环境、摘要和未公开确认尾部等仍有已披露差异，不声称训练与评测完全相同。本轮只读核验、补充GPU分配收据的含义并更新记录，没有改评测协议或运行任务。

@@ -2,6 +2,7 @@
   "at_utc": "2026-10-16T20:41:47.192811+00:00",
   "source": "HPC squeue qinlucao and scontrol show job -d for each current apex service",
   "gpu_index_convention": "Slurm allocation GRES IDX, not an asserted container CUDA ordinal",
+  "shared_service_clarification": "Job727913 shares only the AVG64 model inference replica between two independent evaluation clients. SWE uses mini-swe-agent2.4.6; Terminal uses the Terminus2-derived frozen runtime. They retain separate tasks, agent loops, prompts and sandboxes.",
   "running_jobs": 5,
   "allocated_h100": 10,
   "partition": "acd_u",
