@@ -1243,3 +1243,13 @@
 - 旧28=18glibc+10musl，新23=17首次+6基础设施补跑。5成功中旧2新3。28是按环境确定的暴露范围，未证明每项都受损。原patch fresh replay51/51有效、5/51分数保留；评分完成不能恢复生成阶段丢失的自测反馈，因此该历史分数标为环境受扰，不能作为干净模型比较。
 - 固定独立clean28计划已落configs/eval/swe_clean_generation28_plan_20261016.json，包含旧成功2项，排除新23项；尚未启动，不突破原run不重生完整答案的协议。新实验须独立目录和日志、全28替换且不得新旧择高。18glibc的nativePATH/私有mini工具实现已存在，10musl仍需兼容适配，不能宣称一键就绪。
 - 已更新SWE状态和远端只读总汇警示。ASI仍240/240公开本地1.5709884%，非Portal；237新答中29条8K截断、28条遇未闭代码块后的原生抽取回退，49缺导入与冻结task声明依赖隔离有关，不能直接与none/full宿主环境等价或笼统归为模型能力。没有改生成器/解析器/依赖或重答。证据文档与逐条快照单独纳Git，保留并行SFT工作区改动，无coauthor信息。
+
+
+## 2026-10-16 20:07 CST：用户授权后SWE独立clean28已实际启动
+
+- 用户明确“你启动吧”，已启动固定旧28项独立生成和官方fresh replay，包含旧成功2项，原5/51与其余23项native记录保留，绝不新旧择高。80新目录artifacts/eval/base_swe_v2_20261016_clean28，20:04:14启动，总控当前PID3045818、共享模型consumer watcher3043073；3在途/25待准入，逐项完成立即补位，不分批等待。
+- 已并行完成18glibc与10musl的nativePATH/私有mini工具适配；musl保留旧私有ABI loader/interpreter包装，只给该任务独立子进程加hostshim，不污染glibc。首个musl Vuls已实际调用模型并执行工具，非仅计划/health/fixture通过。三题生产原生config与scope已只读确认各1CPU4GiB、CPU124/126/127；Ansible原生/usr/local/bin/python3.12.11有pytest/pip，NodeBB按自身镜像PATH选/usr/bin/python3.9.2，不能为所有任务强行指定同一Python版本。
+- 复用warm TP2/maxseq20的726635/28086与726629/28085，现有TB30任务与新SWE3任务共用两份服务；HLE50仍独立运行。CPU0–119不挪用、120–123旧状态grader保持，轻量collector设置AllowedCPUs125与Judge共享。没有申请需排队的新GPU/挤占SFT配额；所有seed0/nonthinking/BF16/64K8K/每题1800s/1740s/原prompt与mini2.4.6保持。调度profile差异明示，不把新旧分数差异仅归因PATH。
+- 初次parent在health await前取ready产生队列竞态，已将claim移至await之后并保存child PID/支持checkpoint接管；NodeBB原子进程3043076保持原CPU/预算继续，未取消或重复生成。旧ValueError完整留log，新parent无新drivererror；没有为修复额外跑fixture/模型验收/全量hash。其余2项实际生产接续，日志raw与checkpoint持续落盘。
+- 新summary分别报告clean28与整组替换后的corrected51，历史表单独保留；invalid/未评分仍null。只读总汇已部署新进度字段，不把历史SWE评分完成当新clean28完成。CPU评分沿用3000s原verifier、评分专用Go缓存和官方test.sh。
+- 两份共享GPU释放条件已改为Terminal和clean28两方模型consumer均结束，独立常驻watcher写combined marker后既有release watcher退卡；CPU评分可继续。不依赖Mac连接、不新建app定时任务。详细执行记录analysis/swe_clean28_execution_20261016.md，代码/固定清单/启动与真实生产回执单独Git纳管，无coauthor信息，不夹带SFT聊天改动。

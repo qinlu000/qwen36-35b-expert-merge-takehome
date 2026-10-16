@@ -75,6 +75,18 @@ def benchmark(project, name, expected, source):
                 scoring_complete=bool(raw["complete"]), usable_as_clean_model_comparison=False,
                 legacy_generation_environment_tasks=28, corrected_generation_environment_tasks=23,
                 clean_generation_rerun_started=False)
+            clean_path = project / 'artifacts/eval/base_swe_v2_20261016_clean28/checkpoint.json'
+            if clean_path.exists():
+                clean = read(clean_path)
+                corrected = read(clean_path.with_name('corrected51_summary.json'))
+                row.update(clean_generation_rerun_started=True,
+                    clean_generation_rerun_source=str(clean_path),
+                    clean_generation_rerun_expected=28,
+                    clean_generation_rerun_active=len(clean['active']),
+                    clean_generation_rerun_pending=len(clean['pending']),
+                    clean_generation_rerun_valid_scored=clean['valid_scored'],
+                    clean_generation_rerun_complete=clean['complete'],
+                    separate_corrected51_score_percent=corrected['primary_score_percent'])
             score = raw["primary_score_percent"]
         else:
             assert raw["expected_trials"] == expected
@@ -109,6 +121,8 @@ def report(project):
         "benchmarks": rows, "combined_score": None,
         "combined_score_note": "Four different benchmark metrics are not averaged into one score.",
         "method": "Read owner summaries only; missing/infrastructure-invalid values never become scored zeros."}
+    if rows['SWE'].get('clean_generation_rerun_started'):
+        result['complete'] = result['complete'] and rows['SWE']['clean_generation_rerun_complete']
     migration_path = project / "artifacts/runs/base_hle_v2_724196_seq20/handoff-receipt.json"
     if migration_path.exists():
         migration = read(migration_path)
@@ -155,6 +169,9 @@ def markdown(result):
     for name, row in result["benchmarks"].items():
         covered = row["valid_scored"] if row["valid_scored"] is not None else "待源summary"
         lines.append(f"| {name} | {covered}/{row['expected']} | {number(row['primary_score_percent'])} | {row['unscored']} |")
+    swe = result['benchmarks']['SWE']
+    if swe.get('clean_generation_rerun_started'):
+        lines += ['', f"SWE 上表保留受旧生成环境干扰的历史成绩。独立 clean28：{swe['clean_generation_rerun_valid_scored']}/28 有效评分，{swe['clean_generation_rerun_active']} 项在途，{swe['clean_generation_rerun_pending']} 项待准入；整组替换后的独立51项成绩：{number(swe['separate_corrected51_score_percent'])}。", '']
     tb = result["benchmarks"]["TB"]
     lines += ["", "TB 每seed固定89题；只有该seed89个有效结果齐全才给seed分。", "",
               "| Seed | 有效／89 | 正确数 | 分数 |", "|---|---:|---:|---:|"]

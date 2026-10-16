@@ -1,0 +1,39 @@
+{
+  "launched_at_cst": "2026-10-16 20:04:14 CST",
+  "controller_pid": 3045818,
+  "watcher_pid": 3043073,
+  "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28",
+  "cpu_ids": [
+    124,
+    126,
+    127
+  ],
+  "model_jobs": [
+    726635,
+    726629
+  ],
+  "cohort": 28,
+  "concurrency": 3,
+  "command": [
+    "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+    "-u",
+    "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_clean28.py",
+    "--plan",
+    "/data/caoqinlu/projects/apex-takehome/configs/eval/swe_clean_generation28_plan_20261016.json",
+    "--output",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28",
+    "--key-path",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key",
+    "--cpu-ids",
+    "124",
+    "126",
+    "127",
+    "--endpoints",
+    "http://127.0.0.1:28086",
+    "http://127.0.0.1:28085",
+    "http://127.0.0.1:28085"
+  ],
+  "historical_score_unchanged": true,
+  "initial_controller_pid": 3043074,
+  "controller_recovery": "Fixed await-before-queue-claim race; original NodeBB child3043076 continues unchanged and is adopted atCPU126; no answer cancelled or regenerated"
+}

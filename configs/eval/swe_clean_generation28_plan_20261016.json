@@ -1,7 +1,6 @@
 {
   "experiment_id": "base_swe_v2_clean_generation28_20261016",
-  "status": "planned_not_started",
-  "model_calls_started": 0,
+  "status": "running",
   "old_score_unchanged": {
     "resolved": 5,
     "expected": 51,
@@ -174,7 +173,7 @@
       "original_generation_environment": "swe_musl_root_runtime:MuslRootRuntimeEnvironment",
       "old_reward_retained": 0.0,
       "target_runtime_contract": "Restore exact SIF native PATH; install mini with its private interpreter/uv; preserve original task Python and uv; keep existing compatible backend",
-      "runtime_implementation_status": "Musl compatibility layer requires native PATH/private-tool adaptation before launch"
+      "runtime_implementation_status": "Clean musl runtime deployed; actual production model requests observed"
     },
     {
       "task_id": "instance_future-architect__vuls-ef2be3d6ea4c0a13674aaab08b182eca4e2b9a17-v264a82e2f4818e30f5a25e4da53b27ba119f62b5",
@@ -182,7 +181,7 @@
       "original_generation_environment": "swe_musl_root_runtime:MuslRootRuntimeEnvironment",
       "old_reward_retained": 0.0,
       "target_runtime_contract": "Restore exact SIF native PATH; install mini with its private interpreter/uv; preserve original task Python and uv; keep existing compatible backend",
-      "runtime_implementation_status": "Musl compatibility layer requires native PATH/private-tool adaptation before launch"
+      "runtime_implementation_status": "Clean musl runtime deployed; actual production model requests observed"
     },
     {
       "task_id": "instance_gravitational__teleport-1316e6728a3ee2fc124e2ea0cc6a02044c87a144-v626ec2a48416b10a88641359a169d99e935ff037",
@@ -198,7 +197,7 @@
       "original_generation_environment": "swe_musl_root_runtime:MuslRootRuntimeEnvironment",
       "old_reward_retained": 0.0,
       "target_runtime_contract": "Restore exact SIF native PATH; install mini with its private interpreter/uv; preserve original task Python and uv; keep existing compatible backend",
-      "runtime_implementation_status": "Musl compatibility layer requires native PATH/private-tool adaptation before launch"
+      "runtime_implementation_status": "Clean musl runtime deployed; actual production model requests observed"
     },
     {
       "task_id": "instance_gravitational__teleport-65438e6e44b6ce51458d09b7bb028a2797cfb0ea-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
@@ -206,7 +205,7 @@
       "original_generation_environment": "swe_musl_root_runtime:MuslRootRuntimeEnvironment",
       "old_reward_retained": 0.0,
       "target_runtime_contract": "Restore exact SIF native PATH; install mini with its private interpreter/uv; preserve original task Python and uv; keep existing compatible backend",
-      "runtime_implementation_status": "Musl compatibility layer requires native PATH/private-tool adaptation before launch"
+      "runtime_implementation_status": "Clean musl runtime deployed; actual production model requests observed"
     },
     {
       "task_id": "instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
@@ -214,7 +213,7 @@
       "original_generation_environment": "swe_musl_root_runtime:MuslRootRuntimeEnvironment",
       "old_reward_retained": 0.0,
       "target_runtime_contract": "Restore exact SIF native PATH; install mini with its private interpreter/uv; preserve original task Python and uv; keep existing compatible backend",
-      "runtime_implementation_status": "Musl compatibility layer requires native PATH/private-tool adaptation before launch"
+      "runtime_implementation_status": "Clean musl runtime deployed; actual production model requests observed"
     },
     {
       "task_id": "instance_gravitational__teleport-eda668c30d9d3b56d9c69197b120b01013611186",
@@ -230,7 +229,7 @@
       "original_generation_environment": "swe_musl_root_runtime:MuslRootRuntimeEnvironment",
       "old_reward_retained": 0.0,
       "target_runtime_contract": "Restore exact SIF native PATH; install mini with its private interpreter/uv; preserve original task Python and uv; keep existing compatible backend",
-      "runtime_implementation_status": "Musl compatibility layer requires native PATH/private-tool adaptation before launch"
+      "runtime_implementation_status": "Clean musl runtime deployed; actual production model requests observed"
     },
     {
       "task_id": "instance_protonmail__webclients-5f0745dd6993bb1430a951c62a49807c6635cd77",
@@ -238,7 +237,7 @@
       "original_generation_environment": "swe_musl_root_runtime:MuslRootRuntimeEnvironment",
       "old_reward_retained": 0.0,
       "target_runtime_contract": "Restore exact SIF native PATH; install mini with its private interpreter/uv; preserve original task Python and uv; keep existing compatible backend",
-      "runtime_implementation_status": "Musl compatibility layer requires native PATH/private-tool adaptation before launch"
+      "runtime_implementation_status": "Clean musl runtime deployed; actual production model requests observed"
     },
     {
       "task_id": "instance_protonmail__webclients-715dbd4e6999499cd2a576a532d8214f75189116",
@@ -246,7 +245,7 @@
       "original_generation_environment": "swe_musl_root_runtime:MuslRootRuntimeEnvironment",
       "old_reward_retained": 0.0,
       "target_runtime_contract": "Restore exact SIF native PATH; install mini with its private interpreter/uv; preserve original task Python and uv; keep existing compatible backend",
-      "runtime_implementation_status": "Musl compatibility layer requires native PATH/private-tool adaptation before launch"
+      "runtime_implementation_status": "Clean musl runtime deployed; actual production model requests observed"
     },
     {
       "task_id": "instance_protonmail__webclients-c5a2089ca2bfe9aa1d85a664b8ad87ef843a1c9c",
@@ -254,7 +253,7 @@
       "original_generation_environment": "swe_musl_root_runtime:MuslRootRuntimeEnvironment",
       "old_reward_retained": 0.0,
       "target_runtime_contract": "Restore exact SIF native PATH; install mini with its private interpreter/uv; preserve original task Python and uv; keep existing compatible backend",
-      "runtime_implementation_status": "Musl compatibility layer requires native PATH/private-tool adaptation before launch"
+      "runtime_implementation_status": "Clean musl runtime deployed; actual production model requests observed"
     },
     {
       "task_id": "instance_protonmail__webclients-e65cc5f33719e02e1c378146fb981d27bc24bdf4",
@@ -262,7 +261,7 @@
       "original_generation_environment": "swe_musl_root_runtime:MuslRootRuntimeEnvironment",
       "old_reward_retained": 0.0,
       "target_runtime_contract": "Restore exact SIF native PATH; install mini with its private interpreter/uv; preserve original task Python and uv; keep existing compatible backend",
-      "runtime_implementation_status": "Musl compatibility layer requires native PATH/private-tool adaptation before launch"
+      "runtime_implementation_status": "Clean musl runtime deployed; actual production model requests observed"
     }
   ],
   "fixed_generation_settings": {
@@ -291,9 +290,9 @@
     "Declare actual serving profile/concurrency. If changed from historical runs, any score change cannot be attributed solely toPATH"
   ],
   "execution_prerequisites": [
-    "Explicit decision to run this separate completed-answer experiment",
-    "Compatible clean musl runtime adaptation for10old musl cases; preparation currently makes no readiness claim",
-    "Reserved nonoverlapping native task CPU/memory resources and model endpoint"
+    "User explicitly authorized this independent repetition: launch it",
+    "Clean musl compatibility source deployed; real production task has started",
+    "Three nonoverlapping task CPU slots124/126/127 and two shared warm maxseq20 endpoints assigned"
   ],
   "counts": {
     "old_glibc": 18,
@@ -306,5 +305,7 @@
     "analysis/source_snapshots/swe_selected_generation_provenance_20261016.json",
     "analysis/source_snapshots/swe_old_generation_selftest_evidence_20261016.json",
     "analysis/source_snapshots/swe_generation_native_command_pairs_20261016.json"
-  ]
+  ],
+  "model_progress_source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/checkpoint.json",
+  "launch_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/launch-receipt.json"
 }

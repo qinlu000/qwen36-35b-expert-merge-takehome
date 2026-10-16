@@ -30,14 +30,14 @@
     {
       "benchmark": "model_consumer",
       "job_id": 726629,
-      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/terminal-seq20-current-manifest-finished.json",
-      "purpose": "Reuse existing warm maxseq20 HLE service as Terminal B only after HLE50 natural handoff; retain until Terminal model consumers finish"
+      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/shared-model-consumers-finished.json",
+      "purpose": "Retain warm maxseq20 service until both Terminal and the independent fixed clean28 SWE model consumers finish"
     },
     {
       "benchmark": "model_consumer",
       "job_id": 726635,
-      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/terminal-seq20-current-manifest-finished.json",
-      "purpose": "Release only after planned model consumers finish; CPU scoring and incomplete fixed445 reporting continue independently"
+      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/shared-model-consumers-finished.json",
+      "purpose": "Release only after Terminal and independent fixed clean28 SWE model consumers finish; CPU scoring continues independently"
     },
     {
       "benchmark": "model_consumer",

@@ -1,5 +1,7 @@
 # SWE generation PATH deviation: exact audit and separate rerun plan
 
+Update at20:04CST: the user authorized the separate experiment and clean28 production has started. Both runtime families now have the adaptation described below. See `analysis/swe_clean28_execution_20261016.md`. The original read-only audit and historical5/51 are retained below.
+
 This is a read-only audit. No model request, task test, GPU job or original result was changed. Historical score remains5/51=9.8039215686%.
 
 The concrete cause is the pinned Harbor Singularity server, `/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/harbor/src/harbor/environments/singularity/server.py`: line81 and line125 prepend `/usr/bin:/usr/local/bin:` to the image PATH; line127 allows a request environment override. The older `SweRuntimeEnvironment` did not restore the task image PATH on each exec. Consequently `python`/`python3` could select the Debian system interpreter before the image's prepared `/usr/local/bin` interpreter. This is separate from inference configuration and does not mean every task used managedPython3.12.

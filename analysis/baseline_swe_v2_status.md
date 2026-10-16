@@ -1,5 +1,7 @@
 # SWE v2 baseline status — 2026-10-16
 
+20:04独立clean28已获用户授权并实际启动：新总控PID3045818，3项滚动并行，CPU124/126/127各1CPU4GiB；18glibc及10musl均已部署nativePATH/私有工具适配，首个musl也已有真实模型请求。保留原5/51，固定全28含原成功2项独立生成及官方fresh replay，不按新旧结果择优；其余23项native历史记录保留。复用Terminal现有两份warm maxseq20服务，模型与任务预算不变，调度差异明确披露。新日志/checkpoint/独立28及修正51汇总见`artifacts/eval/base_swe_v2_20261016_clean28`；[启动记录](swe_clean28_execution_20261016.md)。
+
 19:55生成环境审计更正：5/51的原patch评分已经完成，但不是干净的模型对照成绩。旧28项生成时，命令服务器将`/usr/bin`置于镜像原生PATH之前，旧适配层没有覆盖恢复；4条Ansible轨迹直接出现系统Python缺pytest/jinja2/yaml，同轨迹显式使用`/usr/local/bin/python`可恢复导入或启动自测。原生Python仍存在，不能概括为全部被managed Python替换。评分修复不能补回生成时的调试机会；28项是环境暴露范围，不等于28项全部受损。
 
 干净对照应独立重跑预先固定的旧28项生成及评分，包含原成功2项；23项已用native runtime（含6项原基础设施补跑）可保留。历史5/51和全部轨迹保持，不按新旧分数择优。计划已保存但未启动：18项glibc已有native实现，10项musl还需同样的原生PATH/私有工具适配。证据与范围见[生成环境审计](swe_generation_path_audit_20261016.md)及`configs/eval/swe_clean_generation28_plan_20261016.json`。
