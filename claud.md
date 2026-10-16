@@ -1253,3 +1253,11 @@
 - 初次parent在health await前取ready产生队列竞态，已将claim移至await之后并保存child PID/支持checkpoint接管；NodeBB原子进程3043076保持原CPU/预算继续，未取消或重复生成。旧ValueError完整留log，新parent无新drivererror；没有为修复额外跑fixture/模型验收/全量hash。其余2项实际生产接续，日志raw与checkpoint持续落盘。
 - 新summary分别报告clean28与整组替换后的corrected51，历史表单独保留；invalid/未评分仍null。只读总汇已部署新进度字段，不把历史SWE评分完成当新clean28完成。CPU评分沿用3000s原verifier、评分专用Go缓存和官方test.sh。
 - 两份共享GPU释放条件已改为Terminal和clean28两方模型consumer均结束，独立常驻watcher写combined marker后既有release watcher退卡；CPU评分可继续。不依赖Mac连接、不新建app定时任务。详细执行记录analysis/swe_clean28_execution_20261016.md，代码/固定清单/启动与真实生产回执单独Git纳管，无coauthor信息，不夹带SFT聊天改动。
+
+## 2026-10-16 20:12 CST：训练数据汇报记录与实际加载数修正
+
+- 用户问训练数据是否记录以便汇报。已确认版本目录保留完整train/val JSONL、逐条manifest/provenance、来源/教师/家族/筛选/长度；run保存实际配置/命令/原生args/逐步日志，完成run另有summary/checkpoint。已整理analysis/training_data_report_20261016.md、CSV及结构化inventory，80/HPC有数据本体，本机有汇报文件。
+- 重要更正：此前只报导出SWE2000、Mixed7073不够准确。原生日志实际加载SWE1993/87、Mixed7066/249；7条均源tool观察后user格式纠正反馈导致Swift response_role:user过滤，不是超长或截断。原始样本未删未改；行223/239/279/1256/1462/1530/1972及instance/trajectory/family/分片行号已记录。原生warning无ID，按保留输入的角色模式及行manifest重建定位，方法和局限披露，不冒称逐batch trace。
+- SWE实际保留原模板完整token67,446,810，少288,516，assistant输出代理14,685,184；946仓库仍保留，语言Python952/Go517/JS477/TS47，source1224/769。Mixed对应原模板保留token140,826,718。这些不是原生精确label/padding计算量，无新增编码或hash审计。
+- 实际状态：SWE726335已19:55完成249步/bestcp249 val.31768048（run为swe2k-sft-r16-726335）；ASI726336完成134/best128；HLE726664已31/250且原生2000/100；Mixed726666已6/883且7066/249；Terminal726665仍待启动无native run。四个已启run有training_config/command/args/logging，完成两项有summary。
+- 更新训练矩阵，明确train_rows为导出量、native_loaded_train_rows为预处理后量；实际SWE/Mixed加载数与并集保持一致。不为补齐7条取消/重做训练，不改数据或冻结评测。claud/overnight只提交本轮自有追加段，Git无coauthor信息。

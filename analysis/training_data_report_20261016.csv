@@ -1,0 +1,6 @@
+model,job_id,state,exported_train_rows,loaded_train_rows,exported_val_rows,loaded_val_rows,exported_source_template_tokens,retained_source_template_tokens,data_dir,provenance_file,run_directory
+swe,726335,COMPLETED,2000,1993,87,87,67735326,67446810,artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k,train.manifest.jsonl,/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335
+terminal,726665,PENDING,2000,,42,,71660040,,artifacts/data/candidates/terminal_sft_2k_20261016,provenance.jsonl,
+hle,726664,RUNNING,2000,2000,100,100,1125593,1125593,artifacts/data/candidates/hle_existing_2k_20261016/swift_ready,train.provenance.jsonl,/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664
+asi,726336,COMPLETED,1073,1073,20,20,594275,594275,artifacts/data/candidates/asi_sft_expanded_20261016,train.provenance.jsonl,/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336
+mixed,726666,RUNNING,7073,7066,249,249,141115234,140826718,artifacts/data/candidates/mixed_existing_hle2k_20261016,summary.json (ordered source mapping),/data/user/qinlucao/projects/apex-takehome/artifacts/runs/mixed-existing2k-sft-r16-726666

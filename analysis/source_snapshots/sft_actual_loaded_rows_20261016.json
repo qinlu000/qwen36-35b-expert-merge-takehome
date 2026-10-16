@@ -1,0 +1,476 @@
+{
+  "snapshot_time_beijing": "2026-10-16T20:12:38.505152+08:00",
+  "project_root_hpc": "/data/user/qinlucao/projects/apex-takehome",
+  "method": "Read existing native Swift logs/configs and saved input manifests only; no re-encoding, filtering changes or retraining.",
+  "loaded_rows_definition": "Dataset length after native preprocessing, not exported file rows or a claim that optimizer visited every distinct row.",
+  "runs": [
+    {
+      "job_id": 726335,
+      "slurm_record": [
+        "COMPLETED",
+        "02:03:00",
+        "2026-10-16T17:52:24",
+        "2026-10-16T19:55:24",
+        "0:0"
+      ],
+      "run_directory": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335",
+      "metadata_records": {
+        "training_config.json": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training_config.json",
+        "training_command.json": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training_command.json",
+        "training/args.json": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/args.json",
+        "training/logging.jsonl": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/logging.jsonl",
+        "summary.json": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/summary.json"
+      },
+      "config": {
+        "dataset": [
+          "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.messages.jsonl"
+        ],
+        "val_dataset": [
+          "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/val.messages.jsonl"
+        ],
+        "num_train_epochs": 1,
+        "max_length": 65536,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 2,
+        "lora_rank": 16,
+        "lora_alpha": 32,
+        "enable_thinking": false,
+        "loss_scale": "default+ignore_empty_think"
+      },
+      "world_size": 4,
+      "global_batch_size": 8,
+      "exported_rows": {
+        "dataset": 2000,
+        "val_dataset": 87
+      },
+      "native_loaded_rows": {
+        "train": 1993,
+        "val": 87
+      },
+      "native_dataset_log_lines_1based": [
+        825,
+        827,
+        829,
+        831
+      ],
+      "native_deletion_warning_lines_1based": [
+        599,
+        637,
+        672,
+        709,
+        746,
+        780,
+        816
+      ],
+      "native_response_role_user_error_lines_1based": [
+        597,
+        635,
+        670,
+        707,
+        744,
+        778,
+        814
+      ],
+      "latest_log": [
+        {
+          "eval_loss": 0.31768048,
+          "epoch": 1,
+          "global_step/max_steps": "249/249",
+          "elapsed_time": "1h 55m 36s",
+          "remaining_time": "0s"
+        },
+        {
+          "epoch": 1,
+          "global_step/max_steps": "249/249",
+          "elapsed_time": "1h 55m 39s",
+          "remaining_time": "0s"
+        },
+        {
+          "global_step": 249,
+          "last_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+          "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+          "best_metric": 0.31768048
+        }
+      ]
+    },
+    {
+      "job_id": 726336,
+      "slurm_record": [
+        "COMPLETED",
+        "00:51:36",
+        "2026-10-16T16:56:09",
+        "2026-10-16T17:47:45",
+        "0:0"
+      ],
+      "run_directory": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336",
+      "metadata_records": {
+        "training_config.json": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training_config.json",
+        "training_command.json": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training_command.json",
+        "training/args.json": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/args.json",
+        "training/logging.jsonl": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/logging.jsonl",
+        "summary.json": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/summary.json"
+      },
+      "config": {
+        "dataset": [
+          "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/asi_sft_expanded_20261016/train.messages.jsonl"
+        ],
+        "val_dataset": [
+          "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/asi_sft_expanded_20261016/val.messages.jsonl"
+        ],
+        "num_train_epochs": 1,
+        "max_length": 65536,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 4,
+        "lora_rank": 16,
+        "lora_alpha": 32,
+        "enable_thinking": false,
+        "loss_scale": "default+ignore_empty_think"
+      },
+      "world_size": 2,
+      "global_batch_size": 8,
+      "exported_rows": {
+        "dataset": 1073,
+        "val_dataset": 20
+      },
+      "native_loaded_rows": {
+        "train": 1073,
+        "val": 20
+      },
+      "native_dataset_log_lines_1based": [
+        547,
+        549,
+        551,
+        553
+      ],
+      "native_deletion_warning_lines_1based": [],
+      "native_response_role_user_error_lines_1based": [],
+      "latest_log": [
+        {
+          "eval_loss": 0.58287901,
+          "epoch": 1,
+          "global_step/max_steps": "134/134",
+          "elapsed_time": "46m 41s",
+          "remaining_time": "0s"
+        },
+        {
+          "epoch": 1,
+          "global_step/max_steps": "134/134",
+          "elapsed_time": "46m 43s",
+          "remaining_time": "0s"
+        },
+        {
+          "global_step": 134,
+          "last_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-134",
+          "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128",
+          "best_metric": 0.58268344
+        }
+      ]
+    },
+    {
+      "job_id": 726664,
+      "slurm_record": [
+        "RUNNING",
+        "00:19:06",
+        "2026-10-16T19:53:32",
+        "Unknown",
+        "0:0"
+      ],
+      "run_directory": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664",
+      "metadata_records": {
+        "training_config.json": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training_config.json",
+        "training_command.json": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training_command.json",
+        "training/args.json": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/args.json",
+        "training/logging.jsonl": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/logging.jsonl",
+        "summary.json": null
+      },
+      "config": {
+        "dataset": [
+          "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/hle_existing_2k_20261016/swift_ready/train.messages.jsonl"
+        ],
+        "val_dataset": [
+          "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/hle_existing_2k_20261016/swift_ready/val.messages.jsonl"
+        ],
+        "num_train_epochs": 1,
+        "max_length": 65536,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 4,
+        "lora_rank": 16,
+        "lora_alpha": 32,
+        "enable_thinking": false,
+        "loss_scale": "default+ignore_empty_think"
+      },
+      "world_size": 2,
+      "global_batch_size": 8,
+      "exported_rows": {
+        "dataset": 2000,
+        "val_dataset": 100
+      },
+      "native_loaded_rows": {
+        "train": 2000,
+        "val": 100
+      },
+      "native_dataset_log_lines_1based": [
+        556,
+        558,
+        560,
+        562
+      ],
+      "native_deletion_warning_lines_1based": [],
+      "native_response_role_user_error_lines_1based": [],
+      "latest_log": [
+        {
+          "loss": 0.53443468,
+          "epoch": 0.116,
+          "global_step/max_steps": "29/250",
+          "elapsed_time": "13m 35s",
+          "remaining_time": "1h 43m 34s"
+        },
+        {
+          "loss": 0.44685122,
+          "epoch": 0.12,
+          "global_step/max_steps": "30/250",
+          "elapsed_time": "13m 55s",
+          "remaining_time": "1h 42m 5s"
+        },
+        {
+          "loss": 0.38549051,
+          "epoch": 0.124,
+          "global_step/max_steps": "31/250",
+          "elapsed_time": "14m 15s",
+          "remaining_time": "1h 40m 42s"
+        }
+      ]
+    },
+    {
+      "job_id": 726665,
+      "slurm_record": [
+        "PENDING",
+        "00:00:00",
+        "Unknown",
+        "Unknown",
+        "0:0"
+      ],
+      "run_directory": null,
+      "record_status": "Pending: submission and dataset manifests exist; no native run/config/command/summary yet."
+    },
+    {
+      "job_id": 726666,
+      "slurm_record": [
+        "RUNNING",
+        "00:17:14",
+        "2026-10-16T19:55:24",
+        "Unknown",
+        "0:0"
+      ],
+      "run_directory": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/mixed-existing2k-sft-r16-726666",
+      "metadata_records": {
+        "training_config.json": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/mixed-existing2k-sft-r16-726666/training_config.json",
+        "training_command.json": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/mixed-existing2k-sft-r16-726666/training_command.json",
+        "training/args.json": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/mixed-existing2k-sft-r16-726666/training/args.json",
+        "training/logging.jsonl": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/mixed-existing2k-sft-r16-726666/training/logging.jsonl",
+        "summary.json": null
+      },
+      "config": {
+        "dataset": [
+          "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/mixed_existing_hle2k_20261016/train.messages.jsonl"
+        ],
+        "val_dataset": [
+          "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/mixed_existing_hle2k_20261016/val.messages.jsonl"
+        ],
+        "num_train_epochs": 1,
+        "max_length": 65536,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 2,
+        "lora_rank": 16,
+        "lora_alpha": 32,
+        "enable_thinking": false,
+        "loss_scale": "default+ignore_empty_think"
+      },
+      "world_size": 4,
+      "global_batch_size": 8,
+      "exported_rows": {
+        "dataset": 7073,
+        "val_dataset": 249
+      },
+      "native_loaded_rows": {
+        "train": 7066,
+        "val": 249
+      },
+      "native_dataset_log_lines_1based": [
+        873,
+        875,
+        877,
+        879
+      ],
+      "native_deletion_warning_lines_1based": [
+        597,
+        649,
+        689,
+        726,
+        767,
+        806,
+        853
+      ],
+      "native_response_role_user_error_lines_1based": [
+        595,
+        647,
+        687,
+        724,
+        765,
+        804,
+        851
+      ],
+      "latest_log": [
+        {
+          "loss": 0.50015986,
+          "epoch": 0.00453001,
+          "global_step/max_steps": "4/883",
+          "elapsed_time": "5m 50s",
+          "remaining_time": "21h 23m 4s"
+        },
+        {
+          "loss": 0.51019669,
+          "epoch": 0.00566251,
+          "global_step/max_steps": "5/883",
+          "elapsed_time": "6m 34s",
+          "remaining_time": "19h 13m 25s"
+        },
+        {
+          "loss": 0.52628243,
+          "epoch": 0.00679502,
+          "global_step/max_steps": "6/883",
+          "elapsed_time": "7m 34s",
+          "remaining_time": "18h 25m 41s"
+        }
+      ]
+    }
+  ],
+  "excluded_swe_rows": [
+    {
+      "family_key": "6b841c00ef4d0df24f53e5b83428cba002cf66941fbcc59b4ed4f94b73da348c",
+      "instance_id": "srvaroa__labeler-154",
+      "trajectory_id": "2ab0be13-1221-4614-afba-5c3eb84132c5",
+      "source": "swe-rebench-v2",
+      "repo": "srvaroa/labeler",
+      "file": "data/minisweagent/qwen38_flash_next/swe-rebench-v2/train-00007-of-00009.parquet",
+      "row": 159,
+      "exported_input_line_1based": 223,
+      "input_messages_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.messages.jsonl",
+      "input_manifest_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.manifest.jsonl",
+      "reason": "Native Swift response_role=user assertion: source harness tool-call-error/format-correction feedback is a mid-trajectory user message immediately following a tool observation; tool and user are consecutive query roles. Not an overlength deletion, not an empty assistant, not token truncation.",
+      "extra_user_message_indices_0based": [
+        26
+      ],
+      "identification_method": "Read-only role-pattern match in the preserved input file; exactly seven matching rows, consistent with seven native warnings and 2000->1993. Native warning lines themselves do not carry row IDs."
+    },
+    {
+      "family_key": "389c2c2e23d65438664958922f5f2b74f9947c12f159a8450d88d8b948427c0e",
+      "instance_id": "kubean-io__kubean-488",
+      "trajectory_id": "cd4ec925-ac28-437f-a3bc-18820b37d759",
+      "source": "swe-rebench-v2",
+      "repo": "kubean-io/kubean",
+      "file": "data/minisweagent/qwen38_flash_next/swe-rebench-v2/train-00006-of-00009.parquet",
+      "row": 650,
+      "exported_input_line_1based": 239,
+      "input_messages_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.messages.jsonl",
+      "input_manifest_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.manifest.jsonl",
+      "reason": "Native Swift response_role=user assertion: source harness tool-call-error/format-correction feedback is a mid-trajectory user message immediately following a tool observation; tool and user are consecutive query roles. Not an overlength deletion, not an empty assistant, not token truncation.",
+      "extra_user_message_indices_0based": [
+        112
+      ],
+      "identification_method": "Read-only role-pattern match in the preserved input file; exactly seven matching rows, consistent with seven native warnings and 2000->1993. Native warning lines themselves do not carry row IDs."
+    },
+    {
+      "family_key": "699b5e01306d9d5774e61b170b1a321a2243f4fa65d4c4930b7020b7ac78e800",
+      "instance_id": "kubernetes__klog-159",
+      "trajectory_id": "4543d025-9beb-46dd-8885-546d4bdb84f1",
+      "source": "swe-rebench-v2",
+      "repo": "kubernetes/klog",
+      "file": "data/minisweagent/qwen38_flash_next/swe-rebench-v2/train-00004-of-00009.parquet",
+      "row": 450,
+      "exported_input_line_1based": 279,
+      "input_messages_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.messages.jsonl",
+      "input_manifest_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.manifest.jsonl",
+      "reason": "Native Swift response_role=user assertion: source harness tool-call-error/format-correction feedback is a mid-trajectory user message immediately following a tool observation; tool and user are consecutive query roles. Not an overlength deletion, not an empty assistant, not token truncation.",
+      "extra_user_message_indices_0based": [
+        13
+      ],
+      "identification_method": "Read-only role-pattern match in the preserved input file; exactly seven matching rows, consistent with seven native warnings and 2000->1993. Native warning lines themselves do not carry row IDs."
+    },
+    {
+      "family_key": "a6c6ba87417a4a6b36ed7c454ce2f19522db06790e85e9f6c30e2067f5088491",
+      "instance_id": "mirumee_ariadne-codegen_pr304",
+      "trajectory_id": "1993f7ca-0e5b-4cd5-a818-29b57626df0a",
+      "source": "scale-swe",
+      "repo": "mirumee/ariadne-codegen",
+      "file": "data/minisweagent/qwen38_flash_next/scale-swe/train-00004-of-00007.parquet",
+      "row": 925,
+      "exported_input_line_1based": 1256,
+      "input_messages_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.messages.jsonl",
+      "input_manifest_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.manifest.jsonl",
+      "reason": "Native Swift response_role=user assertion: source harness tool-call-error/format-correction feedback is a mid-trajectory user message immediately following a tool observation; tool and user are consecutive query roles. Not an overlength deletion, not an empty assistant, not token truncation.",
+      "extra_user_message_indices_0based": [
+        112
+      ],
+      "identification_method": "Read-only role-pattern match in the preserved input file; exactly seven matching rows, consistent with seven native warnings and 2000->1993. Native warning lines themselves do not carry row IDs."
+    },
+    {
+      "family_key": "dcafb7465e7bd6cc2f7282632ae61cbdc8fe17b57901cb9fa342ac42cd10eea9",
+      "instance_id": "influxdb_influxdb-python_pr265",
+      "trajectory_id": "5767c73a-934f-4e61-a5f2-d60960b92e47",
+      "source": "scale-swe",
+      "repo": "influxdb/influxdb-python",
+      "file": "data/minisweagent/qwen38_flash_next/scale-swe/train-00002-of-00007.parquet",
+      "row": 1494,
+      "exported_input_line_1based": 1462,
+      "input_messages_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.messages.jsonl",
+      "input_manifest_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.manifest.jsonl",
+      "reason": "Native Swift response_role=user assertion: source harness tool-call-error/format-correction feedback is a mid-trajectory user message immediately following a tool observation; tool and user are consecutive query roles. Not an overlength deletion, not an empty assistant, not token truncation.",
+      "extra_user_message_indices_0based": [
+        116
+      ],
+      "identification_method": "Read-only role-pattern match in the preserved input file; exactly seven matching rows, consistent with seven native warnings and 2000->1993. Native warning lines themselves do not carry row IDs."
+    },
+    {
+      "family_key": "dd4a203d864554925e57aa7327ab35b9cb2c9aa762500cbe98dd840e94232a97",
+      "instance_id": "alteryx__woodwork-1594",
+      "trajectory_id": "54ece707-ce05-41e3-8913-509e04a63a92",
+      "source": "swe-rebench-v2",
+      "repo": "alteryx/woodwork",
+      "file": "data/minisweagent/qwen38_flash_next/swe-rebench-v2/train-00001-of-00009.parquet",
+      "row": 2130,
+      "exported_input_line_1based": 1530,
+      "input_messages_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.messages.jsonl",
+      "input_manifest_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.manifest.jsonl",
+      "reason": "Native Swift response_role=user assertion: source harness tool-call-error/format-correction feedback is a mid-trajectory user message immediately following a tool observation; tool and user are consecutive query roles. Not an overlength deletion, not an empty assistant, not token truncation.",
+      "extra_user_message_indices_0based": [
+        72
+      ],
+      "identification_method": "Read-only role-pattern match in the preserved input file; exactly seven matching rows, consistent with seven native warnings and 2000->1993. Native warning lines themselves do not carry row IDs."
+    },
+    {
+      "family_key": "cfd2c07db934d8fdb3bd13741341402a1c9b38b2ad8a0b8e82279c2541cdccd6",
+      "instance_id": "firebase__firebase-tools-3674",
+      "trajectory_id": "e6999c4d-3381-463f-a4da-9a944384b3fb",
+      "source": "swe-rebench-v2",
+      "repo": "firebase/firebase-tools",
+      "file": "data/minisweagent/qwen38_flash_next/swe-rebench-v2/train-00006-of-00009.parquet",
+      "row": 2413,
+      "exported_input_line_1based": 1972,
+      "input_messages_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.messages.jsonl",
+      "input_manifest_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.manifest.jsonl",
+      "reason": "Native Swift response_role=user assertion: source harness tool-call-error/format-correction feedback is a mid-trajectory user message immediately following a tool observation; tool and user are consecutive query roles. Not an overlength deletion, not an empty assistant, not token truncation.",
+      "extra_user_message_indices_0based": [
+        81
+      ],
+      "identification_method": "Read-only role-pattern match in the preserved input file; exactly seven matching rows, consistent with seven native warnings and 2000->1993. Native warning lines themselves do not carry row IDs."
+    }
+  ],
+  "mixed_same_exclusions": {
+    "native_loaded_rows": 7066,
+    "exported_rows": 7073,
+    "reason": "Same seven SWE rows have response_role=user warnings in Mixed; other domains and all 249 validation rows retained.",
+    "swe_rows_copied_into_mixed_unchanged": true
+  },
+  "encoded_cache_note": "No persistent encoded-dataset row-ID export found in run records. Native configs have load_from_cache_file=false; completed-job container temp/cache is removed by wrapper EXIT trap. Preserved raw JSONL + line-aligned manifests + native logs provide reconstruction."
+}

@@ -290,3 +290,11 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - 用户问现在还需改什么。复核没有必须为HLE/ASI prompt文案重做数据或重训的实证阻塞；上轮“优先补”是可优化方向，不是已发现故障。HLE官方可抽任意响应最终答案，三字段非准确率判分硬要求；162参考短答有效但缺解释监督。ASI1073目标均单Python块，991辅助system与官方语义兼容，未发现解析失败。
 - 保持当前训练版本、划分和Mixed7073，不为文案一致取消/重做训练。缺Confidence不补造100%；SWE/Terminal已对齐的原生协议保持。必须闭环的是Terminal新正式job的GPU全量val，CPU通过不等于实际OOM已消失；后续既有独立val查抽取、工具、代码输出与任务表现，有实质失败再定向适配。
 - 本轮只读训练状态，SWE726335在训；HLE726664受QOS额度排队，Terminal726665/Mixed726666等待依赖。未改任何数据/作业/评测，无API/GPU探针。必要性结论已补sft_harness_alignment与sft_progress；仅Git提交本轮自有内容和claud/overnight追加，无coauthor信息。
+
+## 2026-10-16 20:12 CST：训练数据汇报记录与实际加载数修正
+
+- 用户问训练数据是否记录以便汇报。已确认版本目录保留完整train/val JSONL、逐条manifest/provenance、来源/教师/家族/筛选/长度；run保存实际配置/命令/原生args/逐步日志，完成run另有summary/checkpoint。已整理analysis/training_data_report_20261016.md、CSV及结构化inventory，80/HPC有数据本体，本机有汇报文件。
+- 重要更正：此前只报导出SWE2000、Mixed7073不够准确。原生日志实际加载SWE1993/87、Mixed7066/249；7条均源tool观察后user格式纠正反馈导致Swift response_role:user过滤，不是超长或截断。原始样本未删未改；行223/239/279/1256/1462/1530/1972及instance/trajectory/family/分片行号已记录。原生warning无ID，按保留输入的角色模式及行manifest重建定位，方法和局限披露，不冒称逐batch trace。
+- SWE实际保留原模板完整token67,446,810，少288,516，assistant输出代理14,685,184；946仓库仍保留，语言Python952/Go517/JS477/TS47，source1224/769。Mixed对应原模板保留token140,826,718。这些不是原生精确label/padding计算量，无新增编码或hash审计。
+- 实际状态：SWE726335已19:55完成249步/bestcp249 val.31768048（run为swe2k-sft-r16-726335）；ASI726336完成134/best128；HLE726664已31/250且原生2000/100；Mixed726666已6/883且7066/249；Terminal726665仍待启动无native run。四个已启run有training_config/command/args/logging，完成两项有summary。
+- 更新训练矩阵，明确train_rows为导出量、native_loaded_train_rows为预处理后量；实际SWE/Mixed加载数与并集保持一致。不为补齐7条取消/重做训练，不改数据或冻结评测。claud/overnight只提交本轮自有追加段，Git无coauthor信息。

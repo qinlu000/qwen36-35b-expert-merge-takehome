@@ -1,0 +1,633 @@
+{
+  "as_of_beijing": "2026-10-16T20:12:38.505152+08:00",
+  "dataset_roots": {
+    "host80": "/data/caoqinlu/projects/apex-takehome",
+    "hpc": "/data/user/qinlucao/projects/apex-takehome"
+  },
+  "runtime_evidence_file": "analysis/source_snapshots/sft_actual_loaded_rows_20261016.json",
+  "token_definition": "Cleaned full sequences rendered with the pinned source Qwen chat template, before padding. These are not native Swift label-token or actual optimizer-compute counters.",
+  "row_definition": "Dataset length after native preprocessing, not exported file rows or a claim that optimizer visited every distinct row.",
+  "source_summaries_are_export_time_snapshots": true,
+  "datasets": [
+    {
+      "model": "swe",
+      "job_id": 726335,
+      "exported_train_rows": 2000,
+      "exported_val_rows": 87,
+      "loaded_train_rows": 1993,
+      "loaded_val_rows": 87,
+      "state": "COMPLETED",
+      "exported_source_template_tokens": 67735326,
+      "retained_source_template_tokens": 67446810,
+      "data_dir": "artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k",
+      "provenance_file": "train.manifest.jsonl",
+      "run_directory": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335",
+      "export_files": [
+        {
+          "name": "summary.json",
+          "bytes": 1741
+        },
+        {
+          "name": "train.manifest.jsonl",
+          "bytes": 3062620
+        },
+        {
+          "name": "train.messages.jsonl",
+          "bytes": 234890765
+        },
+        {
+          "name": "val.excluded_over64k.jsonl",
+          "bytes": 2143
+        },
+        {
+          "name": "val.manifest.jsonl",
+          "bytes": 14342
+        },
+        {
+          "name": "val.messages.jsonl",
+          "bytes": 10543360
+        }
+      ],
+      "export_summary": {
+        "source": "nvidia/Open-SWE-Traces",
+        "revision": "1db674173119d71df45c22007af99e214600711a",
+        "teacher": "Qwen3.8-Flash-Next",
+        "max_length": 65536,
+        "max_assistant_output": 8192,
+        "scanned": 3018,
+        "eligible": 2732,
+        "desired_language_quotas": {
+          "python": 784,
+          "go": 785,
+          "js": 392,
+          "ts": 39
+        },
+        "actual_language_quotas": {
+          "python": 955,
+          "go": 520,
+          "js": 477,
+          "ts": 48
+        },
+        "quota_policy": "Keep fixed hard51 language proportions where supply allows; redistribute unavailable quota among original target languages.",
+        "train": {
+          "rows": 2000,
+          "total_full_sequence_tokens": 67735326,
+          "previous_train_rows": 448,
+          "previous_train_rows_retained": 448,
+          "max_full_sequence_tokens": 65424,
+          "assistant_output_tokens": 14751457,
+          "max_assistant_output_tokens": 4702,
+          "repositories": 946,
+          "sources": {
+            "swe-rebench-v2": 1229,
+            "scale-swe": 771
+          }
+        },
+        "val": {
+          "rows": 87,
+          "excluded_over64k": 13,
+          "total_full_sequence_tokens": 3058900,
+          "max_full_sequence_tokens": 65497,
+          "languages": {
+            "js": 18,
+            "python": 30,
+            "go": 37,
+            "ts": 2
+          },
+          "byte_identical_to_previous": true
+        },
+        "train_val_family_overlap": 0,
+        "train_val_repo_overlap": 0,
+        "train_val_exact_normalized_user_overlap": 0,
+        "excluded": {
+          "complete_sequence_over_65536": 284,
+          "unknown_contract_wrapper": 2
+        },
+        "seconds": 97.65973461605608,
+        "scope": "CPU-only preparation; complete trajectories and replies, no truncation/repetition/task execution/API/GPU. Frozen val copied unchanged, including its existing length-policy exceptions. Full-token counts use pinned original Qwen template; native Swift may differ slightly."
+      }
+    },
+    {
+      "model": "terminal",
+      "job_id": 726665,
+      "exported_train_rows": 2000,
+      "exported_val_rows": 42,
+      "loaded_train_rows": null,
+      "loaded_val_rows": null,
+      "state": "PENDING",
+      "exported_source_template_tokens": 71660040,
+      "retained_source_template_tokens": null,
+      "data_dir": "artifacts/data/candidates/terminal_sft_2k_20261016",
+      "provenance_file": "provenance.jsonl",
+      "run_directory": null,
+      "export_files": [
+        {
+          "name": "provenance.jsonl",
+          "bytes": 2196317
+        },
+        {
+          "name": "summary.json",
+          "bytes": 2529
+        },
+        {
+          "name": "train.messages.jsonl",
+          "bytes": 226639356
+        },
+        {
+          "name": "val.messages.jsonl",
+          "bytes": 6768900
+        }
+      ],
+      "export_summary": {
+        "target_train_episodes": 2000,
+        "train_episodes": 2000,
+        "val_episodes": 42,
+        "horizon_prefix_episodes": 1107,
+        "pivot_added_episodes": 893,
+        "pivot_added_unique_task_names": 580,
+        "train_unique_source_task_ids": 1303,
+        "train_unique_family_keys": 1303,
+        "gap_to_2000": 0,
+        "full_sequence_tokens": {
+          "n": 2000,
+          "sum": 71660040,
+          "mean": 35830.02,
+          "p50": 38191,
+          "p95": 62140,
+          "max": 65507
+        },
+        "pivot_source_decision_points": 31111,
+        "pivot_source_trajectory_uids": 2716,
+        "pivot_source_task_names": 630,
+        "metadata_last_source_turn_released": 329,
+        "last_published_action_complete": 2192,
+        "uids_with_nonempty_published_action_after_last_completion": 5,
+        "selected_unreleased_tail_turn_count_distribution": {
+          "0": 94,
+          "1": 797,
+          "3": 2
+        },
+        "completion_semantics": "Use highest released point only when task_complete=true, preserving its entire initial-to-completion history. Publisher filters post-completion confirmations; unreleased tail contents are unavailable.",
+        "pivot_trajectory_waterfall": {
+          "last_published_action_not_complete": 524,
+          "qualified_before_content_dedup": 1979,
+          "native_parse_error": 206,
+          "complete_sequence_over64k": 6,
+          "assistant_reply_over8k": 1
+        },
+        "pivot_qualified_episodes": 1979,
+        "pivot_qualified_unique_tasks": 580,
+        "pivot_qualified_teacher_counts": {
+          "zai-org/GLM-5.1-FP8": 1444,
+          "zai-org/GLM-5.1": 535
+        },
+        "pivot_selected_teacher_counts": {
+          "zai-org/GLM-5.1-FP8": 561,
+          "zai-org/GLM-5.1": 332
+        },
+        "fp8_teacher_enabled": true,
+        "exact_content_duplicates_encountered_while_selecting": 0,
+        "protected_task_holds": 0,
+        "protected_tfidf_threshold": 0.35,
+        "formal_task_inputs_checked": 89,
+        "frozen_task_val_inputs_checked": 99,
+        "val42_byte_identical": true,
+        "frozen_task_val99_unchanged": true,
+        "context_limit": 65536,
+        "assistant_output_limit": 8192,
+        "selection": "Keep all Horizon1107; round-robin real distinct Pivot trajectories across publisher seed-task groups; prefer original-precision teacher within task.",
+        "pivot_category_annotation": "Not inferred; unclassified. Category distribution is an open limitation.",
+        "source_success_limit": "NVIDIA publisher verifier-pass claim; no local task replay.",
+        "source_licenses": {
+          "shunzou05/TerminalHorizon-3K": "Apache-2.0",
+          "nvidia/Nemotron-RL-Agentic-Terminal-Pivot-v1": "CC-BY-4.0, NVIDIA Corporation"
+        },
+        "output": "/data/caoqinlu/projects/apex-takehome/artifacts/data/candidates/terminal_sft_2k_20261016"
+      }
+    },
+    {
+      "model": "hle",
+      "job_id": 726664,
+      "exported_train_rows": 2000,
+      "exported_val_rows": 100,
+      "loaded_train_rows": 2000,
+      "loaded_val_rows": 100,
+      "state": "RUNNING",
+      "exported_source_template_tokens": 1125593,
+      "retained_source_template_tokens": 1125593,
+      "data_dir": "artifacts/data/candidates/hle_existing_2k_20261016/swift_ready",
+      "provenance_file": "train.provenance.jsonl",
+      "run_directory": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664",
+      "export_files": [
+        {
+          "name": "summary.json",
+          "bytes": 2139
+        },
+        {
+          "name": "train.messages.jsonl",
+          "bytes": 3789841
+        },
+        {
+          "name": "train.provenance.jsonl",
+          "bytes": 3680748
+        },
+        {
+          "name": "val.messages.jsonl",
+          "bytes": 56315
+        },
+        {
+          "name": "val.provenance.jsonl",
+          "bytes": 124171
+        },
+        {
+          "name": "val.tasks.jsonl",
+          "bytes": 67567
+        }
+      ],
+      "export_summary": {
+        "data_ready": true,
+        "train_rows": 2000,
+        "val_rows": 100,
+        "categories": {
+          "Math": 817,
+          "Other": 186,
+          "Biology/Medicine": 224,
+          "Computer Science/AI": 193,
+          "Physics": 184,
+          "Humanities/Social Science": 175,
+          "Chemistry": 132,
+          "Engineering": 89
+        },
+        "target_categories": {
+          "Math": 817,
+          "Biology/Medicine": 224,
+          "Computer Science/AI": 193,
+          "Other": 186,
+          "Physics": 184,
+          "Humanities/Social Science": 175,
+          "Chemistry": 132,
+          "Engineering": 89
+        },
+        "quota_delta": {
+          "Math": 0,
+          "Biology/Medicine": 0,
+          "Computer Science/AI": 0,
+          "Other": 0,
+          "Physics": 0,
+          "Humanities/Social Science": 0,
+          "Chemistry": 0,
+          "Engineering": 0
+        },
+        "unavailable_strata_before_redistribution": {},
+        "candidate_supply_after_dedup_and_length_check": {
+          "Physics": 105,
+          "Chemistry": 183,
+          "Engineering": 89,
+          "Humanities/Social Science": 173
+        },
+        "sources": {
+          "Math-v4": 817,
+          "TIGER-Lab/MMLU-Pro": 884,
+          "nvidia/Nemotron-SFT-Science-v2": 201,
+          "trjxter/DeepSeek-V4-Pro-Reasoning-8000x": 82,
+          "Jackrong/GLM-5.1-Reasoning-1M-Cleaned": 16
+        },
+        "teachers": {
+          "publisher_DeepSeek-V4-Pro_High": 817,
+          "deepseek-v4-pro": 722,
+          "DeepSeek-V4-Pro": 283,
+          "GLM-5.1": 16,
+          "publisher_reference_not_model_generated": 162
+        },
+        "fixed_existing_math": 817,
+        "fixed_existing_accepted_high": 722,
+        "reference_short_answer_rows": 162,
+        "new_api_calls": 0,
+        "validation_bytes_unchanged": true,
+        "truncated_samples": 0,
+        "hidden_reasoning_fields_in_training": 0,
+        "rejections": {
+          "duplicate_question_or_family": 2
+        },
+        "full_sequence_tokens": {
+          "sum": 1125593,
+          "max": 4043,
+          "mean": 562.7965
+        },
+        "assistant_tokens": {
+          "sum": 793188,
+          "max": 3977
+        },
+        "hard_sequence_limit": 65536,
+        "hard_assistant_limit": 8192,
+        "limits": [
+          "Academic domain proxy; difficulty and subject supply differ from HLE.",
+          "Teacher mode and answer evidence are recorded per source; unknown effort is not relabeled High.",
+          "Public source and question overlap exclusions do not prove semantic independence."
+        ]
+      }
+    },
+    {
+      "model": "asi",
+      "job_id": 726336,
+      "exported_train_rows": 1073,
+      "exported_val_rows": 20,
+      "loaded_train_rows": 1073,
+      "loaded_val_rows": 20,
+      "state": "COMPLETED",
+      "exported_source_template_tokens": 594275,
+      "retained_source_template_tokens": 594275,
+      "data_dir": "artifacts/data/candidates/asi_sft_expanded_20261016",
+      "provenance_file": "train.provenance.jsonl",
+      "run_directory": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336",
+      "export_files": [
+        {
+          "name": "auxiliary.provenance.jsonl",
+          "bytes": 472585
+        },
+        {
+          "name": "excluded.jsonl",
+          "bytes": 10924
+        },
+        {
+          "name": "protected_input_overlap.jsonl",
+          "bytes": 1646
+        },
+        {
+          "name": "summary.json",
+          "bytes": 1868
+        },
+        {
+          "name": "train.messages.jsonl",
+          "bytes": 1975195
+        },
+        {
+          "name": "train.provenance.jsonl",
+          "bytes": 501536
+        },
+        {
+          "name": "val.messages.jsonl",
+          "bytes": 173499
+        },
+        {
+          "name": "val.tasks.jsonl",
+          "bytes": 110253
+        }
+      ],
+      "export_summary": {
+        "training_started": false,
+        "base_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+        "frozen_sab_train_rows": 82,
+        "frozen_sab_val_rows": 20,
+        "sab_train_prefix_byte_identical": true,
+        "sab_val_files_byte_identical": true,
+        "source_candidates": {
+          "DS-1000": 1000,
+          "SciCode": 15
+        },
+        "accepted_auxiliary": {
+          "DS-1000": 976,
+          "SciCode": 15
+        },
+        "accepted_auxiliary_families": {
+          "SciCode": 15,
+          "DS-1000": 447
+        },
+        "ds1000_published_original_problem_count": 451,
+        "ds1000_actual_library_origin_metadata_groups": 453,
+        "excluded": {
+          "protected_input_13gram_family_overlap": 24
+        },
+        "protected_formal_input_files_read": 240,
+        "formal_gold_read": false,
+        "protected_sab_val_prompts": 20,
+        "train_rows": 1073,
+        "val_rows": 20,
+        "train_complete_tokens": 594275,
+        "train_max_complete_tokens": 12295,
+        "auxiliary_complete_tokens": 467585,
+        "auxiliary_max_assistant_content_tokens": 3110,
+        "sab_train_complete_tokens": 126690,
+        "val_complete_tokens": 77236,
+        "val_max_complete_tokens": 23056,
+        "token_method": "fixed original Qwen Jinja template + tokenizer.json, no truncation/padding; assistant content proxy, not Swift label count",
+        "new_model_generated_solutions": 0,
+        "ecocoder_included": false,
+        "limitations": [
+          "DS-1000 contains task variants, not 1000 independent original questions.",
+          "Scientific Python function/library auxiliary references are not ASI file-workflow trajectories.",
+          "13-gram public-input exclusion does not prove semantic or paper lineage independence.",
+          "No code execution or new correctness verification; original human references preserved.",
+          "SciCode validation and DS-1000 test repurposed as training are not held-out evaluation sets here."
+        ],
+        "frozen_sab_train_max_assistant_content_tokens": 2423,
+        "frozen_sab_val_max_assistant_content_tokens": 2751
+      }
+    },
+    {
+      "model": "mixed",
+      "job_id": 726666,
+      "exported_train_rows": 7073,
+      "exported_val_rows": 249,
+      "loaded_train_rows": 7066,
+      "loaded_val_rows": 249,
+      "state": "RUNNING",
+      "exported_source_template_tokens": 141115234,
+      "retained_source_template_tokens": 140826718,
+      "data_dir": "artifacts/data/candidates/mixed_existing_hle2k_20261016",
+      "provenance_file": "summary.json (ordered source mapping)",
+      "run_directory": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/mixed-existing2k-sft-r16-726666",
+      "export_files": [
+        {
+          "name": "summary.json",
+          "bytes": 1351
+        },
+        {
+          "name": "train.messages.jsonl",
+          "bytes": 467335106
+        },
+        {
+          "name": "val.messages.jsonl",
+          "bytes": 17543634
+        }
+      ],
+      "export_summary": {
+        "train_sources": [
+          {
+            "path": "artifacts/data/candidates/hle_existing_2k_20261016/swift_ready/train.messages.jsonl",
+            "rows": 2000
+          },
+          {
+            "path": "artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.messages.jsonl",
+            "rows": 2000
+          },
+          {
+            "path": "artifacts/data/candidates/terminal_sft_2k_20261016/train.messages.jsonl",
+            "rows": 2000
+          },
+          {
+            "path": "artifacts/data/candidates/asi_sft_expanded_20261016/train.messages.jsonl",
+            "rows": 1073
+          }
+        ],
+        "val_sources": [
+          {
+            "path": "artifacts/data/candidates/hle_existing_2k_20261016/swift_ready/val.messages.jsonl",
+            "rows": 100
+          },
+          {
+            "path": "artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/val.messages.jsonl",
+            "rows": 87
+          },
+          {
+            "path": "artifacts/data/candidates/terminal_sft_2k_20261016/val.messages.jsonl",
+            "rows": 42
+          },
+          {
+            "path": "artifacts/data/candidates/asi_sft_expanded_20261016/val.messages.jsonl",
+            "rows": 20
+          }
+        ],
+        "train_rows": 7073,
+        "val_rows": 249,
+        "rule": "Each expert training/validation example appears once; no oversampling or truncation",
+        "columns": [
+          "messages",
+          "tools"
+        ],
+        "metadata": "Source metadata remains in the expert partitions; missing tools are empty lists"
+      }
+    }
+  ],
+  "swe_retained_source_statistics": {
+    "input_rows": 2000,
+    "loaded_rows": 1993,
+    "skipped_rows": [
+      {
+        "input_line": 223,
+        "family_key": "6b841c00ef4d0df24f53e5b83428cba002cf66941fbcc59b4ed4f94b73da348c",
+        "instance_id": "srvaroa__labeler-154",
+        "repo": "srvaroa/labeler",
+        "language": "go",
+        "source": "swe-rebench-v2",
+        "full_sequence_tokens": 23811,
+        "assistant_output_tokens": 5127
+      },
+      {
+        "input_line": 239,
+        "family_key": "389c2c2e23d65438664958922f5f2b74f9947c12f159a8450d88d8b948427c0e",
+        "instance_id": "kubean-io__kubean-488",
+        "repo": "kubean-io/kubean",
+        "language": "go",
+        "source": "swe-rebench-v2",
+        "full_sequence_tokens": 60993,
+        "assistant_output_tokens": 10377
+      },
+      {
+        "input_line": 279,
+        "family_key": "699b5e01306d9d5774e61b170b1a321a2243f4fa65d4c4930b7020b7ac78e800",
+        "instance_id": "kubernetes__klog-159",
+        "repo": "kubernetes/klog",
+        "language": "go",
+        "source": "swe-rebench-v2",
+        "full_sequence_tokens": 28184,
+        "assistant_output_tokens": 6981
+      },
+      {
+        "input_line": 1256,
+        "family_key": "a6c6ba87417a4a6b36ed7c454ce2f19522db06790e85e9f6c30e2067f5088491",
+        "instance_id": "mirumee_ariadne-codegen_pr304",
+        "repo": "mirumee/ariadne-codegen",
+        "language": "python",
+        "source": "scale-swe",
+        "full_sequence_tokens": 47138,
+        "assistant_output_tokens": 8498
+      },
+      {
+        "input_line": 1462,
+        "family_key": "dcafb7465e7bd6cc2f7282632ae61cbdc8fe17b57901cb9fa342ac42cd10eea9",
+        "instance_id": "influxdb_influxdb-python_pr265",
+        "repo": "influxdb/influxdb-python",
+        "language": "python",
+        "source": "scale-swe",
+        "full_sequence_tokens": 59292,
+        "assistant_output_tokens": 22018
+      },
+      {
+        "input_line": 1530,
+        "family_key": "dd4a203d864554925e57aa7327ab35b9cb2c9aa762500cbe98dd840e94232a97",
+        "instance_id": "alteryx__woodwork-1594",
+        "repo": "alteryx/woodwork",
+        "language": "python",
+        "source": "swe-rebench-v2",
+        "full_sequence_tokens": 33494,
+        "assistant_output_tokens": 7381
+      },
+      {
+        "input_line": 1972,
+        "family_key": "cfd2c07db934d8fdb3bd13741341402a1c9b38b2ad8a0b8e82279c2541cdccd6",
+        "instance_id": "firebase__firebase-tools-3674",
+        "repo": "firebase/firebase-tools",
+        "language": "ts",
+        "source": "swe-rebench-v2",
+        "full_sequence_tokens": 35604,
+        "assistant_output_tokens": 5891
+      }
+    ],
+    "full_sequence_tokens_exported": 67735326,
+    "retained_source_template_tokens": 67446810,
+    "removed_source_template_tokens": 288516,
+    "retained_assistant_output_tokens_proxy": 14685184,
+    "retained_repositories": 946,
+    "retained_languages": {
+      "go": 517,
+      "js": 477,
+      "python": 952,
+      "ts": 47
+    },
+    "retained_sources": {
+      "swe-rebench-v2": 1224,
+      "scale-swe": 769
+    }
+  },
+  "mixed_loaded_composition": {
+    "hle": 2000,
+    "swe": 1993,
+    "terminal": 2000,
+    "asi": 1073
+  },
+  "mixed_original_input_line_ranges_1based": {
+    "hle": [
+      1,
+      2000
+    ],
+    "swe": [
+      2001,
+      4000
+    ],
+    "terminal": [
+      4001,
+      6000
+    ],
+    "asi": [
+      6001,
+      7073
+    ]
+  },
+  "mixed_excluded_input_lines_1based": [
+    2223,
+    2239,
+    2279,
+    3256,
+    3462,
+    3530,
+    3972
+  ],
+  "notes": [
+    "Terminal current run is pending: loaded counts are unknown, not zero.",
+    "Source JSONL and line-aligned provenance are preserved in versioned data directories; native run records reference these paths.",
+    "Native warnings lack row IDs; the seven IDs were reconstructed from preserved source role patterns and manifests, consistent with all seven warnings.",
+    "No persistent encoded-dataset cache with row IDs was found; do not describe this as a per-batch sample exposure trace.",
+    "No source dataset rewrite, retraining or new hash audit was performed."
+  ]
+}
