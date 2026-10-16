@@ -5,14 +5,15 @@
   "known_hosts": "/data/caoqinlu/projects/apex-takehome/artifacts/private/baseline_hpc_known_hosts",
   "workers": [
     {
-      "benchmark": "hle",
+      "benchmark": "model_consumer",
       "job_id": 725539,
-      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_infra1/summary.json"
+      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_seq20/old-service-consumer-finished.json"
     },
     {
-      "benchmark": "terminal",
+      "benchmark": "model_consumer",
       "job_id": 726129,
-      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/followon/full445.COMPLETE.json"
+      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/job-726129-finished.json",
+      "purpose": "Release old maxseq8 service only after natural handoff and no original-endpoint consumers"
     },
     {
       "benchmark": "swe",
@@ -20,11 +21,35 @@
       "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/swe-base-725561/model-consumer-finished.json"
     },
     {
-      "benchmark": "terminal",
+      "benchmark": "model_consumer",
       "job_id": 725705,
-      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/followon/full445.COMPLETE.json",
-      "purpose": "Retain identical TP2/maxseq8 service for Terminal secondary worker after every SWE model consumer drains; no extra GPU allocation",
+      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/job-725705-finished.json",
+      "purpose": "Release old maxseq8 service only after natural handoff and no original-endpoint consumers",
       "role": "secondary_after_swe_drain"
+    },
+    {
+      "benchmark": "model_consumer",
+      "job_id": 726629,
+      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/terminal-seq20-current-manifest-finished.json",
+      "purpose": "Reuse existing warm maxseq20 HLE service as Terminal B only after HLE50 natural handoff; retain until Terminal model consumers finish"
+    },
+    {
+      "benchmark": "model_consumer",
+      "job_id": 726635,
+      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/terminal-seq20-current-manifest-finished.json",
+      "purpose": "Release only after planned model consumers finish; CPU scoring and incomplete fixed445 reporting continue independently"
+    },
+    {
+      "benchmark": "model_consumer",
+      "job_id": 726645,
+      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/job-726645-cancelled-unused.json",
+      "purpose": "Cancelled unused warming replica to prioritize HLE50; no model consumers were ever admitted"
+    },
+    {
+      "benchmark": "hle",
+      "job_id": 726663,
+      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_seq50/summary.json",
+      "purpose": "TP2 Base maxseq50 with50client requests and52HTTPconnections;12h allocation; health-ready natural handoff from seq20"
     }
   ]
 }

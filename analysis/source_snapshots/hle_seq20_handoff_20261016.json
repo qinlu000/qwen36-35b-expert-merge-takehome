@@ -1,0 +1,102 @@
+{
+  "handoff-receipt.json": {
+    "prepared_at_utc": "2026-10-16T11:10:06.887185+00:00",
+    "old_pid": 3887939,
+    "old_retry": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_infra1",
+    "output": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_seq20",
+    "route": {
+      "endpoint": "http://127.0.0.1:28085",
+      "job_id": 726629,
+      "engine_max_num_seqs": 20,
+      "solver_concurrency": 8,
+      "context_tokens": 65536,
+      "max_output_tokens": 8192,
+      "question_walltime_seconds": 300,
+      "enable_thinking": false,
+      "preserve_thinking": false,
+      "note": "Only the serving sequence cap changes; retain the existing eight rolling HLE solver slots and every terminal result. Future route changes require STOP_ADMISSION and a natural drain."
+    },
+    "completion": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_seq20/summary.json",
+    "new_model_calls_during_preparation": 0,
+    "policy": "Retain every raw answer and normal budget end. Only <=8 explicitly cancelled unfinished retry1 records become infra2; never-started remain retry1.",
+    "sigint_at_utc": "2026-10-16T11:10:06.887453+00:00",
+    "old_process_exited": true,
+    "old_locks_released": true,
+    "pid": 2880402,
+    "argv": [
+      "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+      "-u",
+      "/data/caoqinlu/projects/apex-takehome/scripts/repair_hle_concurrency_handoff_v3.py",
+      "--source",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196",
+      "--output",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_seq20",
+      "--canonical-retry",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_infra1",
+      "--route-file",
+      "/data/caoqinlu/projects/apex-takehome/configs/eval/hle_seq20_route_20261016.json",
+      "--key-file",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key"
+    ],
+    "retained": 1424,
+    "selected": 1076,
+    "active_ids_before_sigint": [
+      "6724a047d917564737255345",
+      "6724a2dd9138921d6f17231a",
+      "6724a338d917564737255349",
+      "6724aecb2bfc260d444bc385",
+      "6724bcf944c2c3be8ba3cf72",
+      "6724c10df477ce1b85735d01",
+      "6724cdd55ae9c8186f31f920",
+      "6724d4f2618e28a18b101158"
+    ],
+    "infra2_ids": [
+      "6724a047d917564737255345",
+      "6724a2dd9138921d6f17231a",
+      "6724a338d917564737255349",
+      "6724aecb2bfc260d444bc385",
+      "6724bcf944c2c3be8ba3cf72",
+      "6724c10df477ce1b85735d01",
+      "6724cdd55ae9c8186f31f920",
+      "6724d4f2618e28a18b101158"
+    ],
+    "judge_compatibility": "Canonical question symlinks; existing Judge inputs/results/budget stay intact. Its loaded entry metadata remains retry1; new solver records and this manifest identify actual infra2."
+  },
+  "repair_config.json": {
+    "pid": 2880402,
+    "endpoint": "http://127.0.0.1:28085",
+    "protocol_sha256": "dcd28455f0ebd81d9e4b9043694eb57e9e42abb6c72f8bbe41cfa01745c1f081",
+    "runner": "/data/caoqinlu/projects/apex-takehome/scripts/repair_hle_concurrency_handoff_v3.py",
+    "selected": 1076,
+    "original_retained": 1424,
+    "concurrency": 8,
+    "question_walltime_seconds": 300,
+    "started_at_utc": "2026-10-16T11:10:07.802241+00:00",
+    "network": "Direct80-to-HPC forwarding; no local laptop dependency when provisioned."
+  },
+  "checkpoint.json": {
+    "state": "running",
+    "admitted": [
+      "6724a047d917564737255345",
+      "6724a2dd9138921d6f17231a",
+      "6724a338d917564737255349",
+      "6724aecb2bfc260d444bc385",
+      "6724bcf944c2c3be8ba3cf72",
+      "6724c10df477ce1b85735d01",
+      "6724cdd55ae9c8186f31f920",
+      "6724d4f2618e28a18b101158"
+    ],
+    "completed": [],
+    "active": [
+      "6724a047d917564737255345",
+      "6724a2dd9138921d6f17231a",
+      "6724a338d917564737255349",
+      "6724aecb2bfc260d444bc385",
+      "6724bcf944c2c3be8ba3cf72",
+      "6724c10df477ce1b85735d01",
+      "6724cdd55ae9c8186f31f920",
+      "6724d4f2618e28a18b101158"
+    ],
+    "at_utc": "2026-10-16T11:10:08.238983+00:00"
+  }
+}

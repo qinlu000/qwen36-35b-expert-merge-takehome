@@ -1,0 +1,15 @@
+{
+  "at_utc": "2026-10-16T09:06:42.302336+00:00",
+  "trial": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/break-filter-js-from-html__seed0__manual2",
+  "environment_name": "break-filter-js-from-html",
+  "environment_name_evidence": "Pinned Task.short_name on actual trial metadata; live namespace log inode matched host trial",
+  "selected_task_key": "break-filter-js-from-html",
+  "task_directory_name": "break-filter-js-from-html",
+  "ready": true,
+  "cache_path": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/terminal_verifier_offline_20261016/group-caches/group-04",
+  "actual_staged_receipt": "/tmp/apex_baseline_staging_7zp1umk2/verifier_assets/uv-cache/snapshot_receipt.json",
+  "actual_staged_group": 4,
+  "selected_group": 4,
+  "actual_group_matches": true,
+  "model_calls_or_tests_added": 0
+}

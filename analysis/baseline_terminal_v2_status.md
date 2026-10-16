@@ -1,3 +1,61 @@
+# Prepared runtime11 GPU completion receipt fixed — 2026-10-16 19:17 CST
+
+Before runtime11 launch, its frozen next source was updated so completed planned model work releases GPU allocations without waiting for all445 valid benchmark scores. It writes `artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/terminal-seq20-current-manifest-finished.json` only after the queue is not halted, pending/admitted counts are0, every route load is0, and the model HTTP client has closed. A natural STOP drain with pending work cannot write it. CPU archive grading and result observers can keep running independently.
+
+The receipt explicitly sets `model_consumer_finished:true`; `benchmark_complete` requires445 valid keys. It reports valid coverage and infrastructure/unscored counts at release, in-place first-valid count, observer provenance and state counts. Valid coverage unions verified in-place records with the final observer's accepted saved-state records, avoiding double counting task/seed IDs. It does not imply that any lost original task state was recovered and does not generate another answer. Root's release config may point both new seq20 jobs to this `model_consumer` receipt. Runtime10 and all of its in-flight tasks were unchanged; no new test or model request was issued for this edit. Runtime11 was confirmed unlaunched before deployment and its source is now frozen.
+
+All sections below are historical.
+
+---
+
+# Remote replacement-route watcher active — 2026-10-16 19:13 CST
+
+Route watcher **PID2884174** is resident on80 and independent of the Mac/current turn. It reads `artifacts/runs/base-terminal-recovery-v2-20261016/model-route-targets.json` every2s. New Terminal A target is job726635,28086,maxseq20,end2026-10-18 07:08:32 CST. At19:12:59 its HTTP health was not yet200, so no switch was claimed and both old maxseq8 routes remained admissible for the next controller if needed. Root can atomically append the second ready/warming target to `new_targets`; the watcher admits A and B independently when their actual health returns200 and35 minutes remain.
+
+As soon as any new20 endpoint is ready, future routes disable both old endpoints; admitted tasks keep their original endpoint until completion. Old model-consumer markers are emitted only after runtime10 truly exits, runtime11 has a launch receipt and a live matching process, and no admitted checkpoint task uses either old endpoint. They explicitly set `model_consumer_finished:true` and `benchmark_complete:false`. Root's release watcher owns actual GPU cancellation; this helper never cancels a job or native task. Old726129 marker: `model-consumers/job-726129-finished.json`; old725705 marker: `model-consumers/job-725705-finished.json`, both under the canonical run directory. Use benchmark `model_consumer` in the existing release config.
+
+Versioned source/config: `scripts/switch_terminal_model_routes_v2.py`, `configs/eval/terminal_model_route_targets_20261016.json` (snapshot of the actual RUN targets file). Receipts: `analysis/source_snapshots/terminal_model_route_switcher_{launch,state}_20261016.json`. Live state/log: RUN `model-route-switcher-state.json` / `model-route-switcher.log`. Root-owned tunnel/release configs and live harness sources were not changed.
+
+All sections below are historical.
+
+---
+
+# Natural handoff armed; current services still maxseq8 — 2026-10-16 19:09 CST
+
+At19:09:06 root authorized overlapping replacement model warmup with natural drain. Runtime10's existing STOP_ADMISSION file was written; its30 admitted tasks finish naturally,307 pending IDs remain unstarted. No solver or native verifier was killed. Background waiter **PID2879002** waits on the existing main flock, then launches the already-prepared runtime11 from the same manifest/checkpoint with no new manual model attempts.
+
+Runtime11's route file currently contains the two healthy **actual maxseq8** services:28082/job726129 until2026-10-18 04:04:25 CST,28084/job725705 until2026-10-17 02:30:50 CST. **Requested maxseq20 is not active yet.** Root will atomically add ready20-sequence routes and disable old new-admission routes. If warmup is slow, the waiter can first resume on healthy old services instead of waiting idle. The runtime11 launch receipt records actual endpoint profiles separately from the requested20 setting. Old services must remain until no task remains assigned to them, including work admitted by runtime11 before the new route was ready.
+
+Evidence: `analysis/source_snapshots/terminal_native11_handoff_armed_20261016.json`; remote `native11-handoff-armed.json`, `pid-handoff-native11`, `handoff-native11.log`, `runtime10/STOP_ADMISSION`, and atomic `runtime11/endpoints.json`. Main solver count stays30; original prompts/seeds/model/checkpoint/64K8K/1800s resources remain unchanged. Runtime11 is **armed, not launched** until `launch-native11.json` exists.
+
+All sections below are historical snapshots.
+
+---
+
+# Maxseq20 handoff prepared; runtime10 continues — 2026-10-16 19:05 CST
+
+User requested20 model execution sequences per service; Terminal's outer task limit stays30. **Runtime11 is prepared, not running. Runtime10 admissions have not been stopped.** Its frozen source lacks endpoint routing configuration; only its secondary enable file is dynamically read. No current model request or native task was cancelled for preparation.
+
+The next leaf supports an atomic `endpoints.json` containing `endpoints:[{url,admit,allocation_end_time,job_id,max_num_seqs}]`. New tasks select the least-loaded eligible endpoint; an admitted task keeps its original endpoint. Setting one route `admit:false` drains that replica while other routes continue, with the total30-task CPU pool unchanged. Every admission still requires35 minutes of recorded allocation time. Disabled endpoints remain healthy-checked while they have admitted tasks; do not release them until their task loads reach0. Root must write routing changes with temporary-file replacement.
+
+The minimal safe handoff from immutable runtime10 needs one natural drain: wait until the first replacement20-sequence TB service is ready; arm `prepare_terminal_routing_handoff_v2.py --launch-after-drain` after supplying its real route; then create runtime10's existing STOP_ADMISSION file. Old tasks finish naturally while the new service starts or waits ready. The armed launcher holds no new tasks until the old main flock is released, then immediately starts runtime11 on pending IDs from the unchanged manifest. It adds no model manual attempts and preserves every completed result. Runtime11 can initially run30 task futures on the first20-sequence service while the old GPU pairs are released and the second20-sequence service starts; adding its ready route then replenishes naturally without another full drain. No whole-task answer is regenerated.
+
+Prepared remote directory: `artifacts/runs/base-terminal-recovery-v2-20261016/runtime11`. Git sources: `scripts/run_terminal_routing_v2.py`, `terminal_endpoint_routing_v2.py`, `prepare_terminal_routing_handoff_v2.py`. `prepared.json` records this as preparation only. Root owns service readiness, GPU releases, routing configuration and the actual STOP boundary. Current maxseq8 runtime10 remains authoritative until launch-native11.json exists.
+
+All sections below are historical or the still-running runtime10 audit.
+
+---
+
+# Read-only efficiency audit — 2026-10-16 19:00 CST
+
+Runtime10 remains alive with30 tasks (28 solving,2 grading),315 pending. Both model replicas are at their configured8 executing sequences with6 more requests waiting each. KV usage is3.3% and4.0%. In36.7 minutes,31 new in-place native valid results were added (26→57), about51/hour. The completed timing sample has35 tasks,25 of which legitimately reached the unchanged1800s solver budget.
+
+Summed actual phase time is93.2% solver,4.6% verifier and2.2% setup. Completed API waiting plus inference is at least80.6% of solver time; this omits the final cancelled HTTP wait. Verifier median46s/max425s. Fresh native grading still shares the same30 admission futures and CPU slots; only saved-state recovery grading is independent. The current2 grading slots and4.6% phase share make this a secondary bottleneck. Main immediate serving constraint is max_num_seqs8 per replica with requests queued. A maxseq16 service and natural task-end endpoint handoff can reduce queueing without changing original questions/prompts/seeds/64K8K/1800s; adding more solver admissions to the existing16 model execution sequences would add queueing. No live source, service, queue or process was changed for this audit. Data disk has about2.5TB free; large new staging is already there. Root filesystem remains nearly full but is no longer the new Terminal staging/cache target.
+
+Evidence: `analysis/source_snapshots/terminal_efficiency_audit_20261016_1900.json` and actual runtime10 checkpoint/raw request/result phase timestamps/vLLM metrics. All sections below are historical.
+
+---
+
 # Terminal full rolling queue resumed on /data — 2026-10-16 18:24 CST
 
 Actual native10 controller **PID2719240** launched **18:23:15**. At18:24:14 it has **30 admitted /348 pending**, with31 completed native policy HTTP responses and17 calls in flight. Model28082 is actually8 running+2 waiting,28084 is7 running; both GPU allocations are serving requests. Canonical valid coverage remains **35/445** (including accepted saved-state grades); a final mean/SD is not yet available. The checkpoint alone has26 in-place valid results, with9 additional accepted recovery grades counted by the final observer.

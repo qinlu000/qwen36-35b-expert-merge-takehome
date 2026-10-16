@@ -1,16 +1,16 @@
 {
-  "updated_at_utc": "2026-10-16T08:46:54.370077+00:00",
+  "updated_at_utc": "2026-10-16T08:56:40.277292+00:00",
   "expected_trials": 445,
-  "valid_covered": 23,
-  "active_trials": 3,
-  "pending_not_admitted": 380,
-  "infrastructure_unscored": 39,
+  "valid_covered": 25,
+  "active_trials": 16,
+  "pending_not_admitted": 403,
+  "infrastructure_unscored": 1,
   "complete": false,
   "per_seed": [
     {
       "seed": 0,
       "expected": 89,
-      "valid_covered": 23,
+      "valid_covered": 25,
       "correct_count": 10.0,
       "score_percent": null
     },
@@ -44,12 +44,10 @@
     }
   ],
   "states": {
-    "cancelled": 36,
-    "failed_attempt": 3,
-    "verifier_incomplete": 9,
-    "valid": 14,
-    "admitted": 3,
-    "pending": 380
+    "admitted": 16,
+    "verifier_incomplete": 10,
+    "valid": 16,
+    "pending": 403
   },
   "accepted_first_valid": {
     "extract-elf/seed0": {
@@ -108,6 +106,14 @@
     },
     "protein-assembly/seed0": {
       "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/protein-assembly__seed0__first/result.json",
+      "reward": 0.0
+    },
+    "mteb-leaderboard/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mteb-leaderboard__seed0__first/result.json",
+      "reward": 0.0
+    },
+    "nginx-request-logging/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/nginx-request-logging__seed0__first/result.json",
       "reward": 0.0
     },
     "dna-assembly/seed0": {
@@ -221,10 +227,18 @@
       },
       "reason": "official tests never executed: curl: command not found, uvx: command not found",
       "original_result_retained": true
+    },
+    "mteb-retrieve/seed0": {
+      "original_first_valid": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mteb-retrieve__seed0__first/result.json",
+        "reward": 0.0
+      },
+      "reason": "pytest wrapper returned zero reward without evidence that tests executed",
+      "original_result_retained": true
     }
   },
   "queue_summary": {
     "halted": false,
-    "pending_not_admitted": 380
+    "pending_not_admitted": 403
   }
 }

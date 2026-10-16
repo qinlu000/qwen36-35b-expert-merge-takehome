@@ -16,7 +16,7 @@ SOURCES = {
     "TB": (445, "artifacts/results/base-terminal-v2-recovery-20261016/final_summary.json"),
 }
 NOTES = {
-    "HLE": "First-valid original821+infra1 selected1679; genuine solver-budget no-answer counts as zero. Judge uses school DeepSeek-V4-Flash, original criteria/JSONwrapper/4096/nonthinking; pending or invalid Judge is not a zero.",
+    "HLE": "Retain all original answers and normal budget ends. At1424 outcomes, serving changed from max_num_seqs4 to20, with8 incomplete migration infrastructure retry2. User then requests server/client50; the next natural handoff transfers only never-started questions and adds no retry. Actual transitions are recorded separately. Queue time is inside the300s budget, so earlier timeouts cannot be interpreted as model ability alone. Judge uses school DeepSeek-V4-Flash and original criteria/JSONwrapper/4096/nonthinking; infrastructure-invalid outcomes are not zeros.",
     "ASI": "Public local240-condition score. Only soil b2 empty (3650,0) arrays violate public required(n_days,5): targeted hard-gate fail repair; original invalid retained, other239 unchanged. CMOS ngspice44.2 and native submission bwrap mappings documented; formal Judge0calls.",
     "SWE": "First environment-valid fresh replay of frozen patches. Restore native SIF PATH/private mini runtime; missing pytest/pip scores retained as infrastructure-invalid until repaired replay. Go uses exact verified official modules in native cache. Already complete answers are not regenerated.",
     "TB": "Five fixed seeds×89. Owner excludes verifier/bootstrap/tmux infrastructure failures from valid scores; private harness tools/native PATH/transport-deadline repairs preserve original prompts/tests/budget and old attempts. See owner source summary for accepted chronology and restoration disclosures.",
@@ -106,6 +106,25 @@ def report(project):
         "benchmarks": rows, "combined_score": None,
         "combined_score_note": "Four different benchmark metrics are not averaged into one score.",
         "method": "Read owner summaries only; missing/infrastructure-invalid values never become scored zeros."}
+    migration_path = project / "artifacts/runs/base_hle_v2_724196_seq20/handoff-receipt.json"
+    if migration_path.exists():
+        migration = read(migration_path)
+        rows["HLE"]["serving_transition"] = {"source": str(migration_path),
+            "at_utc": migration["sigint_at_utc"], "retained_terminal_outcomes": migration["retained"],
+            "selected_for_new_service": migration["selected"],
+            "incomplete_migration_retries": len(migration["infra2_ids"]),
+            "old_max_num_seqs": 4, "new_max_num_seqs": migration["route"]["engine_max_num_seqs"],
+            "outer_solver_concurrency": migration["route"]["solver_concurrency"],
+            "question_walltime_includes_queue": True}
+        rows["HLE"]["serving_transitions"] = [rows["HLE"]["serving_transition"]]
+    fifty_path = project / "artifacts/runs/base_hle_v2_724196_seq50/handoff-receipt.json"
+    if fifty_path.exists():
+        fifty = read(fifty_path)
+        rows["HLE"]["serving_transitions"].append({"source": str(fifty_path),
+            "at_utc": fifty["at_utc"], "retained_terminal_outcomes": fifty["retained"],
+            "selected_for_new_service": fifty["selected"], "old_max_num_seqs": 20,
+            "new_max_num_seqs": 50, "outer_solver_concurrency": 50,
+            "additional_manual_retries": 0, "question_walltime_includes_queue": True})
     budget_path = project / "artifacts/runs/hle_judge_v2_20261016/budget.json"
     if budget_path.exists():
         ledger = read(budget_path)

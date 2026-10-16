@@ -1,0 +1,14 @@
+{
+  "endpoint": "http://127.0.0.1:28088",
+  "job_id": null,
+  "ready": false,
+  "engine_max_num_seqs": 50,
+  "solver_concurrency": 50,
+  "http_max_connections": 52,
+  "context_tokens": 65536,
+  "max_output_tokens": 8192,
+  "question_walltime_seconds": 300,
+  "enable_thinking": false,
+  "preserve_thinking": false,
+  "note": "Backend fills endpoint and job_id and atomically sets ready=true only after the real seq50 service and direct tunnel are healthy. Handoff then drains the old eight-slot leaf naturally; only never-started entries move to fifty slots."
+}

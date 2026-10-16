@@ -1,0 +1,29 @@
+{
+  "pid": 2899601,
+  "launched_at_utc": "2026-10-16T11:24:00.241702+00:00",
+  "scope": "apex-hle-seq50-pending-binder-20261016.scope",
+  "cpu": 127,
+  "memory_bytes": 134217728,
+  "swap_bytes": 0,
+  "source": "/data/caoqinlu/projects/apex-takehome/scripts/bind_pending_hle_seq50_service_v2.py",
+  "output": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/hle-seq50-726663-binder",
+  "job_id": 726663,
+  "fixed_ssh_command": "status 726663",
+  "model_or_test_requests": 0,
+  "initial_observed_state": {
+    "at_utc": "2026-10-16T11:24:00.344690+00:00",
+    "state": "waiting_job_running",
+    "allocation_state": "PENDING",
+    "allocation_node": "",
+    "allocation_predicted_end_time": "2026-10-17T07:40:51",
+    "ready": false,
+    "route_ready": false,
+    "route_job_id": null,
+    "seq50_tunnel_row_present": false
+  },
+  "actual_initial_affinity": [
+    127
+  ],
+  "actual_initial_memory_max": 134217728,
+  "actual_initial_swap_max": 0
+}

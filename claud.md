@@ -1192,3 +1192,21 @@
 - 初次HLE726647在19:20:53获调度后2秒0步失败，未加载模型。集群/data/apps/apptainer/1.4.5/bin/apptainer Bash包装器错误扫描全部argv，独立/data目录被当sandbox；CPU原样条件loop已实证bare --data-dir目录拒绝、--data-dir=目录通过。
 - 已仅将script argv统一改--key=value重提HLE726664；原0运行Pending Terminal726648/Mixed726649取消并重提726665/726666，真实依赖afterany:726664:725705与afterok:726335。未移动数据、转换镜像、改训练参数或操作Base/其他项目。
 - HLE目前仍PENDING，未开始optimizer；Terminal/Mixed等待依赖。QOSMaxGRESPerUser曾短暂出现，当前为Priority，不能将重新提交或CPU解析通过当GPU训练成功。配置/进度/执行报告与独立重提回执均已更新，原失败和旧回执保留。
+
+
+## 2026-10-16 19:15 CST：实测排队瓶颈，按用户要求将模型服务并发改20
+
+- 用户质疑速度并明确要求并发20。实际审计没有误开thinking：HLE/SWE/ASI/TB均按各自冻结采样、64K/8K、原时间预算。主要低效是HLE外层8而服务maxseq4，成功请求平均queue111.64秒、decode66.52秒；旧补跑约63%触300s，排队包含在该预算。Terminal外层30而两服务各8序列，约12请求排队；35项耗时solver93.2%、verifier4.6%、setup2.2%，API等待与推理占solver至少80.6%。原位native verifier仍占任务槽，只有保存状态补评分完全独立，未将其误记成全解耦。
+- 新同模型TP2服务只将max_num_seqs改20，暂保留eager/BF16/同revision/65536/8192batched/triton/parser，原prompt/agent/seed/CPU/RAM/300s或1800s均不变。外层HLE仍8、Terminal仍30，不靠继续堆外层请求制造排队。新HLE726629于19:09:22实际health200；19:10:08新PID2880402使用28085已8running/0waiting，首个正式726token答案79.66秒完成，Judge已自动读取，预算未重置。旧725539在原客户端退出/锁释放后由root释放。
+- 原HLE无排空开关，受控SIGINT只将8条尚未完成且无完整raw的请求记迁移infra2，旧取消原件/started/checkpoint归档。1424条既有终态(原821+补跑603)不动，剩1076=1068未开始manual1+8迁移manual2；新leaf支持STOP_ADMISSION自然排空。Canonical问题路径对待跑项使用symlink，让原滚动Judge保持同一输入/结果/10元账本；旧Judge已载入的entry索引仍1，实际solver record/manifest明确infra2。旧真实300s超时不重答。前后调度profile不同且预算含排队，最终结果明确披露，不能将全部旧超时解释为模型能力。只读汇总器已换为seq20 service版本并记录serving_transition，CPU126、256MiB。
+- Terminal10于19:09停止新入场，30在途自然结束/307pending保留；waiter2879002等同一flock后启动11。11允许仅对未来入场热读路由；已入场端点固定。新A726635/28086/ACD1-54:18002/36h正在暖机，新B726645/18001为12h以利backfill，尚排资源。两个新服务实际health200后才入路由，旧8序列端点不再新入场；新服务加载与旧任务排空并行。Switcher2884174常驻80，只有10退出、11实际存活、旧端点无在途才写旧726129/725705的model_consumer_finished标记，释放watcher随后退卡，绝不伪称benchmark完成。
+- 新旧副本短时重叠总GPU最多15(项目baseline10+SWE4+其他1)，训练作业未动；Mixed仍held且afterok:SWE，接替其4卡而非额外并行。只使用原生启动日志/health和正式任务观测，未新增fixture/LLM验收/hash扫描。源码与phase回执单独纳Git，无coauthor信息；SFT/数据聊天的工作区改动保留。
+
+
+### 19:25 CST：用户改为HLE/ASI50并发，远端自动接续已部署
+
+- 按最新指令，HLE新服务上限50、外层50、HTTP连接池52，保持同模型/非思考/64K8K/300s。新job726663为12h、18003、计划bridge28088，目前PENDING(Resources)，不能称当前已经50在跑；旧seq20/PID2880402继续8active。ASI已240/240完成，不为改并发重生已有结果；后续ASI模型服务上限可50，但50个4CPU环境需要200CPU，不能暗中超卖现128CPU机器的环境预算。
+- 为遵守总GPU上限，先确认runtime11尚未启动、28087从无消费者，停止旧B binder并从targets/tunnel移除仅暖机的726645，再取消该无消费者job；无答卷被取消。新HLE50之后将暖好的726629/28085从HLE角色移交Terminal B，免再次申请卡和加载权重。Terminal A726635已health200；两副本保持maxseq20/任务槽30。
+- 远端HLE50 binder2899601常驻CPU127/128MiB，固定forced status726663，实际R后才配置真node→28088，health200后才置route.ready=true。handoff helper2897516随后自动对旧seq20 STOP新入场，8在途自然结束/锁释放，只将从未started条目转入seq50；不新增infra3，不重答正常终态。新50首项实际准入后才将726629/28085追加TB路由并写HLE角色完成标记，726629继续保留给TB。
+- GPU释放已区分“模型消费者结束”与“445项评分完成”：新TB服务只在当前manifest自然跑尽、pending0/active0/无HTTP/未halt时释放，CPU原态评分和无效项披露继续；旧8序列TB服务则等10退出、11存活且无旧端点在途才释放。HLE50按其summary statecompleted释放；未动其他聊天的SFT作业。正式汇总会记录4→20及将来的20→50实际交接，不把旧排队超时归咎模型能力或假称同一调度配置。
+- 仅观察原生启动/health与真实生产结果，不做额外fixture/hash/模型验收；50是否更快以完成题/分钟及超时率判断，不声称线性提速。所有后续就绪、自然交接、模型服务角色移交与退卡都由80常驻脚本完成，不依赖当前turn或Mac在线。

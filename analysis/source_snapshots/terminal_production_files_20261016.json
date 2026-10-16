@@ -139,5 +139,44 @@
   "controller_pid": 2719240,
   "updated_at_cst": "2026-10-16 18:24:14",
   "launch_evidence": "analysis/source_snapshots/terminal_native10_launch_20261016.json",
-  "progress_evidence": "analysis/source_snapshots/terminal_native10_progress_20261016.json"
+  "progress_evidence": "analysis/source_snapshots/terminal_native10_progress_20261016.json",
+  "prepared_runtime11_files": [
+    {
+      "git_source": "scripts/run_terminal_routing_v2.py",
+      "production_source": "/data/caoqinlu/projects/apex-takehome/scripts/run_terminal_routing_v2.py",
+      "status": "prepared; runtime10 unchanged",
+      "prepared_runtime_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime11/scripts/run_terminal_routing_v2.py"
+    },
+    {
+      "git_source": "scripts/terminal_endpoint_routing_v2.py",
+      "production_source": "/data/caoqinlu/projects/apex-takehome/scripts/terminal_endpoint_routing_v2.py",
+      "status": "prepared; runtime10 unchanged",
+      "prepared_runtime_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime11/scripts/terminal_endpoint_routing_v2.py"
+    },
+    {
+      "git_source": "scripts/prepare_terminal_routing_handoff_v2.py",
+      "production_source": "/data/caoqinlu/projects/apex-takehome/scripts/prepare_terminal_routing_handoff_v2.py",
+      "status": "prepared; runtime10 unchanged"
+    }
+  ],
+  "prepared_runtime11_launched": false,
+  "prepared_runtime11_handoff_armed": true,
+  "prepared_runtime11_waiter_pid": 2879002,
+  "prepared_runtime11_handoff_evidence": "analysis/source_snapshots/terminal_native11_handoff_armed_20261016.json",
+  "current_actual_model_max_num_seqs": [
+    8,
+    8
+  ],
+  "requested_model_max_num_seqs": 20,
+  "model_route_switcher": {
+    "git_source": "scripts/switch_terminal_model_routes_v2.py",
+    "production_source": "/data/caoqinlu/projects/apex-takehome/scripts/switch_terminal_model_routes_v2.py",
+    "pid": 2884174,
+    "git_targets": "configs/eval/terminal_model_route_targets_20261016.json",
+    "production_targets": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-route-targets.json",
+    "launch_evidence": "analysis/source_snapshots/terminal_model_route_switcher_launch_20261016.json"
+  },
+  "prepared_runtime11_model_consumer_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/terminal-seq20-current-manifest-finished.json",
+  "prepared_runtime11_source_frozen": true,
+  "prepared_runtime11_gpu_release_requires_all445_valid": false
 }

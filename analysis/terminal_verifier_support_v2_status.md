@@ -39,3 +39,13 @@ uv原bytes单独回执：`analysis/source_snapshots/terminal_uv_installer_cache_
 HLE已自然drain旧两slot后切rolling source `scripts/score_hle_baseline_v2_rolling.py`，PID2446501，2并发，FIRST_COMPLETED逐条补位、30秒独立collect新生成终态，原417缓存／账本／协议不变。见`analysis/baseline_hle_scoring_v2_status.md`和`hle_judge_v2_rolling_upgrade_20261016.json`。
 
 四项汇总器`collect_baseline_final_v2.py`、PID2380282每30秒读权威summary，已实际接入TB final_summary，不采旧伪0 coverage。HLE／SWE／TB未完整时主分null，ASI240完整1.5709884069%；四项全齐才整体complete并退出。无新增Judge校准／生成／测试／hash，未改claud或根索引。
+
+## 18:34 mteb-retrieve精确依赖补齐
+
+result_audit接手32条已生成答卷的只评分收尾后，发现mteb-retrieve旧native grader在hf-xet下载阶段timeout、没有运行测试。只读原官方test.sh确认其声明是Python3.13、pytest==8.4.1、mteb==1.36.8、pytest-json-ctrf==0.3.5；mteb-leaderboard的core组不包含mteb，不能替代。旧group26记录实际是pypi索引timeout／returncode2、target0包，完整保留。
+
+独立下载源 `scripts/cache_terminal_mteb_retrieve_v2.py` 使用原PyPI index和精确三包，复用非冻结shared UVcache，仅CPU127、2GiB、swap0。远端PID2757581已于2026-10-16 18:34:43 CST完成uv install returncode0，共94包。按原未固定的传递依赖自然解析得到torch2.14.1、torchvision0.29.1／CUDA13、hf-xet1.7.0，没有换CPU版、删依赖或改官方test.sh。
+
+可用冻结cache：`artifacts/tools/terminal_verifier_offline_20261016/group-caches/mteb-retrieve-retry1/`，`snapshot_receipt.json`记录完整94包版本，ready=true、missing_cache_entries=[]。`task_cache_map.json`已原子追加mteb-retrieve映射，其他task不变；旧dependency_manifest的group26失败是旧attempt历史，不覆盖。实际目录容量6,490,681,344 bytes／6.0449GiB，已告评分owner按现有8GiB资源策略使用。
+
+下载与安装记录：`artifacts/tools/terminal_verifier_offline_20261016/mteb-retrieve-retry1/{receipt.json,download.log,worker.log}`；本地回执：`analysis/source_snapshots/terminal_mteb_retrieve_cache_20261016.json`。没有运行额外fixture、pytest、模型、API或hash，也未触碰solver、CPU120–123 grader、原测试或正式答案。缓存metadata完整不代表测试通过；真实native评分由result_audit的既有grader负责。

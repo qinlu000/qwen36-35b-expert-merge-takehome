@@ -1,0 +1,36 @@
+{
+  "at_utc": "2026-10-16T11:13:45.943052+00:00",
+  "new_route_activated": false,
+  "health_checks": [
+    {
+      "job_id": 726635,
+      "url": "http://127.0.0.1:28086",
+      "http_health_status": null,
+      "remaining_seconds": 129286,
+      "admit": false
+    }
+  ],
+  "old_controller_exited": false,
+  "new_controller_pid": null,
+  "new_controller_alive": false,
+  "active_trials": 30,
+  "old_endpoint_active_trials": 30,
+  "old_model_consumer_markers_written": false,
+  "requested_model_max_num_seqs": 20,
+  "current_routes": [
+    {
+      "url": "http://127.0.0.1:28082",
+      "admit": true,
+      "allocation_end_time": "2026-10-18T04:04:25+08:00",
+      "job_id": 726129,
+      "max_num_seqs": 8
+    },
+    {
+      "url": "http://127.0.0.1:28084",
+      "admit": true,
+      "allocation_end_time": "2026-10-17T02:30:50+08:00",
+      "job_id": 725705,
+      "max_num_seqs": 8
+    }
+  ]
+}

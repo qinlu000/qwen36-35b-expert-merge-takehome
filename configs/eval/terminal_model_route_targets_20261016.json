@@ -1,0 +1,32 @@
+{
+  "endpoints_config": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime11/endpoints.json",
+  "checkpoint": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/checkpoint.json",
+  "old_controller_pid": 2719240,
+  "new_launch_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/launch-native11.json",
+  "old_targets": [
+    {
+      "url": "http://127.0.0.1:28082",
+      "admit": true,
+      "allocation_end_time": "2026-10-18T04:04:25+08:00",
+      "job_id": 726129,
+      "max_num_seqs": 8,
+      "consumer_finished_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/job-726129-finished.json"
+    },
+    {
+      "url": "http://127.0.0.1:28084",
+      "admit": true,
+      "allocation_end_time": "2026-10-17T02:30:50+08:00",
+      "job_id": 725705,
+      "max_num_seqs": 8,
+      "consumer_finished_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/job-725705-finished.json"
+    }
+  ],
+  "new_targets": [
+    {
+      "url": "http://127.0.0.1:28086",
+      "job_id": 726635,
+      "allocation_end_time": "2026-10-18T07:08:32+08:00",
+      "max_num_seqs": 20
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "at_utc": "2026-10-16T11:12:43.657903+00:00",
+  "pid": 2884174,
+  "script": "scripts/switch_terminal_model_routes_v2.py",
+  "targets": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-route-targets.json",
+  "state": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-route-switcher-state.json",
+  "markers": [
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/job-726129-finished.json",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/job-725705-finished.json"
+  ],
+  "old_tasks_cancelled": 0,
+  "root_owns_gpu_release": true
+}

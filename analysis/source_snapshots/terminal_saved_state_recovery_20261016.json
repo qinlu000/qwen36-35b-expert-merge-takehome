@@ -1,0 +1,398 @@
+{
+  "updated_at_utc": "2026-10-16T10:30:10.860007+00:00",
+  "new_model_calls": 0,
+  "worker_source": "scripts/regrade_terminal_saved_states_v3.py",
+  "worker_state": {
+    "pid": 2748211,
+    "new_model_calls": 0,
+    "cpu_ids": [
+      120,
+      121,
+      122,
+      123
+    ],
+    "memory_mb": 8192,
+    "finished": [],
+    "updated_at_utc": "2026-10-16T10:26:59.577190+00:00",
+    "active_key": "query-optimize/seed0",
+    "child_pid": 2748212,
+    "output": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/query-optimize__seed0__first__savedstate3"
+  },
+  "original_audit_file": "analysis/source_snapshots/baseline_progress_20261016_1820.json",
+  "accepted_valid_current": 37,
+  "active_solvers_current": 30,
+  "pending_solvers_current": 347,
+  "grading_results": [],
+  "unscored_model_output_items": [
+    {
+      "key": "caffe-cifar-10/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/caffe-cifar-10__seed0__manual2/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 12631,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/caffe-cifar-10__seed0__manual2/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "gpt2-codegolf/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/gpt2-codegolf__seed0__manual1/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 16853,
+      "archive": "artifacts/results/base-terminal-v2-recovery-20261016/trials/gpt2-codegolf__seed0__manual1/artifacts/logs/artifacts/final-task-state.tar",
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/gpt2-codegolf__seed0__manual1/trial.log",
+      "reconstruction_review_present": true
+    },
+    {
+      "key": "query-optimize/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/query-optimize__seed0__first/result.json",
+      "original_exception_type": "AddTestsDirError",
+      "output_tokens": 3416,
+      "archive": "artifacts/results/base-terminal-v2-recovery-20261016/trials/query-optimize__seed0__first/artifacts/logs/artifacts/final-task-state.tar",
+      "secondary_enospc_in_trial_log": false,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/query-optimize__seed0__first/trial.log",
+      "reconstruction_review_present": true
+    },
+    {
+      "key": "feal-differential-cryptanalysis/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/feal-differential-cryptanalysis__seed0__manual1/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 15033,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/feal-differential-cryptanalysis__seed0__manual1/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "adaptive-rejection-sampler/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/adaptive-rejection-sampler__seed0__manual2/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 10027,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/adaptive-rejection-sampler__seed0__manual2/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "build-cython-ext/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/build-cython-ext__seed0__manual2/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 15348,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/build-cython-ext__seed0__manual2/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "qemu-alpine-ssh/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/qemu-alpine-ssh__seed0__first/result.json",
+      "original_exception_type": "RuntimeError",
+      "output_tokens": 5411,
+      "archive": null,
+      "secondary_enospc_in_trial_log": false,
+      "secondary_tests_upload_failure": false,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/qemu-alpine-ssh__seed0__first/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "break-filter-js-from-html/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/break-filter-js-from-html__seed0__manual2/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 11802,
+      "archive": "artifacts/results/base-terminal-v2-recovery-20261016/trials/break-filter-js-from-html__seed0__manual2/artifacts/logs/artifacts/final-task-state.tar",
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/break-filter-js-from-html__seed0__manual2/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "build-pmars/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/build-pmars__seed0__manual2/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 10073,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/build-pmars__seed0__manual2/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "largest-eigenval/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/largest-eigenval__seed0__manual1/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 18860,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/largest-eigenval__seed0__manual1/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "regex-chess/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/regex-chess__seed0__first/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 23633,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/regex-chess__seed0__first/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "gcode-to-text/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/gcode-to-text__seed0__manual1/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 18833,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/gcode-to-text__seed0__manual1/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "mteb-retrieve/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/mteb-retrieve__seed0__first/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 15525,
+      "archive": "artifacts/results/base-terminal-v2-recovery-20261016/trials/mteb-retrieve__seed0__first/artifacts/logs/artifacts/final-task-state.tar",
+      "secondary_enospc_in_trial_log": false,
+      "secondary_tests_upload_failure": false,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/mteb-retrieve__seed0__first/trial.log",
+      "reconstruction_review_present": true
+    },
+    {
+      "key": "hf-model-inference/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/hf-model-inference__seed0__manual1/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 14131,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/hf-model-inference__seed0__manual1/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "build-pov-ray/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/build-pov-ray__seed0__manual2/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 11928,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/build-pov-ray__seed0__manual2/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "raman-fitting/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/raman-fitting__seed0__first/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 20938,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/raman-fitting__seed0__first/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "install-windows-3.11/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/install-windows-3.11__seed0__manual1/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 8771,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/install-windows-3.11__seed0__manual1/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "feal-linear-cryptanalysis/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/feal-linear-cryptanalysis__seed0__manual1/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 20982,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/feal-linear-cryptanalysis__seed0__manual1/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "llm-inference-batching-scheduler/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/llm-inference-batching-scheduler__seed0__manual1/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 20099,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/llm-inference-batching-scheduler__seed0__manual1/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "git-multibranch/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/git-multibranch__seed0__manual1/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 12750,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/git-multibranch__seed0__manual1/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "financial-document-processor/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/financial-document-processor__seed0__manual1/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 13882,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/financial-document-processor__seed0__manual1/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "chess-best-move/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/chess-best-move__seed0__manual2/result.json",
+      "original_exception_type": "RuntimeError",
+      "output_tokens": 18171,
+      "archive": null,
+      "secondary_enospc_in_trial_log": false,
+      "secondary_tests_upload_failure": false,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/chess-best-move__seed0__manual2/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "mailman/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/mailman__seed0__manual1/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 20596,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/mailman__seed0__manual1/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "code-from-image/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/code-from-image__seed0__manual2/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 13943,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/code-from-image__seed0__manual2/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "circuit-fibsqrt/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/circuit-fibsqrt__seed0__manual2/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 7774,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/circuit-fibsqrt__seed0__manual2/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "kv-store-grpc/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/kv-store-grpc__seed0__manual1/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 11270,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/kv-store-grpc__seed0__manual1/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "vulnerable-secret/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/vulnerable-secret__seed0__manual1__shorttmp1/result.json",
+      "original_exception_type": null,
+      "output_tokens": 4252,
+      "archive": "artifacts/results/base-terminal-v2-recovery-20261016/trials/vulnerable-secret__seed0__manual1__shorttmp1/artifacts/logs/artifacts/final-task-state.tar",
+      "secondary_enospc_in_trial_log": false,
+      "secondary_tests_upload_failure": false,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/vulnerable-secret__seed0__manual1__shorttmp1/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "compile-compcert/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/compile-compcert__seed0__manual2/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 11007,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/compile-compcert__seed0__manual2/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "large-scale-text-editing/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/large-scale-text-editing__seed0__manual1/result.json",
+      "original_exception_type": "RuntimeError",
+      "output_tokens": 5371,
+      "archive": null,
+      "secondary_enospc_in_trial_log": false,
+      "secondary_tests_upload_failure": false,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/large-scale-text-editing__seed0__manual1/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "count-dataset-tokens/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/count-dataset-tokens__seed0__manual2/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 11083,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/count-dataset-tokens__seed0__manual2/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "configure-git-webserver/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/configure-git-webserver__seed0__manual2/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 14667,
+      "archive": "artifacts/results/base-terminal-v2-recovery-20261016/trials/configure-git-webserver__seed0__manual2/artifacts/logs/artifacts/final-task-state.tar",
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/configure-git-webserver__seed0__manual2/trial.log",
+      "reconstruction_review_present": false
+    },
+    {
+      "key": "fix-ocaml-gc/seed0",
+      "original_result": "artifacts/results/base-terminal-v2-recovery-20261016/trials/fix-ocaml-gc__seed0__manual1/result.json",
+      "original_exception_type": "AgentTimeoutError",
+      "output_tokens": 9420,
+      "archive": null,
+      "secondary_enospc_in_trial_log": true,
+      "secondary_tests_upload_failure": true,
+      "source_trial_log": "artifacts/results/base-terminal-v2-recovery-20261016/trials/fix-ocaml-gc__seed0__manual1/trial.log",
+      "reconstruction_review_present": false
+    }
+  ],
+  "policy": "No new answer for completed or ordinary 1800-second budget outcomes. Native restored grading needs checker-observable state review. Missing original state stays unscored; fresh SIF alone is not equivalent. Old setup-failed grading results and original answers are retained.",
+  "old_idle_worker_stopped": 2522411,
+  "worker_tmpdir": "/data/caoqinlu/apex-tbg-tmp",
+  "worker_resources": {
+    "cpu_ids": [
+      120,
+      121,
+      122,
+      123
+    ],
+    "memory_mb": 8192
+  },
+  "notes": [
+    "Original savedstate2 grading retries failed before execution because Unix-domain socket path was 108 bytes; savedstate3 uses short data TMPDIR.",
+    "pytorch-model-cli savedstate1 completed original native 6 tests: 3 passed, 3 wrong-prediction failures; original state review allows valid reward0.",
+    "configure-git-webserver archive only contains app; git repositories and service state are missing, so restored grading is blocked.",
+    "26 model-output trials had no complete archived state in initial audit; no matching live trial namespaces were found. ENOSPC during tests-directory upload occurred before snapshot hook, explaining missing archives for many completed budget outcomes."
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "deployment_id": "apex-base-seq20-v4-20261016",
+  "authorization": "User explicitly requests concurrency20 after measured queue bottlenecks. Apply max_num_seqs20 per TP2 model replica; preserve existing outer task concurrency and all solver semantics.",
+  "core_protocol": "configs/eval/protocol_v2_unified64k8k.json",
+  "parent_deployment": "configs/eval/deployment_concurrency_x2_v3.json",
+  "server_overrides": {
+    "max_num_seqs": 20
+  },
+  "unchanged": {
+    "model": "Qwen/Qwen3.6-35B-A3B",
+    "revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "dtype": "bfloat16",
+    "tensor_parallel_size": 2,
+    "context_tokens": 65536,
+    "max_output_tokens_per_request": 8192,
+    "max_num_batched_tokens": 8192,
+    "enforce_eager": true,
+    "solver_prompts_agents_seeds_cpu_ram_walltime": "unchanged"
+  },
+  "outer_task_concurrency": {
+    "hle": 8,
+    "terminal": 30
+  },
+  "hle_handoff": "New healthy service first; SIGINT old runner for finally/checkpoint preservation, retaining every complete answer and native timeout. At most8 incomplete requests receive explicit migration infrastructure retry2 with old raw/attempt records retained. New leaf supports natural STOP_ADMISSION drain.",
+  "terminal_handoff": "One natural drain of immutable old controller overlaps service startup; prepared routing leaf accepts dynamic future admissions only. Existing tasks retain original endpoint and budgets.",
+  "gpu_transition": "At most16 total owned GPUs; currently10 project baseline plus4SWE and1unrelated=15 only during overlap. Release old services after all model consumers drain; training jobs are untouched. Mixed depends afterok on SWE and replaces its4GPUs.",
+  "readiness": "Actual vLLM startup max_num_seqs20 and HTTP health200; no synthetic/extra inference tests.",
+  "disclosure": "Earlier tasks retain earlier concurrency profiles; queue time is included in native wall-clock budgets. Changing service capacity can change deadline outcomes; retain per-cohort deployment evidence and do not claim identical serving profiles across the whole baseline.",
+  "state": "New HLE726629 warming; first new Terminal726635 pending; no completed answers regenerated."
+}

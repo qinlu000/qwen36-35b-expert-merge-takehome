@@ -1,0 +1,10 @@
+{
+  "prepared_at_utc": "2026-10-16T11:04:05.663291+00:00",
+  "previous_runtime": "runtime10",
+  "fixed_expected": 445,
+  "max_solver_futures": 30,
+  "requested_model_max_num_seqs": 20,
+  "model_manual_attempts_added": 0,
+  "stop_admission_created": false,
+  "policy": "Never cancel old tasks; root supplies ready endpoints and explicitly starts natural drain"
+}

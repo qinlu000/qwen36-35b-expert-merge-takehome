@@ -1,0 +1,43 @@
+{
+  "deployment_id": "apex-hle-asi-seq50-v5-20261016",
+  "authorization": "User explicitly directs HLE and ASI concurrency50. ASI240 already complete and is retained; apply50 to future HLE admissions and future ASI model serving, not completed-answer regeneration.",
+  "core_protocol": "configs/eval/protocol_v2_unified64k8k.json",
+  "parent_deployment": "configs/eval/deployment_concurrency_seq20_v4.json",
+  "hle": {
+    "engine_max_num_seqs": 50,
+    "solver_concurrency": 50,
+    "http_max_connections": 52,
+    "service_job_id": 726663,
+    "service_timelimit_hours": 12,
+    "bridge_port": 28088,
+    "actual_state_at_configuration": "PENDING(Resources); old eight-request seq20 leaf continues until replacement healthy",
+    "route_file": "configs/eval/hle_seq50_route_20261016.json",
+    "new_output": "artifacts/runs/base_hle_v2_724196_seq50",
+    "activation": "Native maxseq50 startup and health200 -> STOP oldseq20 -> naturally finish8 -> transfer only never-started IDs -> start50 rolling; no additional manual retry index"
+  },
+  "asi": {
+    "current_state": "240/240complete",
+    "completed_answers_regenerated": 0,
+    "future_model_service_max_num_seqs": 50,
+    "per_task_cpus": 4,
+    "native_environment_concurrency_note": "50 simultaneous4CPU environments would require200 available CPUs; do not silently oversubscribe the128CPU host. No new ASI run is started."
+  },
+  "terminal": {
+    "solver_concurrency": 30,
+    "model_max_num_seqs_per_replica": 20,
+    "replica_a_job": 726635,
+    "replica_b_reuses_hle20_job": 726629,
+    "replica_b_activation": "Only after old HLE role drains and newHLE50 begins; preserve warm28085 tunnel",
+    "cancelled_unused_warming_job": 726645
+  },
+  "unchanged": [
+    "Model/revision/BF16/TP2",
+    "65536 context/8192 max output",
+    "Eager/kernel/parser configuration",
+    "Native prompts/agents/seeds/task order",
+    "Per-task CPU/RAM and300s HLE or1800s Terminal solver budget",
+    "All previously terminal answers and genuine budget ends"
+  ],
+  "measurement": "Observe only real production throughput/queue/deadline outcomes;50 concurrent requests do not imply50 times speedup and can reduce per-request token rate. No fixture/hash/extra model inference acceptance run.",
+  "resource_policy": "At most16 total GPUs; cancelled unusedB to make room for HLE50; reuse warmHLE20 asTerminalB rather than another new pair; other-chat SFT jobs are unchanged."
+}

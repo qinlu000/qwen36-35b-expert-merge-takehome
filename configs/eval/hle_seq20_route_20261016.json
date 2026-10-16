@@ -1,0 +1,12 @@
+{
+  "endpoint": "http://127.0.0.1:28085",
+  "job_id": 726629,
+  "engine_max_num_seqs": 20,
+  "solver_concurrency": 8,
+  "context_tokens": 65536,
+  "max_output_tokens": 8192,
+  "question_walltime_seconds": 300,
+  "enable_thinking": false,
+  "preserve_thinking": false,
+  "note": "Only the serving sequence cap changes; retain the existing eight rolling HLE solver slots and every terminal result. Future route changes require STOP_ADMISSION and a natural drain."
+}

@@ -39,6 +39,20 @@
       "service_port": 443,
       "bridge_port": 28443,
       "purpose": "Fixed campus API TLS path for host80 native graders; no GPU"
+    },
+    {
+      "benchmark": "hle_seq20",
+      "job_id": 726629,
+      "node": "ACD1-12",
+      "service_port": 18003,
+      "bridge_port": 28085
+    },
+    {
+      "benchmark": "terminal_seq20_a",
+      "job_id": 726635,
+      "node": "ACD1-54",
+      "service_port": 18002,
+      "bridge_port": 28086
     }
   ]
 }

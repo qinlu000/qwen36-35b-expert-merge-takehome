@@ -1,0 +1,42 @@
+{
+  "at_utc": "2026-10-16T11:09:06.232072+00:00",
+  "reason": "User requested20 model sequences; root authorized overlap natural task drain with replacement service warmup",
+  "old_controller_pid": 2719240,
+  "waiter_pid": 2879002,
+  "state_counts_before_stop": {
+    "failed_attempt": 30,
+    "valid": 64,
+    "verifier_incomplete": 14,
+    "admitted": 30,
+    "pending": 307
+  },
+  "requested_model_max_num_seqs": 20,
+  "current_actual_model_max_num_seqs": [
+    8,
+    8
+  ],
+  "max_solver_futures": 30,
+  "old_tasks_cancelled": 0,
+  "endpoints_at_arm": {
+    "updated_at_utc": "2026-10-16T11:09:05.728348+00:00",
+    "requested_model_max_num_seqs": 20,
+    "note": "Current actual services remain8; future ready20 routes will be updated by root atomically",
+    "endpoints": [
+      {
+        "url": "http://127.0.0.1:28082",
+        "admit": true,
+        "allocation_end_time": "2026-10-18T04:04:25+08:00",
+        "job_id": 726129,
+        "max_num_seqs": 8
+      },
+      {
+        "url": "http://127.0.0.1:28084",
+        "admit": true,
+        "allocation_end_time": "2026-10-17T02:30:50+08:00",
+        "job_id": 725705,
+        "max_num_seqs": 8
+      }
+    ]
+  },
+  "pending_task_answers_regenerated": 0
+}

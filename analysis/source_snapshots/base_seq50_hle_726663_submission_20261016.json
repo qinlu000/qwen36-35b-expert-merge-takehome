@@ -1,0 +1,24 @@
+{
+  "recorded_at_utc": "2026-10-16T11:25:15.692064+00:00",
+  "job_id": 726663,
+  "worker": "hle",
+  "state": "PENDING",
+  "reason": "Resources",
+  "port": 18003,
+  "excluded_node": "ACD1-12 (existing HLE20 port18003)",
+  "actual_time_limit": "12:00:00",
+  "slurm_source_default_time_limit": "36:00:00",
+  "gpus": 2,
+  "max_num_seqs": 50,
+  "source": [
+    "scripts/serve_base_worker_seq50.py",
+    "scripts/serve_base_worker_seq50.slurm"
+  ],
+  "previous_terminal_b_job": 726645,
+  "hold_not_performed_because_job_was_running": true,
+  "previous_b_cancelled_by_root_and_absent_before_submission": true,
+  "running_gpu_total_before_submit_confirmed_by_root": 13,
+  "maximum_total_with_this_pair": 15,
+  "ready": false,
+  "model_or_fixture_requests": 0
+}

@@ -1,0 +1,2652 @@
+{
+  "audited_at_utc": "2026-10-16T10:21:29.456780+00:00",
+  "host": "10.123.4.80",
+  "project": "/data/caoqinlu/projects/apex-takehome",
+  "read_only": true,
+  "sources": {
+    "checkpoint": "artifacts/results/base-terminal-v2-recovery-20261016/checkpoint.json",
+    "terminal_summary": "artifacts/results/base-terminal-v2-recovery-20261016/final_summary.json",
+    "four_benchmark_summary": "artifacts/results/base_baseline_final_20261016/summary.json"
+  },
+  "checkpoint_updated_at_utc": "2026-10-16T09:49:17.608057+00:00",
+  "terminal_summary_updated_at_utc": "2026-10-16T10:21:15.090836+00:00",
+  "valid_covered": 35,
+  "unscored": 410,
+  "queue_summary": {
+    "admitted_peak": 30,
+    "halted": false,
+    "reason": null,
+    "drained": false,
+    "pending_not_admitted": 0
+  },
+  "unscored_counts": {
+    "model_output_present": 32,
+    "no_agent_execution": 378
+  },
+  "exceptions": {
+    "AgentTimeoutError": 27,
+    "RuntimeError": 3,
+    "OSError": 378,
+    "AddTestsDirError": 2
+  },
+  "proof_method": "For each current checkpoint status not in accepted_first_valid, inspect its persisted result.json. Zero-model candidates require agent_execution=null and agent_result=null; all 378 also have OSError ENOSPC before agent execution. Actual model output is n_output_tokens>0. This is an observational classification, not retry approval or a grade.",
+  "model_output_items": [
+    {
+      "key": "adaptive-rejection-sampler/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 2,
+      "category": "model_output_present",
+      "output_tokens": 10027,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:55:49.156883Z",
+        "finished_at": "2026-10-16T09:25:49.752484Z"
+      },
+      "started_at": "2026-10-16T08:54:45.563151Z",
+      "finished_at": "2026-10-16T09:25:51.839662Z",
+      "result_path": "trials/adaptive-rejection-sampler__seed0__manual2/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "break-filter-js-from-html/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 2,
+      "category": "model_output_present",
+      "output_tokens": 11802,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:54:48.978233Z",
+        "finished_at": "2026-10-16T09:24:49.566453Z"
+      },
+      "started_at": "2026-10-16T08:54:45.696930Z",
+      "finished_at": "2026-10-16T09:24:51.681892Z",
+      "result_path": "trials/break-filter-js-from-html__seed0__manual2/result.json",
+      "preserved_state_files": [
+        "artifacts/logs/artifacts/final-task-state.json",
+        "artifacts/logs/artifacts/final-task-state.tar"
+      ]
+    },
+    {
+      "key": "build-cython-ext/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 2,
+      "category": "model_output_present",
+      "output_tokens": 15348,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:54:48.911752Z",
+        "finished_at": "2026-10-16T09:24:49.506552Z"
+      },
+      "started_at": "2026-10-16T08:54:45.712523Z",
+      "finished_at": "2026-10-16T09:24:51.668084Z",
+      "result_path": "trials/build-cython-ext__seed0__manual2/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "build-pmars/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 2,
+      "category": "model_output_present",
+      "output_tokens": 10073,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:54:48.921024Z",
+        "finished_at": "2026-10-16T09:24:49.517795Z"
+      },
+      "started_at": "2026-10-16T08:54:45.726247Z",
+      "finished_at": "2026-10-16T09:24:51.635469Z",
+      "result_path": "trials/build-pmars__seed0__manual2/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "build-pov-ray/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 2,
+      "category": "model_output_present",
+      "output_tokens": 11928,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:56:00.676035Z",
+        "finished_at": "2026-10-16T09:26:01.276259Z"
+      },
+      "started_at": "2026-10-16T08:54:45.746068Z",
+      "finished_at": "2026-10-16T09:26:03.380967Z",
+      "result_path": "trials/build-pov-ray__seed0__manual2/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "caffe-cifar-10/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 2,
+      "category": "model_output_present",
+      "output_tokens": 12631,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:55:34.414028Z",
+        "finished_at": "2026-10-16T09:25:35.010498Z"
+      },
+      "started_at": "2026-10-16T08:54:46.053530Z",
+      "finished_at": "2026-10-16T09:25:37.114576Z",
+      "result_path": "trials/caffe-cifar-10__seed0__manual2/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "chess-best-move/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 2,
+      "category": "model_output_present",
+      "output_tokens": 18171,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "RuntimeError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:55:15.027748Z",
+        "finished_at": "2026-10-16T09:25:15.567240Z"
+      },
+      "started_at": "2026-10-16T08:54:46.093602Z",
+      "finished_at": "2026-10-16T09:25:17.656292Z",
+      "result_path": "trials/chess-best-move__seed0__manual2/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "circuit-fibsqrt/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 2,
+      "category": "model_output_present",
+      "output_tokens": 7774,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:54:49.351277Z",
+        "finished_at": "2026-10-16T09:24:49.944223Z"
+      },
+      "started_at": "2026-10-16T08:54:46.108251Z",
+      "finished_at": "2026-10-16T09:24:52.094360Z",
+      "result_path": "trials/circuit-fibsqrt__seed0__manual2/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "code-from-image/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 2,
+      "category": "model_output_present",
+      "output_tokens": 13943,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:54:49.349022Z",
+        "finished_at": "2026-10-16T09:24:49.953641Z"
+      },
+      "started_at": "2026-10-16T08:54:46.139372Z",
+      "finished_at": "2026-10-16T09:24:52.061147Z",
+      "result_path": "trials/code-from-image__seed0__manual2/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "compile-compcert/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 2,
+      "category": "model_output_present",
+      "output_tokens": 11007,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:55:23.472242Z",
+        "finished_at": "2026-10-16T09:25:24.063171Z"
+      },
+      "started_at": "2026-10-16T08:54:46.153854Z",
+      "finished_at": "2026-10-16T09:25:26.169430Z",
+      "result_path": "trials/compile-compcert__seed0__manual2/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "configure-git-webserver/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 2,
+      "category": "model_output_present",
+      "output_tokens": 14667,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:55:30.324496Z",
+        "finished_at": "2026-10-16T09:25:30.920354Z"
+      },
+      "started_at": "2026-10-16T08:54:46.381909Z",
+      "finished_at": "2026-10-16T09:25:33.089239Z",
+      "result_path": "trials/configure-git-webserver__seed0__manual2/result.json",
+      "preserved_state_files": [
+        "artifacts/logs/artifacts/final-task-state.json",
+        "artifacts/logs/artifacts/final-task-state.tar"
+      ]
+    },
+    {
+      "key": "count-dataset-tokens/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 2,
+      "category": "model_output_present",
+      "output_tokens": 11083,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:54:50.113567Z",
+        "finished_at": "2026-10-16T09:24:50.702408Z"
+      },
+      "started_at": "2026-10-16T08:54:46.548698Z",
+      "finished_at": "2026-10-16T09:24:52.785083Z",
+      "result_path": "trials/count-dataset-tokens__seed0__manual2/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "feal-differential-cryptanalysis/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 1,
+      "category": "model_output_present",
+      "output_tokens": 15033,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:59:10.422751Z",
+        "finished_at": "2026-10-16T09:29:11.019465Z"
+      },
+      "started_at": "2026-10-16T08:59:06.991749Z",
+      "finished_at": "2026-10-16T09:29:13.145733Z",
+      "result_path": "trials/feal-differential-cryptanalysis__seed0__manual1/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "feal-linear-cryptanalysis/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 1,
+      "category": "model_output_present",
+      "output_tokens": 20982,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:59:10.405264Z",
+        "finished_at": "2026-10-16T09:29:11.002819Z"
+      },
+      "started_at": "2026-10-16T08:59:07.012346Z",
+      "finished_at": "2026-10-16T09:29:13.113522Z",
+      "result_path": "trials/feal-linear-cryptanalysis__seed0__manual1/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "financial-document-processor/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 1,
+      "category": "model_output_present",
+      "output_tokens": 13882,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:59:51.997891Z",
+        "finished_at": "2026-10-16T09:29:52.574463Z"
+      },
+      "started_at": "2026-10-16T08:59:07.055413Z",
+      "finished_at": "2026-10-16T09:29:54.658025Z",
+      "result_path": "trials/financial-document-processor__seed0__manual1/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "fix-ocaml-gc/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 1,
+      "category": "model_output_present",
+      "output_tokens": 9420,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T09:00:05.502650Z",
+        "finished_at": "2026-10-16T09:30:06.105252Z"
+      },
+      "started_at": "2026-10-16T08:59:07.115615Z",
+      "finished_at": "2026-10-16T09:30:08.210284Z",
+      "result_path": "trials/fix-ocaml-gc__seed0__manual1/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "gcode-to-text/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 1,
+      "category": "model_output_present",
+      "output_tokens": 18833,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:59:10.895306Z",
+        "finished_at": "2026-10-16T09:29:11.493289Z"
+      },
+      "started_at": "2026-10-16T08:59:07.525580Z",
+      "finished_at": "2026-10-16T09:29:13.627003Z",
+      "result_path": "trials/gcode-to-text__seed0__manual1/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "git-multibranch/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 1,
+      "category": "model_output_present",
+      "output_tokens": 12750,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T09:00:16.154285Z",
+        "finished_at": "2026-10-16T09:30:16.777200Z"
+      },
+      "started_at": "2026-10-16T08:59:07.546607Z",
+      "finished_at": "2026-10-16T09:30:18.878007Z",
+      "result_path": "trials/git-multibranch__seed0__manual1/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "gpt2-codegolf/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 1,
+      "category": "model_output_present",
+      "output_tokens": 16853,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T09:00:03.069355Z",
+        "finished_at": "2026-10-16T09:30:03.662114Z"
+      },
+      "started_at": "2026-10-16T08:59:07.567170Z",
+      "finished_at": "2026-10-16T09:30:06.146622Z",
+      "result_path": "trials/gpt2-codegolf__seed0__manual1/result.json",
+      "preserved_state_files": [
+        "artifacts/logs/artifacts/final-task-state.json",
+        "artifacts/logs/artifacts/final-task-state.tar"
+      ]
+    },
+    {
+      "key": "hf-model-inference/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 1,
+      "category": "model_output_present",
+      "output_tokens": 14131,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:59:10.902008Z",
+        "finished_at": "2026-10-16T09:29:11.501768Z"
+      },
+      "started_at": "2026-10-16T08:59:07.632054Z",
+      "finished_at": "2026-10-16T09:29:13.658396Z",
+      "result_path": "trials/hf-model-inference__seed0__manual1/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "install-windows-3.11/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 1,
+      "category": "model_output_present",
+      "output_tokens": 8771,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:59:48.101083Z",
+        "finished_at": "2026-10-16T09:29:48.697437Z"
+      },
+      "started_at": "2026-10-16T08:59:11.087502Z",
+      "finished_at": "2026-10-16T09:29:50.798343Z",
+      "result_path": "trials/install-windows-3.11__seed0__manual1/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "kv-store-grpc/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 1,
+      "category": "model_output_present",
+      "output_tokens": 11270,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T09:05:34.758308Z",
+        "finished_at": "2026-10-16T09:35:35.357297Z"
+      },
+      "started_at": "2026-10-16T09:05:31.275060Z",
+      "finished_at": "2026-10-16T09:35:37.460741Z",
+      "result_path": "trials/kv-store-grpc__seed0__manual1/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "large-scale-text-editing/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 1,
+      "category": "model_output_present",
+      "output_tokens": 5371,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "RuntimeError",
+      "agent_execution": {
+        "started_at": "2026-10-16T09:10:21.376135Z",
+        "finished_at": "2026-10-16T09:29:59.257288Z"
+      },
+      "started_at": "2026-10-16T09:10:18.373842Z",
+      "finished_at": "2026-10-16T09:30:01.354403Z",
+      "result_path": "trials/large-scale-text-editing__seed0__manual1/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "largest-eigenval/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 1,
+      "category": "model_output_present",
+      "output_tokens": 18860,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T09:13:09.211511Z",
+        "finished_at": "2026-10-16T09:43:09.803259Z"
+      },
+      "started_at": "2026-10-16T09:13:06.254070Z",
+      "finished_at": "2026-10-16T09:43:11.891729Z",
+      "result_path": "trials/largest-eigenval__seed0__manual1/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "llm-inference-batching-scheduler/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 1,
+      "category": "model_output_present",
+      "output_tokens": 20099,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T09:17:46.936522Z",
+        "finished_at": "2026-10-16T09:47:47.515117Z"
+      },
+      "started_at": "2026-10-16T09:17:43.433874Z",
+      "finished_at": "2026-10-16T09:47:49.608975Z",
+      "result_path": "trials/llm-inference-batching-scheduler__seed0__manual1/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "mailman/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 1,
+      "category": "model_output_present",
+      "output_tokens": 20596,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T09:19:14.917930Z",
+        "finished_at": "2026-10-16T09:49:15.503185Z"
+      },
+      "started_at": "2026-10-16T09:18:53.148514Z",
+      "finished_at": "2026-10-16T09:49:17.596729Z",
+      "result_path": "trials/mailman__seed0__manual1/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "mteb-retrieve/seed0",
+      "status": "verifier_incomplete",
+      "manual_attempt": 0,
+      "category": "model_output_present",
+      "output_tokens": 15525,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:11:40.570635Z",
+        "finished_at": "2026-10-16T08:41:41.179267Z"
+      },
+      "started_at": "2026-10-16T08:11:37.589966Z",
+      "finished_at": "2026-10-16T08:54:40.716070Z",
+      "result_path": "trials/mteb-retrieve__seed0__first/result.json",
+      "preserved_state_files": [
+        "artifacts/logs/artifacts/final-task-state.json",
+        "artifacts/logs/artifacts/final-task-state.tar"
+      ]
+    },
+    {
+      "key": "pytorch-model-cli/seed0",
+      "status": "verifier_incomplete",
+      "manual_attempt": 0,
+      "category": "model_output_present",
+      "output_tokens": 11547,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AddTestsDirError",
+      "agent_execution": {
+        "started_at": "2026-10-16T08:59:10.898360Z",
+        "finished_at": "2026-10-16T09:19:24.603457Z"
+      },
+      "started_at": "2026-10-16T08:59:07.613205Z",
+      "finished_at": "2026-10-16T09:19:33.314114Z",
+      "result_path": "trials/pytorch-model-cli__seed0__first/result.json",
+      "preserved_state_files": [
+        "artifacts/logs/artifacts/final-task-state.json",
+        "artifacts/logs/artifacts/final-task-state.tar"
+      ]
+    },
+    {
+      "key": "qemu-alpine-ssh/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 0,
+      "category": "model_output_present",
+      "output_tokens": 5411,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "RuntimeError",
+      "agent_execution": {
+        "started_at": "2026-10-16T09:02:13.416088Z",
+        "finished_at": "2026-10-16T09:17:41.285369Z"
+      },
+      "started_at": "2026-10-16T09:02:10.387909Z",
+      "finished_at": "2026-10-16T09:17:43.408444Z",
+      "result_path": "trials/qemu-alpine-ssh__seed0__first/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "query-optimize/seed0",
+      "status": "verifier_incomplete",
+      "manual_attempt": 0,
+      "category": "model_output_present",
+      "output_tokens": 3416,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AddTestsDirError",
+      "agent_execution": {
+        "started_at": "2026-10-16T09:13:31.831063Z",
+        "finished_at": "2026-10-16T09:25:00.964353Z"
+      },
+      "started_at": "2026-10-16T09:13:05.258570Z",
+      "finished_at": "2026-10-16T09:25:03.153203Z",
+      "result_path": "trials/query-optimize__seed0__first/result.json",
+      "preserved_state_files": [
+        "artifacts/logs/artifacts/final-task-state.json",
+        "artifacts/logs/artifacts/final-task-state.tar"
+      ]
+    },
+    {
+      "key": "raman-fitting/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 0,
+      "category": "model_output_present",
+      "output_tokens": 20938,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T09:15:50.305813Z",
+        "finished_at": "2026-10-16T09:45:50.899374Z"
+      },
+      "started_at": "2026-10-16T09:15:46.853868Z",
+      "finished_at": "2026-10-16T09:45:53.006512Z",
+      "result_path": "trials/raman-fitting__seed0__first/result.json",
+      "preserved_state_files": []
+    },
+    {
+      "key": "regex-chess/seed0",
+      "status": "failed_attempt",
+      "manual_attempt": 0,
+      "category": "model_output_present",
+      "output_tokens": 23633,
+      "agent_result_is_null": false,
+      "agent_execution_is_null": false,
+      "exception_type": "AgentTimeoutError",
+      "agent_execution": {
+        "started_at": "2026-10-16T09:17:49.701818Z",
+        "finished_at": "2026-10-16T09:47:50.296188Z"
+      },
+      "started_at": "2026-10-16T09:17:46.710893Z",
+      "finished_at": "2026-10-16T09:47:52.397233Z",
+      "result_path": "trials/regex-chess__seed0__first/result.json",
+      "preserved_state_files": []
+    }
+  ],
+  "zero_execution_items": [
+    {
+      "key": "make-doom-for-mips/seed0",
+      "manual_attempt": 1,
+      "result_path": "trials/make-doom-for-mips__seed0__manual1/result.json"
+    },
+    {
+      "key": "make-mips-interpreter/seed0",
+      "manual_attempt": 1,
+      "result_path": "trials/make-mips-interpreter__seed0__manual1/result.json"
+    },
+    {
+      "key": "mcmc-sampling-stan/seed0",
+      "manual_attempt": 1,
+      "result_path": "trials/mcmc-sampling-stan__seed0__manual1/result.json"
+    },
+    {
+      "key": "merge-diff-arc-agi-task/seed0",
+      "manual_attempt": 1,
+      "result_path": "trials/merge-diff-arc-agi-task__seed0__manual1/result.json"
+    },
+    {
+      "key": "model-extraction-relu-logits/seed0",
+      "manual_attempt": 1,
+      "result_path": "trials/model-extraction-relu-logits__seed0__manual1/result.json"
+    },
+    {
+      "key": "regex-log/seed0",
+      "manual_attempt": 0,
+      "result_path": "trials/regex-log__seed0__first/result.json"
+    },
+    {
+      "key": "reshard-c4-data/seed0",
+      "manual_attempt": 0,
+      "result_path": "trials/reshard-c4-data__seed0__first/result.json"
+    },
+    {
+      "key": "rstan-to-pystan/seed0",
+      "manual_attempt": 0,
+      "result_path": "trials/rstan-to-pystan__seed0__first/result.json"
+    },
+    {
+      "key": "sam-cell-seg/seed0",
+      "manual_attempt": 0,
+      "result_path": "trials/sam-cell-seg__seed0__first/result.json"
+    },
+    {
+      "key": "sanitize-git-repo/seed0",
+      "manual_attempt": 0,
+      "result_path": "trials/sanitize-git-repo__seed0__first/result.json"
+    },
+    {
+      "key": "schemelike-metacircular-eval/seed0",
+      "manual_attempt": 0,
+      "result_path": "trials/schemelike-metacircular-eval__seed0__first/result.json"
+    },
+    {
+      "key": "sparql-university/seed0",
+      "manual_attempt": 0,
+      "result_path": "trials/sparql-university__seed0__first/result.json"
+    },
+    {
+      "key": "sqlite-db-truncate/seed0",
+      "manual_attempt": 0,
+      "result_path": "trials/sqlite-db-truncate__seed0__first/result.json"
+    },
+    {
+      "key": "sqlite-with-gcov/seed0",
+      "manual_attempt": 0,
+      "result_path": "trials/sqlite-with-gcov__seed0__first/result.json"
+    },
+    {
+      "key": "torch-pipeline-parallelism/seed0",
+      "manual_attempt": 0,
+      "result_path": "trials/torch-pipeline-parallelism__seed0__first/result.json"
+    },
+    {
+      "key": "torch-tensor-parallelism/seed0",
+      "manual_attempt": 0,
+      "result_path": "trials/torch-tensor-parallelism__seed0__first/result.json"
+    },
+    {
+      "key": "train-fasttext/seed0",
+      "manual_attempt": 0,
+      "result_path": "trials/train-fasttext__seed0__first/result.json"
+    },
+    {
+      "key": "tune-mjcf/seed0",
+      "manual_attempt": 0,
+      "result_path": "trials/tune-mjcf__seed0__first/result.json"
+    },
+    {
+      "key": "video-processing/seed0",
+      "manual_attempt": 0,
+      "result_path": "trials/video-processing__seed0__first/result.json"
+    },
+    {
+      "key": "vulnerable-secret/seed0",
+      "manual_attempt": 0,
+      "result_path": "trials/vulnerable-secret__seed0__first/result.json"
+    },
+    {
+      "key": "winning-avg-corewars/seed0",
+      "manual_attempt": 0,
+      "result_path": "trials/winning-avg-corewars__seed0__first/result.json"
+    },
+    {
+      "key": "write-compressor/seed0",
+      "manual_attempt": 0,
+      "result_path": "trials/write-compressor__seed0__first/result.json"
+    },
+    {
+      "key": "adaptive-rejection-sampler/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/adaptive-rejection-sampler__seed1__first/result.json"
+    },
+    {
+      "key": "bn-fit-modify/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/bn-fit-modify__seed1__first/result.json"
+    },
+    {
+      "key": "break-filter-js-from-html/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/break-filter-js-from-html__seed1__first/result.json"
+    },
+    {
+      "key": "build-cython-ext/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/build-cython-ext__seed1__first/result.json"
+    },
+    {
+      "key": "build-pmars/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/build-pmars__seed1__first/result.json"
+    },
+    {
+      "key": "build-pov-ray/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/build-pov-ray__seed1__first/result.json"
+    },
+    {
+      "key": "caffe-cifar-10/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/caffe-cifar-10__seed1__first/result.json"
+    },
+    {
+      "key": "cancel-async-tasks/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/cancel-async-tasks__seed1__first/result.json"
+    },
+    {
+      "key": "chess-best-move/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/chess-best-move__seed1__first/result.json"
+    },
+    {
+      "key": "circuit-fibsqrt/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/circuit-fibsqrt__seed1__first/result.json"
+    },
+    {
+      "key": "cobol-modernization/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/cobol-modernization__seed1__first/result.json"
+    },
+    {
+      "key": "code-from-image/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/code-from-image__seed1__first/result.json"
+    },
+    {
+      "key": "compile-compcert/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/compile-compcert__seed1__first/result.json"
+    },
+    {
+      "key": "configure-git-webserver/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/configure-git-webserver__seed1__first/result.json"
+    },
+    {
+      "key": "constraints-scheduling/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/constraints-scheduling__seed1__first/result.json"
+    },
+    {
+      "key": "count-dataset-tokens/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/count-dataset-tokens__seed1__first/result.json"
+    },
+    {
+      "key": "crack-7z-hash/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/crack-7z-hash__seed1__first/result.json"
+    },
+    {
+      "key": "custom-memory-heap-crash/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/custom-memory-heap-crash__seed1__first/result.json"
+    },
+    {
+      "key": "db-wal-recovery/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/db-wal-recovery__seed1__first/result.json"
+    },
+    {
+      "key": "distribution-search/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/distribution-search__seed1__first/result.json"
+    },
+    {
+      "key": "dna-assembly/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/dna-assembly__seed1__first/result.json"
+    },
+    {
+      "key": "dna-insert/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/dna-insert__seed1__first/result.json"
+    },
+    {
+      "key": "extract-elf/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/extract-elf__seed1__first/result.json"
+    },
+    {
+      "key": "extract-moves-from-video/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/extract-moves-from-video__seed1__first/result.json"
+    },
+    {
+      "key": "feal-differential-cryptanalysis/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/feal-differential-cryptanalysis__seed1__first/result.json"
+    },
+    {
+      "key": "feal-linear-cryptanalysis/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/feal-linear-cryptanalysis__seed1__first/result.json"
+    },
+    {
+      "key": "filter-js-from-html/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/filter-js-from-html__seed1__first/result.json"
+    },
+    {
+      "key": "financial-document-processor/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/financial-document-processor__seed1__first/result.json"
+    },
+    {
+      "key": "fix-code-vulnerability/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/fix-code-vulnerability__seed1__first/result.json"
+    },
+    {
+      "key": "fix-git/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/fix-git__seed1__first/result.json"
+    },
+    {
+      "key": "fix-ocaml-gc/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/fix-ocaml-gc__seed1__first/result.json"
+    },
+    {
+      "key": "gcode-to-text/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/gcode-to-text__seed1__first/result.json"
+    },
+    {
+      "key": "git-leak-recovery/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/git-leak-recovery__seed1__first/result.json"
+    },
+    {
+      "key": "git-multibranch/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/git-multibranch__seed1__first/result.json"
+    },
+    {
+      "key": "gpt2-codegolf/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/gpt2-codegolf__seed1__first/result.json"
+    },
+    {
+      "key": "headless-terminal/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/headless-terminal__seed1__first/result.json"
+    },
+    {
+      "key": "hf-model-inference/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/hf-model-inference__seed1__first/result.json"
+    },
+    {
+      "key": "install-windows-3.11/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/install-windows-3.11__seed1__first/result.json"
+    },
+    {
+      "key": "kv-store-grpc/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/kv-store-grpc__seed1__first/result.json"
+    },
+    {
+      "key": "large-scale-text-editing/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/large-scale-text-editing__seed1__first/result.json"
+    },
+    {
+      "key": "largest-eigenval/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/largest-eigenval__seed1__first/result.json"
+    },
+    {
+      "key": "llm-inference-batching-scheduler/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/llm-inference-batching-scheduler__seed1__first/result.json"
+    },
+    {
+      "key": "log-summary-date-ranges/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/log-summary-date-ranges__seed1__first/result.json"
+    },
+    {
+      "key": "mailman/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/mailman__seed1__first/result.json"
+    },
+    {
+      "key": "make-doom-for-mips/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/make-doom-for-mips__seed1__first/result.json"
+    },
+    {
+      "key": "make-mips-interpreter/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/make-mips-interpreter__seed1__first/result.json"
+    },
+    {
+      "key": "mcmc-sampling-stan/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/mcmc-sampling-stan__seed1__first/result.json"
+    },
+    {
+      "key": "merge-diff-arc-agi-task/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/merge-diff-arc-agi-task__seed1__first/result.json"
+    },
+    {
+      "key": "model-extraction-relu-logits/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/model-extraction-relu-logits__seed1__first/result.json"
+    },
+    {
+      "key": "modernize-scientific-stack/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/modernize-scientific-stack__seed1__first/result.json"
+    },
+    {
+      "key": "mteb-leaderboard/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/mteb-leaderboard__seed1__first/result.json"
+    },
+    {
+      "key": "mteb-retrieve/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/mteb-retrieve__seed1__first/result.json"
+    },
+    {
+      "key": "multi-source-data-merger/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/multi-source-data-merger__seed1__first/result.json"
+    },
+    {
+      "key": "nginx-request-logging/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/nginx-request-logging__seed1__first/result.json"
+    },
+    {
+      "key": "openssl-selfsigned-cert/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/openssl-selfsigned-cert__seed1__first/result.json"
+    },
+    {
+      "key": "overfull-hbox/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/overfull-hbox__seed1__first/result.json"
+    },
+    {
+      "key": "password-recovery/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/password-recovery__seed1__first/result.json"
+    },
+    {
+      "key": "path-tracing/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/path-tracing__seed1__first/result.json"
+    },
+    {
+      "key": "path-tracing-reverse/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/path-tracing-reverse__seed1__first/result.json"
+    },
+    {
+      "key": "polyglot-c-py/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/polyglot-c-py__seed1__first/result.json"
+    },
+    {
+      "key": "polyglot-rust-c/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/polyglot-rust-c__seed1__first/result.json"
+    },
+    {
+      "key": "portfolio-optimization/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/portfolio-optimization__seed1__first/result.json"
+    },
+    {
+      "key": "protein-assembly/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/protein-assembly__seed1__first/result.json"
+    },
+    {
+      "key": "prove-plus-comm/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/prove-plus-comm__seed1__first/result.json"
+    },
+    {
+      "key": "pypi-server/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/pypi-server__seed1__first/result.json"
+    },
+    {
+      "key": "pytorch-model-cli/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/pytorch-model-cli__seed1__first/result.json"
+    },
+    {
+      "key": "pytorch-model-recovery/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/pytorch-model-recovery__seed1__first/result.json"
+    },
+    {
+      "key": "qemu-alpine-ssh/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/qemu-alpine-ssh__seed1__first/result.json"
+    },
+    {
+      "key": "qemu-startup/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/qemu-startup__seed1__first/result.json"
+    },
+    {
+      "key": "query-optimize/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/query-optimize__seed1__first/result.json"
+    },
+    {
+      "key": "raman-fitting/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/raman-fitting__seed1__first/result.json"
+    },
+    {
+      "key": "regex-chess/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/regex-chess__seed1__first/result.json"
+    },
+    {
+      "key": "regex-log/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/regex-log__seed1__first/result.json"
+    },
+    {
+      "key": "reshard-c4-data/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/reshard-c4-data__seed1__first/result.json"
+    },
+    {
+      "key": "rstan-to-pystan/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/rstan-to-pystan__seed1__first/result.json"
+    },
+    {
+      "key": "sam-cell-seg/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/sam-cell-seg__seed1__first/result.json"
+    },
+    {
+      "key": "sanitize-git-repo/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/sanitize-git-repo__seed1__first/result.json"
+    },
+    {
+      "key": "schemelike-metacircular-eval/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/schemelike-metacircular-eval__seed1__first/result.json"
+    },
+    {
+      "key": "sparql-university/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/sparql-university__seed1__first/result.json"
+    },
+    {
+      "key": "sqlite-db-truncate/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/sqlite-db-truncate__seed1__first/result.json"
+    },
+    {
+      "key": "sqlite-with-gcov/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/sqlite-with-gcov__seed1__first/result.json"
+    },
+    {
+      "key": "torch-pipeline-parallelism/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/torch-pipeline-parallelism__seed1__first/result.json"
+    },
+    {
+      "key": "torch-tensor-parallelism/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/torch-tensor-parallelism__seed1__first/result.json"
+    },
+    {
+      "key": "train-fasttext/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/train-fasttext__seed1__first/result.json"
+    },
+    {
+      "key": "tune-mjcf/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/tune-mjcf__seed1__first/result.json"
+    },
+    {
+      "key": "video-processing/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/video-processing__seed1__first/result.json"
+    },
+    {
+      "key": "vulnerable-secret/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/vulnerable-secret__seed1__first/result.json"
+    },
+    {
+      "key": "winning-avg-corewars/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/winning-avg-corewars__seed1__first/result.json"
+    },
+    {
+      "key": "write-compressor/seed1",
+      "manual_attempt": 0,
+      "result_path": "trials/write-compressor__seed1__first/result.json"
+    },
+    {
+      "key": "adaptive-rejection-sampler/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/adaptive-rejection-sampler__seed2__first/result.json"
+    },
+    {
+      "key": "bn-fit-modify/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/bn-fit-modify__seed2__first/result.json"
+    },
+    {
+      "key": "break-filter-js-from-html/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/break-filter-js-from-html__seed2__first/result.json"
+    },
+    {
+      "key": "build-cython-ext/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/build-cython-ext__seed2__first/result.json"
+    },
+    {
+      "key": "build-pmars/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/build-pmars__seed2__first/result.json"
+    },
+    {
+      "key": "build-pov-ray/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/build-pov-ray__seed2__first/result.json"
+    },
+    {
+      "key": "caffe-cifar-10/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/caffe-cifar-10__seed2__first/result.json"
+    },
+    {
+      "key": "cancel-async-tasks/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/cancel-async-tasks__seed2__first/result.json"
+    },
+    {
+      "key": "chess-best-move/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/chess-best-move__seed2__first/result.json"
+    },
+    {
+      "key": "circuit-fibsqrt/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/circuit-fibsqrt__seed2__first/result.json"
+    },
+    {
+      "key": "cobol-modernization/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/cobol-modernization__seed2__first/result.json"
+    },
+    {
+      "key": "code-from-image/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/code-from-image__seed2__first/result.json"
+    },
+    {
+      "key": "compile-compcert/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/compile-compcert__seed2__first/result.json"
+    },
+    {
+      "key": "configure-git-webserver/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/configure-git-webserver__seed2__first/result.json"
+    },
+    {
+      "key": "constraints-scheduling/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/constraints-scheduling__seed2__first/result.json"
+    },
+    {
+      "key": "count-dataset-tokens/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/count-dataset-tokens__seed2__first/result.json"
+    },
+    {
+      "key": "crack-7z-hash/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/crack-7z-hash__seed2__first/result.json"
+    },
+    {
+      "key": "custom-memory-heap-crash/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/custom-memory-heap-crash__seed2__first/result.json"
+    },
+    {
+      "key": "db-wal-recovery/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/db-wal-recovery__seed2__first/result.json"
+    },
+    {
+      "key": "distribution-search/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/distribution-search__seed2__first/result.json"
+    },
+    {
+      "key": "dna-assembly/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/dna-assembly__seed2__first/result.json"
+    },
+    {
+      "key": "dna-insert/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/dna-insert__seed2__first/result.json"
+    },
+    {
+      "key": "extract-elf/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/extract-elf__seed2__first/result.json"
+    },
+    {
+      "key": "extract-moves-from-video/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/extract-moves-from-video__seed2__first/result.json"
+    },
+    {
+      "key": "feal-differential-cryptanalysis/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/feal-differential-cryptanalysis__seed2__first/result.json"
+    },
+    {
+      "key": "feal-linear-cryptanalysis/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/feal-linear-cryptanalysis__seed2__first/result.json"
+    },
+    {
+      "key": "filter-js-from-html/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/filter-js-from-html__seed2__first/result.json"
+    },
+    {
+      "key": "financial-document-processor/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/financial-document-processor__seed2__first/result.json"
+    },
+    {
+      "key": "fix-code-vulnerability/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/fix-code-vulnerability__seed2__first/result.json"
+    },
+    {
+      "key": "fix-git/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/fix-git__seed2__first/result.json"
+    },
+    {
+      "key": "fix-ocaml-gc/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/fix-ocaml-gc__seed2__first/result.json"
+    },
+    {
+      "key": "gcode-to-text/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/gcode-to-text__seed2__first/result.json"
+    },
+    {
+      "key": "git-leak-recovery/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/git-leak-recovery__seed2__first/result.json"
+    },
+    {
+      "key": "git-multibranch/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/git-multibranch__seed2__first/result.json"
+    },
+    {
+      "key": "gpt2-codegolf/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/gpt2-codegolf__seed2__first/result.json"
+    },
+    {
+      "key": "headless-terminal/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/headless-terminal__seed2__first/result.json"
+    },
+    {
+      "key": "hf-model-inference/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/hf-model-inference__seed2__first/result.json"
+    },
+    {
+      "key": "install-windows-3.11/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/install-windows-3.11__seed2__first/result.json"
+    },
+    {
+      "key": "kv-store-grpc/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/kv-store-grpc__seed2__first/result.json"
+    },
+    {
+      "key": "large-scale-text-editing/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/large-scale-text-editing__seed2__first/result.json"
+    },
+    {
+      "key": "largest-eigenval/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/largest-eigenval__seed2__first/result.json"
+    },
+    {
+      "key": "llm-inference-batching-scheduler/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/llm-inference-batching-scheduler__seed2__first/result.json"
+    },
+    {
+      "key": "log-summary-date-ranges/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/log-summary-date-ranges__seed2__first/result.json"
+    },
+    {
+      "key": "mailman/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/mailman__seed2__first/result.json"
+    },
+    {
+      "key": "make-doom-for-mips/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/make-doom-for-mips__seed2__first/result.json"
+    },
+    {
+      "key": "make-mips-interpreter/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/make-mips-interpreter__seed2__first/result.json"
+    },
+    {
+      "key": "mcmc-sampling-stan/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/mcmc-sampling-stan__seed2__first/result.json"
+    },
+    {
+      "key": "merge-diff-arc-agi-task/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/merge-diff-arc-agi-task__seed2__first/result.json"
+    },
+    {
+      "key": "model-extraction-relu-logits/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/model-extraction-relu-logits__seed2__first/result.json"
+    },
+    {
+      "key": "modernize-scientific-stack/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/modernize-scientific-stack__seed2__first/result.json"
+    },
+    {
+      "key": "mteb-leaderboard/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/mteb-leaderboard__seed2__first/result.json"
+    },
+    {
+      "key": "mteb-retrieve/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/mteb-retrieve__seed2__first/result.json"
+    },
+    {
+      "key": "multi-source-data-merger/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/multi-source-data-merger__seed2__first/result.json"
+    },
+    {
+      "key": "nginx-request-logging/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/nginx-request-logging__seed2__first/result.json"
+    },
+    {
+      "key": "openssl-selfsigned-cert/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/openssl-selfsigned-cert__seed2__first/result.json"
+    },
+    {
+      "key": "overfull-hbox/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/overfull-hbox__seed2__first/result.json"
+    },
+    {
+      "key": "password-recovery/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/password-recovery__seed2__first/result.json"
+    },
+    {
+      "key": "path-tracing/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/path-tracing__seed2__first/result.json"
+    },
+    {
+      "key": "path-tracing-reverse/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/path-tracing-reverse__seed2__first/result.json"
+    },
+    {
+      "key": "polyglot-c-py/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/polyglot-c-py__seed2__first/result.json"
+    },
+    {
+      "key": "polyglot-rust-c/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/polyglot-rust-c__seed2__first/result.json"
+    },
+    {
+      "key": "portfolio-optimization/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/portfolio-optimization__seed2__first/result.json"
+    },
+    {
+      "key": "protein-assembly/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/protein-assembly__seed2__first/result.json"
+    },
+    {
+      "key": "prove-plus-comm/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/prove-plus-comm__seed2__first/result.json"
+    },
+    {
+      "key": "pypi-server/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/pypi-server__seed2__first/result.json"
+    },
+    {
+      "key": "pytorch-model-cli/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/pytorch-model-cli__seed2__first/result.json"
+    },
+    {
+      "key": "pytorch-model-recovery/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/pytorch-model-recovery__seed2__first/result.json"
+    },
+    {
+      "key": "qemu-alpine-ssh/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/qemu-alpine-ssh__seed2__first/result.json"
+    },
+    {
+      "key": "qemu-startup/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/qemu-startup__seed2__first/result.json"
+    },
+    {
+      "key": "query-optimize/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/query-optimize__seed2__first/result.json"
+    },
+    {
+      "key": "raman-fitting/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/raman-fitting__seed2__first/result.json"
+    },
+    {
+      "key": "regex-chess/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/regex-chess__seed2__first/result.json"
+    },
+    {
+      "key": "regex-log/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/regex-log__seed2__first/result.json"
+    },
+    {
+      "key": "reshard-c4-data/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/reshard-c4-data__seed2__first/result.json"
+    },
+    {
+      "key": "rstan-to-pystan/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/rstan-to-pystan__seed2__first/result.json"
+    },
+    {
+      "key": "sam-cell-seg/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/sam-cell-seg__seed2__first/result.json"
+    },
+    {
+      "key": "sanitize-git-repo/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/sanitize-git-repo__seed2__first/result.json"
+    },
+    {
+      "key": "schemelike-metacircular-eval/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/schemelike-metacircular-eval__seed2__first/result.json"
+    },
+    {
+      "key": "sparql-university/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/sparql-university__seed2__first/result.json"
+    },
+    {
+      "key": "sqlite-db-truncate/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/sqlite-db-truncate__seed2__first/result.json"
+    },
+    {
+      "key": "sqlite-with-gcov/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/sqlite-with-gcov__seed2__first/result.json"
+    },
+    {
+      "key": "torch-pipeline-parallelism/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/torch-pipeline-parallelism__seed2__first/result.json"
+    },
+    {
+      "key": "torch-tensor-parallelism/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/torch-tensor-parallelism__seed2__first/result.json"
+    },
+    {
+      "key": "train-fasttext/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/train-fasttext__seed2__first/result.json"
+    },
+    {
+      "key": "tune-mjcf/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/tune-mjcf__seed2__first/result.json"
+    },
+    {
+      "key": "video-processing/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/video-processing__seed2__first/result.json"
+    },
+    {
+      "key": "vulnerable-secret/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/vulnerable-secret__seed2__first/result.json"
+    },
+    {
+      "key": "winning-avg-corewars/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/winning-avg-corewars__seed2__first/result.json"
+    },
+    {
+      "key": "write-compressor/seed2",
+      "manual_attempt": 0,
+      "result_path": "trials/write-compressor__seed2__first/result.json"
+    },
+    {
+      "key": "adaptive-rejection-sampler/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/adaptive-rejection-sampler__seed3__first/result.json"
+    },
+    {
+      "key": "bn-fit-modify/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/bn-fit-modify__seed3__first/result.json"
+    },
+    {
+      "key": "break-filter-js-from-html/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/break-filter-js-from-html__seed3__first/result.json"
+    },
+    {
+      "key": "build-cython-ext/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/build-cython-ext__seed3__first/result.json"
+    },
+    {
+      "key": "build-pmars/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/build-pmars__seed3__first/result.json"
+    },
+    {
+      "key": "build-pov-ray/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/build-pov-ray__seed3__first/result.json"
+    },
+    {
+      "key": "caffe-cifar-10/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/caffe-cifar-10__seed3__first/result.json"
+    },
+    {
+      "key": "cancel-async-tasks/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/cancel-async-tasks__seed3__first/result.json"
+    },
+    {
+      "key": "chess-best-move/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/chess-best-move__seed3__first/result.json"
+    },
+    {
+      "key": "circuit-fibsqrt/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/circuit-fibsqrt__seed3__first/result.json"
+    },
+    {
+      "key": "cobol-modernization/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/cobol-modernization__seed3__first/result.json"
+    },
+    {
+      "key": "code-from-image/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/code-from-image__seed3__first/result.json"
+    },
+    {
+      "key": "compile-compcert/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/compile-compcert__seed3__first/result.json"
+    },
+    {
+      "key": "configure-git-webserver/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/configure-git-webserver__seed3__first/result.json"
+    },
+    {
+      "key": "constraints-scheduling/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/constraints-scheduling__seed3__first/result.json"
+    },
+    {
+      "key": "count-dataset-tokens/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/count-dataset-tokens__seed3__first/result.json"
+    },
+    {
+      "key": "crack-7z-hash/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/crack-7z-hash__seed3__first/result.json"
+    },
+    {
+      "key": "custom-memory-heap-crash/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/custom-memory-heap-crash__seed3__first/result.json"
+    },
+    {
+      "key": "db-wal-recovery/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/db-wal-recovery__seed3__first/result.json"
+    },
+    {
+      "key": "distribution-search/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/distribution-search__seed3__first/result.json"
+    },
+    {
+      "key": "dna-assembly/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/dna-assembly__seed3__first/result.json"
+    },
+    {
+      "key": "dna-insert/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/dna-insert__seed3__first/result.json"
+    },
+    {
+      "key": "extract-elf/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/extract-elf__seed3__first/result.json"
+    },
+    {
+      "key": "extract-moves-from-video/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/extract-moves-from-video__seed3__first/result.json"
+    },
+    {
+      "key": "feal-differential-cryptanalysis/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/feal-differential-cryptanalysis__seed3__first/result.json"
+    },
+    {
+      "key": "feal-linear-cryptanalysis/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/feal-linear-cryptanalysis__seed3__first/result.json"
+    },
+    {
+      "key": "filter-js-from-html/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/filter-js-from-html__seed3__first/result.json"
+    },
+    {
+      "key": "financial-document-processor/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/financial-document-processor__seed3__first/result.json"
+    },
+    {
+      "key": "fix-code-vulnerability/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/fix-code-vulnerability__seed3__first/result.json"
+    },
+    {
+      "key": "fix-git/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/fix-git__seed3__first/result.json"
+    },
+    {
+      "key": "fix-ocaml-gc/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/fix-ocaml-gc__seed3__first/result.json"
+    },
+    {
+      "key": "gcode-to-text/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/gcode-to-text__seed3__first/result.json"
+    },
+    {
+      "key": "git-leak-recovery/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/git-leak-recovery__seed3__first/result.json"
+    },
+    {
+      "key": "git-multibranch/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/git-multibranch__seed3__first/result.json"
+    },
+    {
+      "key": "gpt2-codegolf/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/gpt2-codegolf__seed3__first/result.json"
+    },
+    {
+      "key": "headless-terminal/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/headless-terminal__seed3__first/result.json"
+    },
+    {
+      "key": "hf-model-inference/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/hf-model-inference__seed3__first/result.json"
+    },
+    {
+      "key": "install-windows-3.11/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/install-windows-3.11__seed3__first/result.json"
+    },
+    {
+      "key": "kv-store-grpc/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/kv-store-grpc__seed3__first/result.json"
+    },
+    {
+      "key": "large-scale-text-editing/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/large-scale-text-editing__seed3__first/result.json"
+    },
+    {
+      "key": "largest-eigenval/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/largest-eigenval__seed3__first/result.json"
+    },
+    {
+      "key": "llm-inference-batching-scheduler/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/llm-inference-batching-scheduler__seed3__first/result.json"
+    },
+    {
+      "key": "log-summary-date-ranges/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/log-summary-date-ranges__seed3__first/result.json"
+    },
+    {
+      "key": "mailman/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/mailman__seed3__first/result.json"
+    },
+    {
+      "key": "make-doom-for-mips/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/make-doom-for-mips__seed3__first/result.json"
+    },
+    {
+      "key": "make-mips-interpreter/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/make-mips-interpreter__seed3__first/result.json"
+    },
+    {
+      "key": "mcmc-sampling-stan/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/mcmc-sampling-stan__seed3__first/result.json"
+    },
+    {
+      "key": "merge-diff-arc-agi-task/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/merge-diff-arc-agi-task__seed3__first/result.json"
+    },
+    {
+      "key": "model-extraction-relu-logits/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/model-extraction-relu-logits__seed3__first/result.json"
+    },
+    {
+      "key": "modernize-scientific-stack/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/modernize-scientific-stack__seed3__first/result.json"
+    },
+    {
+      "key": "mteb-leaderboard/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/mteb-leaderboard__seed3__first/result.json"
+    },
+    {
+      "key": "mteb-retrieve/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/mteb-retrieve__seed3__first/result.json"
+    },
+    {
+      "key": "multi-source-data-merger/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/multi-source-data-merger__seed3__first/result.json"
+    },
+    {
+      "key": "nginx-request-logging/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/nginx-request-logging__seed3__first/result.json"
+    },
+    {
+      "key": "openssl-selfsigned-cert/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/openssl-selfsigned-cert__seed3__first/result.json"
+    },
+    {
+      "key": "overfull-hbox/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/overfull-hbox__seed3__first/result.json"
+    },
+    {
+      "key": "password-recovery/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/password-recovery__seed3__first/result.json"
+    },
+    {
+      "key": "path-tracing/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/path-tracing__seed3__first/result.json"
+    },
+    {
+      "key": "path-tracing-reverse/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/path-tracing-reverse__seed3__first/result.json"
+    },
+    {
+      "key": "polyglot-c-py/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/polyglot-c-py__seed3__first/result.json"
+    },
+    {
+      "key": "polyglot-rust-c/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/polyglot-rust-c__seed3__first/result.json"
+    },
+    {
+      "key": "portfolio-optimization/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/portfolio-optimization__seed3__first/result.json"
+    },
+    {
+      "key": "protein-assembly/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/protein-assembly__seed3__first/result.json"
+    },
+    {
+      "key": "prove-plus-comm/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/prove-plus-comm__seed3__first/result.json"
+    },
+    {
+      "key": "pypi-server/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/pypi-server__seed3__first/result.json"
+    },
+    {
+      "key": "pytorch-model-cli/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/pytorch-model-cli__seed3__first/result.json"
+    },
+    {
+      "key": "pytorch-model-recovery/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/pytorch-model-recovery__seed3__first/result.json"
+    },
+    {
+      "key": "qemu-alpine-ssh/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/qemu-alpine-ssh__seed3__first/result.json"
+    },
+    {
+      "key": "qemu-startup/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/qemu-startup__seed3__first/result.json"
+    },
+    {
+      "key": "query-optimize/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/query-optimize__seed3__first/result.json"
+    },
+    {
+      "key": "raman-fitting/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/raman-fitting__seed3__first/result.json"
+    },
+    {
+      "key": "regex-chess/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/regex-chess__seed3__first/result.json"
+    },
+    {
+      "key": "regex-log/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/regex-log__seed3__first/result.json"
+    },
+    {
+      "key": "reshard-c4-data/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/reshard-c4-data__seed3__first/result.json"
+    },
+    {
+      "key": "rstan-to-pystan/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/rstan-to-pystan__seed3__first/result.json"
+    },
+    {
+      "key": "sam-cell-seg/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/sam-cell-seg__seed3__first/result.json"
+    },
+    {
+      "key": "sanitize-git-repo/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/sanitize-git-repo__seed3__first/result.json"
+    },
+    {
+      "key": "schemelike-metacircular-eval/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/schemelike-metacircular-eval__seed3__first/result.json"
+    },
+    {
+      "key": "sparql-university/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/sparql-university__seed3__first/result.json"
+    },
+    {
+      "key": "sqlite-db-truncate/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/sqlite-db-truncate__seed3__first/result.json"
+    },
+    {
+      "key": "sqlite-with-gcov/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/sqlite-with-gcov__seed3__first/result.json"
+    },
+    {
+      "key": "torch-pipeline-parallelism/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/torch-pipeline-parallelism__seed3__first/result.json"
+    },
+    {
+      "key": "torch-tensor-parallelism/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/torch-tensor-parallelism__seed3__first/result.json"
+    },
+    {
+      "key": "train-fasttext/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/train-fasttext__seed3__first/result.json"
+    },
+    {
+      "key": "tune-mjcf/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/tune-mjcf__seed3__first/result.json"
+    },
+    {
+      "key": "video-processing/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/video-processing__seed3__first/result.json"
+    },
+    {
+      "key": "vulnerable-secret/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/vulnerable-secret__seed3__first/result.json"
+    },
+    {
+      "key": "winning-avg-corewars/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/winning-avg-corewars__seed3__first/result.json"
+    },
+    {
+      "key": "write-compressor/seed3",
+      "manual_attempt": 0,
+      "result_path": "trials/write-compressor__seed3__first/result.json"
+    },
+    {
+      "key": "adaptive-rejection-sampler/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/adaptive-rejection-sampler__seed4__first/result.json"
+    },
+    {
+      "key": "bn-fit-modify/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/bn-fit-modify__seed4__first/result.json"
+    },
+    {
+      "key": "break-filter-js-from-html/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/break-filter-js-from-html__seed4__first/result.json"
+    },
+    {
+      "key": "build-cython-ext/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/build-cython-ext__seed4__first/result.json"
+    },
+    {
+      "key": "build-pmars/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/build-pmars__seed4__first/result.json"
+    },
+    {
+      "key": "build-pov-ray/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/build-pov-ray__seed4__first/result.json"
+    },
+    {
+      "key": "caffe-cifar-10/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/caffe-cifar-10__seed4__first/result.json"
+    },
+    {
+      "key": "cancel-async-tasks/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/cancel-async-tasks__seed4__first/result.json"
+    },
+    {
+      "key": "chess-best-move/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/chess-best-move__seed4__first/result.json"
+    },
+    {
+      "key": "circuit-fibsqrt/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/circuit-fibsqrt__seed4__first/result.json"
+    },
+    {
+      "key": "cobol-modernization/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/cobol-modernization__seed4__first/result.json"
+    },
+    {
+      "key": "code-from-image/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/code-from-image__seed4__first/result.json"
+    },
+    {
+      "key": "compile-compcert/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/compile-compcert__seed4__first/result.json"
+    },
+    {
+      "key": "configure-git-webserver/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/configure-git-webserver__seed4__first/result.json"
+    },
+    {
+      "key": "constraints-scheduling/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/constraints-scheduling__seed4__first/result.json"
+    },
+    {
+      "key": "count-dataset-tokens/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/count-dataset-tokens__seed4__first/result.json"
+    },
+    {
+      "key": "crack-7z-hash/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/crack-7z-hash__seed4__first/result.json"
+    },
+    {
+      "key": "custom-memory-heap-crash/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/custom-memory-heap-crash__seed4__first/result.json"
+    },
+    {
+      "key": "db-wal-recovery/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/db-wal-recovery__seed4__first/result.json"
+    },
+    {
+      "key": "distribution-search/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/distribution-search__seed4__first/result.json"
+    },
+    {
+      "key": "dna-assembly/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/dna-assembly__seed4__first/result.json"
+    },
+    {
+      "key": "dna-insert/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/dna-insert__seed4__first/result.json"
+    },
+    {
+      "key": "extract-elf/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/extract-elf__seed4__first/result.json"
+    },
+    {
+      "key": "extract-moves-from-video/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/extract-moves-from-video__seed4__first/result.json"
+    },
+    {
+      "key": "feal-differential-cryptanalysis/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/feal-differential-cryptanalysis__seed4__first/result.json"
+    },
+    {
+      "key": "feal-linear-cryptanalysis/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/feal-linear-cryptanalysis__seed4__first/result.json"
+    },
+    {
+      "key": "filter-js-from-html/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/filter-js-from-html__seed4__first/result.json"
+    },
+    {
+      "key": "financial-document-processor/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/financial-document-processor__seed4__first/result.json"
+    },
+    {
+      "key": "fix-code-vulnerability/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/fix-code-vulnerability__seed4__first/result.json"
+    },
+    {
+      "key": "fix-git/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/fix-git__seed4__first/result.json"
+    },
+    {
+      "key": "fix-ocaml-gc/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/fix-ocaml-gc__seed4__first/result.json"
+    },
+    {
+      "key": "gcode-to-text/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/gcode-to-text__seed4__first/result.json"
+    },
+    {
+      "key": "git-leak-recovery/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/git-leak-recovery__seed4__first/result.json"
+    },
+    {
+      "key": "git-multibranch/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/git-multibranch__seed4__first/result.json"
+    },
+    {
+      "key": "gpt2-codegolf/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/gpt2-codegolf__seed4__first/result.json"
+    },
+    {
+      "key": "headless-terminal/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/headless-terminal__seed4__first/result.json"
+    },
+    {
+      "key": "hf-model-inference/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/hf-model-inference__seed4__first/result.json"
+    },
+    {
+      "key": "install-windows-3.11/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/install-windows-3.11__seed4__first/result.json"
+    },
+    {
+      "key": "kv-store-grpc/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/kv-store-grpc__seed4__first/result.json"
+    },
+    {
+      "key": "large-scale-text-editing/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/large-scale-text-editing__seed4__first/result.json"
+    },
+    {
+      "key": "largest-eigenval/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/largest-eigenval__seed4__first/result.json"
+    },
+    {
+      "key": "llm-inference-batching-scheduler/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/llm-inference-batching-scheduler__seed4__first/result.json"
+    },
+    {
+      "key": "log-summary-date-ranges/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/log-summary-date-ranges__seed4__first/result.json"
+    },
+    {
+      "key": "mailman/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/mailman__seed4__first/result.json"
+    },
+    {
+      "key": "make-doom-for-mips/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/make-doom-for-mips__seed4__first/result.json"
+    },
+    {
+      "key": "make-mips-interpreter/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/make-mips-interpreter__seed4__first/result.json"
+    },
+    {
+      "key": "mcmc-sampling-stan/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/mcmc-sampling-stan__seed4__first/result.json"
+    },
+    {
+      "key": "merge-diff-arc-agi-task/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/merge-diff-arc-agi-task__seed4__first/result.json"
+    },
+    {
+      "key": "model-extraction-relu-logits/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/model-extraction-relu-logits__seed4__first/result.json"
+    },
+    {
+      "key": "modernize-scientific-stack/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/modernize-scientific-stack__seed4__first/result.json"
+    },
+    {
+      "key": "mteb-leaderboard/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/mteb-leaderboard__seed4__first/result.json"
+    },
+    {
+      "key": "mteb-retrieve/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/mteb-retrieve__seed4__first/result.json"
+    },
+    {
+      "key": "multi-source-data-merger/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/multi-source-data-merger__seed4__first/result.json"
+    },
+    {
+      "key": "nginx-request-logging/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/nginx-request-logging__seed4__first/result.json"
+    },
+    {
+      "key": "openssl-selfsigned-cert/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/openssl-selfsigned-cert__seed4__first/result.json"
+    },
+    {
+      "key": "overfull-hbox/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/overfull-hbox__seed4__first/result.json"
+    },
+    {
+      "key": "password-recovery/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/password-recovery__seed4__first/result.json"
+    },
+    {
+      "key": "path-tracing/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/path-tracing__seed4__first/result.json"
+    },
+    {
+      "key": "path-tracing-reverse/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/path-tracing-reverse__seed4__first/result.json"
+    },
+    {
+      "key": "polyglot-c-py/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/polyglot-c-py__seed4__first/result.json"
+    },
+    {
+      "key": "polyglot-rust-c/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/polyglot-rust-c__seed4__first/result.json"
+    },
+    {
+      "key": "portfolio-optimization/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/portfolio-optimization__seed4__first/result.json"
+    },
+    {
+      "key": "protein-assembly/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/protein-assembly__seed4__first/result.json"
+    },
+    {
+      "key": "prove-plus-comm/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/prove-plus-comm__seed4__first/result.json"
+    },
+    {
+      "key": "pypi-server/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/pypi-server__seed4__first/result.json"
+    },
+    {
+      "key": "pytorch-model-cli/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/pytorch-model-cli__seed4__first/result.json"
+    },
+    {
+      "key": "pytorch-model-recovery/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/pytorch-model-recovery__seed4__first/result.json"
+    },
+    {
+      "key": "qemu-alpine-ssh/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/qemu-alpine-ssh__seed4__first/result.json"
+    },
+    {
+      "key": "qemu-startup/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/qemu-startup__seed4__first/result.json"
+    },
+    {
+      "key": "query-optimize/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/query-optimize__seed4__first/result.json"
+    },
+    {
+      "key": "raman-fitting/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/raman-fitting__seed4__first/result.json"
+    },
+    {
+      "key": "regex-chess/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/regex-chess__seed4__first/result.json"
+    },
+    {
+      "key": "regex-log/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/regex-log__seed4__first/result.json"
+    },
+    {
+      "key": "reshard-c4-data/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/reshard-c4-data__seed4__first/result.json"
+    },
+    {
+      "key": "rstan-to-pystan/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/rstan-to-pystan__seed4__first/result.json"
+    },
+    {
+      "key": "sam-cell-seg/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/sam-cell-seg__seed4__first/result.json"
+    },
+    {
+      "key": "sanitize-git-repo/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/sanitize-git-repo__seed4__first/result.json"
+    },
+    {
+      "key": "schemelike-metacircular-eval/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/schemelike-metacircular-eval__seed4__first/result.json"
+    },
+    {
+      "key": "sparql-university/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/sparql-university__seed4__first/result.json"
+    },
+    {
+      "key": "sqlite-db-truncate/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/sqlite-db-truncate__seed4__first/result.json"
+    },
+    {
+      "key": "sqlite-with-gcov/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/sqlite-with-gcov__seed4__first/result.json"
+    },
+    {
+      "key": "torch-pipeline-parallelism/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/torch-pipeline-parallelism__seed4__first/result.json"
+    },
+    {
+      "key": "torch-tensor-parallelism/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/torch-tensor-parallelism__seed4__first/result.json"
+    },
+    {
+      "key": "train-fasttext/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/train-fasttext__seed4__first/result.json"
+    },
+    {
+      "key": "tune-mjcf/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/tune-mjcf__seed4__first/result.json"
+    },
+    {
+      "key": "video-processing/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/video-processing__seed4__first/result.json"
+    },
+    {
+      "key": "vulnerable-secret/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/vulnerable-secret__seed4__first/result.json"
+    },
+    {
+      "key": "winning-avg-corewars/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/winning-avg-corewars__seed4__first/result.json"
+    },
+    {
+      "key": "write-compressor/seed4",
+      "manual_attempt": 0,
+      "result_path": "trials/write-compressor__seed4__first/result.json"
+    }
+  ],
+  "benchmark_summaries": {
+    "HLE": {
+      "expected": 2500,
+      "valid_scored": 1330,
+      "unscored": 1170,
+      "complete": false,
+      "primary_score_percent": null,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/summary.json",
+      "note": "First-valid original821+infra1 selected1679; genuine solver-budget no-answer counts as zero. Judge uses school DeepSeek-V4-Flash, original criteria/JSONwrapper/4096/nonthinking; pending or invalid Judge is not a zero.",
+      "source_mtime_utc": "2026-10-16T10:21:02.375496+00:00",
+      "infrastructure_or_evaluator_invalid": 0,
+      "generation_terminal": 1330,
+      "judged_answers": 491,
+      "native_no_answer": 839,
+      "correct": 41,
+      "subgroups": {
+        "text": {
+          "denominator": 2158,
+          "scored": 1150,
+          "correct": 36,
+          "accuracy_percent": null
+        },
+        "image": {
+          "denominator": 342,
+          "scored": 180,
+          "correct": 5,
+          "accuracy_percent": null
+        }
+      },
+      "budget_halted": false,
+      "judge_calls": 491,
+      "accounted_cny": 0.651654,
+      "cost_cap_cny": 10,
+      "source_updated_at": "2026-10-16T10:21:02.375559+00:00"
+    },
+    "ASI": {
+      "expected": 240,
+      "valid_scored": 240,
+      "unscored": 0,
+      "complete": true,
+      "primary_score_percent": 1.5709884069083986,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016/local_score_seed31415.json",
+      "note": "Public local240-condition score. Only soil b2 empty (3650,0) arrays violate public required(n_days,5): targeted hard-gate fail repair; original invalid retained, other239 unchanged. CMOS ngspice44.2 and native submission bwrap mappings documented; formal Judge0calls.",
+      "source_mtime_utc": "2026-10-16T07:50:52.394665+00:00",
+      "infrastructure_or_evaluator_invalid": 0,
+      "total_score": 377.03721765801566,
+      "total_max_score": 24000.0,
+      "judge_calls": 0,
+      "accounted_cny": 0,
+      "repair_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016/soil_empty_prediction_repair/receipt.json"
+    },
+    "SWE": {
+      "expected": 51,
+      "valid_scored": 51,
+      "unscored": 0,
+      "complete": true,
+      "primary_score_percent": 9.803921568627452,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_final/final_summary.json",
+      "note": "First environment-valid fresh replay of frozen patches. Restore native SIF PATH/private mini runtime; missing pytest/pip scores retained as infrastructure-invalid until repaired replay. Go uses exact verified official modules in native cache. Already complete answers are not regenerated.",
+      "source_mtime_utc": "2026-10-16T08:59:45.290081+00:00",
+      "infrastructure_or_evaluator_invalid": 0,
+      "awaiting_generation_or_replay": 0,
+      "resolved": 5,
+      "source_updated_at": "2026-10-16T08:59:45.289646+00:00",
+      "manual_retry_task_count": 6,
+      "manual_retry_planned_task_count": 6,
+      "task_scores_csv": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_final/task_scores.csv"
+    },
+    "TB": {
+      "expected": 445,
+      "valid_scored": 35,
+      "unscored": 410,
+      "complete": false,
+      "primary_score_percent": null,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/final_summary.json",
+      "note": "Five fixed seeds×89. Owner excludes verifier/bootstrap/tmux infrastructure failures from valid scores; private harness tools/native PATH/transport-deadline repairs preserve original prompts/tests/budget and old attempts. See owner source summary for accepted chronology and restoration disclosures.",
+      "source_mtime_utc": "2026-10-16T10:21:15.090204+00:00",
+      "infrastructure_or_evaluator_invalid": 410,
+      "active_trials": 0,
+      "pending_not_admitted": 0,
+      "sample_sd_percent_ddof1": null,
+      "per_seed": [
+        {
+          "seed": 0,
+          "expected": 89,
+          "valid_scored": 35,
+          "correct": 13.0,
+          "score_percent": null
+        },
+        {
+          "seed": 1,
+          "expected": 89,
+          "valid_scored": 0,
+          "correct": 0,
+          "score_percent": null
+        },
+        {
+          "seed": 2,
+          "expected": 89,
+          "valid_scored": 0,
+          "correct": 0,
+          "score_percent": null
+        },
+        {
+          "seed": 3,
+          "expected": 89,
+          "valid_scored": 0,
+          "correct": 0,
+          "score_percent": null
+        },
+        {
+          "seed": 4,
+          "expected": 89,
+          "valid_scored": 0,
+          "correct": 0,
+          "score_percent": null
+        }
+      ],
+      "owner_primary_mean_percent": null,
+      "owner_sample_sd_percent_ddof1": null,
+      "first_valid_chronology": null
+    }
+  },
+  "zero_execution_proof": {
+    "count": 378,
+    "agent_result_null": 378,
+    "agent_execution_null": 378,
+    "oserror": 378,
+    "enospc_message": 378
+  },
+  "result_path_base": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/"
+}

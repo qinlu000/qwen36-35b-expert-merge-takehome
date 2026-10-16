@@ -1,0 +1,55 @@
+{
+  "at_cst": "2026-10-16 19:00\u201319:01",
+  "scope": "Read-only actual runtime10 production audit; no workload/test/restart",
+  "controller_pid": 2719240,
+  "active_trials": 30,
+  "active_solver_trials": 28,
+  "active_verifier_trials": 2,
+  "pending_trials": 315,
+  "inplace_valid_before_runtime10": 26,
+  "inplace_valid_at_185957": 57,
+  "elapsed_runtime_minutes": 36.7,
+  "new_inplace_valid_per_hour_approx": 50.7,
+  "completed_runtime10_trials_for_timing": 35,
+  "normal_1800s_timeout_count": 25,
+  "phase_seconds_sum": {
+    "environment_setup": 66.6,
+    "agent_setup": 1156.4,
+    "agent_execution": 51847.7,
+    "verifier": 2582.9
+  },
+  "phase_median_seconds": {
+    "environment_setup": 1.9,
+    "agent_setup": 1.7,
+    "agent_execution": 1800.6,
+    "verifier": 46.1
+  },
+  "phase_max_seconds": {
+    "environment_setup": 2.5,
+    "agent_setup": 241.0,
+    "agent_execution": 1800.7,
+    "verifier": 425.1
+  },
+  "completed_api_wait_and_inference_seconds_sum": 41809.8,
+  "api_fraction_of_solver_seconds_lower_bound": 0.8063964264567185,
+  "models": {
+    "28082": {
+      "max_num_seqs": 8,
+      "running": 8,
+      "waiting": 6,
+      "kv_cache_usage_fraction": 0.0333125778331258
+    },
+    "28084": {
+      "max_num_seqs": 8,
+      "running": 8,
+      "waiting": 6,
+      "kv_cache_usage_fraction": 0.039539227895392326
+    }
+  },
+  "host_load_1m": 29.52,
+  "data_free_approx_tb": 2.5,
+  "root_free_approx_gb": 1.1,
+  "fresh_native_grading_fully_decoupled": false,
+  "architecture_evidence": "run_terminal_native7.execute awaits Trial.run (solver plus native verifier) before its FIRST_COMPLETED admission slot is released; separate archive grader is recovery-only",
+  "recommendation": "Prioritize max_num_seqs16 model replicas through a natural endpoint handoff. Raising solver admissions beyond30 on current16 active model sequences increases queueing. Fresh verifier decoupling may save about4.6% current summed phase time; it is secondary to serving queue. No current processes were modified."
+}
