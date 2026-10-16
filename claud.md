@@ -1531,3 +1531,12 @@
 - 专家Teleport7744仅对原固定空patch恢复原Go proxy可达性并评分重放，0模型调用。网络探针通过，新原生0暴露缺预期兼容依赖固定；未补答案、pin依赖、改测试或升级Go。新结果与原invalid并存，尚未采用；临时CPU10–11、Unix relay和TLS转发已排空。NodeBB原镜像干净但后续删除来源未明，仍保留未决。
 - 五条已结束专家轨迹共252次bash observation，249次rc0、3次rc1，没有工具HTTP400。四次最终BadRequest来自本地精确guard的prompt+8192超过65536；另一次在1740秒预算边界断连。不是普遍sandbox工具故障，不能以此重新生成答案或放宽冻结协议。旧synthetic与当前部署差异、短历史覆盖范围及实际工具schema比较均披露。
 - Ansible两项及Flipt真实必需测试失败的native0候选、Teleport同patch新重放、NodeBB未决和Base只读对照均落盘。代码AST/语法与收据计数检查通过；本轮不按reward择优重试，不用参考代码修补模型答案。
+
+
+## 2026-10-17：正式队列快照与一页阶段报告
+
+- 03:03–03:05只读快照确认五个TP2服务/10H100健康、各父进程与normalizer存活。SWE专家39次终态/33有效，10active/2pending；两Terminal分别2/1终态，各10active；ASI专家59/240已保存、8active。AVG64 SWE与direct后续依赖仍等待，所有不完整主分保持null。机器收据引用完整ignored raw，仅保留必要进程/CPU元数据。
+- CPU11现有Base评分修复由原owner处理，无需干预；未来AVG64 Terminal offset8扩容仍受真实8–11 scope清空门槛保护。SWE专家服务最早10:05:32到期，剩余服务约次日02:01–02:10，后续要按真实进度检查，不保证由首批推算的完成时间。
+- analysis/current_status_20261017.md汇总已完成、当前队列和六项不确定，链接持续日志与最小交付清单；README已接索引。正式全量/评分异常/20真实AVG64失败/最终成本与报告仍是主线，不恢复独立task-val。
+- PDF skill生成一页阶段报告，摘要178汉字（含标点190字符）、A4一页、字体子集嵌入；pypdf检查和实际PNG目视均通过。矩阵只显示完整Base ASI，其余待齐备；已完成CE与HF/GitHub事实有原收据来源。PDF页尾明确阶段性草稿、实际生成时间和正式02:29快照，不当最终report.pdf。
+- 最新实验代码已推lab及私人GitHub默认master至fb633bd；保留其他会话WIP和原模板main。本段与本轮自有文档/脚本/PDF单独提交，无外部通知或仓库邀请。

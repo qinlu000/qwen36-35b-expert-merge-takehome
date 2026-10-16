@@ -6,6 +6,8 @@
 
 **当前状态（2026-10-17）：四专家和 Mixed 均已完成真实训练，AVG64/AVG16 已导出并验证，正式评测仍在进行。完整指标、宏平均提升和配对区间尚未齐备，未完成项保持 `null`。五个模型均已 Public 发布，并通过匿名完整下载与原权重字节核对；实际链接、不可变 revision、加载方法见 [models/README.md](models/README.md) 和 [release_manifest.json](models/release_manifest.json)。**
 
+当前队列快照、已完成项、未决问题和后续交付见 [进展文档](analysis/current_status_20261017.md)；[一页阶段报告](output/pdf/progress_report_20261017.pdf)及其[生成说明](analysis/progress_report_20261017.md)已保存，正式评分尚未齐备。
+
 ## 实验设计与数据
 
 基座为 [Qwen/Qwen3.6-35B-A3B](https://huggingface.co/Qwen/Qwen3.6-35B-A3B/tree/995ad96eacd98c81ed38be0c5b274b04031597b0)，model/tokenizer/processor 固定 revision `995ad96eacd98c81ed38be0c5b274b04031597b0`，保留多模态架构。四个专家按监督内容和工具契约划分；它们是四份独立 LoRA，不是修改基座 MoE 内部的 routed experts，也不在推理时路由或投票。
