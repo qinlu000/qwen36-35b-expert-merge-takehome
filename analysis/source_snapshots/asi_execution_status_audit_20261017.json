@@ -1,0 +1,859 @@
+{
+  "read_only": true,
+  "model_calls": 0,
+  "API_calls": 0,
+  "container_or_program_execution": 0,
+  "hash_walks": 0,
+  "captured_at_utc": "2026-10-16T19:38:38.827903+00:00",
+  "metadata_read_at_utc": "2026-10-16T19:40:55.442834+00:00",
+  "host": "10.123.4.80",
+  "project": "/data/caoqinlu/projects/apex-takehome",
+  "native_glob": "artifacts/eval/asi128_asi240_20261017/*/*__seed31415__b?.json",
+  "file_selection": "Existing native files whose mtime is <= captured_at_utc, freezing the 101-file snapshot seen by the earlier thin read",
+  "native_files": 101,
+  "manifest": "artifacts/eval/asi128_asi240_20261017/asi_v2_run.json",
+  "progress_now": {
+    "completed_conditions": 103,
+    "updated_at": "2026-10-16T19:40:08.958720+00:00",
+    "scored": false,
+    "state": "running",
+    "active": 8
+  },
+  "counts": {
+    "native_status": {
+      "failed": 97,
+      "completed": 4
+    },
+    "generation_finish": {
+      "length": 12,
+      "stop": 89
+    },
+    "HTTP_status": {
+      "200": 101
+    },
+    "execution_count": {
+      "1": 101
+    },
+    "error_type": {
+      "SyntaxError": 13,
+      "ModuleNotFoundError": 37,
+      "TypeError": 8,
+      "KeyError": 13,
+      "NameError": 4,
+      "IndexError": 2,
+      "ValueError": 6,
+      "UnboundLocalError": 2,
+      "ImportError": 2,
+      "OverflowError": 1,
+      "AttributeError": 3,
+      "openmm.OpenMMException": 1,
+      "FileNotFoundError": 3,
+      "numpy.linalg.LinAlgError": 1,
+      "empty_stderr": 4,
+      "argparse_required_arguments": 1
+    },
+    "failed_finish": {
+      "length": 12,
+      "stop": 85
+    },
+    "selected_first_line_kind": {
+      "markdown_fence": 12,
+      "other": 89
+    },
+    "native_error_message": {
+      "None": 101
+    },
+    "agent_process_exit_code": {
+      "None": 101
+    },
+    "timeout_phase": {
+      "None": 101
+    },
+    "score_results_length": {
+      "1": 101
+    },
+    "memory_max": {
+      "8589934592": 101
+    },
+    "missing_import_classification": {
+      "not_declared_model_import": 36,
+      "declared_parent_missing_submodule": 1
+    },
+    "score_results_kind": {
+      "unscored_submission_max_score_zero": 101
+    }
+  },
+  "truncated_output_evidence": [
+    {
+      "key": "astronomy.nbody_close_encounters__seed31415__b1",
+      "status": "failed",
+      "completion_tokens": 8192,
+      "selected_first_line_kind": "markdown_fence",
+      "closed_python_fence_count": 0,
+      "selected_equals_entire_stripped_response": true,
+      "error_type": "SyntaxError"
+    },
+    {
+      "key": "astronomy.nbody_close_encounters__seed31415__b2",
+      "status": "failed",
+      "completion_tokens": 8192,
+      "selected_first_line_kind": "markdown_fence",
+      "closed_python_fence_count": 0,
+      "selected_equals_entire_stripped_response": true,
+      "error_type": "SyntaxError"
+    },
+    {
+      "key": "astronomy.nbody_close_encounters__seed31415__b4",
+      "status": "failed",
+      "completion_tokens": 8192,
+      "selected_first_line_kind": "markdown_fence",
+      "closed_python_fence_count": 0,
+      "selected_equals_entire_stripped_response": true,
+      "error_type": "SyntaxError"
+    },
+    {
+      "key": "biology.calcium_ip3_dyk_oscillations__seed31415__b2",
+      "status": "failed",
+      "completion_tokens": 8192,
+      "selected_first_line_kind": "markdown_fence",
+      "closed_python_fence_count": 0,
+      "selected_equals_entire_stripped_response": true,
+      "error_type": "SyntaxError"
+    },
+    {
+      "key": "biology.contextual_dna_regime_mapping__seed31415__b1",
+      "status": "failed",
+      "completion_tokens": 8192,
+      "selected_first_line_kind": "markdown_fence",
+      "closed_python_fence_count": 0,
+      "selected_equals_entire_stripped_response": true,
+      "error_type": "SyntaxError"
+    },
+    {
+      "key": "chemistry.implicit_solvent_pb_gb__seed31415__b1",
+      "status": "failed",
+      "completion_tokens": 8192,
+      "selected_first_line_kind": "markdown_fence",
+      "closed_python_fence_count": 0,
+      "selected_equals_entire_stripped_response": true,
+      "error_type": "SyntaxError"
+    },
+    {
+      "key": "chemistry.implicit_solvent_pb_gb__seed31415__b4",
+      "status": "failed",
+      "completion_tokens": 8192,
+      "selected_first_line_kind": "markdown_fence",
+      "closed_python_fence_count": 0,
+      "selected_equals_entire_stripped_response": true,
+      "error_type": "SyntaxError"
+    },
+    {
+      "key": "chemistry.sapt_water_dimer__seed31415__b2",
+      "status": "failed",
+      "completion_tokens": 8192,
+      "selected_first_line_kind": "markdown_fence",
+      "closed_python_fence_count": 0,
+      "selected_equals_entire_stripped_response": true,
+      "error_type": "SyntaxError"
+    },
+    {
+      "key": "chemistry.sapt_water_dimer__seed31415__b4",
+      "status": "failed",
+      "completion_tokens": 8192,
+      "selected_first_line_kind": "markdown_fence",
+      "closed_python_fence_count": 0,
+      "selected_equals_entire_stripped_response": true,
+      "error_type": "SyntaxError"
+    },
+    {
+      "key": "chemistry.vtst_tunneling_corrections__seed31415__b2",
+      "status": "failed",
+      "completion_tokens": 8192,
+      "selected_first_line_kind": "markdown_fence",
+      "closed_python_fence_count": 0,
+      "selected_equals_entire_stripped_response": true,
+      "error_type": "SyntaxError"
+    },
+    {
+      "key": "computer_science.bci_forensics__seed31415__b3",
+      "status": "failed",
+      "completion_tokens": 8192,
+      "selected_first_line_kind": "markdown_fence",
+      "closed_python_fence_count": 0,
+      "selected_equals_entire_stripped_response": true,
+      "error_type": "SyntaxError"
+    },
+    {
+      "key": "computer_science.deployment_prediction_sets__seed31415__b4",
+      "status": "failed",
+      "completion_tokens": 8192,
+      "selected_first_line_kind": "markdown_fence",
+      "closed_python_fence_count": 0,
+      "selected_equals_entire_stripped_response": true,
+      "error_type": "SyntaxError"
+    }
+  ],
+  "missing_import_evidence": [
+    {
+      "key": "astronomy.nbody_close_encounters__seed31415__b3",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "scipy>=1.11"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/astronomy/nbody_close_encounters/task_meta.yaml"
+    },
+    {
+      "key": "astronomy.planet_activity_sep__seed31415__b1",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "scipy>=1.11",
+        "matplotlib>=3.7"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/astronomy/planet_activity_sep/task_meta.yaml"
+    },
+    {
+      "key": "astronomy.planet_activity_sep__seed31415__b2",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "scipy>=1.11",
+        "matplotlib>=3.7"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/astronomy/planet_activity_sep/task_meta.yaml"
+    },
+    {
+      "key": "biology.calcium_ip3_dyk_oscillations__seed31415__b3",
+      "module": "receptor_kinetics",
+      "package": "receptor_kinetics",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=2.0",
+        "scipy>=1.11",
+        "matplotlib>=3.7"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/biology/calcium_ip3_dyk_oscillations/task_meta.yaml"
+    },
+    {
+      "key": "biology.calcium_ip3_dyk_oscillations__seed31415__b4",
+      "module": "receptor_kinetics",
+      "package": "receptor_kinetics",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=2.0",
+        "scipy>=1.11",
+        "matplotlib>=3.7"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/biology/calcium_ip3_dyk_oscillations/task_meta.yaml"
+    },
+    {
+      "key": "biology.contextual_dna_regime_mapping__seed31415__b4",
+      "module": "Bio",
+      "package": "biopython",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=2.0",
+        "matplotlib>=3.7"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/biology/contextual_dna_regime_mapping/task_meta.yaml"
+    },
+    {
+      "key": "biology.gene_network_timeseries__seed31415__b3",
+      "module": "networkx",
+      "package": "networkx",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=2.0",
+        "scipy>=1.11",
+        "matplotlib>=3.7",
+        "scikit-learn>=1.3"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/biology/gene_network_timeseries/task_meta.yaml"
+    },
+    {
+      "key": "biology.gillespie_ssssa_michaelis_menten__seed31415__b2",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=2.0",
+        "scipy>=1.11"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/biology/gillespie_ssssa_michaelis_menten/task_meta.yaml"
+    },
+    {
+      "key": "biology.gillespie_ssssa_michaelis_menten__seed31415__b3",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=2.0",
+        "scipy>=1.11"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/biology/gillespie_ssssa_michaelis_menten/task_meta.yaml"
+    },
+    {
+      "key": "biology.scrna_seq_analysis__seed31415__b2",
+      "module": "sklearn",
+      "package": "scikit-learn",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy",
+        "scipy"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/biology/scrna_seq_analysis/task_meta.yaml"
+    },
+    {
+      "key": "biostat.perturbation_convergence_testing__seed31415__b1",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "scikit-learn>=1.4"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/biostat/perturbation_convergence_testing/task_meta.yaml"
+    },
+    {
+      "key": "biostat.perturbation_convergence_testing__seed31415__b2",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "scikit-learn>=1.4"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/biostat/perturbation_convergence_testing/task_meta.yaml"
+    },
+    {
+      "key": "biostat.perturbation_convergence_testing__seed31415__b3",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "scikit-learn>=1.4"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/biostat/perturbation_convergence_testing/task_meta.yaml"
+    },
+    {
+      "key": "biostat.perturbation_convergence_testing__seed31415__b4",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "scikit-learn>=1.4"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/biostat/perturbation_convergence_testing/task_meta.yaml"
+    },
+    {
+      "key": "chemistry.implicit_solvent_pb_gb__seed31415__b2",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.26.0",
+        "scipy>=1.11.0",
+        "matplotlib>=3.8.0"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/chemistry/implicit_solvent_pb_gb/task_meta.yaml"
+    },
+    {
+      "key": "chemistry.implicit_solvent_pb_gb__seed31415__b3",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.26.0",
+        "scipy>=1.11.0",
+        "matplotlib>=3.8.0"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/chemistry/implicit_solvent_pb_gb/task_meta.yaml"
+    },
+    {
+      "key": "chemistry.marcus_et_reorganization_energy__seed31415__b1",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.26",
+        "scipy>=1.11",
+        "matplotlib>=3.8"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/chemistry/marcus_et_reorganization_energy/task_meta.yaml"
+    },
+    {
+      "key": "chemistry.marcus_et_reorganization_energy__seed31415__b2",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.26",
+        "scipy>=1.11",
+        "matplotlib>=3.8"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/chemistry/marcus_et_reorganization_energy/task_meta.yaml"
+    },
+    {
+      "key": "chemistry.marcus_et_reorganization_energy__seed31415__b3",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.26",
+        "scipy>=1.11",
+        "matplotlib>=3.8"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/chemistry/marcus_et_reorganization_energy/task_meta.yaml"
+    },
+    {
+      "key": "chemistry.reaction_path_bifurcation_vri__seed31415__b1",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.26.0",
+        "scipy>=1.11.0",
+        "matplotlib>=3.8.0"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/chemistry/reaction_path_bifurcation_vri/task_meta.yaml"
+    },
+    {
+      "key": "chemistry.reaction_path_bifurcation_vri__seed31415__b3",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.26.0",
+        "scipy>=1.11.0",
+        "matplotlib>=3.8.0"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/chemistry/reaction_path_bifurcation_vri/task_meta.yaml"
+    },
+    {
+      "key": "chemistry.sapt_water_dimer__seed31415__b1",
+      "module": "pyscf.cphf",
+      "package": "pyscf",
+      "official_declared_parent": true,
+      "official_requirements": [
+        "pyscf>=2.5",
+        "numpy>=1.24",
+        "scipy>=1.11",
+        "matplotlib>=3.7"
+      ],
+      "classification": "declared_parent_missing_submodule",
+      "metadata": "artifacts/benchmarks/asi/tasks/chemistry/sapt_water_dimer/task_meta.yaml"
+    },
+    {
+      "key": "computer_science.bci_forensics__seed31415__b1",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/computer_science/bci_forensics/task_meta.yaml"
+    },
+    {
+      "key": "computer_science.bci_forensics__seed31415__b2",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/computer_science/bci_forensics/task_meta.yaml"
+    },
+    {
+      "key": "computer_science.bci_forensics__seed31415__b4",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/computer_science/bci_forensics/task_meta.yaml"
+    },
+    {
+      "key": "computer_science.deployment_prediction_sets__seed31415__b1",
+      "module": "sklearn",
+      "package": "scikit-learn",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "pandas>=2.0",
+        "scipy>=1.11",
+        "matplotlib>=3.7"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/computer_science/deployment_prediction_sets/task_meta.yaml"
+    },
+    {
+      "key": "computer_science.deployment_prediction_sets__seed31415__b2",
+      "module": "sklearn",
+      "package": "scikit-learn",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "pandas>=2.0",
+        "scipy>=1.11",
+        "matplotlib>=3.7"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/computer_science/deployment_prediction_sets/task_meta.yaml"
+    },
+    {
+      "key": "computer_science.dp_accountant_forensics__seed31415__b1",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/computer_science/dp_accountant_forensics/task_meta.yaml"
+    },
+    {
+      "key": "computer_science.dp_accountant_forensics__seed31415__b2",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/computer_science/dp_accountant_forensics/task_meta.yaml"
+    },
+    {
+      "key": "computer_science.dp_accountant_forensics__seed31415__b3",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/computer_science/dp_accountant_forensics/task_meta.yaml"
+    },
+    {
+      "key": "computer_science.dp_accountant_forensics__seed31415__b4",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.24",
+        "matplotlib>=3.7"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/computer_science/dp_accountant_forensics/task_meta.yaml"
+    },
+    {
+      "key": "computer_science.euclidean_tsp_tour_optimization__seed31415__b3",
+      "module": "scipy",
+      "package": "scipy",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.24"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/computer_science/euclidean_tsp_tour_optimization/task_meta.yaml"
+    },
+    {
+      "key": "computer_science.euclidean_tsp_tour_optimization__seed31415__b4",
+      "module": "scipy",
+      "package": "scipy",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=1.24"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/computer_science/euclidean_tsp_tour_optimization/task_meta.yaml"
+    },
+    {
+      "key": "computer_science.hmc_neal_funnel__seed31415__b1",
+      "module": "scipy",
+      "package": "scipy",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=2.0",
+        "matplotlib>=3.8"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/computer_science/hmc_neal_funnel/task_meta.yaml"
+    },
+    {
+      "key": "computer_science.hmc_neal_funnel__seed31415__b2",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=2.0",
+        "matplotlib>=3.8"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/computer_science/hmc_neal_funnel/task_meta.yaml"
+    },
+    {
+      "key": "computer_science.hmc_neal_funnel__seed31415__b3",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=2.0",
+        "matplotlib>=3.8"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/computer_science/hmc_neal_funnel/task_meta.yaml"
+    },
+    {
+      "key": "computer_science.hmc_neal_funnel__seed31415__b4",
+      "module": "pandas",
+      "package": "pandas",
+      "official_declared_parent": false,
+      "official_requirements": [
+        "numpy>=2.0",
+        "matplotlib>=3.8"
+      ],
+      "classification": "not_declared_model_import",
+      "metadata": "artifacts/benchmarks/asi/tasks/computer_science/hmc_neal_funnel/task_meta.yaml"
+    }
+  ],
+  "representatives": {
+    "SyntaxError": {
+      "key": "astronomy.nbody_close_encounters__seed31415__b1",
+      "native_result": "artifacts/eval/asi128_asi240_20261017/astronomy.nbody_close_encounters/astronomy.nbody_close_encounters__seed31415__b1.json",
+      "status": "failed",
+      "finish_reason": "length",
+      "completion_tokens": 8192,
+      "safe_error": "SyntaxError: invalid syntax",
+      "stderr": "artifacts/eval/asi128_asi240_20261017/astronomy.nbody_close_encounters/astronomy.nbody_close_encounters__seed31415__b1.agent_stderr.log",
+      "request": "artifacts/eval/asi128_asi240_20261017/audit/astronomy.nbody_close_encounters__seed31415__b1.request.json"
+    },
+    "ModuleNotFoundError": {
+      "key": "astronomy.nbody_close_encounters__seed31415__b3",
+      "native_result": "artifacts/eval/asi128_asi240_20261017/astronomy.nbody_close_encounters/astronomy.nbody_close_encounters__seed31415__b3.json",
+      "status": "failed",
+      "finish_reason": "stop",
+      "completion_tokens": 839,
+      "safe_error": "ModuleNotFoundError: No module named 'pandas'",
+      "stderr": "artifacts/eval/asi128_asi240_20261017/astronomy.nbody_close_encounters/astronomy.nbody_close_encounters__seed31415__b3.agent_stderr.log",
+      "request": "artifacts/eval/asi128_asi240_20261017/audit/astronomy.nbody_close_encounters__seed31415__b3.request.json"
+    },
+    "TypeError": {
+      "key": "astronomy.planet_activity_sep__seed31415__b3",
+      "native_result": "artifacts/eval/asi128_asi240_20261017/astronomy.planet_activity_sep/astronomy.planet_activity_sep__seed31415__b3.json",
+      "status": "failed",
+      "finish_reason": "stop",
+      "completion_tokens": 1175,
+      "safe_error": "TypeError: string indices must be integers, not 'str'",
+      "stderr": "artifacts/eval/asi128_asi240_20261017/astronomy.planet_activity_sep/astronomy.planet_activity_sep__seed31415__b3.agent_stderr.log",
+      "request": "artifacts/eval/asi128_asi240_20261017/audit/astronomy.planet_activity_sep__seed31415__b3.request.json"
+    },
+    "KeyError": {
+      "key": "astronomy.planet_activity_sep__seed31415__b4",
+      "native_result": "artifacts/eval/asi128_asi240_20261017/astronomy.planet_activity_sep/astronomy.planet_activity_sep__seed31415__b4.json",
+      "status": "failed",
+      "finish_reason": "stop",
+      "completion_tokens": 1579,
+      "safe_error": "KeyError: 'cases'",
+      "stderr": "artifacts/eval/asi128_asi240_20261017/astronomy.planet_activity_sep/astronomy.planet_activity_sep__seed31415__b4.agent_stderr.log",
+      "request": "artifacts/eval/asi128_asi240_20261017/audit/astronomy.planet_activity_sep__seed31415__b4.request.json"
+    },
+    "NameError": {
+      "key": "astronomy.white_dwarf_sparse_inference__seed31415__b1",
+      "native_result": "artifacts/eval/asi128_asi240_20261017/astronomy.white_dwarf_sparse_inference/astronomy.white_dwarf_sparse_inference__seed31415__b1.json",
+      "status": "failed",
+      "finish_reason": "stop",
+      "completion_tokens": 1062,
+      "safe_error": "NameError: name 'M_sun' is not defined",
+      "stderr": "artifacts/eval/asi128_asi240_20261017/astronomy.white_dwarf_sparse_inference/astronomy.white_dwarf_sparse_inference__seed31415__b1.agent_stderr.log",
+      "request": "artifacts/eval/asi128_asi240_20261017/audit/astronomy.white_dwarf_sparse_inference__seed31415__b1.request.json"
+    },
+    "IndexError": {
+      "key": "biology.contextual_dna_regime_mapping__seed31415__b2",
+      "native_result": "artifacts/eval/asi128_asi240_20261017/biology.contextual_dna_regime_mapping/biology.contextual_dna_regime_mapping__seed31415__b2.json",
+      "status": "failed",
+      "finish_reason": "stop",
+      "completion_tokens": 1891,
+      "safe_error": "IndexError: index 78 is out of bounds for axis 1 with size 16",
+      "stderr": "artifacts/eval/asi128_asi240_20261017/biology.contextual_dna_regime_mapping/biology.contextual_dna_regime_mapping__seed31415__b2.agent_stderr.log",
+      "request": "artifacts/eval/asi128_asi240_20261017/audit/biology.contextual_dna_regime_mapping__seed31415__b2.request.json"
+    },
+    "ValueError": {
+      "key": "biology.gene_network_timeseries__seed31415__b2",
+      "native_result": "artifacts/eval/asi128_asi240_20261017/biology.gene_network_timeseries/biology.gene_network_timeseries__seed31415__b2.json",
+      "status": "failed",
+      "finish_reason": "stop",
+      "completion_tokens": 1372,
+      "safe_error": "ValueError: setting an array element with a sequence.",
+      "stderr": "artifacts/eval/asi128_asi240_20261017/biology.gene_network_timeseries/biology.gene_network_timeseries__seed31415__b2.agent_stderr.log",
+      "request": "artifacts/eval/asi128_asi240_20261017/audit/biology.gene_network_timeseries__seed31415__b2.request.json"
+    },
+    "UnboundLocalError": {
+      "key": "biology.gillespie_ssssa_michaelis_menten__seed31415__b1",
+      "native_result": "artifacts/eval/asi128_asi240_20261017/biology.gillespie_ssssa_michaelis_menten/biology.gillespie_ssssa_michaelis_menten__seed31415__b1.json",
+      "status": "failed",
+      "finish_reason": "stop",
+      "completion_tokens": 5085,
+      "safe_error": "UnboundLocalError: cannot access local variable 'time' where it is not associated with a value",
+      "stderr": "artifacts/eval/asi128_asi240_20261017/biology.gillespie_ssssa_michaelis_menten/biology.gillespie_ssssa_michaelis_menten__seed31415__b1.agent_stderr.log",
+      "request": "artifacts/eval/asi128_asi240_20261017/audit/biology.gillespie_ssssa_michaelis_menten__seed31415__b1.request.json"
+    },
+    "ImportError": {
+      "key": "biology.gillespie_ssssa_michaelis_menten__seed31415__b4",
+      "native_result": "artifacts/eval/asi128_asi240_20261017/biology.gillespie_ssssa_michaelis_menten/biology.gillespie_ssssa_michaelis_menten__seed31415__b4.json",
+      "status": "failed",
+      "finish_reason": "stop",
+      "completion_tokens": 1100,
+      "safe_error": "ImportError: cannot import name 'hellinger' from 'scipy.spatial.distance' (<repo_root>/.ai4sci-bench/task-envs/995129621e6f1cc7/lib/python3.12/site-packages/scipy/spatial/distance.py)",
+      "stderr": "artifacts/eval/asi128_asi240_20261017/biology.gillespie_ssssa_michaelis_menten/biology.gillespie_ssssa_michaelis_menten__seed31415__b4.agent_stderr.log",
+      "request": "artifacts/eval/asi128_asi240_20261017/audit/biology.gillespie_ssssa_michaelis_menten__seed31415__b4.request.json"
+    },
+    "OverflowError": {
+      "key": "biology.protein_folding_go_model__seed31415__b2",
+      "native_result": "artifacts/eval/asi128_asi240_20261017/biology.protein_folding_go_model/biology.protein_folding_go_model__seed31415__b2.json",
+      "status": "failed",
+      "finish_reason": "stop",
+      "completion_tokens": 2474,
+      "safe_error": "OverflowError: cannot convert float infinity to integer",
+      "stderr": "artifacts/eval/asi128_asi240_20261017/biology.protein_folding_go_model/biology.protein_folding_go_model__seed31415__b2.agent_stderr.log",
+      "request": "artifacts/eval/asi128_asi240_20261017/audit/biology.protein_folding_go_model__seed31415__b2.request.json"
+    },
+    "AttributeError": {
+      "key": "chemistry.metadynamics_for_dipeptide_in_vacuum__seed31415__b1",
+      "native_result": "artifacts/eval/asi128_asi240_20261017/chemistry.metadynamics_for_dipeptide_in_vacuum/chemistry.metadynamics_for_dipeptide_in_vacuum__seed31415__b1.json",
+      "status": "failed",
+      "finish_reason": "stop",
+      "completion_tokens": 1099,
+      "safe_error": "AttributeError: module 'openmm.app' has no attribute 'CustomTorsionForce'",
+      "stderr": "artifacts/eval/asi128_asi240_20261017/chemistry.metadynamics_for_dipeptide_in_vacuum/chemistry.metadynamics_for_dipeptide_in_vacuum__seed31415__b1.agent_stderr.log",
+      "request": "artifacts/eval/asi128_asi240_20261017/audit/chemistry.metadynamics_for_dipeptide_in_vacuum__seed31415__b1.request.json"
+    },
+    "openmm.OpenMMException": {
+      "key": "chemistry.metadynamics_for_dipeptide_in_vacuum__seed31415__b2",
+      "native_result": "artifacts/eval/asi128_asi240_20261017/chemistry.metadynamics_for_dipeptide_in_vacuum/chemistry.metadynamics_for_dipeptide_in_vacuum__seed31415__b2.json",
+      "status": "failed",
+      "finish_reason": "stop",
+      "completion_tokens": 1289,
+      "safe_error": "openmm.OpenMMException: Particle coordinate is NaN.  For more information, see https://github.com/openmm/openmm/wiki/Frequently-Asked-Questions#nan",
+      "stderr": "artifacts/eval/asi128_asi240_20261017/chemistry.metadynamics_for_dipeptide_in_vacuum/chemistry.metadynamics_for_dipeptide_in_vacuum__seed31415__b2.agent_stderr.log",
+      "request": "artifacts/eval/asi128_asi240_20261017/audit/chemistry.metadynamics_for_dipeptide_in_vacuum__seed31415__b2.request.json"
+    },
+    "FileNotFoundError": {
+      "key": "chemistry.reaction_path_bifurcation_vri__seed31415__b2",
+      "native_result": "artifacts/eval/asi128_asi240_20261017/chemistry.reaction_path_bifurcation_vri/chemistry.reaction_path_bifurcation_vri__seed31415__b2.json",
+      "status": "failed",
+      "finish_reason": "stop",
+      "completion_tokens": 555,
+      "safe_error": "FileNotFoundError: data/energy.txt not found.",
+      "stderr": "artifacts/eval/asi128_asi240_20261017/chemistry.reaction_path_bifurcation_vri/chemistry.reaction_path_bifurcation_vri__seed31415__b2.agent_stderr.log",
+      "request": "artifacts/eval/asi128_asi240_20261017/audit/chemistry.reaction_path_bifurcation_vri__seed31415__b2.request.json"
+    },
+    "numpy.linalg.LinAlgError": {
+      "key": "chemistry.reaction_path_bifurcation_vri__seed31415__b4",
+      "native_result": "artifacts/eval/asi128_asi240_20261017/chemistry.reaction_path_bifurcation_vri/chemistry.reaction_path_bifurcation_vri__seed31415__b4.json",
+      "status": "failed",
+      "finish_reason": "stop",
+      "completion_tokens": 830,
+      "safe_error": "numpy.linalg.LinAlgError: SVD did not converge",
+      "stderr": "artifacts/eval/asi128_asi240_20261017/chemistry.reaction_path_bifurcation_vri/chemistry.reaction_path_bifurcation_vri__seed31415__b4.agent_stderr.log",
+      "request": "artifacts/eval/asi128_asi240_20261017/audit/chemistry.reaction_path_bifurcation_vri__seed31415__b4.request.json"
+    },
+    "empty_stderr": {
+      "key": "chemistry.sapt_water_dimer__seed31415__b3",
+      "native_result": "artifacts/eval/asi128_asi240_20261017/chemistry.sapt_water_dimer/chemistry.sapt_water_dimer__seed31415__b3.json",
+      "status": "completed",
+      "finish_reason": "stop",
+      "completion_tokens": 7328,
+      "safe_error": "empty_stderr",
+      "stderr": null,
+      "request": "artifacts/eval/asi128_asi240_20261017/audit/chemistry.sapt_water_dimer__seed31415__b3.request.json"
+    },
+    "argparse_required_arguments": {
+      "key": "computer_science.euclidean_tsp_tour_optimization__seed31415__b1",
+      "native_result": "artifacts/eval/asi128_asi240_20261017/computer_science.euclidean_tsp_tour_optimization/computer_science.euclidean_tsp_tour_optimization__seed31415__b1.json",
+      "status": "failed",
+      "finish_reason": "stop",
+      "completion_tokens": 814,
+      "safe_error": "argparse: required --input --output --seed --time-limit-seconds",
+      "stderr": "artifacts/eval/asi128_asi240_20261017/computer_science.euclidean_tsp_tour_optimization/computer_science.euclidean_tsp_tour_optimization__seed31415__b1.agent_stderr.log",
+      "request": "artifacts/eval/asi128_asi240_20261017/audit/computer_science.euclidean_tsp_tour_optimization__seed31415__b1.request.json"
+    }
+  },
+  "official_extractor_source": "artifacts/benchmarks/asi/ai4sci_bench/adapters/direct_llm.py:381-413",
+  "limitations": [
+    "Native status is program-stage status, not scientific correctness; score=False, and all101 score_results are unscored_submission placeholders with max_score0",
+    "Native error_message, process_exit_code, timeout_phase are null in this snapshot; stderr/request records are required",
+    "Dependency declarations distinguish undeclared model imports from proved framework provisioning failures; no package imports or new execution were used",
+    "Only first observed terminal stderr error is visible per failed program; this is not a complete counterfactual failure attribution"
+  ],
+  "pyscf_metadata_check": {
+    "source": "artifacts/eval/asi128_asi240_20261017/audit/chemistry.sapt_water_dimer__seed31415__b1.limits.json",
+    "cache": "artifacts/benchmarks/asi/.ai4sci-bench/task-envs/67f94fe081189bac",
+    "package_metadata": "lib/python3.12/site-packages/pyscf-2.14.0.dist-info/METADATA",
+    "name": "pyscf",
+    "version": "2.14.0",
+    "pyscf_init_py_exists": true,
+    "pyscf_cphf_py_exists": false,
+    "pyscf_scf_cphf_py_exists": true,
+    "method": "Read file existence and Name/Version metadata only; no import or code execution"
+  },
+  "failure_grouping": {
+    "output_limit_and_unclosed_fence_native_fallback": 12,
+    "model_import_not_in_official_runtime_packages": 36,
+    "declared_parent_but_wrong_submodule_path": 1,
+    "other_program_API_data_or_CLI_errors": 48,
+    "proved_framework_or_declared_package_provisioning_failure": 0,
+    "unscored_completed_programs": 4
+  },
+  "checkpoint_selection_history": {
+    "completed_steps": 134,
+    "selected_step": 128,
+    "selection_basis": "Historical native held-out supervised cross-entropy; not task-level validation or task-best",
+    "checkpoint128_eval_loss": 0.5826834440231323,
+    "final134_eval_loss": 0.5828790068626404,
+    "sources": [
+      "configs/train/four_experts_v1.json",
+      "curves/training_20261017/source/asi_loss.json",
+      "curves/training_20261017/asi.csv",
+      "analysis/source_snapshots/model_card_training_evidence_20261017.json",
+      "models/cards/apex-asi-r16.md",
+      "configs/merge/four_experts_avg_v1.json"
+    ],
+    "boundary": "User now forbids loss as validation selection criterion; retained artifact is a historical loss-based selection, with no task-best claim. No checkpoint substitution or new evaluation was made."
+  }
+}

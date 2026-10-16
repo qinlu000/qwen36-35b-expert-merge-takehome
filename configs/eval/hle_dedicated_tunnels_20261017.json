@@ -1,0 +1,10 @@
+{
+  "host": "10.120.81.30",
+  "user": "qinlucao",
+  "identity_file": "/data/caoqinlu/projects/apex-takehome/artifacts/private/baseline_hpc_tunnel_ed25519",
+  "known_hosts": "/data/caoqinlu/projects/apex-takehome/artifacts/private/baseline_hpc_known_hosts",
+  "workers": [
+    {"benchmark": "hle_expert", "job_id": 727821, "node": "ACD1-1", "service_port": 18004, "bridge_port": 28094},
+    {"benchmark": "hle_merged", "job_id": 727822, "node": "ACD1-30", "service_port": 18005, "bridge_port": 28095}
+  ]
+}

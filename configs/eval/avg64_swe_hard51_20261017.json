@@ -44,19 +44,28 @@
   "job_model_retries": 0,
   "automatic_answer_regeneration": false,
   "serving_profile": "Dedicated TP2 BF16 max_num_seqs20,max_lora_rank64,max_loras1; frozen primary AVG64, aliasapex-avg64",
-  "scheduling_caveat": "MergedSWE10 fixedCPU slots0-9 starts only after SWEexpertall51 generation/replay/CPU consumers drain. Same constrained native protocol; Base used different serving/global admission topology.",
+  "scheduling_caveat": "Same fixed HARD51 native protocol and constraints. After SWEexpertpending=[] and all51 IDs are terminal or active, AVG may reuse each permanently released CPU0-9 only after no source active entry uses it and actual program scopes are empty. Late slots join after their own source consumer drains. Original all-pool admission proof remains separate; final Terminal release waits source and AVG programs on0-9.",
   "max_parallel_tasks": 10,
   "native_service_log_hpc": "/data/user/qinlucao/projects/apex-takehome/artifacts/eval/merged-execution-service-727660.log",
   "independent_task_validation_required": false,
   "startup_dependencies": [
     "permanent_base_cpu_release",
-    "SWEexpertpending_and_active_empty_and51terminal",
-    "SWEexpertmodel_consumer_finished",
-    "target_cpus0-9_unoccupied",
+    "SWEexpertpending_empty_and_all51_ids_accounted",
+    "individual_target_cpu_has_no_source_active_consumer",
+    "individual_target_cpu_actual_program_scopes_empty",
     "native_service_acceptance",
     "service_health",
     "minimum2100seconds_service_remaining"
   ],
   "service_node": "ACD1-50",
-  "wait_for_swe_output": "artifacts/eval/swe249_hard51_20261016"
+  "wait_for_swe_output": "artifacts/eval/swe249_hard51_20261016",
+  "admission_policy": "permanently_released_cpu_slots",
+  "shared_avg64_service_capacity": "At most SWE10 + current AVG64 Terminal10 native slots =20; Terminal SWE expansion still waits mergedSWE all-CPU completion.",
+  "handoff_receipts": {
+    "partial_admission": "initial-admission-opened.json",
+    "per_cpu": "cpu-handoffs.json",
+    "full_source_only": "source-expert-consumers-finished.json",
+    "legacy_whole_pool_empty": "admission-opened.json",
+    "final_source_and_avg_cpu_release": "all_cpu_consumers_finished.json"
+  }
 }

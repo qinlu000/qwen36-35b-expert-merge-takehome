@@ -1591,3 +1591,15 @@
 - HPC账号8个RUNNING作业、每项2H100，共16卡，达到既定上限；12卡服务已有正式消费者，另727654两卡为合版ASI等专家ASI释放CPU的暖等待。新HLE专家727821、AVG64727822及Mixed对照727831均已进入正式生成，各50并发；不把启动瞬时0请求称长期闲置。
 - 727113旧SWE推理服务51项模型消费已结束，03:43:49 CST对应完成标记为true且scoring_may_still_be_running=false，当前0请求，可列最明确2卡释放候选。本次用户仅问资源状态，未取消另会话作业。Base两个TP2原于01:21:49退出，本轮缺口补评只释放80上的CPU，没有新占HPC GPU。
 - 只读证据analysis/source_snapshots/hpc_status_20261017_0347.json；未新增模型请求或作业。Slurm compute SSH有GPU索引命名空间重映射，物理IDX定向NVML样本不完整，不据此声称16卡均满载或闲置。
+
+
+## 2026-10-17：以真实任务评测替代loss判断，解除无必要等待
+
+- 用户明确loss不能作为val标准。训练原生loss及249条CE仅作诊断，不算任务级比较/效果消融，不再追加loss-only工作。ASI128历史按loss选出，真实训练结束134；已冻结的服务、五模型公开发布及AVG64保留128身份并披露非task-best，未静默换权重或按正式分数选择配方。独立task-val继续取消。
+- 查明HLE此前被排在ASI后是过度串行，已拆开。新增专用TP2服务727821/727822，各自正式HLE2500含342图、50并发、300s、64K/8K/nonthinking和相同judge。两旧无child的等待parent被替换为attach独立HLE的3237024/3237026；ASI原PID2752099及starttime不变。新端口受限SSH key只追加三个精确PermitOpen，重连对应SSH子进程，不重启模型或正式求解worker。
+- Mixed883与固定AVG16补真实HLE2500任务对照，专用TP2作业727831，80持久parent3243420按Mixed→AVG16顺序执行，无额外训练/val或根据reward重生。03:46:46 Mixed通过1次合成图片验收，generator3268682/judge3268683已真实启动。新增HLE配对比较AVG64−Mixed/AVG16；两HLE-only对照没有四项宏平均，容量差异保留。多reference与缺1题局部阻断人工算例及既有完整checker一次通过。
+- AVG64 SWE03:40先接原专家已永久释放的9个CPU，原专家最后一题保留CPU5；全51尝试结束后补成10槽。原专家逐CPU历史空scope和AVG准入时序的新source-only收据严格验收，旧全池proof不伪造；collector19组fixture通过、80只读刷新一次。专家原生42＋批准4＝46/51有效、余5未核审，主分仍null；原始reward/答卷不改。
+- 03:47:49真实快照：AVG64 SWE1终态/10active/40pending；两个Terminal各23有效/10active；ASI专家113/240已保存、8active，未科学判分；HLE专家/AVG64分别192/13生成终态、各50active；Mixed70生成终态/50active，AVG16待接续。生成数和程序completed不当准确率。ASI已有101条定向执行诊断未发现已证明的框架供给失败，97程序failed细分类已记录，没有据此重复求解。
+- 一次纯汇总已接新14708固定观测和HLE额外pair，Base SWE51/HLE2500/ASI240/TB严格442、预算445；Base预算macro11.340888%，主AVG64比较仍null。原NodeBB审计0与TB三native null来源保留。完成的SWE专家727113经51终态、原父退出、零消费者和native running/waiting/KV均0证明后于03:47:02释放2卡；新增服务时峰值16、现14GPU，作业allocation11.383333GPUh不能重复加进总账。
+- 每小时本线程heartbeat automation已更新并确认ACTIVE，截止10月18日02:20，保留最后12小时。优先真实正式评测/工程阻塞/审计/失败案例/任务对照/最终报告，不恢复独立val、不重新生成Base或按reward重试。当前状态和持续日志统一记录；本机和应用需保持运行，远端既有持久队列不依赖本机SSH会话。
+- 本轮只纳上述自有代码/配置/小收据/文档及共享文档追加，保留其他会话WIP；无coauthor、邮件或仓库邀请。

@@ -1,0 +1,460 @@
+{
+  "recorded_at_utc": "2026-10-16T19:47:49.517924+00:00",
+  "loss_is_task_validation": false,
+  "independent_task_validation_cancelled": true,
+  "formal_snapshot": {
+    "swe_expert": {
+      "as_of": "2026-10-16T19:43:49.855593+00:00",
+      "state": "all51_attempts_finished",
+      "model": "apex-val-swe249",
+      "expected": 51,
+      "complete": false,
+      "valid_scored": 42,
+      "active_count": 0,
+      "terminal_count": 51,
+      "pending_count": 0,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_hard51_20261016/checkpoint.json"
+    },
+    "swe_avg64": {
+      "as_of": "2026-10-16T19:47:45.372282+00:00",
+      "state": "running",
+      "model": "apex-avg64",
+      "expected": 51,
+      "complete": false,
+      "valid_scored": 1,
+      "active_count": 10,
+      "terminal_count": 1,
+      "pending_count": 40,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/checkpoint.json"
+    },
+    "terminal_expert": {
+      "updated_at_utc": "2026-10-16T19:47:49.314731+00:00",
+      "state": "running",
+      "model": "apex-terminal250",
+      "pid": 2878518,
+      "expected": 445,
+      "complete": false,
+      "valid_scored": 23,
+      "active_count": 10,
+      "terminal_count": 23,
+      "pending_count": 412,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/summary.json"
+    },
+    "terminal_avg64": {
+      "updated_at_utc": "2026-10-16T19:47:48.367407+00:00",
+      "state": "running",
+      "model": "apex-avg64",
+      "pid": 2878519,
+      "expected": 445,
+      "complete": false,
+      "valid_scored": 23,
+      "active_count": 10,
+      "terminal_count": 23,
+      "pending_count": 412,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/summary.json"
+    },
+    "asi_expert": {
+      "updated_at": "2026-10-16T19:47:27.190368+00:00",
+      "state": "running",
+      "completed_conditions": 113,
+      "expected_conditions": 240,
+      "scored": false,
+      "active_count": 8,
+      "admitted_this_session_count": 121,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/progress.json"
+    },
+    "hle_expert": {
+      "at_utc": "2026-10-16T19:47:47.996369+00:00",
+      "state": "running",
+      "active_count": 50,
+      "admitted_count": 242,
+      "completed_count": 192,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/checkpoint.json"
+    },
+    "hle_avg64": {
+      "at_utc": "2026-10-16T19:47:46.773063+00:00",
+      "state": "running",
+      "active_count": 50,
+      "admitted_count": 63,
+      "completed_count": 13,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/checkpoint.json"
+    },
+    "hle_mixed883": {
+      "at_utc": "2026-10-16T19:47:48.913671+00:00",
+      "state": "running",
+      "active_count": 50,
+      "admitted_count": 120,
+      "completed_count": 70,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/checkpoint.json"
+    },
+    "hle_avg16": {
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017/checkpoint.json",
+      "state": "not_yet_recorded"
+    }
+  },
+  "hourly_automation": {
+    "id": "automation",
+    "status": "ACTIVE",
+    "interval_hours": 1,
+    "until_cst": "2026-10-18 02:20",
+    "local_machine_and_app_must_remain_running": true
+  },
+  "actual_task_control": {
+    "job_id": 727831,
+    "node": "ACD1-30",
+    "gpus": 2,
+    "port": 18006,
+    "bridge_port": 28096,
+    "controller_pid": 3243420,
+    "tunnel_supervisor_pid": 3243419,
+    "order": [
+      "apex-mixed883",
+      "apex-avg16"
+    ],
+    "questions_per_model": 2500,
+    "images_per_model": 342,
+    "context_tokens": 65536,
+    "output_tokens": 8192,
+    "controller_output": "artifacts/eval/hle_task_controls_20261017",
+    "task_control_launch.json": {
+      "state": "running",
+      "at_utc": "2026-10-16T19:46:46.174855+00:00",
+      "model": "apex-mixed883",
+      "artifact": "artifacts/runs/mixed-existing2k-sft-r16-726666/training/checkpoint-883",
+      "generation_pid": 3268682,
+      "scoring_pid": 3268683
+    },
+    "service_acceptance/acceptance.json": {
+      "ready": true,
+      "at_utc": "2026-10-16T19:46:46.138535+00:00",
+      "model_requests": 1,
+      "synthetic_only": true,
+      "formal_or_validation_questions": 0,
+      "checks": [
+        {
+          "task": "hle",
+          "model": "apex-mixed883",
+          "vision": true,
+          "prompt_tokens": 87,
+          "usage": {
+            "prompt_tokens": 87,
+            "total_tokens": 97,
+            "completion_tokens": 10,
+            "prompt_tokens_details": null
+          }
+        }
+      ]
+    }
+  },
+  "new_ssh_permitopen": [
+    "ACD1-1:18004",
+    "ACD1-30:18005",
+    "ACD1-30:18006"
+  ],
+  "project_running_gpu_total": 14,
+  "counts_are_progress_not_accuracy": true,
+  "resource_release": {
+    "job_id": 727113,
+    "gpus": 2,
+    "node": "ACD1-24",
+    "slurm_state": "CANCELLED by owner after consumer drain",
+    "end_cst": "2026-10-17 03:47:02",
+    "elapsed_seconds": 20490,
+    "allocated_gpu_hours": 11.383333333333333,
+    "source_model_marker": {
+      "at": "2026-10-16T19:43:49.856645+00:00",
+      "model_consumer_finished": true,
+      "model": "apex-val-swe249",
+      "expected": 51,
+      "scoring_may_still_be_running": false
+    },
+    "proof": "Original51 terminal and no active/pending; original parent exited; native model running0/waiting0/KVcache0 at03:46:49CST; patch grading uses no model",
+    "handoff_compat_execution": "artifacts/eval/swe249-source-handoff-compat-20261017/collector_execution.json"
+  },
+  "aggregation": {
+    "strict": {
+      "as_of_utc": "2026-10-16T19:46:45.826886+00:00",
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/final_aggregation_20261017/summary.json",
+      "complete_primary_comparison": false,
+      "models": {
+        "base": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "swe": {
+              "complete": true,
+              "valid_scored": 51,
+              "expected": 51,
+              "primary_score_percent": 19.607843137254903
+            },
+            "hle": {
+              "complete": true,
+              "valid_scored": 2500,
+              "expected": 2500,
+              "primary_score_percent": 3.96
+            },
+            "asi": {
+              "complete": true,
+              "valid_scored": 240,
+              "expected": 240,
+              "primary_score_percent": 1.5709884069083986
+            },
+            "terminal": {
+              "complete": false,
+              "valid_scored": 442,
+              "expected": 445,
+              "primary_score_percent": null
+            }
+          }
+        },
+        "swe249": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "swe": {
+              "complete": false,
+              "valid_scored": 46,
+              "expected": 51,
+              "primary_score_percent": null
+            }
+          }
+        },
+        "hle250": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "hle": {
+              "complete": false,
+              "valid_scored": 7,
+              "expected": 2500,
+              "primary_score_percent": null
+            }
+          }
+        },
+        "asi128": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "asi": {
+              "complete": false,
+              "valid_scored": 0,
+              "expected": 240,
+              "primary_score_percent": null
+            }
+          }
+        },
+        "terminal250": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "terminal": {
+              "complete": false,
+              "valid_scored": 22,
+              "expected": 445,
+              "primary_score_percent": null
+            }
+          }
+        },
+        "mixed883": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "hle": {
+              "complete": false,
+              "valid_scored": 0,
+              "expected": 2500,
+              "primary_score_percent": null
+            }
+          }
+        },
+        "avg16": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "hle": {
+              "complete": false,
+              "valid_scored": 0,
+              "expected": 2500,
+              "primary_score_percent": null
+            }
+          }
+        },
+        "avg64": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "swe": {
+              "complete": false,
+              "valid_scored": 1,
+              "expected": 51,
+              "primary_score_percent": null
+            },
+            "hle": {
+              "complete": false,
+              "valid_scored": 0,
+              "expected": 2500,
+              "primary_score_percent": null
+            },
+            "asi": {
+              "complete": false,
+              "valid_scored": 0,
+              "expected": 240,
+              "primary_score_percent": null
+            },
+            "terminal": {
+              "complete": false,
+              "valid_scored": 22,
+              "expected": 445,
+              "primary_score_percent": null
+            }
+          }
+        }
+      },
+      "comparison_names": [
+        "swe249_vs_base",
+        "hle250_vs_base",
+        "asi128_vs_base",
+        "terminal250_vs_base",
+        "mixed883_vs_base",
+        "avg16_vs_base",
+        "avg64_vs_base",
+        "avg64_vs_mixed883",
+        "avg64_vs_avg16"
+      ]
+    },
+    "audited_terminal_budget": {
+      "as_of_utc": "2026-10-16T19:46:46.799116+00:00",
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/final_aggregation_20261017/audited_terminal_budget/summary.json",
+      "complete_primary_comparison": false,
+      "models": {
+        "base": {
+          "macro_primary_percent": 11.340887661321725,
+          "benchmarks": {
+            "swe": {
+              "complete": true,
+              "valid_scored": 51,
+              "expected": 51,
+              "primary_score_percent": 19.607843137254903
+            },
+            "hle": {
+              "complete": true,
+              "valid_scored": 2500,
+              "expected": 2500,
+              "primary_score_percent": 3.96
+            },
+            "asi": {
+              "complete": true,
+              "valid_scored": 240,
+              "expected": 240,
+              "primary_score_percent": 1.5709884069083986
+            },
+            "terminal": {
+              "complete": true,
+              "valid_scored": 445,
+              "expected": 445,
+              "primary_score_percent": 20.224719101123597
+            }
+          }
+        },
+        "swe249": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "swe": {
+              "complete": false,
+              "valid_scored": 46,
+              "expected": 51,
+              "primary_score_percent": null
+            }
+          }
+        },
+        "hle250": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "hle": {
+              "complete": false,
+              "valid_scored": 8,
+              "expected": 2500,
+              "primary_score_percent": null
+            }
+          }
+        },
+        "asi128": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "asi": {
+              "complete": false,
+              "valid_scored": 0,
+              "expected": 240,
+              "primary_score_percent": null
+            }
+          }
+        },
+        "terminal250": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "terminal": {
+              "complete": false,
+              "valid_scored": 22,
+              "expected": 445,
+              "primary_score_percent": null
+            }
+          }
+        },
+        "mixed883": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "hle": {
+              "complete": false,
+              "valid_scored": 0,
+              "expected": 2500,
+              "primary_score_percent": null
+            }
+          }
+        },
+        "avg16": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "hle": {
+              "complete": false,
+              "valid_scored": 0,
+              "expected": 2500,
+              "primary_score_percent": null
+            }
+          }
+        },
+        "avg64": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "swe": {
+              "complete": false,
+              "valid_scored": 1,
+              "expected": 51,
+              "primary_score_percent": null
+            },
+            "hle": {
+              "complete": false,
+              "valid_scored": 0,
+              "expected": 2500,
+              "primary_score_percent": null
+            },
+            "asi": {
+              "complete": false,
+              "valid_scored": 0,
+              "expected": 240,
+              "primary_score_percent": null
+            },
+            "terminal": {
+              "complete": false,
+              "valid_scored": 22,
+              "expected": 445,
+              "primary_score_percent": null
+            }
+          }
+        }
+      },
+      "comparison_names": [
+        "swe249_vs_base",
+        "hle250_vs_base",
+        "asi128_vs_base",
+        "terminal250_vs_base",
+        "mixed883_vs_base",
+        "avg16_vs_base",
+        "avg64_vs_base",
+        "avg64_vs_mixed883",
+        "avg64_vs_avg16"
+      ]
+    }
+  }
+}

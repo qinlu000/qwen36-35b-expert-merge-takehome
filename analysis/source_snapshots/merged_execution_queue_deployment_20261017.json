@@ -512,5 +512,8 @@
   "independent_task_validation_started": false,
   "extra_gpu_evaluation_started": false,
   "git_and_claud": "Root owns review/commit/claud update.",
-  "terminal_schedule_superseded_by": "analysis/source_snapshots/terminal_parallel_schedule_20261017.json"
+  "terminal_schedule_superseded_by": "analysis/source_snapshots/terminal_parallel_schedule_20261017.json",
+  "swe_schedule_superseded_by": "analysis/source_snapshots/avg64_swe_partial_cpu_handoff_20261017.json",
+  "swe_current_parent_pid": 3239747,
+  "swe_partial_admission_note": "Initial9 actual scope-empty permanently released CPUs admitted03:40:29; CPU5 waits source. Partial receipt is not the legacy whole-pool drain proof."
 }

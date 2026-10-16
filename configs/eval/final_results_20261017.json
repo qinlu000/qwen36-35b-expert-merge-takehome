@@ -4,6 +4,10 @@
   "reference_model": "base",
   "final_model": "avg64",
   "statistics": {"repetitions": 10000, "seed": 20261015, "confidence_level": 0.95},
+  "additional_comparisons": [
+    {"model": "avg64", "reference": "mixed883", "benchmarks": ["hle"]},
+    {"model": "avg64", "reference": "avg16", "benchmarks": ["hle"]}
+  ],
   "benchmarks": {
     "swe": {"manifest": "analysis/source_snapshots/protocol/swe_hard_task_ids.json"},
     "hle": {"manifest": "analysis/source_snapshots/protocol/hle_task_ids.json"},
@@ -72,6 +76,30 @@
       "artifact": "artifacts/runs/terminal-retry-sft-r16-726665/training/checkpoint-250",
       "benchmarks": {
         "terminal": {"adapter": "terminal_scores", "summary": "artifacts/eval/terminal250_full445_20261017/summary.json"}
+      }
+    },
+    "mixed883": {
+      "label": "Mixed883任务对照",
+      "artifact": "artifacts/runs/mixed-existing2k-sft-r16-726666/training/checkpoint-883",
+      "benchmarks": {
+        "hle": {
+          "adapter": "hle_results",
+          "summary": "artifacts/eval/mixed883_hle2500_20261017/scoring/summary.json",
+          "results": "artifacts/eval/mixed883_hle2500_20261017/scoring/results",
+          "selection_manifest": "artifacts/eval/mixed883_hle2500_20261017/manual_retry_manifest.json"
+        }
+      }
+    },
+    "avg16": {
+      "label": "AVG16压缩任务消融",
+      "artifact": "artifacts/merges/four-experts-avg-v1-20261017/avg-svd-r16",
+      "benchmarks": {
+        "hle": {
+          "adapter": "hle_results",
+          "summary": "artifacts/eval/avg16_hle2500_20261017/scoring/summary.json",
+          "results": "artifacts/eval/avg16_hle2500_20261017/scoring/results",
+          "selection_manifest": "artifacts/eval/avg16_hle2500_20261017/manual_retry_manifest.json"
+        }
       }
     },
     "avg64": {

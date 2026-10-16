@@ -1,4 +1,4 @@
-"""Persistent expert/AVG64 ASI -> HLE formal blocks with independent frozen graders."""
+"""Persistent ASI blocks and attachment to independently served formal HLE."""
 import argparse
 import base64
 from datetime import datetime, timezone
@@ -131,7 +131,8 @@ def main():
     aliases = {'asi': 'apex-avg64' if merged else 'apex-asi128',
                'hle': 'apex-avg64' if merged else 'apex-hle250'}
     save(output / 'controller.json', {'pid': os.getpid(), 'profile': args.profile,
-        'endpoint': endpoint, 'aliases': aliases, 'at_utc': now(), 'state': 'waiting_service'})
+        'endpoint': endpoint, 'aliases': aliases, 'at_utc': now(), 'state': 'waiting_service',
+        'external_hle_controller': str(hle / 'controller')})
     acceptance(root, endpoint, aliases, output)
     gate = (root / 'artifacts/eval/asi128_asi240_20261017/generation_cpu_finished.json' if merged else
             root / 'artifacts/eval/terminal250_full445_20261017/acceptance/acceptance.json')
@@ -139,7 +140,6 @@ def main():
     wait_marker(gate, 'state' if merged else 'ready', 'finished' if merged else True)
     key = str(root / 'artifacts/private/base_smoke_api_key')
     pyasi = str(root / 'artifacts/envs/asi-py312/bin/python')
-    pyhle = str(root / 'artifacts/envs/hle/bin/python')
     command = [pyasi, str(root / 'scripts/run_direct_asi_formal.py'), '--project', str(root),
         '--model', aliases['asi'], '--endpoint', endpoint, '--key-file', key,
         '--output', str(asi), '--parallel', '8', '--cpu-offset', '96']
@@ -156,21 +156,9 @@ def main():
             raise RuntimeError('ASI generation failed; retain all attempts and stop pipeline')
     if not (asi / 'generation_cpu_finished.json').exists():
         raise RuntimeError('ASI generation did not fully drain; retain all attempts and stop pipeline')
-    protocol = json.loads((root / 'configs/eval/protocol_v2_unified64k8k.json').read_text())
-    order = json.loads((root / protocol['benchmarks']['hle']['task_manifest']).read_text())['task_ids']
-    hle.mkdir(parents=True, exist_ok=True)
-    save(hle / 'manual_retry_manifest.json', {'selection_rule': 'One frozen terminal result per ID; no retries or score selection',
-        'retained': [{'id': i, 'manual_retry_index': 0, 'original_result': str(hle / 'questions' / (i + '.json'))} for i in order],
-        'selected': [], 'expected_questions': 2500, 'formal_model': aliases['hle']})
-    hlegen = [pyhle, str(root / 'scripts/run_direct_hle_formal.py'), '--project', str(root),
-        '--mode', 'formal', '--model', aliases['hle'], '--endpoint', endpoint,
-        '--key-file', key, '--output', str(hle)]
-    hlescore = [pyhle, str(root / 'scripts/score_direct_hle_formal.py'), '--project', str(root),
-        '--retry', str(hle), '--output', str(hle / 'scoring'), '--max-cny', '20', '--max-calls', '5000', '--workers', '2']
-    hg = launch(hlegen, output / 'hle_generation.log', root)
-    hs = launch(hlescore, output / 'hle_scoring.log', root)
-    save(output / 'hle_launch.json', {'generation': hlegen, 'generation_pid': hg.pid,
-        'scoring': hlescore, 'scoring_pid': hs.pid, 'at_utc': now()})
+    # A separate unique consumer owns HLE. Never launch it on the ASI endpoint.
+    save(output / 'hle_launch.json', {'external_controller': str(hle / 'controller'),
+        'model': aliases['hle'], 'launch_delegated': True, 'at_utc': now()})
     # All ASI graders share this four-core lease; native grader timeouts stay unchanged.
     grade_lock = (root / 'artifacts/eval/direct_asi_grader_cpu92_95.lock').open('a')
     if merged:
@@ -205,11 +193,13 @@ def main():
         'grader_complete': report.get('complete', False), 'scorer_error_count': report.get('scorer_error_count'),
         'generation_worker_pool_shutdown': True, 'grader_process_finished': True, 'active_program_scopes': remaining_scopes})
     fcntl.flock(grade_lock, fcntl.LOCK_UN)
-    save(output / 'state.json', {'state': 'hle_generation_and_scoring', 'at_utc': now(),
-        'hle_generation_pid': hg.pid, 'hle_scoring_pid': hs.pid})
-    grc, src = hg.wait(), hs.wait()
+    save(output / 'state.json', {'state': 'waiting_external_hle', 'at_utc': now(),
+        'external_controller': str(hle / 'controller')})
+    wait_marker(hle / 'controller/state.json', 'state', 'finished')
+    external = json.loads((hle / 'controller/state.json').read_text())
     save(output / 'state.json', {'state': 'finished', 'at_utc': now(),
-        'asi_scoring_exitcode': rc, 'hle_generation_exitcode': grc, 'hle_scoring_exitcode': src})
+        'asi_scoring_exitcode': rc, 'hle_generation_exitcode': external['generation_exitcode'],
+        'hle_scoring_exitcode': external['scoring_exitcode'], 'external_hle_controller': str(hle / 'controller')})
 
 
 if __name__ == '__main__':

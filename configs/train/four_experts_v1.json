@@ -1,6 +1,7 @@
 {
   "base": "Qwen3.6-35B-A3B@995ad96eacd98c81ed38be0c5b274b04031597b0",
   "shared_recipe": "configs/train/lora_r16_shared_v1.json",
+  "evaluation_policy": "Task-level benchmark results judge model quality. Native train/held-out loss is diagnostic only, not a validation score or evidence that a checkpoint is task-best.",
   "global_batch_size": 8,
   "epochs": 1,
   "experts": [
@@ -87,7 +88,8 @@
       "native_loaded_val_rows": 20,
       "run_dir": "artifacts/runs/asi-expanded-sft-r16-726336",
       "status": "Completed; frozen checkpoint selected before formal evaluation",
-      "selected_checkpoint_step": 128
+      "selected_checkpoint_step": 128,
+      "checkpoint_selection": "Historical native-loss selection, now already frozen in service/public adapter/AVG64. Retained for artifact consistency; not established as task-best. No further checkpoint selection uses loss."
     }
   ],
   "mixed_control": {

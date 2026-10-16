@@ -25,7 +25,11 @@
     "conditions": 2500,
     "image_conditions": 342,
     "concurrency": 50,
-    "walltime_seconds": 300
+    "walltime_seconds": 300,
+    "service_job_id": 727822,
+    "service_port": 18005,
+    "endpoint": "http://127.0.0.1:28095",
+    "dedicated_service": true
   },
   "asi": {
     "conditions": 240,
@@ -39,7 +43,7 @@
     "cpus_per_program": 4,
     "memory_bytes_per_program": 8589934592,
     "walltime_seconds": 1200,
-    "scheduling": "Root assigned fixed CPU96\u2013127 before HLE; preserve Base eight workers and continuous1200s deadline. Wait for Terminal acceptance120\u2013123 to drain.",
+    "scheduling": "Keep original Base eight workers and continuous 1200s deadline on CPU96-127; dedicated HLE services run independently without ASI GPU contention.",
     "parallel": 8,
     "cpu_sets": [
       [
@@ -118,7 +122,7 @@
   "pipeline": {
     "script": "scripts/run_direct_formal_pipeline.py",
     "profile": "merged",
-    "pid_on_host80": 2792244,
+    "pid_on_host80": 3237026,
     "asi_generation_pid_on_host80": null,
     "cpu_gate": "artifacts/eval/asi128_asi240_20261017/generation_cpu_finished.json",
     "generation_marker": "artifacts/eval/avg64_asi240_20261017/generation_cpu_finished.json",
@@ -130,6 +134,8 @@
       95
     ],
     "grader_shared_lock": "artifacts/eval/direct_asi_grader_cpu92_95.lock",
-    "grader_additional_gate": "artifacts/eval/asi128_asi240_20261017/all_cpu_consumers_finished.json"
+    "grader_additional_gate": "artifacts/eval/asi128_asi240_20261017/all_cpu_consumers_finished.json",
+    "external_hle_controller": "artifacts/eval/avg64_hle2500_20261017/controller",
+    "hle_launcher": "scripts/run_dedicated_hle_formal.py"
   }
 }

@@ -1,4 +1,4 @@
-"""Run frozen AVG64 on fixed HARD51 after every SWE-expert CPU consumer drains."""
+"""Run fixed AVG64 HARD51 as individual SWE-expert CPU slots permanently drain."""
 import argparse
 import asyncio
 from collections import deque
@@ -12,30 +12,111 @@ import httpx
 
 import run_swe_baseline_v2_native as native
 from collect_swe_final import score
-from release_validation_cpus import base_scopes
 from swe_baseline_v2 import ROOT, save_json
 
 
 from run_swe_expert_benchmark import configure_native, observe_serving, now, service_safe
 
 
-def expert_drained(config):
+def base_scopes(cpus):
+    busy = set()
+    for process in Path('/proc').iterdir():
+        if not process.name.isdigit():
+            continue
+        try:
+            group = (process / 'cgroup').read_text()
+            if (any(prefix in group for prefix in
+                    ('apex-baseline-', 'apex-asi-', 'ai4sci-submission-'))
+                    and cpus.intersection(os.sched_getaffinity(int(process.name)))):
+                busy.add(group.strip().split('/')[-1])
+        except (OSError, ProcessLookupError):
+            pass
+    return sorted(busy)
+
+
+def expert_release_state(config, ids):
     output = ROOT / config['wait_for_swe_output']
     checkpoint_path = output / 'checkpoint.json'
     model_path = output / 'model-consumer-finished.json'
     checkpoint = json.loads(checkpoint_path.read_text()) if checkpoint_path.exists() else {}
     model = json.loads(model_path.read_text()) if model_path.exists() else {}
+    active, terminal = checkpoint.get('active', {}), checkpoint.get('terminal', {})
+    accounted = (checkpoint.get('model') == 'apex-val-swe249'
+                 and checkpoint.get('pending') == []
+                 and not set(active).intersection(terminal)
+                 and set(active).union(terminal) == set(ids)
+                 and all(row.get('cpu') in config['cpu_ids'] for row in active.values()))
     return {
-        'ready': (checkpoint.get('model') == 'apex-val-swe249'
-                  and checkpoint.get('pending') == [] and checkpoint.get('active') == {}
-                  and len(checkpoint.get('terminal', {})) == 51
-                  and model.get('model_consumer_finished') is True),
+        'permanent_slot_release_possible': accounted,
+        'all_source_consumers_finished': (accounted and not active and len(terminal) == 51
+            and model.get('model_consumer_finished') is True
+            and model.get('model') == 'apex-val-swe249' and model.get('expected') == 51
+            and model.get('scoring_may_still_be_running') is False),
         'source': config['wait_for_swe_output'],
         'pending': len(checkpoint.get('pending', [])),
-        'active': len(checkpoint.get('active', {})),
-        'terminal': len(checkpoint.get('terminal', {})),
+        'active': len(active), 'terminal': len(terminal),
+        'active_cpu_ids': sorted({row['cpu'] for row in active.values()}),
         'model_consumer_finished': model.get('model_consumer_finished') is True,
+        'scoring_may_still_be_running': model.get('scoring_may_still_be_running'),
+        'source_as_of': checkpoint.get('as_of'),
+        'source_checkpoint': checkpoint, 'source_model_marker': model,
     }
+
+
+def claim_released_cpus(config, output, prior, handoffs, candidates, label):
+    if not prior['permanent_slot_release_possible']:
+        return []
+    claimed = []
+    snapshot = output / 'source-cpu-release-checkpoints' / (label + '.json')
+    for cpu in candidates:
+        if cpu in handoffs or cpu in prior['active_cpu_ids'] or base_scopes({cpu}):
+            continue
+        if not claimed:
+            save_json(snapshot, prior['source_checkpoint'])
+        handoffs[cpu] = {'cpu': cpu, 'scope_empty_at': now(),
+            'source_pending': prior['pending'], 'source_active': prior['active'],
+            'source_terminal': prior['terminal'], 'source_active_cpu_ids': prior['active_cpu_ids'],
+            'source_checkpoint_as_of': prior['source_as_of'],
+            'source_checkpoint_snapshot': str(snapshot.relative_to(ROOT)),
+            'actual_scopes_before_avg_admission': [], 'permanent_release': True}
+        claimed.append(cpu)
+    if claimed:
+        save_json(output / 'cpu-handoffs.json', {'schema': 'swe_per_cpu_release_v1',
+            'source': config['wait_for_swe_output'],
+            'handoffs': [handoffs[cpu] for cpu in sorted(handoffs)]})
+    return claimed
+
+
+def record_source_handoff(config, output, prior, handoffs):
+    if not prior['all_source_consumers_finished'] or set(handoffs) != set(config['cpu_ids']):
+        return
+    busy = base_scopes(set(config['cpu_ids']))
+    receipt = output / 'source-expert-consumers-finished.json'
+    if not receipt.exists():
+        snapshot = output / 'source-cpu-release-checkpoints/full-source-finished.json'
+        save_json(snapshot, prior['source_checkpoint'])
+        save_json(receipt, {'schema': 'swe_source_cpu_handoff_v1', 'at': now(),
+            'source': config['wait_for_swe_output'],
+            'source_checkpoint_snapshot': str(snapshot.relative_to(ROOT)),
+            'source_terminal': 51, 'source_active': {}, 'source_pending': [],
+            'source_model_marker': prior['source_model_marker'],
+            'source_all_cpu_and_model_consumers_finished': True,
+            'cpu_ids': config['cpu_ids'],
+            'per_cpu_release_before_avg_admission': [handoffs[cpu] for cpu in sorted(handoffs)],
+            'current_avg_scopes_on_released_cpus': busy,
+            'whole_pool_empty_at_this_time': not busy,
+            'note': 'Every source CPU was actually scope-empty after permanent release, before AVG use; current AVG scopes are separate.'})
+    # This legacy proof is used by the audited collector. Never claim a flat
+    # empty pool while the newly admitted AVG consumers are using these CPUs.
+    legacy = output / 'admission-opened.json'
+    if not legacy.exists() and not busy:
+        save_json(legacy, {'at': now(), 'cpu_ids': config['cpu_ids'],
+            'permanent_marker': config['cpu_release_marker'],
+            'independent_task_validation_required': False,
+            'base_scopes_on_target_cpus': [],
+            'swe_expert_all_cpu_and_model_consumers_finished': True,
+            'source_handoff': str(receipt.relative_to(ROOT)),
+            'max_parallel': len(config['cpu_ids'])})
 
 
 async def main(args):
@@ -78,6 +159,7 @@ async def main(args):
     terminal = previous.get('terminal', {})
     pending = deque(name for name in ids if name not in terminal)
     active = {}
+    handoffs = {}
 
     def checkpoint(state):
         rows = []
@@ -91,14 +173,15 @@ async def main(args):
             'expected': 51, 'valid_scored': len(valid), 'resolved': resolved,
             'complete': len(valid) == 51, 'primary_score_percent': 100 * resolved / 51 if len(valid) == 51 else None,
             'pending': list(pending), 'active': active, 'terminal': terminal, 'tasks': rows,
-            'base_generation_tasks': 0, 'checkpoint': config['checkpoint']}
+            'base_generation_tasks': 0, 'checkpoint': config['checkpoint'],
+            'leased_cpu_ids': sorted(handoffs), 'max_parallel_tasks': len(handoffs)}
         save_json(output / 'checkpoint.json', value)
         save_json(output / 'summary.json', value)
         if not pending and not any(row['phase'] == 'generation' for row in active.values()):
             save_json(output / 'model-consumer-finished.json', {'at': now(), 'model_consumer_finished': True,
                 'model': config['model'], 'expected': 51, 'scoring_may_still_be_running': bool(active)})
 
-    checkpoint('waiting_swe_expert_all_cpu_consumers')
+    checkpoint('waiting_permanently_released_swe_cpu_slots')
     while True:
         if (output / 'STOP_ADMISSION').exists():
             checkpoint('stopped_admission')
@@ -108,26 +191,45 @@ async def main(args):
             return
         marker = ROOT / config['cpu_release_marker']
         released = json.loads(marker.read_text()) if marker.is_file() else {}
-        prior = expert_drained(config)
-        busy = base_scopes(set(config['cpu_ids']))
+        prior = expert_release_state(config, ids)
         acceptance = output / 'service-acceptance.json'
         accepted = acceptance.exists() and json.loads(acceptance.read_text()).get('ready') is True
-        save_json(output / 'resource_gate.json', {'at': now(), 'expert': prior, 'busy_scopes': busy, 'endpoint_accepted': accepted})
         if (released.get('ready') is True
                 and released.get('cpu_consumers_finished') is True
-                and prior['ready'] and accepted and not busy):
-            break
+                and prior['permanent_slot_release_possible'] and accepted):
+            initial = claim_released_cpus(config, output, prior, handoffs,
+                                          config['cpu_ids'], 'initial')
+            if initial:
+                save_json(output / 'initial-admission-opened.json', {'at': now(),
+                    'cpu_ids': initial, 'initial_max_parallel': len(initial),
+                    'source_pending': prior['pending'], 'source_active': prior['active'],
+                    'source_terminal': prior['terminal'],
+                    'source_active_cpu_ids': prior['active_cpu_ids'],
+                    'source_all_consumers_finished': prior['all_source_consumers_finished'],
+                    'permanent_marker': config['cpu_release_marker'],
+                    'handoffs': str((output / 'cpu-handoffs.json').relative_to(ROOT)),
+                    'whole_pool_drain_proof': False})
+                record_source_handoff(config, output, prior, handoffs)
+                break
+        save_json(output / 'resource_gate.json', {'at': now(),
+            'source_pending': prior['pending'], 'source_active': prior['active'],
+            'source_terminal': prior['terminal'], 'source_active_cpu_ids': prior['active_cpu_ids'],
+            'permanent_slot_release_possible': prior['permanent_slot_release_possible'],
+            'endpoint_accepted': accepted})
         await asyncio.sleep(15)
-    save_json(output / 'admission-opened.json', {'at': now(), 'cpu_ids': config['cpu_ids'],
-        'permanent_marker': config['cpu_release_marker'], 'independent_task_validation_required': False,
-        'base_scopes_on_target_cpus': [], 'swe_expert_all_cpu_and_model_consumers_finished': True,
-        'max_parallel': len(config['cpu_ids'])})
 
     async def worker(cpu):
         async with httpx.AsyncClient(trust_env=False, timeout=3) as client:
             while pending:
                 if (output / 'STOP_ADMISSION').exists() or not service_safe(config):
                     return
+                if cpu not in handoffs:
+                    prior = expert_release_state(config, ids)
+                    claim_released_cpus(config, output, prior, handoffs, [cpu], 'cpu-' + str(cpu))
+                    record_source_handoff(config, output, prior, handoffs)
+                    if cpu not in handoffs:
+                        await asyncio.sleep(10)
+                        continue
                 if base_scopes({cpu}):
                     await asyncio.sleep(10)
                     continue
@@ -151,6 +253,13 @@ async def main(args):
                         '--config=' + str(args.config.resolve()), '--single-task=' + name,
                         '--single-cpu=' + str(cpu), env=environment, stdout=log, stderr=log)
                     active[name]['pid'] = child.pid
+                    first = output / 'first-admission.json'
+                    if not first.exists():
+                        save_json(first, {'at': now(), 'model': config['model'],
+                            'task_id': name, 'cpu': cpu, 'child_pid': child.pid,
+                            'parent_pid': os.getpid(), 'leased_cpu_ids': sorted(handoffs),
+                            'solver_seconds': 1800, 'cpus_per_task': 1,
+                            'memory_mib': 4096, 'context_tokens': 65536, 'output_tokens': 8192})
                     while child.returncode is None:
                         if (output / 'generation' / name / 'result.json').exists():
                             active[name]['phase'] = 'replay'
@@ -164,17 +273,31 @@ async def main(args):
                 active.pop(name)
                 checkpoint('running')
 
+    async def observe_source_handoff():
+        while True:
+            record_source_handoff(config, output, expert_release_state(config, ids), handoffs)
+            await asyncio.sleep(10)
+
     metrics = asyncio.create_task(observe_serving(config, output))
+    source_observer = asyncio.create_task(observe_source_handoff())
     try:
         await asyncio.gather(*(worker(cpu) for cpu in config['cpu_ids']))
     finally:
         metrics.cancel()
-        await asyncio.gather(metrics, return_exceptions=True)
+        source_observer.cancel()
+        await asyncio.gather(metrics, source_observer, return_exceptions=True)
     checkpoint('service_expiring' if pending and not service_safe(config) else
                'stopped_admission' if pending else 'all51_attempts_finished')
     if not pending and not active:
-        while base_scopes(set(config['cpu_ids'])):
-            checkpoint('draining_cpu_scopes')
+        while True:
+            prior = expert_release_state(config, ids)
+            claim_released_cpus(config, output, prior, handoffs, config['cpu_ids'],
+                                'final-unused-slots-' + str(len(handoffs)))
+            record_source_handoff(config, output, prior, handoffs)
+            if (prior['all_source_consumers_finished'] and len(handoffs) == len(config['cpu_ids'])
+                    and not base_scopes(set(config['cpu_ids']))):
+                break
+            checkpoint('draining_source_and_avg_cpu_scopes')
             await asyncio.sleep(5)
         checkpoint('all51_attempts_finished')
         save_json(output / 'all_cpu_consumers_finished.json', {
@@ -182,6 +305,8 @@ async def main(args):
             'cpu_consumers_finished': True, 'model_consumer_finished': True,
             'model': config['model'], 'attempted': len(terminal), 'expected': 51,
             'active': {}, 'pending': [], 'cpu_ids': config['cpu_ids'], 'remaining_cpu_scopes': [],
+            'source_all_consumers_finished': True,
+            'source_handoff': str((output / 'source-expert-consumers-finished.json').relative_to(ROOT)),
             'benchmark_complete': json.loads((output / 'summary.json').read_text())['complete'],
             'invalid_scores_remain_disclosed': True})
 

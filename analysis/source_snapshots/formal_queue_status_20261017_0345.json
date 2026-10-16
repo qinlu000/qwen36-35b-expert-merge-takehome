@@ -1,0 +1,115 @@
+{
+  "recorded_at_utc": "2026-10-16T19:45:28.007012+00:00",
+  "loss_is_task_validation": false,
+  "independent_task_validation_cancelled": true,
+  "formal_snapshot": {
+    "swe_expert": {
+      "as_of": "2026-10-16T19:43:49.855593+00:00",
+      "state": "all51_attempts_finished",
+      "model": "apex-val-swe249",
+      "expected": 51,
+      "complete": false,
+      "valid_scored": 42,
+      "active_count": 0,
+      "terminal_count": 51,
+      "pending_count": 0,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_hard51_20261016/checkpoint.json"
+    },
+    "swe_avg64": {
+      "as_of": "2026-10-16T19:45:25.237697+00:00",
+      "state": "running",
+      "model": "apex-avg64",
+      "expected": 51,
+      "complete": false,
+      "valid_scored": 1,
+      "active_count": 10,
+      "terminal_count": 1,
+      "pending_count": 40,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/checkpoint.json"
+    },
+    "terminal_expert": {
+      "updated_at_utc": "2026-10-16T19:45:26.683340+00:00",
+      "state": "running",
+      "model": "apex-terminal250",
+      "pid": 2878518,
+      "expected": 445,
+      "complete": false,
+      "valid_scored": 21,
+      "active_count": 10,
+      "terminal_count": 21,
+      "pending_count": 414,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/summary.json"
+    },
+    "terminal_avg64": {
+      "updated_at_utc": "2026-10-16T19:45:25.158125+00:00",
+      "state": "running",
+      "model": "apex-avg64",
+      "pid": 2878519,
+      "expected": 445,
+      "complete": false,
+      "valid_scored": 21,
+      "active_count": 10,
+      "terminal_count": 21,
+      "pending_count": 414,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/summary.json"
+    },
+    "asi_expert": {
+      "updated_at": "2026-10-16T19:45:01.357076+00:00",
+      "state": "running",
+      "completed_conditions": 110,
+      "expected_conditions": 240,
+      "scored": false,
+      "active_count": 8,
+      "admitted_this_session_count": 118,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/progress.json"
+    },
+    "hle_expert": {
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/checkpoint.json",
+      "state": "not_yet_recorded"
+    },
+    "hle_avg64": {
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/checkpoint.json",
+      "state": "not_yet_recorded"
+    },
+    "hle_mixed883": {
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/checkpoint.json",
+      "state": "not_yet_recorded"
+    },
+    "hle_avg16": {
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017/checkpoint.json",
+      "state": "not_yet_recorded"
+    }
+  },
+  "hourly_automation": {
+    "id": "automation",
+    "status": "ACTIVE",
+    "interval_hours": 1,
+    "until_cst": "2026-10-18 02:20",
+    "local_machine_and_app_must_remain_running": true
+  },
+  "actual_task_control": {
+    "job_id": 727831,
+    "node": "ACD1-30",
+    "gpus": 2,
+    "port": 18006,
+    "bridge_port": 28096,
+    "controller_pid": 3243420,
+    "tunnel_supervisor_pid": 3243419,
+    "order": [
+      "apex-mixed883",
+      "apex-avg16"
+    ],
+    "questions_per_model": 2500,
+    "images_per_model": 342,
+    "context_tokens": 65536,
+    "output_tokens": 8192,
+    "controller_output": "artifacts/eval/hle_task_controls_20261017"
+  },
+  "new_ssh_permitopen": [
+    "ACD1-1:18004",
+    "ACD1-30:18005",
+    "ACD1-30:18006"
+  ],
+  "project_running_gpu_total": 16,
+  "counts_are_progress_not_accuracy": true
+}

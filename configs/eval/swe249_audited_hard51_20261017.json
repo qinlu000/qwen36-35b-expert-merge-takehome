@@ -73,5 +73,6 @@
     }
   ],
   "no_reward_search": true,
-  "new_audits_require_explicit_review": true
+  "new_audits_require_explicit_review": true,
+  "source_specific_cpu_handoff": "artifacts/eval/avg64_swe_hard51_20261017/source-expert-consumers-finished.json"
 }

@@ -1,5 +1,7 @@
 # 249条原生SFT loss-only对照：运行方案与执行
 
+**用途更正（2026-10-17）**：本页只保存已完成的训练诊断，不作为 val 判断标准、checkpoint 最优依据或任务效果消融。实际任务对照已接入 [HLE 全量任务比较](hle_task_controls_20261017.md)，不增加 loss-only 作业，也不根据正式分数改变已冻结的 AVG64。
+
 固定顺序 **Base → AVG64 → AVG16 → Mixed883**，一个4×H100、单节点、4小时作业依次运行四个全新torchrun进程。Mixed原生 `summary.json` 已实核 `passed=true, global_steps=883, final_checkpoint=.../checkpoint-883`，wall23164.161秒；作业仍设置afterok726666及summary门槛。准备时项目已释放Mixed4卡、仅余10GPU，增加4卡为14，低于16。已获审核同意，2026-10-17 02:27:22 +08:00提交并启动作业727689，节点ACD1-67、4卡、截止06:27:22；提交前再次确认现有10卡，加入后共14卡。
 
 配置为 [sft_loss249_only_20261017.json](../configs/eval/sft_loss249_only_20261017.json)，入口 [evaluate_sft_loss_only.py](../scripts/evaluate_sft_loss_only.py)，资源配置 [Slurm](../scripts/evaluate_sft_loss_only.slurm)。结果根为 `artifacts/eval/sft_loss249_only_20261017-JOBID/`，按candidate分别保存原生配置、命令、日志与JSON指标。

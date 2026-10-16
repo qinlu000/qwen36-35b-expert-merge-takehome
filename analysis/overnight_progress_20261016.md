@@ -532,3 +532,15 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - 人工例与实际两个视图检查通过，Base source_issues为空；03:27另薄读确认actual Base active_trials/pending_not_admitted字段存在为0、原模型alias全apex-qwen，完整预算gate已通过。实际检查/汇总约1.6秒，CPU10释放，无新API/GPU/任务或容器。SWE已有审计字段逐行透传。
 - README/统计说明/资产索引与当前进展已接新owner路径和预算视图，初次快照保留日期。后续heartbeat先刷新collect_swe249_audited.py，再运行summarize_experiment.py并带上述policy，分别读strict与预算结果；不要按哪个结果更好切换政策或对未审计null补0。
 - 阶段PDF更新为03:25严格矩阵与独立预算行，03:29:34实际生成；摘要178汉字、A4一页、字体嵌入、重渲染目视通过。仍是阶段草稿，最终20真实合版失败/完整正式模型矩阵/最终成本及report.pdf待完成。本轮仅13自有文件和共享文档追加纳Git，原会话WIP保留。
+
+
+## 2026-10-17：以真实任务评测替代loss判断，解除无必要等待
+
+- 用户明确loss不能作为val标准。训练原生loss及249条CE仅作诊断，不算任务级比较/效果消融，不再追加loss-only工作。ASI128历史按loss选出，真实训练结束134；已冻结的服务、五模型公开发布及AVG64保留128身份并披露非task-best，未静默换权重或按正式分数选择配方。独立task-val继续取消。
+- 查明HLE此前被排在ASI后是过度串行，已拆开。新增专用TP2服务727821/727822，各自正式HLE2500含342图、50并发、300s、64K/8K/nonthinking和相同judge。两旧无child的等待parent被替换为attach独立HLE的3237024/3237026；ASI原PID2752099及starttime不变。新端口受限SSH key只追加三个精确PermitOpen，重连对应SSH子进程，不重启模型或正式求解worker。
+- Mixed883与固定AVG16补真实HLE2500任务对照，专用TP2作业727831，80持久parent3243420按Mixed→AVG16顺序执行，无额外训练/val或根据reward重生。03:46:46 Mixed通过1次合成图片验收，generator3268682/judge3268683已真实启动。新增HLE配对比较AVG64−Mixed/AVG16；两HLE-only对照没有四项宏平均，容量差异保留。多reference与缺1题局部阻断人工算例及既有完整checker一次通过。
+- AVG64 SWE03:40先接原专家已永久释放的9个CPU，原专家最后一题保留CPU5；全51尝试结束后补成10槽。原专家逐CPU历史空scope和AVG准入时序的新source-only收据严格验收，旧全池proof不伪造；collector19组fixture通过、80只读刷新一次。专家原生42＋批准4＝46/51有效、余5未核审，主分仍null；原始reward/答卷不改。
+- 03:47:49真实快照：AVG64 SWE1终态/10active/40pending；两个Terminal各23有效/10active；ASI专家113/240已保存、8active，未科学判分；HLE专家/AVG64分别192/13生成终态、各50active；Mixed70生成终态/50active，AVG16待接续。生成数和程序completed不当准确率。ASI已有101条定向执行诊断未发现已证明的框架供给失败，97程序failed细分类已记录，没有据此重复求解。
+- 一次纯汇总已接新14708固定观测和HLE额外pair，Base SWE51/HLE2500/ASI240/TB严格442、预算445；Base预算macro11.340888%，主AVG64比较仍null。原NodeBB审计0与TB三native null来源保留。完成的SWE专家727113经51终态、原父退出、零消费者和native running/waiting/KV均0证明后于03:47:02释放2卡；新增服务时峰值16、现14GPU，作业allocation11.383333GPUh不能重复加进总账。
+- 每小时本线程heartbeat automation已更新并确认ACTIVE，截止10月18日02:20，保留最后12小时。优先真实正式评测/工程阻塞/审计/失败案例/任务对照/最终报告，不恢复独立val、不重新生成Base或按reward重试。当前状态和持续日志统一记录；本机和应用需保持运行，远端既有持久队列不依赖本机SSH会话。
+- 本轮只纳上述自有代码/配置/小收据/文档及共享文档追加，保留其他会话WIP；无coauthor、邮件或仓库邀请。

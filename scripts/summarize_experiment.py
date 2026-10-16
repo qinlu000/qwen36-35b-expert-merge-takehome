@@ -477,25 +477,29 @@ def aggregate(project, config, terminal_budget_policy=None):
 
     comparisons = {}
     reference = config['reference_model']
-    for model in models:
-        if model == reference:
-            continue
+    requests = [(model, reference, list(data['benchmarks'])) for model, data in models.items()
+                if model != reference]
+    requests += [(row['model'], row['reference'], row['benchmarks'])
+                 for row in config.get('additional_comparisons', [])]
+    for model, ref, benchmarks in requests:
+        assert model in models and ref in models
+        assert set(benchmarks) <= set(models[model]['benchmarks']) & set(models[ref]['benchmarks'])
         cells = {}
-        for name in models[model]['benchmarks']:
-            paired = {key for key in expected[name] if observations[reference][name][key]['status'] ==
+        for name in benchmarks:
+            paired = {key for key in expected[name] if observations[ref][name][key]['status'] ==
                       observations[model][name][key]['status'] == 'valid'}
             paired_units = sum(all(key in paired for key, meta in expected[name].items() if meta['unit_id'] == unit)
                                for unit in manifests[name]['task_ids'])
-            ready = model in draws[name] and reference in draws[name]
+            ready = model in draws[name] and ref in draws[name]
             cells[name] = {'complete_pair': ready, 'expected_observations': len(expected[name]),
                 'valid_paired_observations': len(paired), 'expected_clusters': COUNTS[name],
                 'complete_paired_clusters': paired_units,
                 'delta_percent_points': (models[model]['benchmarks'][name]['primary_score_percent'] -
-                    models[reference]['benchmarks'][name]['primary_score_percent']) if ready else None,
-                'delta_ci95_percent_points': interval(draws[name][model] - draws[name][reference]) if ready else None}
+                    models[ref]['benchmarks'][name]['primary_score_percent']) if ready else None,
+                'delta_ci95_percent_points': interval(draws[name][model] - draws[name][ref]) if ready else None}
         delta = macro({name: cell['delta_percent_points'] for name, cell in cells.items()})
-        comparisons[model + '_vs_' + reference] = {'benchmarks': cells, 'macro_delta_percent_points': delta,
-            'macro_delta_ci95_percent_points': interval(sum(draws[name][model] - draws[name][reference]
+        comparisons[model + '_vs_' + ref] = {'benchmarks': cells, 'macro_delta_percent_points': delta,
+            'macro_delta_ci95_percent_points': interval(sum(draws[name][model] - draws[name][ref]
                 for name in BENCHMARKS) / 4) if delta is not None else None}
     return {'as_of_utc': datetime.now(timezone.utc).isoformat(), 'models': models, 'comparisons': comparisons,
         **({'score_view': 'audited_terminal_budget', 'terminal_budget_policy': terminal_budget_policy,

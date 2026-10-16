@@ -1,4 +1,4 @@
-"""Serve the frozen HLE250 and ASI128 expert adapters on a dedicated TP2 replica."""
+"""Serve frozen direct adapters on an isolated TP2 replica."""
 import argparse
 from datetime import datetime, timezone
 import json
@@ -32,10 +32,12 @@ def main():
     parser.add_argument('--project', type=Path, required=True)
     parser.add_argument('--port', type=int, default=18002)
     parser.add_argument('--merged', action='store_true')
+    parser.add_argument('--profile', choices=['experts', 'merged', 'hle-expert', 'hle-merged', 'controls'])
     args = parser.parse_args()
     root = args.project.resolve()
     os.umask(0o077)
-    assert 18000 <= args.port <= 18003
+    profile = args.profile or ('merged' if args.merged else 'experts')
+    assert 18000 <= args.port <= 18006
     assert len(os.environ['CUDA_VISIBLE_DEVICES'].split(',')) == 2
     key = (root / 'artifacts/private/base_smoke_api_key').read_text().strip()
     assert key
@@ -44,13 +46,21 @@ def main():
 
     adapter_paths = {}
     adapter_inventory = {}
+    merged = profile in ('merged', 'hle-merged')
     adapters = ({'apex-avg64': root / 'artifacts/merges/four-experts-avg-v1-20261017/avg-r64'}
-                if args.merged else {alias: root / 'artifacts/runs' / run / 'training' / f'checkpoint-{step}'
-                                     for alias, (run, step) in ADAPTERS.items()})
-    rank, alpha = (64, 64) if args.merged else (16, 32)
+                if merged else {alias: root / 'artifacts/runs' / run / 'training' / f'checkpoint-{step}'
+                                for alias, (run, step) in ADAPTERS.items()
+                                if profile != 'hle-expert' or alias == 'apex-hle250'})
+    if profile == 'controls':
+        adapters = {
+            'apex-mixed883': root / 'artifacts/runs/mixed-existing2k-sft-r16-726666/training/checkpoint-883',
+            'apex-avg16': root / 'artifacts/merges/four-experts-avg-v1-20261017/avg-svd-r16',
+        }
+    rank, alpha = (64, 64) if merged else (16, 32)
     for alias, checkpoint in adapters.items():
         config = json.loads((checkpoint / 'adapter_config.json').read_text())
-        assert config['r'] == rank and config['lora_alpha'] == alpha
+        expected_alpha = 16 if alias == 'apex-avg16' else alpha
+        assert config['r'] == rank and config['lora_alpha'] == expected_alpha
         with (checkpoint / 'adapter_model.safetensors').open('rb') as handle:
             size = struct.unpack('<Q', handle.read(8))[0]
             header = json.loads(handle.read(size))
@@ -62,7 +72,7 @@ def main():
         adapter_paths[alias] = str(checkpoint)
         adapter_inventory[alias] = {
             'path': str(checkpoint), 'tensors': len(tensors),
-            'modules': len(tensors) // 2, 'rank': rank, 'alpha': alpha,
+            'modules': len(tensors) // 2, 'rank': rank, 'alpha': expected_alpha,
         }
 
     command = [
@@ -87,6 +97,7 @@ def main():
     (output / 'launch.json').write_text(json.dumps({
         'started_at_utc': datetime.now(timezone.utc).isoformat(),
         'job_id': os.environ['SLURM_JOB_ID'], 'hostname': socket.gethostname(),
+        'profile': profile,
         'port': args.port, 'command': command, 'model_revision': REVISION,
         'context_tokens': CONTEXT_TOKENS, 'output_cap_per_request': OUTPUT_TOKENS,
         'base_alias': 'apex-direct-base', 'adapters': adapter_inventory,

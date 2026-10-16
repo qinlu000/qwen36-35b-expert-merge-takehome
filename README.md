@@ -19,20 +19,22 @@
 | Terminal | Horizon1107 + Pivot893 公开终端历史 | 2000 → 2000 / 42 | 250 → 250 | TB89×5 |
 | HLE | Math/MMLU-Pro/Science 与清洗后的公开推理、短参考答案 | 2000 → 2000 / 100 | 250 → 250 | HLE2500，含图像 |
 | ASI | SAB82 人工程序 + DS-1000补全976 + SciCode主解15 | 1073 → 1073 / 20 | 134 → 128 | ASI60×B1–B4 |
-| Mixed | 相同四份训练分区，各一次 | 7073 → 7066 / 249 | 883 → 883 | 同数据一轮训练对照；当前为 SFT loss 比较 |
+| Mixed | 相同四份训练分区，各一次 | 7073 → 7066 / 249 | 883 → 883 | 同数据一轮训练对照；HLE2500实际任务比较已提交 |
 | AVG64 / AVG16 | 四专家参数更新等权合版 / 固定 rank16 压缩 | 无新增训练数据 | 已实际导出 | AVG64四项全量；AVG16为消融 |
 
 原生加载条数不是逐 batch 曝光计数。SWE的7条角色配对错误被 Swift 整条过滤，Mixed继承同7条过滤；保留原始导出与日志，没有复制样本补数。ASI的991条辅助数据多为函数/库补全，不能称1073条完整科研轨迹。HLE训练与留出集答案格式不同，最低交叉熵不等于最高任务准确率。数据来源、许可、清洗去重、来源家族隔离及已知污染风险见 [数据报告](analysis/training_data_report_20261016.md)、[行级来源清单索引](analysis/source_snapshots/training_data_inventory_20261016.json) 和 [模型来源/NOTICE索引](models/README.md)。部分公开推理数据的问题血缘不完整，不能声称已证明不存在语义污染。
 
 统一训练配方为 BF16 LoRA `r16/alpha32/dropout0.05`、LR1e-4、cosine、warmup0.03、global batch8、1epoch、seed20261016、64K序列、非thinking、ZeRO-3、gradient checkpointing、SDPA与FLCE-only Liger。只训练语言 attention、linear-attention、shared-MLP投影；router、routed experts与视觉部分冻结。详见 [共享配方](configs/train/lora_r16_shared_v1.json) 和 [实际训练矩阵](configs/train/four_experts_v1.json)。
 
-五个完成 run 的 train/val 曲线、CSV和原生JSON见 [训练曲线索引](analysis/training_curves_20261017.md)。HLE250依据取消前已完成的独立100题结果冻结，ASI128依据原生val loss；Mixed用完整一轮final883，不能以最低loss的step64替代同等训练量对照。独立任务级validation已取消，不再用正式测试选择checkpoint或扫描合版系数。
+五个完成 run 的 train/val 曲线、CSV和原生JSON见 [训练曲线索引](analysis/training_curves_20261017.md)。HLE250依据取消前已完成的独立100题结果冻结；ASI128曾按原生loss选择，这是历史局限，不能证明其任务最优。当前服务、公开adapter与AVG64已固定使用128，不在运行中换权重。Mixed用完整一轮final883。**Loss只作训练诊断，不作为val判断标准；模型质量以实际任务结果判断。** 独立任务级validation已取消，不再用正式测试选择checkpoint或扫描合版系数。
 
 取消task-val后，AVG64按先验固定；新增249条loss对照在它固定后完成，未用于开发集择优。这与原题“用独立开发集选择最终配方”的过程存在差异，保留披露。
 
 AVG64表示 `Δ = Σ_i 0.25 × (32/16) B_i A_i`，通过因子拼接精确保存平均更新，输出rank64/alpha64；不是分别平均A/B。AVG16对同一更新做薄QR+SVD的rank16近似，全局相对Frobenius截断误差约0.144715。AVG64已在新增loss比较和正式评测前固定为最终模型；容量是单个rank16专家/Mixed的4倍，线性平均可能抵消冲突方向。原理、验证和配方见 [合版记录](analysis/merge_execution_20261017.md)、[固定配置](configs/merge/four_experts_avg_v1.json)。
 
 相同249条原生SFT留出集、64K上限、相同监督mask的loss-only对照已全部完成：Base **2.105976**、AVG64 **1.357921**、AVG16 **1.379223**、Mixed883 **1.672463**。AVG16与AVG64的差值为0.021302，记录固定压缩/容量消融；没有生成新答案、运行task-val或据此重新选择主模型。Mixed883重复原训练最终val loss的数值完全一致。这里是原生Trainer的teacher-forced loss，不能作为任务准确率或benchmark提升。详见 [结果、图及重画命令](analysis/sft_loss_only_plan_20261017.md)。
+
+实际任务对照已提交：Mixed883与固定AVG16复用同一HLE2500题、图像和正式生成/判分协议，另与AVG64、HLE专家和Base比较。新增服务727831只依次服务两项对照；HLE-only对照不产生四项宏平均，也不回流选择主模型。主HLE专家/AVG64已分别获得独立服务，不再等ASI结束。见 [任务对照及loss边界](analysis/hle_task_controls_20261017.md)。
 
 ## 评测协议与限制
 

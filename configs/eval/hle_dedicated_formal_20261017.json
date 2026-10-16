@@ -1,0 +1,22 @@
+{
+  "expert": {
+    "model": "apex-hle250",
+    "checkpoint": "artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-250",
+    "endpoint": "http://127.0.0.1:28094",
+    "output": "artifacts/eval/hle250_hle2500_20261017",
+    "service_job_id": 727821,
+    "service_node": "ACD1-1",
+    "service_port": 18004,
+    "max_lora_rank": 16
+  },
+  "merged": {
+    "model": "apex-avg64",
+    "checkpoint": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+    "endpoint": "http://127.0.0.1:28095",
+    "output": "artifacts/eval/avg64_hle2500_20261017",
+    "service_job_id": 727822,
+    "service_node": "ACD1-30",
+    "service_port": 18005,
+    "max_lora_rank": 64
+  }
+}

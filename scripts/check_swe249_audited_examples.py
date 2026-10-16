@@ -139,6 +139,97 @@ def run():
         write(source / 'summary.json', raw)
         assert not snapshot()['complete']
         checks['active_original_attempt_blocks_complete'] = True
+
+        # The new receipt proves source release CPU by CPU while AVG is active.
+        raw['active'] = {}
+        raw['as_of'] = '2026-10-16T19:00:00+00:00'
+        write(source / 'summary.json', raw)
+        manifest['source_cpu_ids'] = list(range(10))
+        manifest['source_specific_cpu_handoff'] = (
+            'artifacts/eval/avg64_swe_hard51_20261017/source-expert-consumers-finished.json')
+        write(path, manifest)
+        (root / manifest['source_cpu_handoff']).unlink()
+        marker = {'model': 'fixture', 'expected': 51, 'model_consumer_finished': True,
+            'scoring_may_still_be_running': False, 'at': '2026-10-16T19:00:01+00:00'}
+        write(root / manifest['resource_marker'], marker)
+        receipt_path = root / manifest['source_specific_cpu_handoff']
+        avg = receipt_path.parent
+        evidence = avg / 'source-cpu-release-checkpoints'
+        full_path = evidence / 'full-source-finished.json'
+        initial_path = evidence / 'initial.json'
+        write(full_path, raw)
+        initial = deepcopy(raw)
+        initial['as_of'] = '2026-10-16T18:59:00+00:00'
+        initial['terminal'].pop(ids[-1])
+        initial['active'] = {ids[-1]: {'cpu': 5, 'phase': 'replay'}}
+        write(initial_path, initial)
+        proofs = []
+        for cpu in range(10):
+            saved, saved_path = (raw, full_path) if cpu == 5 else (initial, initial_path)
+            empty = '2026-10-16T19:00:02+00:00' if cpu == 5 else '2026-10-16T18:59:01+00:00'
+            acquired = '2026-10-16T19:00:04+00:00' if cpu == 5 else '2026-10-16T18:59:02+00:00'
+            proofs.append({'cpu': cpu, 'scope_empty_at': empty, 'permanent_release': True,
+                'actual_scopes_before_avg_admission': [], 'source_pending': 0,
+                'source_active': len(saved['active']), 'source_terminal': len(saved['terminal']),
+                'source_active_cpu_ids': [5] if cpu != 5 else [],
+                'source_checkpoint_as_of': saved['as_of'],
+                'source_checkpoint_snapshot': str(saved_path.relative_to(root))})
+            write(avg / 'generation' / ids[cpu] / 'config.json', {
+                'agent': {'model_name': 'openai/apex-avg64'},
+                'environment': {'kwargs': {'baseline_cpu_offset': cpu}}})
+            write(avg / 'audit' / (ids[cpu] + '.generation.started.json'), {
+                'task': ids[cpu], 'phase': 'generation', 'started_at': acquired})
+        handoff = {'schema': 'swe_source_cpu_handoff_v1', 'at': '2026-10-16T19:00:03+00:00',
+            'source': manifest['source_output'], 'source_all_cpu_and_model_consumers_finished': True,
+            'source_terminal': 51, 'source_active': {}, 'source_pending': [],
+            'cpu_ids': list(range(10)), 'source_model_marker': marker,
+            'source_checkpoint_snapshot': str(full_path.relative_to(root)),
+            'per_cpu_release_before_avg_admission': proofs,
+            'current_avg_scopes_on_released_cpus': ['apex-baseline-avg.scope'],
+            'whole_pool_empty_at_this_time': False}
+        write(receipt_path, handoff)
+        value = busy_snapshot()
+        assert value['complete'] and value['source_specific_cpu_handoff_valid']
+        assert not value['source_cpu_handoff_valid'] and value['active_source_cpu_scopes']
+        checks['v1_per_cpu_history_can_complete_while_avg_scopes_remain'] = True
+
+        bad_receipts = []
+        bad = deepcopy(handoff); bad['schema'] = 'initial-admission-opened'
+        bad_receipts.append(('initial_receipt_is_not_full_source_proof', bad))
+        bad = deepcopy(handoff); bad['per_cpu_release_before_avg_admission'][-1]['cpu'] = 0
+        bad_receipts.append(('duplicate_or_missing_cpu_release_rejected', bad))
+        bad = deepcopy(handoff)
+        bad['per_cpu_release_before_avg_admission'][0]['scope_empty_at'] = '2026-10-16T18:59:03+00:00'
+        bad_receipts.append(('scope_empty_after_avg_acquisition_rejected', bad))
+        bad = deepcopy(handoff)
+        bad['per_cpu_release_before_avg_admission'][0]['actual_scopes_before_avg_admission'] = ['avg.scope']
+        bad_receipts.append(('occupied_avg_scope_is_not_empty_pool_evidence', bad))
+        bad = deepcopy(handoff)
+        bad['per_cpu_release_before_avg_admission'][0]['scope_empty_at'] = '2026-10-16T18:59:01'
+        bad_receipts.append(('timezone_naive_release_time_rejected', bad))
+        bad = deepcopy(handoff); bad['source_model_marker']['scoring_may_still_be_running'] = True
+        bad_receipts.append(('unfinished_or_different_canonical_marker_rejected', bad))
+        for name, bad in bad_receipts:
+            write(receipt_path, bad)
+            value = busy_snapshot()
+            assert not value['complete'] and not value['source_specific_cpu_handoff_valid']
+            checks[name] = True
+        write(receipt_path, handoff)
+        broken = deepcopy(initial)
+        broken['active'][ids[-1]]['cpu'] = 0
+        write(initial_path, broken)
+        assert not busy_snapshot()['source_specific_cpu_handoff_valid']
+        checks['immutable_source_cpu_still_active_rejected'] = True
+        write(initial_path, initial)
+        write(full_path, initial)
+        assert not busy_snapshot()['source_specific_cpu_handoff_valid']
+        checks['full_source_checkpoint_with_active_attempt_rejected'] = True
+        write(full_path, raw)
+        receipt_path.unlink()
+        value = busy_snapshot()
+        assert not value['complete'] and not value['source_specific_cpu_handoff_valid']
+        assert value['primary_score_percent'] is None
+        checks['missing_full_source_receipt_stays_incomplete_without_error'] = True
     return {'passed': True, 'scope': 'Artificial JSON/file identities only', 'checks': checks,
             'model_calls': 0, 'task_or_verifier_executions': 0}
 

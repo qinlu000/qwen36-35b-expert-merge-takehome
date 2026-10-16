@@ -14,7 +14,11 @@
 
 [SWE配置](../configs/eval/avg64_swe_hard51_20261017.json)对应完整固定HARD51，输出 `artifacts/eval/avg64_swe_hard51_20261017`。自有[控制器](../scripts/run_swe_merged_benchmark.py)复用原SWE专家的native配置、模型桥和fresh replay评分辅助函数；模型请求明确为 `openai/apex-avg64`，桥只允许 `apex-avg64`。保留mini-swe-agent2.4.6、1800秒solver、1740秒mini内预算、1CPU/4GiB、64K/8K、非thinking和官方测试。
 
-SWE只能在这些条件同时成立后准入：Base永久CPU释放、SWE专家51个attempt结束且pending/active为空、其canonical模型消费者完成、CPU0–9没有残留scope、AVG64 native验收完成、端点健康、服务余量≥2100秒。随后10个固定CPU槽0–9运行；不重新生成Base或SWE专家答案。全部attempt及replay/CPU清理后写出独立 `all_cpu_consumers_finished.json`，与较早可能产生的 `model-consumer-finished.json` 分开。
+SWE于2026-10-17 03:40:29 +08:00改为逐CPU永久交接，避免最后一个source任务占CPU5时让其他9核空等：实核原SWE pending=[]、51个固定ID恰为50 terminal+1 active、active仅CPU5；AVG此前51 pending/0 active/0 terminal且generation/replay无正式目录，只停止自己的零准入parent2749804，新parent3239747随即在CPU0–4和6–9准入9个完整HARD51任务。首child3239762使用CPU0，实测已有9个native generation目录和apex-avg64/8192的真实请求；原SWE及两个Terminal parent均未重启。每槽仍为1CPU/4GiB、1800秒solver、1740秒mini内预算、64K/8K，最多SWE10槽加当前AVG Terminal10槽=20，未改变题目、prompt、权重、采样或预算。
+
+每个CPU仅在source pending为空、全部51个ID恰由terminal与active互斥覆盖、source active不再使用该CPU且实际program scope为空后交接；CPU5等待自己的source consumer和scope排空后自动加入。Base永久释放、原验收、health与服务余量门槛保留。scope检查同时覆盖apex-baseline-、apex-asi-与ai4sci-submission-，按实际CPU affinity求交。初始部分交接只写 `initial-admission-opened.json`，明确source尚未全完成且不是whole-pool proof；`cpu-handoffs.json`记录逐CPU实际空scope的时间和不可变原checkpoint快照。
+
+完整source结束时另写 `source-expert-consumers-finished.json`（schema=swe_source_cpu_handoff_v1）：必须原source全51 terminal、active/pending空、canonical model_consumer_finished=true且scoring_may_still_be_running=false，并已取得全部10个CPU在AVG占用前真实scope空的历史证明；当前AVG scope另列。旧 `admission-opened.json`保留整池此刻真实无scope的历史语义，AVG仍占用时绝不写全drained=true。audited collector由root独立审核新source-specific schema；本agent未修改collector。最终 `all_cpu_consumers_finished.json`仍要求AVG全部51 attempt结束、原source全部消费者完成，且0–9原source及AVG程序scope全部排空，才允许Terminal后续扩容。详细首批准入与CPU检查见[小型交接收据](source_snapshots/avg64_swe_partial_cpu_handoff_20261017.json)。
 
 [Terminal配置](../configs/eval/avg64_terminal_full445_20261017.json)对应原89任务×5seed的445个native TrialConfig，输出 `artifacts/eval/avg64_terminal_full445_20261017`。复用Terminal agent准备的固定驱动和修复后的Base运行层，已在该输出下隔离快照470个源码文件。每个trial的任务checksum、seed、原生agent/verifier保持冻结；4CPU/8GiB、1800秒solver、900秒verifier、64K/8K、temperature1/top-p.95/top-k20、非thinking。
 
@@ -38,7 +42,7 @@ ASI原生producer的最终all-CPU文件以 `state=finished`、`generation_worker
 
 ## 启动与验收记录
 
-80隧道PID2749797，SWE队列PID2749804。早期串行等待队列曾在零准入时同步scope规则；最新并行迁移只停止expert旧parent2782415与AVG旧parent2781816。当前expert parent **2878518**、AVG64 parent **2878519**；均实核active10/pending435/terminal0，各已有10个native trial目录。首次准入均为adaptive-rejection-sampler/seed0：expert child2878526使用CPU12–15，AVG child2878546使用CPU52–55。两输出各有 `first-admission.json`、`parallel-schedule-launch.json`；完整新调度证据见 [并行调度收据](source_snapshots/terminal_parallel_schedule_20261017.json)。
+80隧道PID2749797；SWE原等待队列PID2749804在零准入时由逐CPU交接队列PID3239747接替。早期串行等待队列曾在零准入时同步scope规则；Terminal并行迁移只停止expert旧parent2782415与AVG旧parent2781816。当前expert parent **2878518**、AVG64 parent **2878519**；迁移时实核active10/pending435/terminal0，各已有10个native trial目录。首次准入均为adaptive-rejection-sampler/seed0：expert child2878526使用CPU12–15，AVG child2878546使用CPU52–55。两输出各有 `first-admission.json`、`parallel-schedule-launch.json`；完整新调度证据见 [并行调度收据](source_snapshots/terminal_parallel_schedule_20261017.json)。
 
 同一AVG64服务只安排一次native命令验收：使用隔离的官方缓存环境，执行写入/read-back小文件并验证最终状态；CPU12–15，避开SWE0–9和ASI92–127。其instruction为合成连通性命令，不读取benchmark题目、不调用Base生成、不形成benchmark成绩。验收保存在Terminal输出 `acceptance/acceptance.json`，通过后作为SWE `service-acceptance.json` 的依据。验收已于2026-10-17 02:17:46 +08:00通过：一个fixture内3次native请求均使用apex-avg64，fixture reward1、最终状态在verifier前保存、实测CPU12–15和8GiB；清理后这些CPU没有残留scope。rank64/310模块加载警告审计通过。该验收沿用于正式队列；SWE仍等待其前序，Terminal已按上述并行策略真实准入。最终验收结果与实际队列状态见 [部署收据](source_snapshots/merged_execution_queue_deployment_20261017.json)。
 

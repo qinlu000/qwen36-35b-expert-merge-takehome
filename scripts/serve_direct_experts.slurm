@@ -19,6 +19,8 @@ source /etc/profile.d/modules.sh
 module use /data/modulefiles/opensource
 module load apptainer/1.4.5
 APEX_PROJECT=/data/user/qinlucao/projects/apex-takehome
+APEX_SERVE_PROFILE=${1:-experts}
+APEX_SERVE_PORT=${2:-18002}
 APEX_PYTHON_ROOT=/data/user/qinlucao/datasets/training_mix_hpc_wheelhouse_v1/python
 APEX_LOCAL_TMP=$(mktemp -d "/tmp/apex-direct-${SLURM_JOB_ID}.XXXXXX")
 trap 'rm -rf -- "$APEX_LOCAL_TMP"' EXIT
@@ -37,4 +39,5 @@ singularity exec --nv --cleanenv --containall \
   --env VLLM_NO_USAGE_STATS=1 --env VLLM_WORKER_MULTIPROC_METHOD=spawn \
   /data/user/qinlucao/software/containers/slime-39be6cbb00f9.sif \
   "$APEX_PROJECT/artifacts/envs/base-inference/bin/python" \
-  "$APEX_PROJECT/scripts/serve_direct_experts.py" --project="$APEX_PROJECT" --port=18002
+  "$APEX_PROJECT/scripts/serve_direct_experts.py" --project="$APEX_PROJECT" \
+  --profile="$APEX_SERVE_PROFILE" --port="$APEX_SERVE_PORT"

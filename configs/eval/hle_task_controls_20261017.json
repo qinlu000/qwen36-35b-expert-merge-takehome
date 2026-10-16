@@ -1,0 +1,26 @@
+{
+  "purpose": "Actual task comparison of Mixed training and fixed rank16 compression; SFT loss is diagnostic only",
+  "endpoint": "http://127.0.0.1:28096",
+  "key_file": "artifacts/private/base_smoke_api_key",
+  "controller_output": "artifacts/eval/hle_task_controls_20261017",
+  "benchmark": "Frozen HLE test2500, including342 images; same existing formal prompt/generation/judge",
+  "service_profile": "controls",
+  "execution_order": ["mixed883", "avg16"],
+  "models": {
+    "mixed883": {
+      "alias": "apex-mixed883",
+      "artifact": "artifacts/runs/mixed-existing2k-sft-r16-726666/training/checkpoint-883",
+      "output": "artifacts/eval/mixed883_hle2500_20261017"
+    },
+    "avg16": {
+      "alias": "apex-avg16",
+      "artifact": "artifacts/merges/four-experts-avg-v1-20261017/avg-svd-r16",
+      "output": "artifacts/eval/avg16_hle2500_20261017"
+    }
+  },
+  "judge_max_cny_per_model": 20,
+  "judge_max_calls_per_model": 5000,
+  "judge_workers": 2,
+  "selection_policy": "Report fixed task results without selecting or changing the already frozen AVG64 final model",
+  "scope": "Full HLE task-level control/ablation only; not an independent validation set or four-benchmark result for these controls"
+}

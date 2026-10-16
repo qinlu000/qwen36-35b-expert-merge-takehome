@@ -1,5 +1,7 @@
 # 正式结果统一汇总与配对 bootstrap
 
+**任务对照补记（2026-10-17）**：loss只作训练诊断，不是val标准。新增固定 Mixed883 与 AVG16 的 HLE2500实际任务对照，路径在同一显式配置中；每个视图观测总数由9708增至14708。额外报告 AVG64−Mixed883 与 AVG64−AVG16 的同ID HLE差值和配对CI。两项对照只测HLE，不产生四项宏平均；主比较仍是冻结AVG64对Base。没有根据正式反馈选择checkpoint或合版配方。下文六模型/9708是原快照范围，不能覆盖此补记。
+
 下文初次运行数值是02:29–02:30保存快照；03:25更新与Terminal双视图见文末补记及[最新执行说明](terminal_budget_aggregation_20261017.md)。默认strict字段原义保持。
 
 实现：[summarize_experiment.py](../scripts/summarize_experiment.py)。显式路径清单：[final_results_20261017.json](../configs/eval/final_results_20261017.json)。本脚本独立读取原 owner 输出，没有修改 Base collector、任何答卷选择、队列或评分。

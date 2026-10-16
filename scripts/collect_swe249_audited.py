@@ -22,7 +22,8 @@ def active_scopes(cpus):
             continue
         try:
             group = (process / 'cgroup').read_text()
-            if (('apex-baseline-' in group or 'ai4sci-submission-' in group)
+            if (any(prefix in group for prefix in
+                    ('apex-baseline-', 'apex-asi-', 'ai4sci-submission-'))
                     and set(cpus).intersection(os.sched_getaffinity(int(process.name)))):
                 found.add(group.strip().split('/')[-1])
         except (OSError, ProcessLookupError):
@@ -41,6 +42,96 @@ def valid_handoff(marker, handoff, cpus):
         return (marker_at.utcoffset() is not None and handoff_at.utcoffset() is not None
                 and handoff_at >= marker_at)
     except (KeyError, ValueError):
+        return False
+
+
+def aware_time(value):
+    if not isinstance(value, str):
+        raise ValueError('Handoff timestamp must be text')
+    value = datetime.fromisoformat(value.replace('Z', '+00:00'))
+    if value.utcoffset() is None:
+        raise ValueError('Handoff evidence requires an explicit timezone')
+    return value
+
+
+def valid_source_handoff(root, manifest, marker, handoff, ids):
+    """Verify saved source-only release evidence, never treat AVG scopes as empty."""
+    if handoff.get('schema') != 'swe_source_cpu_handoff_v1':
+        return False
+    try:
+        cpus = manifest['source_cpu_ids']
+        avg = (root / manifest['source_specific_cpu_handoff']).parent
+        evidence = avg / 'source-cpu-release-checkpoints'
+
+        def checkpoint(path):
+            path = root / path
+            if path.resolve().parent != evidence.resolve():
+                raise ValueError('Source checkpoint is outside the immutable evidence directory')
+            value = read(path)
+            active, terminal = value['active'], value['terminal']
+            if (value['model'] != manifest['model'] or value['checkpoint'] != manifest['checkpoint']
+                    or value['expected'] != 51 or value['pending'] != []
+                    or set(active).intersection(terminal)
+                    or set(active).union(terminal) != set(ids)
+                    or len(value['tasks']) != 51
+                    or {row['task_id'] for row in value['tasks']} != set(ids)
+                    or any(row['cpu'] not in cpus for row in active.values())):
+                raise ValueError('Source checkpoint identity or 51-ID accounting mismatch')
+            return value
+
+        if (handoff['source'] != manifest['source_output']
+                or handoff['source_all_cpu_and_model_consumers_finished'] is not True
+                or handoff['source_terminal'] != 51 or handoff['source_active'] != {}
+                or handoff['source_pending'] != [] or sorted(handoff['cpu_ids']) != sorted(cpus)
+                or handoff['source_model_marker'] != marker
+                or marker.get('model') != manifest['model'] or marker.get('expected') != 51
+                or marker.get('model_consumer_finished') is not True
+                or marker.get('scoring_may_still_be_running') is not False):
+            return False
+        finished_at, marker_at = aware_time(handoff['at']), aware_time(marker['at'])
+        full_path = evidence / 'full-source-finished.json'
+        if root / handoff['source_checkpoint_snapshot'] != full_path:
+            return False
+        full = checkpoint(handoff['source_checkpoint_snapshot'])
+        if full['active'] != {} or set(full['terminal']) != set(ids):
+            return False
+        if not aware_time(full['as_of']) <= marker_at <= finished_at:
+            return False
+        proofs = handoff['per_cpu_release_before_avg_admission']
+        if len(proofs) != len(cpus) or sorted(row['cpu'] for row in proofs) != sorted(cpus):
+            return False
+        empty_at = {}
+        for proof in proofs:
+            cpu = proof['cpu']
+            saved = checkpoint(proof['source_checkpoint_snapshot'])
+            active_cpus = sorted({row['cpu'] for row in saved['active'].values()})
+            when = aware_time(proof['scope_empty_at'])
+            if (proof['permanent_release'] is not True
+                    or proof['actual_scopes_before_avg_admission'] != []
+                    or proof['source_pending'] != 0 or proof['source_active'] != len(saved['active'])
+                    or proof['source_terminal'] != len(saved['terminal'])
+                    or proof['source_active_cpu_ids'] != active_cpus or cpu in active_cpus
+                    or proof['source_checkpoint_as_of'] != saved['as_of']
+                    or not aware_time(saved['as_of']) <= when <= finished_at):
+                return False
+            empty_at[cpu] = when
+        # These are bounded, already-saved configs/journals, not task logs or answers.
+        # A CPU not yet used by AVG has no acquisition to order against its release.
+        for name in ids:
+            path = avg / 'generation' / name / 'config.json'
+            if not path.exists():
+                continue
+            config = read(path)
+            cpu = config['environment']['kwargs']['baseline_cpu_offset']
+            started = read(avg / 'audit' / (name + '.generation.started.json'))
+            if (config['agent']['model_name'] != 'openai/apex-avg64'
+                    or started['task'] != name or started['phase'] != 'generation'
+                    or empty_at[cpu] > aware_time(started['started_at'])):
+                return False
+        current_avg_scopes = handoff['current_avg_scopes_on_released_cpus']
+        return (isinstance(current_avg_scopes, list)
+                and handoff['whole_pool_empty_at_this_time'] is (not current_avg_scopes))
+    except (KeyError, ValueError, TypeError, OSError):
         return False
 
 
@@ -123,12 +214,20 @@ def collect(root, manifest_path, scope_reader=active_scopes):
     handoff_path = root / manifest['source_cpu_handoff']
     handoff = read(handoff_path) if handoff_path.exists() else {}
     handed_off = valid_handoff(marker, handoff, manifest['source_cpu_ids'])
+    source_handoff_path = None
+    source_handoff, source_handed_off = {}, False
+    if manifest.get('source_specific_cpu_handoff'):
+        assert manifest['source_specific_cpu_handoff'] == (
+            'artifacts/eval/avg64_swe_hard51_20261017/source-expert-consumers-finished.json')
+        source_handoff_path = root / manifest['source_specific_cpu_handoff']
+        source_handoff = read(source_handoff_path) if source_handoff_path.exists() else {}
+        source_handed_off = valid_source_handoff(root, manifest, marker, source_handoff, ids)
     gates = {'all51_effectively_scored': len(valid) == 51,
         'all51_original_attempts_terminal': set(raw['terminal']) == set(ids),
         'original_active_empty': raw['active'] == {}, 'original_pending_empty': raw['pending'] == [],
         'original_model_consumer_finished': marker.get('model_consumer_finished') is True,
         'original_scoring_explicitly_finished': marker.get('scoring_may_still_be_running') is False,
-        'source_cpu_drain_proven': scopes == [] or handed_off}
+        'source_cpu_drain_proven': scopes == [] or handed_off or source_handed_off}
     complete = all(gates.values())
     return {'as_of': datetime.now(timezone.utc).isoformat(),
         'state': 'complete' if complete else 'audited_snapshot_incomplete',
@@ -146,6 +245,9 @@ def collect(root, manifest_path, scope_reader=active_scopes):
         'resource_marker': str(marker_path), 'resource_marker_observed': marker,
         'source_cpu_handoff': str(handoff_path), 'source_cpu_handoff_observed': handoff,
         'source_cpu_handoff_valid': handed_off,
+        'source_specific_cpu_handoff': str(source_handoff_path) if source_handoff_path else None,
+        'source_specific_cpu_handoff_observed': source_handoff,
+        'source_specific_cpu_handoff_valid': source_handed_off,
         'active_source_cpu_scopes': scopes, 'new_model_calls': 0, 'new_replays': 0,
         'selection_policy': 'Four exact approved native-zero results; all other original validity retained; no reward search',
         'tasks': rows}

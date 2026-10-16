@@ -1,0 +1,264 @@
+{
+  "recorded_at_utc": "2026-10-16T19:41:36.411406+00:00",
+  "state": "actual_avg64_swe_partial_cpu_admission_verified",
+  "output": "artifacts/eval/avg64_swe_hard51_20261017",
+  "source_output": "artifacts/eval/swe249_hard51_20261016",
+  "new_parent_pid": 3239747,
+  "previous_zero_admission_parent": 2749804,
+  "raw_preflight": "artifacts/eval/avg64_swe_hard51_20261017/partial-scheduling-preflight.json",
+  "preflight": {
+    "at_utc": "2026-10-16T19:40:17.755379+00:00",
+    "old_avg_parent": 2749804,
+    "avg_pending": 51,
+    "avg_active": 0,
+    "avg_terminal": 0,
+    "avg_formal_directory_counts": {
+      "generation": 0,
+      "replay": 0
+    },
+    "source_as_of": "2026-10-16T19:40:14.287183+00:00",
+    "source_terminal": 50,
+    "source_active": 1,
+    "source_pending": 0,
+    "source_active_cpu_ids": [
+      5
+    ],
+    "source_active_details": {
+      "instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b": {
+        "cpu": 5,
+        "phase": "generation",
+        "started_at": "2026-10-16T19:10:50.806913+00:00",
+        "pid": 3085258
+      }
+    },
+    "candidate_released_cpu_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9
+    ],
+    "actual_scopes_by_cpu": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [
+        "apex-baseline-7e177e4814b2.scope"
+      ],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": []
+    },
+    "avg_terminal_slots": 10,
+    "planned_max_native_requests": 20,
+    "preserved_foreign_parents": [
+      824673,
+      2878518,
+      2878519
+    ]
+  },
+  "launch": {
+    "at_utc": "2026-10-16T19:40:27.828170+00:00",
+    "pid": 3239747,
+    "argv": [
+      "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+      "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_merged_benchmark.py",
+      "--config=/data/caoqinlu/projects/apex-takehome/configs/eval/avg64_swe_hard51_20261017.json"
+    ],
+    "log": "artifacts/eval/avg64_swe_hard51_20261017/controller-partial-cpu.log",
+    "previous_zero_admission_parent": 2749804,
+    "foreign_parents_not_restarted": [
+      824673,
+      2878518,
+      2878519
+    ],
+    "protocol_unchanged": true,
+    "partial_admission_receipt": "initial-admission-opened.json",
+    "legacy_full_pool_receipt": "admission-opened.json",
+    "full_source_only_receipt": "source-expert-consumers-finished.json",
+    "per_cpu_evidence": "cpu-handoffs.json",
+    "new_gpu_allocations": 0
+  },
+  "initial_admission": {
+    "at": "2026-10-16T19:40:28.690325+00:00",
+    "cpu_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9
+    ],
+    "initial_max_parallel": 9,
+    "source_pending": 0,
+    "source_active": 1,
+    "source_terminal": 50,
+    "source_active_cpu_ids": [
+      5
+    ],
+    "source_all_consumers_finished": false,
+    "permanent_marker": "artifacts/eval/validation_direct_20261016/shared_cpu_ready.json",
+    "handoffs": "artifacts/eval/avg64_swe_hard51_20261017/cpu-handoffs.json",
+    "whole_pool_drain_proof": false
+  },
+  "first_admission": {
+    "at": "2026-10-16T19:40:29.231872+00:00",
+    "model": "apex-avg64",
+    "task_id": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+    "cpu": 0,
+    "child_pid": 3239762,
+    "parent_pid": 3239747,
+    "leased_cpu_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9
+    ],
+    "solver_seconds": 1800,
+    "cpus_per_task": 1,
+    "memory_mib": 4096,
+    "context_tokens": 65536,
+    "output_tokens": 8192
+  },
+  "observed_progress": {
+    "as_of": "2026-10-16T19:41:29.279380+00:00",
+    "state": "running",
+    "active": 9,
+    "pending": 42,
+    "terminal": 0,
+    "valid_scored": 0,
+    "primary_score_percent": null,
+    "leased_cpu_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9
+    ],
+    "active_cpu_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "observed_source": {
+    "as_of": "2026-10-16T19:41:34.508741+00:00",
+    "terminal": 50,
+    "active": 1,
+    "pending": 0,
+    "active_cpu_ids": [
+      5
+    ]
+  },
+  "preserved_foreign_parents_alive": {
+    "824673": true,
+    "2878518": true,
+    "2878519": true
+  },
+  "actual_generation_directories": 9,
+  "observed_native_request_files": 61,
+  "native_request_metadata_examples": [
+    {
+      "path": "artifacts/eval/avg64_swe_hard51_20261017/requests/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/raw/00001.request.json",
+      "model": "apex-avg64",
+      "max_tokens": 8192,
+      "attempt": 1,
+      "request_started_unix": 1792179647.1474051
+    },
+    {
+      "path": "artifacts/eval/avg64_swe_hard51_20261017/requests/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/raw/00002.request.json",
+      "model": "apex-avg64",
+      "max_tokens": 8192,
+      "attempt": 1,
+      "request_started_unix": 1792179662.9956117
+    },
+    {
+      "path": "artifacts/eval/avg64_swe_hard51_20261017/requests/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/raw/00003.request.json",
+      "model": "apex-avg64",
+      "max_tokens": 8192,
+      "attempt": 1,
+      "request_started_unix": 1792179667.6111763
+    }
+  ],
+  "observed_legacy_whole_pool_proof_exists": false,
+  "observed_full_source_receipt_exists": false,
+  "per_cpu_evidence_file": "artifacts/eval/avg64_swe_hard51_20261017/cpu-handoffs.json",
+  "immutable_initial_source_checkpoint": "artifacts/eval/avg64_swe_hard51_20261017/source-cpu-release-checkpoints/initial.json",
+  "later_source_receipt": {
+    "path": "artifacts/eval/avg64_swe_hard51_20261017/source-expert-consumers-finished.json",
+    "schema": "swe_source_cpu_handoff_v1",
+    "write_only_after": "Source pending=[] and active={} with all51 exact IDs terminal; original canonical model_consumer_finished=true, expected51, modelapex-val-swe249 and scoring_may_still_be_running=false; all10 CPU handoff proofs exist.",
+    "contents": "Original final source model marker; immutable full source checkpoint; each CPU scope-empty timestamp before AVG admission and original checkpoint snapshot; current AVG scopes listed separately.",
+    "legacy_proof_semantics": "admission-opened.json retains actual whole0-9 pool-empty semantics and is absent while any AVG or source scope remains. Partial admission never writes its full-drained=true.",
+    "audited_collector": "Root independently reviews/updates collector; merge agent did not modify collector."
+  },
+  "final_terminal_release_guard": "all_cpu_consumers_finished.json requires every AVG51 attempt finished, source all51/model/scoring consumers fully finished, every CPU0-9 permanently handed off and actual full0-9 program scopes empty.",
+  "protocol_preserved": {
+    "tasks": 51,
+    "model": "apex-avg64",
+    "solver_seconds": 1800,
+    "mini_inner_seconds": 1740,
+    "cpus_per_task": 1,
+    "memory_mib": 4096,
+    "context_tokens": 65536,
+    "max_output_tokens": 8192,
+    "thinking": false,
+    "automatic_answer_regeneration": false,
+    "max_swe_slots": 10,
+    "avg_terminal_slots_at_launch": 10,
+    "max_combined_slots_at_launch": 20,
+    "new_gpu_allocations": 0
+  },
+  "cpu_helper_checks": {
+    "passed": true,
+    "initial9_source_cpu5_excluded": true,
+    "missing_source_accounting_or_pending_tasks_block_release": true,
+    "source_active_cpu_blocks_even_if_scope_temporarily_empty": true,
+    "source_cpu5_joins_only_after_consumer_and_scope_drain": true,
+    "scoring_true_blocks_full_source_receipt": true,
+    "existing_avg_scopes_never_produce_false_legacy_full_pool_proof": true,
+    "immutable_checkpoint_snapshots_reproduce_each_cpu_release": true,
+    "syntax_checked_on_actual_host80_harbor_python": true
+  },
+  "scope_check_families": [
+    "apex-baseline-",
+    "apex-asi-",
+    "ai4sci-submission-"
+  ],
+  "primary_score_percent": null,
+  "interpretation": "First real fixed-HARD51 admissions and native request metadata only, not a complete benchmark score.",
+  "owned_new_files": [
+    "analysis/source_snapshots/avg64_swe_partial_cpu_handoff_20261017.json"
+  ],
+  "owned_existing_files_updated": [
+    "scripts/run_swe_merged_benchmark.py",
+    "configs/eval/avg64_swe_hard51_20261017.json",
+    "analysis/merged_execution_deployment_20261017.md",
+    "analysis/source_snapshots/merged_execution_queue_deployment_20261017.json"
+  ]
+}

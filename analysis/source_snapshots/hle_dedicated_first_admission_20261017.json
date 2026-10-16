@@ -1,0 +1,699 @@
+{
+  "captured_at_utc": "2026-10-16T19:47:35.395079+00:00",
+  "formal_runs": {
+    "expert": {
+      "output": "artifacts/eval/hle250_hle2500_20261017",
+      "controller": {
+        "pid": 3266640,
+        "profile": "expert",
+        "model": "apex-hle250",
+        "checkpoint": "artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-250",
+        "endpoint": "http://127.0.0.1:28094",
+        "output": "artifacts/eval/hle250_hle2500_20261017",
+        "service_job_id": 727821,
+        "service_node": "ACD1-1",
+        "service_port": 18004,
+        "max_lora_rank": 16,
+        "started_at_utc": "2026-10-16T19:46:01.798395+00:00",
+        "consumer_claim": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/formal_consumer.lock"
+      },
+      "launch": {
+        "generation": [
+          "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+          "/data/caoqinlu/projects/apex-takehome/scripts/run_direct_hle_formal.py",
+          "--project",
+          "/data/caoqinlu/projects/apex-takehome",
+          "--mode",
+          "formal",
+          "--model",
+          "apex-hle250",
+          "--endpoint",
+          "http://127.0.0.1:28094",
+          "--key-file",
+          "/data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key",
+          "--output",
+          "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017"
+        ],
+        "generation_pid": 3266684,
+        "scoring": [
+          "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+          "/data/caoqinlu/projects/apex-takehome/scripts/score_direct_hle_formal.py",
+          "--project",
+          "/data/caoqinlu/projects/apex-takehome",
+          "--retry",
+          "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017",
+          "--output",
+          "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/scoring",
+          "--max-cny",
+          "20",
+          "--max-calls",
+          "5000",
+          "--workers",
+          "2"
+        ],
+        "scoring_pid": 3266685,
+        "at_utc": "2026-10-16T19:46:01.828793+00:00"
+      },
+      "state": {
+        "state": "generation_and_scoring",
+        "generation_pid": 3266684,
+        "scoring_pid": 3266685,
+        "at_utc": "2026-10-16T19:46:01.828925+00:00"
+      },
+      "acceptance": {
+        "ready": true,
+        "at_utc": "2026-10-16T19:45:49.073231+00:00",
+        "model_requests": 2,
+        "synthetic_only": true,
+        "formal_or_validation_questions": 0,
+        "checks": [
+          {
+            "task": "text",
+            "model": "apex-hle250",
+            "vision": false,
+            "prompt_tokens": 22,
+            "usage": {
+              "prompt_tokens": 22,
+              "total_tokens": 33,
+              "completion_tokens": 11,
+              "prompt_tokens_details": null
+            }
+          },
+          {
+            "task": "hle",
+            "model": "apex-hle250",
+            "vision": true,
+            "prompt_tokens": 87,
+            "usage": {
+              "prompt_tokens": 87,
+              "total_tokens": 97,
+              "completion_tokens": 10,
+              "prompt_tokens_details": null
+            }
+          }
+        ]
+      },
+      "run_config": {
+        "mode": "formal",
+        "protocol_sha256": "dcd28455f0ebd81d9e4b9043694eb57e9e42abb6c72f8bbe41cfa01745c1f081",
+        "task_manifest_sha256": "2e1d5aa73537c513878dd69451b6265d01a1131375c724f31ac6a683b2ebbb49",
+        "input_sha256": "6d0ee0602e8aea6b159509577e884f48ecac7b8e3f6822a35f51335a446c726a",
+        "official_source_sha256": "d2062d8afcfb8968f350bbae953e897d4303a6f72a4ae7d97b7db0137a333b17",
+        "runner_sha256": "78249bbdac5c2b03d0b2cd6958f776c26a8ef348513c78a102f49fbce51b0042",
+        "system_prompt_sha256": "40f399fe8c277e2cb98ad8ca663461141d1abbf01a18da3c4129eccc706b4326",
+        "model_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+        "served_model": "apex-hle250",
+        "endpoint": "http://127.0.0.1:28094",
+        "solver_concurrency": 50,
+        "generation": {
+          "temperature": 0.7,
+          "top_p": 0.8,
+          "top_k": 20,
+          "min_p": 0,
+          "presence_penalty": 0,
+          "repetition_penalty": 1,
+          "max_tokens": 8192,
+          "sampling_seed": 0,
+          "scope": "Explicit non-thinking experiment settings for SWE/ASI/HLE; Terminal overrides temperature/top_p. Exact max_tokens applies to every evaluated-model main/helper call, not to grading services or total trial usage."
+        },
+        "thinking": false,
+        "preserve_thinking": false,
+        "question_walltime_seconds": 300,
+        "total_questions": 2500,
+        "read_columns": [
+          "id",
+          "question",
+          "image"
+        ],
+        "grading": "separate; no gold or grading service accessed"
+      },
+      "first_admission": {
+        "id": "6687ffb1091058ff19128813",
+        "pid": 3266684,
+        "started_at_utc": "2026-10-16T19:46:02.891575+00:00"
+      },
+      "first_saved_terminal": {
+        "id": "66e8d4736299517dd7a5da8c",
+        "status": "completed",
+        "is_image": false,
+        "started_at_utc": "2026-10-16T19:46:03.042978+00:00",
+        "finished_at_utc": "2026-10-16T19:46:08.289070+00:00",
+        "elapsed_seconds": 5.2461,
+        "usage": {
+          "prompt_tokens": 101,
+          "total_tokens": 106,
+          "completion_tokens": 5,
+          "prompt_tokens_details": null
+        }
+      },
+      "snapshot": {
+        "admitted": 214,
+        "completed": 164,
+        "active": 50,
+        "started_files": 214,
+        "saved_results": 164,
+        "at_utc": "2026-10-16T19:47:35.363226+00:00"
+      },
+      "actual_consumer_claims": {
+        "artifacts/eval/hle250_hle2500_20261017/formal_consumer.lock": [
+          "123: FLOCK  ADVISORY  WRITE 3266640 08:11:105204999 0 EOF"
+        ],
+        "artifacts/eval/hle250_hle2500_20261017/model_block.lock": [
+          "54: FLOCK  ADVISORY  WRITE 3266684 08:11:105205059 0 EOF"
+        ],
+        "artifacts/eval/hle250_hle2500_20261017/scoring/controller.lock": [
+          "11: FLOCK  ADVISORY  WRITE 3266685 08:11:109123159 0 EOF"
+        ]
+      },
+      "scoring_snapshot": {
+        "complete": false,
+        "expected": 2500,
+        "scored": 41,
+        "pending": 2459,
+        "judge_generation_calls": 43,
+        "accounted_cost_cny": 0.052218,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "provider": "DeepSeek-V4-Flash",
+        "updated_at_utc": "2026-10-16T19:47:33.668770+00:00"
+      }
+    },
+    "merged": {
+      "output": "artifacts/eval/avg64_hle2500_20261017",
+      "controller": {
+        "pid": 3269007,
+        "profile": "merged",
+        "model": "apex-avg64",
+        "checkpoint": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+        "endpoint": "http://127.0.0.1:28095",
+        "output": "artifacts/eval/avg64_hle2500_20261017",
+        "service_job_id": 727822,
+        "service_node": "ACD1-30",
+        "service_port": 18005,
+        "max_lora_rank": 64,
+        "started_at_utc": "2026-10-16T19:47:00.176005+00:00",
+        "consumer_claim": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/formal_consumer.lock"
+      },
+      "launch": {
+        "generation": [
+          "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+          "/data/caoqinlu/projects/apex-takehome/scripts/run_direct_hle_formal.py",
+          "--project",
+          "/data/caoqinlu/projects/apex-takehome",
+          "--mode",
+          "formal",
+          "--model",
+          "apex-avg64",
+          "--endpoint",
+          "http://127.0.0.1:28095",
+          "--key-file",
+          "/data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key",
+          "--output",
+          "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017"
+        ],
+        "generation_pid": 3269009,
+        "scoring": [
+          "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+          "/data/caoqinlu/projects/apex-takehome/scripts/score_direct_hle_formal.py",
+          "--project",
+          "/data/caoqinlu/projects/apex-takehome",
+          "--retry",
+          "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017",
+          "--output",
+          "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring",
+          "--max-cny",
+          "20",
+          "--max-calls",
+          "5000",
+          "--workers",
+          "2"
+        ],
+        "scoring_pid": 3269010,
+        "at_utc": "2026-10-16T19:47:00.206260+00:00"
+      },
+      "state": {
+        "state": "generation_and_scoring",
+        "generation_pid": 3269009,
+        "scoring_pid": 3269010,
+        "at_utc": "2026-10-16T19:47:00.206386+00:00"
+      },
+      "acceptance": {
+        "ready": true,
+        "at_utc": "2026-10-16T19:46:53.496462+00:00",
+        "model_requests": 2,
+        "synthetic_only": true,
+        "formal_or_validation_questions": 0,
+        "checks": [
+          {
+            "task": "text",
+            "model": "apex-avg64",
+            "vision": false,
+            "prompt_tokens": 22,
+            "usage": {
+              "prompt_tokens": 22,
+              "total_tokens": 54,
+              "completion_tokens": 32,
+              "prompt_tokens_details": null
+            }
+          },
+          {
+            "task": "hle",
+            "model": "apex-avg64",
+            "vision": true,
+            "prompt_tokens": 87,
+            "usage": {
+              "prompt_tokens": 87,
+              "total_tokens": 119,
+              "completion_tokens": 32,
+              "prompt_tokens_details": null
+            }
+          }
+        ]
+      },
+      "run_config": {
+        "mode": "formal",
+        "protocol_sha256": "dcd28455f0ebd81d9e4b9043694eb57e9e42abb6c72f8bbe41cfa01745c1f081",
+        "task_manifest_sha256": "2e1d5aa73537c513878dd69451b6265d01a1131375c724f31ac6a683b2ebbb49",
+        "input_sha256": "6d0ee0602e8aea6b159509577e884f48ecac7b8e3f6822a35f51335a446c726a",
+        "official_source_sha256": "d2062d8afcfb8968f350bbae953e897d4303a6f72a4ae7d97b7db0137a333b17",
+        "runner_sha256": "78249bbdac5c2b03d0b2cd6958f776c26a8ef348513c78a102f49fbce51b0042",
+        "system_prompt_sha256": "40f399fe8c277e2cb98ad8ca663461141d1abbf01a18da3c4129eccc706b4326",
+        "model_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+        "served_model": "apex-avg64",
+        "endpoint": "http://127.0.0.1:28095",
+        "solver_concurrency": 50,
+        "generation": {
+          "temperature": 0.7,
+          "top_p": 0.8,
+          "top_k": 20,
+          "min_p": 0,
+          "presence_penalty": 0,
+          "repetition_penalty": 1,
+          "max_tokens": 8192,
+          "sampling_seed": 0,
+          "scope": "Explicit non-thinking experiment settings for SWE/ASI/HLE; Terminal overrides temperature/top_p. Exact max_tokens applies to every evaluated-model main/helper call, not to grading services or total trial usage."
+        },
+        "thinking": false,
+        "preserve_thinking": false,
+        "question_walltime_seconds": 300,
+        "total_questions": 2500,
+        "read_columns": [
+          "id",
+          "question",
+          "image"
+        ],
+        "grading": "separate; no gold or grading service accessed"
+      },
+      "first_admission": {
+        "id": "6687ffb1091058ff19128813",
+        "pid": 3269009,
+        "started_at_utc": "2026-10-16T19:47:01.317767+00:00"
+      },
+      "first_saved_terminal": {
+        "id": "66e89811ca68059533a83566",
+        "status": "completed",
+        "is_image": false,
+        "started_at_utc": "2026-10-16T19:47:01.371965+00:00",
+        "finished_at_utc": "2026-10-16T19:47:12.424572+00:00",
+        "elapsed_seconds": 11.0526,
+        "usage": {
+          "prompt_tokens": 254,
+          "total_tokens": 256,
+          "completion_tokens": 2,
+          "prompt_tokens_details": null
+        }
+      },
+      "snapshot": {
+        "admitted": 54,
+        "completed": 4,
+        "active": 50,
+        "started_files": 54,
+        "saved_results": 4,
+        "at_utc": "2026-10-16T19:47:15.899659+00:00"
+      },
+      "actual_consumer_claims": {
+        "artifacts/eval/avg64_hle2500_20261017/formal_consumer.lock": [
+          "79: FLOCK  ADVISORY  WRITE 3269007 08:11:90917280 0 EOF"
+        ],
+        "artifacts/eval/avg64_hle2500_20261017/model_block.lock": [
+          "144: FLOCK  ADVISORY  WRITE 3269009 08:11:90917281 0 EOF"
+        ],
+        "artifacts/eval/avg64_hle2500_20261017/scoring/controller.lock": [
+          "118: FLOCK  ADVISORY  WRITE 3269010 08:11:91048274 0 EOF"
+        ]
+      },
+      "scoring_snapshot": {
+        "complete": false,
+        "expected": 2500,
+        "scored": 3,
+        "pending": 2497,
+        "judge_generation_calls": 4,
+        "accounted_cost_cny": 0.012801,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "provider": "DeepSeek-V4-Flash",
+        "updated_at_utc": "2026-10-16T19:47:34.123647+00:00"
+      }
+    }
+  },
+  "coordinator_handoff": {
+    "at_utc": "2026-10-16T19:39:43.045636+00:00",
+    "handoffs": [
+      {
+        "profile": "expert",
+        "old_coordinator_pid": 2792243,
+        "old_children": "",
+        "signal": "SIGTERM only exact coordinator PID",
+        "new_coordinator_pid": 3237024,
+        "unchanged_asi_pid": 2752099,
+        "unchanged_asi_starttime_ticks": "867337587",
+        "before": {
+          "state.json": {
+            "state": "asi_generation",
+            "pid": 2752099,
+            "coordinator_reattached": true,
+            "at_utc": "2026-10-16T18:20:11.225910+00:00"
+          },
+          "controller.json": {
+            "pid": 2792243,
+            "profile": "expert",
+            "endpoint": "http://127.0.0.1:28090",
+            "aliases": {
+              "asi": "apex-asi128",
+              "hle": "apex-hle250"
+            },
+            "at_utc": "2026-10-16T18:20:11.225365+00:00",
+            "state": "waiting_service"
+          }
+        }
+      },
+      {
+        "profile": "merged",
+        "old_coordinator_pid": 2792244,
+        "old_children": "",
+        "signal": "SIGTERM only exact coordinator PID",
+        "new_coordinator_pid": 3237026,
+        "unchanged_asi_pid": 2752099,
+        "unchanged_asi_starttime_ticks": "867337587",
+        "before": {
+          "state.json": {
+            "state": "waiting_cpu_gate",
+            "gate": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/generation_cpu_finished.json",
+            "at_utc": "2026-10-16T18:20:11.225030+00:00"
+          },
+          "controller.json": {
+            "pid": 2792244,
+            "profile": "merged",
+            "endpoint": "http://127.0.0.1:28093",
+            "aliases": {
+              "asi": "apex-avg64",
+              "hle": "apex-avg64"
+            },
+            "at_utc": "2026-10-16T18:20:11.224672+00:00",
+            "state": "waiting_service"
+          }
+        }
+      }
+    ],
+    "new_model_calls": 0,
+    "new_replays": 0
+  },
+  "asi_preservation": {
+    "pid": 2752099,
+    "starttime_ticks": "867337587",
+    "same_process_as_before_handoff": true,
+    "completed_conditions": 113,
+    "state": "running",
+    "new_model_requests_due_to_handoff": 0,
+    "new_replays_due_to_handoff": 0
+  },
+  "tunnels": {
+    "at_utc": "2026-10-16T19:47:35.139030+00:00",
+    "pid": 3236500,
+    "starts": {
+      "hle_expert": 2,
+      "hle_merged": 2
+    },
+    "workers": {
+      "hle_expert": {
+        "pid": 3261963,
+        "benchmark": "hle_expert",
+        "job_id": 727821,
+        "node": "ACD1-1",
+        "service_port": 18004,
+        "bridge_port": 28094
+      },
+      "hle_merged": {
+        "pid": 3261964,
+        "benchmark": "hle_merged",
+        "job_id": 727822,
+        "node": "ACD1-30",
+        "service_port": 18005,
+        "bridge_port": 28095
+      }
+    },
+    "note": "SSH liveness only; solver controllers gate HTTP health independently."
+  },
+  "hpc": {
+    "captured_at_utc": "2026-10-16T19:47:55.848965+00:00",
+    "services": {
+      "727821": {
+        "launch": {
+          "started_at_utc": "2026-10-16T19:38:29.042697+00:00",
+          "job_id": "727821",
+          "hostname": "ACD1-1",
+          "profile": "hle-expert",
+          "port": 18004,
+          "command": [
+            "/data/user/qinlucao/projects/apex-takehome/artifacts/envs/base-inference/bin/python",
+            "-m",
+            "vllm.entrypoints.openai.api_server",
+            "--model",
+            "/data/user/qinlucao/projects/apex-takehome/artifacts/models/Qwen3.6-35B-A3B/995ad96eacd98c81ed38be0c5b274b04031597b0",
+            "--served-model-name",
+            "apex-direct-base",
+            "--host",
+            "0.0.0.0",
+            "--port",
+            "18004",
+            "--dtype",
+            "bfloat16",
+            "--tensor-parallel-size",
+            "2",
+            "--distributed-executor-backend",
+            "mp",
+            "--max-model-len",
+            "65536",
+            "--max-num-seqs",
+            "50",
+            "--max-num-batched-tokens",
+            "8192",
+            "--enable-chunked-prefill",
+            "--gpu-memory-utilization",
+            "0.85",
+            "--enforce-eager",
+            "--gdn-prefill-backend",
+            "triton",
+            "--moe-backend",
+            "triton",
+            "--enable-auto-tool-choice",
+            "--tool-call-parser",
+            "qwen3_coder",
+            "--reasoning-parser",
+            "qwen3",
+            "--default-chat-template-kwargs",
+            "{\"enable_thinking\":false,\"preserve_thinking\":false}",
+            "--enable-lora",
+            "--max-lora-rank",
+            "16",
+            "--max-loras",
+            "1",
+            "--max-cpu-loras",
+            "2",
+            "--lora-dtype",
+            "bfloat16",
+            "--lora-target-modules",
+            "qkv_proj",
+            "o_proj",
+            "in_proj_qkv",
+            "in_proj_z",
+            "in_proj_ba",
+            "out_proj",
+            "gate_up_proj",
+            "down_proj",
+            "--lora-modules",
+            "apex-hle250=/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-250",
+            "--no-enable-log-requests"
+          ],
+          "model_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+          "context_tokens": 65536,
+          "output_cap_per_request": 8192,
+          "base_alias": "apex-direct-base",
+          "adapters": {
+            "apex-hle250": {
+              "path": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-250",
+              "tensors": 620,
+              "modules": 310,
+              "rank": 16,
+              "alpha": 32
+            }
+          },
+          "max_num_seqs": 50,
+          "max_loras": 1,
+          "max_cpu_loras": 2,
+          "max_lora_rank": 16,
+          "thinking": false,
+          "preserve_thinking": false,
+          "authentication": "private Base key file via VLLM_API_KEY; never logged",
+          "state": "starting; accept only after health, aliases, no ignored adapter layers, and generation"
+        },
+        "ignored_adapter_warning_count": 0
+      },
+      "727822": {
+        "launch": {
+          "started_at_utc": "2026-10-16T19:38:29.019027+00:00",
+          "job_id": "727822",
+          "hostname": "ACD1-30",
+          "profile": "hle-merged",
+          "port": 18005,
+          "command": [
+            "/data/user/qinlucao/projects/apex-takehome/artifacts/envs/base-inference/bin/python",
+            "-m",
+            "vllm.entrypoints.openai.api_server",
+            "--model",
+            "/data/user/qinlucao/projects/apex-takehome/artifacts/models/Qwen3.6-35B-A3B/995ad96eacd98c81ed38be0c5b274b04031597b0",
+            "--served-model-name",
+            "apex-direct-base",
+            "--host",
+            "0.0.0.0",
+            "--port",
+            "18005",
+            "--dtype",
+            "bfloat16",
+            "--tensor-parallel-size",
+            "2",
+            "--distributed-executor-backend",
+            "mp",
+            "--max-model-len",
+            "65536",
+            "--max-num-seqs",
+            "50",
+            "--max-num-batched-tokens",
+            "8192",
+            "--enable-chunked-prefill",
+            "--gpu-memory-utilization",
+            "0.85",
+            "--enforce-eager",
+            "--gdn-prefill-backend",
+            "triton",
+            "--moe-backend",
+            "triton",
+            "--enable-auto-tool-choice",
+            "--tool-call-parser",
+            "qwen3_coder",
+            "--reasoning-parser",
+            "qwen3",
+            "--default-chat-template-kwargs",
+            "{\"enable_thinking\":false,\"preserve_thinking\":false}",
+            "--enable-lora",
+            "--max-lora-rank",
+            "64",
+            "--max-loras",
+            "1",
+            "--max-cpu-loras",
+            "2",
+            "--lora-dtype",
+            "bfloat16",
+            "--lora-target-modules",
+            "qkv_proj",
+            "o_proj",
+            "in_proj_qkv",
+            "in_proj_z",
+            "in_proj_ba",
+            "out_proj",
+            "gate_up_proj",
+            "down_proj",
+            "--lora-modules",
+            "apex-avg64=/data/user/qinlucao/projects/apex-takehome/artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+            "--no-enable-log-requests"
+          ],
+          "model_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+          "context_tokens": 65536,
+          "output_cap_per_request": 8192,
+          "base_alias": "apex-direct-base",
+          "adapters": {
+            "apex-avg64": {
+              "path": "/data/user/qinlucao/projects/apex-takehome/artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+              "tensors": 620,
+              "modules": 310,
+              "rank": 64,
+              "alpha": 64
+            }
+          },
+          "max_num_seqs": 50,
+          "max_loras": 1,
+          "max_cpu_loras": 2,
+          "max_lora_rank": 64,
+          "thinking": false,
+          "preserve_thinking": false,
+          "authentication": "private Base key file via VLLM_API_KEY; never logged",
+          "state": "starting; accept only after health, aliases, no ignored adapter layers, and generation"
+        },
+        "ignored_adapter_warning_count": 0
+      }
+    },
+    "slurm_jobs": [
+      "727831|apex-hle-controls|RUNNING|gres/gpu:2|ACD1-30",
+      "727821|apex-hle250-direct|RUNNING|gres/gpu:2|ACD1-1",
+      "727822|apex-avg64-hle|RUNNING|gres/gpu:2|ACD1-30",
+      "727660|apex-avg64-execution|RUNNING|gres/gpu:2|ACD1-50",
+      "727654|apex-merged-direct|RUNNING|gres/gpu:2|ACD1-36",
+      "727643|apex-direct-experts|RUNNING|gres/gpu:2|ACD1-2",
+      "727640|apex-terminal250|RUNNING|gres/gpu:2|ACD1-28"
+    ],
+    "authorization_change": {
+      "file": "/data/user/qinlucao/.ssh/authorized_keys",
+      "entry_comment": "apex-baseline-forward-20261016",
+      "added_exact_permitopen": [
+        "ACD1-1:18004",
+        "ACD1-30:18005",
+        "ACD1-30:18006"
+      ],
+      "verified_present": true,
+      "restrict_preserved": true,
+      "forced_command_preserved": true,
+      "mode": "0o600",
+      "key_value_recorded": false
+    }
+  },
+  "gpu_resource_snapshot": {
+    "running_tp2_jobs": 7,
+    "total_gpus": 14,
+    "limit": 16,
+    "remaining_headroom": 2,
+    "root_confirmation": "Root confirmed old SWE service727113 was cancelled only after51 terminal and zero consumers, ended03:47:02; control727831 belongs to root."
+  },
+  "checks": {
+    "three_python_sources_ast_parsed": true,
+    "parameterized_slurm_bash_syntax_passed": true,
+    "new_asi_coordinator_contains_no_hle_generation_or_scoring_launch": true,
+    "unchanged_asi_parallel8_cpu_offset96": true,
+    "each_service_synthetic_text_and_image_passed": true,
+    "four_synthetic_model_requests_total": true,
+    "formal_questions_in_synthetic_acceptance": 0,
+    "both_formal_runs_have_real_first_admission": true,
+    "all_six_actual_consumer_locks_held": true,
+    "existing_terminal_results_retained_by_unchanged_hle_generator": true
+  },
+  "source_sha256": {
+    "scripts/serve_direct_experts.py": "35dd0a9b57da81319a9cf24918a7fb54a62649c1b5e46d8b41d4fde7f09923f5",
+    "scripts/serve_direct_experts.slurm": "46122b6cdb10ac9067cefd5c923aa67a8eef462395a5c187434ced3c1bb713ff",
+    "scripts/run_direct_formal_pipeline.py": "f0110fddadd4d341da242ab9f2d4fa53f0b25b86f04762f2feebd623121043ac",
+    "scripts/run_dedicated_hle_formal.py": "12bb0424091bc19ad2b043aa529682d3c64f544dbda3ae775584c9b634c5e6fb"
+  },
+  "scope": "Two dedicated main HLE services and parent-only ASI coordinator handoff; root controls profile supported but not started by this agent",
+  "new_training_or_remerge": false,
+  "existing_asi_conditions_regenerated": false,
+  "base_modified": false,
+  "summarize_final_results_readme_claud_modified": false
+}

@@ -1,12 +1,14 @@
 # 当前进展与未决事项
 
-运行状态采集：**2026-10-17 03:03–03:05 CST**；这是保存的快照，持续运行的最新计数见各输出的`updated_at`。[机器收据](source_snapshots/formal_queue_status_20261017_0305.json)保留实际时间、CPU租约、服务与进程。最终截止10月18日14:20，核心实验计划在02:20前收尾，保留12小时。
+最新队列采集：**2026-10-17 03:47:49 CST**，[解除串行等待后的收据](source_snapshots/formal_evaluation_unblocked_20261017.json)保留各来源实际更新时间、任务对照准入及资源释放。这是已保存快照，持续运行计数以原输出为准；[03:45](source_snapshots/formal_queue_status_20261017_0345.json)和[03:03](source_snapshots/formal_queue_status_20261017_0305.json)旧快照保留历史。最终截止10月18日14:20，核心实验计划在02:20前收尾，保留12小时。每小时推进的本线程定时任务已更新并确认ACTIVE，截止02:20；本地机器和应用需保持运行。
+
+**Loss只作训练诊断，不作为val判断标准。** 已取消的独立任务val不恢复；专家、合版及固定训练/压缩对照使用实际任务分数。ASI128历史上按loss选择，不能证明其任务最优；当前服务、公开模型及AVG64已冻结使用128，保留该身份并披露局限，不在运行中悄悄换134。
 
 ## 已完成
 
 - **训练**：SWE249、Terminal250、HLE250、ASI134步（固定checkpoint128）、Mixed883均完成一轮。训练配置、实际加载条数、原生train/val曲线与源数据已保存，见[训练记录](training_curves_20261017.md)。独立task-level validation已取消，训练原有的SFT loss留出集保留。
 - **合版**：固定四专家等权平均，精确AVG64与固定SVD压缩AVG16均已导出并验证。AVG64在新增loss对照与正式反馈前固定为主模型，后续不依据正式分数选权重或checkpoint。
-- **已有SFT留出集对照**：同249条、64K上限，Base/AVG64/AVG16/Mixed883的原生loss为**2.105976 / 1.357921 / 1.379223 / 1.672463**。四候选完整结束，4卡已释放。图、精确CSV、原始summary和重画脚本齐备，见[对照结果](sft_loss_only_plan_20261017.md)。这项结果衡量监督拟合，不能替代任务成功率。
+- **已有SFT诊断**：同249条、64K上限，Base/AVG64/AVG16/Mixed883的原生loss为**2.105976 / 1.357921 / 1.379223 / 1.672463**。四候选完整结束，4卡已释放，原始数据与图保留，见[诊断记录](sft_loss_only_plan_20261017.md)。不把它算作任务级val或效果消融；新增[HLE2500实际任务对照](hle_task_controls_20261017.md)比较Mixed883与固定AVG16。
 - **公开模型**：四专家和AVG64共五个Public HF仓库均已发布、固定revision，并通过匿名全部文件下载和源权重比对，见[模型索引](../models/README.md)。
 - **代码交付**：[私人GitHub仓库](https://github.com/qinlu000/qwen36-35b-expert-merge-takehome)由原官方模板创建，实验代码在默认分支master，模板main保留。当前提交材料仍会继续更新。
 - **统计与成本**：固定ID的四项等权宏平均、paired cluster bootstrap与TB五seed均值/标准差的实现和人工算例已完成；资源账本记录了训练、失败/取消和服务等待等实际allocation。最终数值待全部结果收齐后刷新。
@@ -15,25 +17,28 @@
 
 | 队列 | 已保存的进度 | 接续方式 |
 | --- | --- | --- |
-| SWE专家 | 39/51次尝试结束；33份有效评分；10 active、2 pending | 继续原队列；评分异常另审计 |
-| AVG64 SWE | 0/51准入 | 等SWE专家模型/CPU消费者全部结束后，在CPU0–9准入 |
-| Terminal专家 | 2/445结束且有效；10 active | CPU12–51初始10槽，与AVG64并行 |
-| AVG64 Terminal | 1/445结束且有效；10 active | CPU52–91初始10槽 |
-| ASI专家 | 59/240 condition已保存；8 active | 完成生成后接本模型HLE及原生ASI grader |
-| AVG64 ASI | 等专家ASI生成CPU释放 | 接续同一CPU池；完成后接AVG64 HLE及ASI grader |
-| 专家/AVG64 HLE | 尚未开始 | 各模型ASI生成结束后自动接2500题，含342图像题 |
+| SWE专家 | 全51次尝试结束、0 active/pending；原生42份有效，已批准审计另汇总 | 原回答冻结；余下评分异常另审计 |
+| AVG64 SWE | 已真实准入；1终态有效、10 active、40 pending | 03:40先接9个释放槽，原专家结束后补CPU5到10槽 |
+| Terminal专家 | 23/445结束且有效；10 active | CPU12–51初始10槽，与AVG64并行 |
+| AVG64 Terminal | 23/445结束且有效；10 active | CPU52–91初始10槽 |
+| ASI专家 | 113/240 condition已保存；8 active，未科学判分 | 继续原生成；原生grader另接，不阻塞HLE |
+| AVG64 ASI | 等专家ASI生成CPU释放 | 接续同一CPU池及原生grader；HLE已独立运行 |
+| 专家/AVG64 HLE | 已正式启动；分别192/13题生成终态，各50 active | 各自2500题，不再等ASI；生成数不是正确率 |
+| Mixed883/AVG16 HLE | Mixed883已真实生成70题，50 active；AVG16待接续 | 相同HLE2500依次执行；不是新增独立val |
 
-五个独立TP2服务均健康，共**10张H100**，项目上限16张。Terminal初始10+10槽；SWE全部CPU释放后共增3槽，两ASI全部CPU释放后再共增8槽，最终专家16槽、AVG6415槽。两个扩容stage可先后任意触发，新增CPU都要实际排空。CPU11目前仍有原Base评分修复任务，其真实scope清空后才能纳入未来Terminal offset8租约。各队列配置及资源交接见[执行说明](merged_execution_deployment_20261017.md)。
+03:45时原五个TP2服务10卡，加独立HLE专家727821、合版727822、任务对照727831共6卡，达到上限**16张H100**。之后核实SWE专家51终态、原父进程退出、无消费者且原生模型running/waiting均0，已释放独占服务727113的2卡；剩余14卡，原固定patch评分不需保留GPU。新增三端口保持受限SSH key精确PermitOpen，原端口授权不变。Terminal初始10+10槽；SWE专家及AVG64全部CPU消费者结束后共增3槽，两ASI全部CPU释放后再共增8槽，最终专家16槽、AVG6415槽。两个扩容stage独立，新增CPU都要实际排空；原Base评分已收尾释放。各队列配置及资源交接见[执行说明](merged_execution_deployment_20261017.md)。
 
 当前覆盖率与attempt完成数尚不足以形成四项完整成绩。统一完整主分、宏平均提升和配对区间保持null，不能用有效子集均值替代。
 
-**后续Base评分恢复补记**：原owner的固定答案仅补评分，HLE现已2500/2500有效、99正确、3.96%；SWE截至03:13为49/51有效，Terminal截至03:13为439/445原生有效，之后仍在收尾。来源为[Base缺口记录](base_gap_completion_20261017.md)，这些计数有自己的保存时点，不改写上表03:03–03:05的专家/合版快照。三个Base Terminal结果进入真实官方测试后耗尽900秒，原始reward仍null；Harbor默认将这类None映射失败，但它同样会映射其他故障。后续只对有精确逐结果审计的计算超时提供独立固定预算视图，原生严格覆盖继续保留，不能把所有缺失填0。
+**Base评分恢复已收尾**：原owner于03:29完成固定答案的评分恢复，0新增Base求解。HLE2500/2500、99正确、3.96%；ASI240/240、1.570988%；SWE51/51计分结论、10通过、19.607843%，其中NodeBB官方测试解析审计0仍保留raw reward null。Terminal原生442/445、90正确；另3个官方测试900秒计算超时保留原null，仅独立预算视图采用445分母、mean20.224719%、sample SD2.635065个百分点。预算口径Base四项宏平均11.340888%；不能称全部原生reward齐全。来源为[Base缺口记录](base_gap_completion_20261017.md)，不把环境故障或未准入任务补0。
 
 **03:25统一统计补记**：[双视图收据](terminal_budget_aggregation_20261017.md)已实际运行：Base SWE50/51有效；Terminal严格442/445、3 native null，审计预算则445/445、均值20.224719%、五seed sample SD2.635065个百分点、89任务簇95%CI[13.033708%,27.865169%]。派生3项均保留native null，未改原始reward。Terminal专家/AVG64分别15/14份有效，仍在运行；HLE/ASI专家与合版尚待后续评分。严格与预算宏平均、模型差值和配对CI均未齐备。
 
+**03:47统一统计补记**：新SWE历史逐CPU交接已通过只读collector，专家现46/51有效（原生42＋批准4），剩余5项未核审；CPU不再阻碍其完成状态。新增Mixed/AVG16后每视图固定14708个观测，额外HLE配对比较就绪。一次纯读汇总：Base SWE51、HLE2500、ASI240、TB严格442/预算445；HLE专家7条已评分、Terminal专家/AVG64各22条有效、AVG64 SWE1条有效。Base预算宏平均11.340888%，其余完整主比较仍null；这些计数不是各模型的部分正确率。
+
 ## 已记录、需要继续处理的事项
 
-1. **评分有效性**：Base由原baseline流程仅补评分，HLE已完整，SWE/TB继续收尾。SWE专家的[审计](swe_formal_scoring_audit_20261017.md)已核审四个模型导致的native0，另存[独立只读汇总](swe249_audited_summary_20261017.md)并显式接最终结果配置，原队列和原invalid不变。03:20源快照为41/51有效、0 resolved，43终态、8 active；后续汇总前须再运行该只读collector刷新。NodeBB及未审计项继续null；未重新生成答案。
+1. **评分有效性**：Base原答案补评已收尾，原始null与独立审计/预算来源分开保留。SWE专家的[审计](swe_formal_scoring_audit_20261017.md)已核审四个native0，另存[独立只读汇总](swe249_audited_summary_20261017.md)；汇总前须刷新collector。新逐CPU交接收据允许专家结束后自己的历史完成状态不被AVG64占用CPU阻塞，不能伪称新消费者在运行时整个池为空。未审计项继续null。ASI[执行诊断](asi_execution_status_audit_20261017.md)未发现已证明的框架供给失败；程序completed不是科学评分，不能用4/101称准确率。
 2. **模型终止原因**：定向检查的五条SWE轨迹中，252次工具观察没有HTTP400；四次最终BadRequest来自固定`prompt+8192>65536` guard，另一条在墙钟预算边界结束。上下文预算终止继续遵守原协议，不因此放宽窗口或重新作答。该定向检查不能估计全51题的失败比例。
 3. **服务截止与吞吐**：SWE专家服务今天10:05:32最先到期，其余约明天02:01–02:10到期。现有准入门槛会保留收尾余量；仍需观察真实进度，不能由首批任务推断一定能完成445次。
 4. **原题过程与配置偏离**：Terminal实际30min/4CPU/8GiB/64K/8K低于原题3h/32CPU/48GB/256K/80K，暂无面试方例外批准。SWE时限、替代Judge、ASI公开local范围和历史Base服务并发差异也继续披露。取消task-val后主AVG64按先验固定，后完成的loss对照未用于开发集择优，与原题该选择过程也有差异；全量任务数不能补足这些偏离。

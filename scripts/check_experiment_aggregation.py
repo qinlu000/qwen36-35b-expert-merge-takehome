@@ -4,10 +4,11 @@ import json
 import math
 from pathlib import Path
 import tempfile
+from unittest.mock import patch
 
 import numpy as np
 
-from summarize_experiment import (bootstrap_scores, cluster_arrays, expected_records,
+from summarize_experiment import (aggregate, bootstrap_scores, cluster_arrays, expected_records,
     interval, macro, materialize, observation, scored, terminal_budget_rows)
 
 
@@ -118,6 +119,60 @@ def budget_checks():
             'identical_paired_ci': ci, 'other_missing_benchmark_blocks_macro': True}
 
 
+def reference_checks():
+    """Distinct HLE references must keep their own deltas and incomplete gates."""
+    with tempfile.TemporaryDirectory() as temporary:
+        project = Path(temporary)
+        manifests = {name: {'task_ids': [f'{name}-{i}' for i in range(count)]}
+                     for name, count in [('swe', 51), ('hle', 2500), ('asi', 60), ('terminal', 89)]}
+        manifests['hle']['image_task_ids'] = manifests['hle']['task_ids'][:342]
+        manifests['asi']['prompt_levels'] = ['b1', 'b2', 'b3', 'b4']
+        for name, manifest in manifests.items():
+            (project / (name + '.json')).write_text(json.dumps(manifest))
+        cutoffs = {'base': 0, 'mixed883': 2500, 'avg16': 1250, 'avg64': 1875}
+        config = {'protocol': 'synthetic-no-execution', 'reference_model': 'base', 'final_model': 'avg64',
+            'statistics': {'repetitions': 10000, 'seed': 20261015, 'confidence_level': .95},
+            'benchmarks': {name: {'manifest': name + '.json'} for name in manifests},
+            'models': {name: {'label': name, 'benchmarks': {'hle': {'fixture_model': name}}} for name in cutoffs},
+            'additional_comparisons': [{'model': 'avg64', 'reference': ref, 'benchmarks': ['hle']}
+                                       for ref in ('mixed883', 'avg16')]}
+        incomplete = False
+
+        def fixture_source(_project, benchmark, spec):
+            assert benchmark == 'hle'
+            name = spec['fixture_model']
+            rows = [scored(key, int(i < cutoffs[name]), 1, 'synthetic-' + key, binary=True)
+                    for i, key in enumerate(manifests['hle']['task_ids'])]
+            if name == 'avg16':
+                rows.reverse()  # Reference pairing must follow IDs, not row order.
+            missing = incomplete and name == 'avg16'
+            return (rows[:-1] if missing else rows,
+                    owner(2500, None if missing else cutoffs[name] / 25, not missing), [])
+
+        with patch('summarize_experiment.read_source', side_effect=fixture_source):
+            report, _ = aggregate(project, config)
+            comparisons = report['comparisons']
+            deltas = {ref: comparisons['avg64_vs_' + ref]['benchmarks']['hle']['delta_percent_points']
+                      for ref in ('base', 'mixed883', 'avg16')}
+            assert deltas == {'base': 75, 'mixed883': -25, 'avg16': 25}
+            base_ci = comparisons['avg64_vs_base']['benchmarks']['hle']['delta_ci95_percent_points']
+            mixed_ci = comparisons['avg64_vs_mixed883']['benchmarks']['hle']['delta_ci95_percent_points']
+            for bound in ('lower', 'upper'):
+                assert math.isclose(mixed_ci[bound], base_ci[bound] - 100, abs_tol=1e-10)
+            assert all(row['macro_delta_percent_points'] is None for row in comparisons.values())
+            assert all(row['macro_primary_percent'] is None for row in report['models'].values())
+            incomplete = True
+            partial, _ = aggregate(project, config)
+            blocked = partial['comparisons']['avg64_vs_avg16']['benchmarks']['hle']
+            assert blocked['valid_paired_observations'] == 2499 and not blocked['complete_pair']
+            assert blocked['delta_percent_points'] is None and blocked['delta_ci95_percent_points'] is None
+            assert partial['comparisons']['avg64_vs_base']['benchmarks']['hle']['delta_percent_points'] == 75
+            assert partial['comparisons']['avg64_vs_mixed883']['benchmarks']['hle']['delta_percent_points'] == -25
+    return {'fixed_HLE_questions': 2500, 'image_questions': 342, 'distinct_reference_deltas_pp': deltas,
+            'paired_CI_uses_requested_reference': True, 'incomplete_reference_blocks_only_its_pair': True,
+            'HLE_only_controls_have_no_four_benchmark_macro': True}
+
+
 def run():
     checks = {}
     expected = expected_records('swe', {'task_ids': ['a', 'b']})
@@ -188,6 +243,7 @@ def run():
     assert macro({'swe': 100, 'hle': None, 'asi': 100, 'terminal': 100}) is None
     checks['four_benchmarks_equal_weight_missing_benchmark_blocks_macro'] = True
     checks['audited_terminal_budget_view'] = budget_checks()
+    checks['additional_comparison_references'] = reference_checks()
     return {'passed': True, 'fixture_scope': 'Hand-calculated artificial scores only; no benchmark questions or model calls',
             'bootstrap_repetitions': 10000, 'seed': 20261015, 'checks': checks}
 
