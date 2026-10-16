@@ -1330,3 +1330,12 @@
 - 33增34来自rstan-to-pystan/seed1：20:24正常1800s结束后，拉pytest-json-ctrf TLS失败，没有执行官方测试。21:32实时队列又出现原34之外的pytorch-model-cli/seed2(900s评分超时、5/6test已通过后卡CLI输出)，原34审计集合保持不变，不把新项混进旧根因表。
 - 本轮只读原始日志/归档/已完成native评分；对5份已评分存档启动有证据的状态充分性审核，证据不足继续未评分，不按0分放松条件。没有新模型/API、pytest、重生成、hash扫描或修改在途driver；只读总汇说明已更正，代码保持KISS。明细analysis/terminal_unscored_explanation_20261016.md，两份逐项/独立分类JSON纳Git，保留其他会话SFT与文档工作区，无coauthor信息。
 - 本轮5项状态审核已完成并同步生产review：3 confirmed（mergeARC0、torchPipeline0、breakJS0）由observer自然采纳原native0；2 blocked（makeDoom1缺原/etc/apt修改、rstan1缺原/etc/hosts修改），另旧configureGit缺Nginx状态仍blocked、modelExtract1补评分900s仍未完成。原34因此可恢复3，剩27无archive+3外部状态不全+1补评超时。rstan的PyPI TLS失败与模型自己改hosts有关，不能全归因外部网络事故。没有新模型/pytest或手改评分/CP；review细节另存terminal_reconstruction_reviews_20261016.json。
+
+
+## 2026-10-16 21:37 CST：HLE验证loss升高的证据分析
+
+- 用户问HLE后期为什么升高。最强直接证据为监督回答格式失配：train1838模型final+162自然句参考短答，中位722字符/均1206.69；val59题裸A–J字母+41数学expected答案，中位1字符/均27.65。两边均user→assistant，无system/reasoning/think，八大学科比例基本匹配；不能优先归因思考开关或大类比例。
+- 原生train batch分窗均值.6946→.5259→.4981→.4847→.4788，固定val在step16=2.002、32=2.836、48=3.182、250=3.498。LR1e-4/8步warmup/cosine/1epoch；val100固定，train/val同assistant掩码及FLCE，没有NaN/持续梯度爆炸或明显损失路径变化证据。
+- 实际Swift sampler随机perm后100项megabatch内按长度排序，没有重复偏采短样本或直接沿源拼接顺序训练证据。局部source顺序影响仍未测。主要机制推测是更偏完整讲解后，直接输出短gold字母/数值概率下降；真实过拟合/更新幅度偏大仍可能，不能仅看CE断言能力退化。
+- 本轮只读数据/日志/真实源码，查询HF/PyTorch官方定义；提取250train+16val点绘制并目视确认独立loss曲线，完整数据报告与训练侧报告保存。没有新GPU/API/重训/改数据/预算/val标签，也未测Base/cp16/cp250任务准确率。cp16只是现有最低loss，未证明优于Base。
+- 推荐下一步原100题比较Base/cp16/cp250抽取后准确率及格式分项，先区分能力退化和样式指标失配，再决定是否改学习率/训练目标。Git只提交本轮自有报告、统计/原生数值及claud/overnight追加，无coauthor信息。

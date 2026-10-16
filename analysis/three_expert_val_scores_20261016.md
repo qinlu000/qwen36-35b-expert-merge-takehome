@@ -15,3 +15,5 @@ SWE、ASI从首次验证到最佳值总体下降；ASI最终与最佳非常接�
 本轮只读HPC的SFT run及80现有eval/run目录，未发现这三个专家已经产出的独立val生成准确率/任务成功率文件；现有正式benchmark结果属于Base。没有为查询额外运行模型或评分API。
 
 证据：[三个run的原生验证快照](source_snapshots/three_expert_val_scores_20261016.json)。完整训练输入、provenance与运行配置见[训练数据汇报](training_data_report_20261016.md)。
+
+HLE后续数据检查发现明显监督格式差异：train回答中位722字符，val中位1字符；59条val只含选择题字母，41条为数学expected答案。它是loss上升的重要原因候选，不能直接认定唯一原因或准确率下降，详见[数据与曲线](hle_val_rise_data_20261016.md)。

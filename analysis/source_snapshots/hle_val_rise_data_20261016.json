@@ -1,0 +1,237 @@
+{
+  "data_dir": "artifacts/data/candidates/hle_existing_2k_20261016/swift_ready",
+  "splits": {
+    "train": {
+      "rows": 2000,
+      "categories": {
+        "Math": 817,
+        "Other": 186,
+        "Biology/Medicine": 224,
+        "Computer Science/AI": 193,
+        "Physics": 184,
+        "Humanities/Social Science": 175,
+        "Chemistry": 132,
+        "Engineering": 89
+      },
+      "sources": {
+        "Math-v4": 817,
+        "TIGER-Lab/MMLU-Pro": 884,
+        "nvidia/Nemotron-SFT-Science-v2": 201,
+        "trjxter/DeepSeek-V4-Pro-Reasoning-8000x": 82,
+        "Jackrong/GLM-5.1-Reasoning-1M-Cleaned": 16
+      },
+      "answer_types": {
+        "teacher_final": 1838,
+        "reference_short_answer": 162
+      },
+      "answer_chars": {
+        "n": 2000,
+        "min": 5,
+        "median": 722.0,
+        "mean": 1206.69,
+        "p90": 2218,
+        "max": 12762
+      },
+      "prompt_chars": {
+        "n": 2000,
+        "min": 52,
+        "median": 329.0,
+        "mean": 513.88,
+        "p90": 1148,
+        "max": 2782
+      },
+      "mcq_prompts_with_line_options": 1001,
+      "answer_chars_by_source": {
+        "Math-v4": {
+          "n": 817,
+          "min": 55,
+          "median": 1383,
+          "mean": 1467.58,
+          "p90": 2324,
+          "max": 5051
+        },
+        "TIGER-Lab/MMLU-Pro": {
+          "n": 884,
+          "min": 22,
+          "median": 355.0,
+          "mean": 363.57,
+          "p90": 619,
+          "max": 1165
+        },
+        "nvidia/Nemotron-SFT-Science-v2": {
+          "n": 201,
+          "min": 5,
+          "median": 885,
+          "mean": 941.5,
+          "p90": 1581,
+          "max": 3831
+        },
+        "trjxter/DeepSeek-V4-Pro-Reasoning-8000x": {
+          "n": 82,
+          "min": 533,
+          "median": 7537.5,
+          "mean": 7552.24,
+          "p90": 10585,
+          "max": 12762
+        },
+        "Jackrong/GLM-5.1-Reasoning-1M-Cleaned": {
+          "n": 16,
+          "min": 1287,
+          "median": 5035.5,
+          "mean": 5278.06,
+          "p90": 8604,
+          "max": 8610
+        }
+      },
+      "system_count": 0,
+      "role_patterns": {
+        "user|assistant": 2000
+      },
+      "reasoning_keys": 0,
+      "think_tags": 0,
+      "examples": [
+        {
+          "source": "Math-v4",
+          "category": "Math",
+          "answer_chars": 1867,
+          "answer_prefix": "We can rewrite the given expression as a sum of squares. Start with  \\[ E =",
+          "teacher": "publisher_DeepSeek-V4-Pro_High",
+          "answer_style": null
+        },
+        {
+          "source": "TIGER-Lab/MMLU-Pro",
+          "category": "Other",
+          "answer_chars": 168,
+          "answer_prefix": "In American football, a touchdown is awarded when the ball crosses the oppo",
+          "teacher": "deepseek-v4-pro",
+          "answer_style": null
+        },
+        {
+          "source": "nvidia/Nemotron-SFT-Science-v2",
+          "category": "Physics",
+          "answer_chars": 77,
+          "answer_prefix": "((T_b = 500 K, ρ_b = 7.826 g cm^{-3}, a_2 = 2.12 × 10^{-4} g cm^{-3} K^{-1}",
+          "teacher": "DeepSeek-V4-Pro",
+          "answer_style": null
+        },
+        {
+          "source": "trjxter/DeepSeek-V4-Pro-Reasoning-8000x",
+          "category": "Humanities/Social Science",
+          "answer_chars": 6062,
+          "answer_prefix": "Overfishing—harvesting fish faster than stocks can replenish—poses a severe",
+          "teacher": "DeepSeek-V4-Pro",
+          "answer_style": null
+        },
+        {
+          "source": "Jackrong/GLM-5.1-Reasoning-1M-Cleaned",
+          "category": "Humanities/Social Science",
+          "answer_chars": 1287,
+          "answer_prefix": "The correct answer is **(A) John is personally liable for the unpaid taxes ",
+          "teacher": "GLM-5.1",
+          "answer_style": null
+        },
+        {
+          "source": "TIGER-Lab/MMLU-Pro",
+          "category": "Humanities/Social Science",
+          "answer_chars": 23,
+          "answer_prefix": "The answer is (E): $606",
+          "teacher": "publisher_reference_not_model_generated",
+          "answer_style": "reference_short_answer"
+        }
+      ],
+      "explicit_only_letter_instruction_prompts": 0
+    },
+    "val": {
+      "rows": 100,
+      "categories": {
+        "Math": 41,
+        "Biology/Medicine": 11,
+        "Computer Science/AI": 10,
+        "Other": 9,
+        "Physics": 9,
+        "Humanities/Social Science": 9,
+        "Chemistry": 7,
+        "Engineering": 4
+      },
+      "sources": {
+        "Math-v4": 41,
+        "TIGER-Lab/MMLU-Pro": 59
+      },
+      "answer_types": {
+        "publisher_math_expected_answer": 41,
+        "bare_multiple_choice_letter": 59
+      },
+      "answer_chars": {
+        "n": 100,
+        "min": 1,
+        "median": 1.0,
+        "mean": 27.65,
+        "p90": 83,
+        "max": 386
+      },
+      "prompt_chars": {
+        "n": 100,
+        "min": 75,
+        "median": 327.0,
+        "mean": 434.5,
+        "p90": 952,
+        "max": 1661
+      },
+      "mcq_prompts_with_line_options": 59,
+      "answer_chars_by_source": {
+        "Math-v4": {
+          "n": 41,
+          "min": 2,
+          "median": 42,
+          "mean": 66,
+          "p90": 175,
+          "max": 386
+        },
+        "TIGER-Lab/MMLU-Pro": {
+          "n": 59,
+          "min": 1,
+          "median": 1,
+          "mean": 1,
+          "p90": 1,
+          "max": 1
+        }
+      },
+      "system_count": 0,
+      "role_patterns": {
+        "user|assistant": 100
+      },
+      "reasoning_keys": 0,
+      "think_tags": 0,
+      "examples": [
+        {
+          "source": "Math-v4",
+          "category": "Math",
+          "answer_chars": 2,
+          "answer_prefix": "42",
+          "teacher": "publisher_DeepSeek-V4-Pro_High",
+          "answer_style": null
+        },
+        {
+          "source": "Math-v4",
+          "category": "Math",
+          "answer_chars": 98,
+          "answer_prefix": "\\( x = k + \\frac{1}{6} \\) or \\( x = k - \\frac{1}{6} \\) for \\( k \\in \\mathbb",
+          "teacher": "publisher_DeepSeek-V4-Pro_High",
+          "answer_style": null
+        },
+        {
+          "source": "TIGER-Lab/MMLU-Pro",
+          "category": "Biology/Medicine",
+          "answer_chars": 1,
+          "answer_prefix": "J",
+          "teacher": null,
+          "answer_style": null
+        }
+      ],
+      "explicit_only_letter_instruction_prompts": 0
+    }
+  },
+  "scope": "Frozen current HLE2k train/100 val text and provenance only; no model/API/tokenization/data changes",
+  "validation_label_policy_source": "scripts/export_night_hle_swift.py: original gold_answer directly becomes assistant content; current exporter byte-copies original val",
+  "interpretation_limit": "Observed format/source mismatch can raise teacher-forced cross entropy without proving a drop in task accuracy. This audit does not measure causal attribution, gradient weighting or per-domain loss."
+}

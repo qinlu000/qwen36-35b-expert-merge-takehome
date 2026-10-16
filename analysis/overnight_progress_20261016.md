@@ -347,3 +347,12 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - 以上是保留轨迹交叉熵val loss而非任务正确率，跨数据集不能横比。SWE/ASI从首测到best下降；HLE后期监督验证变差，best16保留，不据此直接断言准确率下降或过拟合已证实。
 - 三run eval_on_start=false，没有step0同val Base loss，step16已训练。只读HPC SFT及80现有eval/run未发现专家独立val生成/执行准确率或成功率输出，现有benchmark结果为Base，不混报。未新跑模型/API、改任务或训练方案。
 - 已整理analysis/three_expert_val_scores_20261016.md及逐次eval快照，修正主进度HLE最终250步loss及Terminal已获卡历史文字。Git只提交本轮自有文件和claud/overnight追加，无coauthor信息。
+
+
+## 2026-10-16 21:37 CST：HLE验证loss升高的证据分析
+
+- 用户问HLE后期为什么升高。最强直接证据为监督回答格式失配：train1838模型final+162自然句参考短答，中位722字符/均1206.69；val59题裸A–J字母+41数学expected答案，中位1字符/均27.65。两边均user→assistant，无system/reasoning/think，八大学科比例基本匹配；不能优先归因思考开关或大类比例。
+- 原生train batch分窗均值.6946→.5259→.4981→.4847→.4788，固定val在step16=2.002、32=2.836、48=3.182、250=3.498。LR1e-4/8步warmup/cosine/1epoch；val100固定，train/val同assistant掩码及FLCE，没有NaN/持续梯度爆炸或明显损失路径变化证据。
+- 实际Swift sampler随机perm后100项megabatch内按长度排序，没有重复偏采短样本或直接沿源拼接顺序训练证据。局部source顺序影响仍未测。主要机制推测是更偏完整讲解后，直接输出短gold字母/数值概率下降；真实过拟合/更新幅度偏大仍可能，不能仅看CE断言能力退化。
+- 本轮只读数据/日志/真实源码，查询HF/PyTorch官方定义；提取250train+16val点绘制并目视确认独立loss曲线，完整数据报告与训练侧报告保存。没有新GPU/API/重训/改数据/预算/val标签，也未测Base/cp16/cp250任务准确率。cp16只是现有最低loss，未证明优于Base。
+- 推荐下一步原100题比较Base/cp16/cp250抽取后准确率及格式分项，先区分能力退化和样式指标失配，再决定是否改学习率/训练目标。Git只提交本轮自有报告、统计/原生数值及claud/overnight追加，无coauthor信息。
