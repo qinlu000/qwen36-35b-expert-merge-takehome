@@ -8,17 +8,22 @@
       "name": "swe",
       "display_name": "仓库修复",
       "benchmark": "SWE-bench Pro v2-hard",
-      "data_dir": "artifacts/data/candidates/new_swe_20261016/night_v2/swift_ready64k",
-      "train_rows": 448,
+      "data_dir": "artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k",
+      "train_rows": 2000,
       "val_rows": 87,
-      "max_length": 65536
+      "max_length": 65536,
+      "job_id": 726335
     },
     {
       "name": "terminal",
       "display_name": "终端操作",
       "benchmark": "Terminal-Bench 2.0",
-      "data_dir": "artifacts/data/candidates/terminal_sft_20261016",
-      "train_rows": 374,
+      "data_dir": "artifacts/data/candidates/terminal_sft_2k_20261016",
+      "train_rows": 2000,
+      "requested_train_rows": 2000,
+      "status": "2000 complete trajectories materialized; original val preserved",
+      "job_id": 726345,
+      "afterok": [726336, 726344],
       "val_rows": 42,
       "max_length": 65536
     },
@@ -28,6 +33,12 @@
       "benchmark": "HLE",
       "data_dir": "artifacts/data/candidates/night_hle_20261016/swift_ready",
       "train_rows": 500,
+      "requested_train_rows": 2000,
+      "status": "Historical 500-row run retained; new High-teacher 2000-row replacement generating",
+      "planned_data_dir": "artifacts/data/candidates/night_hle_20261016/expanded_2k",
+      "planned_max_length": 65536,
+      "planned_job_id": 726344,
+      "planned_job_state": "held_until_data_and_mixed_ready",
       "val_rows": 100,
       "max_length": 2048,
       "completed_run": "artifacts/runs/hle-sft-r16-725704"
@@ -36,17 +47,24 @@
       "name": "asi",
       "display_name": "科研编程",
       "benchmark": "ASI-Bench",
-      "data_dir": "artifacts/data/candidates/scienceagentbench_verified_9c6e96c9/swift_ready",
-      "train_rows": 82,
+      "data_dir": "artifacts/data/candidates/asi_sft_expanded_20261016",
+      "train_rows": 1073,
       "val_rows": 20,
       "max_length": 65536,
-      "checkpoint_steps": 4
+      "checkpoint_steps": 16,
+      "job_id": 726336,
+      "composition": "82 SAB full programs + 976 DS-1000 human code completions + 15 SciCode human main solutions"
     }
   ],
   "mixed_control": {
     "data_dir": "artifacts/data/candidates/mixed_sft_20261016",
     "train_rows": 1404,
     "val_rows": 249,
+    "status": "Historical pool only; rebuild from all new expert partitions before training",
+    "planned_data_dir": "artifacts/data/candidates/mixed_expanded_20261016",
+    "planned_train_rows": 7073,
+    "planned_job_id": 726346,
+    "afterok": [726335, 726344],
     "rule": "Same four expert partitions, each example once; excluded from merging"
   },
   "merging": {

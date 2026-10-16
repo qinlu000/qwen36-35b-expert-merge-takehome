@@ -3,6 +3,8 @@
 #SBATCH --partition=emergency_acd
 #SBATCH --qos=formal-user
 #SBATCH --account=qinlucao
+# ACD1-59 failed before Python: squashfuse_ll could not load libfuse3.so.3.
+#SBATCH --exclude=ACD1-59
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=24
