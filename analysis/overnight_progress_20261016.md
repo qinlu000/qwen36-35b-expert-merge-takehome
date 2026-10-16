@@ -356,3 +356,12 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - 实际Swift sampler随机perm后100项megabatch内按长度排序，没有重复偏采短样本或直接沿源拼接顺序训练证据。局部source顺序影响仍未测。主要机制推测是更偏完整讲解后，直接输出短gold字母/数值概率下降；真实过拟合/更新幅度偏大仍可能，不能仅看CE断言能力退化。
 - 本轮只读数据/日志/真实源码，查询HF/PyTorch官方定义；提取250train+16val点绘制并目视确认独立loss曲线，完整数据报告与训练侧报告保存。没有新GPU/API/重训/改数据/预算/val标签，也未测Base/cp16/cp250任务准确率。cp16只是现有最低loss，未证明优于Base。
 - 推荐下一步原100题比较Base/cp16/cp250抽取后准确率及格式分项，先区分能力退化和样式指标失配，再决定是否改学习率/训练目标。Git只提交本轮自有报告、统计/原生数值及claud/overnight追加，无coauthor信息。
+
+
+## 2026-10-16 22:10 CST：HLE checkpoint16并非OOM中断产物
+
+- 用户在已授权validation执行过程中，询问cp16是否是当时OOM并建议重训。已核当前HLE726664正常COMPLETED0:0，19:53:32到21:28:29，optimizer1..250连续250条；16步eval成功2.00219154后正常保存，随后17..250持续，final250与best16均在。resume_from_checkpoint=null，无OOM/resume事件；scontrol历史已过期，不冒称实测Restarts=0。
+- 真正16步首次eval OOM的是Terminal726345，FAILED1:0，没有完成eval或保存checkpoint。旧HLE725704也COMPLETED0:0连续63步、无OOM，val同样从2.6241升至3.1547。故不能用Terminal中断解释HLE后期loss升高，不为此误会按原配方重训。
+- 原validation授权继续：专属2GPU服务727113已在ACD1-24:18000启动，项目12+2=14GPU；四专家LoRA+Base别名注册，80专桥28089/监督PID4182990驻留，不改现有Base隧道。HLE/ASI生成client4183881与HLE评分4183925驻留等待服务真实验收，预算HLE10+ASI至多10，总不超过20元；尚未把等待进程冒称正式答题已完成。
+- SWE100独立任务准备与源镜像缓存继续；CPU125实测空闲、只有collector和本轮轻HTTPclient，可先1路SWE val(1CPU4GiB)共享此核，其他Base执行核不抢。ASI实际独立val为20题，100题方案缺口如实披露；20题生成/实际执行/机械及视觉评分分阶段记录，不混为SFT loss。
+- cp16来源报告/独立JSON与数据分析链接已更新；没有重训、缩窗口或取消validation。Git仅纳本轮自有内容和claud/overnight追加，无coauthor信息。

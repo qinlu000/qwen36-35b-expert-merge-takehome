@@ -56,3 +56,5 @@
 Hugging Face官方文档将语言模型交叉熵定义为参考token条件概率的负对数平均，并说明label=-100的token不计入；这支持“loss衡量给定参考文本的概率”的解释，不提供本项目格式失配的因果证明：[官方定义](https://huggingface.co/docs/transformers/en/perplexity)。训练与固定验证loss趋势可用于识别过度适配风险，但仍需同任务输出判断实际效果：[PyTorch训练与验证说明](https://docs.pytorch.org/tutorials/beginner/introyt/trainingyt.html)。
 
 当前最值得补充的比较是Base、cp16、cp250在原100题上的答案抽取后准确率，并记录输出长度/格式和Math/MCQ分项。未测Base起点，cp16只代表现有检查点中的最低loss，不代表它已经优于Base。当前不根据曲线自动重训、改学习率或改写原val标签。
+
+22:10补核：当前HLE726664连续训练250步正常完成，checkpoint16为成功eval后周期保存，并非OOM产物。16步OOM属于另一个Terminal726345且没有保存checkpoint；旧500条HLE也正常完成63步。[来源核对](hle_checkpoint16_origin_20261016.md)。

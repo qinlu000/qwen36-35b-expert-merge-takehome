@@ -1,0 +1,271 @@
+{
+  "snapshot_time_beijing": "2026-10-16T22:10:36.347585+08:00",
+  "jobs": [
+    {
+      "job_id": 726664,
+      "run_name": "hle-existing2k-sft-r16-726664",
+      "run_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664",
+      "optimizer_first_last_count": [
+        1,
+        250,
+        250
+      ],
+      "optimizer_step16_then17_exist": true,
+      "missing_optimizer_steps": [],
+      "evals": [
+        {
+          "eval_loss": 2.00219154,
+          "epoch": 0.064,
+          "global_step/max_steps": "16/250"
+        },
+        {
+          "eval_loss": 2.83629727,
+          "epoch": 0.128,
+          "global_step/max_steps": "32/250"
+        },
+        {
+          "eval_loss": 3.1818397,
+          "epoch": 0.192,
+          "global_step/max_steps": "48/250"
+        },
+        {
+          "eval_loss": 3.19607663,
+          "epoch": 0.256,
+          "global_step/max_steps": "64/250"
+        },
+        {
+          "eval_loss": 3.4640696,
+          "epoch": 0.32,
+          "global_step/max_steps": "80/250"
+        },
+        {
+          "eval_loss": 3.53496552,
+          "epoch": 0.384,
+          "global_step/max_steps": "96/250"
+        },
+        {
+          "eval_loss": 3.53782797,
+          "epoch": 0.448,
+          "global_step/max_steps": "112/250"
+        },
+        {
+          "eval_loss": 3.44701457,
+          "epoch": 0.512,
+          "global_step/max_steps": "128/250"
+        },
+        {
+          "eval_loss": 3.50789237,
+          "epoch": 0.576,
+          "global_step/max_steps": "144/250"
+        },
+        {
+          "eval_loss": 3.43592906,
+          "epoch": 0.64,
+          "global_step/max_steps": "160/250"
+        },
+        {
+          "eval_loss": 3.48262358,
+          "epoch": 0.704,
+          "global_step/max_steps": "176/250"
+        },
+        {
+          "eval_loss": 3.51062369,
+          "epoch": 0.768,
+          "global_step/max_steps": "192/250"
+        },
+        {
+          "eval_loss": 3.50890541,
+          "epoch": 0.832,
+          "global_step/max_steps": "208/250"
+        },
+        {
+          "eval_loss": 3.49409676,
+          "epoch": 0.896,
+          "global_step/max_steps": "224/250"
+        },
+        {
+          "eval_loss": 3.51007748,
+          "epoch": 0.96,
+          "global_step/max_steps": "240/250"
+        },
+        {
+          "eval_loss": 3.49751949,
+          "epoch": 1,
+          "global_step/max_steps": "250/250"
+        }
+      ],
+      "checkpoints": [
+        "checkpoint-16",
+        "checkpoint-32",
+        "checkpoint-48",
+        "checkpoint-64",
+        "checkpoint-80",
+        "checkpoint-96",
+        "checkpoint-112",
+        "checkpoint-128",
+        "checkpoint-144",
+        "checkpoint-160",
+        "checkpoint-176",
+        "checkpoint-192",
+        "checkpoint-208",
+        "checkpoint-224",
+        "checkpoint-240",
+        "checkpoint-250"
+      ],
+      "checkpoint16_state": {
+        "global_step": 16,
+        "max_steps": 250,
+        "epoch": 0.064,
+        "best_metric": 2.00219154,
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-16"
+      },
+      "checkpoint16_adapter_exists": true,
+      "final_summary": {
+        "passed": true,
+        "global_steps": 250,
+        "final_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-250",
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-16",
+        "wall_seconds": 5571.416432565078
+      },
+      "resume_config": {
+        "resume_from_checkpoint": null,
+        "resume_only_model": false,
+        "eval_on_start": false,
+        "save_steps": 16,
+        "eval_steps": 16,
+        "num_train_epochs": 1
+      },
+      "oom_lines": [],
+      "save_checkpoint16_lines": [
+        {
+          "line_1based": 3418,
+          "text": "[INFO:swift] Saving model checkpoint to /data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-16"
+        },
+        {
+          "line_1based": 5761,
+          "text": "[INFO:swift] best_model_checkpoint: /data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-16"
+        }
+      ],
+      "resume_event_lines": []
+    },
+    {
+      "job_id": 726345,
+      "run_name": "terminal2k-sft-r16-726345",
+      "run_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/terminal2k-sft-r16-726345",
+      "optimizer_first_last_count": [
+        1,
+        16,
+        16
+      ],
+      "optimizer_step16_then17_exist": false,
+      "missing_optimizer_steps": [],
+      "evals": [],
+      "checkpoints": [],
+      "resume_config": {
+        "resume_from_checkpoint": null,
+        "resume_only_model": false,
+        "eval_on_start": false,
+        "save_steps": 16,
+        "eval_steps": 16,
+        "num_train_epochs": 1
+      },
+      "oom_lines": [
+        {
+          "line_1based": 6420,
+          "text": "[rank3]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 21.06 GiB. GPU 3 has a total capacity of 79.17 GiB of which 19.39 GiB is free. Including non-PyTorch memory, this process has 59.77 GiB memory in use. Of the allocated memory 51.40 GiB is allocated by PyTorch, and 188.91 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cu"
+        }
+      ],
+      "save_checkpoint16_lines": [],
+      "resume_event_lines": []
+    },
+    {
+      "job_id": 725704,
+      "run_name": "hle-sft-r16-725704",
+      "run_path": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-sft-r16-725704",
+      "optimizer_first_last_count": [
+        1,
+        63,
+        63
+      ],
+      "optimizer_step16_then17_exist": true,
+      "missing_optimizer_steps": [],
+      "evals": [
+        {
+          "eval_loss": 2.62409234,
+          "epoch": 0.256,
+          "global_step/max_steps": "16/63"
+        },
+        {
+          "eval_loss": 2.97443628,
+          "epoch": 0.512,
+          "global_step/max_steps": "32/63"
+        },
+        {
+          "eval_loss": 3.10861635,
+          "epoch": 0.768,
+          "global_step/max_steps": "48/63"
+        },
+        {
+          "eval_loss": 3.15466952,
+          "epoch": 1,
+          "global_step/max_steps": "63/63"
+        }
+      ],
+      "checkpoints": [
+        "checkpoint-16",
+        "checkpoint-63"
+      ],
+      "checkpoint16_state": {
+        "global_step": 16,
+        "max_steps": 63,
+        "epoch": 0.256,
+        "best_metric": 2.62409234,
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-sft-r16-725704/training/checkpoint-16"
+      },
+      "checkpoint16_adapter_exists": true,
+      "final_summary": {
+        "passed": true,
+        "global_steps": 63,
+        "final_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-sft-r16-725704/training/checkpoint-63",
+        "best_model_checkpoint": null,
+        "wall_seconds": 2604.4775584544986
+      },
+      "resume_config": {
+        "resume_from_checkpoint": null,
+        "resume_only_model": false,
+        "eval_on_start": false,
+        "save_steps": 16,
+        "eval_steps": 16,
+        "num_train_epochs": 1
+      },
+      "oom_lines": [],
+      "save_checkpoint16_lines": [
+        {
+          "line_1based": 3470,
+          "text": "[INFO:swift] Saving model checkpoint to /data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-sft-r16-725704/training/checkpoint-16"
+        },
+        {
+          "line_1based": 4098,
+          "text": "[INFO:swift] best_model_checkpoint: /data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-sft-r16-725704/training/checkpoint-16"
+        }
+      ],
+      "resume_event_lines": []
+    }
+  ],
+  "sacct_records": [
+    "725704|apex-hle-sft|COMPLETED|00:43:34|2026-10-16T14:22:41|2026-10-16T15:06:15|0:0",
+    "725704.batch|batch|COMPLETED|00:43:34|2026-10-16T14:22:41|2026-10-16T15:06:15|0:0",
+    "725704.extern|extern|COMPLETED|00:43:34|2026-10-16T14:22:41|2026-10-16T15:06:15|0:0",
+    "726345|apex-terminal2k-sft|FAILED|00:21:26|2026-10-16T18:07:48|2026-10-16T18:29:14|1:0",
+    "726345.batch|batch|FAILED|00:21:26|2026-10-16T18:07:48|2026-10-16T18:29:14|1:0",
+    "726345.extern|extern|COMPLETED|00:21:26|2026-10-16T18:07:48|2026-10-16T18:29:14|0:0",
+    "726664|apex-hle-existing2k-sft|COMPLETED|01:34:57|2026-10-16T19:53:32|2026-10-16T21:28:29|0:0",
+    "726664.batch|batch|COMPLETED|01:34:57|2026-10-16T19:53:32|2026-10-16T21:28:29|0:0",
+    "726664.extern|extern|COMPLETED|01:34:57|2026-10-16T19:53:32|2026-10-16T21:28:29|0:0"
+  ],
+  "current_hle_scontrol_restarts_evidence": [
+    "slurm_load_jobs error: Invalid job id specified"
+  ],
+  "restart_evidence_limit": "Completed HLE job has aged out of scontrol, so a scheduler Restarts counter is unavailable. Native args have resume_from_checkpoint=null; continuous optimizer steps1..250, no duplicate/missing steps, no OOM and no resume event were observed. Do not turn absence of a restart counter into a claimed measured zero.",
+  "conclusion": "Current HLE726664 checkpoint16 is a normal successful periodic checkpoint within a completed250-step run. Terminal726345 is the distinct16-step OOM job and saved no checkpoint. Old HLE725704 completed63 steps successfully. The checkpoint16/OOM confusion is not a reason to retrain HLE."
+}

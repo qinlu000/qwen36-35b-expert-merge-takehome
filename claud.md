@@ -1361,3 +1361,12 @@
 - SWE clean28为7有效(2通过)、3在途、17待准入、1原生verifier超时未有效评分。3在途均推进：Teleport已结束生成，native Go编译约946/3000s；ansible d720 native评分约159s；de585刚结束生成收patch。checkpoint generation是粗粒度label，无超1800s仍生成挂起证据。历史5/51受旧环境影响的成绩不冒充独立修复成绩。
 - ASI240/240完成，公开本地均分1.5709884%；HLE2500生成终态全齐、2499有效评分，1Judge JSON无效，仍未全量有效完成。HLE/ASI和其他会话SFT未改。
 - 共享Base726629/726635两个TP2 warm均RUNNING，共4GPU；服务B2running0waiting/A5running0waiting，最近HTTP200，约34/71生成tok/s，没有服务排队瓶颈。原队列drain阶段尚未满并发。80系统盘可用33.32GiB、/data约2.34TiB，未再次爆盘。快照baseline_status_20261016_2212.json纳Git，保留其他会话工作区。
+
+
+## 2026-10-16 22:10 CST：HLE checkpoint16并非OOM中断产物
+
+- 用户在已授权validation执行过程中，询问cp16是否是当时OOM并建议重训。已核当前HLE726664正常COMPLETED0:0，19:53:32到21:28:29，optimizer1..250连续250条；16步eval成功2.00219154后正常保存，随后17..250持续，final250与best16均在。resume_from_checkpoint=null，无OOM/resume事件；scontrol历史已过期，不冒称实测Restarts=0。
+- 真正16步首次eval OOM的是Terminal726345，FAILED1:0，没有完成eval或保存checkpoint。旧HLE725704也COMPLETED0:0连续63步、无OOM，val同样从2.6241升至3.1547。故不能用Terminal中断解释HLE后期loss升高，不为此误会按原配方重训。
+- 原validation授权继续：专属2GPU服务727113已在ACD1-24:18000启动，项目12+2=14GPU；四专家LoRA+Base别名注册，80专桥28089/监督PID4182990驻留，不改现有Base隧道。HLE/ASI生成client4183881与HLE评分4183925驻留等待服务真实验收，预算HLE10+ASI至多10，总不超过20元；尚未把等待进程冒称正式答题已完成。
+- SWE100独立任务准备与源镜像缓存继续；CPU125实测空闲、只有collector和本轮轻HTTPclient，可先1路SWE val(1CPU4GiB)共享此核，其他Base执行核不抢。ASI实际独立val为20题，100题方案缺口如实披露；20题生成/实际执行/机械及视觉评分分阶段记录，不混为SFT loss。
+- cp16来源报告/独立JSON与数据分析链接已更新；没有重训、缩窗口或取消validation。Git仅纳本轮自有内容和claud/overnight追加，无coauthor信息。
