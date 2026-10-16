@@ -1,0 +1,30 @@
+{
+  "at_utc": "2026-10-16T11:30:33.214785+00:00",
+  "pid": 2899601,
+  "job_id": 726663,
+  "ready": true,
+  "model_or_test_requests": 0,
+  "state": "ready",
+  "allocation": {
+    "job_id": "726663",
+    "state": "RUNNING",
+    "node": "ACD1-3",
+    "end_time": "2026-10-17T07:24:18",
+    "returncode": 0
+  },
+  "worker": {
+    "benchmark": "hle_seq50",
+    "job_id": 726663,
+    "node": "ACD1-3",
+    "service_port": 18003,
+    "bridge_port": 28088
+  },
+  "health_http_status": 200,
+  "published_route": {
+    "job_id": 726663,
+    "endpoint": "http://127.0.0.1:28088",
+    "allocation_end_time": "2026-10-17T07:24:18+08:00",
+    "node": "ACD1-3",
+    "ready": true
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "as_of_utc": "2026-10-16T11:37:01.521470+00:00",
+  "new_pid": 2947319,
+  "job_id": 726663,
+  "endpoint": "http://127.0.0.1:28088",
+  "engine_max_num_seqs": 50,
+  "http_max_connections": 52,
+  "solver": {
+    "state": "running",
+    "admitted": 67,
+    "active": 50,
+    "completed": 17
+  },
+  "new_leaf_records": {
+    "terminal": 17,
+    "status_counts": {
+      "completed": 17
+    },
+    "first_answer": {
+      "id": "67253d0294bd63ec55a66a0d",
+      "status": "completed",
+      "elapsed_seconds": 42.2825,
+      "finish_reason": "stop",
+      "finished_at_utc": "2026-10-16T11:35:58.947189+00:00",
+      "manual_retry_index": 1,
+      "completion_tokens": 67
+    },
+    "completed_answer_elapsed_median_seconds": 79.8267,
+    "judge_has_frozen_new_leaf_answers": 7
+  },
+  "retained_terminal_outcomes": 1487,
+  "transferred_never_started": 1013,
+  "added_infrastructure_retries": 0,
+  "old_hle20_role_transferred_to_terminal": true,
+  "terminal_new_targets": [
+    {
+      "url": "http://127.0.0.1:28086",
+      "job_id": 726635,
+      "allocation_end_time": "2026-10-18T07:08:32+08:00",
+      "max_num_seqs": 20
+    },
+    {
+      "url": "http://127.0.0.1:28085",
+      "job_id": 726629,
+      "allocation_end_time": "2026-10-18T07:02:51+08:00",
+      "max_num_seqs": 20
+    }
+  ],
+  "judge": {
+    "calls": 573,
+    "call_states": {
+      "completed": 573
+    },
+    "charged_cny": 0.7715460000000001,
+    "cap_cny": 10,
+    "budget_restarted": false
+  },
+  "benchmarks": {
+    "HLE": {
+      "expected": 2500,
+      "valid_scored": 1490,
+      "complete": false,
+      "primary_score_percent": null,
+      "resolved": null,
+      "active_trials": null,
+      "pending_not_admitted": null,
+      "infrastructure_or_evaluator_invalid": 0
+    },
+    "ASI": {
+      "expected": 240,
+      "valid_scored": 240,
+      "complete": true,
+      "primary_score_percent": 1.5709884069083986,
+      "resolved": null,
+      "active_trials": null,
+      "pending_not_admitted": null,
+      "infrastructure_or_evaluator_invalid": 0
+    },
+    "SWE": {
+      "expected": 51,
+      "valid_scored": 51,
+      "complete": true,
+      "primary_score_percent": 9.803921568627452,
+      "resolved": 5,
+      "active_trials": null,
+      "pending_not_admitted": null,
+      "infrastructure_or_evaluator_invalid": 0
+    },
+    "TB": {
+      "expected": 445,
+      "valid_scored": 102,
+      "complete": false,
+      "primary_score_percent": null,
+      "resolved": null,
+      "active_trials": 5,
+      "pending_not_admitted": 307,
+      "infrastructure_or_evaluator_invalid": 31
+    }
+  },
+  "gpu_log_evidence": {
+    "source": "HPC artifacts/preflight/base-worker-seq50-726663.log",
+    "observations": [
+      {
+        "cst": "2026-10-16 19:35:59",
+        "running": 50,
+        "waiting": 0,
+        "generation_tokens_per_second": 355.6
+      },
+      {
+        "cst": "2026-10-16 19:36:09",
+        "running": 50,
+        "waiting": 0,
+        "generation_tokens_per_second": 749.6
+      },
+      {
+        "cst": "2026-10-16 19:36:19",
+        "running": 50,
+        "waiting": 0,
+        "generation_tokens_per_second": 789.3
+      },
+      {
+        "cst": "2026-10-16 19:36:29",
+        "running": 50,
+        "waiting": 0,
+        "generation_tokens_per_second": 794.7
+      }
+    ],
+    "kv_cache_usage_percent": 6.5
+  },
+  "no_synthetic_or_extra_model_requests": true,
+  "terminal_effective_endpoint_config": {
+    "source": "artifacts/runs/base-terminal-recovery-v2-20261016/runtime11/endpoints.json",
+    "updated_at_utc": "2026-10-16T11:35:17.760207+00:00",
+    "endpoints": [
+      {
+        "url": "http://127.0.0.1:28082",
+        "job_id": 726129,
+        "max_num_seqs": 8,
+        "admit": false
+      },
+      {
+        "url": "http://127.0.0.1:28084",
+        "job_id": 725705,
+        "max_num_seqs": 8,
+        "admit": false
+      },
+      {
+        "url": "http://127.0.0.1:28086",
+        "job_id": 726635,
+        "max_num_seqs": 20,
+        "admit": true
+      },
+      {
+        "url": "http://127.0.0.1:28085",
+        "job_id": 726629,
+        "max_num_seqs": 20,
+        "admit": true
+      }
+    ]
+  }
+}

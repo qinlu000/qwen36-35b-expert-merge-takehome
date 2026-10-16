@@ -1,0 +1,290 @@
+{
+  "collector": {
+    "updated_at_utc": "2026-10-16T11:38:39.926521+00:00",
+    "complete": false,
+    "benchmarks": {
+      "HLE": {
+        "expected": 2500,
+        "valid_scored": 1513,
+        "unscored": 987,
+        "complete": false,
+        "primary_score_percent": null,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/summary.json",
+        "note": "Retain all original answers and normal budget ends. At1424 outcomes, serving changed from max_num_seqs4 to20, with8 incomplete migration infrastructure retry2. User then requests server/client50; the next natural handoff transfers only never-started questions and adds no retry. Actual transitions are recorded separately. Queue time is inside the300s budget, so earlier timeouts cannot be interpreted as model ability alone. Judge uses school DeepSeek-V4-Flash and original criteria/JSONwrapper/4096/nonthinking; infrastructure-invalid outcomes are not zeros.",
+        "source_mtime_utc": "2026-10-16T11:38:37.549182+00:00",
+        "infrastructure_or_evaluator_invalid": 0,
+        "generation_terminal": 1517,
+        "judged_answers": 592,
+        "native_no_answer": 921,
+        "correct": 52,
+        "subgroups": {
+          "text": {
+            "denominator": 2158,
+            "scored": 1310,
+            "correct": 45,
+            "accuracy_percent": null
+          },
+          "image": {
+            "denominator": 342,
+            "scored": 203,
+            "correct": 7,
+            "accuracy_percent": null
+          }
+        },
+        "budget_halted": false,
+        "judge_calls": 592,
+        "accounted_cny": 0.79601475,
+        "cost_cap_cny": 10,
+        "source_updated_at": "2026-10-16T11:38:37.550108+00:00",
+        "serving_transition": {
+          "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_seq20/handoff-receipt.json",
+          "at_utc": "2026-10-16T11:10:06.887453+00:00",
+          "retained_terminal_outcomes": 1424,
+          "selected_for_new_service": 1076,
+          "incomplete_migration_retries": 8,
+          "old_max_num_seqs": 4,
+          "new_max_num_seqs": 20,
+          "outer_solver_concurrency": 8,
+          "question_walltime_includes_queue": true
+        },
+        "serving_transitions": [
+          {
+            "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_seq20/handoff-receipt.json",
+            "at_utc": "2026-10-16T11:10:06.887453+00:00",
+            "retained_terminal_outcomes": 1424,
+            "selected_for_new_service": 1076,
+            "incomplete_migration_retries": 8,
+            "old_max_num_seqs": 4,
+            "new_max_num_seqs": 20,
+            "outer_solver_concurrency": 8,
+            "question_walltime_includes_queue": true
+          },
+          {
+            "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_seq50/handoff-receipt.json",
+            "at_utc": "2026-10-16T11:35:16.310495+00:00",
+            "retained_terminal_outcomes": 1487,
+            "selected_for_new_service": 1013,
+            "old_max_num_seqs": 20,
+            "new_max_num_seqs": 50,
+            "outer_solver_concurrency": 50,
+            "additional_manual_retries": 0,
+            "question_walltime_includes_queue": true
+          }
+        ]
+      },
+      "ASI": {
+        "expected": 240,
+        "valid_scored": 240,
+        "unscored": 0,
+        "complete": true,
+        "primary_score_percent": 1.5709884069083986,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016/local_score_seed31415.json",
+        "note": "Public local240-condition score. Only soil b2 empty (3650,0) arrays violate public required(n_days,5): targeted hard-gate fail repair; original invalid retained, other239 unchanged. CMOS ngspice44.2 and native submission bwrap mappings documented; formal Judge0calls.",
+        "source_mtime_utc": "2026-10-16T07:50:52.394665+00:00",
+        "infrastructure_or_evaluator_invalid": 0,
+        "total_score": 377.03721765801566,
+        "total_max_score": 24000.0,
+        "judge_calls": 0,
+        "accounted_cny": 0,
+        "repair_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016/soil_empty_prediction_repair/receipt.json"
+      },
+      "SWE": {
+        "expected": 51,
+        "valid_scored": 51,
+        "unscored": 0,
+        "complete": true,
+        "primary_score_percent": 9.803921568627452,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_final/final_summary.json",
+        "note": "First environment-valid fresh replay of frozen patches. Restore native SIF PATH/private mini runtime; missing pytest/pip scores retained as infrastructure-invalid until repaired replay. Go uses exact verified official modules in native cache. Already complete answers are not regenerated.",
+        "source_mtime_utc": "2026-10-16T08:59:45.290081+00:00",
+        "infrastructure_or_evaluator_invalid": 0,
+        "awaiting_generation_or_replay": 0,
+        "resolved": 5,
+        "source_updated_at": "2026-10-16T08:59:45.289646+00:00",
+        "manual_retry_task_count": 6,
+        "manual_retry_planned_task_count": 6,
+        "task_scores_csv": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_final/task_scores.csv"
+      },
+      "TB": {
+        "expected": 445,
+        "valid_scored": 103,
+        "unscored": 342,
+        "complete": false,
+        "primary_score_percent": null,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/final_summary.json",
+        "note": "Five fixed seeds×89. Owner excludes verifier/bootstrap/tmux infrastructure failures from valid scores; private harness tools/native PATH/transport-deadline repairs preserve original prompts/tests/budget and old attempts. See owner source summary for accepted chronology and restoration disclosures.",
+        "source_mtime_utc": "2026-10-16T11:38:23.322595+00:00",
+        "infrastructure_or_evaluator_invalid": 31,
+        "active_trials": 4,
+        "pending_not_admitted": 307,
+        "sample_sd_percent_ddof1": null,
+        "per_seed": [
+          {
+            "seed": 0,
+            "expected": 89,
+            "valid_scored": 59,
+            "correct": 16.0,
+            "score_percent": null
+          },
+          {
+            "seed": 1,
+            "expected": 89,
+            "valid_scored": 44,
+            "correct": 9.0,
+            "score_percent": null
+          },
+          {
+            "seed": 2,
+            "expected": 89,
+            "valid_scored": 0,
+            "correct": 0,
+            "score_percent": null
+          },
+          {
+            "seed": 3,
+            "expected": 89,
+            "valid_scored": 0,
+            "correct": 0,
+            "score_percent": null
+          },
+          {
+            "seed": 4,
+            "expected": 89,
+            "valid_scored": 0,
+            "correct": 0,
+            "score_percent": null
+          }
+        ],
+        "owner_primary_mean_percent": null,
+        "owner_sample_sd_percent_ddof1": null,
+        "first_valid_chronology": null
+      }
+    },
+    "combined_score": null,
+    "combined_score_note": "Four different benchmark metrics are not averaged into one score.",
+    "method": "Read owner summaries only; missing/infrastructure-invalid values never become scored zeros.",
+    "hle_judge_cost": {
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/budget.json",
+      "calls": 594,
+      "settled_usage_cny": 0.7960147500000001,
+      "failed_or_inflight_reserved_cny": 0.033678,
+      "accounted_cny": 0.8296927500000001,
+      "hard_limit_cny": 10
+    },
+    "shared_budget_receipt": {
+      "source": "/data/caoqinlu/projects/apex-takehome/analysis/source_snapshots/night_api_budget_20261016.json",
+      "night_limit_cny": 30.0,
+      "data_accounted_cny": {
+        "academic_teacher_and_scicode": 2.62661616,
+        "terminal_classification": 4.269956544
+      },
+      "asi_calibration_reserved_cny": 0.3157632,
+      "note": "Parent-maintained historical receipt; other writers do not share this collector's lock. GPU/resource fees are not priced here."
+    }
+  },
+  "hle50_handoff": {
+    "at_utc": "2026-10-16T11:35:16.311524+00:00",
+    "pid": 2897516,
+    "stage": "launched_seq50",
+    "old_pid": 2880402,
+    "new_model_calls": 0,
+    "new_pid": 2947319,
+    "retained": 1487,
+    "selected": 1013,
+    "new_infrastructure_retries": 0
+  },
+  "terminal_routes": {
+    "at_utc": "2026-10-16T11:38:38.890594+00:00",
+    "new_route_activated": true,
+    "health_checks": [
+      {
+        "job_id": 726635,
+        "url": "http://127.0.0.1:28086",
+        "http_health_status": 200,
+        "remaining_seconds": 127793,
+        "admit": true
+      },
+      {
+        "job_id": 726629,
+        "url": "http://127.0.0.1:28085",
+        "http_health_status": 200,
+        "remaining_seconds": 127452,
+        "admit": true
+      }
+    ],
+    "old_controller_exited": false,
+    "new_controller_pid": null,
+    "new_controller_alive": false,
+    "active_trials": 4,
+    "old_endpoint_active_trials": 4,
+    "old_model_consumer_markers_written": false,
+    "requested_model_max_num_seqs": 20,
+    "current_routes": [
+      {
+        "url": "http://127.0.0.1:28082",
+        "admit": false,
+        "allocation_end_time": "2026-10-18T04:04:25+08:00",
+        "job_id": 726129,
+        "max_num_seqs": 8,
+        "consumer_finished_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/job-726129-finished.json"
+      },
+      {
+        "url": "http://127.0.0.1:28084",
+        "admit": false,
+        "allocation_end_time": "2026-10-17T02:30:50+08:00",
+        "job_id": 725705,
+        "max_num_seqs": 8,
+        "consumer_finished_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/job-725705-finished.json"
+      },
+      {
+        "url": "http://127.0.0.1:28086",
+        "allocation_end_time": "2026-10-18T07:08:32+08:00",
+        "job_id": 726635,
+        "max_num_seqs": 20,
+        "admit": true
+      },
+      {
+        "url": "http://127.0.0.1:28085",
+        "allocation_end_time": "2026-10-18T07:02:51+08:00",
+        "job_id": 726629,
+        "max_num_seqs": 20,
+        "admit": true
+      }
+    ]
+  },
+  "models": {
+    "28082": [
+      "vllm:num_requests_running{engine=\"0\",model_name=\"apex-qwen\"} 0.0",
+      "vllm:num_requests_waiting{engine=\"0\",model_name=\"apex-qwen\"} 0.0"
+    ],
+    "28084": [
+      "vllm:num_requests_running{engine=\"0\",model_name=\"apex-qwen\"} 1.0",
+      "vllm:num_requests_waiting{engine=\"0\",model_name=\"apex-qwen\"} 0.0"
+    ],
+    "28085": [
+      "vllm:num_requests_running{engine=\"0\",model_name=\"apex-qwen\"} 0.0",
+      "vllm:num_requests_waiting{engine=\"0\",model_name=\"apex-qwen\"} 0.0"
+    ],
+    "28086": [
+      "vllm:num_requests_running{engine=\"0\",model_name=\"apex-qwen\"} 0.0",
+      "vllm:num_requests_waiting{engine=\"0\",model_name=\"apex-qwen\"} 0.0"
+    ],
+    "28088": [
+      "vllm:num_requests_running{engine=\"0\",model_name=\"apex-qwen\"} 50.0",
+      "vllm:num_requests_waiting{engine=\"0\",model_name=\"apex-qwen\"} 0.0"
+    ]
+  },
+  "observed_at_utc": "2026-10-16T11:38:40.715674+00:00",
+  "slurm_jobs": [
+    "726100|eval-krama-autoddg|RUNNING|3:42:42|ACD1-18|gres/gpu:1",
+    "726666|apex-mixed-existing2k-sft|PENDING|0:00||gres/gpu:4",
+    "726665|apex-terminal-retry-sft|PENDING|0:00||gres/gpu:4",
+    "726664|apex-hle-existing2k-sft|PENDING|0:00||gres/gpu:2",
+    "726335|apex-swe2k-sft|RUNNING|1:46:16|ACD1-2|gres/gpu:4",
+    "725705|apex-base-x2|RUNNING|5:07:50|ACD1-12|gres/gpu:2",
+    "726129|apex-terminal-x2|RUNNING|3:34:15|ACD1-32|gres/gpu:2",
+    "726663|apex-hle-seq50|RUNNING|14:22|ACD1-3|gres/gpu:2",
+    "726635|apex-terminal-seq20|RUNNING|30:08|ACD1-54|gres/gpu:2",
+    "726629|apex-hle-seq20|RUNNING|35:49|ACD1-12|gres/gpu:2"
+  ]
+}

@@ -1,0 +1,280 @@
+{
+  "collector": {
+    "updated_at_utc": "2026-10-16T11:34:39.577524+00:00",
+    "complete": false,
+    "benchmarks": {
+      "HLE": {
+        "expected": 2500,
+        "valid_scored": 1485,
+        "unscored": 1015,
+        "complete": false,
+        "primary_score_percent": null,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/summary.json",
+        "note": "Retain all original answers and normal budget ends. At1424 outcomes, serving changed from max_num_seqs4 to20, with8 incomplete migration infrastructure retry2. User then requests server/client50; the next natural handoff transfers only never-started questions and adds no retry. Actual transitions are recorded separately. Queue time is inside the300s budget, so earlier timeouts cannot be interpreted as model ability alone. Judge uses school DeepSeek-V4-Flash and original criteria/JSONwrapper/4096/nonthinking; infrastructure-invalid outcomes are not zeros.",
+        "source_mtime_utc": "2026-10-16T11:34:34.231378+00:00",
+        "infrastructure_or_evaluator_invalid": 0,
+        "generation_terminal": 1485,
+        "judged_answers": 566,
+        "native_no_answer": 919,
+        "correct": 49,
+        "subgroups": {
+          "text": {
+            "denominator": 2158,
+            "scored": 1289,
+            "correct": 43,
+            "accuracy_percent": null
+          },
+          "image": {
+            "denominator": 342,
+            "scored": 196,
+            "correct": 6,
+            "accuracy_percent": null
+          }
+        },
+        "budget_halted": false,
+        "judge_calls": 566,
+        "accounted_cny": 0.765825,
+        "cost_cap_cny": 10,
+        "source_updated_at": "2026-10-16T11:34:34.231435+00:00",
+        "serving_transition": {
+          "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_seq20/handoff-receipt.json",
+          "at_utc": "2026-10-16T11:10:06.887453+00:00",
+          "retained_terminal_outcomes": 1424,
+          "selected_for_new_service": 1076,
+          "incomplete_migration_retries": 8,
+          "old_max_num_seqs": 4,
+          "new_max_num_seqs": 20,
+          "outer_solver_concurrency": 8,
+          "question_walltime_includes_queue": true
+        },
+        "serving_transitions": [
+          {
+            "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_seq20/handoff-receipt.json",
+            "at_utc": "2026-10-16T11:10:06.887453+00:00",
+            "retained_terminal_outcomes": 1424,
+            "selected_for_new_service": 1076,
+            "incomplete_migration_retries": 8,
+            "old_max_num_seqs": 4,
+            "new_max_num_seqs": 20,
+            "outer_solver_concurrency": 8,
+            "question_walltime_includes_queue": true
+          }
+        ]
+      },
+      "ASI": {
+        "expected": 240,
+        "valid_scored": 240,
+        "unscored": 0,
+        "complete": true,
+        "primary_score_percent": 1.5709884069083986,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016/local_score_seed31415.json",
+        "note": "Public local240-condition score. Only soil b2 empty (3650,0) arrays violate public required(n_days,5): targeted hard-gate fail repair; original invalid retained, other239 unchanged. CMOS ngspice44.2 and native submission bwrap mappings documented; formal Judge0calls.",
+        "source_mtime_utc": "2026-10-16T07:50:52.394665+00:00",
+        "infrastructure_or_evaluator_invalid": 0,
+        "total_score": 377.03721765801566,
+        "total_max_score": 24000.0,
+        "judge_calls": 0,
+        "accounted_cny": 0,
+        "repair_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016/soil_empty_prediction_repair/receipt.json"
+      },
+      "SWE": {
+        "expected": 51,
+        "valid_scored": 51,
+        "unscored": 0,
+        "complete": true,
+        "primary_score_percent": 9.803921568627452,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_final/final_summary.json",
+        "note": "First environment-valid fresh replay of frozen patches. Restore native SIF PATH/private mini runtime; missing pytest/pip scores retained as infrastructure-invalid until repaired replay. Go uses exact verified official modules in native cache. Already complete answers are not regenerated.",
+        "source_mtime_utc": "2026-10-16T08:59:45.290081+00:00",
+        "infrastructure_or_evaluator_invalid": 0,
+        "awaiting_generation_or_replay": 0,
+        "resolved": 5,
+        "source_updated_at": "2026-10-16T08:59:45.289646+00:00",
+        "manual_retry_task_count": 6,
+        "manual_retry_planned_task_count": 6,
+        "task_scores_csv": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_final/task_scores.csv"
+      },
+      "TB": {
+        "expected": 445,
+        "valid_scored": 100,
+        "unscored": 345,
+        "complete": false,
+        "primary_score_percent": null,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/final_summary.json",
+        "note": "Five fixed seeds×89. Owner excludes verifier/bootstrap/tmux infrastructure failures from valid scores; private harness tools/native PATH/transport-deadline repairs preserve original prompts/tests/budget and old attempts. See owner source summary for accepted chronology and restoration disclosures.",
+        "source_mtime_utc": "2026-10-16T11:34:22.635729+00:00",
+        "infrastructure_or_evaluator_invalid": 31,
+        "active_trials": 7,
+        "pending_not_admitted": 307,
+        "sample_sd_percent_ddof1": null,
+        "per_seed": [
+          {
+            "seed": 0,
+            "expected": 89,
+            "valid_scored": 59,
+            "correct": 16.0,
+            "score_percent": null
+          },
+          {
+            "seed": 1,
+            "expected": 89,
+            "valid_scored": 41,
+            "correct": 8.0,
+            "score_percent": null
+          },
+          {
+            "seed": 2,
+            "expected": 89,
+            "valid_scored": 0,
+            "correct": 0,
+            "score_percent": null
+          },
+          {
+            "seed": 3,
+            "expected": 89,
+            "valid_scored": 0,
+            "correct": 0,
+            "score_percent": null
+          },
+          {
+            "seed": 4,
+            "expected": 89,
+            "valid_scored": 0,
+            "correct": 0,
+            "score_percent": null
+          }
+        ],
+        "owner_primary_mean_percent": null,
+        "owner_sample_sd_percent_ddof1": null,
+        "first_valid_chronology": null
+      }
+    },
+    "combined_score": null,
+    "combined_score_note": "Four different benchmark metrics are not averaged into one score.",
+    "method": "Read owner summaries only; missing/infrastructure-invalid values never become scored zeros.",
+    "hle_judge_cost": {
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/budget.json",
+      "calls": 566,
+      "settled_usage_cny": 0.7658249999999999,
+      "failed_or_inflight_reserved_cny": 0,
+      "accounted_cny": 0.7658249999999999,
+      "hard_limit_cny": 10
+    },
+    "shared_budget_receipt": {
+      "source": "/data/caoqinlu/projects/apex-takehome/analysis/source_snapshots/night_api_budget_20261016.json",
+      "night_limit_cny": 30.0,
+      "data_accounted_cny": {
+        "academic_teacher_and_scicode": 2.62661616,
+        "terminal_classification": 4.269956544
+      },
+      "asi_calibration_reserved_cny": 0.3157632,
+      "note": "Parent-maintained historical receipt; other writers do not share this collector's lock. GPU/resource fees are not priced here."
+    }
+  },
+  "hle50_handoff": {
+    "at_utc": "2026-10-16T11:34:56.388616+00:00",
+    "pid": 2897516,
+    "stage": "draining_seq20_without_cancellation",
+    "old_pid": 2880402,
+    "new_model_calls": 0,
+    "route": {
+      "endpoint": "http://127.0.0.1:28088",
+      "job_id": 726663,
+      "ready": true,
+      "engine_max_num_seqs": 50,
+      "solver_concurrency": 50,
+      "http_max_connections": 52,
+      "context_tokens": 65536,
+      "max_output_tokens": 8192,
+      "question_walltime_seconds": 300,
+      "enable_thinking": false,
+      "preserve_thinking": false,
+      "note": "Backend fills endpoint and job_id and atomically sets ready=true only after the real seq50 service and direct tunnel are healthy. Handoff then drains the old eight-slot leaf naturally; only never-started entries move to fifty slots.",
+      "allocation_end_time": "2026-10-17T07:24:18+08:00",
+      "node": "ACD1-3"
+    },
+    "active_count": 8,
+    "completed_count": 55
+  },
+  "terminal_routes": {
+    "at_utc": "2026-10-16T11:34:55.667084+00:00",
+    "new_route_activated": true,
+    "health_checks": [
+      {
+        "job_id": 726635,
+        "url": "http://127.0.0.1:28086",
+        "http_health_status": 200,
+        "remaining_seconds": 128016,
+        "admit": true
+      }
+    ],
+    "old_controller_exited": false,
+    "new_controller_pid": null,
+    "new_controller_alive": false,
+    "active_trials": 7,
+    "old_endpoint_active_trials": 7,
+    "old_model_consumer_markers_written": false,
+    "requested_model_max_num_seqs": 20,
+    "current_routes": [
+      {
+        "url": "http://127.0.0.1:28082",
+        "admit": false,
+        "allocation_end_time": "2026-10-18T04:04:25+08:00",
+        "job_id": 726129,
+        "max_num_seqs": 8,
+        "consumer_finished_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/job-726129-finished.json"
+      },
+      {
+        "url": "http://127.0.0.1:28084",
+        "admit": false,
+        "allocation_end_time": "2026-10-17T02:30:50+08:00",
+        "job_id": 725705,
+        "max_num_seqs": 8,
+        "consumer_finished_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/job-725705-finished.json"
+      },
+      {
+        "url": "http://127.0.0.1:28086",
+        "allocation_end_time": "2026-10-18T07:08:32+08:00",
+        "job_id": 726635,
+        "max_num_seqs": 20,
+        "admit": true
+      }
+    ]
+  },
+  "models": {
+    "28082": [
+      "vllm:num_requests_running{engine=\"0\",model_name=\"apex-qwen\"} 1.0",
+      "vllm:num_requests_waiting{engine=\"0\",model_name=\"apex-qwen\"} 0.0"
+    ],
+    "28084": [
+      "vllm:num_requests_running{engine=\"0\",model_name=\"apex-qwen\"} 0.0",
+      "vllm:num_requests_waiting{engine=\"0\",model_name=\"apex-qwen\"} 0.0"
+    ],
+    "28085": [
+      "vllm:num_requests_running{engine=\"0\",model_name=\"apex-qwen\"} 2.0",
+      "vllm:num_requests_waiting{engine=\"0\",model_name=\"apex-qwen\"} 0.0"
+    ],
+    "28086": [
+      "vllm:num_requests_running{engine=\"0\",model_name=\"apex-qwen\"} 0.0",
+      "vllm:num_requests_waiting{engine=\"0\",model_name=\"apex-qwen\"} 0.0"
+    ],
+    "28088": [
+      "vllm:num_requests_running{engine=\"0\",model_name=\"apex-qwen\"} 0.0",
+      "vllm:num_requests_waiting{engine=\"0\",model_name=\"apex-qwen\"} 0.0"
+    ]
+  },
+  "observed_at_utc": "2026-10-16T11:34:56.801855+00:00",
+  "slurm_jobs": [
+    "726100|eval-krama-autoddg|RUNNING|3:38:59|ACD1-18|gres/gpu:1",
+    "726666|apex-mixed-existing2k-sft|PENDING|0:00||gres/gpu:4",
+    "726665|apex-terminal-retry-sft|PENDING|0:00||gres/gpu:4",
+    "726664|apex-hle-existing2k-sft|PENDING|0:00||gres/gpu:2",
+    "726335|apex-swe2k-sft|RUNNING|1:42:33|ACD1-2|gres/gpu:4",
+    "725705|apex-base-x2|RUNNING|5:04:07|ACD1-12|gres/gpu:2",
+    "726129|apex-terminal-x2|RUNNING|3:30:32|ACD1-32|gres/gpu:2",
+    "726663|apex-hle-seq50|RUNNING|10:39|ACD1-3|gres/gpu:2",
+    "726635|apex-terminal-seq20|RUNNING|26:25|ACD1-54|gres/gpu:2",
+    "726629|apex-hle-seq20|RUNNING|32:06|ACD1-12|gres/gpu:2"
+  ],
+  "resource_interpretation": "Old Terminal services still have active consumers; new replicas are waiting for natural handoff. Do not cancel pending replacements or SFT/other-project work on a zero-utilization snapshot."
+}

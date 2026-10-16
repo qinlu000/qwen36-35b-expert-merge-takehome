@@ -1,0 +1,50 @@
+{
+  "at_cst": "2026-10-16 19:31:53\u201319:32",
+  "mode": "read_only",
+  "valid_covered": 99,
+  "expected_trials": 445,
+  "active_trials": 8,
+  "pending_not_admitted": 307,
+  "infrastructure_unscored": 31,
+  "checkpoint_inplace_valid": 86,
+  "active_phases": {
+    "solver": 6,
+    "native_grader": 2
+  },
+  "active_endpoint_counts": {
+    "http://127.0.0.1:28082": 2,
+    "http://127.0.0.1:28084": 6
+  },
+  "model_running_sequences": {
+    "28082": 1,
+    "28084": 4,
+    "28086": 0
+  },
+  "model_waiting_sequences": {
+    "28082": 0,
+    "28084": 0,
+    "28086": 0
+  },
+  "runtime10_pid": 2719240,
+  "runtime10_alive": true,
+  "runtime11_launch_receipt_exists": false,
+  "runtime11_waiter_pid": 2879002,
+  "runtime11_waiter_alive": true,
+  "route_switcher_pid": 2884174,
+  "route_switcher_alive": true,
+  "new_A_job": 726635,
+  "new_A_http_health": 200,
+  "new_A_terminal_trials": 0,
+  "reuse_B_job": 726629,
+  "reuse_B_registered_in_live_targets": false,
+  "old_consumer_markers_exist": false,
+  "last_active_solver_first_api_cst": "2026-10-16 19:11:32",
+  "last_active_solver_task": "merge-diff-arc-agi-task/seed1",
+  "last_solver_original_1800s_deadline_approx_cst": "2026-10-16 19:41:32",
+  "native_grading_progress": {
+    "fix-ocaml-gc/seed1": "Compiling OCaml; real make output advancing",
+    "large-scale-text-editing/seed1": "pytest collected5 items; first2 progressed"
+  },
+  "processes_cancelled_or_restarted": 0,
+  "current_status": "runtime10 natural drain still in progress; runtime11 not yet launched, not failed"
+}

@@ -53,6 +53,13 @@
       "node": "ACD1-54",
       "service_port": 18002,
       "bridge_port": 28086
+    },
+    {
+      "benchmark": "hle_seq50",
+      "job_id": 726663,
+      "node": "ACD1-3",
+      "service_port": 18003,
+      "bridge_port": 28088
     }
   ]
 }

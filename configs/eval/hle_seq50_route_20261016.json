@@ -1,7 +1,7 @@
 {
   "endpoint": "http://127.0.0.1:28088",
-  "job_id": null,
-  "ready": false,
+  "job_id": 726663,
+  "ready": true,
   "engine_max_num_seqs": 50,
   "solver_concurrency": 50,
   "http_max_connections": 52,
@@ -10,5 +10,7 @@
   "question_walltime_seconds": 300,
   "enable_thinking": false,
   "preserve_thinking": false,
-  "note": "Backend fills endpoint and job_id and atomically sets ready=true only after the real seq50 service and direct tunnel are healthy. Handoff then drains the old eight-slot leaf naturally; only never-started entries move to fifty slots."
+  "note": "Backend fills endpoint and job_id and atomically sets ready=true only after the real seq50 service and direct tunnel are healthy. Handoff then drains the old eight-slot leaf naturally; only never-started entries move to fifty slots.",
+  "allocation_end_time": "2026-10-17T07:24:18+08:00",
+  "node": "ACD1-3"
 }

@@ -27,6 +27,12 @@
       "job_id": 726635,
       "allocation_end_time": "2026-10-18T07:08:32+08:00",
       "max_num_seqs": 20
+    },
+    {
+      "url": "http://127.0.0.1:28085",
+      "job_id": 726629,
+      "allocation_end_time": "2026-10-18T07:02:51+08:00",
+      "max_num_seqs": 20
     }
   ]
 }

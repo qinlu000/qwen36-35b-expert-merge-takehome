@@ -1,3 +1,27 @@
+# Both replacement routes ready; five old tasks still drain — 2026-10-16 19:36 CST
+
+The previously pending reusedB registration is now complete as planned. Actual route-watcher evidence at19:36:20 shows **A726635/28086 and B726629/28085 both health200/admit=true/maxseq20**. B's real allocation ends2026-10-18 07:02:51 CST. Old28082/28084 routes are disabled for future admissions. Both new services are transition standby until the remaining immutable runtime10 tasks finish; readiness is not a claim that new Terminal requests have begun.
+
+Accepted coverage is102/445, with5 old in-flight tasks (A1/B4),307 pending and31 infrastructure/unscored. Runtime10, waiter2879002 and route-watcher2884174 remain alive; runtime11 is not launched yet. Both old endpoints still have consumers, so neither has a safe early release now and both consumer markers remain absent. The old controller's health loop also still checks its primary endpoint regardless of that endpoint's instantaneous model load; cancelling it early would trip the breaker on remaining tasks. No GPU job, task or route was modified for this read-only check.
+
+Evidence: `analysis/source_snapshots/terminal_handoff_progress_20261016_1936.json`; the versioned target snapshot `configs/eval/terminal_model_route_targets_20261016.json` now includes the actual reusedB route. All earlier statements that B was not registered describe the19:32 snapshot and are superseded.
+
+All sections below are historical.
+
+---
+
+# Handoff progress verified read-only — 2026-10-16 19:32 CST
+
+Canonical accepted coverage is99/445, with8 active,307 pending and31 infrastructure/unscored. Runtime10 remains alive in its requested natural drain:6 solvers and2 real native graders. Runtime11 has **not launched**; its waiter2879002 remains alive waiting on the main flock. Old endpoint28082 owns2 trials and28084 owns6. Actual model execution is1 sequence on28082 and4 on28084, no waiting. New20-sequence A726635/28086 is healthy but0 tasks use it while this old controller drains. Old consumer markers remain absent because the release prerequisites are not yet met.
+
+The last solver began its first native API call at19:11:32 after a slow setup, so its original1800s budget may last toabout19:41:32, followed by grading. Both existing graders show real progress: OCaml compilation and pytest5 tests respectively. The old controller/graders were not killed or restarted. The live next-route targets currently contain only newA726635; root-mentioned reusedB726629 has not been registered there and has no Terminal trial assigned. It needs its actual bridge/endtime configured before it can receive future admissions. This snapshot does not claim30 active tasks or that20-sequence Terminal inference has begun.
+
+Evidence: `analysis/source_snapshots/terminal_handoff_progress_20261016_1932.json`; production checkpoint/final_summary, actual raw request timestamps, native verifier stdout, route-switcher state and vLLM metrics. No mutation of the running controller, requests, GPU jobs or routes was made for this audit.
+
+All sections below are historical.
+
+---
+
 # Prepared runtime11 GPU completion receipt fixed — 2026-10-16 19:17 CST
 
 Before runtime11 launch, its frozen next source was updated so completed planned model work releases GPU allocations without waiting for all445 valid benchmark scores. It writes `artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/terminal-seq20-current-manifest-finished.json` only after the queue is not halted, pending/admitted counts are0, every route load is0, and the model HTTP client has closed. A natural STOP drain with pending work cannot write it. CPU archive grading and result observers can keep running independently.

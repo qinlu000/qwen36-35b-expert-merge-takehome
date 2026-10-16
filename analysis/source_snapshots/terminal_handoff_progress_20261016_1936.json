@@ -1,0 +1,86 @@
+{
+  "at_utc": "2026-10-16T11:36:21.291649+00:00",
+  "final_coverage": {
+    "valid_covered": 102,
+    "active_trials": 5,
+    "pending_not_admitted": 307,
+    "infrastructure_unscored": 31,
+    "updated_at_utc": "2026-10-16T11:35:52.866721+00:00"
+  },
+  "state_counts": {
+    "failed_attempt": 30,
+    "valid": 89,
+    "verifier_incomplete": 14,
+    "admitted": 5,
+    "pending": 307
+  },
+  "active_endpoint_counts": {
+    "http://127.0.0.1:28084": 4,
+    "http://127.0.0.1:28082": 1
+  },
+  "switcher_state": {
+    "at_utc": "2026-10-16T11:36:20.112216+00:00",
+    "new_route_activated": true,
+    "health_checks": [
+      {
+        "job_id": 726635,
+        "url": "http://127.0.0.1:28086",
+        "http_health_status": 200,
+        "remaining_seconds": 127932,
+        "admit": true
+      },
+      {
+        "job_id": 726629,
+        "url": "http://127.0.0.1:28085",
+        "http_health_status": 200,
+        "remaining_seconds": 127591,
+        "admit": true
+      }
+    ],
+    "old_controller_exited": false,
+    "new_controller_pid": null,
+    "new_controller_alive": false,
+    "active_trials": 5,
+    "old_endpoint_active_trials": 5,
+    "old_model_consumer_markers_written": false,
+    "requested_model_max_num_seqs": 20,
+    "current_routes": [
+      {
+        "url": "http://127.0.0.1:28082",
+        "admit": false,
+        "allocation_end_time": "2026-10-18T04:04:25+08:00",
+        "job_id": 726129,
+        "max_num_seqs": 8,
+        "consumer_finished_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/job-726129-finished.json"
+      },
+      {
+        "url": "http://127.0.0.1:28084",
+        "admit": false,
+        "allocation_end_time": "2026-10-17T02:30:50+08:00",
+        "job_id": 725705,
+        "max_num_seqs": 8,
+        "consumer_finished_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-consumers/job-725705-finished.json"
+      },
+      {
+        "url": "http://127.0.0.1:28086",
+        "allocation_end_time": "2026-10-18T07:08:32+08:00",
+        "job_id": 726635,
+        "max_num_seqs": 20,
+        "admit": true
+      },
+      {
+        "url": "http://127.0.0.1:28085",
+        "allocation_end_time": "2026-10-18T07:02:51+08:00",
+        "job_id": 726629,
+        "max_num_seqs": 20,
+        "admit": true
+      }
+    ]
+  },
+  "runtime11_launched": false,
+  "processes": "    PID STAT     ELAPSED COMMAND\n2719240 Ssl     01:13:06 /data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python /data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime10/scripts/run_terminal_native7.py --manifest /data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime10/manifest.json --output /data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016 --endpoint http://127.0.0.1:28082 --api-key-path /data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key --concurrency 16 --resume-after-bridge-approval --stop-admission-file /data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime10/STOP_ADMISSION\n2879002 Ss         27:16 python3 /data/caoqinlu/projects/apex-takehome/scripts/prepare_terminal_routing_handoff_v2.py --launch-after-drain\n2884174 Ss         23:38 python3 /data/caoqinlu/projects/apex-takehome/scripts/switch_terminal_model_routes_v2.py --targets /data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-route-targets.json --state /data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/model-route-switcher-state.json\n",
+  "old_markers": {
+    "726129": false,
+    "725705": false
+  }
+}

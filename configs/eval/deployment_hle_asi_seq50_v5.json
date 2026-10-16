@@ -10,7 +10,7 @@
     "service_job_id": 726663,
     "service_timelimit_hours": 12,
     "bridge_port": 28088,
-    "actual_state_at_configuration": "PENDING(Resources); old eight-request seq20 leaf continues until replacement healthy",
+    "actual_state_at_configuration": "Active50-request rolling production since19:35:16CST onACD1-3; actual50GPUrunning/0waiting at19:36; native throughput750-795tokens/s",
     "route_file": "configs/eval/hle_seq50_route_20261016.json",
     "new_output": "artifacts/runs/base_hle_v2_724196_seq50",
     "activation": "Native maxseq50 startup and health200 -> STOP oldseq20 -> naturally finish8 -> transfer only never-started IDs -> start50 rolling; no additional manual retry index"
