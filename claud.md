@@ -1219,3 +1219,9 @@
 - ASI82主任务train和20val已有官方同system；991辅助可统一该单Python代码块system，但须将旧system中的函数/片段/缩进接口约束移入user，仍不是1073完整产物程序。
 - HLE2000/100没有system；HPC Swift qwen3_5 default_system=None也不自动补。train Explanation0/Answer789/Confidence0，不能直接强加三字段指令却保留冲突标签。已有可靠解释/答案可规范，缺confidence不编造100%；judge的缺省提取兜底不是训练标注。
 - 若实施用新副本、保留题面划分/真实历史，检查64K/8K不截断，同步Mixed；不改冻结评测，不热改在训JSONL。仅提示文案差异不值得自动全量重采/重训，需看独立val的协议失败。具体方案analysis/sft_harness_alignment_20261016.md，两个分项报告保存代码路径与实数；本轮仅提交自有文档及共享追加段，无coauthor信息。
+
+## 2026-10-16：提示对齐剩余项按必要性收敛
+
+- 用户问现在还需改什么。复核没有必须为HLE/ASI prompt文案重做数据或重训的实证阻塞；上轮“优先补”是可优化方向，不是已发现故障。HLE官方可抽任意响应最终答案，三字段非准确率判分硬要求；162参考短答有效但缺解释监督。ASI1073目标均单Python块，991辅助system与官方语义兼容，未发现解析失败。
+- 保持当前训练版本、划分和Mixed7073，不为文案一致取消/重做训练。缺Confidence不补造100%；SWE/Terminal已对齐的原生协议保持。必须闭环的是Terminal新正式job的GPU全量val，CPU通过不等于实际OOM已消失；后续既有独立val查抽取、工具、代码输出与任务表现，有实质失败再定向适配。
+- 本轮只读训练状态，SWE726335在训；HLE726664受QOS额度排队，Terminal726665/Mixed726666等待依赖。未改任何数据/作业/评测，无API/GPU探针。必要性结论已补sft_harness_alignment与sft_progress；仅Git提交本轮自有内容和claud/overnight追加，无coauthor信息。

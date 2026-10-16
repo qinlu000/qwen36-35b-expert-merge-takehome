@@ -37,3 +37,5 @@ HLE双卡；Terminal四卡真实依赖`afterany:726664:725705`，只等待旧Bas
 共用r16/alpha32/dropout.05、global8、LR1e-4、weight_decay.1、一epoch、BF16、原loss mask及完整样本策略。新HLE与Mixed不覆盖在训SWE数据；旧High生成STOP_ADMISSION与已停止的后续保持，无新教师API、数据hash审计或app自动化。
 
 19:24启动修正：初次HLE726647获得调度后因集群包装器误把独立`--data-dir`目录参数当sandbox而0步失败，未加载模型；CPU原样解析条件已确认改用`--data-dir=...`通过。现HLE726664、Terminal726665、Mixed726666均用equals参数写法重提，旧0步后续726648/726649取消，数据与预算未变。HLE仍排队，GPU真实optimizer/eval尚待实证；详见执行记录和重提交回执。
+
+提示对齐优先级已复核：当前HLE/ASI差异不是已证实的训练/评分阻塞，不为纯文案一致性改当前数据或重训。保持原定作业接续；必须闭环的是Terminal新作业的真实GPU全量验证。训练后用既有独立val检查抽取/工具/代码输出及任务表现，再决定是否需要小规模适配。[必要性结论](sft_harness_alignment_20261016.md)
