@@ -1,0 +1,246 @@
+{
+  "scope": "Read-only audit of the five gaps in the 46/51 audited starting snapshot; no new scoring or model calls",
+  "audit_starting_snapshot": {
+    "path": "artifacts/eval/swe249_audited_hard51_20261017/summary.json",
+    "source_as_of_utc": "2026-10-16T19:43:49.855593+00:00",
+    "valid": 46,
+    "expected": 51,
+    "native_valid": 42,
+    "previously_approved": 4,
+    "complete": false,
+    "primary_score": null,
+    "meaning": "Historical audit starting point, not a refreshed score"
+  },
+  "evidence_collected_at_utc": "2026-10-16T19:50:54.347947+00:00",
+  "identity_collected_at_utc": "2026-10-16T19:55:14.107649+00:00",
+  "source_host": "10.123.4.80",
+  "source_root": "/data/caoqinlu/projects/apex-takehome",
+  "action": {
+    "canonical_modified": false,
+    "model_requests": 0,
+    "scoring_runs": 0,
+    "containers_started": 0,
+    "slurm_changes": 0,
+    "new_gpu_allocations": 0,
+    "budget_unchanged": "1 CPU / 4096 MiB per original SWE replay; verifier timeout 3000 seconds"
+  },
+  "candidate_zero_proposals": [
+    {
+      "task_id": "instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6",
+      "disposition": "proposed_native_zero_requires_root_review",
+      "native_reward": 0,
+      "exception_info": null,
+      "parsed_tests": 0,
+      "files": {
+        "result": {
+          "path": "artifacts/eval/swe249_hard51_20261016/replay/instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6/result.json",
+          "bytes": 5098,
+          "sha256": "19144f242417a2dfdca909fb55bdf1a1d499067794dec4d18fe79be7f256ea56"
+        },
+        "config": {
+          "path": "artifacts/eval/swe249_hard51_20261016/replay/instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6/config.json",
+          "bytes": 1405,
+          "sha256": "24af58c80da490f9525469cc49b2b0da7405de3f04cefbf1666834fc1b8982e2"
+        },
+        "replay": {
+          "path": "artifacts/eval/swe249_hard51_20261016/replay/instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6/agent/replay.json",
+          "bytes": 147,
+          "sha256": "b93a3d41b313a012b810135c3213b6a433dcd5ca009e78e598e16a03de30caea"
+        },
+        "patch": {
+          "path": "artifacts/eval/swe249_hard51_20261016/generation/instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6/agent/model.patch",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "changed_files": []
+        }
+      },
+      "identity_checks": {
+        "result_task_name": "swebench-pro/instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6",
+        "result_config_task": {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_hard51_20261016/tasks/instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6",
+          "git_url": null,
+          "git_commit_id": null,
+          "name": null,
+          "ref": null,
+          "overwrite": false,
+          "download_dir": null,
+          "source": null
+        },
+        "config_task": {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_hard51_20261016/tasks/instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6"
+        },
+        "config_agent": {
+          "import_path": "patch_replay:PatchReplayAgent",
+          "model_name": "replay",
+          "override_timeout_sec": 1800,
+          "kwargs": {
+            "source_job": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_hard51_20261016/generation"
+          }
+        },
+        "replay_task": "instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6",
+        "replay_patch": null,
+        "replay_apply_rc": null,
+        "reward_txt": "0"
+      },
+      "evidence_paths": {
+        "instruction": "artifacts/eval/swe249_hard51_20261016/tasks/instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6/instruction.md",
+        "stdout": "artifacts/eval/swe249_hard51_20261016/replay/instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6/verifier/run-script-stdout.txt",
+        "parser_output": "artifacts/eval/swe249_hard51_20261016/replay/instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6/verifier/output.json"
+      },
+      "evidence": [
+        "Task requires Bestbook.add/remove/get_awards and AwardConditionsError.",
+        "Native collection imports openlibrary.core.bestbook and fails with ModuleNotFoundError for that product module.",
+        "Captured patch is empty. Native reward zero and no Harbor exception."
+      ]
+    },
+    {
+      "task_id": "instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367",
+      "disposition": "proposed_native_zero_requires_root_review",
+      "native_reward": 0,
+      "exception_info": null,
+      "parsed_tests": 0,
+      "files": {
+        "result": {
+          "path": "artifacts/eval/swe249_hard51_20261016/replay/instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367/result.json",
+          "bytes": 5074,
+          "sha256": "64c3dec674da8ee66b18629895e89d5f20f37d47cc9c1cee773bfef4d1d706c9"
+        },
+        "config": {
+          "path": "artifacts/eval/swe249_hard51_20261016/replay/instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367/config.json",
+          "bytes": 1397,
+          "sha256": "cd2a156e3cc8e132fc2f1481d4c7f3d7aaa6a180453e09a32ee90d482f204477"
+        },
+        "replay": {
+          "path": "artifacts/eval/swe249_hard51_20261016/replay/instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367/agent/replay.json",
+          "bytes": 1051,
+          "sha256": "81af9f3a2a6b60bd300a926a858af48fbc65ddd15f1dfbcedf1999b9896a099a"
+        },
+        "patch": {
+          "path": "artifacts/eval/swe249_hard51_20261016/generation/instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367/agent/model.patch",
+          "bytes": 19834,
+          "sha256": "f0873d617097b9398e18013a37affc954228a7ddf3a26cc16481181e2f862fd7",
+          "changed_files": [
+            "a/.github/CODE_OF_CONDUCT.md b/.github/CODE_OF_CONDUCT.md",
+            "a/.github/pull_request_template.md b/.github/pull_request_template.md",
+            "a/.yamllint b/.yamllint",
+            "a/doc/help/configuring.asciidoc b/doc/help/configuring.asciidoc"
+          ]
+        }
+      },
+      "identity_checks": {
+        "result_task_name": "swebench-pro/instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367",
+        "result_config_task": {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_hard51_20261016/tasks/instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367",
+          "git_url": null,
+          "git_commit_id": null,
+          "name": null,
+          "ref": null,
+          "overwrite": false,
+          "download_dir": null,
+          "source": null
+        },
+        "config_task": {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_hard51_20261016/tasks/instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367"
+        },
+        "config_agent": {
+          "import_path": "patch_replay:PatchReplayAgent",
+          "model_name": "replay",
+          "override_timeout_sec": 1800,
+          "kwargs": {
+            "source_job": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_hard51_20261016/generation"
+          }
+        },
+        "replay_task": "instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367",
+        "replay_patch": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_hard51_20261016/generation/instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367/agent/model.patch",
+        "replay_apply_rc": 0,
+        "reward_txt": "0"
+      },
+      "evidence_paths": {
+        "instruction": "artifacts/eval/swe249_hard51_20261016/tasks/instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367/instruction.md",
+        "stdout": "artifacts/eval/swe249_hard51_20261016/replay/instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367/verifier/run-script-stdout.txt",
+        "parser_output": "artifacts/eval/swe249_hard51_20261016/replay/instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367/verifier/output.json"
+      },
+      "evidence": [
+        "Task requires KeySequence to accept KeyInfo objects.",
+        "Native tests construct KeySequence(KeyInfo(...)); keyutils.py:488 rejects KeyInfo with AssertionError <Ctrl+Alt+y>.",
+        "Captured applied patch changes only four documentation/configuration files; keyutils.py is unchanged. Deletion provenance is not inferred."
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "task_id": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+      "classification": "unresolved_verifier_timeout",
+      "accepted_score": null,
+      "result": "artifacts/eval/swe249_hard51_20261016/replay/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/result.json",
+      "exception_type": "VerifierTimeoutError",
+      "native_verifier_result": null,
+      "reward_file": "1",
+      "reward_file_time_utc": "2026-10-16T18:18:33.225447+00:00",
+      "patch_bytes": 7422,
+      "replay_apply_rc": 0,
+      "evidence": [
+        "No durable verifier/output.json or run-script stdout/stderr.",
+        "test-stdout.txt ends with Terminated after resetting/applying official tests.",
+        "test.sh EXIT trap writes reward from shell exit status; reward.txt alone does not establish official tests passed.",
+        "Captured patch deletes .mocharc.yml (including exit:true); official mocha command has no explicit --exit. This may affect termination but causality and deletion provenance are unproven."
+      ],
+      "next_action": "Keep null. Diagnose original verifier lifecycle/log preservation before considering a separately authorized same-patch scoring repair; no new scoring in this audit."
+    },
+    {
+      "task_id": "instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e",
+      "classification": "confirmed_oom_termination_cause_attribution_unresolved",
+      "accepted_score": null,
+      "result": "artifacts/eval/swe249_hard51_20261016/replay/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/result.json",
+      "exception_type": "RemoteProtocolError",
+      "patch_bytes": 0,
+      "go_workspace_preparation": {
+        "return_code": 0,
+        "elapsed_seconds": 71.76117350533605,
+        "original_test_command_unchanged": true,
+        "path": "artifacts/eval/swe249_hard51_20261016/replay/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/agent/native-go-workspace-preparation.json"
+      },
+      "scope_evidence": {
+        "scope": "apex-baseline-fce8405d45d9.scope",
+        "cpu_id": 6,
+        "association": "Existing 03:05 raw snapshot maps sole Vuls active replay to CPU 6 and this CPU-6 scope; journal finish agrees with result finish. Journal itself does not contain the task ID.",
+        "snapshot": "artifacts/eval/formal_queue_status_20261017_0305/raw.json",
+        "journal_lines": [
+          "2026-10-17T03:28:13+0800 apex-baseline-fce8405d45d9.scope: A process of this unit has been killed by the OOM killer.",
+          "2026-10-17T03:28:14+0800 apex-baseline-fce8405d45d9.scope: Consumed 32min 43.034s CPU time."
+        ],
+        "result_finished_at_utc": "2026-10-16T19:28:14.178126+00:00",
+        "kernel_victim": "Not available to unprivileged journal reader"
+      },
+      "evidence": [
+        "Go dependency preparation succeeded, so existing evidence does not support classifying this as dependency-download failure.",
+        "OOM confirms resource termination but does not identify the victim or prove environment failure versus candidate behavior."
+      ],
+      "next_action": "Keep null. Preserve fixed 4096 MiB budget. Do not automatically count as model zero or silently increase memory; no new scoring."
+    },
+    {
+      "task_id": "instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "classification": "unresolved_verifier_timeout",
+      "accepted_score": null,
+      "result": "artifacts/eval/swe249_hard51_20261016/replay/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/result.json",
+      "exception_type": "VerifierTimeoutError",
+      "verifier_timeout_seconds": 3000,
+      "patch_bytes": 0,
+      "go_workspace_preparation": {
+        "return_code": 0,
+        "elapsed_seconds": 84.23798314295709,
+        "original_test_command_unchanged": true,
+        "copied_cache_files": 190,
+        "kept_cache_files": 37,
+        "path": "artifacts/eval/swe249_hard51_20261016/replay/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/agent/native-go-workspace-preparation.json"
+      },
+      "evidence": [
+        "No durable output.json, reward.txt or run-script stdout/stderr; test-stdout only resets/applies official tests.",
+        "CPU-1 scope apex-baseline-283262a56a85.scope records CPU consumption at 03:33:55+08, but queried user journal supplies no decisive test assertion or termination cause.",
+        "Absence of an OOM line in this bounded user-journal query does not establish no OOM occurred."
+      ],
+      "next_action": "Keep null. Need original test-stage/termination evidence; no blind retry or new scoring in this audit."
+    }
+  ],
+  "proposal_file": "analysis/source_snapshots/swe_remaining_scoring_audit_20261017/proposed_audits.json"
+}

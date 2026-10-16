@@ -1,0 +1,39 @@
+{
+  "scope": "Two proposed SWE249 native-zero audit entries only",
+  "status": "proposal_only_not_approved",
+  "approval": "Requires independent root review before inclusion in the canonical audit manifest",
+  "model": "apex-val-swe249",
+  "checkpoint": "artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+  "source_output": "artifacts/eval/swe249_hard51_20261016",
+  "evidence_audit": "analysis/swe_remaining_scoring_audit_20261017.md",
+  "identity_receipt": "analysis/source_snapshots/swe_remaining_scoring_audit_20261017.json",
+  "canonical_modified": false,
+  "no_reward_search": true,
+  "new_audits_require_explicit_review": true,
+  "proposed_audits": [
+    {
+      "task_id": "instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6",
+      "original_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6/result.json",
+      "accepted_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6/result.json",
+      "original_result_sha256": "19144f242417a2dfdca909fb55bdf1a1d499067794dec4d18fe79be7f256ea56",
+      "accepted_result_sha256": "19144f242417a2dfdca909fb55bdf1a1d499067794dec4d18fe79be7f256ea56",
+      "source_patch": "artifacts/eval/swe249_hard51_20261016/generation/instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6/agent/model.patch",
+      "patch_bytes": 0,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_invalid_reason": "empty_tests_requires_audit",
+      "reason": "Empty captured patch omits the task-required Bestbook product module; native collection fails importing openlibrary.core.bestbook. No Harbor exception; original native reward is zero."
+    },
+    {
+      "task_id": "instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367",
+      "original_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367/result.json",
+      "accepted_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367/result.json",
+      "original_result_sha256": "64c3dec674da8ee66b18629895e89d5f20f37d47cc9c1cee773bfef4d1d706c9",
+      "accepted_result_sha256": "64c3dec674da8ee66b18629895e89d5f20f37d47cc9c1cee773bfef4d1d706c9",
+      "source_patch": "artifacts/eval/swe249_hard51_20261016/generation/instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367/agent/model.patch",
+      "patch_bytes": 19834,
+      "patch_sha256": "f0873d617097b9398e18013a37affc954228a7ddf3a26cc16481181e2f862fd7",
+      "original_invalid_reason": "empty_tests_requires_audit",
+      "reason": "Captured patch applies but does not change keyutils.py; native required KeySequence(KeyInfo(...)) construction fails at the existing product type assertion. No Harbor exception; original native reward is zero. Deletion provenance is not inferred."
+    }
+  ]
+}

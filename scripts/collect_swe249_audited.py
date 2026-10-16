@@ -1,4 +1,4 @@
-"""One read-only source snapshot with four explicitly approved native-zero audits."""
+"""One read-only source snapshot with explicitly approved native-zero audits."""
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -183,7 +183,7 @@ def collect(root, manifest_path, scope_reader=active_scopes):
     by_id = {row['task_id']: row for row in raw['tasks']}
     assert len(raw['tasks']) == len(by_id) == 51 and set(by_id) == set(ids)
     audits = {row['task_id']: row for row in manifest['approved_native_zero']}
-    assert len(manifest['approved_native_zero']) == len(audits) == 4
+    assert len(manifest['approved_native_zero']) == len(audits) and audits
     assert set(audits) <= set(ids)
     rows = []
     for name in ids:
@@ -249,7 +249,7 @@ def collect(root, manifest_path, scope_reader=active_scopes):
         'source_specific_cpu_handoff_observed': source_handoff,
         'source_specific_cpu_handoff_valid': source_handed_off,
         'active_source_cpu_scopes': scopes, 'new_model_calls': 0, 'new_replays': 0,
-        'selection_policy': 'Four exact approved native-zero results; all other original validity retained; no reward search',
+        'selection_policy': str(len(audits)) + ' exact approved native-zero results; all other original validity retained; no reward search',
         'tasks': rows}
 
 

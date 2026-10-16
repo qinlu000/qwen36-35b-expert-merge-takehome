@@ -1,5 +1,7 @@
 # SWE249显式审计汇总（2026-10-17）
 
+**后续更新**：独立核审OpenLibrary／Qutebrowser两份原native0后，manifest现为6个批准项；04:05纯读刷新为原生42＋批准6＝48/51有效，0 resolved、主分仍null。Vuls OOM归因未决、NodeBB reward1不足以覆盖timeout、Teleport未决，详见[剩余审计](swe_remaining_scoring_audit_20261017.md)。此外已支持严格校验 `swe_source_cpu_handoff_v1` 的逐CPU历史空scope及AVG准入时序，真实交接已通过；19组人工文件算例通过。以下4项/41条/旧全池proof说明保留为初次历史快照，不能当最新计数或完整现行规则。
+
 主线程独立核审并明确批准4个专家原生0后，新增独立只读collector；不改原队列/collector、原始result/summary、Base、模型或final_results指向。输出为80 `artifacts/eval/swe249_audited_hard51_20261017/summary.json`，现为一次快照，无后台循环。
 
 本次源快照`2026-10-16T19:20:33.491575+00:00`：原37/51有效＋4个明确审计native0＝**41/51有效，0 resolved**；43 terminal、8 active、0 pending。`complete=false`、`primary_score_percent=null`，NodeBB仍null，未完成项不补0。该coverage不代表正式队列已结束，后续刷新需显式再运行一次，不能把本收据当作最终状态。

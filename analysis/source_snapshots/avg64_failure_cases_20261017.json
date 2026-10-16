@@ -1,0 +1,780 @@
+{
+  "captured_at_utc": "2026-10-16T19:51:43.117315+00:00",
+  "host": "10.123.4.80",
+  "project": "/data/caoqinlu/projects/apex-takehome",
+  "scope": "Descriptive sample of20 already-valid wrong AVG64 native Terminal/SWE and judged HLE cases; not failure prevalence or causal merge comparison",
+  "selection": "Fixed quotas10 distinct Terminal tasks (first seed within task),8 HLE text,1 HLE image,1 SWE; lexicographic task ID/key within each stratum. Eligibility is validated wrong only; no invalid/pending/unscored cases. Quotas chosen for task-type coverage, not random sampling.",
+  "candidate_counts": {
+    "terminal_valid_wrong_trials": 18,
+    "terminal_distinct_tasks": 18,
+    "hle_judged_wrong_text": 44,
+    "hle_judged_wrong_image": 2,
+    "swe_valid_wrong": 1
+  },
+  "selected_count": 20,
+  "source_summaries": {
+    "terminal": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+      "mtime_utc": "2026-10-16T19:51:42.392513+00:00"
+    },
+    "swe": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/summary.json",
+      "mtime_utc": "2026-10-16T19:51:42.300515+00:00"
+    },
+    "hle": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
+      "mtime_utc": "2026-10-16T19:51:39.830579+00:00"
+    }
+  },
+  "cases": [
+    {
+      "benchmark": "terminal",
+      "task_id": "adaptive-rejection-sampler",
+      "seed": 0,
+      "key": "adaptive-rejection-sampler/seed0",
+      "grade_status": "valid_native_zero",
+      "native_reward": 0,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/adaptive-rejection-sampler__seed0/result.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+      "exception_type": "AgentTimeoutError",
+      "base_same_ID": {
+        "status": "valid_native",
+        "reward": 0.0,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/adaptive-rejection-sampler__seed0__independent1/result.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json"
+      },
+      "case_id": "F01",
+      "title": "采样器实现与测试产物未完成",
+      "observation": "9个原生测试失败，包含函数/样本文件缺失；末尾仍在安装R。solver约1800.72秒后AgentTimeout。",
+      "possible_reason": "实际工具observation含Ubuntu源DNS失败；依赖获取与重复安装占用预算可能影响交付。不能据此分离环境、策略和能力影响。",
+      "mechanism_evidence_strength": "中：有工具网络错误和缺产物直接证据，因果份额未隔离。",
+      "observation_evidence_strength": "strong native reward0 and actual verifier output",
+      "agent_seconds": 1800.716958,
+      "failed_tests": 9,
+      "passed_tests": 0,
+      "representative_test_names": [
+        "test_can_generate_standard_distribution_samples",
+        "test_sample_files_generated"
+      ],
+      "network_error_observation_steps": [
+        45,
+        46
+      ],
+      "network_observation_note": "Step IDs with actual DNS errors; repeated pane text is not a count of distinct network requests.",
+      "verifier_stdout": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/adaptive-rejection-sampler__seed0/verifier/test-stdout.txt",
+      "trajectory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/adaptive-rejection-sampler__seed0/agent/trajectory.json"
+    },
+    {
+      "benchmark": "terminal",
+      "task_id": "bn-fit-modify",
+      "seed": 0,
+      "key": "bn-fit-modify/seed0",
+      "grade_status": "valid_native_zero",
+      "native_reward": 0,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/bn-fit-modify__seed0/result.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+      "exception_type": "AgentTimeoutError",
+      "base_same_ID": {
+        "status": "valid_native",
+        "reward": 0.0,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/bn-fit-modify__seed0__manual2/result.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json"
+      },
+      "case_id": "F02",
+      "title": "DAG及干预/采样CSV未交付",
+      "observation": "9个测试失败，多项为目标文件不存在；最后两轮重写DAG枚举，agent自述cycle checking/变量复用有bug。约1801.40秒超时。",
+      "possible_reason": "轨迹同时有pgmpy/numpy下载DNS错误；算法重写和依赖受限均可能贡献。Base同ID也0，但其可见失败集中于DAG/干预数据断言，不能把两者说成完全相同轨迹。",
+      "mechanism_evidence_strength": "中：缺文件与重写可见；不能确定单一根因。",
+      "observation_evidence_strength": "strong native reward0 and actual verifier output",
+      "agent_seconds": 1801.39814,
+      "failed_tests": 9,
+      "passed_tests": 0,
+      "representative_test_names": [
+        "test_learned_dag_structure_exists",
+        "test_sampled_data"
+      ],
+      "network_error_observation_steps": [
+        3,
+        6
+      ],
+      "network_observation_note": "Step IDs with actual DNS errors; repeated pane text is not a count of distinct network requests.",
+      "verifier_stdout": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/bn-fit-modify__seed0/verifier/test-stdout.txt",
+      "trajectory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/bn-fit-modify__seed0/agent/trajectory.json"
+    },
+    {
+      "benchmark": "terminal",
+      "task_id": "break-filter-js-from-html",
+      "seed": 0,
+      "key": "break-filter-js-from-html/seed0",
+      "grade_status": "valid_native_zero",
+      "native_reward": 0,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/break-filter-js-from-html__seed0/result.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+      "exception_type": null,
+      "base_same_ID": {
+        "status": "valid_native",
+        "reward": 0.0,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/break-filter-js-from-html__seed0__manual2__savedstate3/result.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json"
+      },
+      "case_id": "F03",
+      "title": "自称验证成功，原生浏览器判据未满足",
+      "observation": "agent两次mark_task_complete并声称自测exit0；原生test_out_html_bypasses_filter却未检测到alert，334.09秒正常结束，native0。",
+      "possible_reason": "本地自测成功与官方端到端判据不一致，可能缺少对过滤后浏览器行为的可靠验证；未重放页面，具体浏览器机制不作断言。",
+      "mechanism_evidence_strength": "强于现象、机制中：原生断言与agent自述直接冲突。",
+      "observation_evidence_strength": "strong native reward0 and actual verifier output",
+      "agent_seconds": 334.08728,
+      "failed_tests": 1,
+      "passed_tests": 0,
+      "representative_test_names": [
+        "test_out_html_bypasses_filter"
+      ],
+      "network_error_observation_steps": [],
+      "network_observation_note": "Step IDs with actual DNS errors; repeated pane text is not a count of distinct network requests.",
+      "verifier_stdout": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/break-filter-js-from-html__seed0/verifier/test-stdout.txt",
+      "trajectory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/break-filter-js-from-html__seed0/agent/trajectory.json"
+    },
+    {
+      "benchmark": "terminal",
+      "task_id": "build-cython-ext",
+      "seed": 0,
+      "key": "build-cython-ext/seed0",
+      "grade_status": "valid_native_zero",
+      "native_reward": 0,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/build-cython-ext__seed0/result.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+      "exception_type": "AgentTimeoutError",
+      "base_same_ID": {
+        "status": "valid_native",
+        "reward": 0.0,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/build-cython-ext__seed0__independent1/result.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json"
+      },
+      "case_id": "F04",
+      "title": "Cython扩展与导入不可用",
+      "observation": "原生9 failed/2 passed；多个扩展测试报ModuleNotFoundError。末尾仍搜索Cython/缓存包，约1801.27秒超时。",
+      "possible_reason": "工具observation直接记录Cython获取DNS失败；构建依赖与仓库准备未完成是明显混杂，不能把0分单独解释为代码合版退化。",
+      "mechanism_evidence_strength": "中：依赖错误和缺扩展均直接可见，未隔离环境影响。",
+      "observation_evidence_strength": "strong native reward0 and actual verifier output",
+      "agent_seconds": 1801.266576,
+      "failed_tests": 9,
+      "passed_tests": 2,
+      "representative_test_names": [
+        "test_chelpers_cython_extension",
+        "test_pyknotid_repository_tests"
+      ],
+      "network_error_observation_steps": [
+        28,
+        29
+      ],
+      "network_observation_note": "Step IDs with actual DNS errors; repeated pane text is not a count of distinct network requests.",
+      "verifier_stdout": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/build-cython-ext__seed0/verifier/test-stdout.txt",
+      "trajectory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/build-cython-ext__seed0/agent/trajectory.json"
+    },
+    {
+      "benchmark": "terminal",
+      "task_id": "build-pmars",
+      "seed": 0,
+      "key": "build-pmars/seed0",
+      "grade_status": "valid_native_zero",
+      "native_reward": 0,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/build-pmars__seed0/result.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+      "exception_type": "AgentTimeoutError",
+      "base_same_ID": {
+        "status": "valid_native",
+        "reward": 0.0,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/build-pmars__seed0__independent1/result.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json"
+      },
+      "case_id": "F05",
+      "title": "源码来源与可执行程序均未满足",
+      "observation": "4项测试失败，包含pmars不可用、未找到要求的源码目录及来源检查；末尾还在查apt source元数据，约1800.76秒超时。",
+      "possible_reason": "下载/源码定位过程出现真实DNS错误，可能阻止构建交付；没有独立证据证明换模型即可成功。",
+      "mechanism_evidence_strength": "中：源码与程序缺失为强事实，策略与网络根因未分离。",
+      "observation_evidence_strength": "strong native reward0 and actual verifier output",
+      "agent_seconds": 1800.762817,
+      "failed_tests": 4,
+      "passed_tests": 0,
+      "representative_test_names": [
+        "test_pmars_works",
+        "test_built_from_source"
+      ],
+      "network_error_observation_steps": [
+        23,
+        24
+      ],
+      "network_observation_note": "Step IDs with actual DNS errors; repeated pane text is not a count of distinct network requests.",
+      "verifier_stdout": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/build-pmars__seed0/verifier/test-stdout.txt",
+      "trajectory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/build-pmars__seed0/agent/trajectory.json"
+    },
+    {
+      "benchmark": "terminal",
+      "task_id": "build-pov-ray",
+      "seed": 0,
+      "key": "build-pov-ray/seed0",
+      "grade_status": "valid_native_zero",
+      "native_reward": 0,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/build-pov-ray__seed0/result.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+      "exception_type": "AgentTimeoutError",
+      "base_same_ID": {
+        "status": "valid_native",
+        "reward": 0.0,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/build-pov-ray__seed0__independent1/result.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json"
+      },
+      "case_id": "F06",
+      "title": "渲染器和指定版本源码缺失",
+      "observation": "3个测试失败；/usr/local/bin/povray和/app/povray-2.2均不存在。末尾继续调整DNS相关环境，约1801.16秒超时。",
+      "possible_reason": "archive.org等访问的工具observation含Could not resolve host；源码获取受限与预算耗尽共同出现，不能确定是算法或合版能力失败。",
+      "mechanism_evidence_strength": "中：缺产物与网络错误直接存在，模型因果弱。",
+      "observation_evidence_strength": "strong native reward0 and actual verifier output",
+      "agent_seconds": 1801.160951,
+      "failed_tests": 3,
+      "passed_tests": 0,
+      "representative_test_names": [
+        "test_illum1_render_and_verify",
+        "test_povray_built_from_correct_source"
+      ],
+      "network_error_observation_steps": [
+        21,
+        22
+      ],
+      "network_observation_note": "Step IDs with actual DNS errors; repeated pane text is not a count of distinct network requests.",
+      "verifier_stdout": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/build-pov-ray__seed0/verifier/test-stdout.txt",
+      "trajectory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/build-pov-ray__seed0/agent/trajectory.json"
+    },
+    {
+      "benchmark": "terminal",
+      "task_id": "caffe-cifar-10",
+      "seed": 0,
+      "key": "caffe-cifar-10/seed0",
+      "grade_status": "valid_native_zero",
+      "native_reward": 0,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/caffe-cifar-10__seed0/result.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+      "exception_type": "AgentTimeoutError",
+      "base_same_ID": {
+        "status": "valid_native",
+        "reward": 0.0,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/caffe-cifar-10__seed0__independent1/result.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json"
+      },
+      "case_id": "F07",
+      "title": "训练配置/模型与训练日志未产出",
+      "observation": "6个测试失败，含Caffe源码/版本、模型、配置、500次迭代完成及准确率验证；约1801.32秒超时。",
+      "possible_reason": "wget/pip/apt相关observation有DNS失败，末尾仍搜本地缓存源码；该受限环境中的准备失败不能与训练算法错误混同。",
+      "mechanism_evidence_strength": "中：缺失检查强，独立模型原因未识别。",
+      "observation_evidence_strength": "strong native reward0 and actual verifier output",
+      "agent_seconds": 1801.323831,
+      "failed_tests": 6,
+      "passed_tests": 0,
+      "representative_test_names": [
+        "test_cifar10_model_exists",
+        "test_training_completed_500_iterations"
+      ],
+      "network_error_observation_steps": [
+        4,
+        8
+      ],
+      "network_observation_note": "Step IDs with actual DNS errors; repeated pane text is not a count of distinct network requests.",
+      "verifier_stdout": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/caffe-cifar-10__seed0/verifier/test-stdout.txt",
+      "trajectory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/caffe-cifar-10__seed0/agent/trajectory.json"
+    },
+    {
+      "benchmark": "terminal",
+      "task_id": "chess-best-move",
+      "seed": 0,
+      "key": "chess-best-move/seed0",
+      "grade_status": "valid_native_zero",
+      "native_reward": 0,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/chess-best-move__seed0/result.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+      "exception_type": "AgentTimeoutError",
+      "base_same_ID": {
+        "status": "valid_native",
+        "reward": 0.0,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/chess-best-move__seed0__independent1/result.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json"
+      },
+      "case_id": "F08",
+      "title": "棋盘识别未走到落盘棋步",
+      "observation": "原生test_move_correct因/app/move.txt不存在失败；末尾仍在分析棋子像素轮廓，约1802.04秒超时。",
+      "possible_reason": "视觉到符号棋盘的转换未完成；工具中也出现python-chess获取失败。只能认为两条困难同时出现，不能确认哪条是决定性原因。",
+      "mechanism_evidence_strength": "中偏弱：输出缺失强；视觉识别和依赖影响的解释未隔离。",
+      "observation_evidence_strength": "strong native reward0 and actual verifier output",
+      "agent_seconds": 1802.040142,
+      "failed_tests": 1,
+      "passed_tests": 0,
+      "representative_test_names": [
+        "test_move_correct"
+      ],
+      "network_error_observation_steps": [
+        3,
+        4
+      ],
+      "network_observation_note": "Step IDs with actual DNS errors; repeated pane text is not a count of distinct network requests.",
+      "verifier_stdout": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/chess-best-move__seed0/verifier/test-stdout.txt",
+      "trajectory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/chess-best-move__seed0/agent/trajectory.json"
+    },
+    {
+      "benchmark": "terminal",
+      "task_id": "circuit-fibsqrt",
+      "seed": 0,
+      "key": "circuit-fibsqrt/seed0",
+      "grade_status": "valid_native_zero",
+      "native_reward": 0,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/circuit-fibsqrt__seed0/result.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+      "exception_type": "AgentTimeoutError",
+      "base_same_ID": {
+        "status": "valid_native",
+        "reward": 0.0,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/circuit-fibsqrt__seed0__independent1/result.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json"
+      },
+      "case_id": "F09",
+      "title": "电路文件形式通过，函数行为不对",
+      "observation": "门文件存在与大小检查通过，test_sqrt_fib失败（1 failed/2 passed）；agent自述先前generator复杂且有bug并重写，约1801.70秒超时。",
+      "possible_reason": "更接近电路生成/算术逻辑或未完成重写的问题；未独立模拟电路，不能确定具体信号或公式错误。",
+      "mechanism_evidence_strength": "中：形式/行为分离和重写均可见，具体逻辑根因弱。",
+      "observation_evidence_strength": "strong native reward0 and actual verifier output",
+      "agent_seconds": 1801.695072,
+      "failed_tests": 1,
+      "passed_tests": 2,
+      "representative_test_names": [
+        "test_sqrt_fib"
+      ],
+      "network_error_observation_steps": [],
+      "network_observation_note": "Step IDs with actual DNS errors; repeated pane text is not a count of distinct network requests.",
+      "verifier_stdout": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/circuit-fibsqrt__seed0/verifier/test-stdout.txt",
+      "trajectory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/circuit-fibsqrt__seed0/agent/trajectory.json"
+    },
+    {
+      "benchmark": "terminal",
+      "task_id": "code-from-image",
+      "seed": 0,
+      "key": "code-from-image/seed0",
+      "grade_status": "valid_native_zero",
+      "native_reward": 0,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/code-from-image__seed0/result.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+      "exception_type": "AgentTimeoutError",
+      "base_same_ID": {
+        "status": "valid_native",
+        "reward": 0.0,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/trials/code-from-image__seed0__independent1/result.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json"
+      },
+      "case_id": "F10",
+      "title": "图像到执行结果的链路未完成",
+      "observation": "2个测试失败，/app/output.txt未生成；末尾仍将RGB转文本并尝试图像工具，约1800.88秒超时。",
+      "possible_reason": "图像读取/OCR工具路径未完成，Pillow安装亦有真实DNS失败。不能把它仅归因于推理错误或仅归因于网络。",
+      "mechanism_evidence_strength": "中：缺文件与工具记录直接可见，根因混杂。",
+      "observation_evidence_strength": "strong native reward0 and actual verifier output",
+      "agent_seconds": 1800.878249,
+      "failed_tests": 2,
+      "passed_tests": 0,
+      "representative_test_names": [
+        "test_output_file_exists",
+        "test_output_is_correct"
+      ],
+      "network_error_observation_steps": [
+        4
+      ],
+      "network_observation_note": "Step IDs with actual DNS errors; repeated pane text is not a count of distinct network requests.",
+      "verifier_stdout": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/code-from-image__seed0/verifier/test-stdout.txt",
+      "trajectory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/code-from-image__seed0/agent/trajectory.json"
+    },
+    {
+      "benchmark": "hle",
+      "task_id": "668825f80a642802bdfeadfa",
+      "key": "668825f80a642802bdfeadfa",
+      "is_image": false,
+      "grade_status": "judged_wrong",
+      "evaluation_status": "judged",
+      "correct": false,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/results/668825f80a642802bdfeadfa.json",
+      "generation_source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/questions/668825f80a642802bdfeadfa.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
+      "judge_identity": {
+        "requested_model": "DeepSeek-V4-Flash",
+        "reported_model": "DeepSeek-V4-Flash",
+        "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+        "provider_revision_pinned": false
+      },
+      "base_same_ID": {
+        "status": "judged",
+        "correct": false,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/results/668825f80a642802bdfeadfa.json",
+        "generation_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196/questions/668825f80a642802bdfeadfa.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/summary.json"
+      },
+      "case_id": "F11",
+      "title": "人口伦理条件映射",
+      "observation": "答复选择Non-Elitism；替代Judge按参考选项判错。完整stop结束，648 tokens。",
+      "possible_reason": "可能混淆不可能性定理中的条件映射。未独立核对原理论，不能将知识错误进一步定位为合版干扰。",
+      "mechanism_evidence_strength": "弱：判错有效，领域根因仅为假设。",
+      "observation_evidence_strength": "valid judged wrong under disclosed replacement Judge; not independent domain adjudication",
+      "finish_reason": "stop",
+      "completion_tokens": 648,
+      "elapsed_seconds": 107.7562,
+      "extracted_final_answer": "C. Non-Elitism",
+      "frozen_judge_input": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/inputs/668825f80a642802bdfeadfa.json"
+    },
+    {
+      "benchmark": "hle",
+      "task_id": "6696c3734c196f1af6a16fcb",
+      "key": "6696c3734c196f1af6a16fcb",
+      "is_image": false,
+      "grade_status": "judged_wrong",
+      "evaluation_status": "judged",
+      "correct": false,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/results/6696c3734c196f1af6a16fcb.json",
+      "generation_source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/questions/6696c3734c196f1af6a16fcb.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
+      "judge_identity": {
+        "requested_model": "DeepSeek-V4-Flash",
+        "reported_model": "DeepSeek-V4-Flash",
+        "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+        "provider_revision_pinned": false
+      },
+      "base_same_ID": {
+        "status": "native_no_answer",
+        "correct": false,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/results/6696c3734c196f1af6a16fcb.json",
+        "generation_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196/questions/6696c3734c196f1af6a16fcb.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/summary.json"
+      },
+      "case_id": "F12",
+      "title": "特殊数域上的椭圆曲线分类",
+      "observation": "最终回答16，Judge参考为不同数值18；stop，694 tokens。Base同题为native_no_answer。",
+      "possible_reason": "回答援引分类结论但数值不匹配，可能是特殊数域知识/分类边界混淆；未独立复核所引文献。",
+      "mechanism_evidence_strength": "弱：数值不符直接可见，理论原因未证。",
+      "observation_evidence_strength": "valid judged wrong under disclosed replacement Judge; not independent domain adjudication",
+      "finish_reason": "stop",
+      "completion_tokens": 694,
+      "elapsed_seconds": 114.7238,
+      "extracted_final_answer": "16",
+      "frozen_judge_input": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/inputs/6696c3734c196f1af6a16fcb.json"
+    },
+    {
+      "benchmark": "hle",
+      "task_id": "66b727d367968fa27f2dddda",
+      "key": "66b727d367968fa27f2dddda",
+      "is_image": false,
+      "grade_status": "judged_wrong",
+      "evaluation_status": "judged",
+      "correct": false,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/results/66b727d367968fa27f2dddda.json",
+      "generation_source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/questions/66b727d367968fa27f2dddda.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
+      "judge_identity": {
+        "requested_model": "DeepSeek-V4-Flash",
+        "reported_model": "DeepSeek-V4-Flash",
+        "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+        "provider_revision_pinned": false
+      },
+      "base_same_ID": {
+        "status": "native_no_answer",
+        "correct": false,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/results/66b727d367968fa27f2dddda.json",
+        "generation_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196/questions/66b727d367968fa27f2dddda.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/summary.json"
+      },
+      "case_id": "F13",
+      "title": "Gamma矩阵缩并的符号/项",
+      "observation": "输出(d-2k)(d-2k+1)，Judge记录的参考为-(d-2k)^2+d，两表达式一般不等价；stop，524 tokens。",
+      "possible_reason": "可能在换序/缩并中丢失符号或项；这来自回答推导与参考差异，未逐步重证Clifford代数。",
+      "mechanism_evidence_strength": "中：代数表达式差异强，具体推导错误位置未证。",
+      "observation_evidence_strength": "valid judged wrong under disclosed replacement Judge; not independent domain adjudication",
+      "finish_reason": "stop",
+      "completion_tokens": 524,
+      "elapsed_seconds": 90.5379,
+      "extracted_final_answer": "(d-2k)(d-2k+1)",
+      "frozen_judge_input": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/inputs/66b727d367968fa27f2dddda.json"
+    },
+    {
+      "benchmark": "hle",
+      "task_id": "66ba5510db07a3a9151be0d2",
+      "key": "66ba5510db07a3a9151be0d2",
+      "is_image": false,
+      "grade_status": "judged_wrong",
+      "evaluation_status": "judged",
+      "correct": false,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/results/66ba5510db07a3a9151be0d2.json",
+      "generation_source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/questions/66ba5510db07a3a9151be0d2.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
+      "judge_identity": {
+        "requested_model": "DeepSeek-V4-Flash",
+        "reported_model": "DeepSeek-V4-Flash",
+        "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+        "provider_revision_pinned": false
+      },
+      "base_same_ID": {
+        "status": "judged",
+        "correct": false,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/results/66ba5510db07a3a9151be0d2.json",
+        "generation_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196/questions/66ba5510db07a3a9151be0d2.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/summary.json"
+      },
+      "case_id": "F14",
+      "title": "特定算子的函数空间归属",
+      "observation": "以通用阶数迁移论证给出A^(1+alpha)，Judge参考A^(alpha-)；stop，194 tokens。",
+      "possible_reason": "可能把一般算子阶数直觉套到题设特定映射性质。未独立证明该解析命题。",
+      "mechanism_evidence_strength": "弱：答案空间不一致明确，数学根因尚未复核。",
+      "observation_evidence_strength": "valid judged wrong under disclosed replacement Judge; not independent domain adjudication",
+      "finish_reason": "stop",
+      "completion_tokens": 194,
+      "elapsed_seconds": 43.6549,
+      "extracted_final_answer": "A^(1+alpha)",
+      "frozen_judge_input": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/inputs/66ba5510db07a3a9151be0d2.json"
+    },
+    {
+      "benchmark": "hle",
+      "task_id": "66e70c75bbb9b1754c0869ce",
+      "key": "66e70c75bbb9b1754c0869ce",
+      "is_image": false,
+      "grade_status": "judged_wrong",
+      "evaluation_status": "judged",
+      "correct": false,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/results/66e70c75bbb9b1754c0869ce.json",
+      "generation_source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/questions/66e70c75bbb9b1754c0869ce.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
+      "judge_identity": {
+        "requested_model": "DeepSeek-V4-Flash",
+        "reported_model": "DeepSeek-V4-Flash",
+        "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+        "provider_revision_pinned": false
+      },
+      "base_same_ID": {
+        "status": "judged",
+        "correct": false,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/results/66e70c75bbb9b1754c0869ce.json",
+        "generation_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196/questions/66e70c75bbb9b1754c0869ce.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/summary.json"
+      },
+      "case_id": "F15",
+      "title": "法规名称记忆错误而非输出格式",
+      "observation": "仅7 tokens直接给出Contracts (General Part) Law，Judge参考为另一法规Sale Law；stop，非截断。",
+      "possible_reason": "更像知识检索/历史先后混淆；答案长度与格式不足以解释该名称差异。这里只复述固定Judge，不提供法律意见。",
+      "mechanism_evidence_strength": "中：实体名称差异直接可见，历史原因不重判。",
+      "observation_evidence_strength": "valid judged wrong under disclosed replacement Judge; not independent domain adjudication",
+      "finish_reason": "stop",
+      "completion_tokens": 7,
+      "elapsed_seconds": 14.3944,
+      "extracted_final_answer": "Contracts (General Part) Law",
+      "frozen_judge_input": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/inputs/66e70c75bbb9b1754c0869ce.json"
+    },
+    {
+      "benchmark": "hle",
+      "task_id": "66e883265ab37f0a7da089be",
+      "key": "66e883265ab37f0a7da089be",
+      "is_image": false,
+      "grade_status": "judged_wrong",
+      "evaluation_status": "judged",
+      "correct": false,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/results/66e883265ab37f0a7da089be.json",
+      "generation_source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/questions/66e883265ab37f0a7da089be.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
+      "judge_identity": {
+        "requested_model": "DeepSeek-V4-Flash",
+        "reported_model": "DeepSeek-V4-Flash",
+        "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+        "provider_revision_pinned": false
+      },
+      "base_same_ID": {
+        "status": "native_no_answer",
+        "correct": false,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/results/66e883265ab37f0a7da089be.json",
+        "generation_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196/questions/66e883265ab37f0a7da089be.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/summary.json"
+      },
+      "case_id": "F16",
+      "title": "棋局可达性中以常见顺序支持必要结论",
+      "observation": "回答选择A；其论证使用redundant/unlikely与最直接解释，Judge参考为C；stop，1481 tokens。",
+      "possible_reason": "可能用常见发展顺序替代严格可达性/必要性证明。未独立验证两局面合法序列，保留为可能原因。",
+      "mechanism_evidence_strength": "中偏弱：推理措辞可见，正确棋理未独立复核。",
+      "observation_evidence_strength": "valid judged wrong under disclosed replacement Judge; not independent domain adjudication",
+      "finish_reason": "stop",
+      "completion_tokens": 1481,
+      "elapsed_seconds": 225.1473,
+      "extracted_final_answer": "A",
+      "frozen_judge_input": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/inputs/66e883265ab37f0a7da089be.json"
+    },
+    {
+      "benchmark": "hle",
+      "task_id": "66e884515ab37f0a7da089bf",
+      "key": "66e884515ab37f0a7da089bf",
+      "is_image": false,
+      "grade_status": "judged_wrong",
+      "evaluation_status": "judged",
+      "correct": false,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/results/66e884515ab37f0a7da089bf.json",
+      "generation_source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/questions/66e884515ab37f0a7da089bf.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
+      "judge_identity": {
+        "requested_model": "DeepSeek-V4-Flash",
+        "reported_model": "DeepSeek-V4-Flash",
+        "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+        "provider_revision_pinned": false
+      },
+      "base_same_ID": {
+        "status": "judged",
+        "correct": false,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/results/66e884515ab37f0a7da089bf.json",
+        "generation_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196/questions/66e884515ab37f0a7da089bf.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/summary.json"
+      },
+      "case_id": "F17",
+      "title": "游戏缩写/领域消歧",
+      "observation": "回答引入Warcraft III语境并给出Harpy；Judge目标答案为Shuriken；stop，194 tokens。Base也曾引入另一游戏语境而判错。",
+      "possible_reason": "可能未正确消歧BAR而串入其他游戏知识。文本显示跨语境引用，但本报告不额外查游戏资料。",
+      "mechanism_evidence_strength": "中：回答的语境迁移直接可见，触发原因未知。",
+      "observation_evidence_strength": "valid judged wrong under disclosed replacement Judge; not independent domain adjudication",
+      "finish_reason": "stop",
+      "completion_tokens": 194,
+      "elapsed_seconds": 43.6393,
+      "extracted_final_answer": "Harpy",
+      "frozen_judge_input": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/inputs/66e884515ab37f0a7da089bf.json"
+    },
+    {
+      "benchmark": "hle",
+      "task_id": "66e8967ae99ca52dd4b94441",
+      "key": "66e8967ae99ca52dd4b94441",
+      "is_image": false,
+      "grade_status": "judged_wrong",
+      "evaluation_status": "judged",
+      "correct": false,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/results/66e8967ae99ca52dd4b94441.json",
+      "generation_source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/questions/66e8967ae99ca52dd4b94441.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
+      "judge_identity": {
+        "requested_model": "DeepSeek-V4-Flash",
+        "reported_model": "DeepSeek-V4-Flash",
+        "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+        "provider_revision_pinned": false
+      },
+      "base_same_ID": {
+        "status": "native_no_answer",
+        "correct": false,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/results/66e8967ae99ca52dd4b94441.json",
+        "generation_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196/questions/66e8967ae99ca52dd4b94441.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/summary.json"
+      },
+      "case_id": "F18",
+      "title": "软标签原型数问题的约束简化",
+      "observation": "回答以每类至少一个原型为必要条件而得C；Judge参考D+1；stop，1528 tokens。",
+      "possible_reason": "可能将软标签/几何构造问题简化为每类独立代表。未重新证明最小性结论。",
+      "mechanism_evidence_strength": "中偏弱：额外必要性假设可见，定理未独立复核。",
+      "observation_evidence_strength": "valid judged wrong under disclosed replacement Judge; not independent domain adjudication",
+      "finish_reason": "stop",
+      "completion_tokens": 1528,
+      "elapsed_seconds": 231.7265,
+      "extracted_final_answer": "C",
+      "frozen_judge_input": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/inputs/66e8967ae99ca52dd4b94441.json"
+    },
+    {
+      "benchmark": "hle",
+      "task_id": "66e932f00bd16d40d4bc4d81",
+      "key": "66e932f00bd16d40d4bc4d81",
+      "is_image": true,
+      "grade_status": "judged_wrong",
+      "evaluation_status": "judged",
+      "correct": false,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/results/66e932f00bd16d40d4bc4d81.json",
+      "generation_source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/questions/66e932f00bd16d40d4bc4d81.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
+      "judge_identity": {
+        "requested_model": "DeepSeek-V4-Flash",
+        "reported_model": "DeepSeek-V4-Flash",
+        "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+        "provider_revision_pinned": false
+      },
+      "base_same_ID": {
+        "status": "native_no_answer",
+        "correct": false,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/results/66e932f00bd16d40d4bc4d81.json",
+        "generation_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196/questions/66e932f00bd16d40d4bc4d81.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/summary.json"
+      },
+      "case_id": "F19",
+      "title": "图像伪码到递归复杂度的解释差异",
+      "observation": "图像题回答按其转写的T(n)=2T(n-1)+O(1)选择指数阶E，Judge参考多项式阶D；stop，1405 tokens。",
+      "possible_reason": "可能是视觉转写或递归/分支语义理解偏差；未对原图做独立重读，因此不能断言是视觉模块错误。",
+      "mechanism_evidence_strength": "弱：判错与其递推式直接可见，视觉/推理根因未分离。",
+      "observation_evidence_strength": "valid judged wrong under disclosed replacement Judge; not independent domain adjudication",
+      "finish_reason": "stop",
+      "completion_tokens": 1405,
+      "elapsed_seconds": 201.358,
+      "extracted_final_answer": "E",
+      "frozen_judge_input": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/inputs/66e932f00bd16d40d4bc4d81.json"
+    },
+    {
+      "benchmark": "swe",
+      "task_id": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+      "key": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+      "grade_status": "valid_native_zero",
+      "native_reward": 0,
+      "invalid_reason": null,
+      "test_count": 311,
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/replay/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/result.json",
+      "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/summary.json",
+      "base_same_ID": {
+        "status": "valid_scored",
+        "reward": 0,
+        "invalid_reason": null,
+        "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017/replay/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/result.json",
+        "owner_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017/swe51_summary.json",
+        "audit_source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017/candidate-failure-audits.json",
+        "audit_note": "Owner audited zero from307/311 required passed; raw missing reward/cleanup exception preserved, not a fabricated native reward."
+      },
+      "case_id": "F20",
+      "title": "只读定位阶段退出，目标图像清理修复未交付",
+      "observation": "fresh replay无exception、native reward0；311个required中307通过，4个图片/cover清理相关required未通过。生成mini轨迹25个bash工具调用全是find/ls/cat/grep读取，随后exit_status=BadRequestError。",
+      "possible_reason": "模型尚在定位代码时退出，未见实现目标修复的写操作。捕获patch仅删除5个无关文件，删除来源未经本次审计证明，不能归为模型主动破坏；BadRequestError的具体拒绝层/原因此次未独立定位。",
+      "mechanism_evidence_strength": "中：测试/只读动作/未实现修复直接可见；退出根因与删除来源弱。",
+      "observation_evidence_strength": "strong native replay reward0 and required-test report",
+      "verifier_stdout": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/replay/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/verifier/test-stdout.txt",
+      "trajectory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/agent/mini-swe-agent.trajectory.json",
+      "patch": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/agent/model.patch",
+      "agent_exit_status": "BadRequestError",
+      "recorded_bash_calls": 25,
+      "all_recorded_bash_calls_read_only": true,
+      "required_tests": 311,
+      "passed_required_tests": 307,
+      "failed_required_tests": 4,
+      "patch_deleted_lines": 336,
+      "patch_added_lines": 0,
+      "patch_files": [
+        ".husky/.gitignore",
+        ".jsbeautifyrc",
+        "Dockerfile",
+        "Gruntfile.js",
+        "README.md"
+      ]
+    }
+  ],
+  "case_set_status": "20 valid failed observations; descriptive sample complete, benchmark matrix still incomplete",
+  "reviewed_at_utc": "2026-10-16T19:55:05.332653+00:00",
+  "model": "avg64",
+  "served_model_alias": "apex-avg64",
+  "artifact": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+  "regression_inference": "All20 selected same-ID Base outcomes are also zero/wrong;5 HLE Base are native_no_answer. These cases do not establish degradation caused by merging.",
+  "limitations": [
+    "Outcome-conditioned descriptive quotas, not random or representative sampling; no failure-rate estimate",
+    "10 distinct Terminal task IDs, all currently available selected seed0; no pass@5 or five-seed score claim",
+    "8 of10 selected Terminal trajectories contain actual DNS-error observations; native valid0 does not remove environment/resource confounding",
+    "HLE9 cases use disclosed replacement Judge; no domain theorem, historical/legal fact or image was independently re-adjudicated",
+    "No length truncation claimed for HLE: all9 finish_reason=stop with7..1528 completion tokens",
+    "SWE deleted-file patch provenance is unknown; recorded model bash commands are read-only",
+    "No artifacts, queues, Base results or scores were changed; no model, grading or container execution"
+  ],
+  "audit_operations": {
+    "model_API_calls": 0,
+    "scoring_calls": 0,
+    "container_or_program_execution": 0,
+    "hash_walks": 0
+  }
+}

@@ -67,5 +67,13 @@
     "full_source_only": "source-expert-consumers-finished.json",
     "legacy_whole_pool_empty": "admission-opened.json",
     "final_source_and_avg_cpu_release": "all_cpu_consumers_finished.json"
+  },
+  "partition_migration": {
+    "id": "terminal-exec-partition-migration-20261017",
+    "target_partition": "acd_u",
+    "nice": 1000,
+    "hard_deadline": "2026-10-18T02:09:48+08:00",
+    "state": "artifacts/eval/execution_partition_migration_20261017/avg64_execution/state.json",
+    "policy": "Drain all existing attempts and requests, cancel old2GPU before replacement; resume only unadmitted IDs"
   }
 }

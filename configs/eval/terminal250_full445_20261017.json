@@ -100,5 +100,13 @@
       ]
     }
   ],
-  "scheduling_policy": "Parallel disjoint Terminal controllers:10 initial slots each; independent SWE and ASI release stages; check only own initial/new/current CPU lease, never wait for the other Terminal controller."
+  "scheduling_policy": "Parallel disjoint Terminal controllers:10 initial slots each; independent SWE and ASI release stages; check only own initial/new/current CPU lease, never wait for the other Terminal controller.",
+  "partition_migration": {
+    "id": "terminal-exec-partition-migration-20261017",
+    "target_partition": "acd_u",
+    "nice": 1000,
+    "hard_deadline": "2026-10-18T02:01:37+08:00",
+    "state": "artifacts/eval/execution_partition_migration_20261017/terminal250/state.json",
+    "policy": "Drain all existing attempts and requests, cancel old2GPU before replacement; resume only unadmitted IDs"
+  }
 }

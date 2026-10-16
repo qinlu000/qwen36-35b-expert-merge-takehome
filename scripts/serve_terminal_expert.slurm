@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=apex-terminal250
-#SBATCH --partition=emergency_acd
+#SBATCH --partition=acd_u
 #SBATCH --qos=formal-user
+#SBATCH --nice=1000
 #SBATCH --account=qinlucao
 #SBATCH --exclude=ACD1-59
 #SBATCH --nodes=1

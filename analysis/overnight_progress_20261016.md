@@ -544,3 +544,15 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - 一次纯汇总已接新14708固定观测和HLE额外pair，Base SWE51/HLE2500/ASI240/TB严格442、预算445；Base预算macro11.340888%，主AVG64比较仍null。原NodeBB审计0与TB三native null来源保留。完成的SWE专家727113经51终态、原父退出、零消费者和native running/waiting/KV均0证明后于03:47:02释放2卡；新增服务时峰值16、现14GPU，作业allocation11.383333GPUh不能重复加进总账。
 - 每小时本线程heartbeat automation已更新并确认ACTIVE，截止10月18日02:20，保留最后12小时。优先真实正式评测/工程阻塞/审计/失败案例/任务对照/最终报告，不恢复独立val、不重新生成Base或按reward重试。当前状态和持续日志统一记录；本机和应用需保持运行，远端既有持久队列不依赖本机SSH会话。
 - 本轮只纳上述自有代码/配置/小收据/文档及共享文档追加，保留其他会话WIP；无coauthor、邮件或仓库邀请。
+
+
+## 2026-10-17 04:25 CST：普通分区迁移、HLE50并发及网络限制说明
+
+- 按用户要求降低调度优先级并停止使用emergency。先把原作业Nice设1000，再部署一换一普通acd_u迁移：先停新题、原在途完整预算自然结束、确认CPU/模型请求排空、释放旧2卡后普通重提。四个服务slurm默认acd_u/Nice1000；没有用改Nice冒充改分区，没有延长原截止或缩短任务预算。
+- 三套HLE已完成普通迁移：727855专家、727856 AVG64、727857 Mixed→AVG16，每个当前模型均50并发。旧grader保留，仅续跑未完成题；续跑checkpoint计数是当前会话，不能当累计。04:18:59 CST累计已保存专家2187、AVG64305、Mixed1835，各50 active，生成数不是准确率。原727821/727822/727831已释放。
+- ASI专家仅SIGSTOP原提交parent2752099，138个已准入condition全部自然终态且scopes/模型请求归零后释放727643，普通727879/ACD1-8正在加载，验收后恢复同parent；原1200秒预算/答案/截止不变。Terminal727640及AVGExec727660仍等待原在途排空，不能声称全部迁移完成。执行driver移除time-min短分配请求，以原绝对截止限制实际作业。
+- 当前12卡是六套TP2副本的并行安排，非模型硬性需求。侧会话按用户要求释放的4卡保持释放，不重建727654。新增无sbatch的复用waiter，等专家ASI CPU释放及AVG64 HLE2500完成、原生请求归零，再验收并复用28095跑合版ASI；独立release watcher将在HLE专家和Mixed/AVG16均完成后释放其4卡，外部judge继续，之后共享ASI完成再释放其服务。
+- SWE剩余5项独立审计后，OpenLibrary缺Bestbook、Qutebrowser未实现KeyInfo构造的两份原native0明确纳入manifest，批准数由4变6；只读collector实际48/51有效、0resolved、主分仍null。Vuls精确OOM归因未决、NodeBB reward1被timeout与缺完整日志阻断、Teleport未决，均保留null。collector19组算例通过，04:05纯读刷新先collector再strict/预算汇总，14708固定观测与Base预算macro11.340888%保留；未重生答案或按reward重试。
+- 20个真实AVG64有效失败案例及3项未来实验建议已整理，10Terminal、8HLE文本、1HLE图、1SWE；同ID Base也全失败，不能称20个合版独有退化。描述性选样不估总体失败率，未恢复val或基于正式结果调模型。
+- Terminal真实最小差分探针于04:11以同SIF/入口证明public→no-network→public使PyPI/Ubuntu DNS从成功到失败再恢复，resolver不变、无代理、独立scope已清理。此前Base、Terminal专家和AVG64求解沙箱统一采用本地no-network overlay，覆盖89任务及5seed；setup/verifier可public、模型调用在宿主侧。不是官方这批任务要求统一断网，前面没有清楚说明该额外限制及其影响。已向用户提出是否改协议的选择，当前只有追问尚无选择，不改变生产网络、旧结果或评分；不把每个失败都归因网络。
+- hourly heartbeat已沿用原automation更新为普通分区、HLE50、保持释放4卡、复用/释放gate及待决网络事项，核心截止10月18日02:20不变。49份自有文件AST/JSON/bash语法及diff检查通过；仅纳自有代码/配置/文档/小收据与共享文档追加，保留其他会话WIP，无coauthor、消息、邮件或邀请。

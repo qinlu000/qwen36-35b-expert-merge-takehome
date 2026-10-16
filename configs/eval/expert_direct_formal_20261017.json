@@ -2,8 +2,8 @@
   "deployment_id": "apex-expert-direct-formal-20261017",
   "protocol": "configs/eval/protocol_v2_unified64k8k.json",
   "base_scheduling_reference": "configs/eval/deployment_hle_asi_seq50_v5.json",
-  "service_job_id": 727643,
-  "node": "ACD1-2",
+  "service_job_id": 727879,
+  "node": "ACD1-8",
   "port": 18002,
   "endpoint": "http://127.0.0.1:28090",
   "tensor_parallel_size": 2,
@@ -26,10 +26,14 @@
     "image_conditions": 342,
     "concurrency": 50,
     "walltime_seconds": 300,
-    "service_job_id": 727821,
+    "service_job_id": 727855,
     "service_port": 18004,
     "endpoint": "http://127.0.0.1:28094",
-    "dedicated_service": true
+    "dedicated_service": true,
+    "service_node": "ACD1-1",
+    "partition": "acd_u",
+    "nice": 1000,
+    "service_deadline": "2026-10-17T18:20:00+00:00"
   },
   "asi": {
     "conditions": 240,
@@ -137,5 +141,8 @@
     "resume_after_asi_pid": 2752099,
     "external_hle_controller": "artifacts/eval/hle250_hle2500_20261017/controller",
     "hle_launcher": "scripts/run_dedicated_hle_formal.py"
-  }
+  },
+  "partition": "acd_u",
+  "nice": 1000,
+  "service_deadline": "2026-10-18T02:04:31+08:00"
 }

@@ -1,0 +1,115 @@
+{
+  "schema": "asi_expert_partition_migration_deployment_v1",
+  "status": "deployed_waiting_for_original_workers_to_drain",
+  "captured_at_utc": "2026-10-16T20:00:41.503083+00:00",
+  "old_service": {
+    "JobId": "727643",
+    "JobState": "RUNNING",
+    "NodeList": "ACD1-2",
+    "Partition": "emergency_acd",
+    "StartTime": "2026-10-17T02:04:31",
+    "EndTime": "2026-10-18T02:04:31",
+    "TimeLimit": "1-00:00:00",
+    "AllocTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2"
+  },
+  "parent": {
+    "pid": 2752099,
+    "starttime_ticks": "867337587",
+    "paused_at_utc": "2026-10-16T19:58:25.114626+00:00",
+    "signal": "SIGSTOP to main PID only",
+    "no_process_group_or_worker_signals": true,
+    "started_conditions_at_pause": 138,
+    "terminal_conditions_at_pause": 130,
+    "unfinished_at_pause": [
+      "electrical_engineering.cmos_opamp_design__seed31415__b4",
+      "electrical_engineering.lossy_tline_skin__seed31415__b4",
+      "materials.relaxation_mode_recovery__seed31415__b1",
+      "math.homotopy_poly_roots__seed31415__b2",
+      "math.homotopy_poly_roots__seed31415__b3",
+      "math.homotopy_poly_roots__seed31415__b4",
+      "math.ill_posed_inverse_problem__seed31415__b1",
+      "math.ill_posed_inverse_problem__seed31415__b2"
+    ]
+  },
+  "driver": {
+    "pid": 3312601,
+    "state_dir": "artifacts/eval/asi-acdu-migration-20261017",
+    "log": "artifacts/eval/asi-acdu-migration-20261017/driver.log",
+    "pause_receipt": "artifacts/eval/asi-acdu-migration-20261017/pause.json",
+    "live_state": "artifacts/eval/asi-acdu-migration-20261017/state.json",
+    "live_drain": "artifacts/eval/asi-acdu-migration-20261017/drain-latest.json",
+    "alive_at_capture": true
+  },
+  "first_observation": {
+    "at_utc": "2026-10-16T20:00:41.480953+00:00",
+    "parent_state": "T",
+    "started_count": 138,
+    "terminal_count": 133,
+    "admitted_count": 138,
+    "admitted_without_terminal": [
+      "electrical_engineering.cmos_opamp_design__seed31415__b4",
+      "electrical_engineering.lossy_tline_skin__seed31415__b4",
+      "materials.relaxation_mode_recovery__seed31415__b1",
+      "math.ill_posed_inverse_problem__seed31415__b1",
+      "math.ill_posed_inverse_problem__seed31415__b2"
+    ],
+    "started_without_terminal": [
+      "electrical_engineering.cmos_opamp_design__seed31415__b4",
+      "electrical_engineering.lossy_tline_skin__seed31415__b4",
+      "materials.relaxation_mode_recovery__seed31415__b1",
+      "math.ill_posed_inverse_problem__seed31415__b1",
+      "math.ill_posed_inverse_problem__seed31415__b2"
+    ],
+    "active_scopes": [],
+    "metrics": {
+      "num_requests_running": 5,
+      "num_requests_waiting": 0
+    },
+    "progress_active_is_stale_and_not_a_gate": true
+  },
+  "resource_policy": {
+    "old_job_must_leave_squeue_before_submit": true,
+    "new_partition": "acd_u",
+    "nice": 1000,
+    "tensor_parallel_size": 2,
+    "new_gpus": 2,
+    "incremental_peak_gpus": 0,
+    "old_deadline": "2026-10-18T02:04:31+08:00",
+    "root_cap": "2026-10-18T02:20:00+08:00",
+    "effective_cap": "2026-10-18T02:04:31+08:00",
+    "tighten_timelimit_after_queue_delay": true
+  },
+  "preserved": {
+    "condition_timeout_seconds": 1200,
+    "cpus_per_worker": 4,
+    "memory_bytes_per_worker": 8589934592,
+    "context_tokens": 65536,
+    "max_output_tokens": 8192,
+    "parallel": 8,
+    "original_parent_and_future_ledger": true,
+    "answers_and_results": true,
+    "no_generation_finished_marker_written": true
+  },
+  "gates": [
+    "All started/admitted-at-pause conditions have parsed original terminal result files.",
+    "All relevant ASI scopes actually empty on CPU96-127, including exact recorded run scopes.",
+    "vLLM running=0 and waiting=0 on two observations 10 seconds apart.",
+    "Old Slurm job absent from squeue before any replacement submission.",
+    "New TP2 health/models/launch metadata/no ignored LoRA layers plus exactly one tiny synthetic ASI acceptance before SIGCONT of same original parent."
+  ],
+  "shared_locks": {
+    "hpc_restricted_key": "/data/user/qinlucao/.ssh/apex-authorized-keys.lock",
+    "host80_config": "artifacts/eval/direct_config_update.lock"
+  },
+  "cpu_checks": {
+    "compile_passed": true,
+    "drain_accept_reject_cases": 7,
+    "ssh_model_or_gpu_calls_in_fixtures": 0
+  },
+  "shared_config_future_updates": {
+    "formal": "configs/eval/expert_direct_formal_20261017.json top-level ASI service fields only; current-file read under lock preserves HLE",
+    "tunnel": "configs/eval/expert_direct_tunnel_20261017.json expert_direct worker job_id/node only",
+    "note": "Driver updates host80 live configs after allocation. Local/HPC copies are not pre-filled with an unknown job/node; collect actual fields after migration."
+  },
+  "completed_migration_claimed": false
+}

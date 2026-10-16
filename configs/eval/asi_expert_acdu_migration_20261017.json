@@ -1,0 +1,23 @@
+{
+  "parent_pid": 2752099,
+  "parent_starttime_ticks": "867337587",
+  "old_job": 727643,
+  "formal_output": "artifacts/eval/asi128_asi240_20261017",
+  "state_dir": "artifacts/eval/asi-acdu-migration-20261017",
+  "formal_config": "configs/eval/expert_direct_formal_20261017.json",
+  "tunnel_config": "configs/eval/expert_direct_tunnel_20261017.json",
+  "endpoint": "http://127.0.0.1:28090",
+  "service_profile": "experts",
+  "service_port": 18002,
+  "job_name": "apex-asi-acdu-migrate-20261017",
+  "partition": "acd_u",
+  "nice": 1000,
+  "gpus": 2,
+  "absolute_cap": "2026-10-18T02:20:00+08:00",
+  "ssh_identity": "/home/caoqinlu/.ssh/id_ed25519_hpc3_hkustgz",
+  "hpc_user": "qinlucao",
+  "hpc_host": "10.120.81.30",
+  "hpc_project": "/data/user/qinlucao/projects/apex-takehome",
+  "poll_seconds": 10,
+  "cpu_ids": [96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127]
+}

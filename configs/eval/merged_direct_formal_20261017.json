@@ -26,10 +26,14 @@
     "image_conditions": 342,
     "concurrency": 50,
     "walltime_seconds": 300,
-    "service_job_id": 727822,
+    "service_job_id": 727856,
     "service_port": 18005,
     "endpoint": "http://127.0.0.1:28095",
-    "dedicated_service": true
+    "dedicated_service": true,
+    "service_node": "ACD1-20",
+    "partition": "acd_u",
+    "nice": 1000,
+    "service_deadline": "2026-10-17T18:20:00+00:00"
   },
   "asi": {
     "conditions": 240,

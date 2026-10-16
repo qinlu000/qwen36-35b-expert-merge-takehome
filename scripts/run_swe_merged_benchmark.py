@@ -68,6 +68,8 @@ def claim_released_cpus(config, output, prior, handoffs, candidates, label):
         return []
     claimed = []
     snapshot = output / 'source-cpu-release-checkpoints' / (label + '.json')
+    if snapshot.exists():
+        snapshot = snapshot.with_name(snapshot.stem + '-resume-' + str(os.getpid()) + '.json')
     for cpu in candidates:
         if cpu in handoffs or cpu in prior['active_cpu_ids'] or base_scopes({cpu}):
             continue
@@ -159,7 +161,10 @@ async def main(args):
     terminal = previous.get('terminal', {})
     pending = deque(name for name in ids if name not in terminal)
     active = {}
-    handoffs = {}
+    handoff_path = output / 'cpu-handoffs.json'
+    handoffs = ({row['cpu']: row for row in json.loads(handoff_path.read_text())['handoffs']}
+                if handoff_path.exists() else {})
+    assert set(handoffs) <= set(config['cpu_ids'])
 
     def checkpoint(state):
         rows = []
@@ -199,8 +204,10 @@ async def main(args):
                 and prior['permanent_slot_release_possible'] and accepted):
             initial = claim_released_cpus(config, output, prior, handoffs,
                                           config['cpu_ids'], 'initial')
-            if initial:
-                save_json(output / 'initial-admission-opened.json', {'at': now(),
+            if initial or handoffs:
+                initial_receipt = output / 'initial-admission-opened.json'
+                if not initial_receipt.exists():
+                    save_json(initial_receipt, {'at': now(),
                     'cpu_ids': initial, 'initial_max_parallel': len(initial),
                     'source_pending': prior['pending'], 'source_active': prior['active'],
                     'source_terminal': prior['terminal'],

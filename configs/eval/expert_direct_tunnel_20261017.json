@@ -6,8 +6,8 @@
   "workers": [
     {
       "benchmark": "expert_direct",
-      "job_id": 727643,
-      "node": "ACD1-2",
+      "job_id": 727879,
+      "node": "ACD1-8",
       "service_port": 18002,
       "bridge_port": 28090
     }

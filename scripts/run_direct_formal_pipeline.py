@@ -117,6 +117,7 @@ def main():
     parser.add_argument('--project', type=Path, required=True)
     parser.add_argument('--profile', choices=['expert', 'merged'], required=True)
     parser.add_argument('--resume-after-asi-pid', type=int)
+    parser.add_argument('--endpoint', help='Explicit verified endpoint when reusing an existing replica')
     args = parser.parse_args()
     root = args.project.resolve()
     merged = args.profile == 'merged'
@@ -127,7 +128,7 @@ def main():
     output.mkdir(parents=True, exist_ok=True)
     lock = (output / 'controller.lock').open('a')
     fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-    endpoint = 'http://127.0.0.1:' + ('28093' if merged else '28090')
+    endpoint = args.endpoint or ('http://127.0.0.1:' + ('28093' if merged else '28090'))
     aliases = {'asi': 'apex-avg64' if merged else 'apex-asi128',
                'hle': 'apex-avg64' if merged else 'apex-hle250'}
     save(output / 'controller.json', {'pid': os.getpid(), 'profile': args.profile,

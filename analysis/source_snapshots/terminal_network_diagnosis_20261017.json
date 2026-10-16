@@ -1,0 +1,352 @@
+{
+  "schema": "terminal_network_phase_differential_v1",
+  "skill": "/Users/caoqinlu/.codex/skills/diagnosing-bugs/SKILL.md",
+  "started_at_utc": "2026-10-16T20:11:07.786426+00:00",
+  "finished_at_utc": "2026-10-16T20:11:15.583697+00:00",
+  "host": "10.123.4.80",
+  "source_root": "/data/caoqinlu/projects/apex-takehome",
+  "scope": "Two-domain metadata-only probe; no task setup, agent, tests, scoring or model requests",
+  "original_protocol_modified": false,
+  "production_scopes_touched": false,
+  "original_image_modified": false,
+  "source_trial_config": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/bn-fit-modify__seed0/config.json",
+  "source_environment": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/bn-fit-modify/environment",
+  "frozen_runtime": "artifacts/eval/avg64_terminal_full445_20261017/runtime/scripts",
+  "immutable_sif": "artifacts/benchmarks/sif/alexgshaw_bn-fit-modify_20251031.sif",
+  "probe_scope": "apex-baseline-4c50737e7c2d.scope",
+  "own_environment_stopped": true,
+  "own_scope_cleanup_check": {
+    "command": "systemctl --user is-active apex-baseline-4c50737e7c2d.scope",
+    "state": "inactive",
+    "exit_code": 3,
+    "no_signals_sent_by_check": true
+  },
+  "probe_cpus": [
+    11
+  ],
+  "probe_resources": {
+    "cpus": 1,
+    "memory_bytes": 8589934592,
+    "note": "Diagnostic sandbox only; formal4CPU/8GiB budgets unchanged"
+  },
+  "domains": [
+    "pypi.org",
+    "archive.ubuntu.com"
+  ],
+  "maximum_seconds_per_domain": 5,
+  "host_observation": {
+    "cpu_affinity": [
+      11
+    ],
+    "resolver_nameservers": [
+      "nameserver 127.0.0.53"
+    ],
+    "proxy_variable_names": [],
+    "domains": [
+      {
+        "host": "pypi.org",
+        "timeout": false,
+        "events": [
+          {
+            "stage": "dns",
+            "ok": true,
+            "seconds": 0.04707917757332325
+          },
+          {
+            "stage": "https_head",
+            "ok": true,
+            "status": 200,
+            "seconds": 0.22092475555837154
+          }
+        ]
+      },
+      {
+        "host": "archive.ubuntu.com",
+        "timeout": false,
+        "events": [
+          {
+            "stage": "dns",
+            "ok": true,
+            "seconds": 0.10666288249194622
+          },
+          {
+            "stage": "https_head",
+            "ok": true,
+            "status": 200,
+            "seconds": 0.8636791724711657
+          }
+        ]
+      }
+    ]
+  },
+  "phase_observations": [
+    {
+      "phase": "public_before",
+      "cpu_affinity": [
+        11
+      ],
+      "resolver_nameservers": [
+        "nameserver 10.0.2.3"
+      ],
+      "proxy_variable_names": [],
+      "domains": [
+        {
+          "host": "pypi.org",
+          "timeout": false,
+          "events": [
+            {
+              "stage": "dns",
+              "ok": true,
+              "seconds": 0.002170264720916748
+            },
+            {
+              "stage": "https_head",
+              "ok": true,
+              "status": 200,
+              "seconds": 0.19593907706439495
+            }
+          ]
+        },
+        {
+          "host": "archive.ubuntu.com",
+          "timeout": false,
+          "events": [
+            {
+              "stage": "dns",
+              "ok": true,
+              "seconds": 0.10363438725471497
+            },
+            {
+              "stage": "https_head",
+              "ok": true,
+              "status": 200,
+              "seconds": 0.8081316314637661
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "solver_no_network",
+      "cpu_affinity": [
+        11
+      ],
+      "resolver_nameservers": [
+        "nameserver 10.0.2.3"
+      ],
+      "proxy_variable_names": [],
+      "domains": [
+        {
+          "host": "pypi.org",
+          "timeout": false,
+          "events": [
+            {
+              "stage": "dns",
+              "ok": false,
+              "error": "[Errno -3] Temporary failure in name resolution",
+              "seconds": 0.001309892162680626
+            }
+          ]
+        },
+        {
+          "host": "archive.ubuntu.com",
+          "timeout": false,
+          "events": [
+            {
+              "stage": "dns",
+              "ok": false,
+              "error": "[Errno -3] Temporary failure in name resolution",
+              "seconds": 0.001305263489484787
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "public_after",
+      "cpu_affinity": [
+        11
+      ],
+      "resolver_nameservers": [
+        "nameserver 10.0.2.3"
+      ],
+      "proxy_variable_names": [],
+      "domains": [
+        {
+          "host": "pypi.org",
+          "timeout": false,
+          "events": [
+            {
+              "stage": "dns",
+              "ok": true,
+              "seconds": 0.001896711066365242
+            },
+            {
+              "stage": "https_head",
+              "ok": true,
+              "status": 200,
+              "seconds": 0.1721706073731184
+            }
+          ]
+        },
+        {
+          "host": "archive.ubuntu.com",
+          "timeout": false,
+          "events": [
+            {
+              "stage": "dns",
+              "ok": true,
+              "seconds": 0.08277152106165886
+            },
+            {
+              "stage": "https_head",
+              "ok": true,
+              "status": 200,
+              "seconds": 0.7717852238565683
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "feedback_assertion": "PASS: host/public DNS+HTTPS green, solver DNS red, restored-public green; resolver unchanged",
+  "feedback_command": "taskset -c 11 artifacts/envs/harbor/bin/python scripts/probe_terminal_network_20261017.py --check-captured artifacts/eval/terminal-network-probe-20261017/probe.json",
+  "raw_probe": "artifacts/eval/terminal-network-probe-20261017/probe.json",
+  "actual_frozen_policy_builder": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/runtime/scripts/baseline_netns.py",
+    "solver_ipv4_output": "DROP; loopback only; no DNS53 exception",
+    "public_ipv4_output": "ACCEPT; explicitly allow 10.0.2.3 UDP/TCP53 before private-range reject",
+    "ipv6_output": "DROP except loopback in both phases",
+    "offline_checks_passed": true,
+    "no_namespace_or_rule_mutation_in_offline_checks": true
+  },
+  "eight_case_identity": [
+    {
+      "case_id": "F01",
+      "task_id": "adaptive-rejection-sampler",
+      "task_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/adaptive-rejection-sampler",
+      "base_task_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/adaptive-rejection-sampler",
+      "same_task_metadata": true,
+      "original_agent_no_network": false,
+      "staged_agent_no_network": true,
+      "environment": "terminal_repair_environment_v2:TerminalRepairEnvironment",
+      "base_environment": "terminal_repair_environment_v2:TerminalRepairEnvironment",
+      "representative_observation": [
+        "E: Failed to fetch http://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libglx0_1.7.0-1build1_amd64.deb  Temporary failure resolving 'archive.ubuntu.com'"
+      ]
+    },
+    {
+      "case_id": "F02",
+      "task_id": "bn-fit-modify",
+      "task_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/bn-fit-modify",
+      "base_task_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/bn-fit-modify",
+      "same_task_metadata": true,
+      "original_agent_no_network": false,
+      "staged_agent_no_network": true,
+      "environment": "terminal_repair_environment_v2:TerminalRepairEnvironment",
+      "base_environment": "terminal_rolling_environment:TerminalRollingEnvironment",
+      "representative_observation": [
+        "nection.HTTPSConnection object at 0x770ae3172810>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/pgmpy/"
+      ]
+    },
+    {
+      "case_id": "F04",
+      "task_id": "build-cython-ext",
+      "task_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/build-cython-ext",
+      "base_task_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/build-cython-ext",
+      "same_task_metadata": true,
+      "original_agent_no_network": false,
+      "staged_agent_no_network": true,
+      "environment": "terminal_repair_environment_v2:TerminalRepairEnvironment",
+      "base_environment": "terminal_repair_environment_v2:TerminalRepairEnvironment",
+      "representative_observation": [
+        "nection.HTTPSConnection object at 0x7d73a577e0d0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/cython/"
+      ]
+    },
+    {
+      "case_id": "F05",
+      "task_id": "build-pmars",
+      "task_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/build-pmars",
+      "base_task_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/build-pmars",
+      "same_task_metadata": true,
+      "original_agent_no_network": false,
+      "staged_agent_no_network": true,
+      "environment": "terminal_repair_environment_v2:TerminalRepairEnvironment",
+      "base_environment": "terminal_repair_environment_v2:TerminalRepairEnvironment",
+      "representative_observation": [
+        "Error: [Errno -3] Temporary failure in name resolution"
+      ]
+    },
+    {
+      "case_id": "F06",
+      "task_id": "build-pov-ray",
+      "task_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/build-pov-ray",
+      "base_task_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/build-pov-ray",
+      "same_task_metadata": true,
+      "original_agent_no_network": false,
+      "staged_agent_no_network": true,
+      "environment": "terminal_repair_environment_v2:TerminalRepairEnvironment",
+      "base_environment": "terminal_repair_environment_v2:TerminalRepairEnvironment",
+      "representative_observation": [
+        "socket.gaierror: [Errno -3] Temporary failure in name resolution"
+      ]
+    },
+    {
+      "case_id": "F07",
+      "task_id": "caffe-cifar-10",
+      "task_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/caffe-cifar-10",
+      "base_task_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/caffe-cifar-10",
+      "same_task_metadata": true,
+      "original_agent_no_network": false,
+      "staged_agent_no_network": true,
+      "environment": "terminal_repair_environment_v2:TerminalRepairEnvironment",
+      "base_environment": "terminal_repair_environment_v2:TerminalRepairEnvironment",
+      "representative_observation": [
+        "Resolving github.com (github.com)... failed: Temporary failure in name resolution."
+      ]
+    },
+    {
+      "case_id": "F08",
+      "task_id": "chess-best-move",
+      "task_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/chess-best-move",
+      "base_task_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/chess-best-move",
+      "same_task_metadata": true,
+      "original_agent_no_network": false,
+      "staged_agent_no_network": true,
+      "environment": "terminal_repair_environment_v2:TerminalRepairEnvironment",
+      "base_environment": "terminal_repair_environment_v2:TerminalRepairEnvironment",
+      "representative_observation": [
+        "nection.HTTPSConnection object at 0x7c2f148d67b0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/python-ches"
+      ]
+    },
+    {
+      "case_id": "F10",
+      "task_id": "code-from-image",
+      "task_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/code-from-image",
+      "base_task_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/code-from-image",
+      "same_task_metadata": true,
+      "original_agent_no_network": false,
+      "staged_agent_no_network": true,
+      "environment": "terminal_repair_environment_v2:TerminalRepairEnvironment",
+      "base_environment": "terminal_repair_environment_v2:TerminalRepairEnvironment",
+      "representative_observation": [
+        "nection.HTTPSConnection object at 0x7843a23e9550>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/pillow/"
+      ]
+    }
+  ],
+  "base_source_equality": {
+    "base_runtime": "artifacts/runs/base-terminal-724242/runtime2/scripts",
+    "avg_runtime": "artifacts/eval/avg64_terminal_full445_20261017/runtime/scripts",
+    "baseline_netns_py_byte_identical": true,
+    "baseline_singularity_py_byte_identical": true,
+    "overlay_layers_note": "Intermediate Base runtime overlays omit these backend files; they inherit this base layer."
+  },
+  "proven_cause": "The chosen local solver no-network policy is sufficient to produce the exact DNS symptom. Resolver/proxy configuration is functional in public mode in this current probe.",
+  "limits": [
+    "This current probe cannot prove historical upstream availability for every error timestamp.",
+    "Eight DNS-error cases do not establish eight unavoidable failures: some attempted packages may be optional strategy choices.",
+    "This does not establish all task dependencies were staged before the solver timer.",
+    "No production fix, retry, new score or canonical reclassification was performed."
+  ],
+  "proposed_uniform_fix": "Audit and freeze solver-visible offline prerequisite/source archives before the timer, equally for all model arms, without solutions/tests/expected outputs or prebuilt requested targets. Keep solver no-network. This would be a separately versioned environment/protocol; do not silently mix it into the current formal run."
+}

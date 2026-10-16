@@ -1,0 +1,434 @@
+{
+  "at_utc": "2026-10-16T20:18:59.114326+00:00",
+  "new_policy": {
+    "partition": "acd_u",
+    "nice": 1000,
+    "HLE_generation_concurrency_per_model": 50,
+    "already_released_jobs": [
+      727113,
+      727654
+    ],
+    "no_new_merged_ASI_GPU_requested": true
+  },
+  "hle_migration": {
+    "expert": {
+      "phase": "resumed",
+      "old_job": 727821,
+      "new_job": 727855,
+      "node": "ACD1-1",
+      "old_generator_pid": 3266684,
+      "new_controller_pid": 3418009,
+      "new_generation_pid": 3418010,
+      "generation_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/summary.json",
+      "model_consumer_finished_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/model-consumer-finished.json",
+      "end_cap_utc": "2026-10-17T18:20:00+00:00"
+    },
+    "merged": {
+      "phase": "resumed",
+      "old_job": 727822,
+      "new_job": 727856,
+      "node": "ACD1-20",
+      "old_generator_pid": 3269009,
+      "new_controller_pid": 4075849,
+      "new_generation_pid": 4076145,
+      "generation_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/summary.json",
+      "model_consumer_finished_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/model-consumer-finished.json",
+      "end_cap_utc": "2026-10-17T18:20:00+00:00"
+    },
+    "controls": {
+      "phase": "resumed",
+      "old_job": 727831,
+      "new_job": 727857,
+      "node": "ACD1-30",
+      "old_generator_pid": 3268682,
+      "new_controller_pid": 3418011,
+      "new_generation_pid": 3418080,
+      "generation_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/summary.json",
+      "model_consumer_finished_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/model-consumer-finished.json",
+      "end_cap_utc": "2026-10-17T15:40:21+00:00"
+    }
+  },
+  "asi_migration": {
+    "state": "new_service_loading",
+    "at_utc": "2026-10-16T20:15:58.858498+00:00",
+    "driver_pid": 3312601,
+    "parent_pid": 2752099,
+    "old_job": 727643,
+    "new_job": 727879,
+    "node": "ACD1-8",
+    "service_deadline": "2026-10-18T02:04:31+08:00",
+    "drain": {
+      "parent_state": "T",
+      "started_count": 138,
+      "terminal_count": 138,
+      "admitted_count": 138,
+      "active_scopes": [],
+      "metrics": {
+        "num_requests_running": 0.0,
+        "num_requests_waiting": 0.0
+      }
+    }
+  },
+  "execution_migration": {
+    "pid": 3421568,
+    "groups": {
+      "terminal250": {
+        "stage": "waiting_original_consumers",
+        "old_job": 727640,
+        "queue_drains": {
+          "artifacts/eval/terminal250_full445_20261017": {
+            "ready": false,
+            "parent_alive": true,
+            "checkpoint_state": "running",
+            "active": 4,
+            "pending": 408,
+            "terminal": 33,
+            "cpu_ids": [
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51
+            ]
+          }
+        },
+        "remaining_cpu_scopes": [
+          "apex-baseline-8e0e75b6ebae.scope",
+          "apex-baseline-bde668d4d4f2.scope",
+          "apex-baseline-c191746db179.scope",
+          "apex-baseline-f9fbd0770ca4.scope"
+        ],
+        "native_requests": null
+      },
+      "avg64_execution": {
+        "stage": "waiting_original_consumers",
+        "old_job": 727660,
+        "queue_drains": {
+          "artifacts/eval/avg64_terminal_full445_20261017": {
+            "ready": false,
+            "parent_alive": true,
+            "checkpoint_state": "running",
+            "active": 3,
+            "pending": 409,
+            "terminal": 33,
+            "cpu_ids": [
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91
+            ]
+          },
+          "artifacts/eval/avg64_swe_hard51_20261017": {
+            "ready": false,
+            "parent_alive": true,
+            "checkpoint_state": "running",
+            "active": 1,
+            "pending": 38,
+            "terminal": 12,
+            "cpu_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ]
+          }
+        },
+        "remaining_cpu_scopes": [
+          "apex-baseline-1b5ae78ba79d.scope",
+          "apex-baseline-97a1cd7a3031.scope",
+          "apex-baseline-9a4698678374.scope",
+          "apex-baseline-df69054377dc.scope"
+        ],
+        "native_requests": null
+      }
+    }
+  },
+  "reuse_controller": {
+    "state": "waiting_existing_replica_and_cpu",
+    "at_utc": "2026-10-16T20:18:45.695119+00:00",
+    "pid": 4143547,
+    "endpoint": "http://127.0.0.1:28095",
+    "expert_generation_cpu_ready": false,
+    "hle_saved_results": 202,
+    "hle_generation_pid": 4076145,
+    "normal_service_job": 727856,
+    "migration_state": null,
+    "new_gpu_allocations": 0
+  },
+  "release_controller": {
+    "released": {},
+    "pid": 3321991,
+    "at_utc": "2026-10-16T20:18:57.066419+00:00"
+  },
+  "queues": {
+    "hle_expert": {
+      "state": "running",
+      "at_utc": "2026-10-16T20:18:58.597703+00:00",
+      "admitted_count": 1074,
+      "active_count": 50,
+      "source": "artifacts/eval/hle250_hle2500_20261017/checkpoint.json",
+      "saved_results_total": 2187,
+      "completed_current_session_count": 1024
+    },
+    "hle_avg64": {
+      "state": "running",
+      "at_utc": "2026-10-16T20:18:55.005091+00:00",
+      "admitted_count": 153,
+      "active_count": 50,
+      "source": "artifacts/eval/avg64_hle2500_20261017/checkpoint.json",
+      "saved_results_total": 305,
+      "completed_current_session_count": 103
+    },
+    "hle_mixed": {
+      "state": "running",
+      "at_utc": "2026-10-16T20:18:59.009428+00:00",
+      "admitted_count": 976,
+      "active_count": 50,
+      "source": "artifacts/eval/mixed883_hle2500_20261017/checkpoint.json",
+      "saved_results_total": 1835,
+      "completed_current_session_count": 926
+    },
+    "hle_avg16": {
+      "source": "artifacts/eval/avg16_hle2500_20261017/checkpoint.json",
+      "saved_results_total": 0
+    },
+    "terminal_expert": {
+      "state": "running",
+      "pid": 2878518,
+      "updated_at_utc": "2026-10-16T20:18:59.115195+00:00",
+      "valid_scored": 32,
+      "expected": 445,
+      "complete": false,
+      "active_count": 4,
+      "terminal_count": 33,
+      "pending_count": 408,
+      "source": "artifacts/eval/terminal250_full445_20261017/summary.json"
+    },
+    "terminal_avg64": {
+      "state": "running",
+      "pid": 2878519,
+      "updated_at_utc": "2026-10-16T20:18:57.810813+00:00",
+      "valid_scored": 33,
+      "expected": 445,
+      "complete": false,
+      "active_count": 3,
+      "terminal_count": 33,
+      "pending_count": 409,
+      "source": "artifacts/eval/avg64_terminal_full445_20261017/summary.json"
+    },
+    "swe_avg64": {
+      "state": "running",
+      "as_of": "2026-10-16T20:18:53.706445+00:00",
+      "valid_scored": 11,
+      "expected": 51,
+      "complete": false,
+      "primary_score_percent": null,
+      "active_count": 1,
+      "terminal_count": 12,
+      "pending_count": 38,
+      "source": "artifacts/eval/avg64_swe_hard51_20261017/summary.json"
+    }
+  },
+  "aggregation": {
+    "strict": {
+      "at_utc": "2026-10-16T20:05:58.245571+00:00",
+      "complete_primary_comparison": false,
+      "coverage": {
+        "base": {
+          "swe": 51,
+          "hle": 2500,
+          "asi": 240,
+          "terminal": 442
+        },
+        "swe249": {
+          "swe": 48
+        },
+        "hle250": {
+          "hle": 786
+        },
+        "asi128": {
+          "asi": 0
+        },
+        "terminal250": {
+          "terminal": 30
+        },
+        "mixed883": {
+          "hle": 705
+        },
+        "avg16": {
+          "hle": 0
+        },
+        "avg64": {
+          "swe": 3,
+          "hle": 202,
+          "asi": 0,
+          "terminal": 27
+        }
+      }
+    },
+    "budget": {
+      "at_utc": "2026-10-16T20:05:59.469666+00:00",
+      "complete_primary_comparison": false,
+      "coverage": {
+        "base": {
+          "swe": 51,
+          "hle": 2500,
+          "asi": 240,
+          "terminal": 445
+        },
+        "swe249": {
+          "swe": 48
+        },
+        "hle250": {
+          "hle": 787
+        },
+        "asi128": {
+          "asi": 0
+        },
+        "terminal250": {
+          "terminal": 30
+        },
+        "mixed883": {
+          "hle": 706
+        },
+        "avg16": {
+          "hle": 0
+        },
+        "avg64": {
+          "swe": 3,
+          "hle": 202,
+          "asi": 0,
+          "terminal": 27
+        }
+      }
+    }
+  },
+  "slurm_jobs": [
+    {
+      "id": "727879",
+      "name": "apex-asi-acdu-migrate-20261017",
+      "state": "RUNNING",
+      "partition": "acd_u",
+      "node": "ACD1-8",
+      "gres": "gres/gpu:2"
+    },
+    {
+      "id": "727856",
+      "name": "apex-hle-normal-merged",
+      "state": "RUNNING",
+      "partition": "acd_u",
+      "node": "ACD1-20",
+      "gres": "gres/gpu:2"
+    },
+    {
+      "id": "727857",
+      "name": "apex-hle-normal-controls",
+      "state": "RUNNING",
+      "partition": "acd_u",
+      "node": "ACD1-30",
+      "gres": "gres/gpu:2"
+    },
+    {
+      "id": "727855",
+      "name": "apex-hle-normal-expert",
+      "state": "RUNNING",
+      "partition": "acd_u",
+      "node": "ACD1-1",
+      "gres": "gres/gpu:2"
+    },
+    {
+      "id": "727660",
+      "name": "apex-avg64-execution",
+      "state": "RUNNING",
+      "partition": "emergency_acd",
+      "node": "ACD1-50",
+      "gres": "gres/gpu:2"
+    },
+    {
+      "id": "727640",
+      "name": "apex-terminal250",
+      "state": "RUNNING",
+      "partition": "emergency_acd",
+      "node": "ACD1-28",
+      "gres": "gres/gpu:2"
+    }
+  ],
+  "allocated_gpus": 12
+}

@@ -1,0 +1,63 @@
+{
+  "migration_id": "terminal-exec-partition-migration-20261017",
+  "project": "/data/caoqinlu/projects/apex-takehome",
+  "state_output": "artifacts/eval/execution_partition_migration_20261017",
+  "launch_context": "artifacts/eval/execution_partition_migration_20261017/launch_context.json",
+  "hpc_project": "/data/user/qinlucao/projects/apex-takehome",
+  "hpc_host": "10.120.81.30",
+  "hpc_user": "qinlucao",
+  "identity_file": "/home/caoqinlu/.ssh/id_ed25519_hpc3_hkustgz",
+  "known_hosts": "/data/caoqinlu/projects/apex-takehome/artifacts/private/baseline_hpc_known_hosts",
+  "partition": "acd_u",
+  "nice": 1000,
+  "hard_cap": "2026-10-18T02:20:00+08:00",
+  "poll_seconds": 15,
+  "minimum_job_minutes": 60,
+  "groups": [
+    {
+      "name": "terminal250",
+      "old_job": 727640,
+      "old_node": "ACD1-28",
+      "hard_end": "2026-10-18T02:01:37+08:00",
+      "job_name": "apex-term-acdu-20261017",
+      "slurm_script": "scripts/serve_terminal_expert.slurm",
+      "service_launch_prefix": "terminal-service-",
+      "model": "apex-terminal250",
+      "base_alias": "apex-terminal-base",
+      "endpoint": "http://127.0.0.1:28091",
+      "service_port": 18003,
+      "bridge_port": 28091,
+      "tunnel_config": "configs/eval/terminal250_hpc_tunnel_20261017.json",
+      "tunnel_state": "artifacts/eval/terminal250_full445_20261017/tunnel",
+      "tunnel_worker": "terminal250",
+      "old_tunnel_supervisor_pid": 2697218,
+      "old_forward_pid": 2697224,
+      "queues": [
+        {"output": "artifacts/eval/terminal250_full445_20261017", "config": "configs/eval/terminal250_full445_20261017.json", "kind": "terminal", "expected": 445}
+      ]
+    },
+    {
+      "name": "avg64_execution",
+      "old_job": 727660,
+      "old_node": "ACD1-50",
+      "hard_end": "2026-10-18T02:09:48+08:00",
+      "job_name": "apex-avgexec-acdu-20261017",
+      "slurm_script": "scripts/serve_merged_execution.slurm",
+      "service_launch_prefix": "merged-execution-service-",
+      "model": "apex-avg64",
+      "base_alias": "apex-avg64-base",
+      "endpoint": "http://127.0.0.1:28092",
+      "service_port": 18000,
+      "bridge_port": 28092,
+      "tunnel_config": "configs/eval/avg64_execution_hpc_tunnel_20261017.json",
+      "tunnel_state": "artifacts/eval/avg64_execution_tunnel_20261017",
+      "tunnel_worker": "avg64_execution",
+      "old_tunnel_supervisor_pid": null,
+      "old_forward_pid": 2749797,
+      "queues": [
+        {"output": "artifacts/eval/avg64_terminal_full445_20261017", "config": "configs/eval/avg64_terminal_full445_20261017.json", "kind": "terminal", "expected": 445},
+        {"output": "artifacts/eval/avg64_swe_hard51_20261017", "config": "configs/eval/avg64_swe_hard51_20261017.json", "kind": "swe", "expected": 51}
+      ]
+    }
+  ]
+}

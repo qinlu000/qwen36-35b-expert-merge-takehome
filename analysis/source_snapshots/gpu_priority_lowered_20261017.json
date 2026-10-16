@@ -1,0 +1,110 @@
+{
+  "recorded_at_utc": "2026-10-16T19:51:46.763218+00:00",
+  "user_request": "Lower priority for these GPU jobs",
+  "action": "scontrol update JobId=727640,727643,727654,727660,727821,727822,727831 Nice=1000",
+  "before": {
+    "all7_nice": 0,
+    "all7_priority": 10020,
+    "gpus_per_job": 2
+  },
+  "after": [
+    {
+      "JobId": "727640",
+      "JobName": "apex-terminal250",
+      "Priority": "9021",
+      "Nice": "1000",
+      "JobState": "RUNNING",
+      "Partition": "emergency_acd",
+      "QOS": "formal-user",
+      "NodeList": "ACD1-28",
+      "StartTime": "2026-10-17T02:01:37",
+      "EndTime": "2026-10-18T02:01:37",
+      "AllocTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2"
+    },
+    {
+      "JobId": "727643",
+      "JobName": "apex-direct-experts",
+      "Priority": "9021",
+      "Nice": "1000",
+      "JobState": "RUNNING",
+      "Partition": "emergency_acd",
+      "QOS": "formal-user",
+      "NodeList": "ACD1-2",
+      "StartTime": "2026-10-17T02:04:31",
+      "EndTime": "2026-10-18T02:04:31",
+      "AllocTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2"
+    },
+    {
+      "JobId": "727654",
+      "JobName": "apex-merged-direct",
+      "Priority": "9021",
+      "Nice": "1000",
+      "JobState": "RUNNING",
+      "Partition": "emergency_acd",
+      "QOS": "formal-user",
+      "NodeList": "ACD1-36",
+      "StartTime": "2026-10-17T02:08:48",
+      "EndTime": "2026-10-18T02:08:48",
+      "AllocTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2"
+    },
+    {
+      "JobId": "727660",
+      "JobName": "apex-avg64-execution",
+      "Priority": "9021",
+      "Nice": "1000",
+      "JobState": "RUNNING",
+      "Partition": "emergency_acd",
+      "QOS": "formal-user",
+      "NodeList": "ACD1-50",
+      "StartTime": "2026-10-17T02:09:48",
+      "EndTime": "2026-10-18T02:09:48",
+      "AllocTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2"
+    },
+    {
+      "JobId": "727821",
+      "JobName": "apex-hle250-direct",
+      "Priority": "9020",
+      "Nice": "1000",
+      "JobState": "RUNNING",
+      "Partition": "emergency_acd",
+      "QOS": "formal-user",
+      "NodeList": "ACD1-1",
+      "StartTime": "2026-10-17T03:38:26",
+      "EndTime": "2026-10-18T03:38:26",
+      "AllocTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2"
+    },
+    {
+      "JobId": "727822",
+      "JobName": "apex-avg64-hle",
+      "Priority": "9020",
+      "Nice": "1000",
+      "JobState": "RUNNING",
+      "Partition": "emergency_acd",
+      "QOS": "formal-user",
+      "NodeList": "ACD1-30",
+      "StartTime": "2026-10-17T03:38:26",
+      "EndTime": "2026-10-18T03:38:26",
+      "AllocTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2"
+    },
+    {
+      "JobId": "727831",
+      "JobName": "apex-hle-controls",
+      "Priority": "9020",
+      "Nice": "1000",
+      "JobState": "RUNNING",
+      "Partition": "emergency_acd",
+      "QOS": "formal-user",
+      "NodeList": "ACD1-30",
+      "StartTime": "2026-10-17T03:40:21",
+      "EndTime": "2026-10-17T23:40:21",
+      "AllocTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2"
+    }
+  ],
+  "gpu_total": 14,
+  "partition_priority_tier": 300,
+  "partition_preempt_mode": "OFF",
+  "effect_scope": "Lower Slurm scheduling priority; current allocations continue. Partition tier and preemption policy are separate and were not changed.",
+  "future_default_nice": 1000,
+  "no_jobs_cancelled_requeued_or_resubmitted": true,
+  "official_documentation": "https://slurm.schedmd.com/scontrol.html#OPT_Nice"
+}
