@@ -1,0 +1,11 @@
+{
+  "as_of": "2026-10-16T16:20:56.126223+08:00",
+  "classification": "valid_model_dependency_declaration_failure",
+  "native_error": "no required module provides package github.com/deluan/rest; to add it: go get github.com/deluan/rest",
+  "network_error": false,
+  "harbor_exception": false,
+  "accepted_reward": 0,
+  "source": "artifacts/eval/base_swe_v2_20261016_full_x2/group0/replay/instance_navidrome__navidrome-874b17b8f614056df0ef021b5d4f977341084185/result.json",
+  "model_patch_or_go_mod_modified": false,
+  "generation_repeated": false
+}

@@ -1,0 +1,86 @@
+{
+  "status": "three_native_grades_complete",
+  "completed_at_utc": "2026-10-16T08:30:34.742713+00:00",
+  "tasks": [
+    {
+      "task": "extract-moves-from-video",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/extract-moves-from-video__seed0__first/result.json",
+      "restore_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/extract-moves-from-video__seed0/restore.json",
+      "result": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/extract-moves-from-video__seed0/native_grade3/result.json",
+      "reward": 0.0,
+      "exception_info": null,
+      "official_tests_collected": 2,
+      "ctrf_summary": {
+        "tests": 2,
+        "passed": 0,
+        "failed": 2,
+        "skipped": 0,
+        "pending": 0,
+        "other": 0,
+        "start": 1792139249.8081405,
+        "stop": 1792139249.8750925
+      },
+      "backend_cpu_offset": 104,
+      "new_model_calls": 0,
+      "solver_searches_reexecuted": 0,
+      "restoration_full_rootfs_byte_identical": false,
+      "exact_recorded_analysis_payloads": true,
+      "required_answer_file_never_created": true
+    },
+    {
+      "task": "crack-7z-hash",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/crack-7z-hash__seed0__manual1/result.json",
+      "restore_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/crack-7z-hash__seed0/restore.json",
+      "result": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/crack-7z-hash__seed0/native_grade3/result.json",
+      "reward": 0.0,
+      "exception_info": null,
+      "official_tests_collected": 2,
+      "ctrf_summary": {
+        "tests": 2,
+        "passed": 0,
+        "failed": 2,
+        "skipped": 0,
+        "pending": 0,
+        "other": 0,
+        "start": 1792139281.561171,
+        "stop": 1792139281.624097
+      },
+      "backend_cpu_offset": 116,
+      "new_model_calls": 0,
+      "solver_searches_reexecuted": 0,
+      "restoration_full_rootfs_byte_identical": false,
+      "exact_recorded_analysis_payloads": true,
+      "required_answer_file_never_created": true
+    },
+    {
+      "task": "dna-assembly",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/dna-assembly__seed0__manual1/result.json",
+      "restore_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/dna-assembly__seed0/restore.json",
+      "result": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/dna-assembly__seed0/native_grade3/result.json",
+      "reward": 0.0,
+      "exception_info": null,
+      "official_tests_collected": 1,
+      "ctrf_summary": {
+        "tests": 1,
+        "passed": 0,
+        "failed": 1,
+        "skipped": 0,
+        "pending": 0,
+        "other": 0,
+        "start": 1792139226.555748,
+        "stop": 1792139226.62789
+      },
+      "backend_cpu_offset": 120,
+      "new_model_calls": 0,
+      "solver_searches_reexecuted": 0,
+      "restoration_full_rootfs_byte_identical": false,
+      "exact_recorded_analysis_payloads": true,
+      "required_answer_file_never_created": true
+    }
+  ],
+  "official_tests_unchanged": true,
+  "new_model_calls": 0,
+  "original_results_unchanged": true,
+  "observer_owner": "baseline_terminal_runner adds readonly references at safe points",
+  "uv_installer_bytes_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/terminal_verifier_offline_20261016/uv-installer/download_receipt.json"
+}

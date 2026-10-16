@@ -1,0 +1,42 @@
+{
+  "at_utc": "2026-10-16T08:27:55.595711+00:00",
+  "purpose": "Keep observer/Judge/cache outside future Terminal CPU0-119 pool",
+  "new_model_calls": 0,
+  "changes": [
+    {
+      "unit": "apex-hle-judge-rolling-20261016.scope",
+      "cpus": [
+        124,
+        125
+      ],
+      "threads": 12,
+      "state": "moved_without_interruption"
+    },
+    {
+      "unit": "apex-baseline-final-collector-20261016.scope",
+      "cpus": [
+        126
+      ],
+      "threads": 1,
+      "state": "moved_without_interruption"
+    },
+    {
+      "unit": "apex-terminal-verifier-cache-20261016.scope",
+      "cpus": [
+        127
+      ],
+      "threads": 25,
+      "state": "moved_without_interruption"
+    }
+  ],
+  "final_allocation": {
+    "terminal_solvers": "0-119 after guarded second replica activation",
+    "terminal_archive_grader": "120-123",
+    "swe_future_grader": "124 (one native1CPU/4GiB worker)",
+    "hle_judge": "125 (two concurrent HTTPcalls)",
+    "collector": "126",
+    "cache_and_one_time_enable_guard": "127"
+  },
+  "final_allocation_at_utc": "2026-10-16T08:37:49.481021+00:00",
+  "hle_judge_moved_without_interruption_threads": 13
+}

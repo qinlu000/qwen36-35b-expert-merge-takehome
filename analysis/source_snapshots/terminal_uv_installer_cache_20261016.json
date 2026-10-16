@@ -1,0 +1,18 @@
+{
+  "completed_at_utc": "2026-10-16T08:25:12.016756+00:00",
+  "exact_url_map": {
+    "https://astral.sh/uv/0.9.5/install.sh": "install.sh",
+    "https://github.com/astral-sh/uv/releases/download/0.9.5/uv-x86_64-unknown-linux-gnu.tar.gz": "uv-x86_64-unknown-linux-gnu.tar.gz"
+  },
+  "script_bytes": 65983,
+  "artifact_bytes": 21370871,
+  "archive_members": [
+    "uv-x86_64-unknown-linux-gnu",
+    "uv-x86_64-unknown-linux-gnu/uvx",
+    "uv-x86_64-unknown-linux-gnu/uv"
+  ],
+  "source": "Original HTTPS astral andGitHub release downloads via native curl; Mac copied tar byte-for-byte byscp; no repack or synthetic installer",
+  "installer_executed": false,
+  "binaries_executed": false,
+  "new_hash_walks": 0
+}

@@ -1,0 +1,195 @@
+{
+  "updated_at_utc": "2026-10-16T08:40:37.839724+00:00",
+  "expected_trials": 445,
+  "valid_covered": 15,
+  "active_trials": 10,
+  "pending_not_admitted": 380,
+  "infrastructure_unscored": 40,
+  "complete": false,
+  "per_seed": [
+    {
+      "seed": 0,
+      "expected": 89,
+      "valid_covered": 15,
+      "correct_count": 9.0,
+      "score_percent": null
+    },
+    {
+      "seed": 1,
+      "expected": 89,
+      "valid_covered": 0,
+      "correct_count": 0,
+      "score_percent": null
+    },
+    {
+      "seed": 2,
+      "expected": 89,
+      "valid_covered": 0,
+      "correct_count": 0,
+      "score_percent": null
+    },
+    {
+      "seed": 3,
+      "expected": 89,
+      "valid_covered": 0,
+      "correct_count": 0,
+      "score_percent": null
+    },
+    {
+      "seed": 4,
+      "expected": 89,
+      "valid_covered": 0,
+      "correct_count": 0,
+      "score_percent": null
+    }
+  ],
+  "states": {
+    "cancelled": 36,
+    "failed_attempt": 3,
+    "verifier_incomplete": 9,
+    "valid": 7,
+    "admitted": 10,
+    "pending": 380
+  },
+  "accepted_first_valid": {
+    "extract-elf/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/extract-elf__seed0__first/result.json",
+      "sha256": "6cbb021b8e5da39963464e2fb667b87b187db9fba711073c4d75085cee5744c3",
+      "reward": 1.0
+    },
+    "custom-memory-heap-crash/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/custom-memory-heap-crash__seed0__manual1/result.json",
+      "sha256": "dfdf2bac26341bca19ad7c3382e07fedfefbd3034dd5e56461c9d9c5588ee6c6",
+      "reward": 0.0
+    },
+    "git-leak-recovery/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/git-leak-recovery__seed0__first/result.json",
+      "reward": 1.0
+    },
+    "prove-plus-comm/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/prove-plus-comm__seed0__first/result.json",
+      "reward": 1.0
+    },
+    "portfolio-optimization/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/portfolio-optimization__seed0__first/result.json",
+      "reward": 1.0
+    },
+    "multi-source-data-merger/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/multi-source-data-merger__seed0__first/result.json",
+      "reward": 1.0
+    },
+    "pypi-server/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/pypi-server__seed0__first/result.json",
+      "reward": 1.0
+    },
+    "dna-assembly/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/dna-assembly__seed0__original3/result.json",
+      "reward": 0.0,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/dna-assembly__seed0__manual1/result.json",
+      "reconstructed_from_transcript": true,
+      "byte_identical": false
+    },
+    "extract-moves-from-video/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/extract-moves-from-video__seed0__original3/result.json",
+      "reward": 0.0,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/extract-moves-from-video__seed0__first/result.json",
+      "reconstructed_from_transcript": true,
+      "byte_identical": false
+    },
+    "crack-7z-hash/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/crack-7z-hash__seed0__original3/result.json",
+      "reward": 0.0,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/crack-7z-hash__seed0__manual1/result.json",
+      "reconstructed_from_transcript": true,
+      "byte_identical": false
+    },
+    "dna-insert/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/dna-insert__seed0__absence2/result.json",
+      "reward": 0.0,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/dna-insert__seed0__first/result.json",
+      "reconstructed_from_transcript": true,
+      "byte_identical": false
+    },
+    "db-wal-recovery/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/db-wal-recovery__seed0__absence2/result.json",
+      "reward": 0.0,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/db-wal-recovery__seed0__manual1/result.json",
+      "reconstructed_from_transcript": true,
+      "byte_identical": false
+    },
+    "log-summary-date-ranges/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/log-summary-date-ranges__seed0__transcript3/result.json",
+      "reward": 1.0,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/log-summary-date-ranges__seed0__first/result.json",
+      "reconstructed_from_transcript": true,
+      "byte_identical": false
+    },
+    "distribution-search/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/distribution-search__seed0__transcript3/result.json",
+      "reward": 1.0,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/distribution-search__seed0__manual1/result.json",
+      "reconstructed_from_transcript": true,
+      "byte_identical": false
+    },
+    "modernize-scientific-stack/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/modernize-scientific-stack__seed0__first__savedstate1/result.json",
+      "reward": 1.0,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/modernize-scientific-stack__seed0__first/result.json",
+      "reconstructed_from_transcript": false,
+      "byte_identical": false
+    }
+  },
+  "primary_mean_percent": null,
+  "sample_sd_percent_ddof1": null,
+  "invalidated_previous_claims": {
+    "dna-insert/seed0": {
+      "original_first_valid": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/dna-insert__seed0__first/result.json",
+        "sha256": "036a7f9067d9da175c15fdb50c4df1e0dd8179ff01cb82137704b612181bb844",
+        "reward": 0.0
+      },
+      "reason": "official tests never executed: curl: command not found, uvx: command not found",
+      "original_result_retained": true
+    },
+    "dna-assembly/seed0": {
+      "original_first_valid": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/dna-assembly__seed0__manual1/result.json",
+        "sha256": "a9cba494f04cdf928ce6f5b2154ccf74938540bcc4f2f7192c9f1e4080ad7482",
+        "reward": 0.0
+      },
+      "reason": "official tests never executed: curl: command not found, uvx: command not found",
+      "original_result_retained": true
+    },
+    "db-wal-recovery/seed0": {
+      "original_first_valid": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/db-wal-recovery__seed0__manual1/result.json",
+        "sha256": "5f9866a9d52a944fd84e77a4fff76b5fb418772f9097ae73e4c78b9f3114ec92",
+        "reward": 0.0
+      },
+      "reason": "official tests never executed: curl: command not found, uvx: command not found",
+      "original_result_retained": true
+    },
+    "crack-7z-hash/seed0": {
+      "original_first_valid": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/crack-7z-hash__seed0__manual1/result.json",
+        "sha256": "b0aff73bb8af5cc1d293c00242089c30133393a34fe0b84bc782eaf41a40aa9e",
+        "reward": 0.0
+      },
+      "reason": "official tests never executed: curl: command not found, uvx: command not found",
+      "original_result_retained": true
+    },
+    "extract-moves-from-video/seed0": {
+      "original_first_valid": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/extract-moves-from-video__seed0__first/result.json",
+        "sha256": "c8270c15503811209a23db6803a4356c1e3cd8a48a8408a66a412f3909ebc334",
+        "reward": 0.0
+      },
+      "reason": "official tests never executed: curl: command not found, uvx: command not found",
+      "original_result_retained": true
+    }
+  },
+  "queue_summary": {
+    "halted": false,
+    "pending_not_admitted": 380
+  }
+}

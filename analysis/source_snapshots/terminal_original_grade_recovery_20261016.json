@@ -1,0 +1,58 @@
+{
+  "cpu_consumers_finished": true,
+  "at_utc": "2026-10-16T08:34:48.580843+00:00",
+  "all7_original_answers_native_graded": true,
+  "new_model_calls": 0,
+  "no_further_grading_planned_on_cpu96_119": true,
+  "accepted_results": {
+    "dna-insert/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/dna-insert__seed0__absence2/result.json",
+      "reward": 0.0,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/dna-insert__seed0__first/result.json",
+      "reconstructed_from_transcript": true,
+      "byte_identical": false
+    },
+    "db-wal-recovery/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/db-wal-recovery__seed0__absence2/result.json",
+      "reward": 0.0,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/db-wal-recovery__seed0__manual1/result.json",
+      "reconstructed_from_transcript": true,
+      "byte_identical": false
+    },
+    "extract-moves-from-video/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/extract-moves-from-video__seed0__original3/result.json",
+      "reward": 0.0,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/extract-moves-from-video__seed0__first/result.json",
+      "reconstructed_from_transcript": true,
+      "byte_identical": false
+    },
+    "crack-7z-hash/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/crack-7z-hash__seed0__original3/result.json",
+      "reward": 0.0,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/crack-7z-hash__seed0__manual1/result.json",
+      "reconstructed_from_transcript": true,
+      "byte_identical": false
+    },
+    "dna-assembly/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/dna-assembly__seed0__original3/result.json",
+      "reward": 0.0,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/dna-assembly__seed0__manual1/result.json",
+      "reconstructed_from_transcript": true,
+      "byte_identical": false
+    },
+    "distribution-search/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/distribution-search__seed0__transcript3/result.json",
+      "reward": 1.0,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/distribution-search__seed0__manual1/result.json",
+      "reconstructed_from_transcript": true,
+      "byte_identical": false
+    },
+    "log-summary-date-ranges/seed0": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/log-summary-date-ranges__seed0__transcript3/result.json",
+      "reward": 1.0,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/log-summary-date-ranges__seed0__first/result.json",
+      "reconstructed_from_transcript": true,
+      "byte_identical": false
+    }
+  }
+}

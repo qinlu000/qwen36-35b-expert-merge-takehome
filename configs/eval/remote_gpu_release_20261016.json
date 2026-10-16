@@ -20,9 +20,11 @@
       "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/swe-base-725561/model-consumer-finished.json"
     },
     {
-      "benchmark": "swe_x2",
+      "benchmark": "terminal",
       "job_id": 725705,
-      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/swe-base-725705/model-consumer-finished.json"
+      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/followon/full445.COMPLETE.json",
+      "purpose": "Retain identical TP2/maxseq8 service for Terminal secondary worker after every SWE model consumer drains; no extra GPU allocation",
+      "role": "secondary_after_swe_drain"
     }
   ]
 }

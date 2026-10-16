@@ -35,7 +35,7 @@ def score(path):
     elif reward not in (0, 1):
         invalid = 'reward_missing'
     elif not tests and not re.search(
-            r'imported .*not used|unknown directive|syntax error|assignment mismatch|undefined:|build failed|cannot import name', text):
+            r'imported .*not used|unknown directive|syntax error|assignment mismatch|undefined:|build failed|cannot import name|no required module provides package|error TS(?:2322|2345|2416):', text):
         invalid = 'empty_tests_requires_audit'
     return {'task_id': path.parent.name, 'result': str(path), 'reward': reward,
         'invalid_reason': invalid, 'finished_at': result.get('finished_at', ''),

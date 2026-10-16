@@ -56,10 +56,13 @@ def main():
             if not proc.name.isdigit():
                 continue
             try:
+                if (proc / 'stat').read_text().rpartition(') ')[2].startswith('Z '):
+                    continue
                 if group_output in (proc / 'mountinfo').read_bytes():
                     found.append(int(proc.name))
-            except (FileNotFoundError, PermissionError, ProcessLookupError):
-                pass
+            except OSError as error:
+                if error.errno not in (2, 3, 13, 22):
+                    raise
         return found
     while True:
         state = group / 'admission_checkpoint.json'

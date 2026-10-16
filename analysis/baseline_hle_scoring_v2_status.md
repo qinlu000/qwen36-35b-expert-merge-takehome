@@ -1,6 +1,8 @@
 # HLE baseline 实时最终评分
 
-2026-10-16 15:58 CST已在80启动正式必要Judge，独立scope `apex-hle-judge-20261016`、wrapper PID2370521、CPU84–85、内存8GiB、并发2。输出 `artifacts/runs/hle_judge_v2_20261016/`，日志`controller.log`、实时覆盖`summary.json`、逐题结果`results/`、固定输入`inputs/`、无密钥请求／原响应`requests/`和`responses/`、逐请求事务预算`budget.json`。原HLE生成PID3887939继续运行，未中断。
+2026-10-16 **16:15:46 CST已切为真正rolling调度**：独立新源`score_hle_baseline_v2_rolling.py`、scope `apex-hle-judge-rolling-20261016`、wrapper PID2446501，保持CPU84–85、内存8GiB、并发2。每条Judge完成立即补一个future；每30秒独立collect新generation终态，没有整批barrier。原PID2370521在stop.json禁止新准入后自然结束，旧scope inactive、旧账本在途reserved0才启动新进程，未取消／重发API。切换时保留417已Judged＋686原生无答卷零分，账¥0.54497325；原答案／逐题缓存／账本／协议均未变。切换receipt `rolling-upgrade.json`，旧stop留`stop.batch_drain_20261016.json`，新源码副本`scorer_rolling_source.py`、旧副本`scorer_source.py`并存。
+
+输出仍为 `artifacts/runs/hle_judge_v2_20261016/`，日志`controller.log`、实时覆盖`summary.json`、逐题结果`results/`、固定输入`inputs/`、无密钥请求／原响应`requests/`和`responses/`、逐请求事务预算`budget.json`。原HLE生成PID3887939继续运行，未中断。15:58首版batch调度启动属于历史，当前使用rolling版本。
 
 首次collector冻结1070/2500个最终结果：401份完整答卷待Judge、669份正常求解预算内无答卷按固定2500分母记零；其余1430仍待生成。随后正式Judge已HTTP200并产出有效五字段JSON，不把未完成2500的部分结果当最终成绩，`score`与`accuracy_percent`保持null。初始逐次快照和实际token／费用见 `analysis/source_snapshots/hle_judge_v2_launch_20261016.json`；实时数字应读80的summary和budget，不将启动快照当最终状态。
 
@@ -30,10 +32,12 @@ launch前原三data ledger仍为362／2／64行，无新增：6.896572704＋ASI�
 
 ```bash
 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 taskset -c 84,85 \
-  artifacts/envs/hle/bin/python -u scripts/score_hle_baseline_v2.py \
+  artifacts/envs/hle/bin/python -u scripts/score_hle_baseline_v2_rolling.py \
   --project /data/caoqinlu/projects/apex-takehome \
   --retry /data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_infra1 \
   --output /data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016
 ```
 
-`--collect-only`仅更新真实选集／正常无答卷零分，无API；`--once`只处理当前批次。生产源码副本保存为输出目录`scorer_source.py`，后续不原地修改当前运行源码。未新增校准、模型生成、hash或额外测试，未改claud或根索引。
+`--collect-only`仅更新真实选集／正常无答卷零分，无API；`--once`处理当前已有答卷后退出。生产rolling源码副本保存为输出目录`scorer_rolling_source.py`，后续不原地修改当前运行源码。未新增校准、模型生成、hash或额外测试，未改claud或根索引。
+
+Latest CPU allocation is recorded in analysis/source_snapshots/baseline_cpu_rebalance_20261016.json: HLE Judge125, final collector126, cache/enable guard127, future SWE grading124, Terminal archive grading120-123. HTTP concurrency and scoring budgets remain unchanged.

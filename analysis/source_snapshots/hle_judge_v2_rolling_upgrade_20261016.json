@@ -1,0 +1,83 @@
+{
+  "state": "rolling_running",
+  "old_wrapper_pid": 2370521,
+  "old_scope": "apex-hle-judge-20261016.scope",
+  "changed": "Scheduler only: rolling bounded futures and periodic new-result collection",
+  "old_requests_cancelled": false,
+  "same_outputs_and_ledger": true,
+  "started_at_utc": "2026-10-16T08:15:46.897550+00:00",
+  "new_wrapper_pid": 2446501,
+  "new_scope": "apex-hle-judge-rolling-20261016.scope",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--quiet",
+    "--unit",
+    "apex-hle-judge-rolling-20261016",
+    "-p",
+    "MemoryMax=8589934592",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "TasksMax=64",
+    "taskset",
+    "-c",
+    "84,85",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+    "-u",
+    "/data/caoqinlu/projects/apex-takehome/scripts/score_hle_baseline_v2_rolling.py",
+    "--project",
+    "/data/caoqinlu/projects/apex-takehome",
+    "--retry",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_infra1",
+    "--output",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016"
+  ],
+  "old_scope_end_state": "inactive",
+  "inflight_old_before_launch": 0,
+  "cached_calls_at_upgrade": 417,
+  "cache_summary_before_upgrade": {
+    "complete": false,
+    "expected": 2500,
+    "frozen_terminal_results": 1103,
+    "judged_answers": 417,
+    "native_no_answer": 686,
+    "evaluation_invalid": 0,
+    "scored": 1103,
+    "pending": 1397,
+    "correct": 35,
+    "accuracy_percent": null,
+    "score": null,
+    "partial_correct_over_full_denominator_percent": 1.4,
+    "subgroups": {
+      "text": {
+        "denominator": 2158,
+        "scored": 953,
+        "correct": 31,
+        "accuracy_percent": null
+      },
+      "image": {
+        "denominator": 342,
+        "scored": 150,
+        "correct": 4,
+        "accuracy_percent": null
+      }
+    },
+    "selection_states": {
+      "native_no_answer": 686,
+      "answer": 417,
+      "pending_generation": 1397
+    },
+    "judge_generation_calls": 417,
+    "accounted_cost_cny": 0.54497325,
+    "budget_halted": false,
+    "max_cny": 10,
+    "max_calls": 5000,
+    "updated_at_utc": "2026-10-16T08:15:44.219228+00:00",
+    "provider": "DeepSeek-V4-Flash",
+    "official": false,
+    "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+  },
+  "completed_at_utc": "2026-10-16T08:15:46.906172+00:00"
+}

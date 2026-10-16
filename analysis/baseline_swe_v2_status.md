@@ -1,5 +1,16 @@
 # SWE v2 baseline status — 2026-10-16
 
+16:40续记：46/51有效评分，resolved5，invalid_pending0；新17全部含官方fresh replay终态，manual6首1项也有效0，余5在途。Tutanota是原生tsc的TS2322/2345/2416类型/接口不兼容，保留原官方0并保存classification audit；没有重答或重评分。只读collector的类型错误规则限定这3个已审计错误码，缺包错误不能由该规则直接判有效0。消费者watcher当前PID2519609，两个永久marker均等待真实条件，未来必要复评分pool已改[124]/max1。
+
+16:35续记：44/51 valid、resolved5、invalid_pending0；原17最后1项已结束模型调用转fresh replay，manual6仍全部在途，pending0。只读消费者watcher已实际部署PID2511317，live状态`artifacts/runs/swe-base-725705/swe-consumer-watch.json`；模型完成marker与CPU完成marker分离。`model-consumer-finished.json`确认17+6 relay结束且无生成pending/infra后可提前写，评分可仍在途；`cpu-consumers-finished.json`仅全部23项含评分终态、父/leaf退出、旧64–119容器进程为空后写`cpu_consumers_finished:true`。该CPU永久完成后不会再从旧pool准入；所有必要后续原patch复评分固定CPU124，1滚动槽/1CPU4GiB（root随后CPU协调更新）；120–123留给Terminal原archive补评、125 HLE Judge、126汇总、127cache。725705模型由root在SWE消费者结束后交给Terminal复用，我不scancel，也未重启任何在途生产进程。
+
+16:21当前：所有已收44项均有first-valid评分，resolved5，invalid_pending=0；保守比例5/51=9.80%，完整主分仍null。新17首批16已完成，最后1项异步补槽在途；6项manual infra1也已全部在途（PID2449625，CPU76–81，attempt2），所有尚需生成的7项均已准入，无未开始排队。模型输入/采样/预算/答案未改；旧partial、费用和全部invalid评分保留。
+
+Follow-on PID2449593：group1自然结束、controller2087116退场、旧容器PID=[]后复用76–81，与group0最后1重叠；此前waiting wrapper读取旧zombie mountinfo EINVAL的实际错误已修复，未取消任何模型任务。消费者marker仍等待所有17+6结束后才允许释放725705。最终collector PID2465711持续输出固定51的JSON/CSV，manual planned6/actual started6分开记录。
+
+评分修复已闭环：5项Python原patch复评恢复native3.9/3.11/3.12与pytest/pip，1项恢复有效1；3项Go原patch最终均有效0（模型编译错误）。Flipt的真实go.work需在public verifier阶段用镜像预取，42.16s成功后执行完全原test.sh；另发现配置3000s被HTTP缺省600s剪断，私有评分exec显式传3000保持原上限。Navidrome-874b是候选未声明deluan/rest依赖的native Go错误，无网络/Harbor异常，原官方0经审计采纳，不私改go.mod。新grading源`swe_score_go_prefetch.py`与`swe_score_final_runtime.py`；在途17源冻结，manual6启动前已选择修正评分环境。
+
+
 15:58续记：已部署完整51接续闭环。x2当前16active/1pending，原17不改源、不取消；远端follow-on PID2355044持排他锁，等待自然drain后仅对6个审计确认的CancelledError/空submission incomplete做manual infra retry1，总generation_attempt2、同ID/seed0/1800s，原response/轨迹/费用记录完整保留。没有已验证的剩余预算原生resume入口，未构造resume。汇总器PID2358733持续写`base_swe_v2_20261016_final/final_summary.json`与`task_scores.csv`，未评分为null，只采首个环境有效评分。最终模型consumer marker为`artifacts/runs/swe-base-725705/model-consumer-finished.json`，由follow-on在所有17+6生成消费者结束后写，root已改为仅按该marker释放GPU。
 
 当前有效27/51、resolved2（保守3.92%，主分仍null）；Vuls-ca3和Teleport-7744的原patch Go复评已排除网络错误，均因模型Go代码build错误而有效0。仅Flipt-c188原patch仍在实际native go test评分。Go直接cache之外已用原镜像Go下载ecr/netlink完整传递模块图、默认sumdb验证，0tests/0模型；官方test.sh强制GOPROXY的行为保持原样，cache仅合并到native目录。新回执`analysis/source_snapshots/swe_final_progress_20261016.json`。

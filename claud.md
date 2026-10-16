@@ -1100,3 +1100,16 @@
 - 用户追问2000条与一般SFT需要多少数据。本轮只研究，未擅自扩量或复制样本。按research技能核原论文/作者卡：LIMA1000、Long Is More1000、SWE-smith500与5016、Tulu约94万；没有统一最低条数，现500/82不能视为已证明足够。详见analysis/sft_data_size_evidence_20261016.md及其一手来源链接。
 - 2000条是可讨论的高质量独立任务目标，优先考虑HLE/SWE扩量；Terminal仅该源1535环境，SAB仅102题，需新增来源而不是重复凑数。按当前平均完整长度粗推SWE约70M、Terminal约100M token，加对应Mixed份额约340M；HLE同长度单卡粗推约3小时。64K长序列尚无成功吞吐，不承诺小时数。
 - 当前训练栈的Liger dict CLI解析修复由terminal单writer处理；SWE保持hold，其余依赖未满足，不为调研启动新GPU或旧小池重训。保留完整数据/64K/8K/r16，没有以数量调研为由手动缩减。
+
+
+## 2026-10-16：按用户要求改为异步滚动并发（16:34 CST）
+
+- 用户明确要求异步并行、不要一批一批执行。HLE生成和SWE/TB解题已是FIRST_COMPLETED有界滚动队列；HLE Judge原来确有整批future屏障，已在旧2条API自然结束、账本reserved归零后切独立rolling源，PID2446501，每完成一条即补一条，collect独立每30秒，不取消或重复在途请求。
+- SWE现44/51有效、5resolved、0invalid，剩余7个生成全部已在途（17最后1加历史6）；不存在新一批待开始任务。Go评分修复按真实workspace预取原声明版本，原test.sh执行；Navidrome候选未声明新import属于有效模型0，不偷偷补go.mod。SWE还会分别提供模型消费完成和CPU消费完成标记。
+- Terminal新8叶将历史39个已核infra未完成项与其余未准入项交错放入同一滚动队列，消除先396后历史的屏障。旧7只做一次STOP_ADMISSION自然交接，保留所有在途。已有完整或正常预算结束的答卷独立并行复评分，不再等生成队列整组结束。
+- 5个旧curl/uvx缺失伪0已按原逐条轨迹恢复评分可观察状态后执行真实原生pytest，无新模型或更好答案搜索。root的DNA-insert与DB-WAL为原1800s到时未写要求文件，分别执行1和7项测试后有效0；backend另外3项执行2/2/1项测试后有效0。原错误评分、原超时、原始轨迹及缓存阻塞尝试全部保留，未声称完整文件系统byte-identical。
+- 官方uv0.9.5原install.sh和Linux release tar.gz已缓存，评分阶段按精确URL提供原bytes，测试源码未改。原生APT、公网安装和隐藏HTTP600s问题仅修评分环境；测试未执行不能当有效0。
+- 计划复用SWE自然结束后的相同TP2/maxseq8服务725705/28084作为TB第二路，保留已有两卡而非再次加载模型。尚未启用，需SWE全CPU消费者及本轮grader永久完成标记、CPU64至119无scope占用、两个endpoint健康后自动创建runtime8/ENABLE_SECOND_REPLICA；一个共享CPU池16槽再追加14，合计最多30solver/CPU0至119，题内endpoint固定，两路各15。
+- 轻量HLE Judge已无中断迁到CPU124至125，汇总126，离线cache127；必要SWE后续复评分只占120至123。GPU释放配置已将725705暂交TB full445条件，避免SWE模型一结束就提前释放即将复用的服务。若第二路无足够allocation余量，启用器不准入并记录原因。
+- 16:33四项统一快照：HLE1136/2500有效、0Judge异常；ASI240/240完整1.57098841%；SWE44/51有效且5resolved；TB13/445有效，41项基础设施未评分单列。四项未全齐，主总状态仍complete=false；未完成项不填0。
+- 16:38最终CPU分工更新：TB解题扩容后0至119，TB保存状态复评分120至123，必要SWE后续复评分124单槽，HLE Judge125（仍2条HTTP并发），汇总126，cache和一次启用守卫127；均不打断在途生成。第二副本守卫PID2517615已常驻，7个旧grader已全部有效收敛并给永久CPU完成marker，继续等SWE永久CPU完成marker。新B任务还需逐次检查距离725705到期不少于35分钟。

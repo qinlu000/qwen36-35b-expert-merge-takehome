@@ -1,0 +1,60 @@
+{
+  "completed_at_utc": "2026-10-16T08:32:31.531812+00:00",
+  "method": "Restore only the original verifier-observable absent output, then execute unchanged native test.sh. No new answer generation or search.",
+  "tasks": [
+    {
+      "task": "dna-insert",
+      "seed": 0,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/dna-insert__seed0__first/result.json",
+      "original_solver_end": "AgentTimeoutError1800s",
+      "restore_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/dna-insert__seed0/restore.json",
+      "evidence": "The only potential answer write is conditional in step9. Its recorded execution found zero pairs and did not enter the write branch. Later steps only write and run Tm diagnostic scripts; all original commands are retained in commands.json.",
+      "verifier_observable_state_identical": true,
+      "whole_filesystem_byte_identical": false,
+      "native_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/dna-insert__seed0__absence2/result.json",
+      "reward": 0.0,
+      "evaluation_exception": null,
+      "native_ctrf_summary": {
+        "tests": 1,
+        "passed": 0,
+        "failed": 1,
+        "skipped": 0,
+        "pending": 0,
+        "other": 0,
+        "start": 1792139329.8506258,
+        "stop": 1792139329.9160666
+      },
+      "original_invalid_score_retained": true,
+      "uv_blocked_grader_attempt_retained": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/dna-insert__seed0__absence1/result.json",
+      "new_model_calls": 0,
+      "new_solver_attempts": 0
+    },
+    {
+      "task": "db-wal-recovery",
+      "seed": 0,
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/db-wal-recovery__seed0__manual1/result.json",
+      "original_solver_end": "AgentTimeoutError1800s",
+      "restore_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2/db-wal-recovery__seed0/restore.json",
+      "evidence": "All 25 recorded agent steps were audited. They inspect or modify the database, read logs, or run inline diagnostics; none writes recovered.json. The official verifier reads only that JSON output, and the image provides only DB/WAL inputs.",
+      "verifier_observable_state_identical": true,
+      "whole_filesystem_byte_identical": false,
+      "native_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/db-wal-recovery__seed0__absence2/result.json",
+      "reward": 0.0,
+      "evaluation_exception": null,
+      "native_ctrf_summary": {
+        "tests": 7,
+        "passed": 0,
+        "failed": 7,
+        "skipped": 0,
+        "pending": 0,
+        "other": 0,
+        "start": 1792139386.171195,
+        "stop": 1792139386.2678142
+      },
+      "original_invalid_score_retained": true,
+      "uv_blocked_grader_attempt_retained": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/db-wal-recovery__seed0__absence1/result.json",
+      "new_model_calls": 0,
+      "new_solver_attempts": 0
+    }
+  ]
+}

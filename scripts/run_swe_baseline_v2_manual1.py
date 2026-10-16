@@ -55,10 +55,15 @@ def trial_config(task, output, phase, concurrency, *, bridge=None, cpu_offset=64
     else:
         agent = {'import_path': 'patch_replay:PatchReplayAgent', 'model_name': 'replay',
             'override_timeout_sec': 1800, 'kwargs': {'source_job': str(output / 'generation')}}
-    return TrialConfig.model_validate({'task': {'path': str(task)}, 'trial_name': task.name,
+    config = TrialConfig.model_validate({'task': {'path': str(task)}, 'trial_name': task.name,
         'trials_dir': str(output / phase), 'agent': agent,
         'verifier': {'override_timeout_sec': 3000},
         'environment': environment_config(concurrency, bridge.relay.socket_path if bridge else None, cpu_offset)})
+    if phase == 'replay':
+        config.environment.import_path = 'swe_score_final_runtime:SweScoreFinalRuntimeEnvironment'
+        if task.name.startswith('instance_flipt-io__flipt-'):
+            config.environment.import_path = 'swe_score_go_prefetch:SweScoreGoPrefetchGlibc'
+    return config
 
 
 async def run_phase(task, output, phase, concurrency, *, endpoint=None, key_path=None, cpu_offset=64):

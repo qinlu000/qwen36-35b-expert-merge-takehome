@@ -1,0 +1,39 @@
+{
+  "as_of": "2026-10-16T16:39:11.648063",
+  "task_id": "instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b",
+  "prior_classification": {
+    "task_id": "instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b",
+    "status": "invalid_requires_replay",
+    "reward": null,
+    "accepted_result": null,
+    "invalid_attempts": [
+      {
+        "task_id": "instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b",
+        "result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_full_x2/group0/replay/instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b/result.json",
+        "reward": 0.0,
+        "invalid_reason": "empty_tests_requires_audit",
+        "finished_at": "2026-10-16T08:36:09.628804Z",
+        "test_count": 0
+      }
+    ],
+    "manual_infrastructure_retries": 0,
+    "manual_infrastructure_retry_planned": false,
+    "original_incomplete_trial": null,
+    "all_score_attempts": [
+      {
+        "task_id": "instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b",
+        "result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_full_x2/group0/replay/instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b/result.json",
+        "reward": 0.0,
+        "invalid_reason": "empty_tests_requires_audit",
+        "finished_at": "2026-10-16T08:36:09.628804Z",
+        "test_count": 0
+      }
+    ]
+  },
+  "classification": "valid_native_typescript_compilation_failure",
+  "official_reward": 0,
+  "evidence": "Official run-script executed npx tsc; TS2322/2345/2416 candidate interface signatures incompatible; no Harbor exception or missing dependency/network error.",
+  "model_generation_repeated": false,
+  "grading_repeated": false,
+  "tests_changed": false
+}

@@ -26,7 +26,10 @@
     "scripts/swe_score_go_environments.py",
     "scripts/swe_score_go_preseed_environments.py",
     "scripts/cache_swe_go_graph.py",
-    "scripts/collect_swe_final.py"
+    "scripts/collect_swe_final.py",
+    "scripts/swe_score_go_prefetch.py",
+    "scripts/swe_score_final_runtime.py",
+    "scripts/watch_swe_consumers.py"
   ],
   "prior_attempt_sources": [
     "scripts/run_swe_baseline_v2.py",
@@ -45,5 +48,11 @@
   "final_table": "artifacts/eval/base_swe_v2_20261016_final/task_scores.csv",
   "fixed_denominator": 51,
   "primary_score_units": "percent 0..100, null until all51 valid",
-  "no_stage_or_commit": true
+  "no_stage_or_commit": true,
+  "model_consumers_marker": "artifacts/runs/swe-base-725705/model-consumer-finished.json",
+  "cpu_consumers_marker": "artifacts/runs/swe-base-725705/cpu-consumers-finished.json",
+  "future_patch_score_repair_cpu_ids": [
+    124
+  ],
+  "future_patch_score_repair_max_concurrency": 1
 }

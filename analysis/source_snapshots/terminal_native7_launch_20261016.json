@@ -1,0 +1,43 @@
+{
+  "at_utc": "2026-10-16T08:11:34.402662+00:00",
+  "pid": 2389784,
+  "runtime": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime7",
+  "model_job": 726129,
+  "endpoint": "http://127.0.0.1:28082",
+  "max_model_sequences": 8,
+  "max_solver_futures": 16,
+  "cpu_offset": 0,
+  "cpu_slots": 16,
+  "cpus_per_trial": 4,
+  "memory_mib": 8192,
+  "solver_seconds": 1800,
+  "pending_resumed": 396,
+  "first_valid_preserved": 3,
+  "invalidated_tool_missing_zeros": [
+    "dna-insert/seed0",
+    "dna-assembly/seed0",
+    "db-wal-recovery/seed0",
+    "crack-7z-hash/seed0",
+    "extract-moves-from-video/seed0"
+  ],
+  "expected": 445,
+  "argv": [
+    "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime7/scripts/run_terminal_native7.py",
+    "--manifest",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime3/manifest.json",
+    "--output",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016",
+    "--endpoint",
+    "http://127.0.0.1:28082",
+    "--api-key-path",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key",
+    "--concurrency",
+    "16",
+    "--resume-after-bridge-approval",
+    "--stop-admission-file",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime7/STOP_ADMISSION"
+  ],
+  "log": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runner-native7.log",
+  "policy": "Only global model transport/health trips queue; item infrastructure errors remain isolated; verifier assets staged after solver; pre-verifier task state retained"
+}

@@ -1,0 +1,12 @@
+{
+  "launched_at_utc": "2026-10-16T08:36:36.112133+00:00",
+  "launcher_pid": 2517615,
+  "scope": "apex-terminal-second-replica-enabler-20261016.scope",
+  "source": "/data/caoqinlu/projects/apex-takehome/scripts/enable_terminal_second_replica.py",
+  "source_snapshot": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/second-replica-enabler/guard_source.py",
+  "output": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/second-replica-enabler",
+  "cpu": 127,
+  "memory_bytes": 134217728,
+  "swap_bytes": 0,
+  "model_or_test_calls": 0
+}

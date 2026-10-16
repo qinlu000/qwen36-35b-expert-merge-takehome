@@ -27,3 +27,5 @@ artifacts/envs/hle/bin/python scripts/collect_baseline_final_v2.py \
 ```
 
 省略`--once`即30秒持续更新至全部完成。生产脚本／稳定源清单／本说明均独立维护；未改claud或根索引，未stage／commit。
+
+Latest CPU allocation is recorded in analysis/source_snapshots/baseline_cpu_rebalance_20261016.json: HLE Judge125, final collector126, cache/enable guard127, future SWE grading124, Terminal archive grading120-123. HTTP concurrency and scoring budgets remain unchanged.

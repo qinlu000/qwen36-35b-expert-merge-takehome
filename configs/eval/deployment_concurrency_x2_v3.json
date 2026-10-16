@@ -37,6 +37,38 @@
     "cpus": "0-63",
     "service_timelimit_hours": 36,
     "scope": "Only pending and explicitly authorized infrastructure-incomplete trials; completed answers retained",
-    "handoff": "Old runtime6 halted with no active solver or model request; owner fences new admission until the new endpoint is healthy."
+    "handoff": "Old runtime6 halted with no active solver or model request; owner fences new admission until the new endpoint is healthy.",
+    "state": "Native7 rolling production; one natural handoff into merged native8 rolling queue prepared"
+  },
+  "terminal_secondary_after_swe": {
+    "job_id": 725705,
+    "bridge_port_on_80": 28084,
+    "model_profile": "Same apex-qwen BF16 TP2 maxseq8 context65536/output8192",
+    "allocation_ends_cst": "2026-10-17T02:30:50+08:00",
+    "enable_file": "artifacts/runs/base-terminal-recovery-v2-20261016/runtime8/ENABLE_SECOND_REPLICA",
+    "activation_guard": "scripts/enable_terminal_second_replica.py",
+    "permanent_markers": [
+      "artifacts/runs/swe-base-725705/cpu-consumers-finished.json",
+      "artifacts/runs/base-terminal-recovery-v2-20261016/followon/grader-consumers-finished.json"
+    ],
+    "initial_total_solver_slots": 16,
+    "enabled_total_solver_slots": 30,
+    "enabled_per_replica_solver_slots": 15,
+    "existing_primary16_policy": "Naturally decline to15; no cancellation",
+    "cpu_pool": "One pool starts with16 slots0-63; activation appends14 slots64-119",
+    "per_trial_cpus": 4,
+    "per_trial_memory_mib": 8192,
+    "per_trial_solver_seconds": 1800,
+    "endpoint_policy": "Choose available replica at task admission; retain fixed endpoint for that whole task",
+    "latest_secondary_admission": "At least35 minutes before job725705 end; finish admitted B tasks naturally",
+    "state": "Guard running; second replica not yet enabled while SWE consumers are active",
+    "extra_gpu_allocation": 0
+  },
+  "terminal_postsolver_cpu": {
+    "archive_grader": "120-123",
+    "swe_future_grader": "124",
+    "hle_judge": "125",
+    "final_collector": "126",
+    "cache_and_enable_guard": "127"
   }
 }
