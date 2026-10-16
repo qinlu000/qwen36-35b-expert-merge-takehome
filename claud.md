@@ -990,3 +990,10 @@
 - HLE15秒实际aggregate decode62.78 tokens/s，4active/4waiting稳定。分配到本服务的两卡15个样本GPU util均值100%与20%（rank1范围19–21%）；说明当前4序列软件上限在跑满，但不能声称两卡算力/整个HPC利用最优。另两组在该瞬时NVML样本均0%（之后SWE已进入4 active）。优先修生产阻塞，暂不继续增加闲置副本。
 - ASI评分最初prepare遗漏public参数导致8个evaluator KeyError；原结果parameters为空，grader已从原framework_task_info.json补齐内存参数，不改答卷/gold/rubric。旧评分API0、回执保留；新--skip-hashes正式score PID4019427，目录scoring_v2_formal_params_20261016，240固定scope、¥6/396硬限，正在推进。
 - ASI203 failed只读类别审计：49ModuleNotFound（pandas37/sklearn4/scipy4/numpy3/markdown1）、2ImportError，另Key/Syntax/Value/Type等；未命中网络/权限/OOMpattern。缺依赖/文件59项需审计声明环境后判断，不能一概叫模型失败，也不能重生完整答案。
+
+
+## 2026-10-16：SAB获取与防污染声明澄清
+
+- 按用户效率要求，跳过新整包hash与重复审计。ScienceAgentBench verified完整包已下载并同步80解压，1,769,478,786字节；92号官方gold/checker在既有4CPU/8GiB断网环境一次通过，共0.595秒，无新增API。
+- 代码头的勿入训练语料/canary是作者防止SAB测试污染的声明。官方README同时注明多数任务CC BY 4.0、代码MIT，少数沿用上游许可；不能把此提示直接等同统一许可证禁训。此前据此一律排除SAB辅助训练的结论过强，撤回。
+- 本题正式评测是ASI等四项，SAB仍可保留辅助数据候选；具体选择需隔离train/dev来源、排除正式ASI重叠并披露。当前SAB仅做参考环境验证，SFT导出0，不把参考运行成功称模型成绩。
