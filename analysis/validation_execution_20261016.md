@@ -20,7 +20,7 @@ HLE和SAB是既有训练外留出任务，不是四项正式benchmark的完整�
 - 所有真实请求保持64K上下文、8K输出、关闭thinking，按模型块依次运行。80独立桥为127.0.0.1:28089，不重启现有Base服务。
 - HLE和SAB生成、评分分开保存；求解输入不含金标、checker或参考程序。HLE与SAB评分各设¥10上限。
 - 已取消的SWE100题及首题gold验收保留，仅是历史准备记录，不计任何模型成功率。取消发生在0模型请求时。
-- SWE专家最终51题将复用正式缓存与当前Base修复环境，独立输出；只调用apex-val-swe249。独立CPU释放监控在旧Base及repair队列排空、所有相关CPU scope退出后放行：SWE用0–15，SAB用112–115。未凭GPU退卡标记抢占CPU。
+- SWE专家最终51题复用正式缓存与当前Base修复环境，独立输出；只调用apex-val-swe249。按用户最新要求并发10，使用CPU0–9、每题1CPU/4GiB。独立CPU释放监控在旧Base及repair队列排空、所有相关CPU scope退出后放行，SAB保留112–115；未凭GPU退卡标记抢占CPU。服务max20seq保持，正式运行时记录原生排队、KV占用与抢占指标。
 - SAB采用离线生成后执行，扣除生成耗时的1200秒预算；排队时间另记。它是Base与专家相同的分段代理验证，不能冒称正式ASI连续walltime协议。
 - 服务实际于10月17日10:05:32 CST到期，Slurm拒绝延长。SWE专家最终队列同样须在09:30:32后停止准入新求解，已有任务与CPU评分自然结束，剩余项保留pending，不能转换成模型0分。
 
@@ -40,6 +40,7 @@ HLE和SAB是既有训练外留出任务，不是四项正式benchmark的完整�
 - [HLE与SAB执行、评分及限制](validation_direct_execution_20261016.md)
 - [SWE独立val准备及用户取消记录](validation_swe_execution_20261016.md)
 - [SWE取消回执](source_snapshots/validation_swe_cancelled_20261016.json)
+- [SWE专家最终51题执行](swe_expert_benchmark_execution_20261016.md)
 - [推理服务及LoRA验收](validation_serving_plan_20261016.md)
 
 80结果目录为 `/data/caoqinlu/projects/apex-takehome/artifacts/eval/validation_direct_20261016/` 与 `validation_swe_20261016/`。原始请求、响应、usage、时长、程序、测试日志和逐题判分持续写盘，之后据完整覆盖率汇报。

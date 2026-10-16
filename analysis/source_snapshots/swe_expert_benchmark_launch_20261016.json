@@ -1,0 +1,27 @@
+{
+  "pid": 824673,
+  "argv": [
+    "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+    "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_expert_benchmark.py",
+    "--config=/data/caoqinlu/projects/apex-takehome/configs/eval/swe249_hard51_20261016.json"
+  ],
+  "started_at_utc": "2026-10-16T15:07:11.563280+00:00",
+  "state": "waiting_direct_and_cpu_gates",
+  "model": "apex-val-swe249",
+  "base_generation_tasks": 0,
+  "expected": 51,
+  "max_parallel": 10,
+  "cpu_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "new_GPU_jobs": 0
+}

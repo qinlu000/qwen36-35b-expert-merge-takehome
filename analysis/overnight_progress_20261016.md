@@ -385,3 +385,12 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - HLE/SAB验证继续。22:56:50 HLE Base proxy100齐：62完整答卷/38本地300秒无答卷，正确54；已答卷54/62=87.10%含选择偏差，预算限定54.00%，0生成infra/0Judge失败，不能当正式HLE成绩或训练增益。纯结果汇总常驻，无额外模型/API调用。
 - Terminal22:54为167/250，best160 loss.42458877，已10次完整GPU val无OOM；Mixed381/883，best64，23次val。独立Terminal100源包已补齐（88单Dockerfile/12Compose），0环境验收，不把42条loss-val当任务成功率；此分支未启动模型评测或新服务。
 - 记录见analysis/validation_execution_20261016.md、validation_terminal_readiness_20261016.md和逐项回执。此次只提交自有文件及共享文档追加，保留另一会话WIP，无coauthor信息。
+
+
+## 2026-10-16 23:08：SWE专家正式51题按用户要求并发10
+
+- 用户要求“并发10试试”，按紧邻讨论范围落实为SWE专家最终benchmark，并非修改HLE/SAB或已有Base。固定51题，仅checkpoint249；agent/bridge只允许apex-val-swe249，没有Base生成。
+- 自有等待进程824673已部署，CPU0–9，每题1CPU/4GiB，最多10路；原16路等待进程817853在0请求时退出并保留回执。实际experiment/config/launch一致，root独立复核alive、cached_images_ready51、pending51、active0、valid0、generation_started0。
+- 同既有Base的mini2.4.6、原生PATH与glibc/musl修复、30min、64K/8K、非思考、原官方初评和fresh replay，独立输出artifacts/eval/swe249_hard51_20261016。现有Base clean28/历史native23继续复用，不重跑或修改。
+- 等direct5份生成summary全部完成与Base/repair永久CPU门闩通过后自动准入。正式运行后只读原生running/waiting/KV/preemption指标，保留逐请求usage/时长；maxseq20不变，不新增GPU或synthetic负载。09:30:32停止新准入，防10:05:32服务到期。
+- 已核51份实际TrialConfig纯专家alias/环境分类、语法及真实服务日志路径。Base历史与专家实际服务并发不同，报告披露，不能将分差全部因果归到权重。完整执行报告analysis/swe_expert_benchmark_execution_20261016.md。自有文件纳Git，保留其他会话WIP，无coauthor信息。
