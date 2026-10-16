@@ -10,6 +10,14 @@
 - 五份未提交TA草稿移至本地ignored `artifacts/proposals/ta-lambda05-withdrawn-20261017/`，不进入活动代码和评测注册。不能由存在产物推断它已被评测或选为最终模型。
 - 新方向为**平均合版 vs TIES**，使用现有四专家，不重训；当前仅完成来源/实现/资源可行性核查，尚未导出TIES或启动任务比较。实施前先做小矩阵/代表层校验，不能以源码存在当正确运行证据。
 
+## 05:24工程验证后的更正
+
+六真实shape pilot727967已通过，前一727948自检并列样例错误及修正证据均保留。但SVD64对五个非小维度样例的相对Frobenius截断残差为30.42%–56.77%，不能当作小数值误差或精确TIES。**停止TIES-SVD64导出/评测，改用TIES-Dense完整HF模型表示**；以下早先rank64计划是历史方案。这个决定只依据数值/表示误差，在TIES任务结果出现前做出，不改变density/sign/weights/λ，不根据正式成绩选超参。
+
+新导出仍对四个真实更新各计一次alpha/r，PEFT0.20逐模块rho0.2/total符号/同号均值/ones/外λ1，直接将结果加到原Base对应310矩阵；逐原26shard写入完整新35B snapshot，其他735tensor逐字节不变，不截断SVD。FP32计算、原dtype（通常BF16）存储舍入及相对更新的误差单列。不能称所有数值无损，也不能继续声称与AVG64 r64参数化容量相同；完整模型架构及未训练参数保持原样，运行时dense-vs-LoRA加法舍入次序差异也披露。元数据、空间和映射见[可行性核查](ties_dense_export_feasibility_20261017.md)。
+
+完整导出/序列化/非目标校验完成后，使用普通acd_u/Nice1000 TP2直接加载新完整模型，独立28097，仅做与已冻结AVG64相同的HLE2500方法对照。现10卡情况下不必人为串行等待AVG16；短export1卡及新服务2卡仍≤16，实际每次准入前重核。不动原AVG64、28095后续ASI链、旧releasewatcher和已释放的独立ASI。尚无新完整产物或任务结果，不能写两方法比较已完成。
+
 ## 为什么选择TIES
 
 平均合版对四个专家的有效参数改动线性平均；TIES先裁掉小幅改动，再按参数位置解决符号冲突，最后只平均与选定方向相符的非零改动，算法结构与单纯改变任务算术系数不同。它也能直接回答原题对“参数冲突如何处理”的要求。来源为[Yadav等，NeurIPS2023 TIES-Merging v2](https://arxiv.org/abs/2306.01708v2)、[作者实现](https://github.com/prateeky2806/ties-merging)、[PEFT官方说明](https://huggingface.co/docs/peft/en/developer_guides/model_merging)。

@@ -1,0 +1,38 @@
+{
+  "version": "four-experts-ties-svd64-v1-20261017",
+  "base_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "primary_adapter": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+  "output_root": "artifacts/merges/four-experts-ties-svd64-v1-20261017",
+  "peft_package": "artifacts/envs/sft/lib/python3.12/site-packages/peft",
+  "peft_version": "0.20.0",
+  "merge_utils_sha256": "2b601ee37cc040d42134bf31b7b1b0bbbac4092b08f7084e64d889ae3f5f0163",
+  "merge_space": "true_delta_i=(alpha_i/r_i)*Bi@Ai, applied exactly once",
+  "method": "PEFT0.20 per-module magnitude trim / total sign election / disjoint mean, then reduced SVD64",
+  "density": 0.2,
+  "majority_sign_method": "total",
+  "weights": [1, 1, 1, 1],
+  "lambda": 1,
+  "rank": 64,
+  "lora_alpha": 64,
+  "svd_driver": null,
+  "svd_full_matrices": false,
+  "compute_dtype": "float32",
+  "cpu_threads": 8,
+  "pilot_selection": "Lexicographically first A key per exact dense shape, ordered by element count then shape; six modules once each",
+  "expected_shapes": [
+    {"shape": [32, 2048], "modules": 60},
+    {"shape": [512, 2048], "modules": 100},
+    {"shape": [2048, 512], "modules": 40},
+    {"shape": [2048, 4096], "modules": 40},
+    {"shape": [4096, 2048], "modules": 30},
+    {"shape": [8192, 2048], "modules": 40}
+  ],
+  "inputs": [
+    {"expert": "swe", "adapter": "artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249"},
+    {"expert": "terminal", "adapter": "artifacts/runs/terminal-retry-sft-r16-726665/training/checkpoint-250"},
+    {"expert": "asi", "adapter": "artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128"},
+    {"expert": "hle", "adapter": "artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-250"}
+  ],
+  "selected_final": false,
+  "selection_policy": "Fixed before TIES evaluation, not tuned on task scores; AVG64 remains primary. Pilot measures six real shapes only; full export requires a separate root decision."
+}

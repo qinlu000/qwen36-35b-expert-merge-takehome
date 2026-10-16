@@ -1,0 +1,37 @@
+{
+  "recovery_id": "direct-hle-compact-20261017",
+  "authorization": "Root reviewed and explicitly approved one grade-only compact recovery for each listed exhausted length-truncated Judge result; actual receipt is analysis/source_snapshots/hle_compact_judge_recovery_20261017.json.",
+  "base_precedent": "scripts/recover_hle_last_judge_20261017.py",
+  "wrapper_append": " Serialize keys in this order: correct, confidence, strict, extracted_final_answer, reasoning. Keep reasoning to one short sentence of at most 40 words; do not repeat the response or solve the problem. Finish the JSON object immediately after that sentence.",
+  "judge_identity": {
+    "requested_model": "DeepSeek-V4-Flash",
+    "reported_model": "DeepSeek-V4-Flash",
+    "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+    "provider_revision_pinned": false
+  },
+  "tls_tunnel_port": 28443,
+  "max_cny_per_model_combined": 20,
+  "max_calls_per_model_combined": 5000,
+  "additional_calls_per_item": 1,
+  "models": [
+    {
+      "model": "apex-hle250",
+      "scoring": "artifacts/eval/hle250_hle2500_20261017/scoring",
+      "original_scorer_pid": 3266685,
+      "task_ids": ["6737883a270e3f4ddee77b7e", "67372559fb093fc159cc790f"]
+    },
+    {
+      "model": "apex-mixed883",
+      "scoring": "artifacts/eval/mixed883_hle2500_20261017/scoring",
+      "original_scorer_pid": 3268683,
+      "task_ids": [
+        "671f6889490be3e9a159f485",
+        "66fb8135483861eb2d0252a3",
+        "6737022fa283793ef57494a3",
+        "66fb60f0fce3673bfc606f35",
+        "6747cbf864654c38936cf259",
+        "66fb75c8d83ed7a299fdd135"
+      ]
+    }
+  ]
+}

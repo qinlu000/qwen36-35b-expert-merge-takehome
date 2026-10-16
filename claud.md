@@ -1684,3 +1684,16 @@
 - 单线程人造tiny CPU实证：已装高层ties_svd wrapper相对所需真实Δ路径有额外scale2，且小维SVD要补零；因此拟复用官方底层ties而明确控制缩放/SVD/序列化。实际310模块最大8192×2048，每份FP32 Δ64MiB；60个32×2048模块需要r64补零。TIES非线性mask可升rank，必须逐层/全局披露SVD截断与BF16舍入，不能把全部分差归因纯TIES。
 - 本轮未导出TIES、未做真实专家SVD、未训练或发任务/API请求，真实SVD耗时/峰值仍未知。HPC现场job_submit.lua强制至少1GPU且CPU≤12/GPU，不能安排假想纯CPU Slurm作业；后续先明确普通分区合法落点、tiny/六形状代表层计时与误差，再决定全量导出。既有正式评测和Mixed/AVG16不被研究打断，新方法若先HLE对照结论仅限HLE，不换冻结主模型或恢复val。
 - 原hourly heartbeat已沿用同automation更新：TA撤回不得自动启动、TIES先核源码/缩放/补零/误差、不把调研当完成、loss仅诊断、保持主评测/资源/截止。新方法决定与可行性已写文档；七份自有文件仅含记录/标签更正，无活动runtime改动，保留其他会话WIP。没有新增GPU或外部消息，无coauthor。
+
+
+## 2026-10-17 05:24 CST：HLE两组完整、SWE独立审计与TIES真实层验证
+
+- 本轮读最新claud/current_status/Git，保留其他会话WIP，仅提交明确owned文件；未发送邮件/邀请/其他会话消息，无Base新求解、task-val或loss-only工作。
+- HLE专家/Mixed原8项两次200+length+parse失败经一次compact Judge-only恢复，8条均原parser/identity有效；原答卷、criteria、原budget/requests/responses均字节未动并备份。专家173/2500=6.92%，Mixed146/2500=5.84%；新增8calls共0.00752625 CNY，合计费用分别1.95277050/2.07888300。明确披露两次上限外一次格式恢复例外，同Base先例，不按reward重试。
+- 新统一统计先专家SWE collector，再新增AVG SWE collector，最后strict+独立Terminal预算双视图。专家SWE48/51仍3null；AVG独立c1f2原native0经root重读task/空patch/原日志批准，只读overlay22/51、1resolved，未继承专家白名单。Terminal专家50valid另1invalid，AVG50valid；AVG HLE1284valid另1invalid、AVG16 730valid。完整AVG64四项/宏平均/CI仍null。
+- HLE专家对Base差+2.96pp配对95%CI[1.80,4.12]，Mixed+1.88[0.80,3.00]；Base native-no-answer1445对专家30/Mixed41及历史队列/服务混杂继续披露，CI不证明纯权重因果提升。
+- 普通acd_u/Nice1000短1GPU pilot727948在CPU tiny top-k并列fixture失败，29s记录成本；仅修fixture并双环境7checks严格通过后，727967实际六shape通过、job10s/卡已释放。五个需截断样例SVD64残差30.42–56.77%，停止SVD64导出/评测。当前改为同固定rho.2/total/ones/外λ1的TIES-Dense完整HF权重，去SVD、BF16舍入单列；尚未导出或任务比较，不称同r64容量/已完成。AVG64主身份与现队列不变。
+- 已只读核Base1045tensor/26shard、310目标全命中且26片全需写新文件，735非目标必须bitwise保持；约72GB仅HPC新目录，不inplace写源、不复制到80/本地。准备短1卡export和必要普通TP2独立HLE2500方法对照，实时10卡下临时最多13≤16，保留优先级低和核心cutoff，不碰28095 AVG→ASI/旧watcher/被释放独立ASI。
+- 实际资源账本05:17：已结束216.721389GPUh，5普通TP2共10GPU在跑暂计10.406111GPUh，CNY已记录7332calls预算核算11.192305644（含失败reservation0.280551），USD另0.328327020；不是发票或最终成本。补齐Base单项、Mixed/AVG16和恢复独立ledger，不重复summary合计。
+- Terminal去迁移40min终态速度专家19.52/h、AVG18.02/h，AVG略低所需18.99，完整445有风险；CPU未见可直接claim的4核释放块，按真实SWE/ASI marker扩容。nginx cleanup guard继续null，无租约不重评、不装/起缺失nginx、不blind untar resolver。80数据盘余2.1TiB/系统盘31.4GiB，未见新增写失败。
+- 自动推进已更新ACTIVE：每次刷新两SWE collector、承接Dense新方向、保留SVD失败/误差历史、HLE恢复规则/费用和混杂披露。核心截止仍北京时间10月18日02:20。

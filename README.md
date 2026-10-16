@@ -34,7 +34,7 @@
 
 AVG64表示 `Δ = Σ_i 0.25 × (32/16) B_i A_i`，通过因子拼接精确保存平均更新，输出rank64/alpha64；不是分别平均A/B。AVG16对同一更新做薄QR+SVD的rank16近似，全局相对Frobenius截断误差约0.144715。AVG64已在新增loss比较和正式评测前固定为最终模型；容量是单个rank16专家/Mixed的4倍，线性平均可能抵消冲突方向。原理、验证和配方见 [合版记录](analysis/merge_execution_20261017.md)、[固定配置](configs/merge/four_experts_avg_v1.json)。
 
-原题明确列出的合版配置示例是合并系数、层范围、是否保留基座；压缩rank未被点名，不能仅凭AVG64/AVG16宣称合版消融要求已经完成。用户随后要求真正不同的方法，已撤回任务算术改系数的拟议对照；其CPU产物保留为未使用草稿，无模型评测或GPU提交。下一步核查平均合版与TIES的[方法可行性](analysis/ties_merging_feasibility_20261017.md)，区别处理参数冲突、保持可比容量并披露SVD近似；尚未完成新方法导出或任务评测。主AVG64身份、权重及已有答卷保持固定。
+原题明确列出的合版配置示例是合并系数、层范围、是否保留基座；压缩rank未被点名，不能仅凭AVG64/AVG16宣称合版消融要求已经完成。用户随后要求真正不同的方法，已撤回任务算术改系数的拟议对照；其CPU产物保留为未使用草稿，无模型评测或GPU提交。TIES真实层试跑已完成，但rank64回投影样例误差30%–57%，因此不导出该近似；现准备[TIES-Dense完整模型](analysis/ties_dense_export_feasibility_20261017.md)，保留真实更新并单列BF16舍入。它不再是同r64参数化容量对照；完整导出及HLE任务比较尚未完成。主AVG64身份、权重及已有答卷保持固定。
 
 相同249条原生SFT留出集、64K上限、相同监督mask的loss-only对照已全部完成：Base **2.105976**、AVG64 **1.357921**、AVG16 **1.379223**、Mixed883 **1.672463**。AVG16与AVG64的差值为0.021302，记录固定压缩/容量消融；没有生成新答案、运行task-val或据此重新选择主模型。Mixed883重复原训练最终val loss的数值完全一致。这里是原生Trainer的teacher-forced loss，不能作为任务准确率或benchmark提升。详见 [结果、图及重画命令](analysis/sft_loss_only_plan_20261017.md)。
 
@@ -127,8 +127,8 @@ artifacts/envs/asi-py312/bin/python scripts/check_experiment_aggregation.py
 
 ## 资源、目录与未完成交付
 
-用户后续授权的项目上限为16×H100、每连接组最多4卡，并非持续可用配额。截止为北京时间2026-10-18 14:20，预留12小时后核心实验目标结束点为02:20。四专家/Mixed原生成功run合计46.541425 GPUh只是子集；[资源账本](analysis/resource_ledger_20261017.md) 的02:38快照为已结束183.098889 GPUh、另14张在跑GPU暂计14.111111 GPUh，包含失败、取消、服务等待等allocation开销，没有重复加训练子集。API账目分usage估计、预算上界和失败reservation；学校HPC无已知单价，未换算人民币。人工主动工作时长未计时。显存仅为rank0当前设备的PyTorch peak_reserved，不能冒称跨卡峰值。
+用户后续授权的项目上限为16×H100、每连接组最多4卡，并非持续可用配额。截止为北京时间2026-10-18 14:20，预留12小时后核心实验目标结束点为02:20。四专家/Mixed原生成功run合计46.541425 GPUh只是子集；[资源账本](analysis/resource_ledger_20261017.md) 的05:17快照为已结束216.721389 GPUh、另10张在跑GPU暂计10.406111 GPUh，包含失败、取消、服务等待等allocation开销，没有重复加训练子集。API账目分usage估计、预算上界和失败reservation；学校HPC无已知单价，未换算人民币。人工主动工作时长未计时。显存仅为rank0当前设备的PyTorch peak_reserved，不能冒称跨卡峰值。
 
 代码/配置在`scripts/`、`configs/`；训练图与源数据在`curves/`；研究说明、统计验证和小型执行收据在`analysis/`；模型索引在`models/`。大产物实际使用`artifacts/runs`、`artifacts/eval`、`artifacts/results`、`artifacts/merges`，与模板推荐的`logs/results`布局不同；[结果路径清单](configs/eval/final_results_20261017.json)记录精确映射，不依靠自动挑“最新”或最高奖励结果。
 
-尚未完成：完整正式评分矩阵与宏平均/CI、Base评分缺口的owner修复归档、最终AVG64至少20个失败案例与至少三个后续实验、一页`report.pdf`、最终GitHub提交和通知。五模型发布、匿名验收和249条SFT loss对照均已完成。现有曲线、loss改善、合版导出或控制器启动均不替代完整评测；最终结论将随完整有效原始结果更新。
+尚未完成：完整正式评分矩阵与宏平均/CI、TIES新方法导出及实际任务对照、一页`report.pdf`、必要离线资产收尾和最终交付。Base固定答卷补评分、[20个真实失败案例与三项后续实验](analysis/avg64_failure_cases_20261017.md)、五模型发布及匿名验收均已有记录。HLE专家和Mixed的2500题现已完整判分，分别6.92%和5.84%，其余队列仍继续；Base历史no-answer/服务差异是比较混杂，不能只归因权重。已有249条loss只作诊断。现有曲线、loss改善、合版导出或控制器启动均不替代完整评测；最终结论将随完整有效原始结果更新。

@@ -106,7 +106,7 @@
       "label": "AVG64合版",
       "artifact": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
       "benchmarks": {
-        "swe": {"adapter": "swe_tasks", "summary": "artifacts/eval/avg64_swe_hard51_20261017/summary.json"},
+        "swe": {"adapter": "swe_tasks", "summary": "artifacts/eval/avg64_swe_audited_hard51_20261017/summary.json", "notes": ["Read-only overlay accepts one independently reviewed exact AVG native-zero replay c1f2 with missing required product module. Original source validity and pending rows remain; no expert audit whitelist is inherited. Refresh collect_avg64_swe_audited.py after collect_swe249_audited.py before aggregation."]},
         "hle": {
           "adapter": "hle_results",
           "summary": "artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
@@ -124,6 +124,7 @@
     "Paired CIs require full same-ID observations, not complete-case intersection after dropping invalid entries.",
     "Terminal1800s/4CPU/8GiB/64K/8K differs from original3h/32CPU/48GiB/256K/80K setting.",
     "Service replicas, global concurrency and scheduling differ between historical Base and later models; paired task resampling does not remove those confounds.",
-    "HLE/ASI replacement Judge and public local ASI scope must remain disclosed."
+    "HLE/ASI replacement Judge and public local ASI scope must remain disclosed.",
+    "Explicit HLE Judge-format recovery exception: after two original HTTP200 length-truncated unparseable grades, the fixed reviewed HLE expert2/Mixed6 items receive at most one compact-wrapper grade-only request, matching the existing Base precedent. Original criteria, answer, Judge identity, parser, seed and budgets are retained; original ledgers/results are backed up. This exceeds the original two-attempt cap and is disclosed, not answer regeneration."
   ]
 }

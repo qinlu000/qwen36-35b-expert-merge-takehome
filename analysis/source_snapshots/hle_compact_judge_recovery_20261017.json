@@ -1,0 +1,397 @@
+{
+  "state": "completed_verified",
+  "verified_at_utc": "2026-10-16T21:17:16.103006+00:00",
+  "process_state": "exited",
+  "launch": {
+    "state": "completed_verified",
+    "at_utc": "2026-10-16T21:16:31.884805+00:00",
+    "argv": [
+      "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+      "/data/caoqinlu/projects/apex-takehome/scripts/recover_direct_hle_truncated_judges_20261017.py",
+      "--project",
+      "/data/caoqinlu/projects/apex-takehome",
+      "--config",
+      "configs/eval/hle_compact_judge_recovery_20261017.json",
+      "--execute"
+    ],
+    "fixed_items": 8,
+    "additional_calls_per_item": 1,
+    "authorization": "Root reviewed and explicitly authorized the fixed eight compact Judge-only recoveries.",
+    "pid": 695805,
+    "launched_at_utc": "2026-10-16T21:16:31.885725+00:00",
+    "stdout": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/direct_hle_compact_recovery_20261017/stdout.log",
+    "starttime_ticks": "868441590",
+    "verified_at_utc": "2026-10-16T21:17:16.103006+00:00",
+    "additional_judge_calls": 8
+  },
+  "models": [
+    {
+      "model": "apex-hle250",
+      "scoring": "artifacts/eval/hle250_hle2500_20261017/scoring",
+      "original_budget_unchanged": true,
+      "checked_unchanged_original_files": 18,
+      "solver_bytes_unchanged_all": true,
+      "recovery_calls": 2,
+      "recovery_cost_cny": 0.0013830000000000001,
+      "original_cost_cny": 1.9513874999999974,
+      "combined_cost_cny": 1.9527704999999973,
+      "combined_calls": 2475,
+      "items": [
+        {
+          "task_id": "6737883a270e3f4ddee77b7e",
+          "ledger_status": "completed",
+          "original_invalid_preserved": true,
+          "solver_bytes_unchanged": true,
+          "original_request_and_budget_bytes_unchanged": true,
+          "new_user_message_unchanged": true,
+          "wrapper_only_change": true,
+          "charged_cny": 0.0005775,
+          "reserved_cny": 0.01213875,
+          "evaluation_status": "judged",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "parser_valid": true,
+          "identity_unchanged": true,
+          "correct": false,
+          "usage": {
+            "completion_tokens": 46,
+            "prompt_tokens": 632,
+            "total_tokens": 678
+          },
+          "reasoning_words": 12
+        },
+        {
+          "task_id": "67372559fb093fc159cc790f",
+          "ledger_status": "completed",
+          "original_invalid_preserved": true,
+          "solver_bytes_unchanged": true,
+          "original_request_and_budget_bytes_unchanged": true,
+          "new_user_message_unchanged": true,
+          "wrapper_only_change": true,
+          "charged_cny": 0.0008055,
+          "reserved_cny": 0.0126645,
+          "evaluation_status": "judged",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "parser_valid": true,
+          "identity_unchanged": true,
+          "correct": false,
+          "usage": {
+            "completion_tokens": 76,
+            "prompt_tokens": 846,
+            "total_tokens": 922
+          },
+          "reasoning_words": 26
+        }
+      ],
+      "summary": {
+        "complete": true,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 2470,
+        "native_no_answer": 30,
+        "evaluation_invalid": 0,
+        "scored": 2500,
+        "pending": 0,
+        "correct": 173,
+        "accuracy_percent": 6.92,
+        "score": 6.92,
+        "partial_correct_over_full_denominator_percent": 6.92,
+        "subgroups": {
+          "text": {
+            "denominator": 2158,
+            "scored": 2158,
+            "correct": 150,
+            "accuracy_percent": 6.95
+          },
+          "image": {
+            "denominator": 342,
+            "scored": 342,
+            "correct": 23,
+            "accuracy_percent": 6.73
+          }
+        },
+        "selection_states": {
+          "answer": 2470,
+          "native_no_answer": 30
+        },
+        "judge_generation_calls": 2475,
+        "accounted_cost_cny": 1.9527705,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T21:16:38.182806+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed",
+        "recovery_judge_calls": 2,
+        "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/scoring/compact-recovery-20261017",
+        "recovery_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "original_budget_ledger_unchanged": true,
+        "protocol_exception": "Original two attempts plus at most one explicit compact-wrapper recovery for listed length-truncated grades"
+      }
+    },
+    {
+      "model": "apex-mixed883",
+      "scoring": "artifacts/eval/mixed883_hle2500_20261017/scoring",
+      "original_budget_unchanged": true,
+      "checked_unchanged_original_files": 46,
+      "solver_bytes_unchanged_all": true,
+      "recovery_calls": 6,
+      "recovery_cost_cny": 0.006143249999999999,
+      "original_cost_cny": 2.0727397500000007,
+      "combined_cost_cny": 2.0788830000000007,
+      "combined_calls": 2473,
+      "items": [
+        {
+          "task_id": "671f6889490be3e9a159f485",
+          "ledger_status": "completed",
+          "original_invalid_preserved": true,
+          "solver_bytes_unchanged": true,
+          "original_request_and_budget_bytes_unchanged": true,
+          "new_user_message_unchanged": true,
+          "wrapper_only_change": true,
+          "charged_cny": 0.00098625,
+          "reserved_cny": 0.0129645,
+          "evaluation_status": "judged",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "parser_valid": true,
+          "identity_unchanged": true,
+          "correct": false,
+          "usage": {
+            "completion_tokens": 81,
+            "prompt_tokens": 1072,
+            "total_tokens": 1153
+          },
+          "reasoning_words": 21
+        },
+        {
+          "task_id": "66fb8135483861eb2d0252a3",
+          "ledger_status": "completed",
+          "original_invalid_preserved": true,
+          "solver_bytes_unchanged": true,
+          "original_request_and_budget_bytes_unchanged": true,
+          "new_user_message_unchanged": true,
+          "wrapper_only_change": true,
+          "charged_cny": 0.00122475,
+          "reserved_cny": 0.01501275,
+          "evaluation_status": "judged",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "parser_valid": true,
+          "identity_unchanged": true,
+          "correct": true,
+          "usage": {
+            "completion_tokens": 38,
+            "prompt_tokens": 1519,
+            "total_tokens": 1557
+          },
+          "reasoning_words": 9
+        },
+        {
+          "task_id": "6737022fa283793ef57494a3",
+          "ledger_status": "completed",
+          "original_invalid_preserved": true,
+          "solver_bytes_unchanged": true,
+          "original_request_and_budget_bytes_unchanged": true,
+          "new_user_message_unchanged": true,
+          "wrapper_only_change": true,
+          "charged_cny": 0.0004995,
+          "reserved_cny": 0.01174125,
+          "evaluation_status": "judged",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "parser_valid": true,
+          "identity_unchanged": true,
+          "correct": false,
+          "usage": {
+            "completion_tokens": 51,
+            "prompt_tokens": 513,
+            "total_tokens": 564
+          },
+          "reasoning_words": 11
+        },
+        {
+          "task_id": "66fb60f0fce3673bfc606f35",
+          "ledger_status": "completed",
+          "original_invalid_preserved": true,
+          "solver_bytes_unchanged": true,
+          "original_request_and_budget_bytes_unchanged": true,
+          "new_user_message_unchanged": true,
+          "wrapper_only_change": true,
+          "charged_cny": 0.00177525,
+          "reserved_cny": 0.0191985,
+          "evaluation_status": "judged",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "parser_valid": true,
+          "identity_unchanged": true,
+          "correct": false,
+          "usage": {
+            "completion_tokens": 45,
+            "prompt_tokens": 2232,
+            "total_tokens": 2277
+          },
+          "reasoning_words": 16
+        },
+        {
+          "task_id": "6747cbf864654c38936cf259",
+          "ledger_status": "completed",
+          "original_invalid_preserved": true,
+          "solver_bytes_unchanged": true,
+          "original_request_and_budget_bytes_unchanged": true,
+          "new_user_message_unchanged": true,
+          "wrapper_only_change": true,
+          "charged_cny": 0.0008835,
+          "reserved_cny": 0.01251225,
+          "evaluation_status": "judged",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "parser_valid": true,
+          "identity_unchanged": true,
+          "correct": false,
+          "usage": {
+            "completion_tokens": 59,
+            "prompt_tokens": 1001,
+            "total_tokens": 1060
+          },
+          "reasoning_words": 16
+        },
+        {
+          "task_id": "66fb75c8d83ed7a299fdd135",
+          "ledger_status": "completed",
+          "original_invalid_preserved": true,
+          "solver_bytes_unchanged": true,
+          "original_request_and_budget_bytes_unchanged": true,
+          "new_user_message_unchanged": true,
+          "wrapper_only_change": true,
+          "charged_cny": 0.000774,
+          "reserved_cny": 0.01257675,
+          "evaluation_status": "judged",
+          "http_status": 200,
+          "finish_reason": "stop",
+          "parser_valid": true,
+          "identity_unchanged": true,
+          "correct": false,
+          "usage": {
+            "completion_tokens": 46,
+            "prompt_tokens": 894,
+            "total_tokens": 940
+          },
+          "reasoning_words": 11
+        }
+      ],
+      "summary": {
+        "complete": true,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 2459,
+        "native_no_answer": 41,
+        "evaluation_invalid": 0,
+        "scored": 2500,
+        "pending": 0,
+        "correct": 146,
+        "accuracy_percent": 5.84,
+        "score": 5.84,
+        "partial_correct_over_full_denominator_percent": 5.84,
+        "subgroups": {
+          "text": {
+            "denominator": 2158,
+            "scored": 2158,
+            "correct": 127,
+            "accuracy_percent": 5.89
+          },
+          "image": {
+            "denominator": 342,
+            "scored": 342,
+            "correct": 19,
+            "accuracy_percent": 5.56
+          }
+        },
+        "selection_states": {
+          "answer": 2459,
+          "native_no_answer": 41
+        },
+        "judge_generation_calls": 2473,
+        "accounted_cost_cny": 2.0788830000000003,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T21:16:51.199883+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed",
+        "recovery_judge_calls": 6,
+        "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/scoring/compact-recovery-20261017",
+        "recovery_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "original_budget_ledger_unchanged": true,
+        "protocol_exception": "Original two attempts plus at most one explicit compact-wrapper recovery for listed length-truncated grades"
+      }
+    }
+  ],
+  "additional_judge_calls": 8,
+  "solver_generation_calls": 0,
+  "preflight": {
+    "state": "preflight_record_before_approved_execution",
+    "preflight_at_utc": "2026-10-16T21:13:29.078656+00:00",
+    "host": "80",
+    "mode": "prepare_only",
+    "network_calls": 0,
+    "solver_generation_calls": 0,
+    "syntax_and_json_valid": true,
+    "wrapper_exact_match_to_base_recovery_ast": true,
+    "sanity": {
+      "passed": true,
+      "checks": [
+        "eligible_200_length_pair",
+        "http_failure_rejected",
+        "nonlength_rejected",
+        "parseable_original_rejected",
+        "changed_user_rejected",
+        "unknown_outcome_resend_rejected",
+        "cost_cap_rejected",
+        "call_cap_rejected",
+        "both_verdicts_same_parser_no_reward_selection"
+      ]
+    },
+    "models": [
+      {
+        "model": "apex-hle250",
+        "eligible_tasks": [
+          "6737883a270e3f4ddee77b7e",
+          "67372559fb093fc159cc790f"
+        ],
+        "original_grader_exited": true,
+        "original_controller_lock_exclusive": true,
+        "original_calls": 2473,
+        "original_cost_cny": 1.9513875,
+        "combined_calls_after_reservations": 2475,
+        "combined_cost_cny_after_reservations": 1.97619075,
+        "original_budget_sha256": "5de92ac884734dabb72ec1ae54a7a3f4c090fbb19c70004d8f3eb40706de849d",
+        "frozen_scorer_sha256": "148721d67dd9f6644e5fa575e2e25b17fb3129eb70727f3bf5c9c176de3905ef"
+      },
+      {
+        "model": "apex-mixed883",
+        "eligible_tasks": [
+          "671f6889490be3e9a159f485",
+          "66fb8135483861eb2d0252a3",
+          "6737022fa283793ef57494a3",
+          "66fb60f0fce3673bfc606f35",
+          "6747cbf864654c38936cf259",
+          "66fb75c8d83ed7a299fdd135"
+        ],
+        "original_grader_exited": true,
+        "original_controller_lock_exclusive": true,
+        "original_calls": 2467,
+        "original_cost_cny": 2.07273975,
+        "combined_calls_after_reservations": 2473,
+        "combined_cost_cny_after_reservations": 2.1567457500000002,
+        "original_budget_sha256": "cca288dc54fee37be5e5f7a862057262bdc4761b2ea938d33ef0ecd41a89644a",
+        "frozen_scorer_sha256": "148721d67dd9f6644e5fa575e2e25b17fb3129eb70727f3bf5c9c176de3905ef"
+      }
+    ],
+    "protocol_exception": "Two original attempts plus at most one explicitly authorized compact-wrapper Judge recovery per listed item; original solver protocol unchanged.",
+    "next_step": "Superseded by completed_verified top-level execution receipt."
+  }
+}

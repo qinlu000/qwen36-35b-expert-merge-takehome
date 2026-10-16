@@ -1,0 +1,130 @@
+{
+  "local_checks": {
+    "at_utc": "2026-10-16T21:18:57.861068+00:00",
+    "manual_fixture_checks": [
+      "one approved0 only; other invalid/pending/native rows unchanged",
+      "collect does not mutate raw result/patch/source/config",
+      "wrong generation model rejected",
+      "exact result path mismatch rejected",
+      "native1 audit rejected even with matching digest",
+      "51 valid without owner completion markers stays incomplete",
+      "all51 valid plus actual owner finish proof permits complete despite raw audit gap",
+      "nonempty owner CPU proof blocks complete",
+      "active attempt blocks complete even with stale owner markers",
+      "duplicate fixed ID rejected"
+    ],
+    "passed": true,
+    "real_task_evaluations": 0,
+    "real_model_calls": 0,
+    "new_verifier_runs": 0,
+    "script_sha256": "6e5d6c894d243e55c1933b2beb63615c46b1305217867737d1e2fad2df0944b7",
+    "manifest_sha256": "7fbb45dd9440451170abb7fe1f86536f8cdc87b6f1361742d454953c4ccaa5ca"
+  },
+  "actual_execution": {
+    "started_at_utc": "2026-10-16T21:19:38.916095+00:00",
+    "finished_at_utc": "2026-10-16T21:19:39.042767+00:00",
+    "command": [
+      "systemd-run",
+      "--user",
+      "--scope",
+      "--quiet",
+      "--unit=apex-baseline-avg64-audit-metadata-20261017",
+      "-p",
+      "AllowedCPUs=10",
+      "-p",
+      "MemoryMax=1G",
+      "taskset",
+      "-c",
+      "10",
+      "/usr/bin/python3",
+      "-B",
+      "-c",
+      "import os,json,pathlib,runpy,sys; print(json.dumps({'actual_affinity':sorted(os.sched_getaffinity(0)),'cgroup':pathlib.Path('/proc/self/cgroup').read_text().strip()}),flush=True); sys.argv=['/data/caoqinlu/projects/apex-takehome/scripts/collect_avg64_swe_audited.py','--project=/data/caoqinlu/projects/apex-takehome'];runpy.run_path('/data/caoqinlu/projects/apex-takehome/scripts/collect_avg64_swe_audited.py',run_name='__main__')"
+    ],
+    "returncode": 0,
+    "stdout_json": [
+      {
+        "actual_affinity": [
+          10
+        ],
+        "cgroup": "0::/user.slice/user-1012.slice/user@1012.service/app.slice/apex-baseline-avg64-audit-metadata-20261017.scope"
+      },
+      {
+        "expected": 51,
+        "valid_scored": 21,
+        "original_valid_scored": 20,
+        "audited_native_zero_count": 1,
+        "resolved": 1,
+        "complete": false,
+        "primary_score_percent": null
+      }
+    ],
+    "stderr": "",
+    "cpu10_scopes_before": [],
+    "cpu10_scopes_after": [],
+    "original_result_patch_sha256_before": {
+      "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/result.json": "92f7e20030a50953420f493881515f2616a3bd4ded7462c7e58c2844cff846ce",
+      "artifacts/eval/avg64_swe_hard51_20261017/generation/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/agent/model.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "original_result_patch_sha256_after": {
+      "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/result.json": "92f7e20030a50953420f493881515f2616a3bd4ded7462c7e58c2844cff846ce",
+      "artifacts/eval/avg64_swe_hard51_20261017/generation/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/agent/model.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "original_result_and_patch_unchanged": true,
+    "output_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_audited_hard51_20261017/summary.json",
+    "output_summary_sha256": "bfdbde189b1da8b403aad7acc0272a8642d91bde8b57ddaa4ebd560edbab0af3",
+    "source_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/summary.json",
+    "source_summary_sha256": "c0f838d4875877a01088546c7fbf255a7271000033c47aeaca9b3b8b9d66252f",
+    "source_as_of": "2026-10-16T21:19:38.947537+00:00",
+    "counts": {
+      "expected": 51,
+      "original_valid_scored": 20,
+      "valid_scored": 21,
+      "audited_native_zero_count": 1,
+      "resolved": 1,
+      "invalid_pending": 0,
+      "awaiting_generation_or_replay": 30,
+      "complete": false,
+      "primary_score_percent": null,
+      "completion_gates": {
+        "all51_effectively_scored": false,
+        "all51_original_attempts_terminal": false,
+        "original_active_empty": false,
+        "original_pending_empty": false,
+        "owner_final_state": false,
+        "owner_model_and_scoring_finished": false,
+        "owner_all_cpu_consumers_finished": false,
+        "owner_completion_timestamps_ordered": false
+      }
+    },
+    "audit_row": {
+      "task_id": "instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2",
+      "result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/replay/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/result.json",
+      "reward": 0.0,
+      "invalid_reason": null,
+      "finished_at": "2026-10-16T20:14:53.240381Z",
+      "test_count": 0,
+      "status": "valid_scored",
+      "native_reward": 0.0,
+      "accepted_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/replay/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/result.json",
+      "previous_invalid_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/replay/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/result.json",
+      "audit_reason": "Empty AVG64 patch omits the task-required bigip_message_routing_route product module; native collection imports that missing deliverable. No Harbor exception; original native reward is zero.",
+      "source_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_invalid": {
+        "task_id": "instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2",
+        "result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/replay/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/result.json",
+        "reward": 0.0,
+        "invalid_reason": "empty_tests_requires_audit",
+        "finished_at": "2026-10-16T20:14:53.240381Z",
+        "test_count": 0
+      },
+      "audit_source": "/data/caoqinlu/projects/apex-takehome/configs/eval/avg64_swe_audited_hard51_20261017.json",
+      "original_invalid_reason": "empty_tests_requires_audit",
+      "source_patch": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/agent/model.patch",
+      "audit_result_bytes_pinned": true
+    },
+    "new_model_calls": 0,
+    "new_replays": 0,
+    "only_new_output": "independent audited summary; no original result/queue/config/CPU markers written"
+  }
+}

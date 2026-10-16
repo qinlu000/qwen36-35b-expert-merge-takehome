@@ -1,0 +1,138 @@
+{
+  "prepared_at_utc": "2026-10-16T21:13:44.377045+00:00",
+  "state": "prepared_for_root_review_not_submitted",
+  "hpc_deployment": {
+    "three_code_config_files_synced": true,
+    "remote_ast_json_bash_checks_passed": true,
+    "job_submitted": false
+  },
+  "recipe": {
+    "density": 0.2,
+    "majority_sign_method": "total",
+    "weights": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "lambda": 1,
+    "rank": 64,
+    "lora_alpha": 64,
+    "input_scaling": "alpha/r applied once in true_delta",
+    "svd_full_matrices": false,
+    "svd_driver": null
+  },
+  "utility": {
+    "package": "PEFT0.20.0",
+    "installed_source": "artifacts/envs/sft/lib/python3.12/site-packages/peft/utils/merge_utils.py",
+    "sha256": "2b601ee37cc040d42134bf31b7b1b0bbbac4092b08f7084e64d889ae3f5f0163"
+  },
+  "checks": {
+    "local_torch": "2.5.1",
+    "device": "cpu",
+    "threads": 1,
+    "tiny_passed": true,
+    "tests": [
+      "manual true-delta TIES",
+      "reject double scaling",
+      "ones vs quarter weights",
+      "scaled factor mean cross terms",
+      "fixed density0.2 top-k",
+      "rank64 zero padding min_dim2",
+      "rank1 singular-tail residual"
+    ],
+    "manual_ties_result": [
+      [
+        4.666666507720947,
+        7.0
+      ],
+      [
+        12.0,
+        -18.0
+      ]
+    ],
+    "python_ast_passed": true,
+    "slurm_bash_n_passed": true,
+    "independent_read_only_review": "terminal_expert_eval: no blocking mathematics/resource issue"
+  },
+  "input_metadata_check": {
+    "source": "HPC four adapter_config.json only",
+    "base_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "four_common_base_r16_alpha32_target_modules": true,
+    "revision_field": null,
+    "base_config_exists": true
+  },
+  "pilot_selection_source": "artifacts/merges/four-experts-avg-v1-20261017/merge_report.json (existing shape metadata only)",
+  "selected_modules": [
+    {
+      "shape": [
+        32,
+        2048
+      ],
+      "module": "base_model.model.model.language_model.layers.0.linear_attn.in_proj_a",
+      "module_count": 60
+    },
+    {
+      "shape": [
+        512,
+        2048
+      ],
+      "module": "base_model.model.model.language_model.layers.0.mlp.shared_expert.gate_proj",
+      "module_count": 100
+    },
+    {
+      "shape": [
+        2048,
+        512
+      ],
+      "module": "base_model.model.model.language_model.layers.0.mlp.shared_expert.down_proj",
+      "module_count": 40
+    },
+    {
+      "shape": [
+        2048,
+        4096
+      ],
+      "module": "base_model.model.model.language_model.layers.0.linear_attn.out_proj",
+      "module_count": 40
+    },
+    {
+      "shape": [
+        4096,
+        2048
+      ],
+      "module": "base_model.model.model.language_model.layers.0.linear_attn.in_proj_z",
+      "module_count": 30
+    },
+    {
+      "shape": [
+        8192,
+        2048
+      ],
+      "module": "base_model.model.model.language_model.layers.0.linear_attn.in_proj_qkv",
+      "module_count": 40
+    }
+  ],
+  "resources": {
+    "partition": "acd_u",
+    "nice": 1000,
+    "gpus": 1,
+    "cpus": 8,
+    "memory": "64G",
+    "time_limit": "00:30:00",
+    "aggregate_must_be_rechecked_before_submission": true
+  },
+  "review_command": "sbatch scripts/merge_ties.slurm pilot",
+  "report_template": "artifacts/merges/four-experts-ties-svd64-v1-20261017/pilot-<jobid>/report.json",
+  "constraints": {
+    "slurm_submitted": false,
+    "real_expert_tensor_computations": 0,
+    "gpu_allocations": 0,
+    "model_requests": 0,
+    "training_or_loss_evaluations": 0,
+    "adapter_exported": false,
+    "sources_and_avg_modified": false,
+    "full_export_requires_separate_root_decision": true
+  },
+  "pilot_limits": "Six representatives measure engineering feasibility, timing and SVD approximation only; not task quality or global error. Weighted310-module time estimate has one sample per shape and excludes final serialization."
+}

@@ -89,6 +89,7 @@ print(json.dumps({'captured_at': datetime.now().astimezone().isoformat(),
         row['category'] = ('loss_only_validation' if 'sft-loss' in name else
                            'smoke' if 'smoke' in name else
                            'cpu_environment' if 'dev-env' in name else
+                           'merge' if 'ties' in name or 'merge-pilot' in name else
                            'training' if 'sft' in name else 'inference_service')
         owned.append(row)
     return {'captured_at': raw['captured_at'], 'jobs': owned, 'excluded': excluded,
@@ -114,11 +115,13 @@ for item in config['api_ledgers']:
     result = dict(item, exists=p.exists())
     if p.exists():
         data = json.loads(p.read_text()) if p.suffix == '.json' else [json.loads(s) for s in p.read_text().splitlines() if s.strip()]
-        rows = list(data['calls'].values()) if item['kind'] == 'budget' else data
+        rows = (list(data['calls'].values()) if item['kind'] == 'budget' else
+                [data] if item['kind'] == 'single_budget' else data)
         result.update(bytes=p.stat().st_size, mtime_utc=datetime.fromtimestamp(p.stat().st_mtime, timezone.utc).isoformat(),
                       records=[{k:v for k,v in row.items() if k in keep} for row in rows])
         if item['kind'] == 'budget':
-            result['prices_cny_per_million'] = data['prices_cny_per_million']
+            result['prices_cny_per_million'] = data.get('prices_cny_per_million')
+            result['original_budget_sha256'] = data.get('original_budget_sha256')
     ledgers.append(result)
 summaries = []
 for name in config['raw_summaries']:
@@ -175,6 +178,7 @@ def account_ledger(source):
     records, kind = source['records'], source['kind']
     result['event_rows'] = len(records)
     observed = reserved = 0.0
+    budget_kind = kind in ('budget', 'single_budget')
     if kind == 'journal':
         groups = defaultdict(list)
         for row in records:
@@ -202,18 +206,20 @@ def account_ledger(source):
     else:
         charged_rows = records
         for row in records:
-            amount = row.get('charged_cny', 0) if kind == 'budget' else row.get(
+            amount = row.get('charged_cny', 0) if budget_kind else row.get(
                 'conservative_cost_usd' if kind == 'usd_rows' else 'cost_upper_cny', 0)
-            settled = row.get('status') == 'completed' if kind == 'budget' else bool(row.get('usage'))
+            settled = row.get('status') == 'completed' if budget_kind else bool(row.get('usage'))
             if settled:
                 observed += amount
             else:
                 reserved += amount
         result.update(calls=len(records), completed_calls=sum(r.get('status') == 'completed' for r in records)
-                      if kind == 'budget' else sum(bool(r.get('usage')) for r in records),
+                      if budget_kind else sum(bool(r.get('usage')) for r in records),
                       currency='USD' if kind == 'usd_rows' else 'CNY',
                       price_basis='recorded per-row conservative rates' if kind == 'usd_rows' else
-                      'ledger prices_cny_per_million' if kind == 'budget' else 'recorded cost_upper_cny; budget coefficient 8')
+                      'recorded standalone recovery charged_cny' if kind == 'single_budget' else
+                      'recorded charged_cny; ledger rates when present, recovery original-budget reference otherwise'
+                      if kind == 'budget' else 'recorded cost_upper_cny; budget coefficient 8')
     result.update(status_counts=dict(Counter(str(r.get('status', r.get('event', 'unspecified'))) for r in records)),
                   usage=usage_sum(charged_rows), observed_usage_estimate=observed,
                   unresolved_or_failure_reservation=reserved, accounted_total=observed+reserved,

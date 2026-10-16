@@ -1,6 +1,16 @@
 # 当前进展与未决事项
 
-**合版对照更正**：用户指出压缩不在原题合版示例中，并进一步要求真正不同的方法。AVG16仅保留辅助压缩对照，不当作已满足合版消融的唯一依据；任务算术改系数草稿已撤回，未启动其模型请求或GPU。当前核查平均合版与TIES的[方法可行性](ties_merging_feasibility_20261017.md)，不只改名字或系数冒充独立算法。主AVG64保持固定，既有队列照常；新方法未导出/未评测，不写完成。
+**05:22正式统计更新**：[双视图快照](source_snapshots/formal_aggregation_20261017_0522.json)。已依次刷新两份SWE审计collector，再生成strict与独立Terminal预算视图，未发模型/Judge请求。新完整HLE结果：专家**173/2500=6.92%**、Mixed训练对照**146/2500=5.84%**，Base99/2500=3.96%；专家相对Base差值+2.96个百分点，逐题配对bootstrap95%CI[1.80,4.12]，Mixed+1.88[0.80,3.00]。均为含342图的固定2500，非text-only。
+
+**这不是纯权重因果增益**：Base原生no-answer1445，专家30，Mixed41；历史Base与后续的服务并发、队列时间等差异仍在，配对抽样不能消除这些混杂。原Base回答不重生、不按正式结果挑checkpoint。专家/Mixed原8项Judge截断经[一次格式恢复](hle_compact_judge_recovery_20261017.md)后全部有效，原criteria/answer/identity/parser不变，原invalid/budget/requests/responses均保留；新增8次费用合计0.00752625 CNY。明确披露原两次Judge上限之外的一次恢复例外，不能称协议完全没变。
+
+其余strict有效覆盖：SWE专家48/51（0通过、3未决），AVG SWE22/51（1通过）；Terminal专家50/445另1invalid，AVG50/445；AVG HLE1284/2500另1invalid，AVG16 HLE730/2500。ASI尚无科学评分，生成进度另见原队列，不把程序退出当准确率。AVG64四项比较、宏平均和相关CI仍null。Base Terminal保持442native/445；独立预算视图445含3审计计算超时派生0，主分20.224719%、Base预算macro11.340888%，不冒充445native。
+
+**独立合版方法推进**：主AVG64继续冻结，AVG16只作辅助压缩，TA系数草稿撤回。真实TIES pilot727948在tiny top-k并列fixture自检失败；仅换无并列fixture、保持严格断言及真实算法后，727967六种shape成功，1H100/10秒已释放。五个需截断样例SVD64相对更新误差30.42%–56.77%，因此**不导出或评测该SVD64版本**。现按同固定PEFT0.20 dense-delta TIES配方（rho0.2/total/ones/外λ1）准备[TIES-Dense完整模型导出](ties_dense_export_feasibility_20261017.md)，消除低秩截断，BF16存储舍入另报；26片约72GB写HPC新目录，735非目标不变。尚未完成完整导出或任务比较，不写完成、不称与r64参数化容量相同；HLE-only方法对照不产生四项macro。详见[决策](merge_method_decision_20261017.md)及[试跑](source_snapshots/ties_pilot_727967_20261017.json)。
+
+**资源和吞吐**：现五个TP2共10H100，均普通acd_u/Nice1000；无emergency，已释放旧4卡不重建独立ASI。新方法短1卡export、后续独立普通TP2最多临时13卡，需每次实时核验与唯一claim；不碰28095 AVG HLE→ASI复用或旧release watcher。[05:17成本快照](resource_ledger_20261017.md)：已结束216.721389GPUh、在跑暂计10.406111GPUh；不是最终费用。排除迁移后的40分钟[实际终态速度](execution_scoring_gaps_20261017.md)为Terminal专家19.52/小时、AVG18.02/小时，AVG略低于截止所需约18.99，仍有445全量截止风险；后续只按SWE/ASI真实CPU交接扩容，不缩冻结预算。nginx cleanup guard仍invalid，未在无CPU租约时强行重评或补装服务。
+
+以下04:37及更早内容保留历史过程，当前结果、方法和服务阶段以上述更新为准。
 
 **04:37实时更新**：[评测与存储核查](progress_and_storage_20261017_0436.md)。三类普通分区迁移均已完成，Terminal专家/AVG64执行恢复10槽，ASI恢复原parent；HLE专家和Mixed各2500题生成完成，判分继续，HLE专家2卡已自动释放，当前约10卡。AVG64 HLE累计621题、50在途，Mixed已接AVG16。SWE专家51次尝试结束、48份有效且0通过，另3份评分异常尚未决；完整模型比较仍未齐备。80项目盘剩2.1TiB，系统盘剩31.4GiB且97%已用；本机剩约30GiB，暂未发现本轮新磁盘写入故障。详细计数、限制与HPC核查见新收据。
 

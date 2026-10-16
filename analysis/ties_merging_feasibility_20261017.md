@@ -80,3 +80,40 @@ TIES步骤复用PEFT函数；SVD因子取法与官方helper一致，并加上标
 人工dense TIES为 `[[4.6666665,7],[12,-18]]`，原生helper重构为约 `[[9.3333359,14.000001],[24.000002,-35.999996]]`，符合2倍而非所需1倍。该结果验证实现尺度与形状，不提供任何模型质量结论；没有运行真实专家SVD。
 
 此前TA λ=.5 / r64-alpha128产物在用户取消前已于80/HPC导出；它现为**撤销草稿，不进入评测**，未替换主AVG64。本轮只新增本文；不清理其他agent草稿，不改服务、协议、权重或正式队列。
+
+## 7. 2026-10-17 pilot实现待审核（尚未提交）
+
+已新增 [merge_ties_adapters.py](../scripts/merge_ties_adapters.py)、[固定配方](../configs/merge/four_experts_ties_svd64_v1.json) 和 [Slurm入口](../scripts/merge_ties.slurm)。入口仅导入固定PEFT0.20.0的纯 `utils.ties` 文件，核验该9,939字节源码SHA256为 `2b601ee37cc040d42134bf31b7b1b0bbbac4092b08f7084e64d889ae3f5f0163`；不经原生weighted-adapter wrapper。真实输入的alpha/r只在共享 `true_delta` 函数乘一次，输出r64/alpha64、FP32因子、reduced SVD，min_dim<64时补零。real-weight模式要求已分配的Slurm job及单张H100；无模型、训练、loss或推理入口。
+
+本机CPU单线程的七项tiny checks通过：人工真Δ/TIES数值、重复scale拒绝、ones与0.25的尺度区别、同尺度A/B平均交叉项、固定density=.2的top-k、rank64小维补零，以及rank1实测误差与奇异值尾能量一致。Python AST和bash语法通过，独立只读代码复核未发现阻塞问题。仅核读HPC四份adapter config与既有shape JSON；尚未对真实专家tensor做矩阵运算。[准备收据与固定六层列表](source_snapshots/ties_pilot_preparation_20261017.json)
+
+待root审核的命令为HPC项目目录下 `sbatch scripts/merge_ties.slurm pilot`，配置普通acd_u、nice1000、1H100、8CPU、64GiB、30分钟。提交前仍须重核项目GPU总数；当前root报告10GPU，pilot增加1张后为11/16。每个真实shape仅选字典序首个模块一次，不导出adapter；报告逐阶段耗时、PyTorch allocator allocated/reserved峰值（非整卡采样峰值）、CPU当前RSS/进程生命周期RSS峰值、SVD尾能量及实际FP32重构相对Frobenius误差。按各shape的模块数加权估310层耗时，明确单样本及未计最终序列化的限制。
+
+pilot报告位置为 `artifacts/merges/four-experts-ties-svd64-v1-20261017/pilot-<jobid>/report.json`。本次只准备上述文件与tiny验收，**未sbatch、未申请GPU、未运行真实SVD或全量导出**。pilot结果只能支持资源/数值可行性判断；是否全量导出仍待root另行决定，主AVG64与所有原始产物保持冻结。
+
+## 8. Pilot727948失败与tiny fixture最小修复
+
+root核验实时10GPU及唯一submit claim后提交727948：普通acd_u/nice1000、1H100/8CPU/64G。作业在ACD1-28运行29秒后以FAILED/1:0退出；失败发生在报告构造里的CPU人工 `self_test`，尚未进入六个真实模块的循环。只做了8×8 CUDA初始化warmup与metadata读取，**没有真实专家矩阵乘法/SVD、adapter导出、模型请求或训练/loss评估**。因此本次没有可用的六shape耗时/峰值/误差或全量估时，不能把失败误报成SVD资源不足。[原失败小收据](source_snapshots/ties_pilot_727948_20261017.json)
+
+诊断是旧人工fixture在top-k裁剪边界包含相同绝对值：本机PyTorch2.5.1与HPC2.11.0+cu130选到了不同的等值坐标，使固定期望矩阵不再通用。最小修复只替换四组人工因子，并新增严格top-k边界无并列断言；未放宽 `assert_close`、未改真实TIES算法/配方/SVD设置。新fixture的四个边界间隔均为2，固定scale2/density.5的结果是 `[[6,12],[12,18]]`。bottom-left符号总量恰为0，仍严格检查PEFT定义的选正号行为。
+
+修复后的同一脚本在本机2.5.1 CPU及HPC实际SIF/sft-venv的2.11.0+cu130 CPU单线程均通过七项tiny checks；HPC只运行人工tiny，无 `--nv`、无GPU分配或真实权重计算。修复源码已同步HPC。原727948失败保留，不自行重提；下一次pilot由root另行决定，完整导出仍未获准。
+
+## 9. Pilot727967：六shape工程验收通过，SVD64截断显著
+root一次提交修复后的727967（`apex-ties-pilot2`）；sacct为COMPLETED/0:0，ACD1-28、普通acd_u/nice1000、1H100/8CPU/64G，实际作业10秒。脚本pipeline为2.694秒，PyTorch2.11.0+cu130/CUDA13.0，六个预先固定代表模块均通过。仅pilot，未导出adapter，也没有模型调用、loss或训练；四专家权重size/mtime校验未变。[精简实测收据](source_snapshots/ties_pilot_727967_20261017.json)，[原始小JSON报告](../artifacts/eval/ties-pilot-727967/report.json)。
+| Dense shape | 模块数 | 本层秒 | SVD/因子化秒 | 实际相对Frob残差 | 保留奇异值能量 | allocator allocated峰值MiB | CPU RSS MiB |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 32×2048 | 60 | 1.0703 | 0.2334 | 2.99799e-06 | 100.000% | 38.00 | 1153.06 |
+| 512×2048 | 100 | 0.0570 | 0.0527 | 0.504026 | 74.594% | 128.00 | 1155.75 |
+| 2048×512 | 40 | 0.0245 | 0.0206 | 0.495894 | 75.406% | 128.00 | 1156.85 |
+| 2048×4096 | 40 | 0.2363 | 0.2285 | 0.304212 | 90.740% | 800.00 | 1159.75 |
+| 4096×2048 | 30 | 0.2388 | 0.2315 | 0.567694 | 67.764% | 800.00 | 1161.52 |
+| 8192×2048 | 40 | 0.2514 | 0.2404 | 0.524596 | 72.473% | 1568.00 | 1164.91 |
+
+32行样例可用32个分量完整表示并补32个零分量，重构相对误差约3e-6。其余五个样例的实际相对Frobenius残差为 **0.3042–0.5677**、保留能量 **67.76%–90.74%**。这是对dense TIES更新本身的FP32重构误差，不是Base总权重误差，也不是服务BF16转换误差；不能当作小误差或推断任务质量。六层不是全310层误差统计，不能外推全模型残差。
+
+资源方面，最大PyTorch allocator allocated峰值1,644,167,680字节（1.531GiB），reserved峰值2,271,215,616字节（2.115GiB）；它们不是整卡物理显存采样峰值。最大已记录进程RSS/生命周期高水位为1,221,492,736字节（1.138GiB），不是逐层高频采样峰值。资源足够只说明逐模块实现可行，不说明rank64质量足够。
+
+按shape模块数加权的310层计算估时为 **97.572秒**。首个32×2048模块用1.070秒，其中真实Δ matmul0.154秒、TIES0.642秒有明显冷启动成本，却被乘60次；因此该估时重复计入一次性成本。另一方面它没计外层GC/逐层report写入、进程/容器启动、最终adapter序列化和文件系统同步。每shape仅一个样本，矩阵数据和I/O可变，不给虚假置信区间，也不把97.6秒作为保证时限。
+
+root据此**暂不批准SVD64全量导出**。保持density=.2、total、全1、λ=1不变，可以研究逐模块直接dense TIES、跳过SVD，再将 `W0.float()+D_TIES` 写入独立完整HF snapshot；该路径无低秩截断，但FP32计算和最终存储dtype舍入仍必须披露。尤其BF16写回误差应相对原FP32合成权重及D_TIES分别记录，不能称数学完全无近似；不可原地覆盖Base或与Base共享硬链接的待改shard。具体分片/容量由direct agent只读核验，尚未实现、导出或申请新资源。主AVG64身份保持不变。

@@ -1,0 +1,31 @@
+{
+  "scope": "One explicitly reviewed AVG64 c1f2 original native-zero result only",
+  "approval": "Root independently read and approved this exact AVG64 task, empty patch, model identity and native-zero evidence on 2026-10-17",
+  "model": "apex-avg64",
+  "generation_model": "openai/apex-avg64",
+  "checkpoint": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+  "source_output": "artifacts/eval/avg64_swe_hard51_20261017",
+  "source_summary": "artifacts/eval/avg64_swe_hard51_20261017/summary.json",
+  "task_manifest": "analysis/source_snapshots/protocol/swe_hard_task_ids.json",
+  "model_consumer_marker": "artifacts/eval/avg64_swe_hard51_20261017/model-consumer-finished.json",
+  "all_cpu_consumers_marker": "artifacts/eval/avg64_swe_hard51_20261017/all_cpu_consumers_finished.json",
+  "source_cpu_ids": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "output": "artifacts/eval/avg64_swe_audited_hard51_20261017",
+  "evidence_audit": "analysis/execution_scoring_gaps_20261017.md",
+  "approved_native_zero": [
+    {
+      "task_id": "instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2",
+      "original_result": "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/result.json",
+      "accepted_result": "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/result.json",
+      "original_result_sha256": "92f7e20030a50953420f493881515f2616a3bd4ded7462c7e58c2844cff846ce",
+      "accepted_result_sha256": "92f7e20030a50953420f493881515f2616a3bd4ded7462c7e58c2844cff846ce",
+      "source_patch": "artifacts/eval/avg64_swe_hard51_20261017/generation/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/agent/model.patch",
+      "patch_bytes": 0,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_invalid_reason": "empty_tests_requires_audit",
+      "reason": "Empty AVG64 patch omits the task-required bigip_message_routing_route product module; native collection imports that missing deliverable. No Harbor exception; original native reward is zero."
+    }
+  ],
+  "no_reward_search": true,
+  "new_audits_require_explicit_review": true
+}

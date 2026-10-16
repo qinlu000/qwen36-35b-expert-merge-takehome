@@ -1,5 +1,15 @@
 # 资源与 API 账本：2026-10-17 快照
 
+## 05:17 CST 新快照（历史记录见下）
+
+[新账本](source_snapshots/resource_ledger_20261017_0518/snapshot.json)于05:17:14 CST保存；目录名0518是采集标签，实际时点以JSON为准。当前67个本项目顶层作业、排除9个其他WorkDir作业。已结束allocation **216.721389 GPUh**，5个普通分区在跑服务合计**10张H100**，暂计另**10.406111 GPUh**。成功trainer子集仍46.541425 GPUh，已在总量内，不重复相加。TIES首次pilot727948在CPU tiny自检阶段失败，29秒/0.008056 GPUh已如实计入，未完成任何真实层合版；后续修正和重提不回写本快照。
+
+账本补齐了Base单项Judge恢复、HLE专家、Mixed、AVG64、AVG16及专家/Mixed八项compact恢复。独立恢复ledger与原budget分别计一次，不把summary合计再次相加。现存CNY账本7332calls：usage计价估计10.911754644，失败/未知reservation0.280551，合计预算核算量**11.192305644 CNY**；USD三份teacher/review账本376calls合计**0.328327020 USD**，不混合币种。部分正式grader仍运行，此数会增长。不是实际支付发票，HPC单位价格仍未知。
+
+BaseASI和两份新ASI Judge逐调用账本仍不存在，维持unknown；不能由缺失断言所有历史请求为零。新增恢复ledger没有重复写prices字段，collector保留其原budget指纹和已记录charged_cny，计价沿用冻结scorer；不将缺失元数据补造为当前价格。逐行来源见同目录[GPU表](source_snapshots/resource_ledger_20261017_0518/slurm_jobs.csv)和[API表](source_snapshots/resource_ledger_20261017_0518/api_ledgers.csv)。
+
+以下02:38内容是历史固定快照，其中当时尚未开始的grader、GPU数量和评分缺口不代表当前状态。
+
 本题已结束 Slurm allocation 合计 **183.098889 GPU 小时**；另有 6 个在跑 allocation、共 **14 GPU**，截至采集时暂计 **14.111111 GPU 小时**。后者还会增长，不能作为最终成本。学校 HPC 单价、API 实际发票金额、人工主动工作时长和 host80 总 CPU 使用时长均为 **unknown / 未计时**。
 
 采集时间：Slurm `2026-10-17T02:38:19.869041+08:00`；host80 API/结果元数据见 [snapshot.json](source_snapshots/resource_ledger_20261017/snapshot.json) 的 `runner_captured_at`。这是固定时点记录，之后的 Terminal 调度调整不回写这份快照。服务等待准入、空闲和 kernel warmup 都已占用 allocation，照常计入 ElapsedRaw。

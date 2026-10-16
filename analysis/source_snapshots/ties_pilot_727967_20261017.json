@@ -1,0 +1,172 @@
+{
+  "recorded_at_utc": "2026-10-16T21:22:09.713935+00:00",
+  "job": {
+    "id": "727967",
+    "name": "apex-ties-pilot2",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "elapsed_seconds": 10,
+    "node": "ACD1-28",
+    "partition": "acd_u",
+    "configured_nice": 1000,
+    "gpus": 1,
+    "cpus": 8,
+    "memory": "64G",
+    "slurm_reported_start": "2026-10-17T05:20:04",
+    "slurm_reported_end": "2026-10-17T05:20:14",
+    "slurm_time_strings": "sacct local display without explicit offset",
+    "squeue_empty_at_utc": "2026-10-16T21:21:05.852836+00:00"
+  },
+  "config": "configs/merge/four_experts_ties_svd64_v1.json",
+  "hpc_report": "artifacts/merges/four-experts-ties-svd64-v1-20261017/pilot-727967/report.json",
+  "local_raw_report": "artifacts/eval/ties-pilot-727967/report.json",
+  "hpc_log": "artifacts/eval/ties-merge-727967.log",
+  "claim_directory": "artifacts/merges/ties-pilot-retry-submit-20261017",
+  "torch_version": "2.11.0+cu130",
+  "cuda_version": "13.0",
+  "gpu_name": "NVIDIA H100 80GB HBM3",
+  "tiny_checks_passed": true,
+  "script_pipeline_seconds": 2.694318512105383,
+  "rows": [
+    {
+      "shape": [
+        32,
+        2048
+      ],
+      "shape_module_count": 60,
+      "module": "base_model.model.model.language_model.layers.0.linear_attn.in_proj_a",
+      "elapsed_seconds": 1.0703493239125237,
+      "svd_factorize_seconds": 0.23338827991392463,
+      "actual_reconstruction_relative_frobenius": 2.997994092831451e-06,
+      "ideal_tail_relative_frobenius": 0.0,
+      "retained_singular_energy_fraction": 1.0,
+      "zero_padded_components": 32,
+      "torch_allocator_peak_allocated_bytes": 39846400,
+      "torch_allocator_peak_reserved_bytes": 60817408,
+      "cpu_current_rss_after_bytes": 1209069568,
+      "cpu_process_lifetime_high_water_bytes": 1209069568
+    },
+    {
+      "shape": [
+        512,
+        2048
+      ],
+      "shape_module_count": 100,
+      "module": "base_model.model.model.language_model.layers.0.mlp.shared_expert.gate_proj",
+      "elapsed_seconds": 0.056969098979607224,
+      "svd_factorize_seconds": 0.052691287943162024,
+      "actual_reconstruction_relative_frobenius": 0.5040262546113584,
+      "ideal_tail_relative_frobenius": 0.5040417886471628,
+      "retained_singular_energy_fraction": 0.745941875297369,
+      "zero_padded_components": 0,
+      "torch_allocator_peak_allocated_bytes": 134218240,
+      "torch_allocator_peak_reserved_bytes": 153092096,
+      "cpu_current_rss_after_bytes": 1211887616,
+      "cpu_process_lifetime_high_water_bytes": 1211887616
+    },
+    {
+      "shape": [
+        2048,
+        512
+      ],
+      "shape_module_count": 40,
+      "module": "base_model.model.model.language_model.layers.0.mlp.shared_expert.down_proj",
+      "elapsed_seconds": 0.02454942895565182,
+      "svd_factorize_seconds": 0.020613880013115704,
+      "actual_reconstruction_relative_frobenius": 0.49589392262791515,
+      "ideal_tail_relative_frobenius": 0.4959250221563693,
+      "retained_singular_energy_fraction": 0.7540583723992047,
+      "zero_padded_components": 0,
+      "torch_allocator_peak_allocated_bytes": 134218240,
+      "torch_allocator_peak_reserved_bytes": 155189248,
+      "cpu_current_rss_after_bytes": 1213042688,
+      "cpu_process_lifetime_high_water_bytes": 1213042688
+    },
+    {
+      "shape": [
+        2048,
+        4096
+      ],
+      "shape_module_count": 40,
+      "module": "base_model.model.model.language_model.layers.0.linear_attn.out_proj",
+      "elapsed_seconds": 0.2363349589286372,
+      "svd_factorize_seconds": 0.2284982759738341,
+      "actual_reconstruction_relative_frobenius": 0.3042119219353742,
+      "ideal_tail_relative_frobenius": 0.3043001343856978,
+      "retained_singular_energy_fraction": 0.9074014282128463,
+      "zero_padded_components": 0,
+      "torch_allocator_peak_allocated_bytes": 838861312,
+      "torch_allocator_peak_reserved_bytes": 1176502272,
+      "cpu_current_rss_after_bytes": 1216086016,
+      "cpu_process_lifetime_high_water_bytes": 1216086016
+    },
+    {
+      "shape": [
+        4096,
+        2048
+      ],
+      "shape_module_count": 30,
+      "module": "base_model.model.model.language_model.layers.0.linear_attn.in_proj_z",
+      "elapsed_seconds": 0.2387705019209534,
+      "svd_factorize_seconds": 0.2315309289842844,
+      "actual_reconstruction_relative_frobenius": 0.5676938437473724,
+      "ideal_tail_relative_frobenius": 0.5677652733471633,
+      "retained_singular_energy_fraction": 0.6776425943810209,
+      "zero_padded_components": 0,
+      "torch_allocator_peak_allocated_bytes": 838861312,
+      "torch_allocator_peak_reserved_bytes": 1176502272,
+      "cpu_current_rss_after_bytes": 1217945600,
+      "cpu_process_lifetime_high_water_bytes": 1217945600
+    },
+    {
+      "shape": [
+        8192,
+        2048
+      ],
+      "shape_module_count": 40,
+      "module": "base_model.model.model.language_model.layers.0.linear_attn.in_proj_qkv",
+      "elapsed_seconds": 0.25139903102535754,
+      "svd_factorize_seconds": 0.2404107890324667,
+      "actual_reconstruction_relative_frobenius": 0.5245959406950704,
+      "ideal_tail_relative_frobenius": 0.5246627930838385,
+      "retained_singular_energy_fraction": 0.7247289535534653,
+      "zero_padded_components": 0,
+      "torch_allocator_peak_allocated_bytes": 1644167680,
+      "torch_allocator_peak_reserved_bytes": 2271215616,
+      "cpu_current_rss_after_bytes": 1221492736,
+      "cpu_process_lifetime_high_water_bytes": 1221492736
+    }
+  ],
+  "summary": {
+    "six_shape_rows": 6,
+    "shape_weighted310_module_seconds": 97.57232114672661,
+    "actual_relative_frobenius_range_all_samples": [
+      2.997994092831451e-06,
+      0.5676938437473724
+    ],
+    "actual_relative_frobenius_range_min_dim_above64": [
+      0.3042119219353742,
+      0.5676938437473724
+    ],
+    "retained_energy_range_min_dim_above64": [
+      0.6776425943810209,
+      0.9074014282128463
+    ],
+    "max_torch_allocator_allocated_bytes": 1644167680,
+    "max_torch_allocator_reserved_bytes": 2271215616,
+    "max_recorded_cpu_current_rss_bytes": 1221492736,
+    "max_process_lifetime_cpu_high_water_bytes": 1221492736
+  },
+  "measurement_limits": [
+    "Relative Frobenius is measured against dense TIES update, not total base weight; FP32 reconstruction only, no serving BF16 cast tested.",
+    "PyTorch allocated/reserved allocator peaks are not whole-device physical-memory peaks; RSS is process current/lifetime high-water, not per-module sampled peak.",
+    "Six fixed first-layer representatives only; no full310-module aggregate error or task quality measured.",
+    "97.57s estimate multiplies one representative wall time by shape count. First32x2048 row has cold matmul/TIES costs and its1.070s is multiplied60times, so one-time costs are overcounted.",
+    "Estimate excludes per-module outer garbage collection/report writes, process/container startup, final adapter serialization and filesystem sync; no statistical interval is justified."
+  ],
+  "sources_unchanged": true,
+  "adapter_exported": false,
+  "model_requests": 0,
+  "training_or_loss_evaluations": 0,
+  "decision": "Root explicitly withheld SVD64 export because30-57percent residual is substantial; dense TIES full-snapshot feasibility under separate read-only review. Main AVG64 unchanged; no export or new job submitted by this agent."
+}

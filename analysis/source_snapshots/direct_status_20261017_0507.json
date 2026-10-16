@@ -1,0 +1,1121 @@
+{
+  "captured_at_utc": "2026-10-16T21:09:42.751988+00:00",
+  "host": "80",
+  "read_only": true,
+  "hle": {
+    "hle250_hle2500_20261017": {
+      "global_saved_results": 2500,
+      "global_generation_status_counts": {
+        "completed": 2470,
+        "failed": 30
+      },
+      "global_image_results": 342,
+      "generation_summary": {
+        "mode": "formal",
+        "denominator": 2500,
+        "saved_results": 2500,
+        "status_counts": {
+          "completed": 2470,
+          "failed": 30
+        },
+        "image_results": 342,
+        "prompt_tokens": 1165589,
+        "completion_tokens": 544479,
+        "grading": "separate",
+        "controller_state": "completed",
+        "finished_at_utc": "2026-10-16T20:26:27.924417+00:00"
+      },
+      "checkpoint_session": {
+        "state": "completed",
+        "reason": null,
+        "admitted": {
+          "count": 1337,
+          "values_omitted": "Read original source for task IDs"
+        },
+        "completed": {
+          "count": 1337,
+          "values_omitted": "Read original source for task IDs"
+        },
+        "cancelled_or_unwinding": {
+          "count": 0,
+          "values_omitted": "Read original source for task IDs"
+        },
+        "not_admitted": 0,
+        "at_utc": "2026-10-16T20:26:27.822222+00:00"
+      },
+      "scoring_summary": {
+        "complete": false,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 2468,
+        "native_no_answer": 30,
+        "evaluation_invalid": 2,
+        "scored": 2498,
+        "pending": 2,
+        "correct": 173,
+        "accuracy_percent": null,
+        "score": null,
+        "subgroups": {
+          "text": {
+            "denominator": 2158,
+            "scored": 2157,
+            "correct": 150,
+            "accuracy_percent": null
+          },
+          "image": {
+            "denominator": 342,
+            "scored": 341,
+            "correct": 23,
+            "accuracy_percent": null
+          }
+        },
+        "selection_states": {
+          "answer": 2470,
+          "native_no_answer": 30
+        },
+        "judge_generation_calls": 2473,
+        "accounted_cost_cny": 1.9513875,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T20:54:12.137736+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+      },
+      "formal_score": null,
+      "invalid_diagnostics": [
+        {
+          "id": "6737883a270e3f4ddee77b7e",
+          "result_path": "artifacts/eval/hle250_hle2500_20261017/scoring/results/6737883a270e3f4ddee77b7e.json",
+          "reason": "Both allowed Judge attempts failed; never a scored zero",
+          "attempts": [
+            {
+              "call": "6737883a270e3f4ddee77b7e.1",
+              "budget_status": "failed_full_reservation",
+              "error": {
+                "error_type": "JSONDecodeError",
+                "at_utc": "2026-10-16T20:42:39.966604+00:00"
+              },
+              "http_status": 200,
+              "finish_reason": "length",
+              "content_chars": 251,
+              "reasoning_present": false,
+              "usage": {
+                "completion_tokens": 4096,
+                "prompt_tokens": 580,
+                "total_tokens": 4676
+              },
+              "content_json_valid": false
+            },
+            {
+              "call": "6737883a270e3f4ddee77b7e.2",
+              "budget_status": "failed_full_reservation",
+              "error": {
+                "error_type": "JSONDecodeError",
+                "at_utc": "2026-10-16T20:42:40.210721+00:00"
+              },
+              "http_status": 200,
+              "finish_reason": "length",
+              "content_chars": 251,
+              "reasoning_present": false,
+              "usage": {
+                "completion_tokens": 4096,
+                "prompt_tokens": 580,
+                "total_tokens": 4676
+              },
+              "content_json_valid": false
+            }
+          ],
+          "diagnosis": "Both originally allowed attempts returned HTTP200, finish_reason=length, truncated/unclosed JSON; JSONDecodeError. Not a network/credential/budget stop; no further attempt or parser relaxation authorized."
+        },
+        {
+          "id": "67372559fb093fc159cc790f",
+          "result_path": "artifacts/eval/hle250_hle2500_20261017/scoring/results/67372559fb093fc159cc790f.json",
+          "reason": "Both allowed Judge attempts failed; never a scored zero",
+          "attempts": [
+            {
+              "call": "67372559fb093fc159cc790f.1",
+              "budget_status": "failed_full_reservation",
+              "error": {
+                "error_type": "JSONDecodeError",
+                "at_utc": "2026-10-16T20:41:10.970118+00:00"
+              },
+              "http_status": 200,
+              "finish_reason": "length",
+              "content_chars": 301,
+              "reasoning_present": false,
+              "usage": {
+                "completion_tokens": 4096,
+                "prompt_tokens": 794,
+                "total_tokens": 4890
+              },
+              "content_json_valid": false
+            },
+            {
+              "call": "67372559fb093fc159cc790f.2",
+              "budget_status": "failed_full_reservation",
+              "error": {
+                "error_type": "JSONDecodeError",
+                "at_utc": "2026-10-16T20:41:11.210422+00:00"
+              },
+              "http_status": 200,
+              "finish_reason": "length",
+              "content_chars": 301,
+              "reasoning_present": false,
+              "usage": {
+                "completion_tokens": 4096,
+                "prompt_tokens": 794,
+                "total_tokens": 4890
+              },
+              "content_json_valid": false
+            }
+          ],
+          "diagnosis": "Both originally allowed attempts returned HTTP200, finish_reason=length, truncated/unclosed JSON; JSONDecodeError. Not a network/credential/budget stop; no further attempt or parser relaxation authorized."
+        }
+      ],
+      "consumer_marker": {
+        "model_consumer_finished": true,
+        "generation_process_finished": true,
+        "generation_pid": 3418010,
+        "saved_results": 2500,
+        "model": "apex-hle250",
+        "at_utc": "2026-10-16T20:26:28.068001+00:00",
+        "scoring_uses_external_judge_only": true
+      },
+      "stop_admission": false,
+      "generator": {
+        "pid": 3418010,
+        "alive": false
+      },
+      "scorer": {
+        "pid": 3266685,
+        "alive": false
+      },
+      "controller": {
+        "pid": 3418010,
+        "alive": false
+      },
+      "global_started": 2500,
+      "incomplete_started": 0,
+      "budget_status_counts": {
+        "completed": 2468,
+        "failed_full_reservation": 5
+      }
+    },
+    "avg64_hle2500_20261017": {
+      "global_saved_results": 1102,
+      "global_generation_status_counts": {
+        "failed": 507,
+        "completed": 595
+      },
+      "global_image_results": 151,
+      "generation_summary": {
+        "mode": "formal",
+        "denominator": 2500,
+        "saved_results": 202,
+        "status_counts": {
+          "failed": 88,
+          "completed": 114
+        },
+        "image_results": 16,
+        "prompt_tokens": 37595,
+        "completion_tokens": 75325,
+        "grading": "separate",
+        "controller_state": "drained",
+        "finished_at_utc": "2026-10-16T20:02:01.556446+00:00"
+      },
+      "checkpoint_session": {
+        "state": "running",
+        "admitted": {
+          "count": 950,
+          "values_omitted": "Read original source for task IDs"
+        },
+        "completed": {
+          "count": 900,
+          "values_omitted": "Read original source for task IDs"
+        },
+        "active": {
+          "count": 50,
+          "values_omitted": "Read original source for task IDs"
+        },
+        "at_utc": "2026-10-16T21:09:38.696521+00:00"
+      },
+      "scoring_summary": {
+        "complete": false,
+        "expected": 2500,
+        "frozen_terminal_results": 1096,
+        "judged_answers": 593,
+        "native_no_answer": 503,
+        "evaluation_invalid": 0,
+        "scored": 1096,
+        "pending": 1404,
+        "correct": 57,
+        "accuracy_percent": null,
+        "score": null,
+        "subgroups": {
+          "text": {
+            "denominator": 2158,
+            "scored": 947,
+            "correct": 48,
+            "accuracy_percent": null
+          },
+          "image": {
+            "denominator": 342,
+            "scored": 149,
+            "correct": 9,
+            "accuracy_percent": null
+          }
+        },
+        "selection_states": {
+          "native_no_answer": 503,
+          "answer": 593,
+          "pending_generation": 1404
+        },
+        "judge_generation_calls": 593,
+        "accounted_cost_cny": 0.62502075,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T21:09:22.223749+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+      },
+      "formal_score": null,
+      "invalid_diagnostics": [],
+      "consumer_marker": {},
+      "stop_admission": false,
+      "generator": {
+        "pid": 4076145,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868051667"
+      },
+      "scorer": {
+        "pid": 3269010,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "867904422"
+      },
+      "controller": {
+        "pid": 4076145,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868051667"
+      },
+      "global_started": 1152,
+      "incomplete_started": 50,
+      "budget_status_counts": {
+        "completed": 593
+      }
+    },
+    "mixed883_hle2500_20261017": {
+      "global_saved_results": 2500,
+      "global_generation_status_counts": {
+        "completed": 2459,
+        "failed": 41
+      },
+      "global_image_results": 342,
+      "generation_summary": {
+        "mode": "formal",
+        "denominator": 2500,
+        "saved_results": 2500,
+        "status_counts": {
+          "completed": 2459,
+          "failed": 41
+        },
+        "image_results": 342,
+        "prompt_tokens": 1159040,
+        "completion_tokens": 554387,
+        "grading": "separate",
+        "controller_state": "completed",
+        "finished_at_utc": "2026-10-16T20:32:13.335486+00:00"
+      },
+      "checkpoint_session": {
+        "state": "completed",
+        "reason": null,
+        "admitted": {
+          "count": 1591,
+          "values_omitted": "Read original source for task IDs"
+        },
+        "completed": {
+          "count": 1591,
+          "values_omitted": "Read original source for task IDs"
+        },
+        "cancelled_or_unwinding": {
+          "count": 0,
+          "values_omitted": "Read original source for task IDs"
+        },
+        "not_admitted": 0,
+        "at_utc": "2026-10-16T20:32:13.187258+00:00"
+      },
+      "scoring_summary": {
+        "complete": false,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 2453,
+        "native_no_answer": 41,
+        "evaluation_invalid": 6,
+        "scored": 2494,
+        "pending": 6,
+        "correct": 145,
+        "accuracy_percent": null,
+        "score": null,
+        "subgroups": {
+          "text": {
+            "denominator": 2158,
+            "scored": 2152,
+            "correct": 126,
+            "accuracy_percent": null
+          },
+          "image": {
+            "denominator": 342,
+            "scored": 342,
+            "correct": 19,
+            "accuracy_percent": 5.56
+          }
+        },
+        "selection_states": {
+          "answer": 2459,
+          "native_no_answer": 41
+        },
+        "judge_generation_calls": 2467,
+        "accounted_cost_cny": 2.07273975,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T20:56:37.356030+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+      },
+      "formal_score": null,
+      "invalid_diagnostics": [
+        {
+          "id": "671f6889490be3e9a159f485",
+          "result_path": "artifacts/eval/mixed883_hle2500_20261017/scoring/results/671f6889490be3e9a159f485.json",
+          "reason": "Both allowed Judge attempts failed; never a scored zero",
+          "attempts": [
+            {
+              "call": "671f6889490be3e9a159f485.1",
+              "budget_status": "failed_full_reservation",
+              "error": {
+                "error_type": "JSONDecodeError",
+                "at_utc": "2026-10-16T20:18:05.984230+00:00"
+              },
+              "http_status": 200,
+              "finish_reason": "length",
+              "content_chars": 13,
+              "reasoning_present": false,
+              "usage": {
+                "completion_tokens": 4096,
+                "prompt_tokens": 1020,
+                "total_tokens": 5116
+              },
+              "content_json_valid": false
+            },
+            {
+              "call": "671f6889490be3e9a159f485.2",
+              "budget_status": "failed_full_reservation",
+              "error": {
+                "error_type": "JSONDecodeError",
+                "at_utc": "2026-10-16T20:18:06.210622+00:00"
+              },
+              "http_status": 200,
+              "finish_reason": "length",
+              "content_chars": 13,
+              "reasoning_present": false,
+              "usage": {
+                "completion_tokens": 4096,
+                "prompt_tokens": 1020,
+                "total_tokens": 5116
+              },
+              "content_json_valid": false
+            }
+          ],
+          "diagnosis": "Both originally allowed attempts returned HTTP200, finish_reason=length, truncated/unclosed JSON; JSONDecodeError. Not a network/credential/budget stop; no further attempt or parser relaxation authorized."
+        },
+        {
+          "id": "66fb8135483861eb2d0252a3",
+          "result_path": "artifacts/eval/mixed883_hle2500_20261017/scoring/results/66fb8135483861eb2d0252a3.json",
+          "reason": "Both allowed Judge attempts failed; never a scored zero",
+          "attempts": [
+            {
+              "call": "66fb8135483861eb2d0252a3.1",
+              "budget_status": "failed_full_reservation",
+              "error": {
+                "error_type": "JSONDecodeError",
+                "at_utc": "2026-10-16T19:58:13.008193+00:00"
+              },
+              "http_status": 200,
+              "finish_reason": "length",
+              "content_chars": 139,
+              "reasoning_present": false,
+              "usage": {
+                "completion_tokens": 4096,
+                "prompt_tokens": 1467,
+                "total_tokens": 5563
+              },
+              "content_json_valid": false
+            },
+            {
+              "call": "66fb8135483861eb2d0252a3.2",
+              "budget_status": "failed_full_reservation",
+              "error": {
+                "error_type": "JSONDecodeError",
+                "at_utc": "2026-10-16T19:58:13.228458+00:00"
+              },
+              "http_status": 200,
+              "finish_reason": "length",
+              "content_chars": 139,
+              "reasoning_present": false,
+              "usage": {
+                "completion_tokens": 4096,
+                "prompt_tokens": 1467,
+                "total_tokens": 5563
+              },
+              "content_json_valid": false
+            }
+          ],
+          "diagnosis": "Both originally allowed attempts returned HTTP200, finish_reason=length, truncated/unclosed JSON; JSONDecodeError. Not a network/credential/budget stop; no further attempt or parser relaxation authorized."
+        },
+        {
+          "id": "6737022fa283793ef57494a3",
+          "result_path": "artifacts/eval/mixed883_hle2500_20261017/scoring/results/6737022fa283793ef57494a3.json",
+          "reason": "Both allowed Judge attempts failed; never a scored zero",
+          "attempts": [
+            {
+              "call": "6737022fa283793ef57494a3.1",
+              "budget_status": "failed_full_reservation",
+              "error": {
+                "error_type": "JSONDecodeError",
+                "at_utc": "2026-10-16T20:43:10.735373+00:00"
+              },
+              "http_status": 200,
+              "finish_reason": "length",
+              "content_chars": 213,
+              "reasoning_present": false,
+              "usage": {
+                "completion_tokens": 4096,
+                "prompt_tokens": 461,
+                "total_tokens": 4557
+              },
+              "content_json_valid": false
+            },
+            {
+              "call": "6737022fa283793ef57494a3.2",
+              "budget_status": "failed_full_reservation",
+              "error": {
+                "error_type": "JSONDecodeError",
+                "at_utc": "2026-10-16T20:43:10.970806+00:00"
+              },
+              "http_status": 200,
+              "finish_reason": "length",
+              "content_chars": 213,
+              "reasoning_present": false,
+              "usage": {
+                "completion_tokens": 4096,
+                "prompt_tokens": 461,
+                "total_tokens": 4557
+              },
+              "content_json_valid": false
+            }
+          ],
+          "diagnosis": "Both originally allowed attempts returned HTTP200, finish_reason=length, truncated/unclosed JSON; JSONDecodeError. Not a network/credential/budget stop; no further attempt or parser relaxation authorized."
+        },
+        {
+          "id": "66fb60f0fce3673bfc606f35",
+          "result_path": "artifacts/eval/mixed883_hle2500_20261017/scoring/results/66fb60f0fce3673bfc606f35.json",
+          "reason": "Both allowed Judge attempts failed; never a scored zero",
+          "attempts": [
+            {
+              "call": "66fb60f0fce3673bfc606f35.1",
+              "budget_status": "failed_full_reservation",
+              "error": {
+                "error_type": "JSONDecodeError",
+                "at_utc": "2026-10-16T19:57:03.763438+00:00"
+              },
+              "http_status": 200,
+              "finish_reason": "length",
+              "content_chars": 191,
+              "reasoning_present": false,
+              "usage": {
+                "completion_tokens": 4096,
+                "prompt_tokens": 2180,
+                "total_tokens": 6276
+              },
+              "content_json_valid": false
+            },
+            {
+              "call": "66fb60f0fce3673bfc606f35.2",
+              "budget_status": "failed_full_reservation",
+              "error": {
+                "error_type": "JSONDecodeError",
+                "at_utc": "2026-10-16T19:57:03.975543+00:00"
+              },
+              "http_status": 200,
+              "finish_reason": "length",
+              "content_chars": 191,
+              "reasoning_present": false,
+              "usage": {
+                "completion_tokens": 4096,
+                "prompt_tokens": 2180,
+                "total_tokens": 6276
+              },
+              "content_json_valid": false
+            }
+          ],
+          "diagnosis": "Both originally allowed attempts returned HTTP200, finish_reason=length, truncated/unclosed JSON; JSONDecodeError. Not a network/credential/budget stop; no further attempt or parser relaxation authorized."
+        },
+        {
+          "id": "6747cbf864654c38936cf259",
+          "result_path": "artifacts/eval/mixed883_hle2500_20261017/scoring/results/6747cbf864654c38936cf259.json",
+          "reason": "Both allowed Judge attempts failed; never a scored zero",
+          "attempts": [
+            {
+              "call": "6747cbf864654c38936cf259.1",
+              "budget_status": "failed_full_reservation",
+              "error": {
+                "error_type": "JSONDecodeError",
+                "at_utc": "2026-10-16T20:51:04.236660+00:00"
+              },
+              "http_status": 200,
+              "finish_reason": "length",
+              "content_chars": 6613,
+              "reasoning_present": false,
+              "usage": {
+                "completion_tokens": 4096,
+                "prompt_tokens": 949,
+                "total_tokens": 5045
+              },
+              "content_json_valid": false
+            },
+            {
+              "call": "6747cbf864654c38936cf259.2",
+              "budget_status": "failed_full_reservation",
+              "error": {
+                "error_type": "JSONDecodeError",
+                "at_utc": "2026-10-16T20:51:04.490298+00:00"
+              },
+              "http_status": 200,
+              "finish_reason": "length",
+              "content_chars": 6613,
+              "reasoning_present": false,
+              "usage": {
+                "completion_tokens": 4096,
+                "prompt_tokens": 949,
+                "total_tokens": 5045
+              },
+              "content_json_valid": false
+            }
+          ],
+          "diagnosis": "Both originally allowed attempts returned HTTP200, finish_reason=length, truncated/unclosed JSON; JSONDecodeError. Not a network/credential/budget stop; no further attempt or parser relaxation authorized."
+        },
+        {
+          "id": "66fb75c8d83ed7a299fdd135",
+          "result_path": "artifacts/eval/mixed883_hle2500_20261017/scoring/results/66fb75c8d83ed7a299fdd135.json",
+          "reason": "Both allowed Judge attempts failed; never a scored zero",
+          "attempts": [
+            {
+              "call": "66fb75c8d83ed7a299fdd135.1",
+              "budget_status": "failed_full_reservation",
+              "error": {
+                "error_type": "JSONDecodeError",
+                "at_utc": "2026-10-16T19:57:05.623251+00:00"
+              },
+              "http_status": 200,
+              "finish_reason": "length",
+              "content_chars": 2,
+              "reasoning_present": false,
+              "usage": {
+                "completion_tokens": 4096,
+                "prompt_tokens": 842,
+                "total_tokens": 4938
+              },
+              "content_json_valid": false
+            },
+            {
+              "call": "66fb75c8d83ed7a299fdd135.2",
+              "budget_status": "failed_full_reservation",
+              "error": {
+                "error_type": "JSONDecodeError",
+                "at_utc": "2026-10-16T19:57:05.827898+00:00"
+              },
+              "http_status": 200,
+              "finish_reason": "length",
+              "content_chars": 2,
+              "reasoning_present": false,
+              "usage": {
+                "completion_tokens": 4096,
+                "prompt_tokens": 842,
+                "total_tokens": 4938
+              },
+              "content_json_valid": false
+            }
+          ],
+          "diagnosis": "Both originally allowed attempts returned HTTP200, finish_reason=length, truncated/unclosed JSON; JSONDecodeError. Not a network/credential/budget stop; no further attempt or parser relaxation authorized."
+        }
+      ],
+      "consumer_marker": {
+        "model_consumer_finished": true,
+        "at_utc": "2026-10-16T20:32:13.470169+00:00",
+        "model": "apex-mixed883",
+        "expected": 2500,
+        "generation_process_finished": true,
+        "saved_results": 2500,
+        "scoring_uses_external_judge_only": true
+      },
+      "stop_admission": false,
+      "generator": {
+        "pid": 3418080,
+        "alive": false
+      },
+      "scorer": {
+        "pid": 3268683,
+        "alive": false
+      },
+      "controller": {
+        "pid": 3418011,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868028556"
+      },
+      "global_started": 2500,
+      "incomplete_started": 0,
+      "budget_status_counts": {
+        "completed": 2453,
+        "failed_full_reservation": 14
+      }
+    },
+    "avg16_hle2500_20261017": {
+      "global_saved_results": 558,
+      "global_generation_status_counts": {
+        "failed": 257,
+        "completed": 301
+      },
+      "global_image_results": 58,
+      "generation_summary": {},
+      "checkpoint_session": {
+        "state": "running",
+        "admitted": {
+          "count": 608,
+          "values_omitted": "Read original source for task IDs"
+        },
+        "completed": {
+          "count": 558,
+          "values_omitted": "Read original source for task IDs"
+        },
+        "active": {
+          "count": 50,
+          "values_omitted": "Read original source for task IDs"
+        },
+        "at_utc": "2026-10-16T21:09:41.679838+00:00"
+      },
+      "scoring_summary": {
+        "complete": false,
+        "expected": 2500,
+        "frozen_terminal_results": 556,
+        "judged_answers": 300,
+        "native_no_answer": 256,
+        "evaluation_invalid": 0,
+        "scored": 556,
+        "pending": 1944,
+        "correct": 23,
+        "accuracy_percent": null,
+        "score": null,
+        "subgroups": {
+          "text": {
+            "denominator": 2158,
+            "scored": 500,
+            "correct": 20,
+            "accuracy_percent": null
+          },
+          "image": {
+            "denominator": 342,
+            "scored": 56,
+            "correct": 3,
+            "accuracy_percent": null
+          }
+        },
+        "selection_states": {
+          "answer": 300,
+          "native_no_answer": 256,
+          "pending_generation": 1944
+        },
+        "judge_generation_calls": 300,
+        "accounted_cost_cny": 0.3153045,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T21:09:28.716328+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+      },
+      "formal_score": null,
+      "invalid_diagnostics": [],
+      "consumer_marker": {},
+      "stop_admission": false,
+      "generator": {
+        "pid": 485903,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868175753"
+      },
+      "scorer": {
+        "pid": 485904,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868175753"
+      },
+      "controller": {
+        "pid": 3418011,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868028556"
+      },
+      "global_started": 608,
+      "incomplete_started": 50,
+      "budget_status_counts": {
+        "completed": 300
+      }
+    }
+  },
+  "asi": {
+    "asi128_asi240_20261017": {
+      "exists": true,
+      "global_saved_results": 192,
+      "global_started": 200,
+      "incomplete_started": 8,
+      "global_expected": 240,
+      "native_generation_status_counts": {
+        "failed": 179,
+        "completed": 13
+      },
+      "progress": {
+        "completed_conditions": 192,
+        "expected_conditions": 240,
+        "updated_at": "2026-10-16T21:09:07.000900+00:00",
+        "scored": false,
+        "state": "running",
+        "admitted_this_session": {
+          "count": 200,
+          "values_omitted": "Read original source for task IDs"
+        },
+        "completed_this_session": {
+          "count": 192,
+          "values_omitted": "Read original source for task IDs"
+        },
+        "active": {
+          "count": 8,
+          "values_omitted": "Read original source for task IDs"
+        }
+      },
+      "generation_marker": {},
+      "all_cpu_marker": {},
+      "scoring_summary": {},
+      "formal_score": null
+    },
+    "avg64_asi240_20261017": {
+      "exists": false,
+      "global_saved_results": 0,
+      "global_started": 0,
+      "incomplete_started": 0,
+      "global_expected": 240,
+      "native_generation_status_counts": {},
+      "progress": {},
+      "generation_marker": {},
+      "all_cpu_marker": {},
+      "scoring_summary": {},
+      "formal_score": null
+    }
+  },
+  "drivers": {
+    "hle_normal_migration_20261017": {
+      "state_source": "artifacts/eval/hle_normal_migration_20261017/state.json",
+      "state": {
+        "pid": 3312903,
+        "started_at_utc": "2026-10-16T20:00:05.777712+00:00",
+        "updated_at_utc": "2026-10-16T20:11:32.736613+00:00",
+        "finished_at_utc": "2026-10-16T20:11:42.738517+00:00"
+      },
+      "process": {
+        "pid": 3312903,
+        "alive": false
+      },
+      "profiles": {
+        "expert": {
+          "old_job": 727821,
+          "phase": "resumed",
+          "new_job": 727855,
+          "new_generation_pid": 3418010
+        },
+        "merged": {
+          "old_job": 727822,
+          "phase": "resumed",
+          "new_job": 727856,
+          "new_generation_pid": 4076145
+        },
+        "controls": {
+          "old_job": 727831,
+          "phase": "resumed",
+          "new_job": 727857,
+          "new_generation_pid": 3418080
+        }
+      }
+    },
+    "asi-acdu-migration-20261017": {
+      "state_source": "artifacts/eval/asi-acdu-migration-20261017/state.json",
+      "state": {
+        "state": "finished",
+        "at_utc": "2026-10-16T20:25:43.946008+00:00",
+        "driver_pid": 3312601,
+        "parent_pid": 2752099,
+        "parent_starttime_ticks": "867337587",
+        "old_job": 727643,
+        "formal_output": "artifacts/eval/asi128_asi240_20261017",
+        "consecutive_drained_checks": 2,
+        "old_release_requested_at_utc": "2026-10-16T20:15:15.799131+00:00",
+        "submission": {
+          "job_id": 727879,
+          "partition": "acd_u",
+          "nice": 1000,
+          "time_limit_minutes_at_submit": 1309,
+          "absolute_deadline": "2026-10-18T02:04:31+08:00"
+        },
+        "new_job": 727879,
+        "node": "ACD1-8",
+        "permit": {
+          "permit": "permitopen=\"ACD1-8:18002\"",
+          "lock": "/data/user/qinlucao/.ssh/apex-authorized-keys.lock"
+        },
+        "service_deadline": "2026-10-18T02:04:31+08:00",
+        "time_limit_minutes": 1308,
+        "resumed_at_utc": "2026-10-16T20:25:40.941488+00:00",
+        "acceptance_ready": true,
+        "parent_state": "S",
+        "progress_after_resume": {
+          "completed_conditions": 138,
+          "expected_conditions": 240,
+          "updated_at": "2026-10-16T20:25:41.126719+00:00",
+          "scored": false,
+          "state": "running",
+          "active": [
+            "math.ill_posed_inverse_problem__seed31415__b3",
+            "math.ill_posed_inverse_problem__seed31415__b4",
+            "math.levin_context_grid_search__seed31415__b1",
+            "math.levin_context_grid_search__seed31415__b2",
+            "math.levin_context_grid_search__seed31415__b3",
+            "math.levin_context_grid_search__seed31415__b4",
+            "math.manifold_pde_meshfree__seed31415__b1",
+            "math.manifold_pde_meshfree__seed31415__b2"
+          ]
+        }
+      },
+      "process": {
+        "pid": 3312601,
+        "alive": false
+      }
+    },
+    "merged_asi_existing_hle_service_20261017": {
+      "state_source": "artifacts/eval/merged_asi_existing_hle_service_20261017/state.json",
+      "state": {
+        "state": "waiting_existing_replica_and_cpu",
+        "at_utc": "2026-10-16T21:09:31.170125+00:00",
+        "pid": 4143547,
+        "endpoint": "http://127.0.0.1:28095",
+        "expert_generation_cpu_ready": false,
+        "hle_saved_results": 202,
+        "hle_generation_pid": 4076145,
+        "normal_service_job": 727856,
+        "migration_state": null,
+        "new_gpu_allocations": 0
+      },
+      "process": {
+        "pid": 4143547,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868054456"
+      }
+    },
+    "normal_hle_service_release_20261017": {
+      "state_source": "artifacts/eval/normal_hle_service_release_20261017/state.json",
+      "state": {
+        "released": {
+          "expert": {
+            "job_id": 727855,
+            "gpus": 2,
+            "at_utc": "2026-10-16T20:26:42.529347+00:00",
+            "marker": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/model-consumer-finished.json",
+            "marker_observed": {
+              "model_consumer_finished": true,
+              "generation_process_finished": true,
+              "generation_pid": 3418010,
+              "saved_results": 2500,
+              "model": "apex-hle250",
+              "at_utc": "2026-10-16T20:26:28.068001+00:00",
+              "scoring_uses_external_judge_only": true
+            },
+            "running_and_waiting_requests": 0,
+            "external_judges_continue": true
+          }
+        },
+        "pid": 3321991,
+        "at_utc": "2026-10-16T21:09:42.932456+00:00"
+      },
+      "process": {
+        "pid": 3321991,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868018087"
+      }
+    },
+    "expert_direct_pipeline_20261017": {
+      "state_source": "artifacts/eval/expert_direct_pipeline_20261017/state.json",
+      "state": {
+        "state": "asi_generation",
+        "pid": 2752099,
+        "coordinator_reattached": true,
+        "at_utc": "2026-10-16T19:39:43.029011+00:00"
+      },
+      "process": {
+        "pid": 2752099,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "867337587"
+      }
+    },
+    "merged_direct_pipeline_20261017": {
+      "state_source": "artifacts/eval/merged_direct_pipeline_20261017/state.json",
+      "state": {
+        "state": "paused_user_gpu_release",
+        "at_utc": "2026-10-16T19:53:05.551673+00:00",
+        "released_service_job_id": 727654,
+        "resume_requirement": "Restore or repoint a verified AVG64 endpoint before restarting the merged ASI coordinator; do not call released28093 or allocate replacement GPUs automatically.",
+        "receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/merged_direct_pipeline_20261017/gpu-release-pause.json"
+      },
+      "process": {
+        "pid": 3237026,
+        "alive": false
+      }
+    }
+  },
+  "services": {
+    "28090": {
+      "port": 28090,
+      "/health_http_status": 200,
+      "/metrics_http_status": 200,
+      "native_requests": {
+        "num_requests_running": 7.0,
+        "num_requests_waiting": 0.0
+      }
+    },
+    "28095": {
+      "port": 28095,
+      "/health_http_status": 200,
+      "/metrics_http_status": 200,
+      "native_requests": {
+        "num_requests_running": 50.0,
+        "num_requests_waiting": 0.0
+      }
+    },
+    "28096": {
+      "port": 28096,
+      "/health_http_status": 200,
+      "/metrics_http_status": 200,
+      "native_requests": {
+        "num_requests_running": 50.0,
+        "num_requests_waiting": 0.0
+      }
+    }
+  },
+  "processes": {
+    "2752099": {
+      "pid": 2752099,
+      "alive": true,
+      "state": "S",
+      "starttime_ticks": "867337587"
+    },
+    "3237024": {
+      "pid": 3237024,
+      "alive": true,
+      "state": "S",
+      "starttime_ticks": "867860696"
+    },
+    "4143547": {
+      "pid": 4143547,
+      "alive": true,
+      "state": "S",
+      "starttime_ticks": "868054456"
+    },
+    "3321991": {
+      "pid": 3321991,
+      "alive": true,
+      "state": "S",
+      "starttime_ticks": "868018087"
+    },
+    "3418009": {
+      "pid": 3418009,
+      "alive": false
+    },
+    "4075849": {
+      "pid": 4075849,
+      "alive": true,
+      "state": "S",
+      "starttime_ticks": "868051655"
+    },
+    "3418011": {
+      "pid": 3418011,
+      "alive": true,
+      "state": "S",
+      "starttime_ticks": "868028556"
+    }
+  },
+  "asi_grader_lock": "unlocked_at_probe",
+  "cpu_scopes_intersecting92_127": [],
+  "interpretation": {
+    "snapshot_is_not_transactional": true,
+    "hle_counts": "global finished question files, independent of resumed-session checkpoint and stale generation summary",
+    "score_policy": "Only complete=true exposes final score; no-answer native failures remain fixed denominator; exhausted judge failures remain invalid/null; no third attempt authorized.",
+    "changes": "None to model, answers, scoring code, queue, GPU, or API requests.",
+    "repair_decision": "No mutation: invalids exhausted the frozen two-attempt Judge policy. A third call, larger token cap, or relaxed parsing would change scoring protocol. All original invalids and reservations retained."
+  },
+  "cpu_scope_probe": {
+    "source": "systemctl --user plus cpuset.cpus.effective",
+    "count_all_relevant_scope_units": 30
+  },
+  "slurm_snapshot": [
+    {
+      "job_id": "727879",
+      "job_name": "apex-asi-acdu-migrate-20261017",
+      "partition": "acd_u",
+      "state": "RUNNING",
+      "node": "ACD1-8",
+      "cpus": "16",
+      "gres": "gres/gpu:2",
+      "end_time_local": "2026-10-18T02:03:55"
+    },
+    {
+      "job_id": "727856",
+      "job_name": "apex-hle-normal-merged",
+      "partition": "acd_u",
+      "state": "RUNNING",
+      "node": "ACD1-20",
+      "cpus": "16",
+      "gres": "gres/gpu:2",
+      "end_time_local": "2026-10-18T02:19:33"
+    },
+    {
+      "job_id": "727857",
+      "job_name": "apex-hle-normal-controls",
+      "partition": "acd_u",
+      "state": "RUNNING",
+      "node": "ACD1-30",
+      "cpus": "16",
+      "gres": "gres/gpu:2",
+      "end_time_local": "2026-10-17T23:39:33"
+    }
+  ],
+  "slurm_source": "squeue -h -j 727855,727856,727857,727879; job727855 absent, matches saved release receipt"
+}
