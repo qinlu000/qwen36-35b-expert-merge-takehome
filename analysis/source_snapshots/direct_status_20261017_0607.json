@@ -1,0 +1,1219 @@
+{
+  "captured_at_utc": "2026-10-16T22:07:57.238807+00:00",
+  "read_only": true,
+  "shared_context_read": [
+    "claud.md latest05:48",
+    "analysis/current_status_20261017.md latest05:46"
+  ],
+  "snapshot_is_not_transactional": true,
+  "hle": {
+    "hle250_hle2500_20261017": {
+      "global_generation": {
+        "saved_terminal": 2500,
+        "started": 2500,
+        "incomplete_started": 0,
+        "status_counts": {
+          "completed": 2470,
+          "failed": 30
+        },
+        "saved_images": 342
+      },
+      "session_checkpoint": {
+        "state": "completed",
+        "reason": null,
+        "admitted": 1337,
+        "completed": 1337,
+        "cancelled_or_unwinding": 0,
+        "not_admitted": 0,
+        "at_utc": "2026-10-16T20:26:27.822222+00:00"
+      },
+      "generation_summary": {
+        "mode": "formal",
+        "denominator": 2500,
+        "saved_results": 2500,
+        "status_counts": {
+          "completed": 2470,
+          "failed": 30
+        },
+        "image_results": 342,
+        "prompt_tokens": 1165589,
+        "completion_tokens": 544479,
+        "grading": "separate",
+        "controller_state": "completed",
+        "finished_at_utc": "2026-10-16T20:26:27.924417+00:00"
+      },
+      "score_summary": {
+        "complete": true,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 2470,
+        "native_no_answer": 30,
+        "evaluation_invalid": 0,
+        "scored": 2500,
+        "pending": 0,
+        "correct": 173,
+        "accuracy_percent": 6.92,
+        "score": 6.92,
+        "subgroups": {
+          "text": {
+            "denominator": 2158,
+            "scored": 2158,
+            "correct": 150,
+            "accuracy_percent": 6.95
+          },
+          "image": {
+            "denominator": 342,
+            "scored": 342,
+            "correct": 23,
+            "accuracy_percent": 6.73
+          }
+        },
+        "selection_states": {
+          "answer": 2470,
+          "native_no_answer": 30
+        },
+        "judge_generation_calls": 2475,
+        "accounted_cost_cny": 1.9527705,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T21:16:38.182806+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed",
+        "recovery_judge_calls": 2,
+        "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/scoring/compact-recovery-20261017",
+        "recovery_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "original_budget_ledger_unchanged": true,
+        "protocol_exception": "Original two attempts plus at most one explicit compact-wrapper recovery for listed length-truncated grades"
+      },
+      "invalids": [],
+      "generator": {
+        "pid": 3418010,
+        "alive": false
+      },
+      "scorer": {
+        "pid": 3266685,
+        "alive": false
+      },
+      "controller": {
+        "pid": 3418009,
+        "alive": false
+      },
+      "consumer_marker": {
+        "model_consumer_finished": true,
+        "generation_process_finished": true,
+        "generation_pid": 3418010,
+        "saved_results": 2500,
+        "model": "apex-hle250",
+        "at_utc": "2026-10-16T20:26:28.068001+00:00",
+        "scoring_uses_external_judge_only": true
+      },
+      "stop_admission": false,
+      "original_calls": 2473,
+      "original_accounted_cost_cny": 1.9513874999999974,
+      "compact_recovery_calls": 2,
+      "compact_recovery_accounted_cost_cny": 0.0013830000000000001
+    },
+    "mixed883_hle2500_20261017": {
+      "global_generation": {
+        "saved_terminal": 2500,
+        "started": 2500,
+        "incomplete_started": 0,
+        "status_counts": {
+          "completed": 2459,
+          "failed": 41
+        },
+        "saved_images": 342
+      },
+      "session_checkpoint": {
+        "state": "completed",
+        "reason": null,
+        "admitted": 1591,
+        "completed": 1591,
+        "cancelled_or_unwinding": 0,
+        "not_admitted": 0,
+        "at_utc": "2026-10-16T20:32:13.187258+00:00"
+      },
+      "generation_summary": {
+        "mode": "formal",
+        "denominator": 2500,
+        "saved_results": 2500,
+        "status_counts": {
+          "completed": 2459,
+          "failed": 41
+        },
+        "image_results": 342,
+        "prompt_tokens": 1159040,
+        "completion_tokens": 554387,
+        "grading": "separate",
+        "controller_state": "completed",
+        "finished_at_utc": "2026-10-16T20:32:13.335486+00:00"
+      },
+      "score_summary": {
+        "complete": true,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 2459,
+        "native_no_answer": 41,
+        "evaluation_invalid": 0,
+        "scored": 2500,
+        "pending": 0,
+        "correct": 146,
+        "accuracy_percent": 5.84,
+        "score": 5.84,
+        "subgroups": {
+          "text": {
+            "denominator": 2158,
+            "scored": 2158,
+            "correct": 127,
+            "accuracy_percent": 5.89
+          },
+          "image": {
+            "denominator": 342,
+            "scored": 342,
+            "correct": 19,
+            "accuracy_percent": 5.56
+          }
+        },
+        "selection_states": {
+          "answer": 2459,
+          "native_no_answer": 41
+        },
+        "judge_generation_calls": 2473,
+        "accounted_cost_cny": 2.0788830000000003,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T21:16:51.199883+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed",
+        "recovery_judge_calls": 6,
+        "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/scoring/compact-recovery-20261017",
+        "recovery_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "original_budget_ledger_unchanged": true,
+        "protocol_exception": "Original two attempts plus at most one explicit compact-wrapper recovery for listed length-truncated grades"
+      },
+      "invalids": [],
+      "generator": {
+        "pid": 3418080,
+        "alive": false
+      },
+      "scorer": {
+        "pid": 3268683,
+        "alive": false
+      },
+      "controller": {
+        "pid": 3418011,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868028556",
+        "python_script_names": [
+          "run_hle_task_controls.py"
+        ]
+      },
+      "consumer_marker": {
+        "model_consumer_finished": true,
+        "at_utc": "2026-10-16T20:32:13.470169+00:00",
+        "model": "apex-mixed883",
+        "expected": 2500,
+        "generation_process_finished": true,
+        "saved_results": 2500,
+        "scoring_uses_external_judge_only": true
+      },
+      "stop_admission": false,
+      "original_calls": 2467,
+      "original_accounted_cost_cny": 2.0727397500000007,
+      "compact_recovery_calls": 6,
+      "compact_recovery_accounted_cost_cny": 0.006143249999999999
+    },
+    "avg64_hle2500_20261017": {
+      "global_generation": {
+        "saved_terminal": 2100,
+        "started": 2150,
+        "incomplete_started": 50,
+        "status_counts": {
+          "failed": 940,
+          "completed": 1160
+        },
+        "saved_images": 267
+      },
+      "session_checkpoint": {
+        "state": "running",
+        "admitted": 1948,
+        "completed": 1898,
+        "active": 50,
+        "at_utc": "2026-10-16T22:07:55.040332+00:00"
+      },
+      "generation_summary": {
+        "mode": "formal",
+        "denominator": 2500,
+        "saved_results": 202,
+        "status_counts": {
+          "failed": 88,
+          "completed": 114
+        },
+        "image_results": 16,
+        "prompt_tokens": 37595,
+        "completion_tokens": 75325,
+        "grading": "separate",
+        "controller_state": "drained",
+        "finished_at_utc": "2026-10-16T20:02:01.556446+00:00"
+      },
+      "score_summary": {
+        "complete": false,
+        "expected": 2500,
+        "frozen_terminal_results": 2099,
+        "judged_answers": 1154,
+        "native_no_answer": 940,
+        "evaluation_invalid": 2,
+        "scored": 2094,
+        "pending": 406,
+        "correct": 104,
+        "accuracy_percent": null,
+        "score": null,
+        "subgroups": {
+          "text": {
+            "denominator": 2158,
+            "scored": 1828,
+            "correct": 91,
+            "accuracy_percent": null
+          },
+          "image": {
+            "denominator": 342,
+            "scored": 266,
+            "correct": 13,
+            "accuracy_percent": null
+          }
+        },
+        "selection_states": {
+          "native_no_answer": 940,
+          "answer": 1159,
+          "pending_generation": 401
+        },
+        "judge_generation_calls": 1160,
+        "accounted_cost_cny": 1.28877675,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T22:07:57.402229+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+      },
+      "invalids": [
+        {
+          "id": "6738e0e90afc5078575438a9",
+          "reason": "Both allowed Judge attempts failed; never a scored zero",
+          "judge_calls": 2,
+          "attempts": [
+            {
+              "attempt": 1,
+              "error_type": "JSONDecodeError",
+              "response_exists": true,
+              "http_status": 200,
+              "finish_reason": "length",
+              "completion_tokens": 4096,
+              "content_chars": 2,
+              "reported_model": "DeepSeek-V4-Flash",
+              "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+              "content_json_valid": false
+            },
+            {
+              "attempt": 2,
+              "error_type": "JSONDecodeError",
+              "response_exists": true,
+              "http_status": 200,
+              "finish_reason": "length",
+              "completion_tokens": 4096,
+              "content_chars": 2,
+              "reported_model": "DeepSeek-V4-Flash",
+              "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+              "content_json_valid": false
+            }
+          ],
+          "eligible_truncation_metadata": true
+        },
+        {
+          "id": "67216b3c8238b402204d3432",
+          "reason": "Both allowed Judge attempts failed; never a scored zero",
+          "judge_calls": 2,
+          "attempts": [
+            {
+              "attempt": 1,
+              "error_type": "JSONDecodeError",
+              "response_exists": true,
+              "http_status": 200,
+              "finish_reason": "length",
+              "completion_tokens": 4096,
+              "content_chars": 2,
+              "reported_model": "DeepSeek-V4-Flash",
+              "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+              "content_json_valid": false
+            },
+            {
+              "attempt": 2,
+              "error_type": "JSONDecodeError",
+              "response_exists": true,
+              "http_status": 200,
+              "finish_reason": "length",
+              "completion_tokens": 4096,
+              "content_chars": 2,
+              "reported_model": "DeepSeek-V4-Flash",
+              "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+              "content_json_valid": false
+            }
+          ],
+          "eligible_truncation_metadata": true
+        }
+      ],
+      "generator": {
+        "pid": 4076145,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868051667",
+        "python_script_names": [
+          "run_direct_hle_formal.py"
+        ]
+      },
+      "scorer": {
+        "pid": 3269010,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "867904422",
+        "python_script_names": [
+          "score_direct_hle_formal.py"
+        ]
+      },
+      "controller": {
+        "pid": 4075849,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868051655",
+        "python_script_names": [
+          "run_dedicated_hle_formal.py"
+        ]
+      },
+      "consumer_marker": {},
+      "stop_admission": false,
+      "original_calls": 1161,
+      "original_accounted_cost_cny": 1.3012657500000004,
+      "compact_recovery_calls": 0,
+      "compact_recovery_accounted_cost_cny": 0
+    },
+    "avg16_hle2500_20261017": {
+      "global_generation": {
+        "saved_terminal": 1427,
+        "started": 1477,
+        "incomplete_started": 50,
+        "status_counts": {
+          "failed": 723,
+          "completed": 704
+        },
+        "saved_images": 193
+      },
+      "session_checkpoint": {
+        "state": "running",
+        "admitted": 1477,
+        "completed": 1427,
+        "active": 50,
+        "at_utc": "2026-10-16T22:07:48.293897+00:00"
+      },
+      "generation_summary": {},
+      "score_summary": {
+        "complete": false,
+        "expected": 2500,
+        "frozen_terminal_results": 1426,
+        "judged_answers": 702,
+        "native_no_answer": 722,
+        "evaluation_invalid": 0,
+        "scored": 1424,
+        "pending": 1076,
+        "correct": 60,
+        "accuracy_percent": null,
+        "score": null,
+        "subgroups": {
+          "text": {
+            "denominator": 2158,
+            "scored": 1232,
+            "correct": 52,
+            "accuracy_percent": null
+          },
+          "image": {
+            "denominator": 342,
+            "scored": 192,
+            "correct": 8,
+            "accuracy_percent": null
+          }
+        },
+        "selection_states": {
+          "answer": 704,
+          "native_no_answer": 722,
+          "generation_protocol_invalid": 1,
+          "pending_generation": 1073
+        },
+        "judge_generation_calls": 703,
+        "accounted_cost_cny": 0.7477005,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T22:07:57.815790+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+      },
+      "invalids": [],
+      "generator": {
+        "pid": 485903,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868175753",
+        "python_script_names": [
+          "run_direct_hle_formal.py"
+        ]
+      },
+      "scorer": {
+        "pid": 485904,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868175753",
+        "python_script_names": [
+          "score_direct_hle_formal.py"
+        ]
+      },
+      "controller": {
+        "pid": 3418011,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868028556",
+        "python_script_names": [
+          "run_hle_task_controls.py"
+        ]
+      },
+      "consumer_marker": {},
+      "stop_admission": false,
+      "original_calls": 704,
+      "original_accounted_cost_cny": 0.7599277499999999,
+      "compact_recovery_calls": 0,
+      "compact_recovery_accounted_cost_cny": 0
+    },
+    "ties_dense_hle2500_20261017": {
+      "global_generation": {
+        "saved_terminal": 2491,
+        "started": 2500,
+        "incomplete_started": 9,
+        "status_counts": {
+          "completed": 2430,
+          "failed": 61
+        },
+        "saved_images": 335
+      },
+      "session_checkpoint": {
+        "state": "running",
+        "admitted": 2500,
+        "completed": 2450,
+        "active": 50,
+        "at_utc": "2026-10-16T22:05:53.492284+00:00"
+      },
+      "generation_summary": {},
+      "score_summary": {
+        "complete": false,
+        "expected": 2500,
+        "frozen_terminal_results": 2490,
+        "judged_answers": 924,
+        "native_no_answer": 60,
+        "evaluation_invalid": 4,
+        "scored": 984,
+        "pending": 1516,
+        "correct": 48,
+        "accuracy_percent": null,
+        "score": null,
+        "subgroups": {
+          "text": {
+            "denominator": 2158,
+            "scored": 844,
+            "correct": 44,
+            "accuracy_percent": null
+          },
+          "image": {
+            "denominator": 342,
+            "scored": 140,
+            "correct": 4,
+            "accuracy_percent": null
+          }
+        },
+        "selection_states": {
+          "answer": 2430,
+          "native_no_answer": 60,
+          "pending_generation": 10
+        },
+        "judge_generation_calls": 933,
+        "accounted_cost_cny": 0.84368925,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T22:07:57.143419+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+      },
+      "invalids": [
+        {
+          "id": "66e8cfa03add731d7fce4352",
+          "reason": "Both allowed Judge attempts failed; never a scored zero",
+          "judge_calls": 2,
+          "attempts": [
+            {
+              "attempt": 1,
+              "error_type": "JSONDecodeError",
+              "response_exists": true,
+              "http_status": 200,
+              "finish_reason": "length",
+              "completion_tokens": 4096,
+              "content_chars": 155,
+              "reported_model": "DeepSeek-V4-Flash",
+              "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+              "content_json_valid": false
+            },
+            {
+              "attempt": 2,
+              "error_type": "JSONDecodeError",
+              "response_exists": true,
+              "http_status": 200,
+              "finish_reason": "length",
+              "completion_tokens": 4096,
+              "content_chars": 155,
+              "reported_model": "DeepSeek-V4-Flash",
+              "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+              "content_json_valid": false
+            }
+          ],
+          "eligible_truncation_metadata": true
+        },
+        {
+          "id": "6717cc3a4d6b1e71cab9bc8c",
+          "reason": "Both allowed Judge attempts failed; never a scored zero",
+          "judge_calls": 2,
+          "attempts": [
+            {
+              "attempt": 1,
+              "error_type": "JSONDecodeError",
+              "response_exists": true,
+              "http_status": 200,
+              "finish_reason": "length",
+              "completion_tokens": 4096,
+              "content_chars": 2,
+              "reported_model": "DeepSeek-V4-Flash",
+              "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+              "content_json_valid": false
+            },
+            {
+              "attempt": 2,
+              "error_type": "JSONDecodeError",
+              "response_exists": true,
+              "http_status": 200,
+              "finish_reason": "length",
+              "completion_tokens": 4096,
+              "content_chars": 2,
+              "reported_model": "DeepSeek-V4-Flash",
+              "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+              "content_json_valid": false
+            }
+          ],
+          "eligible_truncation_metadata": true
+        },
+        {
+          "id": "670fe03ef99389b3c7942186",
+          "reason": "Both allowed Judge attempts failed; never a scored zero",
+          "judge_calls": 2,
+          "attempts": [
+            {
+              "attempt": 1,
+              "error_type": "JSONDecodeError",
+              "response_exists": true,
+              "http_status": 200,
+              "finish_reason": "length",
+              "completion_tokens": 4096,
+              "content_chars": 55,
+              "reported_model": "DeepSeek-V4-Flash",
+              "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+              "content_json_valid": false
+            },
+            {
+              "attempt": 2,
+              "error_type": "JSONDecodeError",
+              "response_exists": true,
+              "http_status": 200,
+              "finish_reason": "length",
+              "completion_tokens": 4096,
+              "content_chars": 55,
+              "reported_model": "DeepSeek-V4-Flash",
+              "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+              "content_json_valid": false
+            }
+          ],
+          "eligible_truncation_metadata": true
+        },
+        {
+          "id": "6715e455f818cdd1872c0ef0",
+          "reason": "Both allowed Judge attempts failed; never a scored zero",
+          "judge_calls": 2,
+          "attempts": [
+            {
+              "attempt": 1,
+              "error_type": "JSONDecodeError",
+              "response_exists": true,
+              "http_status": 200,
+              "finish_reason": "length",
+              "completion_tokens": 4096,
+              "content_chars": 187,
+              "reported_model": "DeepSeek-V4-Flash",
+              "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+              "content_json_valid": false
+            },
+            {
+              "attempt": 2,
+              "error_type": "JSONDecodeError",
+              "response_exists": true,
+              "http_status": 200,
+              "finish_reason": "length",
+              "completion_tokens": 4096,
+              "content_chars": 187,
+              "reported_model": "DeepSeek-V4-Flash",
+              "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+              "content_json_valid": false
+            }
+          ],
+          "eligible_truncation_metadata": true
+        }
+      ],
+      "generator": {
+        "pid": 887555,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868602347",
+        "python_script_names": [
+          "run_direct_hle_formal.py"
+        ]
+      },
+      "scorer": {
+        "pid": 887556,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868602347",
+        "python_script_names": [
+          "score_direct_hle_formal.py"
+        ]
+      },
+      "controller": {
+        "pid": 782323,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868543002",
+        "python_script_names": [
+          "run_ties_dense_hle_control.py"
+        ]
+      },
+      "consumer_marker": {},
+      "stop_admission": false,
+      "original_calls": 934,
+      "original_accounted_cost_cny": 0.8555347499999999,
+      "compact_recovery_calls": 0,
+      "compact_recovery_accounted_cost_cny": 0
+    }
+  },
+  "asi": {
+    "asi128_asi240_20261017": {
+      "exists": true,
+      "saved_terminal": 240,
+      "started": 240,
+      "status_counts": {
+        "failed": 226,
+        "completed": 14
+      },
+      "progress": {
+        "completed_conditions": 240,
+        "expected_conditions": 240,
+        "updated_at": "2026-10-16T21:38:33.635410+00:00",
+        "scored": false,
+        "state": "completed",
+        "reason": null,
+        "admitted_this_session": 240,
+        "completed_this_session": 240,
+        "active": 0,
+        "unsubmitted_this_session": 0
+      },
+      "generation_marker": {
+        "state": "finished",
+        "completed_conditions": 240,
+        "cpu_sets": [
+          [
+            96,
+            97,
+            98,
+            99
+          ],
+          [
+            100,
+            101,
+            102,
+            103
+          ],
+          [
+            104,
+            105,
+            106,
+            107
+          ],
+          [
+            108,
+            109,
+            110,
+            111
+          ],
+          [
+            112,
+            113,
+            114,
+            115
+          ],
+          [
+            116,
+            117,
+            118,
+            119
+          ],
+          [
+            120,
+            121,
+            122,
+            123
+          ],
+          [
+            124,
+            125,
+            126,
+            127
+          ]
+        ],
+        "owned_scope_count": 240,
+        "active_owned_scopes": [],
+        "worker_pool_shutdown": true,
+        "at_utc": "2026-10-16T21:38:35.929286+00:00"
+      },
+      "all_cpu_marker": {},
+      "scoring_summary_keys": [],
+      "scoring_top_files": [
+        "judge_identity.json",
+        "scoring_config.json",
+        "local_score_seed31415.json"
+      ]
+    },
+    "avg64_asi240_20261017": {
+      "exists": false,
+      "saved_terminal": 0,
+      "started": 0,
+      "status_counts": {},
+      "progress": {},
+      "generation_marker": {},
+      "all_cpu_marker": {},
+      "scoring_summary_keys": [],
+      "scoring_top_files": []
+    }
+  },
+  "drivers": {
+    "merged_asi_existing_hle_service_20261017": {
+      "state": {
+        "state": "waiting_existing_replica_and_cpu",
+        "at_utc": "2026-10-16T22:07:46.724595+00:00",
+        "pid": 4143547,
+        "endpoint": "http://127.0.0.1:28095",
+        "expert_generation_cpu_ready": true,
+        "hle_saved_results": 202,
+        "hle_generation_pid": 4076145,
+        "normal_service_job": 727856,
+        "migration_state": null,
+        "new_gpu_allocations": 0
+      },
+      "process": {
+        "pid": 4143547,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868054456",
+        "python_script_names": [
+          "resume_merged_asi_on_hle_service.py"
+        ]
+      },
+      "launch": {}
+    },
+    "normal_hle_service_release_20261017": {
+      "state": {
+        "released": {
+          "expert": {
+            "job_id": 727855,
+            "gpus": 2,
+            "at_utc": "2026-10-16T20:26:42.529347+00:00",
+            "marker": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/model-consumer-finished.json",
+            "marker_observed": {
+              "model_consumer_finished": true,
+              "generation_process_finished": true,
+              "generation_pid": 3418010,
+              "saved_results": 2500,
+              "model": "apex-hle250",
+              "at_utc": "2026-10-16T20:26:28.068001+00:00",
+              "scoring_uses_external_judge_only": true
+            },
+            "running_and_waiting_requests": 0,
+            "external_judges_continue": true
+          }
+        },
+        "pid": 3321991,
+        "at_utc": "2026-10-16T22:07:43.493138+00:00"
+      },
+      "process": {
+        "pid": 3321991,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868018087",
+        "python_script_names": [
+          "release_completed_normal_hle_services.py"
+        ]
+      },
+      "launch": {}
+    },
+    "expert_direct_pipeline_20261017": {
+      "state": {
+        "state": "asi_generation",
+        "pid": 2752099,
+        "coordinator_reattached": true,
+        "at_utc": "2026-10-16T19:39:43.029011+00:00"
+      },
+      "process": {
+        "pid": 2752099,
+        "alive": false
+      },
+      "launch": {},
+      "actual_coordinator_and_grader": {
+        "coordinator": {
+          "pid": 3237024,
+          "alive": true,
+          "state": "S",
+          "starttime_ticks": "867860696"
+        },
+        "grader": {
+          "pid": 837390,
+          "alive": true,
+          "state": "S",
+          "starttime_ticks": "868574721"
+        },
+        "grading_launch_at_utc": "2026-10-16T21:38:43.192881+00:00",
+        "cpu_lease": "92–95"
+      }
+    },
+    "merged_direct_pipeline_20261017": {
+      "state": {
+        "state": "paused_user_gpu_release",
+        "at_utc": "2026-10-16T19:53:05.551673+00:00",
+        "released_service_job_id": 727654,
+        "resume_requirement": "Restore or repoint a verified AVG64 endpoint before restarting the merged ASI coordinator; do not call released28093 or allocate replacement GPUs automatically.",
+        "receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/merged_direct_pipeline_20261017/gpu-release-pause.json"
+      },
+      "process": {
+        "pid": 3237026,
+        "alive": false
+      },
+      "launch": {}
+    },
+    "ties_dense_hle2500_20261017/controller": {
+      "state": {
+        "pid": 782323,
+        "model": "apex-ties-dense",
+        "phase": "generating",
+        "new_gpu_allocations": 2,
+        "at_utc": "2026-10-16T21:43:19.460656+00:00",
+        "project_gpu_count_before": 10,
+        "job_id": 728016,
+        "node": "ACD1-19",
+        "service_end_utc": "2026-10-17T01:33:34+00:00",
+        "stop_admission_at_utc": "2026-10-17T01:28:34+00:00",
+        "tunnel_supervisor_pid": 782811,
+        "generation_pid": 887555,
+        "scoring_pid": 887556,
+        "endpoint": "http://127.0.0.1:28097"
+      },
+      "process": {
+        "pid": 782323,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868543002",
+        "python_script_names": [
+          "run_ties_dense_hle_control.py"
+        ]
+      },
+      "launch": {}
+    }
+  },
+  "avg64_to_asi_gate": {
+    "source_generation_cpu_finished": true,
+    "global_saved_2500": false,
+    "generation_summary_saved": 202,
+    "generation_summary_completed": false,
+    "generator_exited": false,
+    "marker_finished_2500": false,
+    "marker_pid_matches_current_generator": false,
+    "stop_absent": true,
+    "normal_route_exact": true,
+    "normal_service_job": 727856,
+    "merged_asi_already_exists": false
+  },
+  "services": {
+    "28095": {
+      "port": 28095,
+      "/health_status": 200,
+      "/metrics_status": 200,
+      "native_requests": {
+        "num_requests_running": 50.0,
+        "num_requests_waiting": 0.0
+      }
+    },
+    "28096": {
+      "port": 28096,
+      "/health_status": 200,
+      "/metrics_status": 200,
+      "native_requests": {
+        "num_requests_running": 49.0,
+        "num_requests_waiting": 0.0
+      }
+    },
+    "28097": {
+      "port": 28097,
+      "/health_status": 200,
+      "/metrics_status": 200,
+      "native_requests": {
+        "num_requests_running": 9.0,
+        "num_requests_waiting": 0.0
+      }
+    }
+  },
+  "intentionally_released": {
+    "service_job": 727879,
+    "endpoint": "http://127.0.0.1:28090",
+    "probe_or_rebuild_performed": false,
+    "receipt": {
+      "job_id": 727879,
+      "gpus": 2,
+      "generation_marker": {
+        "state": "finished",
+        "completed_conditions": 240,
+        "cpu_sets": [
+          [
+            96,
+            97,
+            98,
+            99
+          ],
+          [
+            100,
+            101,
+            102,
+            103
+          ],
+          [
+            104,
+            105,
+            106,
+            107
+          ],
+          [
+            108,
+            109,
+            110,
+            111
+          ],
+          [
+            112,
+            113,
+            114,
+            115
+          ],
+          [
+            116,
+            117,
+            118,
+            119
+          ],
+          [
+            120,
+            121,
+            122,
+            123
+          ],
+          [
+            124,
+            125,
+            126,
+            127
+          ]
+        ],
+        "owned_scope_count": 240,
+        "active_owned_scopes": [],
+        "worker_pool_shutdown": true,
+        "at_utc": "2026-10-16T21:38:35.929286+00:00"
+      },
+      "generation_terminal": 240,
+      "generation_pid_exited": true,
+      "active_generation_scopes": [],
+      "metrics_zero_samples": [
+        {
+          "at_utc": "2026-10-16T21:45:24.209876+00:00",
+          "running_waiting_values": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "at_utc": "2026-10-16T21:45:26.219252+00:00",
+          "running_waiting_values": [
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "endpoint": "http://127.0.0.1:28090",
+      "job_identity": {
+        "JobName": "apex-asi-acdu-migrate-20261017",
+        "WorkDir": "/data/user/qinlucao/projects/apex-takehome",
+        "UserId": "qinlucao(14348)",
+        "Partition": "acd_u",
+        "Nice": "1000",
+        "NodeList": "ACD1-8"
+      },
+      "future_gpu_consumers": 0,
+      "consumer_proof": "Frozen run_direct_formal_pipeline after generation only external CPU/API scoring and delegated HLE; independent HLE2500 finished. Root and independent audit agree.",
+      "external_scoring_continues": true,
+      "new_model_calls": 0,
+      "at_utc": "2026-10-16T21:45:26.219275+00:00",
+      "released_at_utc": "2026-10-16T21:45:28.695938+00:00",
+      "job_absent_from_squeue": true,
+      "final_state": "released_after_generation_consumers_drained"
+    }
+  },
+  "asi_grader_lock": "locked",
+  "cpu_scopes_intersecting92_127": [],
+  "invalid_frozen_parser_recheck": {
+    "avg64_hle2500_20261017": {
+      "6738e0e90afc5078575438a9": [
+        "JSONDecodeError",
+        "JSONDecodeError"
+      ],
+      "67216b3c8238b402204d3432": [
+        "JSONDecodeError",
+        "JSONDecodeError"
+      ]
+    },
+    "ties_dense_hle2500_20261017": {
+      "66e8cfa03add731d7fce4352": [
+        "JSONDecodeError",
+        "JSONDecodeError"
+      ],
+      "6717cc3a4d6b1e71cab9bc8c": [
+        "JSONDecodeError",
+        "JSONDecodeError"
+      ],
+      "670fe03ef99389b3c7942186": [
+        "JSONDecodeError",
+        "JSONDecodeError"
+      ],
+      "6715e455f818cdd1872c0ef0": [
+        "JSONDecodeError",
+        "JSONDecodeError"
+      ]
+    },
+    "expert_asi_actual_processes": {
+      "coordinator": {
+        "pid": 3237024,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "867860696"
+      },
+      "grader": {
+        "pid": 837390,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868574721"
+      },
+      "grading_launch_at_utc": "2026-10-16T21:38:43.192881+00:00",
+      "cpu_lease": "92–95"
+    }
+  },
+  "hpc_snapshot": {
+    "project_gpu_count": 10,
+    "jobs": [
+      {
+        "JobId": "728016",
+        "JobName": "apex-hle-ties-dense-20261017",
+        "Partition": "acd_u",
+        "Nice": "1000",
+        "JobState": "RUNNING",
+        "NodeList": "ACD1-19",
+        "ReqTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+        "EndTime": "2026-10-17T09:33:34",
+        "gpus": 2
+      },
+      {
+        "JobId": "727912",
+        "JobName": "apex-term-acdu-20261017",
+        "Partition": "acd_u",
+        "Nice": "1000",
+        "JobState": "RUNNING",
+        "NodeList": "ACD1-22",
+        "ReqTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+        "EndTime": "2026-10-18T02:01:28",
+        "gpus": 2
+      },
+      {
+        "JobId": "727913",
+        "JobName": "apex-avgexec-acdu-20261017",
+        "Partition": "acd_u",
+        "Nice": "1000",
+        "JobState": "RUNNING",
+        "NodeList": "ACD1-22",
+        "ReqTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+        "EndTime": "2026-10-18T02:09:28",
+        "gpus": 2
+      },
+      {
+        "JobId": "727856",
+        "JobName": "apex-hle-normal-merged",
+        "Partition": "acd_u",
+        "Nice": "1000",
+        "JobState": "RUNNING",
+        "NodeList": "ACD1-20",
+        "ReqTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+        "EndTime": "2026-10-18T02:19:33",
+        "gpus": 2
+      },
+      {
+        "JobId": "727857",
+        "JobName": "apex-hle-normal-controls",
+        "Partition": "acd_u",
+        "Nice": "1000",
+        "JobState": "RUNNING",
+        "NodeList": "ACD1-30",
+        "ReqTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+        "EndTime": "2026-10-17T23:39:33",
+        "gpus": 2
+      }
+    ],
+    "released_727879_present": false
+  },
+  "conclusions": {
+    "avg64_hle_to_asi_ready": false,
+    "wait_is_currently_required": "Actual global HLE2100/2500, current generator alive, native50running, final marker absent; stale summary202 is a progress-display artifact, not evidence that the model is idle.",
+    "compact_recovery_prepared_or_executed": false,
+    "reason": "Both AVG64 and TIES original graders remain alive; no new complete closed scoring group with invalids qualifies for a fixed final recovery manifest yet.",
+    "released_asi_not_rebuilt": true,
+    "ties_session_checkpoint_stale": "Checkpoint at06:05:53 reports2450completed/50active; actual finished files2491/incomplete9 and native9running. Global file ledger is authoritative for current saved coverage."
+  }
+}

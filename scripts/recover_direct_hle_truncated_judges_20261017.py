@@ -49,6 +49,13 @@ def process_alive(pid):
     return path.exists() and path.read_text().rsplit(')', 1)[1].split()[0] != 'Z'
 
 
+def fixed_items(config):
+    items = [(model['model'], task) for model in config['models'] for task in model['task_ids']]
+    assert type(config['expected_items']) is int and config['expected_items'] > 0
+    assert len(items) == config['expected_items'] and len(set(items)) == len(items)
+    return items
+
+
 def validate_pair(source, requests, responses, identity):
     assert requests[0] == requests[1], 'Original requests differ'
     payload = requests[0]
@@ -297,6 +304,15 @@ def sanity():
     for verdict in ('yes','no'):
         parse_judge(json.dumps({'correct':verdict,'confidence':100,'strict':True,'extracted_final_answer':'x','reasoning':'Fixture.'}))
     checks.append('both_verdicts_same_parser_no_reward_selection')
+    manifest = {'expected_items': 2, 'models': [
+        {'model': 'a', 'task_ids': ['same-task']}, {'model': 'b', 'task_ids': ['same-task']}]}
+    fixed_items(manifest)
+    checks.append('same_task_across_models_allowed')
+    for name, changed in [('expected_items_mismatch', {**manifest, 'expected_items': 3}),
+            ('duplicate_model_task', {'expected_items': 2, 'models': [{'model': 'a', 'task_ids': ['same-task', 'same-task']}]})]:
+        try: fixed_items(changed)
+        except AssertionError: checks.append(name+'_rejected')
+        else: raise AssertionError(name)
     return {'sanity_passed': True, 'checks': checks, 'network_calls': 0}
 
 
@@ -315,7 +331,7 @@ def main():
     root = args.project.resolve()
     config = load(args.config if args.config.is_absolute() else root / args.config)
     assert config['additional_calls_per_item'] == 1
-    assert len({t for m in config['models'] for t in m['task_ids']}) == 8
+    fixed_items(config)
     prepared = []
     with ExitStack() as stack:
         for model in config['models']:

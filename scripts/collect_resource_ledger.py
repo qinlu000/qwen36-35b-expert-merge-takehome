@@ -89,7 +89,7 @@ print(json.dumps({'captured_at': datetime.now().astimezone().isoformat(),
         row['category'] = ('loss_only_validation' if 'sft-loss' in name else
                            'smoke' if 'smoke' in name else
                            'cpu_environment' if 'dev-env' in name else
-                           'merge' if 'ties' in name or 'merge-pilot' in name else
+                           'merge' if ('ties' in name and 'hle' not in name) or 'merge-pilot' in name else
                            'training' if 'sft' in name else 'inference_service')
         owned.append(row)
     return {'captured_at': raw['captured_at'], 'jobs': owned, 'excluded': excluded,

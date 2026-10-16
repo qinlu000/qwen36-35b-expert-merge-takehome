@@ -24,3 +24,8 @@ native running50/waiting0。Judge当时14有效、0invalid、15个已预留调�
 评分沿原20CNY/5000calls/2workers。后续若符合原两次200+length且parse失败，使用事先披露的固定名单2+1 compact格式恢复，独立recovery reservation/calls计入同模型总cap；本轮没有自动恢复或依reward补请求。GPU仅由本controller在generator退出、实际drain后释放本job，外部Judge可继续。
 
 安全详细[snapshot](source_snapshots/ties_dense_hle_execution_20261017.json)记录实际PID/startticks、资源/guard、两个synthetic协议收据、首个正式结果元信息、全局与session计数及评分账面；无question/gold/solver文本或凭据。快照非事务性，不把后续增长当作同一时刻。此执行跟进仅新增本文件与该snapshot，未改运行代码/配置/路由。
+
+
+## 06:11生成完与GPU释放
+
+原唯一controller782323于2026-10-17 06:11:00 CST写入generation_released_scoring_external：generator887555已退出0、全目录2500终态、native请求归零，728016已确认不在squeue；model-consumer-finished明确native_metrics_zero_before_release=true、service_expired_before_release=false。root随后独立重读marker/state并实时核squeue为四普通TP2共8卡。Judge887556继续外部CPU/API评分，无需重建28097，未改28095 AVG→ASI链。此时只完成生成，不能写完整方法成绩或配对CI。

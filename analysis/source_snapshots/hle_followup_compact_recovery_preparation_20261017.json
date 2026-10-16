@@ -1,0 +1,160 @@
+{
+  "captured_at_utc": "2026-10-16T22:12:19.441484+00:00",
+  "mode": "prepare_only_metadata_no_requests",
+  "partial_invalid_inventory_only": true,
+  "fixed_final_recovery_manifest_created": false,
+  "original_grader_exit_required_before_fixed_manifest": true,
+  "new_recovery_requests_sent": 0,
+  "new_model_generation_requests_sent": 0,
+  "old_config_expected_items": 8,
+  "old_model_task_lists_unchanged": true,
+  "uniqueness_key": [
+    "model",
+    "task_id"
+  ],
+  "sanity": {
+    "passed": true,
+    "checks": [
+      "eligible_200_length_pair",
+      "http_failure_rejected",
+      "nonlength_rejected",
+      "parseable_original_rejected",
+      "changed_user_rejected",
+      "unknown_outcome_resend_rejected",
+      "cost_cap_rejected",
+      "call_cap_rejected",
+      "both_verdicts_same_parser_no_reward_selection",
+      "same_task_across_models_allowed",
+      "expected_items_mismatch_rejected",
+      "duplicate_model_task_rejected"
+    ],
+    "network_calls": 0
+  },
+  "legacy_prepare_only": {
+    "at_utc": "2026-10-16T22:11:59.077978+00:00",
+    "eligible_tasks": 0,
+    "already_reserved_completed": 8,
+    "new_network_calls": 0,
+    "original_budget_hashes_unchanged": true
+  },
+  "ties_release": {
+    "captured_at_utc": "2026-10-16T22:12:19.441484+00:00",
+    "state": {
+      "pid": 782323,
+      "model": "apex-ties-dense",
+      "phase": "generation_released_scoring_external",
+      "new_gpu_allocations": 2,
+      "at_utc": "2026-10-16T22:11:00.675790+00:00",
+      "project_gpu_count_before": 10,
+      "job_id": 728016,
+      "node": "ACD1-19",
+      "service_end_utc": "2026-10-17T01:33:34+00:00",
+      "stop_admission_at_utc": "2026-10-17T01:28:34+00:00",
+      "tunnel_supervisor_pid": 782811,
+      "generation_pid": 887555,
+      "scoring_pid": 887556,
+      "endpoint": "http://127.0.0.1:28097",
+      "generation_exit_code": 0,
+      "saved_results": 2500,
+      "job_absent_from_squeue": true,
+      "full_generation": true,
+      "scoring_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/summary.json",
+      "compact_rule": "Only fixed audited invalids whose two original Judge responses are HTTP200+length and fail the frozen parser; same approved Base compact wrapper. All recovery reservations/calls count within20CNY/5000. No correctness selection or solver regeneration; explicit fixed recovery manifest required."
+    },
+    "marker": {
+      "model_consumer_finished": true,
+      "at_utc": "2026-10-16T22:11:00.675448+00:00",
+      "generation_process_finished": true,
+      "generation_pid": 887555,
+      "saved_results": 2500,
+      "expected": 2500,
+      "job_id": 728016,
+      "job_absent_from_squeue": true,
+      "native_metrics_zero_before_release": true,
+      "service_expired_before_release": false,
+      "scoring_uses_external_judge_only": true
+    },
+    "controller": {
+      "pid": 782323,
+      "alive": false
+    },
+    "generator": {
+      "pid": 887555,
+      "alive": false
+    },
+    "grader": {
+      "pid": 887556,
+      "alive": true,
+      "state": "S",
+      "starttime_ticks": "868602347"
+    },
+    "score_summary": {
+      "complete": false,
+      "frozen_terminal_results": 2500,
+      "evaluation_invalid": 4,
+      "scored": 1193,
+      "pending": 1307,
+      "judge_generation_calls": 1134,
+      "accounted_cost_cny": 1.02059925
+    }
+  },
+  "slurm": {
+    "project_gpu_count": 8,
+    "jobs": [
+      {
+        "job_id": 727912,
+        "job_name": "apex-term-acdu-20261017",
+        "partition": "acd_u",
+        "state": "RUNNING",
+        "gres": "gres/gpu:2"
+      },
+      {
+        "job_id": 727913,
+        "job_name": "apex-avgexec-acdu-20261017",
+        "partition": "acd_u",
+        "state": "RUNNING",
+        "gres": "gres/gpu:2"
+      },
+      {
+        "job_id": 727856,
+        "job_name": "apex-hle-normal-merged",
+        "partition": "acd_u",
+        "state": "RUNNING",
+        "gres": "gres/gpu:2"
+      },
+      {
+        "job_id": 727857,
+        "job_name": "apex-hle-normal-controls",
+        "partition": "acd_u",
+        "state": "RUNNING",
+        "gres": "gres/gpu:2"
+      }
+    ],
+    "job728016_absent": true
+  },
+  "next_step": "Do not wait long or create a final manifest while graders live. Later heartbeat independently snapshots each complete closed scoring group; root reviews fixed config before any --execute.",
+  "partial_invalid_inventory_at_0607": {
+    "avg64_hle2500_20261017": {
+      "observed_at_utc": "2026-10-16T22:07:57.238807+00:00",
+      "original_grader_pid": 3269010,
+      "original_grader_alive_at_capture": true,
+      "ids": [
+        "6738e0e90afc5078575438a9",
+        "67216b3c8238b402204d3432"
+      ],
+      "is_final_manifest": false
+    },
+    "ties_dense_hle2500_20261017": {
+      "observed_at_utc": "2026-10-16T22:07:57.238807+00:00",
+      "original_grader_pid": 887556,
+      "original_grader_alive_at_capture": true,
+      "ids": [
+        "66e8cfa03add731d7fce4352",
+        "6717cc3a4d6b1e71cab9bc8c",
+        "670fe03ef99389b3c7942186",
+        "6715e455f818cdd1872c0ef0"
+      ],
+      "is_final_manifest": false
+    }
+  }
+}

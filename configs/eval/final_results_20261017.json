@@ -120,7 +120,7 @@
       "label": "AVG64合版",
       "artifact": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
       "benchmarks": {
-        "swe": {"adapter": "swe_tasks", "summary": "artifacts/eval/avg64_swe_audited_hard51_20261017/summary.json", "notes": ["Read-only overlay accepts one independently reviewed exact AVG native-zero replay c1f2 with missing required product module. Original source validity and pending rows remain; no expert audit whitelist is inherited. Refresh collect_avg64_swe_audited.py after collect_swe249_audited.py before aggregation."]},
+        "swe": {"adapter": "swe_tasks", "summary": "artifacts/eval/avg64_swe_audited_hard51_20261017/summary.json", "notes": ["Read-only overlay accepts independently reviewed exact AVG native-zero replays c1f2 and OpenLibrary630 with missing task-required product modules. Original source validity and pending rows remain; no expert audit whitelist is inherited. Refresh collect_avg64_swe_audited.py after collect_swe249_audited.py before aggregation."]},
         "hle": {
           "adapter": "hle_results",
           "summary": "artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",

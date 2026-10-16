@@ -1,4 +1,4 @@
-"""Read-only AVG64 SWE snapshot with one explicitly approved native-zero audit."""
+"""Read-only AVG64 SWE snapshot with explicitly approved native-zero audits."""
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -24,7 +24,7 @@ def collect(root, manifest_path):
     assert not (active & pending or active & terminal or pending & terminal)
     assert active | pending | terminal == set(ids)
     audits = {row['task_id']: row for row in manifest['approved_native_zero']}
-    assert len(manifest['approved_native_zero']) == len(audits) == 1
+    assert len(manifest['approved_native_zero']) == len(audits) and audits
     assert set(audits) <= terminal
     rows = []
     for name in ids:
@@ -87,7 +87,7 @@ def collect(root, manifest_path):
         'completion_gates': gates, 'model_consumer_marker': str(model_path),
         'model_consumer_marker_observed': model, 'all_cpu_consumers_marker': str(cpu_path),
         'all_cpu_consumers_marker_observed': cpu, 'new_model_calls': 0, 'new_replays': 0,
-        'selection_policy': 'One exact root-approved AVG64 native-zero audit; all other rows copied unchanged; no reward search.',
+        'selection_policy': 'Explicit exact root-approved AVG64 native-zero audits; all other rows copied unchanged; no reward search.',
         'tasks': rows}
 
 

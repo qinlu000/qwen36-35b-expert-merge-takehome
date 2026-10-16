@@ -1,5 +1,6 @@
 {
   "recovery_id": "direct-hle-compact-20261017",
+  "expected_items": 8,
   "authorization": "Root reviewed and explicitly approved one grade-only compact recovery for each listed exhausted length-truncated Judge result; actual receipt is analysis/source_snapshots/hle_compact_judge_recovery_20261017.json.",
   "base_precedent": "scripts/recover_hle_last_judge_20261017.py",
   "wrapper_append": " Serialize keys in this order: correct, confidence, strict, extracted_final_answer, reasoning. Keep reasoning to one short sentence of at most 40 words; do not repeat the response or solve the problem. Finish the JSON object immediately after that sentence.",

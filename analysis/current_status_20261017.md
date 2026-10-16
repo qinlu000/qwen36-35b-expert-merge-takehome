@@ -1,5 +1,17 @@
 # 当前进展与未决事项
 
+**06:15接续（最新）**：TIES-Dense已全2500生成、原generator退出0、原生metrics0并确认job728016消失；06:11只释放其自身2GPU，外部Judge887556继续，不能因28097离线重建。[本轮Direct审计](direct_status_20261017_0607.md)与后续释放收据保留原始时点。当前四个普通TP2共**8H100**：Terminal专家727912、AVG执行727913、AVG HLE→ASI727856、AVG16 HLE727857；727879/728016及更早用户释放的4卡均保持释放。
+
+[06:14:39双视图](source_snapshots/formal_aggregation_20261017_0615.json)已依次刷新两SWE collector、通过既有人工算例后生成：AVG SWE37/51、HLE2186/2500、TB68/445；Terminal专家68/445，SWE专家48/51，ASI专家109/240；AVG16 HLE1534、TIES1272。AVG新增OpenLibrary630空patch缺题目要求Bestbook产品module，root独立重读任务/原test/native0后接受exact只读overlay，未套专家白名单；其余网络/未知故障仍null。以上均为有效判分覆盖，非生成总数或子集主分；完整AVG64宏平均与TIES方法差值/CI仍null。HLE专家/Mixed完整6.92%/5.84%不变。
+
+ASI专家此前94停留源于max3sat原生评分持续计算：内层固定1800秒/1CPU/3GiB，7200秒是外层condition兜底，并非该程序预计耗时。已自然返回，06:14评分增长至109/240；不是GPU端点释放造成的故障。未来AVG评分亦保持workers1：虽已有API预算锁及submission单CPU租约，部分host侧科学子程序只继承整个92–95 affinity，尚未证明四worker时逐condition隔离相同；不以提速假设直接改4。当前在途、已预排队与原答案均不打断/重复。nginx851972仍等同CPU92–95 global lease，未发native；没有伪造ASI完成marker或抢用未来AVG生成CPU。
+
+Judge截断恢复仅将既有脚本硬编码8条改为显式expected_items及(model,task_id)唯一，旧8条语义保持，12个离线检查通过。AVG/TIES原grader未退出，现有invalid清单只是阶段库存，未固定最终恢复名单/新配置、未发恢复请求。须待原grader结束逐项审核后遵同2+1格式例外，原答案不重新生成。
+
+[06:09资源账本](resource_ledger_20261017.md)计已结束219.743889GPUh、当时10卡暂计16.582778GPUh（早于本次TIES释放）；现存CNY预算核算13.105821894、USD0.328327020，ASI账本缺失仍unknown。80/data可用约2094.9GiB，系统/tmp约31.38GiB；未见空间耗尽，系统盘仍97%用量。所有时点分别保留，不把历史10卡当当前8卡。
+
+以下05:46及更早段落保留历史过程，当前服务阶段以上述06:15为准。
+
 **05:46统计与服务更新**：[新双视图](source_snapshots/formal_aggregation_20261017_0547.json)含9模型、17208固定观测，fixture与所有source schema检查通过。strict有效覆盖：SWE专家48/51、AVG29/51；Terminal专家60/445、AVG58/445；ASI专家94/240（科学评分已启动）；AVG HLE1726/2500、AVG16 1087/2500、TIES-Dense 86/2500。HLE专家/Mixed仍完整6.92%/5.84%。除已完整单项外不公布子集主分，AVG64四项宏平均及TIES方法完整比较仍null。
 
 TIES728016于05:43:19完成恰2次text/image协议验收（不按内容正确筛选），正式generator887555/Judge887556已准入，详见[执行收据](ties_dense_hle_execution_20261017.md)。ASI专家05:38:35全240生成退出，后续仅CPU/API评分；双重审阅、240终态/池关闭/源scope空及两次metrics0后，**727879已释放2卡**，[独立释放收据](source_snapshots/asi_expert_gpu_release_20261017.json)。当前五TP2共**10卡**，均普通acd_u/Nice1000；727879/28090离线是有意释放，不能因旧route失败自动重建。
