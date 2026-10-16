@@ -437,3 +437,12 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - SWE249按10路正式51题继续；ASI128正式240条件已8路开跑（CPU96–127），其后各自接HLE2500。AVG64 direct等待专家ASI generation CPU释放；SWE与Terminal两套完整队列常驻，Terminal各445次等待前序SWE和CPU真实释放。ASI grader固定92–95串行，Terminal先23槽0–91，两ASI全部CPU消费者结束才扩31槽0–123。solver/model结束与全部CPU清理分开记marker，包含ai4sci-submission原生评分scope。
 - 全部现成runtime、正式任务/seed、64K/8K、nonthinking及既有资源受限协议保留；环境/评分invalid保持null，不为凑齐分数自动重新答题。当前尚无完整专家/合版成绩；正式执行报告与小型收据已落盘。
 - 初始多专家题面附件优先于当前线上模板不同的SFT→第二阶段版本。所有本轮部署代码/配置/记录纳Git，保留另一会话WIP；Git不添加coauthor。
+
+
+## 2026-10-17 02:29 CST：五组SFT训练完成与可重建曲线
+
+- Mixed726666原生passed=true、global_steps883、final_checkpoint883已保存，完整一轮run wall23164.161秒，4GPU；最低CE checkpoint64只作历史，训练量对照固定final883，Mixed不进入合版。
+- 四专家与Mixed的全部原生train/val loss已导出JSON、CSV及5份未平滑PNG，绘图脚本标最低val、固定使用和最后checkpoint。训练矩阵修正Terminal完成状态、HLE最低loss16与使用250的区别、实际AVG64/AVG16配方，消除旧TIES计划被误当已执行的风险。
+- 原生val loss：SWE249=.31768048，Terminal250=.42291749，ASI128=.58268344，HLE250=3.49751949；Mixed883=1.67246282，最低64=1.21849561。这些不是benchmark准确率；HLE短gold格式偏差仍披露。
+- 五个成功run wall×GPU合计约46.542GPU小时，只是成功训练子集，失败训练/完整Slurm占用/推理需另计。Swift源码核实memory(GiB)是rank0当前CUDA设备allocator peak reserved，不能冒称所有GPU完整峰值。
+- 汇总见analysis/training_curves_20261017.md，源curves/training_20261017/source；无需模型调用或GPU可重画。后续loss-only作业727689使用原249条留出数据比较固定Base/AVG64/AVG16/Mixed，不新增任务级val、不训练/生成/改主模型。

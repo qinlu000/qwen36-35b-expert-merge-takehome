@@ -19,7 +19,8 @@
       "best_checkpoint_step": 249,
       "run_dir": "artifacts/runs/swe2k-sft-r16-726335",
       "native_filtered_rows": 7,
-      "status": "Completed; seven source tool->user feedback rows filtered by native Swift role pairing"
+      "status": "Completed; frozen checkpoint selected before formal evaluation",
+      "selected_checkpoint_step": 249
     },
     {
       "name": "terminal",
@@ -28,7 +29,7 @@
       "data_dir": "artifacts/data/candidates/terminal_sft_2k_20261016",
       "train_rows": 2000,
       "requested_train_rows": 2000,
-      "status": "Running allocation since 2026-10-16 21:24:28 CST; native Swift model loading; first optimizer step not yet observed at21:28",
+      "status": "Completed; frozen checkpoint selected before formal evaluation",
       "job_id": 726665,
       "afterany": [],
       "dependency_cleared_at": "2026-10-16T21:10:29+08:00",
@@ -38,7 +39,12 @@
       "val_rows": 42,
       "max_length": 65536,
       "superseded_pending_job_id": 726648,
-      "actual_start_time": "2026-10-16T21:24:28+08:00"
+      "actual_start_time": "2026-10-16T21:24:28+08:00",
+      "native_loaded_train_rows": 2000,
+      "native_loaded_val_rows": 42,
+      "completed_steps": 250,
+      "best_checkpoint_step": 250,
+      "selected_checkpoint_step": 250
     },
     {
       "name": "hle",
@@ -47,7 +53,7 @@
       "data_dir": "artifacts/data/candidates/hle_existing_2k_20261016/swift_ready",
       "train_rows": 2000,
       "requested_train_rows": 2000,
-      "status": "250/250 optimizer steps; final checkpoint250 and native summary saved; best checkpoint16",
+      "status": "Completed; frozen checkpoint selected before formal evaluation",
       "cancelled_expansion_job_id": 726344,
       "val_rows": 100,
       "max_length": 65536,
@@ -59,7 +65,10 @@
       "native_loaded_train_rows": 2000,
       "native_loaded_val_rows": 100,
       "optimizer_steps_observed": 250,
-      "best_checkpoint_step": 16
+      "best_checkpoint_step": 16,
+      "completed_steps": 250,
+      "selected_checkpoint_step": 250,
+      "checkpoint_selection": "Previously completed independent dev100: cp25048 correct; cp1643 correct+2invalid has upper bound45. No new task-val or formal feedback."
     },
     {
       "name": "asi",
@@ -76,14 +85,16 @@
       "composition": "82 SAB full programs + 976 DS-1000 human code completions + 15 SciCode human main solutions",
       "native_loaded_train_rows": 1073,
       "native_loaded_val_rows": 20,
-      "run_dir": "artifacts/runs/asi-expanded-sft-r16-726336"
+      "run_dir": "artifacts/runs/asi-expanded-sft-r16-726336",
+      "status": "Completed; frozen checkpoint selected before formal evaluation",
+      "selected_checkpoint_step": 128
     }
   ],
   "mixed_control": {
     "data_dir": "artifacts/data/candidates/mixed_existing_hle2k_20261016",
     "train_rows": 7073,
     "val_rows": 249,
-    "status": "Running; same seven SWE inputs filtered; loaded union is 2000 HLE +1993 SWE +2000 Terminal +1073 ASI",
+    "status": "Completed; same-data one-pass final883 control, minimum-loss64 retained separately; excluded from merge",
     "job_id": 726666,
     "cancelled_previous_job_id": 726346,
     "run_dir": "artifacts/runs/mixed-existing2k-sft-r16-726666",
@@ -94,7 +105,10 @@
     "superseded_pending_job_id": 726649,
     "native_loaded_train_rows": 7066,
     "native_loaded_val_rows": 249,
-    "native_filtered_rows": 7
+    "native_filtered_rows": 7,
+    "completed_steps": 883,
+    "best_checkpoint_step": 64,
+    "selected_checkpoint_step": 883
   },
   "merging": {
     "experts": [
@@ -103,11 +117,14 @@
       "hle",
       "asi"
     ],
+    "config": "configs/merge/four_experts_avg_v1.json",
     "methods": [
-      "uniform_average",
-      "TIES"
+      "exact_uniform_delta_average_r64",
+      "fixed_svd_output_rank16_ablation"
     ],
-    "selection": "Independent development sets only"
+    "selected_final": "avg-r64",
+    "selection": "Primary AVG64 frozen before formal benchmarks or new loss-only comparison; no formal-test tuning.",
+    "independent_task_validation_cancelled": true
   },
   "train_rows_definition": "Exported JSONL rows; native_loaded_train_rows records the post-preprocessing Dataset size, not per-batch exposure counts."
 }

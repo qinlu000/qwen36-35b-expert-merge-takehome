@@ -1,0 +1,57 @@
+{
+  "swe": {
+    "run": "swe2k-sft-r16-726335",
+    "native_completed": true,
+    "selected_checkpoint_step": 249,
+    "best_loss_checkpoint_step": 249,
+    "best_eval_loss": 0.3176804780960083,
+    "observed_optimizer_steps": 249,
+    "wall_seconds": 7286.073950213962,
+    "world_size": 4,
+    "native_memory_gib_reported_max": 61.42
+  },
+  "terminal": {
+    "run": "terminal-retry-sft-r16-726665",
+    "native_completed": true,
+    "selected_checkpoint_step": 250,
+    "best_loss_checkpoint_step": 250,
+    "best_eval_loss": 0.4229174852371216,
+    "observed_optimizer_steps": 250,
+    "wall_seconds": 7178.446272909641,
+    "world_size": 4,
+    "native_memory_gib_reported_max": 55.35
+  },
+  "hle": {
+    "run": "hle-existing2k-sft-r16-726664",
+    "native_completed": true,
+    "selected_checkpoint_step": 250,
+    "best_loss_checkpoint_step": 16,
+    "best_eval_loss": 2.0021915435791016,
+    "observed_optimizer_steps": 250,
+    "wall_seconds": 5571.416432565078,
+    "world_size": 2,
+    "native_memory_gib_reported_max": 42.38
+  },
+  "asi": {
+    "run": "asi-expanded-sft-r16-726336",
+    "native_completed": true,
+    "selected_checkpoint_step": 128,
+    "best_loss_checkpoint_step": 128,
+    "best_eval_loss": 0.5826834440231323,
+    "observed_optimizer_steps": 134,
+    "wall_seconds": 2945.78616404254,
+    "world_size": 2,
+    "native_memory_gib_reported_max": 43.26
+  },
+  "mixed": {
+    "run": "mixed-existing2k-sft-r16-726666",
+    "native_completed": true,
+    "selected_checkpoint_step": 883,
+    "best_loss_checkpoint_step": 64,
+    "best_eval_loss": 1.2184956073760986,
+    "observed_optimizer_steps": 883,
+    "wall_seconds": 23164.161021114094,
+    "world_size": 4,
+    "native_memory_gib_reported_max": 55.34
+  }
+}
