@@ -1621,3 +1621,10 @@
 - 20个真实AVG64有效失败案例及3项未来实验建议已整理，10Terminal、8HLE文本、1HLE图、1SWE；同ID Base也全失败，不能称20个合版独有退化。描述性选样不估总体失败率，未恢复val或基于正式结果调模型。
 - Terminal真实最小差分探针于04:11以同SIF/入口证明public→no-network→public使PyPI/Ubuntu DNS从成功到失败再恢复，resolver不变、无代理、独立scope已清理。此前Base、Terminal专家和AVG64求解沙箱统一采用本地no-network overlay，覆盖89任务及5seed；setup/verifier可public、模型调用在宿主侧。不是官方这批任务要求统一断网，前面没有清楚说明该额外限制及其影响。已向用户提出是否改协议的选择，当前只有追问尚无选择，不改变生产网络、旧结果或评分；不把每个失败都归因网络。
 - hourly heartbeat已沿用原automation更新为普通分区、HLE50、保持释放4卡、复用/释放gate及待决网络事项，核心截止10月18日02:20不变。49份自有文件AST/JSON/bash语法及diff检查通过；仅纳自有代码/配置/文档/小收据与共享文档追加，保留其他会话WIP，无coauthor、消息、邮件或邀请。
+
+
+## 2026-10-17：用户确认维持Terminal禁网协议
+
+- 用户追问此前是否全部禁网。全量只读核对Base、Terminal专家及AVG64各445项冻结manifest，均为solver no-network；Base现有442份accepted记录逐项task.toml同样一致。此结论限正式Terminal求解工具沙箱，不等于四项benchmark所有阶段或训练轨迹全部禁网；setup/verifier保留public、模型HTTP在宿主侧。
+- 用户听取本地额外限制及其影响后明确“那不用改了吧”。本轮维持三组共同的no-network协议，普通分区迁移不解禁，不新增solver依赖来改变剩余题环境，不重生旧答案或重标历史评分。报告披露该额外限制及其对下载依赖任务的潜在影响，不能将全部失败归因于网络。
+- 当前状态、迁移说明、网络诊断及原hourly heartbeat已将“等待网络选择”改为“用户确认保持不变”。不再反复要求确认；继续原已授权评测、排空迁移和评分工作。本轮仅文档/调度提示变更，无模型/API调用、任务重跑或网络配置修改。

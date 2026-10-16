@@ -28,4 +28,4 @@ HLE三套普通替代服务已真实运行：727855（专家，ACD1-1）、72785
 
 ## 评测环境问题另记
 
-真实Terminal探针已证明：本实验的 `no-network` solver策略会使PyPI／Ubuntu DNS失败；同沙箱public模式可以成功，Base与AVG使用相同断网overlay。这不是HPC分区导致。改变联网或离线依赖包会形成环境版本变化，当前已询问用户，未擅改生产策略、重生成旧答案或重算原分。详见[网络诊断](terminal_network_diagnosis_20261017.md)。
+真实Terminal探针已证明：本实验的 `no-network` solver策略会使PyPI／Ubuntu DNS失败；同沙箱public模式可以成功，Base、专家与AVG使用相同断网overlay。这不是HPC分区导致。用户了解三组均从正式Base起采用该设置后明确“那不用改了吧”，本轮保持既有网络协议；不改变生产策略、重生成旧答案或重算原分，报告披露这一额外限制及其潜在影响。详见[网络诊断](terminal_network_diagnosis_20261017.md)。

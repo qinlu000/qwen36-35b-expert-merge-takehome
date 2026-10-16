@@ -49,6 +49,6 @@
 5. **失败分析与最终报告**：[20个真实AVG64有效判错案例](avg64_failure_cases_20261017.md)及三项后续实验建议已整理，覆盖10个Terminal任务、8个HLE文本、1图像、1SWE。同ID Base也全失败，不能称合版独有退化；描述性抽样不估失败率。[一页阶段报告](progress_report_20261017.md)仍是草稿，最终完整矩阵、成本与report.pdf尚需收尾。
 6. **复现资产**：[资产索引](reproduction_asset_index_20261017.md)已列公开来源、离线位置与重建顺序。完整训练日志和二进制底座仅HPC，Terminal470 overlay主要在80且依赖artifacts symlink；精确数据重导出还依赖既有教师回答和选择材料。必要离线材料仍需随最终交付补齐，不能把Git clone称为全资产一键复现。
 
-7. **Terminal网络策略待用户决定**：[真实探针](terminal_network_diagnosis_20261017.md)以同SIF/入口/CPU11做public→no-network→public差分，证明当前本地额外断网策略导致DNS失败；Base和AVG同样受限。独立probe已清理。已询问是否改变联网协议；回复前保留冻结策略，不静默只修剩余题、重生成旧答案或重标历史0。迁HPC分区不改变80 sandbox网络。
+7. **Terminal网络策略已确认保持不变**：[真实探针](terminal_network_diagnosis_20261017.md)以同SIF/入口/CPU11做public→no-network→public差分，证明当前本地额外断网策略导致DNS失败；Base、专家和AVG求解阶段统一受限。独立probe已清理。用户了解既有三组均禁网后明确“那不用改了吧”，本轮沿用冻结no-network，不只修剩余题、不重生成旧答案或重标历史0；报告披露额外限制及下载依赖任务的潜在影响。迁HPC分区不改变80 sandbox网络。
 
 接下来依次收齐固定正式输出、审核评分异常、重算完整统计、整理真实失败、更新报告与资产索引，再完成最终提交。[最小交付清单](submission_remaining_20261017.md)和[持续进展日志](overnight_progress_20261016.md)保存详细证据。

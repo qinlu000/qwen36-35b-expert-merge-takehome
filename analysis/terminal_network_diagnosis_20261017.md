@@ -33,9 +33,11 @@ taskset -c 11 artifacts/envs/harbor/bin/python scripts/probe_terminal_network_20
 
 ## 用户追问：此前是否全部禁网
 
-这里的“全部”限于Terminal的求解沙箱：Base、Terminal专家及AVG64使用相同的本地`agent.network_mode = "no-network"`设置。它覆盖89个任务，五个seed沿用该配置；并非本轮诊断后才开始断网。环境准备与verifier可以切回public，模型服务调用在agent宿主侧，因此既有补评分下载成功、模型请求正常都不能证明solver能访问外网。该结论不等于四项benchmark的所有阶段都禁网，也不表示每个失败都由禁网造成。当前尚未收到用户改变网络协议的选择，生产策略保持不变。
+这里的“全部”限于Terminal的求解沙箱：Base、Terminal专家及AVG64使用相同的本地`agent.network_mode = "no-network"`设置。它覆盖89个任务，五个seed沿用该配置；并非本轮诊断后才开始断网。环境准备与verifier可以切回public，模型服务调用在agent宿主侧，因此既有补评分下载成功、模型请求正常都不能证明solver能访问外网。该结论不等于四项benchmark的所有阶段都禁网，也不表示每个失败都由禁网造成。
 
 04:25:19 CST进一步只读核对：三组各445项冻结manifest所指任务元数据全部为no-network；Base现有442份accepted记录逐项沿原result/config读取task.toml，442份均一致、无缺metadata（recovery258、independent178、nativegaps6）。官方原始89份agent网络字段均未设置。这里不对更早未纳入冻结链的临时运行或训练轨迹做相同断言。
+
+用户在上述范围说明后明确“那不用改了吧”。本轮已决定保持三组共同的no-network协议，普通分区续跑也不解禁，不重新生成旧答案或把历史失败重新标分。最终报告继续披露这是本地额外限制，可能影响需要下载依赖的任务；环境准备和评分的public阶段按原协议保留。此前讨论的更换联网策略或新增离线solver依赖包不在本轮实施。
 
 ## 三种假设的结论
 
