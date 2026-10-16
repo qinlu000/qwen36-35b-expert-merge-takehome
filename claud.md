@@ -1437,3 +1437,10 @@
 - 交付审计：只有本地bare Git remote，暂无个人GitHub链接、Public HF五模型revision、根README/models README或一页report.pdf。PEFT自动卡仍占位/本地Base路径，不能当公开模型卡。现Base collector明确combined_score=None，后续须补题定macro汇总，当前不改在用代码。
 - Terminal30min/4CPU8GiB/64K8K与原题3h/32CPU48GB/256K80K存在未获面试方例外确认的偏离，不能仅凭全量覆盖声称满足原配置；替代judge和SWE服务/预算差异也须披露。
 - 建议优先：训练收尾同时实现合版→有限独立dev比较并冻结→长耗时正式评测→统计/错误分析和公开交付。核心窗口剩约27h（10/18 02:20前），不再扩大训练或val环境分支。3pp为挑战目标，报告真实净收益；RL/全专家跨四项并非题面强制。
+
+
+## 2026-10-17 01:18 CST：正式全量评测与独立validation用途澄清
+
+- 用户询问专家目标benchmark全量是否意味着无需validation。原题要求Base和最终合版四项全量，各专家至少其目标项全量；未要求每benchmark额外100题独立validation，100为此前项目自定规模。
+- 原题同时禁止用正式答案/测试反馈选择checkpoint，要求使用独立开发集调参并在最终评测前冻结权重。正式全量结果不能替代选模dev；训练val-loss、任务级dev与正式test分开。
+- 效率原则：保留已有训练/验证loss记录，合版比较若需选配方使用小型独立dev；无需再扩大或为每专家强建100题可执行任务val。不因本次概念澄清取消在途HLE/SAB生成、修改SWE等待条件或改变已冻结评测。
