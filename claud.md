@@ -1589,5 +1589,5 @@
 ## 2026-10-17 03:47 CST：Base收尾后的HPC占用实查
 
 - HPC账号8个RUNNING作业、每项2H100，共16卡，达到既定上限；12卡服务已有正式消费者，另727654两卡为合版ASI等专家ASI释放CPU的暖等待。新HLE专家727821、AVG64727822及Mixed对照727831均已进入正式生成，各50并发；不把启动瞬时0请求称长期闲置。
-- 727113旧SWE推理服务51项模型消费已结束，03:43:49Z对应完成标记为true且scoring_may_still_be_running=false，当前0请求，可列最明确2卡释放候选。本次用户仅问资源状态，未取消另会话作业。Base两个TP2原于01:21:49退出，本轮缺口补评只释放80上的CPU，没有新占HPC GPU。
+- 727113旧SWE推理服务51项模型消费已结束，03:43:49 CST对应完成标记为true且scoring_may_still_be_running=false，当前0请求，可列最明确2卡释放候选。本次用户仅问资源状态，未取消另会话作业。Base两个TP2原于01:21:49退出，本轮缺口补评只释放80上的CPU，没有新占HPC GPU。
 - 只读证据analysis/source_snapshots/hpc_status_20261017_0347.json；未新增模型请求或作业。Slurm compute SSH有GPU索引命名空间重映射，物理IDX定向NVML样本不完整，不据此声称16卡均满载或闲置。
