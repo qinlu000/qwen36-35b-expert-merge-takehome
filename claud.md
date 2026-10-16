@@ -951,3 +951,13 @@
 - TB目前现场仅旧r2的21结果(13transport+8取消)，没有正常完成的正式trial；新recovery未见launch结果目录，正在向任务owner核最后验收事实。SWE未见正式result目录，最后文档仍native闭环验收中，正在核最新回执。
 - 本线半小时automation apex-baseline当前toml状态PAUSED，未证实此时后台仍在自动检查；上轮设置ACTIVE不代表已实际完成到期服务续接。本轮已向用户明确夜间续跑/到期衔接没有做好。未擅自改他线自动任务、作业或代理。
 - 另一会话训练724277已拿4卡，但数据加载cache权限错误FAILED，未到反向/正式训练；该会话正修同一配方。此处仅交叉核验，不接管其训练。
+
+
+## 2026-10-16 13:37：ASI相关任务有界复查完成，专项数据不再扩建
+
+- 用户最新要求“ASI你调研一下，找一下有没有相关的任务；实在没有就不管了”。已对ScienceAgentBench verified、D3任务包、SciCode、DS-1000、DA-Code、DataSciBench、DiscoveryBench等按真实公开任务/参考代码/验证器/当前CPU文件契约核证，不恢复旧模型轨迹。
+- 最相关ScienceAgentBench为2026-04-30 verified版，实读102任务来自44论文/30代码仓库；要求完整Python读数据并写CSV/PNG等产物。HF仅公开输入与gold/checker文件名；作者完整zip当前HEAD与≤1KB range GET均302→401，0B，没有取得参考代码/数据。候选87 NetCDF拟合、21 GeoJSON缓冲区比例最接近CPU数值文件任务，依赖/内存仍未验。Scanpy方法族与正式ASI单细胞方向可能同源，保守hold；exact/13gram 0命中不等于完整来源独立。
+- DS-1000实际1000题均有reference_code/test，但主要短库函数；DA-Code有500任务和产物验证，未核到逐题完整人工程序；DataSciBench 222提示/519GT不能当519程序；SciCode64主族需新生成并适配文件契约。D3有565任务/239仓库与文件产物验证接口，任务元数据/源码不提供565份可直接取用的gold正文，仍需镜像与新解法核验，未重下旧Qwen轨迹。
+- **本轮不追加ASI专项train/dev，不再为500/100强建采集流程；ASI必交正式全量评测保留。** 其它三域训练继续；执行专家若只训Terminal需如实标明，不称专门ASI专家。没有独立ASI dev时不拿正式结果调样本/合版。已保存最相关候选与恢复条件，不声称世界上没有可用科学任务。
+- 本轮ASI调研新增付费API/GPU/任务执行/大输入下载均0。ScienceAgentBench只取129KB公开输入Parquet；D3只读源码clone留ignored artifacts。总决策analysis/asi_task_sources_decision_20261016.md，两份一手来源子报告链接在其中。
+- 训练另线继续：缓存最小红→绿实际通过，725511四卡曾开始执行，但又在诊断callback构造契约处退出（未反向）；训练agent正修相同配方的callback接口并加CPU复现，未追加新参数实验。不会把GPU分配/前置加载称正式训练成功。
