@@ -1,0 +1,7 @@
+#!/bin/sh
+# Prepend this shim only in the dedicated musl cohort process.
+if [ "$1" = exec ]; then
+  shift
+  exec /data/caoqinlu/projects/apex-takehome/artifacts/tools/apptainer-1.4.5/rootfs/usr/bin/singularity exec --ignore-fakeroot-command "$@"
+fi
+exec /data/caoqinlu/projects/apex-takehome/artifacts/tools/apptainer-1.4.5/rootfs/usr/bin/singularity "$@"

@@ -1,0 +1,13 @@
+{
+  "native_mini": true,
+  "container_runtime_lock": true,
+  "real_endpoint_tokenize": true,
+  "fresh_patch_replay": true,
+  "cpu_memory_network": true,
+  "real_smoke": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/swe_v2/native-lxwl19kv",
+  "cpu_smoke": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/swe_v2/native-a28iobw0",
+  "endpoint": "http://127.0.0.1:28083",
+  "formal_scope": 51,
+  "admission_count": 41,
+  "queue_cancellation": "deferred per user speed-first instruction; not a launch gate"
+}

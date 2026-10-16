@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-16T14:35:00+08:00",
+  "as_of": "2026-10-16T14:38:00+08:00",
   "directive": "Full production directly, no extra tests; preserve logs and checkpoints",
   "new_job": 725705,
   "state": "running_model_loading",
@@ -29,7 +29,16 @@
     "solver_concurrency": 16,
     "current_max_model_sequences": 4,
     "endpoint_port": 28083,
-    "output": "artifacts/eval/base_swe_v2_20261016_full"
+    "output": "artifacts/eval/base_swe_v2_20261016_full",
+    "actual_active_tasks": 16,
+    "glibc_child_pid": 452169,
+    "musl_root_child_pid": 461500,
+    "raw_response_observation": {
+      "glibc": 137,
+      "musl_root": 5
+    },
+    "preserved_budget_replay_pid": 489743,
+    "logging": "per-request timestamps, atomic raw responses, native phase logs and task checkpoints"
   },
   "hle_infra1": {
     "admitted": 79,

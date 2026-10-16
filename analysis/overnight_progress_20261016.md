@@ -153,3 +153,5 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - HLE infra1 continues1679 with original821 results retained; observed14:26 admitted79/completed71/active8. Raw complete responses are saved before validation. ASI240 answers stay frozen; native CPU grading continues.
 
 - 14:35 follow-up: job725705 is now RUNNING on ACD1-12, model loading. Inference allocations total8H100 plus the other chat single training GPU=9; no extra synthetic model requests. Remote waiter has added the new28084 forwarding target and is waiting for model health.
+
+- Latest production observation: SWE glibc452169 has8active with137requests/137raw responses; musl root461500 has8active with5requests/5raw responses, total16formal tasks in flight. Earlier9musl setup errors were all before generation and are retained. Additional child registration participates in natural handoff. Budget-only fresh replay489743 usesCPU84-85 and no model calls.
