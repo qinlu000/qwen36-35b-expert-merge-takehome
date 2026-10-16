@@ -1,6 +1,6 @@
 # 已完成 SFT 模型的独立题目验证
 
-2026-10-16 22:30 CST。用户明确要求把已完成 SFT 的专家跑 validation。**已启动真实 HLE 答题和评分；不是继续看 teacher-forcing loss。** 不重训，不修改冻结训练数据、验证金标或另一会话的正式 Base 评测。
+2026-10-16 22:57 CST。用户明确要求把已完成 SFT 的专家跑 validation。**HLE代理验证的Base100题已经完整跑完，后续专家对照自动接续；不是继续看teacher-forcing loss。** 不重训，不修改冻结训练数据、验证金标或另一会话的正式Base评测。
 
 ## 当前固定范围
 
@@ -22,6 +22,7 @@ ASI 当前真正可恢复、且未进训练的冻结 task-dev 是 **20题**，�
 - `scripts/run_direct_validation_blocks.py`，PID **4183881**，taskset125，输出 `artifacts/eval/validation_direct_20261016/blocks.log`。先等已验收门闩，随后顺序执行 Base-HLE100 → Base-ASI20 → HLE16-100 → HLE250-100 → ASI128-20，避免不同adapter混batch。
 - 子进程 `scripts/run_direct_validation.py`，当前 Base-HLE PID **534891**，每次8路、64K上下文/8K输出、非思考、不保留thinking、seed0、temperature0.7/top_p0.8/top_k20。HLE每题300s，ASI生成/执行总计算预算1200s。完整请求响应、usage、finish_reason和时长保存在各模型 `questions/`。
 - `scripts/score_direct_hle_validation.py`，PID **4183925**，taskset125，2个轻量HTTP线程，独立 `hle_scores/` 账本，HLE硬限 **¥10**，最多每答2次judge尝试。未评分/基础设施错误保持null，不通过重生原答案修评分失败。
+- `scripts/summarize_direct_validation.py`，PID **741047**，taskset125，每30秒纯读已有结果，无模型/Judge调用。输出 `progress_summary.json`，分别报告已答且评分题准确率（有回答选择偏差）、deadline数量、固定预算成功率，以及Math/MCQ/八学科分项、finish_reason和真实completion token长度。任何未完成/infra/Judge异常均不伪造完整分；Base100有效齐后自动持久化 `base_hle_first_complete.json`，无须人工回来收第一份对照基线。
 
 服务验收门闩在80 `artifacts/eval/validation_direct_20261016/service_ready.json`，来自HPC `artifacts/validation/lora-service-727113/acceptance.json`，root于22:18实际验收并放行。22:22首个 Base-HLE 答案已171.039s完成，原评分器成功返回；账本1次请求、¥0.00180825。这只证明完整生成→评分链路可用，不把首条当准确率结论。
 
@@ -49,5 +50,19 @@ SAB视觉评分保留官方 [gpt4_visual_judge.py](https://github.com/OSU-NLP-Gr
 - 下一步让300份HLE生成与判分自然完成；比较总准确率、Math/MCQ分项、输出长度和格式，之后才选择HLE权重。cp16目前只是最低loss候选，不先断定优于Base或最后cp250。
 - SAB补完专属环境与4CPU执行队列，逐条保存执行/评分原始日志；环境未就绪、评分服务失败不算模型错误零分。
 - 本支不Git提交共享文件，根任务统一更新claud.md并提交自有变更；不触碰另一会话Base正式结果。
+
+## 第一份完整独立验证基线（22:56:50）
+
+Base固定100题均已有终态并完成该预算口径评分：**62份完整答卷、38份300s内无完整答卷，54题正确**；生成infra/protocol invalid为0、Judge失败为0。
+
+| 切片 | 题数 | 完整答卷 | 已答题正确率 | 300s无完整答卷 | 固定预算成功率 |
+|---|---:|---:|---:|---:|---:|
+| 合计 | 100 | 62 | 54/62 = **87.10%** | 38 | 54/100 = **54.00%** |
+| 数学 exactMatch | 41 | 11 | 7/11 = 63.64% | 30 | 7/41 = 17.07% |
+| MMLU-Pro MCQ | 59 | 51 | 47/51 = 92.16% | 8 | 47/59 = 79.66% |
+
+已答题准确率受到“在deadline前给出完整答案”的选择偏差，不能替代固定100题的预算成功率。38个超时不表示Judge判错，也没有8K截断证据；62个完整回答均为finish_reason=stop，真实输出共57,278token，中位720、最长2,938。独立八学科与长度分项保存在 [首次完整快照](source_snapshots/validation_base_hle_first_complete_20261016.json)。此处是代理验证，**不是正式HLE2500成绩，也尚未证明SFT提升**。
+
+顺序controller已实际记录 `base_hle generation_finished` → `base_asi starting`，22:57 Base-ASI首条生成完成，证明后续接续不依赖人工回访。其后仍按固定块顺序HLE16→HLE250→ASI128；SAB执行队列与CPU释放监控均存活，专属env已就绪，4CPU尚未释放，所以尚无SAB任务执行分数。没有重生原题或改变预算。
 
 22:37只读超时归因：Base已28题终态（7完整回答、21本地300s超时）。抽查3条均先/tokenize成功（精确输入100/120/164token），后以TimeoutError在300.021–300.051s结束，无raw_response/usage/finish_reason，**没有达到8192输出上限的证据**。同窗服务持续Running8/Waiting0、约79–84输出token/s；已完成回答示例772token/76.6s、2299token/234.2s，慢解码触发预算是最吻合的解释，未见HTTP错误、adapter错误或队列积压。但服务禁用了逐请求日志，不能将aggregate运行状态当每个超时的逐题处理证明；也没有请求ID对应的主动断开记录。当前脚本将这些预算内无完整答卷计0，只能解释为固定300s预算下的成功率约定，须单列timeout，不是judge认定答案错误，更不是8K正常截断。若严格能力准确率要求逐题已处理证据，应将超时归因未确认单列，暂不发布该口径主分；本次没有改预算、重生成、追加探针或变更评分。

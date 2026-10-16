@@ -1,5 +1,5 @@
 {
-  "pid": 584499,
+  "pid": 750633,
   "argv": [
     "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
     "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_validation.py",
@@ -8,10 +8,22 @@
     "--key-file=/data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key",
     "--direct-output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/validation_direct_20261016",
     "--cpu-release-marker=/data/caoqinlu/projects/apex-takehome/artifacts/eval/validation_direct_20261016/shared_cpu_ready.json",
-    "--service-ends=2026-10-17T10:05:32+08:00"
+    "--service-ends=2026-10-17T10:05:32+08:00",
+    "--image-workers=4"
   ],
   "state": "waiting_direct_generation_blocks",
   "source_gold_reward": 1,
   "service_ends": "2026-10-17T10:05:32+08:00",
-  "stop_new_model_tasks_at": "2026-10-17T09:30:32+08:00"
+  "stop_new_model_tasks_at": "2026-10-17T09:30:32+08:00",
+  "image_workers": 4,
+  "image_initial_affinity": [
+    125
+  ],
+  "image_cpus_after_permanent_handoff": [
+    16,
+    17,
+    18,
+    19
+  ],
+  "started_at_utc": "2026-10-16T14:54:14.570094+00:00"
 }

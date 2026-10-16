@@ -375,3 +375,13 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - 80独立隧道、模型块、HLE评分、SAB队列、SWE队列、CPU永久释放监控均常驻。CPU须等Base和repair消费者完全退出才扩并发；SWE镜像经现有代理下载。服务10/17 10:05:32到期，SWE09:30:32停止新准入，保留pending。
 - HLE部分无答卷是本地300s deadline；服务整体健康但缺少逐题服务映射，最吻合慢decode。单列超时，不能说judge判错或8K截断；当前不发布部分题主分，不改预算或重生成。
 - 已完成自有Python语法检查、Slurm shell检查、真实服务/首题gold/首份HLE生成判分闭环。尚待完整覆盖率与实际成绩。详见analysis/validation_execution_20261016.md及三份执行报告。
+
+
+## 2026-10-16 23:05：取消SWE独立val，只评测已完成专家
+
+- 用户明确取消SWE100题独立validation，并澄清Base已有正在收尾，只需跑训练完成的SWE249专家最终benchmark，不能重复跑SWE Base。
+- 22:58:58已写取消标记，退出自有val控制器和4路镜像进程组；0模型请求，记录、100清单、2个已完成SIF和cache保留。实际再运行原入口验证立即返回cancelled_by_user，无未来准入。此前0–15池保留给新的SWE专家正式51题队列，取消的镜像扩容不再执行。
+- 专家最终51题复用正式缓存、当前Base clean环境和原生mini/fresh replay；只准备apex-val-swe249独立输出，等待direct生成块及永久CPU门闩。不重跑Base、不依照测试集反复调参或挑checkpoint。新专家队列由独立执行报告另行记录。
+- HLE/SAB验证继续。22:56:50 HLE Base proxy100齐：62完整答卷/38本地300秒无答卷，正确54；已答卷54/62=87.10%含选择偏差，预算限定54.00%，0生成infra/0Judge失败，不能当正式HLE成绩或训练增益。纯结果汇总常驻，无额外模型/API调用。
+- Terminal22:54为167/250，best160 loss.42458877，已10次完整GPU val无OOM；Mixed381/883，best64，23次val。独立Terminal100源包已补齐（88单Dockerfile/12Compose），0环境验收，不把42条loss-val当任务成功率；此分支未启动模型评测或新服务。
+- 记录见analysis/validation_execution_20261016.md、validation_terminal_readiness_20261016.md和逐项回执。此次只提交自有文件及共享文档追加，保留另一会话WIP，无coauthor信息。

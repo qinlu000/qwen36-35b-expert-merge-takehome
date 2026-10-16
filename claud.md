@@ -1400,3 +1400,13 @@
 - ASI公开本地240/240完成，1.5709884%非Portal认证；HLE2500生成终态齐、2499有效（99正确）、1Judge JSON无效，完整主分仍null。未缩分母或把未评分填0。
 - Terminal SFT726665实核184/250、最新val176=.42397615，原生日志预计31m36s；Mixed726666为400/883、最近val384=1.66995656、best64=1.21849561，预计3h31m25s。这是动态Trainer估计，不承诺完成时间。另会话validation727113已运行；Base-HLE代理val100完成54固定预算成功/62完整回答/38deadline，Base-ASI已生成10/20，CPU门闩尚未放行执行，尚无专家validation成绩；不混作正式Base benchmark或SFT提升证据。
 - 当前HPC本项目14GPU：Base两个TP2=4，Terminal/Mixed训练各4，独立validation2。80根盘约31.88GiB、/data约2.30TiB可用，未再次爆盘。快照baseline_status_20261016_2300.json与本节纳Git，保留另会话工作区。
+
+
+## 2026-10-16 23:05：取消SWE独立val，只评测已完成专家
+
+- 用户明确取消SWE100题独立validation，并澄清Base已有正在收尾，只需跑训练完成的SWE249专家最终benchmark，不能重复跑SWE Base。
+- 22:58:58已写取消标记，退出自有val控制器和4路镜像进程组；0模型请求，记录、100清单、2个已完成SIF和cache保留。实际再运行原入口验证立即返回cancelled_by_user，无未来准入。此前0–15池保留给新的SWE专家正式51题队列，取消的镜像扩容不再执行。
+- 专家最终51题复用正式缓存、当前Base clean环境和原生mini/fresh replay；只准备apex-val-swe249独立输出，等待direct生成块及永久CPU门闩。不重跑Base、不依照测试集反复调参或挑checkpoint。新专家队列由独立执行报告另行记录。
+- HLE/SAB验证继续。22:56:50 HLE Base proxy100齐：62完整答卷/38本地300秒无答卷，正确54；已答卷54/62=87.10%含选择偏差，预算限定54.00%，0生成infra/0Judge失败，不能当正式HLE成绩或训练增益。纯结果汇总常驻，无额外模型/API调用。
+- Terminal22:54为167/250，best160 loss.42458877，已10次完整GPU val无OOM；Mixed381/883，best64，23次val。独立Terminal100源包已补齐（88单Dockerfile/12Compose），0环境验收，不把42条loss-val当任务成功率；此分支未启动模型评测或新服务。
+- 记录见analysis/validation_execution_20261016.md、validation_terminal_readiness_20261016.md和逐项回执。此次只提交自有文件及共享文档追加，保留另一会话WIP，无coauthor信息。

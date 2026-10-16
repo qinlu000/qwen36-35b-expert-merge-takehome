@@ -7,8 +7,10 @@ from functools import partial
 import json
 import os
 from pathlib import Path
+import signal
 import subprocess
 import sys
+import time
 
 from harbor.models.trial.config import TrialConfig
 from harbor.trial.trial import Trial
@@ -22,6 +24,10 @@ def now():
     return datetime.now(timezone.utc).isoformat()
 
 
+def cancelled(args):
+    return (args.output / 'CANCELLED_BY_USER.json').is_file()
+
+
 def service_safe(args):
     return (args.service_ends - datetime.now(timezone.utc)).total_seconds() >= 2100
 
@@ -33,13 +39,13 @@ def direct_finished(path):
                for label in blocks)
 
 
-def released_cpus(marker):
+def released_cpus(marker, cpus=None):
     if not marker.is_file():
         return False
     record = json.loads(marker.read_text())
     if not record.get('ready') or not record.get('cpu_consumers_finished'):
         return False
-    return not base_scopes(set(range(16)))
+    return not base_scopes(set(range(16)) if cpus is None else cpus)
 
 
 def score(path):
@@ -58,7 +64,8 @@ async def prefetch(args, rows):
     tools = ROOT / 'artifacts/tools/apptainer-1.4.5/rootfs/usr/bin/apptainer'
     logdir = args.output / 'image_logs'
     logdir.mkdir(exist_ok=True)
-    states = {}
+    previous = args.output / 'image_status.json'
+    states = json.loads(previous.read_text()) if previous.exists() else {}
     environment = dict(os.environ, APPTAINER_CACHEDIR=str(args.output / 'image_cache'),
                        APPTAINER_TMPDIR=str(args.output / 'image_tmp'),
                        GOMAXPROCS='1', OMP_NUM_THREADS='1',
@@ -67,30 +74,58 @@ async def prefetch(args, rows):
                        http_proxy='http://127.0.0.1:38080', https_proxy='http://127.0.0.1:38080')
     for key in ['APPTAINER_CACHEDIR', 'APPTAINER_TMPDIR']:
         Path(environment[key]).mkdir(parents=True, exist_ok=True)
-    for row in rows:
-        image = Path(row['sif'])
-        if image.is_file():
-            states[row['task_name']] = {'state': 'ready_existing', 'bytes': image.stat().st_size}
-            save_json(args.output / 'image_status.json', states)
-            continue
-        temporary = image.with_suffix('.partial.sif')
-        with (logdir / (row['task_name'] + '.log')).open('ab') as log:
-            for attempt in (1, 2):
-                temporary.unlink(missing_ok=True)
-                states[row['task_name']] = {'state': 'pulling', 'attempt': attempt, 'at': now()}
+    semaphore = asyncio.Semaphore(args.image_workers)
+    cpu_pool = asyncio.Queue()
+    for cpu in range(16, 20):
+        cpu_pool.put_nowait(cpu)
+
+    async def one(row):
+        async with semaphore:
+            if cancelled(args):
+                return
+            image = Path(row['sif'])
+            if image.is_file():
+                states[row['task_name']] = {'state': 'ready_existing', 'bytes': image.stat().st_size}
                 save_json(args.output / 'image_status.json', states)
-                process = await asyncio.create_subprocess_exec(
-                    'taskset', '-c', '125', str(tools), 'pull', '--arch', 'amd64',
-                    str(temporary), 'docker://' + row['image_name'],
-                    env=environment, stdout=log, stderr=log)
-                code = await process.wait()
-                if code == 0:
-                    temporary.replace(image)
-                    break
-            states[row['task_name']] = {'state': 'ready' if image.is_file() else 'pull_failed',
-                'return_code': code, 'attempts': attempt, 'finished_at': now(),
-                'bytes': image.stat().st_size if image.is_file() else None}
-            save_json(args.output / 'image_status.json', states)
+                return
+            temporary = image.with_suffix('.partial.sif')
+            started = time.monotonic()
+            dedicated_cpu = await cpu_pool.get()
+            with (logdir / (row['task_name'] + '.log')).open('ab') as log:
+                for attempt in (1, 2):
+                    if cancelled(args):
+                        cpu_pool.put_nowait(dedicated_cpu)
+                        return
+                    temporary.unlink(missing_ok=True)
+                    cpu = dedicated_cpu if released_cpus(args.cpu_release_marker, set(range(16, 20))) else 125
+                    if cpu != 125 and not (args.output / 'image_cpu_handoff.json').exists():
+                        save_json(args.output / 'image_cpu_handoff.json', {'at': now(),
+                            'permanent_marker': str(args.cpu_release_marker),
+                            'image_cpus': list(range(16, 20)), 'cpus_per_image': 1,
+                            'old_cpu125_pulls_drain_naturally': True})
+                    process = await asyncio.create_subprocess_exec(
+                        'taskset', '-c', str(cpu), str(tools), 'pull', '--arch', 'amd64',
+                        str(temporary), 'docker://' + row['image_name'],
+                        env=environment, stdout=log, stderr=log, start_new_session=True)
+                    states[row['task_name']] = {'state': 'pulling', 'attempt': attempt,
+                        'at': now(), 'pid': process.pid, 'cpu_affinity': [cpu]}
+                    save_json(args.output / 'image_status.json', states)
+                    try:
+                        code = await asyncio.wait_for(process.wait(), timeout=1800)
+                    except TimeoutError:
+                        os.killpg(process.pid, signal.SIGKILL)
+                        await process.wait()
+                        code = 124
+                    if code == 0:
+                        temporary.replace(image)
+                        break
+                states[row['task_name']] = {'state': 'ready' if image.is_file() else 'pull_failed',
+                    'return_code': code, 'attempts': attempt, 'finished_at': now(),
+                    'elapsed_seconds': round(time.monotonic() - started, 3),
+                    'bytes': image.stat().st_size if image.is_file() else None}
+                save_json(args.output / 'image_status.json', states)
+            cpu_pool.put_nowait(dedicated_cpu)
+    await asyncio.gather(*(one(row) for row in rows))
     save_json(args.output / 'images_finished.json', {'at': now(), 'states': states})
 
 
@@ -144,6 +179,8 @@ async def block(args, rows, label, model):
 
     async def worker(cpu):
         while pending:
+            if cancelled(args):
+                return
             if cpu == 125 and expanded:
                 return
             if not service_safe(args):
@@ -205,13 +242,19 @@ async def block(args, rows, label, model):
 async def main(args):
     args.output = args.output.resolve()
     args.output.mkdir(parents=True, exist_ok=True)
+    if cancelled(args):
+        save_json(args.output / 'status.json', {'at': now(), 'state': 'cancelled_by_user',
+            'future_admission': False, 'controller_restart_refused': True})
+        return
     lock = (args.output / '.lock').open('a+')
     fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
     save_json(args.output / 'controller.json', {'pid': os.getpid(), 'started_at': now(),
         'initial_cpu': 125, 'initial_parallel': 1, 'max_parallel': 16,
         'models': ['apex-val-base', 'apex-val-swe249'], 'tasks_each': 100,
         'wait_for_direct': str(args.direct_output), 'cpu_release_marker': str(args.cpu_release_marker),
-        'service_ends': args.service_ends.isoformat(), 'admission_minimum_remaining_seconds': 2100})
+        'service_ends': args.service_ends.isoformat(), 'admission_minimum_remaining_seconds': 2100,
+        'image_workers': args.image_workers, 'image_initial_affinity': [125],
+        'image_cpus_after_permanent_handoff': list(range(16, 20))})
     rows = json.loads((args.output / 'manifest.json').read_text())
     image_task = asyncio.create_task(prefetch(args, rows))
     click = next(row for row in rows if row['instance_id'] == 'pallets__click-1852')
@@ -255,4 +298,5 @@ if __name__ == '__main__':
     parser.add_argument('--cpu-release-marker', type=Path, required=True)
     parser.add_argument('--service-ends', type=datetime.fromisoformat,
                         default=datetime.fromisoformat('2026-10-17T10:05:32+08:00'))
+    parser.add_argument('--image-workers', type=int, default=4)
     asyncio.run(main(parser.parse_args()))

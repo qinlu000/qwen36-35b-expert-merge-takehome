@@ -1,0 +1,138 @@
+{
+  "checked_at_utc": "2026-10-16T14:53:47.960257+00:00",
+  "squeue": [
+    "726665|apex-terminal-retry-sft|RUNNING|1:29:19|gres/gpu:4|ACD1-26",
+    "726666|apex-mixed-existing2k-sft|RUNNING|2:58:23|gres/gpu:4|ACD1-2",
+    "727113|apex-validation-lora|RUNNING|48:15|gres/gpu:2|ACD1-24",
+    "726635|apex-terminal-seq20|RUNNING|3:45:15|gres/gpu:2|ACD1-54",
+    "726629|apex-hle-seq20|RUNNING|3:50:56|gres/gpu:2|ACD1-12"
+  ],
+  "runs": {
+    "terminal-retry-sft-r16-726665": {
+      "run_dir": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/terminal-retry-sft-r16-726665",
+      "summary_exists": false,
+      "native_loaded_train_rows": 2000,
+      "native_loaded_val_rows": 42,
+      "last_optimizer_record": {
+        "loss": 0.22060703,
+        "grad_norm": 0.15236848,
+        "learning_rate": 2.632e-05,
+        "epoch": 0.668,
+        "global_step/max_steps": "167/250",
+        "elapsed_time": "1h 21m 8s",
+        "remaining_time": "40m 20s",
+        "memory(GiB)": 55.35,
+        "train_speed(s/it)": 29.151082
+      },
+      "full_validation_passes": 10,
+      "first_validation_record": {
+        "eval_loss": 0.46531457,
+        "eval_runtime": 57.9351,
+        "eval_samples_per_second": 0.725,
+        "eval_steps_per_second": 0.19,
+        "epoch": 0.064,
+        "global_step/max_steps": "16/250",
+        "elapsed_time": "15m 22s",
+        "remaining_time": "3h 44m 39s",
+        "memory(GiB)": 55.05,
+        "train_speed(s/it)": 57.603249
+      },
+      "latest_validation_record": {
+        "eval_loss": 0.42458877,
+        "eval_runtime": 40.2076,
+        "eval_samples_per_second": 1.045,
+        "eval_steps_per_second": 0.274,
+        "epoch": 0.64,
+        "global_step/max_steps": "160/250",
+        "elapsed_time": "1h 18m 36s",
+        "remaining_time": "44m 13s",
+        "memory(GiB)": 55.35,
+        "train_speed(s/it)": 29.475834
+      },
+      "best_validation_record": {
+        "eval_loss": 0.42458877,
+        "eval_runtime": 40.2076,
+        "eval_samples_per_second": 1.045,
+        "eval_steps_per_second": 0.274,
+        "epoch": 0.64,
+        "global_step/max_steps": "160/250",
+        "elapsed_time": "1h 18m 36s",
+        "remaining_time": "44m 13s",
+        "memory(GiB)": 55.35,
+        "train_speed(s/it)": 29.475834
+      },
+      "latest_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/terminal-retry-sft-r16-726665/training/checkpoint-160",
+      "latest_trainer_state": {
+        "global_step": 160,
+        "max_steps": 250,
+        "best_metric": 0.42458877,
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/terminal-retry-sft-r16-726665/training/checkpoint-160",
+        "epoch": 0.64
+      },
+      "oom_errors_in_current_native_log": 0
+    },
+    "mixed-existing2k-sft-r16-726666": {
+      "run_dir": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/mixed-existing2k-sft-r16-726666",
+      "summary_exists": false,
+      "native_loaded_train_rows": 7066,
+      "native_loaded_val_rows": 249,
+      "last_optimizer_record": {
+        "loss": 0.39794809,
+        "grad_norm": 0.12130487,
+        "learning_rate": 6.341e-05,
+        "epoch": 0.43148358,
+        "global_step/max_steps": "381/883",
+        "elapsed_time": "2h 48m 55s",
+        "remaining_time": "3h 42m 34s",
+        "memory(GiB)": 55.2,
+        "train_speed(s/it)": 26.600605
+      },
+      "full_validation_passes": 23,
+      "first_validation_record": {
+        "eval_loss": 1.84335911,
+        "eval_runtime": 203.1033,
+        "eval_samples_per_second": 1.226,
+        "eval_steps_per_second": 0.31,
+        "epoch": 0.01812005,
+        "global_step/max_steps": "16/883",
+        "elapsed_time": "18m 10s",
+        "remaining_time": "16h 24m 45s",
+        "memory(GiB)": 55.06,
+        "train_speed(s/it)": 68.148569
+      },
+      "latest_validation_record": {
+        "eval_loss": 1.65768003,
+        "eval_runtime": 131.2362,
+        "eval_samples_per_second": 1.897,
+        "eval_steps_per_second": 0.48,
+        "epoch": 0.41676104,
+        "global_step/max_steps": "368/883",
+        "elapsed_time": "2h 44m 58s",
+        "remaining_time": "3h 50m 51s",
+        "memory(GiB)": 55.2,
+        "train_speed(s/it)": 26.895393
+      },
+      "best_validation_record": {
+        "eval_loss": 1.21849561,
+        "eval_runtime": 132.2775,
+        "eval_samples_per_second": 1.882,
+        "eval_steps_per_second": 0.476,
+        "epoch": 0.07248018,
+        "global_step/max_steps": "64/883",
+        "elapsed_time": "38m 43s",
+        "remaining_time": "8h 15m 29s",
+        "memory(GiB)": 55.1,
+        "train_speed(s/it)": 36.298675
+      },
+      "latest_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/mixed-existing2k-sft-r16-726666/training/checkpoint-368",
+      "latest_trainer_state": {
+        "global_step": 368,
+        "max_steps": 883,
+        "best_metric": 1.21849561,
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/mixed-existing2k-sft-r16-726666/training/checkpoint-64",
+        "epoch": 0.41676104190260477
+      },
+      "oom_errors_in_current_native_log": 0
+    }
+  }
+}

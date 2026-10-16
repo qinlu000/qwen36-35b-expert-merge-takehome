@@ -1,0 +1,151 @@
+{
+  "as_of_utc": "2026-10-16T14:55:30.865377+00:00",
+  "controller": {
+    "pid": 750633,
+    "argv": [
+      "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+      "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_validation.py",
+      "--output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/validation_swe_20261016",
+      "--endpoint=http://127.0.0.1:28089",
+      "--key-file=/data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key",
+      "--direct-output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/validation_direct_20261016",
+      "--cpu-release-marker=/data/caoqinlu/projects/apex-takehome/artifacts/eval/validation_direct_20261016/shared_cpu_ready.json",
+      "--service-ends=2026-10-17T10:05:32+08:00",
+      "--image-workers=4"
+    ],
+    "state": "waiting_direct_generation_blocks",
+    "source_gold_reward": 1,
+    "service_ends": "2026-10-17T10:05:32+08:00",
+    "stop_new_model_tasks_at": "2026-10-17T09:30:32+08:00",
+    "image_workers": 4,
+    "image_initial_affinity": [
+      125
+    ],
+    "image_cpus_after_permanent_handoff": [
+      16,
+      17,
+      18,
+      19
+    ],
+    "started_at_utc": "2026-10-16T14:54:14.570094+00:00"
+  },
+  "controller_metadata": {
+    "pid": 750633,
+    "started_at": "2026-10-16T14:54:14.969068+00:00",
+    "initial_cpu": 125,
+    "initial_parallel": 1,
+    "max_parallel": 16,
+    "models": [
+      "apex-val-base",
+      "apex-val-swe249"
+    ],
+    "tasks_each": 100,
+    "wait_for_direct": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/validation_direct_20261016",
+    "cpu_release_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/validation_direct_20261016/shared_cpu_ready.json",
+    "service_ends": "2026-10-17T10:05:32+08:00",
+    "admission_minimum_remaining_seconds": 2100,
+    "image_workers": 4,
+    "image_initial_affinity": [
+      125
+    ],
+    "image_cpus_after_permanent_handoff": [
+      16,
+      17,
+      18,
+      19
+    ]
+  },
+  "alive": true,
+  "model_state": {
+    "at": "2026-10-16T14:55:30.036549+00:00",
+    "state": "waiting_direct_generation_blocks",
+    "first_environment_gold_reward": 1,
+    "model_requests": 0
+  },
+  "ready_sifs": 2,
+  "image_states": {
+    "instance_pallets__click-1852": {
+      "state": "ready_existing",
+      "bytes": 674586624
+    },
+    "instance_accenture__sfmc-devtools-1098": {
+      "state": "ready_existing",
+      "bytes": 1052553216
+    },
+    "instance_aksiksi__compose2nix-29": {
+      "state": "pulling",
+      "attempt": 1,
+      "at": "2026-10-16T14:54:14.977575+00:00",
+      "pid": 750875,
+      "cpu_affinity": [
+        125
+      ]
+    },
+    "instance_algolia__algoliasearch-client-go-690": {
+      "state": "pulling",
+      "attempt": 1,
+      "at": "2026-10-16T14:54:14.977843+00:00",
+      "pid": 750882,
+      "cpu_affinity": [
+        125
+      ]
+    },
+    "instance_alteryx__evalml-1476": {
+      "state": "pulling",
+      "attempt": 1,
+      "at": "2026-10-16T14:54:14.991451+00:00",
+      "pid": 750885,
+      "cpu_affinity": [
+        125
+      ]
+    },
+    "instance_alteryx__evalml-4377": {
+      "state": "pulling",
+      "attempt": 1,
+      "at": "2026-10-16T14:54:14.991728+00:00",
+      "pid": 750887,
+      "cpu_affinity": [
+        125
+      ]
+    }
+  },
+  "image_workers_actual": [
+    {
+      "task": "instance_aksiksi__compose2nix-29",
+      "pid": 750875,
+      "alive": true,
+      "affinity": [
+        125
+      ]
+    },
+    {
+      "task": "instance_algolia__algoliasearch-client-go-690",
+      "pid": 750882,
+      "alive": true,
+      "affinity": [
+        125
+      ]
+    },
+    {
+      "task": "instance_alteryx__evalml-1476",
+      "pid": 750885,
+      "alive": true,
+      "affinity": [
+        125
+      ]
+    },
+    {
+      "task": "instance_alteryx__evalml-4377",
+      "pid": 750887,
+      "alive": true,
+      "affinity": [
+        125
+      ]
+    }
+  ],
+  "cache_bytes": 4208281813,
+  "permanent_cpu_marker_exists": false,
+  "image_cpu_handoff_exists": false,
+  "data_free_bytes": 2538978447360,
+  "root_free_bytes": 34226249728
+}

@@ -1,0 +1,299 @@
+{
+  "recorded_at_utc": "2026-10-16T14:56:50.882347+00:00",
+  "scope": "independent held-out proxies, not official HLE or ASI benchmark scores",
+  "model": "Qwen/Qwen3.6-35B-A3B",
+  "variant": "untrained fixed Base",
+  "context_tokens": 65536,
+  "output_cap": 8192,
+  "nonthinking": true,
+  "per_question_walltime_seconds": 300,
+  "parallel": 8,
+  "results": {
+    "expected": 100,
+    "generated_terminal": 100,
+    "complete": true,
+    "completed_answers": 62,
+    "answers_judged": 62,
+    "deadline_no_answer": 38,
+    "generation_infrastructure_or_protocol_invalid": 0,
+    "judge_invalid": 0,
+    "correct": 54,
+    "answered_accuracy_percent": 87.09677419354838,
+    "answered_accuracy_scope": "only scored completed answers; selected by answering before deadline",
+    "budget_limited_success_percent": 54.0,
+    "score_statuses": {
+      "native_no_answer": 38,
+      "judged": 62
+    },
+    "answer_finish_reasons": {
+      "stop": 62
+    },
+    "completion_tokens": {
+      "sum": 57278,
+      "median": 720.0,
+      "max": 2938
+    },
+    "answer_type": {
+      "exactMatch": {
+        "expected": 41,
+        "generated_terminal": 41,
+        "complete": true,
+        "completed_answers": 11,
+        "answers_judged": 11,
+        "deadline_no_answer": 30,
+        "generation_infrastructure_or_protocol_invalid": 0,
+        "judge_invalid": 0,
+        "correct": 7,
+        "answered_accuracy_percent": 63.63636363636363,
+        "answered_accuracy_scope": "only scored completed answers; selected by answering before deadline",
+        "budget_limited_success_percent": 17.073170731707318,
+        "score_statuses": {
+          "native_no_answer": 30,
+          "judged": 11
+        },
+        "answer_finish_reasons": {
+          "stop": 11
+        },
+        "completion_tokens": {
+          "sum": 20156,
+          "median": 1877,
+          "max": 2469
+        }
+      },
+      "multipleChoice": {
+        "expected": 59,
+        "generated_terminal": 59,
+        "complete": true,
+        "completed_answers": 51,
+        "answers_judged": 51,
+        "deadline_no_answer": 8,
+        "generation_infrastructure_or_protocol_invalid": 0,
+        "judge_invalid": 0,
+        "correct": 47,
+        "answered_accuracy_percent": 92.15686274509804,
+        "answered_accuracy_scope": "only scored completed answers; selected by answering before deadline",
+        "budget_limited_success_percent": 79.66101694915254,
+        "score_statuses": {
+          "native_no_answer": 8,
+          "judged": 51
+        },
+        "answer_finish_reasons": {
+          "stop": 51
+        },
+        "completion_tokens": {
+          "sum": 37122,
+          "median": 633,
+          "max": 2938
+        }
+      }
+    },
+    "category": {
+      "Biology/Medicine": {
+        "expected": 11,
+        "generated_terminal": 11,
+        "complete": true,
+        "completed_answers": 10,
+        "answers_judged": 10,
+        "deadline_no_answer": 1,
+        "generation_infrastructure_or_protocol_invalid": 0,
+        "judge_invalid": 0,
+        "correct": 10,
+        "answered_accuracy_percent": 100.0,
+        "answered_accuracy_scope": "only scored completed answers; selected by answering before deadline",
+        "budget_limited_success_percent": 90.9090909090909,
+        "score_statuses": {
+          "native_no_answer": 1,
+          "judged": 10
+        },
+        "answer_finish_reasons": {
+          "stop": 10
+        },
+        "completion_tokens": {
+          "sum": 6117,
+          "median": 310.5,
+          "max": 2938
+        }
+      },
+      "Chemistry": {
+        "expected": 7,
+        "generated_terminal": 7,
+        "complete": true,
+        "completed_answers": 4,
+        "answers_judged": 4,
+        "deadline_no_answer": 3,
+        "generation_infrastructure_or_protocol_invalid": 0,
+        "judge_invalid": 0,
+        "correct": 4,
+        "answered_accuracy_percent": 100.0,
+        "answered_accuracy_scope": "only scored completed answers; selected by answering before deadline",
+        "budget_limited_success_percent": 57.142857142857146,
+        "score_statuses": {
+          "native_no_answer": 3,
+          "judged": 4
+        },
+        "answer_finish_reasons": {
+          "stop": 4
+        },
+        "completion_tokens": {
+          "sum": 4144,
+          "median": 1119.5,
+          "max": 1445
+        }
+      },
+      "Computer Science/AI": {
+        "expected": 10,
+        "generated_terminal": 10,
+        "complete": true,
+        "completed_answers": 10,
+        "answers_judged": 10,
+        "deadline_no_answer": 0,
+        "generation_infrastructure_or_protocol_invalid": 0,
+        "judge_invalid": 0,
+        "correct": 9,
+        "answered_accuracy_percent": 90.0,
+        "answered_accuracy_scope": "only scored completed answers; selected by answering before deadline",
+        "budget_limited_success_percent": 90.0,
+        "score_statuses": {
+          "judged": 10
+        },
+        "answer_finish_reasons": {
+          "stop": 10
+        },
+        "completion_tokens": {
+          "sum": 7498,
+          "median": 686.0,
+          "max": 1459
+        }
+      },
+      "Engineering": {
+        "expected": 4,
+        "generated_terminal": 4,
+        "complete": true,
+        "completed_answers": 3,
+        "answers_judged": 3,
+        "deadline_no_answer": 1,
+        "generation_infrastructure_or_protocol_invalid": 0,
+        "judge_invalid": 0,
+        "correct": 3,
+        "answered_accuracy_percent": 100.0,
+        "answered_accuracy_scope": "only scored completed answers; selected by answering before deadline",
+        "budget_limited_success_percent": 75.0,
+        "score_statuses": {
+          "judged": 3,
+          "native_no_answer": 1
+        },
+        "answer_finish_reasons": {
+          "stop": 3
+        },
+        "completion_tokens": {
+          "sum": 4640,
+          "median": 1485,
+          "max": 2455
+        }
+      },
+      "Humanities/Social Science": {
+        "expected": 9,
+        "generated_terminal": 9,
+        "complete": true,
+        "completed_answers": 8,
+        "answers_judged": 8,
+        "deadline_no_answer": 1,
+        "generation_infrastructure_or_protocol_invalid": 0,
+        "judge_invalid": 0,
+        "correct": 5,
+        "answered_accuracy_percent": 62.5,
+        "answered_accuracy_scope": "only scored completed answers; selected by answering before deadline",
+        "budget_limited_success_percent": 55.55555555555556,
+        "score_statuses": {
+          "judged": 8,
+          "native_no_answer": 1
+        },
+        "answer_finish_reasons": {
+          "stop": 8
+        },
+        "completion_tokens": {
+          "sum": 3903,
+          "median": 423.0,
+          "max": 1021
+        }
+      },
+      "Math": {
+        "expected": 41,
+        "generated_terminal": 41,
+        "complete": true,
+        "completed_answers": 11,
+        "answers_judged": 11,
+        "deadline_no_answer": 30,
+        "generation_infrastructure_or_protocol_invalid": 0,
+        "judge_invalid": 0,
+        "correct": 7,
+        "answered_accuracy_percent": 63.63636363636363,
+        "answered_accuracy_scope": "only scored completed answers; selected by answering before deadline",
+        "budget_limited_success_percent": 17.073170731707318,
+        "score_statuses": {
+          "native_no_answer": 30,
+          "judged": 11
+        },
+        "answer_finish_reasons": {
+          "stop": 11
+        },
+        "completion_tokens": {
+          "sum": 20156,
+          "median": 1877,
+          "max": 2469
+        }
+      },
+      "Other": {
+        "expected": 9,
+        "generated_terminal": 9,
+        "complete": true,
+        "completed_answers": 9,
+        "answers_judged": 9,
+        "deadline_no_answer": 0,
+        "generation_infrastructure_or_protocol_invalid": 0,
+        "judge_invalid": 0,
+        "correct": 9,
+        "answered_accuracy_percent": 100.0,
+        "answered_accuracy_scope": "only scored completed answers; selected by answering before deadline",
+        "budget_limited_success_percent": 100.0,
+        "score_statuses": {
+          "judged": 9
+        },
+        "answer_finish_reasons": {
+          "stop": 9
+        },
+        "completion_tokens": {
+          "sum": 2664,
+          "median": 164,
+          "max": 851
+        }
+      },
+      "Physics": {
+        "expected": 9,
+        "generated_terminal": 9,
+        "complete": true,
+        "completed_answers": 7,
+        "answers_judged": 7,
+        "deadline_no_answer": 2,
+        "generation_infrastructure_or_protocol_invalid": 0,
+        "judge_invalid": 0,
+        "correct": 7,
+        "answered_accuracy_percent": 100.0,
+        "answered_accuracy_scope": "only scored completed answers; selected by answering before deadline",
+        "budget_limited_success_percent": 77.77777777777777,
+        "score_statuses": {
+          "judged": 7,
+          "native_no_answer": 2
+        },
+        "answer_finish_reasons": {
+          "stop": 7
+        },
+        "completion_tokens": {
+          "sum": 8156,
+          "median": 1164,
+          "max": 1968
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "at_utc": "2026-10-16T14:58:54.860514+00:00",
+  "cancelled_by_user": true,
+  "reason": "User cancelled independent SWE validation; use final benchmark instead",
+  "scope": "This source-dev validation controller/image preparation only",
+  "no_future_model_or_image_admission": true,
+  "finished_at_utc": "2026-10-16T14:58:58.084854+00:00",
+  "controller_pid": 750633,
+  "terminated_own_process_groups": [
+    750633,
+    750875,
+    750882,
+    750885,
+    750887
+  ],
+  "target_processes": [
+    {
+      "pid": 750633,
+      "comm": "python",
+      "state": "S",
+      "ppid": 1,
+      "pgrp": 750633,
+      "start_ticks": "866147859"
+    },
+    {
+      "pid": 750875,
+      "comm": "apptainer",
+      "state": "S",
+      "ppid": 750633,
+      "pgrp": 750875,
+      "start_ticks": "866147899"
+    },
+    {
+      "pid": 750882,
+      "comm": "apptainer",
+      "state": "S",
+      "ppid": 750633,
+      "pgrp": 750882,
+      "start_ticks": "866147899"
+    },
+    {
+      "pid": 750885,
+      "comm": "apptainer",
+      "state": "S",
+      "ppid": 750633,
+      "pgrp": 750885,
+      "start_ticks": "866147899"
+    },
+    {
+      "pid": 750887,
+      "comm": "apptainer",
+      "state": "S",
+      "ppid": 750633,
+      "pgrp": 750887,
+      "start_ticks": "866147899"
+    }
+  ],
+  "remaining_running_own_processes": [],
+  "all_own_heavy_processes_exited": true,
+  "saved_model_request_files": 0,
+  "model_requests_zero": true,
+  "ready_sifs_preserved": [
+    {
+      "name": "pallets__click-1852.sif",
+      "bytes": 674586624
+    },
+    {
+      "name": "accenture__sfmc-devtools-1098.sif",
+      "bytes": 1052553216
+    }
+  ],
+  "task_count_preserved": 100,
+  "cache_preserved": true,
+  "source_gold_preserved": true,
+  "cpu_expansion_disabled": true,
+  "formal_base_training_direct_service_touched": false
+}
