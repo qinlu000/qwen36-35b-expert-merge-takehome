@@ -1353,3 +1353,11 @@
 - 共享2×TP2 Base job726629/726635释放条件已扩为原Terminal+clean28 SWE+本修复消费全部结束，远端watcher4159899常驻，Mac断网不影响。solver1800s、官方verifier900s、4CPU8GiB、模型/提示/seed/64K8K预算均保持。只做必要语法检查和真实生产执行，无额外fixture/模型验收测试/hash扫描。只提交本轮自有变更，保留其他会话SFT工作区，无coauthor信息。
 - 22:05前两次真实仅补评已完成：makeDoom原候选官方3test失败为有效0；PyTorch原候选+官方MNIST6test全过为有效1，均0新模型调用。rstan首次新补评因UV重验证过期索引/TLS未执行pytest，包装器0被正确拒绝。依赖6包版本完整未改；只为评分缓存启用offline，并登记一次改变基础设施后的native重评，不重答、不重评任何有效0/1。
 - 22:09:13父controller换为冻结runtime-v2/PID4189047，保留adaptive/seed0原在途子4180958，没有取消求解或增加模型答案。rstan新评分目录加__nativeinfra1，原invalid文件保留；单独retry计划与cache回执入Git。22:09原在途7、旧pending153；新2有效/1在途/29待准入，自动接管仍在等原全局锁。总汇已改优先读取独立corrected445且保留历史来源，collector4181090绑定CPU125。
+
+
+## 2026-10-16 22:12 CST：Base baseline 当前进度实核
+
+- 用户询问进度。本轮只读远端现成CP、汇总、原生日志、进程与HPC服务，未新模型调用、测试、调度或修改driver。Terminal独立修复后254/445有效、7在途（原队列6+新1）、182待准入、2终态未有效评分；新固定32里2有效/1在途/29待准入。父4189047和adaptive子4180958存活，原global lock尚未交接，后续自动31rolling仍未实际扩满。
+- SWE clean28为7有效(2通过)、3在途、17待准入、1原生verifier超时未有效评分。3在途均推进：Teleport已结束生成，native Go编译约946/3000s；ansible d720 native评分约159s；de585刚结束生成收patch。checkpoint generation是粗粒度label，无超1800s仍生成挂起证据。历史5/51受旧环境影响的成绩不冒充独立修复成绩。
+- ASI240/240完成，公开本地均分1.5709884%；HLE2500生成终态全齐、2499有效评分，1Judge JSON无效，仍未全量有效完成。HLE/ASI和其他会话SFT未改。
+- 共享Base726629/726635两个TP2 warm均RUNNING，共4GPU；服务B2running0waiting/A5running0waiting，最近HTTP200，约34/71生成tok/s，没有服务排队瓶颈。原队列drain阶段尚未满并发。80系统盘可用33.32GiB、/data约2.34TiB，未再次爆盘。快照baseline_status_20261016_2212.json纳Git，保留其他会话工作区。

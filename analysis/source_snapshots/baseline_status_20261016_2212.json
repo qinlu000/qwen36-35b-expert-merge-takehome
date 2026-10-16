@@ -1,0 +1,98 @@
+{
+  "as_of_utc": "2026-10-16T14:12:34.640587+00:00",
+  "TB": {
+    "valid_scored": 254,
+    "active_trials": 7,
+    "pending_not_admitted": 182,
+    "infrastructure_unscored": 2,
+    "expected": 445,
+    "complete": false
+  },
+  "new_runtime": {
+    "pid": 4189047,
+    "initial_expected": 32,
+    "valid": 2,
+    "active": 1,
+    "pending": 29,
+    "live_process_checks": {
+      "4189047": true,
+      "4180958": true
+    },
+    "cpu_handoff": false
+  },
+  "old_runtime": {
+    "states": {
+      "failed_attempt": 32,
+      "valid": 236,
+      "verifier_incomplete": 18,
+      "admitted": 6,
+      "pending": 153
+    }
+  },
+  "disk": {
+    "root_free_gib": 33.315895080566406,
+    "data_free_tib": 2.3375720009207726
+  },
+  "other_benchmarks": {
+    "HLE": {
+      "expected": 2500,
+      "valid_scored": 2499,
+      "unscored": 1,
+      "complete": false,
+      "primary_score_percent": null,
+      "correct": 99
+    },
+    "ASI": {
+      "expected": 240,
+      "valid_scored": 240,
+      "unscored": 0,
+      "complete": true,
+      "primary_score_percent": 1.5709884069083986
+    },
+    "SWE": {
+      "expected": 51,
+      "valid_scored": 51,
+      "unscored": 0,
+      "complete": true,
+      "primary_score_percent": 9.803921568627452,
+      "clean_generation_rerun_active": 3,
+      "clean_generation_rerun_pending": 17,
+      "clean_generation_rerun_valid_scored": 7
+    }
+  },
+  "SWE_clean28": {
+    "expected": 28,
+    "valid_scored": 7,
+    "resolved": 2,
+    "complete": false,
+    "active": 3,
+    "pending": 17,
+    "terminal": 8,
+    "invalid_ended": 1
+  },
+  "SWE_active_phase_readonly": {
+    "teleport": "Original patch generated; native Go verification about946/3000s; compiler alive",
+    "ansible_d720": "Original patch generated; native verification about159s",
+    "ansible_de585": "Just ended model generation; collecting patch",
+    "solver_over_1800s_hang_observed": false
+  },
+  "baseline_gpu_readonly": {
+    "jobs": [
+      726629,
+      726635
+    ],
+    "state": "RUNNING",
+    "allocated_gpus": 4,
+    "endpoint28085": {
+      "running": 2,
+      "waiting": 0,
+      "output_tokens_per_second": 34.4
+    },
+    "endpoint28086": {
+      "running": 5,
+      "waiting": 0,
+      "output_tokens_per_second": 71.4
+    },
+    "recent_completion_http_status": 200
+  }
+}
