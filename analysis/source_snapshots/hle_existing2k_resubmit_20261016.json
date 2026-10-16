@@ -1,0 +1,68 @@
+{
+  "replaced_failed_hle_job": 726647,
+  "cancelled_pending_jobs": [
+    726648,
+    726649
+  ],
+  "reason": "Cluster apptainer wrapper misidentifies bare data-dir path as sandbox image; use --key=value for every script argument",
+  "data_unchanged": true,
+  "hle": {
+    "job_id": 726664,
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--job-name=apex-hle-existing2k-sft",
+      "--gres=gpu:2",
+      "--mem=180G",
+      "--cpus-per-task=12",
+      "--time=08:00:00",
+      "/data/user/qinlucao/projects/apex-takehome/scripts/run_sft.slurm",
+      "--name=hle-existing2k",
+      "--data-dir=/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/hle_existing_2k_20261016/swift_ready",
+      "--max-length=65536",
+      "--world-size=2"
+    ]
+  },
+  "terminal": {
+    "job_id": 726665,
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--gres=gpu:4",
+      "--mem=256G",
+      "--cpus-per-task=24",
+      "--time=16:00:00",
+      "--job-name=apex-terminal-retry-sft",
+      "--dependency=afterany:726664:725705",
+      "/data/user/qinlucao/projects/apex-takehome/scripts/run_sft.slurm",
+      "--name=terminal-retry",
+      "--data-dir=/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/terminal_sft_2k_20261016",
+      "--max-length=65536",
+      "--world-size=4"
+    ]
+  },
+  "mixed": {
+    "job_id": 726666,
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--gres=gpu:4",
+      "--mem=256G",
+      "--cpus-per-task=24",
+      "--time=16:00:00",
+      "--job-name=apex-mixed-existing2k-sft",
+      "--dependency=afterok:726335",
+      "/data/user/qinlucao/projects/apex-takehome/scripts/run_sft.slurm",
+      "--name=mixed-existing2k",
+      "--data-dir=/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/mixed_existing_hle2k_20261016",
+      "--max-length=65536",
+      "--world-size=4"
+    ]
+  },
+  "queue": "726666 apex-mixed-existing2k-sft PENDING 0:00 afterok:726335(unfulfilled) (Dependency)\n726665 apex-terminal-retry-sft PENDING 0:00 afterany:726664(unfulfilled),afterany:725705(unfulfilled) (Dependency)\n726664 apex-hle-existing2k-sft PENDING 0:00 (null) (Priority)\n726335 apex-swe2k-sft RUNNING 1:31:24 (null) ACD1-2\n",
+  "wrapper_source": "/data/apps/apptainer/1.4.5/bin/apptainer",
+  "wrapper_cpu_feedback": {
+    "bare_data_directory": "REJECT",
+    "equals_data_directory": "PASS"
+  }
+}

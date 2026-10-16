@@ -1,6 +1,6 @@
 # HLE现成2k落地与训练接续
 
-2026-10-16 19:14 CST。用户授权寻找更多现成回答并继续。本轮未恢复教师API；原已生成722份合格High回答直接复用。
+2026-10-16 19:24 CST。用户授权寻找更多现成回答并继续。本轮未恢复教师API；原已生成722份合格High回答直接复用。
 
 | 来源 | 训练条数 | 答案依据 |
 |---|---:|---|
@@ -22,10 +22,16 @@ MMLU-Pro上游为test/validation；本项目沿用此前冻结的题面分族tra
 
 实现：[Math/Science材料化](../scripts/materialize_hle_existing_math_science.py)、[跨学科固定筛选清单](../scripts/materialize_hle_existing_broad.py)、[组合及长度检查](../scripts/prepare_hle_existing_2k.py)。Science补读16MiB；broad缓存V4约547MB＋GLM四段48MiB。逐条来源revision/ID、助手逐题排除及未披露effort保留，无新增数据hash工程。
 
-训练安排：HLE726647双卡/180G/12CPU，world2/global8/r16/一epoch/64K，当前排队无optimizer。Mixed实际7073/249，四份新分区各一次，新目录`mixed_existing_hle2k_20261016`，旧5573未覆盖；旧held且0步726346取消，新726649四卡afterok:SWE726335。
+训练安排：HLE726664双卡/180G/12CPU，world2/global8/r16/一epoch/64K，当前排队无optimizer。Mixed实际7073/249，四份新分区各一次，新目录`mixed_existing_hle2k_20261016`，旧5573未覆盖；旧held且0步726346取消，新726666四卡afterok:SWE726335。
 
-Terminal原726345在16步首次验证OOM，无checkpoint；最小FLCE eval包装CPU红→绿，完整数据和预算不变。新726648四卡afterany:HLE726647及旧Base服务725705，不操作Base，仅以自然释放作资源依赖。真实GPU首次完整验证尚待完成。[修复证据](terminal_eval_oom_fix_20261016.md)
+Terminal原726345在16步首次验证OOM，无checkpoint；最小FLCE eval包装CPU红→绿，完整数据和预算不变。新726665四卡afterany:HLE726664及旧Base服务725705，不操作Base，仅以自然释放作资源依赖。真实GPU首次完整验证尚待完成。[修复证据](terminal_eval_oom_fix_20261016.md)
 
 资源覆盖Base迁移短暂重叠：Base至多10＋SWE4＋HLE2≤16；旧B释放后Base至多8＋Terminal4＋SWE/Mixed4≤16。只取消本轮0步旧Mixed，未改其他项目或Base作业。
 
 保留的不确定项：162条人文短答案缺少完整过程监督；Science/broad缺独立gold或effort，不能称全部High或逐题正确；工程偏电化学/材料/水文，题源/语义题族不完整；类别匹配不保证难度/小类匹配。GLM官方HLE31.0/GPQA86.2对Base21.4/86.0仅为跨发布方支持性证据，非同预算实测。GPU显存结果仍待新作业eval。
+
+## 19:24 启动器兼容修正
+
+初次HLE726647在19:20:53获调度后2秒退出，0 optimizer、未加载模型。集群`/data/apps/apptainer/1.4.5/bin/apptainer`是Bash包装器，遍历全部argv，任何独立`/data/...`目录参数都会被当sandbox拒绝；不区分镜像和Python参数。CPU原样条件loop实证：`--data-dir /data/.../swift_ready`拒绝，`--data-dir=/data/.../swift_ready`通过。
+
+已统一用`--key=value`重提HLE726664；原仍0运行的Terminal726648/Mixed726649取消并替换为726665/726666，依赖与新HLE一致。当前HLE仍排队，其他两项等待依赖；没有把CPU启动器检查当成GPU训练完成。数据、模型、资源与参数不变，原失败日志和首次启动回执保留。[重提交回执](source_snapshots/hle_existing2k_resubmit_20261016.json)

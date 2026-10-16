@@ -269,3 +269,9 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - Terminal重训726648四卡实际afterany:726647:725705，后者只作为旧Base B自然退役的资源依赖，不操作Base。Mixed7073/249已在新目录mixed_existing_hle2k_20261016物化并同步HPC，四专家分区各一次；旧held且0运行726346取消，新726649四卡afterok726335。旧5573未覆盖。
 - Base迁移峰值最多10＋SWE4＋HLE2≤16；旧B退役后Base≤8＋Terminal4＋SWE/Mixed4≤16，覆盖另一任务模型服务交接的暂时重叠，无关项目未动。旧API STOP_ADMISSION保持、无新app自动化、无数据hash工程。
 - KISS脚本、固定逐题筛选ID、来源局限、启动回执和OOM回归已落Git；核心记录analysis/hle_existing_2k_execution_20261016.md及sft_progress_20261016.md。claud.md/overnight只追加本轮自有段落，不夹带并行Base改动；提交无coauthor信息。
+
+### 19:24 CST：集群启动器兼容修正
+
+- 初次HLE726647在19:20:53获调度后2秒0步失败，未加载模型。集群/data/apps/apptainer/1.4.5/bin/apptainer Bash包装器错误扫描全部argv，独立/data目录被当sandbox；CPU原样条件loop已实证bare --data-dir目录拒绝、--data-dir=目录通过。
+- 已仅将script argv统一改--key=value重提HLE726664；原0运行Pending Terminal726648/Mixed726649取消并重提726665/726666，真实依赖afterany:726664:725705与afterok:726335。未移动数据、转换镜像、改训练参数或操作Base/其他项目。
+- HLE目前仍PENDING，未开始optimizer；Terminal/Mixed等待依赖。QOSMaxGRESPerUser曾短暂出现，当前为Priority，不能将重新提交或CPU解析通过当GPU训练成功。配置/进度/执行报告与独立重提回执均已更新，原失败和旧回执保留。

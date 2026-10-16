@@ -22,12 +22,16 @@
       "train_rows": 2000,
       "requested_train_rows": 2000,
       "status": "2000 complete trajectories materialized; original val preserved",
-      "job_id": 726648,
-      "afterany": [726647, 725705],
+      "job_id": 726665,
+      "afterany": [
+        726664,
+        725705
+      ],
       "failed_previous_job_id": 726345,
-      "run_dir": "artifacts/runs/terminal-retry-sft-r16-726648",
+      "run_dir": "artifacts/runs/terminal-retry-sft-r16-726665",
       "val_rows": 42,
-      "max_length": 65536
+      "max_length": 65536,
+      "superseded_pending_job_id": 726648
     },
     {
       "name": "hle",
@@ -40,10 +44,11 @@
       "cancelled_expansion_job_id": 726344,
       "val_rows": 100,
       "max_length": 65536,
-      "job_id": 726647,
-      "run_dir": "artifacts/runs/hle-existing2k-sft-r16-726647",
+      "job_id": 726664,
+      "run_dir": "artifacts/runs/hle-existing2k-sft-r16-726664",
       "historical_completed_run": "artifacts/runs/hle-sft-r16-725704",
-      "reference_short_answer_rows": 162
+      "reference_short_answer_rows": 162,
+      "failed_initial_job_id": 726647
     },
     {
       "name": "asi",
@@ -65,15 +70,26 @@
     "train_rows": 7073,
     "val_rows": 249,
     "status": "Ready on HPC; exact updated four-partition union; waiting for SWE allocation to finish",
-    "job_id": 726649,
+    "job_id": 726666,
     "cancelled_previous_job_id": 726346,
-    "run_dir": "artifacts/runs/mixed-existing2k-sft-r16-726649",
-    "afterok": [726335],
-    "rule": "Same four expert partitions, each example once; excluded from merging"
+    "run_dir": "artifacts/runs/mixed-existing2k-sft-r16-726666",
+    "afterok": [
+      726335
+    ],
+    "rule": "Same four expert partitions, each example once; excluded from merging",
+    "superseded_pending_job_id": 726649
   },
   "merging": {
-    "experts": ["swe", "terminal", "hle", "asi"],
-    "methods": ["uniform_average", "TIES"],
+    "experts": [
+      "swe",
+      "terminal",
+      "hle",
+      "asi"
+    ],
+    "methods": [
+      "uniform_average",
+      "TIES"
+    ],
     "selection": "Independent development sets only"
   }
 }
