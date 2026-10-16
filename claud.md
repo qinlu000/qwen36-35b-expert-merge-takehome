@@ -1390,3 +1390,13 @@
 - 80独立隧道、模型块、HLE评分、SAB队列、SWE队列、CPU永久释放监控均常驻。CPU须等Base和repair消费者完全退出才扩并发；SWE镜像经现有代理下载。服务10/17 10:05:32到期，SWE09:30:32停止新准入，保留pending。
 - HLE部分无答卷是本地300s deadline；服务整体健康但缺少逐题服务映射，最吻合慢decode。单列超时，不能说judge判错或8K截断；当前不发布部分题主分，不改预算或重生成。
 - 已完成自有Python语法检查、Slurm shell检查、真实服务/首题gold/首份HLE生成判分闭环。尚待完整覆盖率与实际成绩。详见analysis/validation_execution_20261016.md及三份执行报告。
+
+
+## 2026-10-16 23:00 CST：Base与训练当前进度实核
+
+- 用户问当前进度。本轮只读现成summary/checkpoint、真实子进程/CPU槽、当前日志及HPC scheduler/训练原生日志；没有新增模型请求、测试、任务或修改driver。Terminal corrected445已297/445有效（66.74%），31在途、117待跑、0新增终态未评分。31子进程非Z存活，CPU槽无重叠，未见新ENOSPC。
+- 原固定32修复为31有效+1在途；接管额外2个终态未评分均有效；153个首次准入接续为6有效+30在途+117待跑。22:23:57自动接管已完成。rstan原答案offline重评分为有效0；原包装器TLS无test记录保留未采纳。Seed1/2已各89有效，对应20/89、17/89；五seed未齐，不报最终mean/SD。
+- SWE clean28：11有效（4通过）、3在途、13待准入、1NodeBB原生3000s verifier超时无有效分。两项生成轨迹持续更新，Teleport fresh replay已编译约21min/3000s并推进到Azure SDK。NodeBB原patch保留、没有Mocha实际测试证据，也无resident自动补评分安排；不能说所有异常已解决。旧5/51不当clean成绩，corrected51仍未完整。
+- ASI公开本地240/240完成，1.5709884%非Portal认证；HLE2500生成终态齐、2499有效（99正确）、1Judge JSON无效，完整主分仍null。未缩分母或把未评分填0。
+- Terminal SFT726665实核184/250、最新val176=.42397615，原生日志预计31m36s；Mixed726666为400/883、最近val384=1.66995656、best64=1.21849561，预计3h31m25s。这是动态Trainer估计，不承诺完成时间。另会话validation727113已运行；Base-HLE代理val100完成54固定预算成功/62完整回答/38deadline，Base-ASI已生成10/20，CPU门闩尚未放行执行，尚无专家validation成绩；不混作正式Base benchmark或SFT提升证据。
+- 当前HPC本项目14GPU：Base两个TP2=4，Terminal/Mixed训练各4，独立validation2。80根盘约31.88GiB、/data约2.30TiB可用，未再次爆盘。快照baseline_status_20261016_2300.json与本节纳Git，保留另会话工作区。
