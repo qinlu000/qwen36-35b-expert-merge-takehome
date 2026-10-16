@@ -91,7 +91,7 @@
       }
     },
     "avg16": {
-      "label": "AVG16压缩任务消融",
+      "label": "AVG16辅助压缩对照",
       "artifact": "artifacts/merges/four-experts-avg-v1-20261017/avg-svd-r16",
       "benchmarks": {
         "hle": {

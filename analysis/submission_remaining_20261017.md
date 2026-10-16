@@ -22,7 +22,7 @@
 
 3. **一页`report.pdf`。** 根目录当前没有`report.pdf`或对应源稿。原题固定结构为摘要（150–200个中文字符）、过程、结果，总计不超过一页。结果至少包含四项×{Base、目标专家、AVG64}分数矩阵、专家范围标注、宏平均提升、失败率和成本，详细曲线/20案例/CI留仓库链接。若截止仍不完整，表格需明确null/未完成及真实coverage，不能将报告排版完成冒称实验全部完成。需要实际生成PDF、核对页数并目视检查可读性；保留生成源稿便于后续更新。
 
-4. **把已完成的合版/训练对照收束为结果材料。** 249条loss-only四候选已经有真实原始结果，当前README仍写“全部候选结果尚未完成”，应由README owner在最终更新时改正。最小补充是固定四候选CE表/图、源结果引用和解释：AVG64/AVG16的rank与容量、Mixed同数据一轮对照、HLE答案格式对CE的影响；CE不能替代四项任务分数。无需另起任务级validation、扫描rank/系数或要求Mixed追加四项正式全量。
+4. **补齐原题明确的合版方法/配置对照，并收束训练对照。** 用户指出压缩不在原题合版示例中，AVG64/AVG16仅为辅助压缩对照，Mixed属于另一条训练对照；不能据此称该项完成。任务算术改系数草稿又被用户撤回，未启动新评测/GPU。现在核查平均合版对[TIES方法](ties_merging_feasibility_20261017.md)的可行性，需明确权重增量而非A/B因子上的合并、参数冲突处理、可比容量及必要SVD误差。主AVG64保持冻结，不按正式成绩换主模型、不恢复独立task-val；已有CE仅作诊断，不新增loss-only工作。新方法导出验证、实际任务成绩、配对区间与方法指标图齐备后才可称完成对照。
 
 5. **补齐可复现交付的资产取用路径。** README已诚实说明固定机器路径和offline依赖，不是fresh portable安装。但现有命令仍依赖clone不会带来的资产：HPC外部donor Python/wheelhouse与SIF、`artifacts/source`、已筛选train/val与行级provenance、task SIF/cache、Base修复runtime多层快照、native环境缓存与完整训练/评测日志。最小补充是一份可随最终提交定位的资产索引：每类资产的固定版本/来源、公开下载或构建命令、派生资产的重建顺序，以及无法公开资产给面试方的受控取用方式。尤其Terminal preparer依赖`configs/eval/*terminal*.json`列出的`artifacts/.../runtime*/scripts`，仅有Git中的顶层controller与路径名不足以从空目录重建。保留这些代码overlay与source_inventory并给出可取用位置；不要为补齐复现而公开凭据、隐藏测试/参考答案或不宜再分发的原始benchmark包。现有公共HF adapter已解决模型取用，不需要重复导出大权重。
 

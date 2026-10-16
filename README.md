@@ -8,7 +8,7 @@
 
 当前队列快照、已完成项、未决问题和后续交付见 [进展文档](analysis/current_status_20261017.md)；[一页阶段报告](output/pdf/progress_report_20261017.pdf)及其[生成说明](analysis/progress_report_20261017.md)已保存，正式评分尚未齐备。
 
-最新资源安排：按用户要求迁移至普通`acd_u/Nice1000`，HLE每模型50并发；当前六套TP2约12卡，HLE专家及Mixed/AVG16生成完成后自动释放4卡，外部grader继续。已释放的独立合版ASI副本不重申，后续复用AVG64 HLE服务。详见[分区迁移与卡数](analysis/ordinary_partition_handover_20261017.md)。[20个真实合版失败案例及三项后续实验](analysis/avg64_failure_cases_20261017.md)已整理；它们不是完整成绩或合版独有退化证据。
+最新资源安排：按用户要求迁移至普通`acd_u/Nice1000`，HLE每模型50并发；04:37快照为五套TP2共10卡、emergency为0，HLE专家生成完已释放2卡，外部grader继续。已释放的独立合版ASI副本不重申，后续复用AVG64 HLE服务；新方法调研尚未申请GPU。详见[评测及存储快照](analysis/progress_and_storage_20261017_0436.md)和[分区迁移与卡数](analysis/ordinary_partition_handover_20261017.md)。[20个真实合版失败案例及三项后续实验](analysis/avg64_failure_cases_20261017.md)已整理；它们不是完整成绩或合版独有退化证据。
 
 ## 实验设计与数据
 
@@ -22,7 +22,7 @@
 | HLE | Math/MMLU-Pro/Science 与清洗后的公开推理、短参考答案 | 2000 → 2000 / 100 | 250 → 250 | HLE2500，含图像 |
 | ASI | SAB82 人工程序 + DS-1000补全976 + SciCode主解15 | 1073 → 1073 / 20 | 134 → 128 | ASI60×B1–B4 |
 | Mixed | 相同四份训练分区，各一次 | 7073 → 7066 / 249 | 883 → 883 | 同数据一轮训练对照；HLE2500实际任务比较已提交 |
-| AVG64 / AVG16 | 四专家参数更新等权合版 / 固定 rank16 压缩 | 无新增训练数据 | 已实际导出 | AVG64四项全量；AVG16为消融 |
+| AVG64 / AVG16 | 四专家参数更新等权合版 / 固定 rank16 压缩 | 无新增训练数据 | 已实际导出 | AVG64四项全量；AVG16仅辅助压缩对照 |
 
 原生加载条数不是逐 batch 曝光计数。SWE的7条角色配对错误被 Swift 整条过滤，Mixed继承同7条过滤；保留原始导出与日志，没有复制样本补数。ASI的991条辅助数据多为函数/库补全，不能称1073条完整科研轨迹。HLE训练与留出集答案格式不同，最低交叉熵不等于最高任务准确率。数据来源、许可、清洗去重、来源家族隔离及已知污染风险见 [数据报告](analysis/training_data_report_20261016.md)、[行级来源清单索引](analysis/source_snapshots/training_data_inventory_20261016.json) 和 [模型来源/NOTICE索引](models/README.md)。部分公开推理数据的问题血缘不完整，不能声称已证明不存在语义污染。
 
@@ -33,6 +33,8 @@
 取消task-val后，AVG64按先验固定；新增249条loss对照在它固定后完成，未用于开发集择优。这与原题“用独立开发集选择最终配方”的过程存在差异，保留披露。
 
 AVG64表示 `Δ = Σ_i 0.25 × (32/16) B_i A_i`，通过因子拼接精确保存平均更新，输出rank64/alpha64；不是分别平均A/B。AVG16对同一更新做薄QR+SVD的rank16近似，全局相对Frobenius截断误差约0.144715。AVG64已在新增loss比较和正式评测前固定为最终模型；容量是单个rank16专家/Mixed的4倍，线性平均可能抵消冲突方向。原理、验证和配方见 [合版记录](analysis/merge_execution_20261017.md)、[固定配置](configs/merge/four_experts_avg_v1.json)。
+
+原题明确列出的合版配置示例是合并系数、层范围、是否保留基座；压缩rank未被点名，不能仅凭AVG64/AVG16宣称合版消融要求已经完成。用户随后要求真正不同的方法，已撤回任务算术改系数的拟议对照；其CPU产物保留为未使用草稿，无模型评测或GPU提交。下一步核查平均合版与TIES的[方法可行性](analysis/ties_merging_feasibility_20261017.md)，区别处理参数冲突、保持可比容量并披露SVD近似；尚未完成新方法导出或任务评测。主AVG64身份、权重及已有答卷保持固定。
 
 相同249条原生SFT留出集、64K上限、相同监督mask的loss-only对照已全部完成：Base **2.105976**、AVG64 **1.357921**、AVG16 **1.379223**、Mixed883 **1.672463**。AVG16与AVG64的差值为0.021302，记录固定压缩/容量消融；没有生成新答案、运行task-val或据此重新选择主模型。Mixed883重复原训练最终val loss的数值完全一致。这里是原生Trainer的teacher-forced loss，不能作为任务准确率或benchmark提升。详见 [结果、图及重画命令](analysis/sft_loss_only_plan_20261017.md)。
 
