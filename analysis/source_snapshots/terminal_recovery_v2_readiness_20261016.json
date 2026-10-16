@@ -1,0 +1,93 @@
+{
+  "status": "prepared_not_launched",
+  "production_model_requests": 0,
+  "scope": {
+    "manual_retry1": 21,
+    "first_admission0": 424,
+    "manual_retry2": 0
+  },
+  "full_denominator": 445,
+  "original_valid_results": 0,
+  "original_results_preserved": 21,
+  "original_completed_raw_responses_preserved": 5,
+  "original_runtime2_unchanged": true,
+  "runtime3": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime3",
+  "source_sha256": {
+    "terminal_recovery_v2.py": "1490a87bad544b69ee6cb9fbb12e611080888bd51323b1f3369a7d8cd8866379",
+    "run_terminal_recovery_v2.py": "aadca0f525d1095a7ede2433535e7493257c9a5b6978519a12196a800bbd221d",
+    "smoke_terminal_recovery_v2.py": "7a4f5f839d073c0841634503e8cca7382628f38cdcee6ed83db7659ac8da779c"
+  },
+  "source_freeze3_sha256": "1d76329d2b31844bef6214bd6497341c3986e344c7cbd00277aa0ad73f143c14",
+  "manifest_sha256": "07fe4bacdff3de36591875b82dc620e529dae03976ca54e320313d9c8e9ae6b6",
+  "original_source_manifest_sha256": "cc387c10171b7b0e8ff9b36e462f7a4a405faaabb91885c7831e6c4d3cea3157",
+  "stub_acceptance": {
+    "status": "passed",
+    "scope": "independent fake tasks/HTTP only; no real model or benchmark text",
+    "checks": {
+      "outage_stops_at8_and_preserves_nested_failure_owner": true,
+      "recovery_runs_only_never_admitted_and_never_repeats_valid": true,
+      "independent1s_health_monitor_cancels8_hung_calls": true,
+      "normal_zero_budget_program_failures_valid_but_infra_zero_invalid": true,
+      "read_timeout_and_disconnect_trip_without_same_payload_retry": true,
+      "full445_driver_retry1_first0_resume_preserves_first_valid_zero": true
+    },
+    "first_stop": {
+      "admitted_peak": 8,
+      "halted": true,
+      "reason": "ReadError: independent synthetic outage",
+      "pending_not_admitted": 15
+    },
+    "recovery": {
+      "admitted_peak": 8,
+      "halted": false,
+      "reason": null,
+      "pending_not_admitted": 0
+    },
+    "hung_requests_stop": {
+      "admitted_peak": 8,
+      "halted": true,
+      "reason": "active_health: ConnectError: independent outage while all requests hang",
+      "pending_not_admitted": 12
+    },
+    "per_entry_admission_counts": {
+      "1": 1,
+      "2": 1,
+      "3": 1,
+      "4": 1,
+      "5": 1,
+      "6": 1,
+      "7": 1,
+      "8": 1,
+      "9": 1,
+      "10": 1,
+      "11": 1,
+      "12": 1,
+      "13": 1,
+      "14": 1,
+      "15": 1,
+      "16": 1,
+      "17": 1,
+      "18": 1,
+      "19": 1,
+      "20": 1,
+      "21": 1,
+      "22": 1,
+      "23": 1
+    },
+    "original_valid_entry0_ever_admitted": 0,
+    "snapshots_saved": 50
+  },
+  "driver_policy": {
+    "max_admitted_solver_futures": 8,
+    "per_admission_health": true,
+    "independent_health_poll_seconds": 1,
+    "transport_breaker": "stop new admissions; cancel in-flight peers; keep failure owner cleanup and native artifacts",
+    "resume": "only never-admitted pending entries; never rerun a valid score/normal model failure or repeat the same attempt; incomplete attempts require explicit audit/new manual manifest",
+    "max_manual_retries": 2,
+    "first_valid": "preserve first valid zero or one; verified infra/cancellation does not become a valid zero",
+    "grading": "native verifier;445 denominator; mean five89 percentages/ddof1; incomplete primary remains null"
+  },
+  "formal_output_80": "artifacts/results/base-terminal-v2-recovery-20261016",
+  "checkpoint_80": "artifacts/results/base-terminal-v2-recovery-20261016/checkpoint.json",
+  "waiting_on": "root-owned replacement TP2 service and supervised bridge; no GPU requests from this worker"
+}

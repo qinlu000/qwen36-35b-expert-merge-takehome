@@ -1,0 +1,54 @@
+{
+  "deployment_id": "apex-base-direct-hpc-v2-20261016",
+  "as_of": "2026-10-16T13:47:02+08:00",
+  "supersedes_network_only": "configs/eval/baseline_tunnels_20261016.json",
+  "core_protocol": "configs/eval/protocol_v2_unified64k8k.json",
+  "core_protocol_sha256": "dcd28455f0ebd81d9e4b9043694eb57e9e42abb6c72f8bbe41cfa01745c1f081",
+  "authorization": "User confirms overnight laptop network failure and allows verified infrastructure reruns. User chooses remote-only continuation without recreating half-hour automation.",
+  "network": "Host80 directly SSH forwards to HPC using a dedicated forwarding-only key and pre-existing trusted host keys; no laptop component in evaluated request path.",
+  "runtime_supervisor": "scripts/supervise_hpc_tunnels.py",
+  "tunnel_config": "configs/eval/direct_hpc_tunnels_20261016.json",
+  "per_replica": {
+    "gpus": 2,
+    "cpus": 16,
+    "memory_gib": 128,
+    "max_active_model_sequences": 4,
+    "max_admitted_solver_tasks": 8
+  },
+  "workers": [
+    {
+      "benchmark": "hle",
+      "job_id": 725539,
+      "node": "ACD1-16",
+      "model_port": 18000,
+      "bridge_on_80": 28081,
+      "service_timelimit_hours": 24
+    },
+    {
+      "benchmark": "terminal",
+      "job_id": 725545,
+      "node": "ACD1-24",
+      "model_port": 18002,
+      "bridge_on_80": 28082,
+      "service_timelimit_hours": 36
+    },
+    {
+      "benchmark": "swe",
+      "job_id": 725561,
+      "node": "ACD1-36",
+      "model_port": 18003,
+      "bridge_on_80": 28083,
+      "service_timelimit_hours": 12
+    }
+  ],
+  "scope": "Network robustness and service lifetime only. Per-question/trial deadlines,sampling,context,output,seed,prompts,task scope and scoring contract unchanged.",
+  "project_limits": {
+    "max_gpus": 16,
+    "max_per_connected_group": 4,
+    "leave_training_capacity": 4,
+    "current_inference_gpus": 6
+  },
+  "training_overlap": "Explicitly authorized; disjoint inference/training GPUs and quota accounting required.",
+  "retention": "ASI240 answers frozen; HLE309 original answers plus512 genuine budget timeouts retained; HLE1679 explicit network retry1; TB21 retry1 plus424 first admissions; SWE51 first admissions. Never regenerate a received answer for score selection.",
+  "service_lifecycle": "Cancel each owned model service once its full generation block finishes; existing solver processes checkpoint and stop admission when endpoint health fails. User requested no app recurring automation."
+}

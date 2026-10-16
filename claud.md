@@ -961,3 +961,32 @@
 - **本轮不追加ASI专项train/dev，不再为500/100强建采集流程；ASI必交正式全量评测保留。** 其它三域训练继续；执行专家若只训Terminal需如实标明，不称专门ASI专家。没有独立ASI dev时不拿正式结果调样本/合版。已保存最相关候选与恢复条件，不声称世界上没有可用科学任务。
 - 本轮ASI调研新增付费API/GPU/任务执行/大输入下载均0。ScienceAgentBench只取129KB公开输入Parquet；D3只读源码clone留ignored artifacts。总决策analysis/asi_task_sources_decision_20261016.md，两份一手来源子报告链接在其中。
 - 训练另线继续：缓存最小红→绿实际通过，725511四卡曾开始执行，但又在诊断callback构造契约处退出（未反向）；训练agent正修相同配方的callback接口并加CPU复现，未追加新参数实验。不会把GPU分配/前置加载称正式训练成功。
+
+
+## 2026-10-16 13:35：用户明确允许断网类补跑，本线接管HLE网络修复
+
+- 用户说明夜间自己电脑网络出问题，明确“如果是这类原因你可以重跑”。只对经核实network/transport infra按原ID/seed/预算补跑，不把程序错误/完整答卷/正常预算超时当补跑资格，原记录不删。此前ASI237补跑已完成，不重生240答卷。
+- 本线现接HLE独立infra1修复：原run artifacts/runs/base_hle_v2_724196，显式选择1671未发生成+8发后断连=1679；原309完整答卷、512真实300s预算超时继续原结果；source/core/system/input hash必须一致。独立脚本repair_hle_infrastructure_v2.py，旧run_hle_v2.py原SHA不改，8并发/逐次准入health/独立周期health/断网取消checkpoint。合成断网/恢复与2500分类fixture已PASS，0真实请求。使用相同HLE block flock避免另一会话重复启动。
+- 已验证80直接TCP到HPC内网SSH可达；专属ed25519私钥仅在80 artifacts/private，600，不复制用户原私钥。HPC只追加本项目受限public key：禁shell/PTY/agent、只允许18000–18003端口转发；已用原先信任的known_hosts严核连接成功。正在部署80驻留直连supervisor，后续推理链不再需要Mac转发。未修改原用户代理或其他密钥。
+- HLE新GPU服务申请24h（命令覆盖旧8h申请，不能延长旧job的权限限制不适用于新提交），实际接入前需服务health/图文合成与真实取消验收。TB恢复445 manifest/stub及SWEbootstrap修复并行，消费者ready前不分配其空闲GPU。
+
+
+## 2026-10-16T13:47:02+08:00：仅远端续跑已恢复，HLE网络补跑正式启动
+
+- 用户已选择“只继续远端补跑”，不重建半小时任务。原apex-baseline在应用返回does not exist；本地残留TOML不是现存任务证明。本线未创建新自动任务，后续远端controller/supervisor常驻，不承诺本地助手定时决策。
+- 新服务全部RUNNING共6H100：HLE725539 ACD1-16/24h，TB725545 ACD1-24/36h，SWE725561 ACD1-36/12h；原ASI生成已完成不再占卡。另训练725568四卡排队，额度与CPU均保留，不改他线作业。
+- 新直连80→HPC supervisor PID3864879，端点28081/28082/28083，独立SSH子进程可各自重连/换服务，无Mac转发依赖。实测杀HLE的SSH子进程后3.615s恢复，TB子进程PID未变；用本机原known_host严格验hostkey，80私钥600、HPC公钥仅允四个模型端口、禁止shell/PTY/agent。首次候选18081端口被其他程序占用（只做无凭据health），已改确认空闲的28081–83，未改占用程序。
+- HLE正式补跑已启动：80PID3887939，artifacts/runs/base_hle_v2_724196_infra1，固定1679人工network retry1；真实初始running/8 admitted/8started/8active、0完成，未预排1679；原821结果（309答卷+512预算超时）不改。独立断网/恢复stub PASS，继承冻结原请求/图像/采样/300s/core/input/system/source SHA；完整响应先落盘，每题准入与等待均健康检查。服务新图文8合成全部PASS，4图像，耗时<48s。第一轮合成和断线注入误重叠导致8合成失败，原目录保留，正式题0；待断线测试结束后独立r2通过，不隐去这次工程失误。
+- TB显式445 manifest/runtime3与熔断/445全调度stub已PASS，旧21/5响应保留；新725545身份/短marker/tokenize/usage/nonthinking通过，8近56K合成队列验收正在跑，全绿后owner持同锁自主launch。SWE cached bootstrap已在原生mini/patch/fresh replay CPU fixture PASS（1CPU4GiB/断网/资源/cleanup），新725561实际端点还在warming与真实原生验收；49/51镜像已缓存，8musl/fakeroot、10缺curl单列继续修，不删51分母。
+- ASI真实Judge校准14次PASS，正确/错误text10/0、vision10/0、CMOS12/0，身份全一致；observed usage峰价上界¥0.0298728，保守预留¥0.3157632。240固定选集无APIprepare全部通过，正式评分预计含native重试≤396calls/¥5.7539952；root已授权独立评分硬限396/¥6，在CMOS固定ngspice backend与fixture验收后自主启动，绝不再生政策答案。
+- 代码/metadata部署configs/eval/deployment_direct_hpc_v2.json仅变网络与服务生命周期，不改pertrial资源/预算/原生prompt或分母；core JSON SHA不变，Terminal资源受限/替代Judge披露继续。
+
+
+## 2026-10-16T14:00:12+08:00：速度优先与实际HPC效率核对
+
+- 用户明确时间紧、速度效率优先、hash可以不做。所有子任务已通知停止后续全量hash、重复资源/镜像/包验收、非必要健壮性框架；沿用已完成证据，保留原Agent/参数/固定范围/预算/结果落盘/不重复答卷基本正确性。已经启动的生产源不边跑边改；新cohort不再以hash作为启动gate。
+- 用户已选“只继续远端补跑”，不重建app每半小时任务。本线远端controller与SSH supervisor持续运行。GPU消费块完整结束才由远端小watcher释放本线725539/725545/725561；暂停审计不自动取消。SSH专属key仅增加固定三job的status/release强制命令，无任意shell；HPC Python3.6兼容问题已修，own-job status实测通过，未取消任何job。watcher PID52101，SWE完成标记需owner写入固定path后才触发。
+- 13:59实测6H100尚未完全利用：HLE4 active/4 waiting；Terminal0/0（bootstrap300s卡apt导致RuntimeError，8项保留、437待开始，私有缓存bootstrap修复中）；SWE4 active/1 waiting，已进入真实模型和fresh replay，51固定范围分批推进。SWE初次symlink stage错误0模型请求41条保留，materialized driver实际PID3919212；7项Ansible被额外egg-info版本gate误挡0生成，按用户加速偏好取消这类额外gate后另cohort继续，不重生已收答案。
+- HLE15秒实际aggregate decode62.78 tokens/s，4active/4waiting稳定。分配到本服务的两卡15个样本GPU util均值100%与20%（rank1范围19–21%）；说明当前4序列软件上限在跑满，但不能声称两卡算力/整个HPC利用最优。另两组在该瞬时NVML样本均0%（之后SWE已进入4 active）。优先修生产阻塞，暂不继续增加闲置副本。
+- ASI评分最初prepare遗漏public参数导致8个evaluator KeyError；原结果parameters为空，grader已从原framework_task_info.json补齐内存参数，不改答卷/gold/rubric。旧评分API0、回执保留；新--skip-hashes正式score PID4019427，目录scoring_v2_formal_params_20261016，240固定scope、¥6/396硬限，正在推进。
+- ASI203 failed只读类别审计：49ModuleNotFound（pandas37/sklearn4/scipy4/numpy3/markdown1）、2ImportError，另Key/Syntax/Value/Type等；未命中网络/权限/OOMpattern。缺依赖/文件59项需审计声明环境后判断，不能一概叫模型失败，也不能重生完整答案。

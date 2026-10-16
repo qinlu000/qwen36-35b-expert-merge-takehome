@@ -1,3 +1,52 @@
+# Terminal baseline recovery is running — 2026-10-16 13:49 CST
+
+The frozen recovery controller is alive on host80 as **PID3895633**, using replacement TP2 service **job725545**, node **ACD1-24:18002**, through the independently supervised host80 bridge **http://127.0.0.1:28082**. The direct bridge supervisor is PID3864879; model traffic no longer depends on the Mac. The controller holds the same `artifacts/runs/base-terminal-724242.lock`.
+
+At13:49:41 CST, execution state was **8 admitted,437 pending,0 valid covered and0 saved native results**. There were seven real policy requests: five completed and two in flight, with zero request errors and no health circuit break. These are intermediate execution counts, not a benchmark score. The immutable scope remains445:21 authorized infrastructure retry1 and424 first0. All183 original files across the old21 trial directories were rehashed successfully after recovery admission; the five complete old raw responses remain intact.
+
+Replacement-node acceptance passed before admission: both the direct HPC service and new28082 bridge returned apex-qwen; a self-authored short marker had exact prompt usage41, output12, stop and no thinking. An independent8-request probe passed all eight with four exact57344-token inputs plus four short inputs, each reserving8192 output. Batch time11.04 seconds; observed active-model peak4 and waiting peak7 during scheduling, within eight admitted requests. Full8192-token actual decode remains outside this synthetic acceptance.
+
+Production output is `artifacts/results/base-terminal-v2-recovery-20261016`. Runtime/source/manifest are frozen under `artifacts/runs/base-terminal-recovery-v2-20261016/runtime3`; launch/PID/log evidence is `launch-725545.json`, `pid-725545`, `runner-725545.log`, and `initial-health-725545.json` in that run directory. Source code will not be edited while production runs. The new controller keeps the original1800-second deadline,4CPU/8192MiB sandbox resources, native prompts/agent, seed and generation budget. It enforces eight active solver futures and the pre-admission plus independent one-second health checks verified by the recovery stub.
+
+Safe launch evidence: `analysis/source_snapshots/terminal_recovery_v2_launch_20261016.json`. The preparation and old stopped-run records below are historical, not the current service state.
+
+---
+
+# Terminal recovery is prepared; replacement service pending — 2026-10-16 13:35 CST
+
+The new recovery runtime is **prepared, not launched**. No new formal model request has been sent. Root owns the replacement TP2 allocation and supervised bridge; original service724242 reached its eight-hour limit.
+
+Host80 `artifacts/runs/base-terminal-recovery-v2-20261016/runtime3` freezes only the new recovery driver, observation wrapper and independent stub. It imports the unchanged original `artifacts/runs/base-terminal-724242/runtime2/scripts` for Terminus, Harbor, backend and helpers. Source hashes and the old source-chain hash are recorded in `source-freeze-3.json`; the original five scripts were not modified.
+
+The explicit immutable manifest has445 unique task/seed entries:21 authorized network/cancellation infrastructure retry1 and424 never-admitted first0. Each old trial has its original result SHA, all original file SHAs, verified classification and manual count. All21 original results still have no official score; their five complete raw policy responses remain untouched. `--prepare-only` validated the real manifest/source chain and wrote445 pending/zero valid entries to `artifacts/results/base-terminal-v2-recovery-20261016/checkpoint.json`, without native trial creation or model requests.
+
+The new scheduler has at most eight active solver futures, a health check before every admission and an independent one-second health watcher. A transport failure stops admission and cancels peer requests, preserving the failing request's native cleanup and original exception. Checkpoints never delete native incomplete trials. Restart after bridge approval runs only never-admitted pending entries. Already admitted failures/cancellations need a separately audited manual manifest; the same attempt is not automatically regenerated. Normal answers, timeout/context-budget zeros and program-failure zeros remain valid first results. Transport/cancellation is not made a valid zero by an accidental reward field. A new explicit manual manifest must preserve prior valid results and can authorize at most two manual attempts.
+
+Six independent fake-task/HTTP fixture groups passed, including8-slot outage cancellation, a nested native wait_for failure owner, recovery without duplicate admission, one-second failure detection with all8 requests hung, normal-zero versus infrastructure-zero classification, no identical read/disconnect retry, and the real445-manifest dispatcher with fake native trials. The full driver fixture preserved an original valid zero, executed444 other entries once and admitted zero additional trials on a second resume; its fixed denominator remained445. These are synthetic checks, not benchmark results. Receipt: `runtime3/stub-acceptance.json`. Safe summary: `analysis/source_snapshots/terminal_recovery_v2_readiness_20261016.json`.
+
+Prepared formal command (endpoint is supplied by root after service acceptance):
+
+```bash
+cd /data/caoqinlu/projects/apex-takehome
+flock --no-fork --nonblock artifacts/runs/base-terminal-724242.lock \
+  env PYTHONPATH=artifacts/runs/base-terminal-recovery-v2-20261016/runtime3/scripts:artifacts/runs/base-terminal-724242/runtime2/scripts \
+  PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 LITELLM_LOCAL_MODEL_COST_MAP=True \
+  APPTAINER_IGNORE_SUBUID=1 \
+  PATH=/data/caoqinlu/projects/apex-takehome/artifacts/tools/apptainer-1.4.5/rootfs/usr/bin:/data/caoqinlu/projects/apex-takehome/artifacts/tools/fakeroot-1.25.3/rootfs/usr/bin:$PATH \
+  artifacts/envs/harbor/bin/python \
+  artifacts/runs/base-terminal-recovery-v2-20261016/runtime3/scripts/run_terminal_recovery_v2.py \
+  --manifest artifacts/runs/base-terminal-recovery-v2-20261016/runtime3/manifest.json \
+  --output artifacts/results/base-terminal-v2-recovery-20261016 \
+  --endpoint ROOT_ACCEPTED_ENDPOINT \
+  --api-key-path artifacts/private/base_smoke_api_key --concurrency 8
+```
+
+The formal controller must use this frozen runtime, log/PID/launch receipt and the shared lock. It is not started until root supplies the accepted service/bridge.
+
+---
+
+The previous stopped run below is historical evidence; its PID/service are inactive.
+
 # Terminal baseline v2 — stopped for transport infrastructure audit, 2026-10-16
 
 Formal Terminal baseline was admitted on host 80 as PID **2779230**, with dedicated model service job **724242** at the local bridge `http://127.0.0.1:18072`, then safely stopped after transport infrastructure failed. At **2026-10-15 19:54:06 UTC**, the controller received SIGINT. It has exited, its frozen-runtime processes are gone, and no Terminal scope remains. The unrelated SWE replay scope was left running. It runs five native Harbor jobs, 89 tasks per seed 0–4, one attempt each, max eight admitted trials. Each sandbox has four CPUs, 8192 MiB and a shared 1800-second solver deadline. Eight exclusive CPU slots cover 32–63. The final stopped audit found **21 admitted configs and 21 saved native results, zero incomplete trial directories**: ConnectError ×5, RemoteProtocolError ×2, ReadError ×6 and CancelledError ×8. Thus these are **13 transport failures and eight cancellations**, not normally covered/scored trials. The fixed denominator remains 445. Eighteen request receipts retain five completed raw policy responses and thirteen failures; no response has been regenerated. Root is auditing the dedicated service/bridge before any explicit, verified infrastructure rerun. No task score or answer was used to change prompts or budgets.

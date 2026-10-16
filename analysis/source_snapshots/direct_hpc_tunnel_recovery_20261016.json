@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "runs_on": "host80",
+  "path": "80 SSH directly to HPC; no laptop forwarding",
+  "old_hle_ssh_pid": 3868768,
+  "new_state": {
+    "at_utc": "2026-10-16T05:40:58.664784+00:00",
+    "pid": 3864879,
+    "starts": {
+      "hle": 17,
+      "terminal": 1
+    },
+    "workers": {
+      "terminal": {
+        "pid": 3868759,
+        "benchmark": "terminal",
+        "job_id": 725545,
+        "node": "ACD1-24",
+        "service_port": 18002,
+        "bridge_port": 28082
+      },
+      "hle": {
+        "pid": 3878585,
+        "benchmark": "hle",
+        "job_id": 725539,
+        "node": "ACD1-16",
+        "service_port": 18000,
+        "bridge_port": 28081
+      }
+    },
+    "note": "SSH liveness only; solver controllers gate HTTP health independently."
+  },
+  "terminal_ssh_pid_unchanged": 3868759,
+  "observations": [
+    {
+      "elapsed": 0.0,
+      "health": "URLError"
+    },
+    {
+      "elapsed": 0.301,
+      "health": "URLError"
+    },
+    {
+      "elapsed": 0.602,
+      "health": "URLError"
+    },
+    {
+      "elapsed": 0.903,
+      "health": "URLError"
+    },
+    {
+      "elapsed": 1.204,
+      "health": "URLError"
+    },
+    {
+      "elapsed": 1.505,
+      "health": "URLError"
+    },
+    {
+      "elapsed": 1.806,
+      "health": "URLError"
+    },
+    {
+      "elapsed": 2.107,
+      "health": "URLError"
+    },
+    {
+      "elapsed": 2.408,
+      "health": "URLError"
+    },
+    {
+      "elapsed": 2.709,
+      "health": "URLError"
+    },
+    {
+      "elapsed": 3.01,
+      "health": "URLError"
+    },
+    {
+      "elapsed": 3.311,
+      "health": "URLError"
+    },
+    {
+      "elapsed": 3.615,
+      "health": 200
+    }
+  ],
+  "model_requests": 0
+}

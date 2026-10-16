@@ -1,7 +1,7 @@
 {
-  "as_of": "2026-10-16T13:27:18+08:00",
-  "state": "services_expired_no_active_gpu_jobs",
-  "total_project_gpus": 0,
+  "as_of": "2026-10-16T13:47:02+08:00",
+  "state": "remote_direct_infrastructure_recovery_running",
+  "total_project_gpus": 6,
   "per_replica": {
     "gpus": 2,
     "cpus": 16,
@@ -13,39 +13,24 @@
   "workers": [
     {
       "benchmark": "hle",
-      "job_id": 724196,
-      "node": "ACD1-61",
-      "port": 18000,
-      "port_on_80": 18061,
-      "owner": "整体推进",
-      "state": "TIMEOUT"
-    },
-    {
-      "benchmark": "asi",
-      "job_id": 724241,
-      "node": "ACD1-61",
-      "port": 18001,
-      "port_on_80": 18071,
-      "probe_pid_on_80": 2136213,
-      "state": "TIMEOUT"
+      "job_id": 725539,
+      "node": "ACD1-16",
+      "service_port": 18000,
+      "bridge_port": 28081
     },
     {
       "benchmark": "terminal",
-      "job_id": 724242,
-      "node": "ACD1-54",
-      "port": 18002,
-      "port_on_80": 18072,
-      "probe_pid_on_80": 2136214,
-      "state": "TIMEOUT"
+      "job_id": 725545,
+      "node": "ACD1-24",
+      "service_port": 18002,
+      "bridge_port": 28082
     },
     {
       "benchmark": "swe",
-      "job_id": 724254,
+      "job_id": 725561,
       "node": "ACD1-36",
-      "port": 18003,
-      "port_on_80": 18073,
-      "owner": "side 推进",
-      "state": "TIMEOUT"
+      "service_port": 18003,
+      "bridge_port": 28083
     }
   ],
   "formal_base_trials_this_workflow": {
@@ -65,9 +50,16 @@
     "swe": {
       "formal_output_directory_found": false,
       "expected": 51
+    },
+    "hle": {
+      "controller_pid": 3887939,
+      "manual_retry_scope": 1679,
+      "original_retained": 821,
+      "initial_admitted": 8,
+      "initial_active": 8
     }
   },
-  "note": "Current status audit; historical allocations expired. No full benchmark score available. Execution status is not scientific correctness.",
+  "note": "New three owned inference services RUNNING; actual formal readiness recorded separately. No laptop component in model request path; no app scheduled automation.",
   "tunnel_supervisor": {
     "pid": 11878,
     "config": "configs/eval/baseline_tunnels_20261016.json",
@@ -82,5 +74,5 @@
   "timelimit_extension": "User-owned scontrol update rejected with Access/permission denied; unchanged8h.",
   "last_allocated_project_gpus": 8,
   "allocated_service_gpu_hours_approx": 64,
-  "heartbeat_state": "PAUSED"
+  "heartbeat_state": "absent_user_requested_no_recreation"
 }

@@ -1,0 +1,23 @@
+{
+  "host": "10.120.81.30",
+  "user": "qinlucao",
+  "identity_file": "/data/caoqinlu/projects/apex-takehome/artifacts/private/baseline_hpc_tunnel_ed25519",
+  "known_hosts": "/data/caoqinlu/projects/apex-takehome/artifacts/private/baseline_hpc_known_hosts",
+  "workers": [
+    {
+      "benchmark": "hle",
+      "job_id": 725539,
+      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_infra1/summary.json"
+    },
+    {
+      "benchmark": "terminal",
+      "job_id": 725545,
+      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/checkpoint.json"
+    },
+    {
+      "benchmark": "swe",
+      "job_id": 725561,
+      "completion_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/swe-base-725561/model-consumer-finished.json"
+    }
+  ]
+}

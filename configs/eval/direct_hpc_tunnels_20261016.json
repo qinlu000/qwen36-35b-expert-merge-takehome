@@ -1,0 +1,29 @@
+{
+  "host": "10.120.81.30",
+  "user": "qinlucao",
+  "identity_file": "/data/caoqinlu/projects/apex-takehome/artifacts/private/baseline_hpc_tunnel_ed25519",
+  "known_hosts": "/data/caoqinlu/projects/apex-takehome/artifacts/private/baseline_hpc_known_hosts",
+  "workers": [
+    {
+      "benchmark": "hle",
+      "job_id": 725539,
+      "node": "ACD1-16",
+      "service_port": 18000,
+      "bridge_port": 28081
+    },
+    {
+      "benchmark": "terminal",
+      "job_id": 725545,
+      "node": "ACD1-24",
+      "service_port": 18002,
+      "bridge_port": 28082
+    },
+    {
+      "benchmark": "swe",
+      "job_id": 725561,
+      "node": "ACD1-36",
+      "service_port": 18003,
+      "bridge_port": 28083
+    }
+  ]
+}

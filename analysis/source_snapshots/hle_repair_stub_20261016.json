@@ -1,0 +1,1 @@
+{"passed": true, "real_model_calls": 0, "peak_admitted": 8, "outage_admitted": 8, "outage_untouched": 92, "cancelled": 8, "recovered_only_unsubmitted": 92, "duplicates": 0, "initial_offline_admitted": 0, "manifest_selected": 1679, "manifest_retained": 821, "budget_timeouts_unchanged": true}

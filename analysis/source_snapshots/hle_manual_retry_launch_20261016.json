@@ -1,0 +1,26 @@
+{
+  "pid": 3887939,
+  "service_job": 725539,
+  "endpoint": "http://127.0.0.1:28081",
+  "selected": 1679,
+  "original_retained": 821,
+  "command": [
+    "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+    "-u",
+    "/data/caoqinlu/projects/apex-takehome/scripts/repair_hle_infrastructure_v2.py",
+    "--source",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196",
+    "--output",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_infra1",
+    "--endpoint",
+    "http://127.0.0.1:28081",
+    "--key-file",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key"
+  ],
+  "driver_sha256": "f5ace08f71c496839810f3b478ed929747a3e1f1f84cc3c5cee0a8f7042a12f3",
+  "acceptance": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/hle-direct-725539-synthetic-r2/summary.json",
+  "network": "80 directly to HPC; no laptop forwarding",
+  "supervisor_pid": 3864879,
+  "job_timelimit_hours": 24,
+  "user_authorization": "Overnight laptop network failure may be rerun; preserve valid answers and genuine budget timeouts"
+}

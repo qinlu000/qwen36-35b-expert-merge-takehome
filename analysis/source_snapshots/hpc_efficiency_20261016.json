@@ -1,0 +1,25 @@
+{
+  "as_of": "2026-10-16T14:00:12+08:00",
+  "allocated_inference_gpus": 6,
+  "hle": {
+    "active": 4,
+    "waiting": 4,
+    "output_tokens_per_second_15s": 62.783537721408464,
+    "gpu_util_mean_15_samples": [
+      100,
+      20
+    ]
+  },
+  "terminal": {
+    "active": 0,
+    "waiting": 0,
+    "blocker": "environment bootstrap apt300s timeout; cached runtime repair"
+  },
+  "swe": {
+    "active": 4,
+    "waiting": 1,
+    "model_generation_started": true
+  },
+  "maximized": false,
+  "note": "Short-window measurement; instantaneous service load and GPU utilization are distinct. No claim of maximum hardware throughput."
+}

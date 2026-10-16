@@ -1,0 +1,17 @@
+{
+  "budget_cny": 30.0,
+  "scope": "Shared night data and baseline Judge API budget; not a new per-branch allowance.",
+  "data_accounted_cny": {
+    "academic_teacher_and_scicode": 2.62661616,
+    "terminal_classification": 4.269956544
+  },
+  "reservations_cny": {
+    "asi_synthetic_judge_calibration": 0.3157632,
+    "asi_formal_frozen_240_grading": 6.0
+  },
+  "actual_calibration_usage_cny": 0.0298728,
+  "remaining_after_data_and_conservative_reservations_cny": 16.787664096,
+  "instruction": "Before any new API generation read original per-branch ledgers plus this reservation; do not spend the same remaining budget twice. ASI formal transport must enforce <=396calls and <=6CNY reserved before sending. Other historical data writers do not yet share a global transactional lock; read their actual ledgers before each launch and leave unused headroom.",
+  "reservation_owner": "side 推进 / ASI frozen-output grading",
+  "formal_grading_launch_authorized": true
+}
