@@ -1628,3 +1628,13 @@
 - 用户追问此前是否全部禁网。全量只读核对Base、Terminal专家及AVG64各445项冻结manifest，均为solver no-network；Base现有442份accepted记录逐项task.toml同样一致。此结论限正式Terminal求解工具沙箱，不等于四项benchmark所有阶段或训练轨迹全部禁网；setup/verifier保留public、模型HTTP在宿主侧。
 - 用户听取本地额外限制及其影响后明确“那不用改了吧”。本轮维持三组共同的no-network协议，普通分区迁移不解禁，不新增solver依赖来改变剩余题环境，不重生旧答案或重标历史评分。报告披露该额外限制及其对下载依赖任务的潜在影响，不能将全部失败归因于网络。
 - 当前状态、迁移说明、网络诊断及原hourly heartbeat已将“等待网络选择”改为“用户确认保持不变”。不再反复要求确认；继续原已授权评测、排空迁移和评分工作。本轮仅文档/调度提示变更，无模型/API调用、任务重跑或网络配置修改。
+
+
+## 2026-10-17 04:37 CST：当前正式评测与三处存储核查
+
+- 用户询问进度与工作区/服务器存储。先读取最新claud、current_status和Git，仅有其他会话原WIP；检查期间未删除数据或改任务/网络。先刷新SWE专家审计collector，再于04:37:13/15纯读刷新strict及Terminal预算汇总。Base原固定答案和补评分已收尾，完整AVG64主比较仍未齐备，未把partial coverage或loss当最终分。
+- SWE专家51次尝试结束，48可计分且0通过，另3未决，效果信号不理想但完整主分仍null。AVG64 SWE13次终态/12有效、10在途。Terminal专家37终态/36有效与AVG6436终态/36有效，各10槽恢复。HLE专家2500生成完、1903已评分，Mixed2500生成完、1799已评分且4invalid；已真实接AVG16，74保存/48评分/50在途。AVG64 HLE621保存/607评分/50在途。ASI专家152/240生成、8在途、未科学评分；AVG64 ASI仍等CPU释放及现有HLE服务复用，不新申GPU。
+- 全部普通分区迁移已完成。HLE专家727855于04:26:42排空后自动释放2卡，当前5个RUNNING作业/10H100全acd_u/Nice1000，emergency0、pending0；复用及释放watcher正常，无failed/needs_attention。保留用户此前释放4卡，不重建旧独立合版ASI服务；原parent和已保存答案保留。
+- 本机工作区6.3GiB、Git41MiB；所在盘93%已用、剩约30GiB、inode充足。80项目artifacts约440.12GiB＋其他2.58GiB，均在/data，79%已用、约2.096TiB可用、inode4%。80系统/home/tmp同根盘97%已用、剩31.44GiB需关注；/tmp可读下界94.80GiB包含其他用户/任务，不当本题缓存清理。用户.cache2.37GiB。
+- HPC/data共享40%用量、inode约1%；现有四计算节点/tmp2–3%、inode约1%，五作业缓存父目录和子目录可写。80当前24控制日志及最新100原生日志尾段、HPC五服务日志有界尾段均未检出ENOSPC/quota/readonly/write-I/O故障。未证明存储阻塞当前评测；80根盘与本机空间偏紧须继续关注。80 quota工具缺失，HPC quota查询无有效结果，个人配额未知，不能把共享df当无限配额。
+- 新增progress_and_storage_20261017_0436.md及队列/Direct/本机/80/HPC小收据，更新current_status顶端；时间点明确，HLE生成总数与会话数、已判分与invalid分开。此次没有API/模型调用、任务重跑、文件清理或资源分配；仅自有文档/收据与共享文档追加入Git，保留其他会话工作，无coauthor或对外消息。

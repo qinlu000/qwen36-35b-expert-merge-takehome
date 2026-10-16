@@ -1,0 +1,1149 @@
+{
+  "captured_at_utc": "2026-10-16T20:37:10.996802+00:00",
+  "hle": {
+    "hle250_hle2500_20261017": {
+      "exists": true,
+      "global_saved_results": 2500,
+      "global_started": 2500,
+      "incomplete_started": 0,
+      "global_expected": 2500,
+      "generation_summary": {
+        "mode": "formal",
+        "denominator": 2500,
+        "saved_results": 2500,
+        "status_counts": {
+          "completed": 2470,
+          "failed": 30
+        },
+        "image_results": 342,
+        "prompt_tokens": 1165589,
+        "completion_tokens": 544479,
+        "grading": "separate",
+        "controller_state": "completed",
+        "finished_at_utc": "2026-10-16T20:26:27.924417+00:00"
+      },
+      "checkpoint_session": {
+        "state": "completed",
+        "admitted": 1337,
+        "completed": 1337,
+        "not_admitted": 0,
+        "at_utc": "2026-10-16T20:26:27.822222+00:00"
+      },
+      "score_summary": {
+        "complete": false,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 1873,
+        "native_no_answer": 30,
+        "evaluation_invalid": 0,
+        "scored": 1903,
+        "pending": 597,
+        "correct": 142,
+        "accuracy_percent": null,
+        "score": null,
+        "subgroups": {
+          "text": {
+            "denominator": 2158,
+            "scored": 1652,
+            "correct": 124,
+            "accuracy_percent": null
+          },
+          "image": {
+            "denominator": 342,
+            "scored": 251,
+            "correct": 18,
+            "accuracy_percent": null
+          }
+        },
+        "selection_states": {
+          "answer": 2470,
+          "native_no_answer": 30
+        },
+        "judge_generation_calls": 1874,
+        "accounted_cost_cny": 1.420914,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T20:37:09.213748+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+      },
+      "formal_score": null,
+      "controller": {
+        "pid": 3418009,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868028535"
+      },
+      "generator": {
+        "pid": 3418010,
+        "alive": false
+      },
+      "scorer": {
+        "pid": 3266685,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "867898585"
+      },
+      "consumer_marker": {
+        "model_consumer_finished": true,
+        "generation_process_finished": true,
+        "generation_pid": 3418010,
+        "saved_results": 2500,
+        "model": "apex-hle250",
+        "at_utc": "2026-10-16T20:26:28.068001+00:00",
+        "scoring_uses_external_judge_only": true
+      },
+      "stop_admission": false
+    },
+    "avg64_hle2500_20261017": {
+      "exists": true,
+      "global_saved_results": 612,
+      "global_started": 662,
+      "incomplete_started": 50,
+      "global_expected": 2500,
+      "generation_summary": {
+        "mode": "formal",
+        "denominator": 2500,
+        "saved_results": 202,
+        "status_counts": {
+          "failed": 88,
+          "completed": 114
+        },
+        "image_results": 16,
+        "prompt_tokens": 37595,
+        "completion_tokens": 75325,
+        "grading": "separate",
+        "controller_state": "drained",
+        "finished_at_utc": "2026-10-16T20:02:01.556446+00:00"
+      },
+      "checkpoint_session": {
+        "state": "running",
+        "admitted": 460,
+        "completed": 410,
+        "active": 50,
+        "at_utc": "2026-10-16T20:37:06.865305+00:00"
+      },
+      "score_summary": {
+        "complete": false,
+        "expected": 2500,
+        "frozen_terminal_results": 607,
+        "judged_answers": 357,
+        "native_no_answer": 250,
+        "evaluation_invalid": 0,
+        "scored": 607,
+        "pending": 1893,
+        "correct": 24,
+        "accuracy_percent": null,
+        "score": null,
+        "subgroups": {
+          "text": {
+            "denominator": 2158,
+            "scored": 544,
+            "correct": 21,
+            "accuracy_percent": null
+          },
+          "image": {
+            "denominator": 342,
+            "scored": 63,
+            "correct": 3,
+            "accuracy_percent": null
+          }
+        },
+        "selection_states": {
+          "native_no_answer": 250,
+          "answer": 357,
+          "pending_generation": 1893
+        },
+        "judge_generation_calls": 357,
+        "accounted_cost_cny": 0.3669615,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T20:36:48.809065+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+      },
+      "formal_score": null,
+      "controller": {
+        "pid": 4075849,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868051655"
+      },
+      "generator": {
+        "pid": 4076145,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868051667"
+      },
+      "scorer": {
+        "pid": 3269010,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "867904422"
+      },
+      "consumer_marker": {},
+      "stop_admission": false
+    },
+    "mixed883_hle2500_20261017": {
+      "exists": true,
+      "global_saved_results": 2500,
+      "global_started": 2500,
+      "incomplete_started": 0,
+      "global_expected": 2500,
+      "generation_summary": {
+        "mode": "formal",
+        "denominator": 2500,
+        "saved_results": 2500,
+        "status_counts": {
+          "completed": 2459,
+          "failed": 41
+        },
+        "image_results": 342,
+        "prompt_tokens": 1159040,
+        "completion_tokens": 554387,
+        "grading": "separate",
+        "controller_state": "completed",
+        "finished_at_utc": "2026-10-16T20:32:13.335486+00:00"
+      },
+      "checkpoint_session": {
+        "state": "completed",
+        "admitted": 1591,
+        "completed": 1591,
+        "not_admitted": 0,
+        "at_utc": "2026-10-16T20:32:13.187258+00:00"
+      },
+      "score_summary": {
+        "complete": false,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 1758,
+        "native_no_answer": 41,
+        "evaluation_invalid": 4,
+        "scored": 1799,
+        "pending": 701,
+        "correct": 118,
+        "accuracy_percent": null,
+        "score": null,
+        "subgroups": {
+          "text": {
+            "denominator": 2158,
+            "scored": 1567,
+            "correct": 106,
+            "accuracy_percent": null
+          },
+          "image": {
+            "denominator": 342,
+            "scored": 232,
+            "correct": 12,
+            "accuracy_percent": null
+          }
+        },
+        "selection_states": {
+          "answer": 2459,
+          "native_no_answer": 41
+        },
+        "judge_generation_calls": 1768,
+        "accounted_cost_cny": 1.47988125,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T20:37:10.742963+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+      },
+      "formal_score": null,
+      "controller": {
+        "pid": 3418011,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868028556"
+      },
+      "generator": {
+        "pid": 3418080,
+        "alive": false
+      },
+      "scorer": {
+        "pid": 3268683,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "867903019"
+      },
+      "consumer_marker": {
+        "model_consumer_finished": true,
+        "at_utc": "2026-10-16T20:32:13.470169+00:00",
+        "model": "apex-mixed883",
+        "expected": 2500,
+        "generation_process_finished": true,
+        "saved_results": 2500,
+        "scoring_uses_external_judge_only": true
+      },
+      "stop_admission": false
+    },
+    "avg16_hle2500_20261017": {
+      "exists": true,
+      "global_saved_results": 49,
+      "global_started": 99,
+      "incomplete_started": 50,
+      "global_expected": 2500,
+      "generation_summary": {},
+      "checkpoint_session": {
+        "state": "running",
+        "admitted": 99,
+        "completed": 49,
+        "active": 50,
+        "at_utc": "2026-10-16T20:36:54.933756+00:00"
+      },
+      "score_summary": {
+        "complete": false,
+        "expected": 2500,
+        "frozen_terminal_results": 48,
+        "judged_answers": 48,
+        "native_no_answer": 0,
+        "evaluation_invalid": 0,
+        "scored": 48,
+        "pending": 2452,
+        "correct": 4,
+        "accuracy_percent": null,
+        "score": null,
+        "subgroups": {
+          "text": {
+            "denominator": 2158,
+            "scored": 46,
+            "correct": 4,
+            "accuracy_percent": null
+          },
+          "image": {
+            "denominator": 342,
+            "scored": 2,
+            "correct": 0,
+            "accuracy_percent": null
+          }
+        },
+        "selection_states": {
+          "answer": 48,
+          "pending_generation": 2452
+        },
+        "judge_generation_calls": 48,
+        "accounted_cost_cny": 0.04797675,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T20:36:49.861305+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+      },
+      "formal_score": null,
+      "controller": {
+        "pid": 3418011,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868028556"
+      },
+      "generator": {
+        "pid": 485903,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868175753"
+      },
+      "scorer": {
+        "pid": 485904,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868175753"
+      },
+      "consumer_marker": {},
+      "stop_admission": false
+    }
+  },
+  "asi": {
+    "asi128_asi240_20261017": {
+      "exists": true,
+      "global_saved_results": 152,
+      "global_started": 160,
+      "incomplete_started": 8,
+      "global_expected": 240,
+      "progress": {
+        "state": "running",
+        "completed_conditions": 152,
+        "expected_conditions": 240,
+        "active": 8,
+        "updated_at": "2026-10-16T20:37:10.240682+00:00",
+        "admitted_this_session": 160,
+        "completed_this_session": 152
+      },
+      "generation_marker": {},
+      "all_cpu_marker": {},
+      "scoring_top_keys": [],
+      "scoring_metadata": {},
+      "scoring_collection_sizes": {}
+    },
+    "avg64_asi240_20261017": {
+      "exists": false
+    }
+  },
+  "drivers": {
+    "artifacts/eval/execution_partition_migration_20261017": {
+      "state": {
+        "at_utc": "2026-10-16T20:35:46.369361+00:00",
+        "pid": 3421568,
+        "partition": "acd_u",
+        "nice": 1000,
+        "groups": {
+          "terminal250": {
+            "group": "terminal250",
+            "old_job": 727640,
+            "stage": "resumed",
+            "at_utc": "2026-10-16T20:35:28.283172+00:00",
+            "queue_drains": {
+              "artifacts/eval/terminal250_full445_20261017": {
+                "ready": true,
+                "parent_alive": false,
+                "checkpoint_state": "stopped_admission",
+                "active": 0,
+                "pending": 408,
+                "terminal": 37,
+                "cpu_ids": {
+                  "count": 40,
+                  "values_omitted": "Long ID list; original retained at source state path"
+                }
+              }
+            },
+            "remaining_cpu_scopes": [],
+            "native_requests": {
+              "num_requests_running": 0.0,
+              "num_requests_waiting": 0.0
+            },
+            "consecutive_idle_samples": 2,
+            "drain_proof": {
+              "at": "2026-10-16T20:25:56.105072+00:00",
+              "queue_drains": {
+                "artifacts/eval/terminal250_full445_20261017": {
+                  "ready": true,
+                  "parent_alive": false,
+                  "checkpoint_state": "stopped_admission",
+                  "active": 0,
+                  "pending": 408,
+                  "terminal": 37,
+                  "cpu_ids": {
+                    "count": 40,
+                    "values_omitted": "Long ID list; original retained at source state path"
+                  }
+                }
+              },
+              "cpu_ids": {
+                "count": 40,
+                "values_omitted": "Long ID list; original retained at source state path"
+              },
+              "remaining_cpu_scopes": [],
+              "native_requests": {
+                "num_requests_running": 0.0,
+                "num_requests_waiting": 0.0
+              },
+              "original_parents_exited": true,
+              "two_idle_samples": true
+            },
+            "old_gpus_released": {
+              "at": "2026-10-16T20:26:11.478326+00:00",
+              "job_absent_from_squeue": true
+            },
+            "new_job": 727912,
+            "replacement_job": {
+              "job": "727912",
+              "state": "RUNNING",
+              "partition": "acd_u",
+              "node": "ACD1-22",
+              "start": "2026-10-17T04:26:28",
+              "end": "2026-10-18T02:01:28"
+            },
+            "new_node": "ACD1-22",
+            "service_ends": "2026-10-18T02:01:28+08:00",
+            "tunnel_supervisor_pid": 2697218,
+            "resumed_queues": {
+              "artifacts/eval/terminal250_full445_20261017": {
+                "state": "launched",
+                "at": "2026-10-16T20:35:25.281787+00:00",
+                "pid": 489933,
+                "terminal_before": 37,
+                "pending_before": 408,
+                "original_parent": 2878518,
+                "argv": [
+                  "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+                  "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py",
+                  "--output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017"
+                ],
+                "retained_terminal_ledger": "artifacts/eval/execution_partition_migration_20261017/terminal250/before-resume/terminal250_full445_20261017/checkpoint.json"
+              }
+            },
+            "unadmitted_only": true,
+            "original_answers_unchanged": true,
+            "old_cancelled_before_new_submission": true
+          },
+          "avg64_execution": {
+            "group": "avg64_execution",
+            "old_job": 727660,
+            "stage": "resumed",
+            "at_utc": "2026-10-16T20:35:31.441179+00:00",
+            "queue_drains": {
+              "artifacts/eval/avg64_terminal_full445_20261017": {
+                "ready": true,
+                "parent_alive": false,
+                "checkpoint_state": "stopped_admission",
+                "active": 0,
+                "pending": 409,
+                "terminal": 36,
+                "cpu_ids": {
+                  "count": 40,
+                  "values_omitted": "Long ID list; original retained at source state path"
+                }
+              },
+              "artifacts/eval/avg64_swe_hard51_20261017": {
+                "ready": true,
+                "parent_alive": false,
+                "checkpoint_state": "stopped_admission",
+                "active": 0,
+                "pending": 38,
+                "terminal": 13,
+                "cpu_ids": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9
+                ]
+              }
+            },
+            "remaining_cpu_scopes": [],
+            "native_requests": {
+              "num_requests_running": 0.0,
+              "num_requests_waiting": 0.0
+            },
+            "consecutive_idle_samples": 2,
+            "drain_proof": {
+              "at": "2026-10-16T20:25:56.104879+00:00",
+              "queue_drains": {
+                "artifacts/eval/avg64_terminal_full445_20261017": {
+                  "ready": true,
+                  "parent_alive": false,
+                  "checkpoint_state": "stopped_admission",
+                  "active": 0,
+                  "pending": 409,
+                  "terminal": 36,
+                  "cpu_ids": {
+                    "count": 40,
+                    "values_omitted": "Long ID list; original retained at source state path"
+                  }
+                },
+                "artifacts/eval/avg64_swe_hard51_20261017": {
+                  "ready": true,
+                  "parent_alive": false,
+                  "checkpoint_state": "stopped_admission",
+                  "active": 0,
+                  "pending": 38,
+                  "terminal": 13,
+                  "cpu_ids": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9
+                  ]
+                }
+              },
+              "cpu_ids": {
+                "count": 50,
+                "values_omitted": "Long ID list; original retained at source state path"
+              },
+              "remaining_cpu_scopes": [],
+              "native_requests": {
+                "num_requests_running": 0.0,
+                "num_requests_waiting": 0.0
+              },
+              "original_parents_exited": true,
+              "two_idle_samples": true
+            },
+            "old_gpus_released": {
+              "at": "2026-10-16T20:26:11.479663+00:00",
+              "job_absent_from_squeue": true
+            },
+            "new_job": 727913,
+            "replacement_job": {
+              "job": "727913",
+              "state": "RUNNING",
+              "partition": "acd_u",
+              "node": "ACD1-22",
+              "start": "2026-10-17T04:26:28",
+              "end": "2026-10-18T02:09:28"
+            },
+            "new_node": "ACD1-22",
+            "service_ends": "2026-10-18T02:09:28+08:00",
+            "tunnel_supervisor_pid": 481249,
+            "resumed_queues": {
+              "artifacts/eval/avg64_terminal_full445_20261017": {
+                "state": "launched",
+                "at": "2026-10-16T20:35:25.433693+00:00",
+                "pid": 489934,
+                "terminal_before": 36,
+                "pending_before": 409,
+                "original_parent": 2878519,
+                "argv": [
+                  "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+                  "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py",
+                  "--output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017"
+                ],
+                "retained_terminal_ledger": "artifacts/eval/execution_partition_migration_20261017/avg64_execution/before-resume/avg64_terminal_full445_20261017/checkpoint.json"
+              },
+              "artifacts/eval/avg64_swe_hard51_20261017": {
+                "state": "launched",
+                "at": "2026-10-16T20:35:28.440243+00:00",
+                "pid": 489978,
+                "terminal_before": 13,
+                "pending_before": 38,
+                "original_parent": 3239747,
+                "argv": [
+                  "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+                  "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_merged_benchmark.py",
+                  "--config=/data/caoqinlu/projects/apex-takehome/configs/eval/avg64_swe_hard51_20261017.json"
+                ],
+                "retained_terminal_ledger": "artifacts/eval/execution_partition_migration_20261017/avg64_execution/before-resume/avg64_swe_hard51_20261017/checkpoint.json"
+              }
+            },
+            "unadmitted_only": true,
+            "original_answers_unchanged": true,
+            "old_cancelled_before_new_submission": true
+          }
+        },
+        "all_driver_workers_finished": true
+      },
+      "controller": {},
+      "launch": {},
+      "process": {
+        "pid": 3421568,
+        "alive": false
+      }
+    },
+    "artifacts/eval/merged_asi_existing_hle_service_20261017": {
+      "state": {
+        "state": "waiting_existing_replica_and_cpu",
+        "at_utc": "2026-10-16T20:37:00.870218+00:00",
+        "pid": 4143547,
+        "endpoint": "http://127.0.0.1:28095",
+        "expert_generation_cpu_ready": false,
+        "hle_saved_results": 202,
+        "hle_generation_pid": 4076145,
+        "normal_service_job": 727856,
+        "migration_state": null,
+        "new_gpu_allocations": 0
+      },
+      "controller": {},
+      "launch": {},
+      "process": {
+        "pid": 4143547,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868054456"
+      }
+    },
+    "artifacts/eval/asi-acdu-migration-20261017": {
+      "state": {
+        "state": "finished",
+        "at_utc": "2026-10-16T20:25:43.946008+00:00",
+        "driver_pid": 3312601,
+        "parent_pid": 2752099,
+        "parent_starttime_ticks": "867337587",
+        "old_job": 727643,
+        "formal_output": "artifacts/eval/asi128_asi240_20261017",
+        "drain": {
+          "at_utc": "2026-10-16T20:15:15.391017+00:00",
+          "parent_state": "T",
+          "started_count": 138,
+          "terminal_count": 138,
+          "admitted_count": 138,
+          "admitted_without_terminal": [],
+          "started_without_terminal": [],
+          "active_scopes": [],
+          "metrics": {
+            "num_requests_running": 0.0,
+            "num_requests_waiting": 0.0
+          },
+          "progress_active_is_stale_and_not_a_gate": true
+        },
+        "consecutive_drained_checks": 2,
+        "old_job_at_release": {
+          "JobId": "727643",
+          "JobName": "apex-direct-experts",
+          "UserId": "qinlucao(14348)",
+          "GroupId": "formal(10034)",
+          "MCS_label": "N/A",
+          "Priority": "9021",
+          "Nice": "1000",
+          "Account": "qinlucao",
+          "QOS": "formal-user",
+          "JobState": "RUNNING",
+          "Reason": "None",
+          "Dependency": "(null)",
+          "Requeue": "0",
+          "Restarts": "0",
+          "BatchFlag": "1",
+          "Reboot": "0",
+          "ExitCode": "0:0",
+          "RunTime": "02:10:44",
+          "TimeLimit": "1-00:00:00",
+          "TimeMin": "N/A",
+          "SubmitTime": "2026-10-17T02:04:30",
+          "EligibleTime": "2026-10-17T02:04:30",
+          "AccrueTime": "2026-10-17T02:04:30",
+          "StartTime": "2026-10-17T02:04:31",
+          "EndTime": "2026-10-18T02:04:31",
+          "Deadline": "N/A",
+          "SuspendTime": "None",
+          "SecsPreSuspend": "0",
+          "LastSchedEval": "2026-10-17T02:04:31",
+          "Scheduler": "Main",
+          "Partition": "emergency_acd",
+          "AllocNode:Sid": "ACD-Login-3:1528539",
+          "ReqNodeList": "(null)",
+          "ExcNodeList": "ACD1-59",
+          "NodeList": "ACD1-2",
+          "BatchHost": "ACD1-2",
+          "NumNodes": "1",
+          "NumCPUs": "16",
+          "NumTasks": "1",
+          "CPUs/Task": "16",
+          "ReqB:S:C:T": "0:0:*:*",
+          "ReqTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+          "AllocTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+          "Socks/Node": "*",
+          "NtasksPerN:B:S:C": "0:0:*:*",
+          "CoreSpec": "*",
+          "MinCPUsNode": "16",
+          "MinMemoryNode": "128G",
+          "MinTmpDiskNode": "0",
+          "Features": "(null)",
+          "DelayBoot": "00:00:00",
+          "OverSubscribe": "OK",
+          "Contiguous": "0",
+          "Licenses": "(null)",
+          "Network": "(null)",
+          "Command": "/data/user/qinlucao/projects/apex-takehome/scripts/serve_direct_experts.slurm",
+          "WorkDir": "/data/user/qinlucao/projects/apex-takehome",
+          "StdErr": "/data/user/qinlucao/projects/apex-takehome/artifacts/eval/direct-expert-service-727643.log",
+          "StdIn": "/dev/null",
+          "StdOut": "/data/user/qinlucao/projects/apex-takehome/artifacts/eval/direct-expert-service-727643.log",
+          "Power": "",
+          "TresPerNode": "gres/gpu:2",
+          "TresPerTask": "cpu:16",
+          "queue_state": "R"
+        },
+        "old_release_requested_at_utc": "2026-10-16T20:15:15.799131+00:00",
+        "submission": {
+          "job_id": 727879,
+          "partition": "acd_u",
+          "nice": 1000,
+          "time_limit_minutes_at_submit": 1309,
+          "absolute_deadline": "2026-10-18T02:04:31+08:00"
+        },
+        "new_job": 727879,
+        "node": "ACD1-8",
+        "permit": {
+          "permit": "permitopen=\"ACD1-8:18002\"",
+          "lock": "/data/user/qinlucao/.ssh/apex-authorized-keys.lock"
+        },
+        "service_deadline": "2026-10-18T02:04:31+08:00",
+        "time_limit_minutes": 1308,
+        "resumed_at_utc": "2026-10-16T20:25:40.941488+00:00",
+        "acceptance_ready": true,
+        "parent_state": "S",
+        "progress_after_resume": {
+          "completed_conditions": 138,
+          "expected_conditions": 240,
+          "updated_at": "2026-10-16T20:25:41.126719+00:00",
+          "scored": false,
+          "state": "running",
+          "active": [
+            "math.ill_posed_inverse_problem__seed31415__b3",
+            "math.ill_posed_inverse_problem__seed31415__b4",
+            "math.levin_context_grid_search__seed31415__b1",
+            "math.levin_context_grid_search__seed31415__b2",
+            "math.levin_context_grid_search__seed31415__b3",
+            "math.levin_context_grid_search__seed31415__b4",
+            "math.manifold_pde_meshfree__seed31415__b1",
+            "math.manifold_pde_meshfree__seed31415__b2"
+          ]
+        }
+      },
+      "controller": {},
+      "launch": {},
+      "process": {
+        "pid": null,
+        "alive": false
+      }
+    },
+    "artifacts/eval/normal_hle_service_release_20261017": {
+      "state": {
+        "released": {
+          "expert": {
+            "job_id": 727855,
+            "gpus": 2,
+            "at_utc": "2026-10-16T20:26:42.529347+00:00",
+            "marker": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/model-consumer-finished.json",
+            "marker_observed": {
+              "model_consumer_finished": true,
+              "generation_process_finished": true,
+              "generation_pid": 3418010,
+              "saved_results": 2500,
+              "model": "apex-hle250",
+              "at_utc": "2026-10-16T20:26:28.068001+00:00",
+              "scoring_uses_external_judge_only": true
+            },
+            "running_and_waiting_requests": 0,
+            "external_judges_continue": true
+          }
+        },
+        "pid": 3321991,
+        "at_utc": "2026-10-16T20:36:57.621816+00:00"
+      },
+      "controller": {},
+      "launch": {},
+      "process": {
+        "pid": 3321991,
+        "alive": true,
+        "state": "S",
+        "starttime_ticks": "868018087"
+      }
+    },
+    "artifacts/eval/hle_normal_migration_20261017": {
+      "state": {
+        "pid": 3312903,
+        "started_at_utc": "2026-10-16T20:00:05.777712+00:00",
+        "profiles": {
+          "expert": {
+            "old_job": 727821,
+            "serve_profile": "hle-expert",
+            "port": 18004,
+            "bridge": 28094,
+            "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017",
+            "old_parent_pid": 3266640,
+            "old_generator_pid": 3266684,
+            "grader_pid": 3266685,
+            "original_launch": {
+              "generation": [
+                "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+                "/data/caoqinlu/projects/apex-takehome/scripts/run_direct_hle_formal.py",
+                "--project",
+                "/data/caoqinlu/projects/apex-takehome",
+                "--mode",
+                "formal",
+                "--model",
+                "apex-hle250",
+                "--endpoint",
+                "http://127.0.0.1:28094",
+                "--key-file",
+                "/data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key",
+                "--output",
+                "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017"
+              ],
+              "generation_pid": 3266684,
+              "scoring": [
+                "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+                "/data/caoqinlu/projects/apex-takehome/scripts/score_direct_hle_formal.py",
+                "--project",
+                "/data/caoqinlu/projects/apex-takehome",
+                "--retry",
+                "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017",
+                "--output",
+                "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/scoring",
+                "--max-cny",
+                "20",
+                "--max-calls",
+                "5000",
+                "--workers",
+                "2"
+              ],
+              "scoring_pid": 3266685,
+              "at_utc": "2026-10-16T19:46:01.828793+00:00"
+            },
+            "phase": "resumed",
+            "end_cap_utc": "2026-10-17T18:20:00+00:00",
+            "drain_proof": {
+              "at_utc": "2026-10-16T20:01:40.283816+00:00",
+              "generator_exited": true,
+              "active": [],
+              "incomplete_started": [],
+              "model_requests_running_and_waiting": 0,
+              "saved_results": 1163,
+              "original_checkpoint": {
+                "state": "drained",
+                "reason": null,
+                "admitted": {
+                  "count": 1163,
+                  "values_omitted": "Long ID list; original retained at source state path"
+                },
+                "completed": {
+                  "count": 1163,
+                  "values_omitted": "Long ID list; original retained at source state path"
+                },
+                "cancelled_or_unwinding": [],
+                "not_admitted": 1337,
+                "at_utc": "2026-10-16T20:01:38.148452+00:00"
+              }
+            },
+            "grader_preserved_alive": true,
+            "new_job": 727855,
+            "node": "ACD1-1",
+            "new_controller_pid": 3418009,
+            "resumed_at_utc": "2026-10-16T20:07:41.533232+00:00",
+            "generation_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/summary.json",
+            "generation_launch": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/controller/launch.json",
+            "new_generation_pid": 3418010,
+            "model_consumer_finished_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/model-consumer-finished.json"
+          },
+          "merged": {
+            "old_job": 727822,
+            "serve_profile": "hle-merged",
+            "port": 18005,
+            "bridge": 28095,
+            "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017",
+            "old_parent_pid": 3269007,
+            "old_generator_pid": 3269009,
+            "grader_pid": 3269010,
+            "original_launch": {
+              "generation": [
+                "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+                "/data/caoqinlu/projects/apex-takehome/scripts/run_direct_hle_formal.py",
+                "--project",
+                "/data/caoqinlu/projects/apex-takehome",
+                "--mode",
+                "formal",
+                "--model",
+                "apex-avg64",
+                "--endpoint",
+                "http://127.0.0.1:28095",
+                "--key-file",
+                "/data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key",
+                "--output",
+                "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017"
+              ],
+              "generation_pid": 3269009,
+              "scoring": [
+                "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+                "/data/caoqinlu/projects/apex-takehome/scripts/score_direct_hle_formal.py",
+                "--project",
+                "/data/caoqinlu/projects/apex-takehome",
+                "--retry",
+                "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017",
+                "--output",
+                "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring",
+                "--max-cny",
+                "20",
+                "--max-calls",
+                "5000",
+                "--workers",
+                "2"
+              ],
+              "scoring_pid": 3269010,
+              "at_utc": "2026-10-16T19:47:00.206260+00:00"
+            },
+            "phase": "resumed",
+            "end_cap_utc": "2026-10-17T18:20:00+00:00",
+            "drain_proof": {
+              "at_utc": "2026-10-16T20:02:02.229265+00:00",
+              "generator_exited": true,
+              "active": [],
+              "incomplete_started": [],
+              "model_requests_running_and_waiting": 0,
+              "saved_results": 202,
+              "original_checkpoint": {
+                "state": "drained",
+                "reason": null,
+                "admitted": {
+                  "count": 202,
+                  "values_omitted": "Long ID list; original retained at source state path"
+                },
+                "completed": {
+                  "count": 202,
+                  "values_omitted": "Long ID list; original retained at source state path"
+                },
+                "cancelled_or_unwinding": [],
+                "not_admitted": 2298,
+                "at_utc": "2026-10-16T20:02:01.543137+00:00"
+              }
+            },
+            "grader_preserved_alive": true,
+            "new_job": 727856,
+            "node": "ACD1-20",
+            "new_controller_pid": 4075849,
+            "resumed_at_utc": "2026-10-16T20:11:32.730152+00:00",
+            "generation_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/summary.json",
+            "generation_launch": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/controller/launch.json",
+            "new_generation_pid": 4076145,
+            "model_consumer_finished_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/model-consumer-finished.json",
+            "next_gpu_consumer": "Root-owned AVG ASI after expert ASI generation_cpu_finished and full AVG HLE2500 generation drain; keep service allocated"
+          },
+          "controls": {
+            "old_job": 727831,
+            "serve_profile": "controls",
+            "port": 18006,
+            "bridge": 28096,
+            "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017",
+            "old_parent_pid": 3243420,
+            "old_generator_pid": 3268682,
+            "grader_pid": 3268683,
+            "original_launch": {
+              "state": "running",
+              "at_utc": "2026-10-16T19:46:46.174855+00:00",
+              "controller_pid": 3243420,
+              "model": "apex-mixed883",
+              "artifact": "artifacts/runs/mixed-existing2k-sft-r16-726666/training/checkpoint-883",
+              "generation_pid": 3268682,
+              "scoring_pid": 3268683,
+              "generation": [
+                "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+                "/data/caoqinlu/projects/apex-takehome/scripts/run_direct_hle_formal.py",
+                "--project",
+                "/data/caoqinlu/projects/apex-takehome",
+                "--mode",
+                "formal",
+                "--model",
+                "apex-mixed883",
+                "--endpoint",
+                "http://127.0.0.1:28096",
+                "--key-file",
+                "/data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key",
+                "--output",
+                "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017"
+              ],
+              "scoring": [
+                "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+                "/data/caoqinlu/projects/apex-takehome/scripts/score_direct_hle_formal.py",
+                "--project",
+                "/data/caoqinlu/projects/apex-takehome",
+                "--retry",
+                "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017",
+                "--output",
+                "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/scoring",
+                "--max-cny",
+                "20",
+                "--max-calls",
+                "5000",
+                "--workers",
+                "2"
+              ]
+            },
+            "phase": "resumed",
+            "end_cap_utc": "2026-10-17T15:40:21+00:00",
+            "drain_proof": {
+              "at_utc": "2026-10-16T20:02:02.425353+00:00",
+              "generator_exited": true,
+              "active": [],
+              "incomplete_started": [],
+              "model_requests_running_and_waiting": 0,
+              "saved_results": 909,
+              "original_checkpoint": {
+                "state": "drained",
+                "reason": null,
+                "admitted": {
+                  "count": 909,
+                  "values_omitted": "Long ID list; original retained at source state path"
+                },
+                "completed": {
+                  "count": 909,
+                  "values_omitted": "Long ID list; original retained at source state path"
+                },
+                "cancelled_or_unwinding": [],
+                "not_admitted": 1591,
+                "at_utc": "2026-10-16T20:01:58.271795+00:00"
+              }
+            },
+            "grader_preserved_alive": true,
+            "new_job": 727857,
+            "node": "ACD1-30",
+            "new_controller_pid": 3418011,
+            "resumed_at_utc": "2026-10-16T20:07:41.745934+00:00",
+            "generation_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/summary.json",
+            "generation_launch": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/task_control_launch.json",
+            "new_generation_pid": 3418080,
+            "model_consumer_finished_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/model-consumer-finished.json"
+          }
+        },
+        "updated_at_utc": "2026-10-16T20:11:32.736613+00:00",
+        "finished_at_utc": "2026-10-16T20:11:42.738517+00:00"
+      },
+      "controller": {
+        "pid": 3312903,
+        "script": "/data/caoqinlu/projects/apex-takehome/scripts/migrate_hle_to_normal.py",
+        "at_utc": "2026-10-16T20:00:50.110113+00:00"
+      },
+      "launch": {},
+      "process": {
+        "pid": 3312903,
+        "alive": false
+      }
+    }
+  },
+  "processes": [
+    {
+      "pid": 2752099,
+      "alive": true,
+      "state": "S",
+      "starttime_ticks": "867337587",
+      "command": "/data/caoqinlu/projects/apex-takehome/artifacts/envs/asi-py312/bin/python /data/caoqinlu/projects/apex-takehome/scripts/run_direct_asi_formal.py --project /data/caoqinlu/projects/apex-takehome --model apex-asi128 --endpoint http://127.0.0.1:28090 --key-file /data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key --output /data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017 --parallel 8 --cpu-offset 96 "
+    },
+    {
+      "pid": 3237024,
+      "alive": true,
+      "state": "S",
+      "starttime_ticks": "867860696",
+      "command": "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python scripts/run_direct_formal_pipeline.py --project /data/caoqinlu/projects/apex-takehome --profile expert --resume-after-asi-pid 2752099 "
+    },
+    {
+      "pid": 3321991,
+      "alive": true,
+      "state": "S",
+      "starttime_ticks": "868018087",
+      "command": "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python /data/caoqinlu/projects/apex-takehome/scripts/release_completed_normal_hle_services.py --project /data/caoqinlu/projects/apex-takehome "
+    },
+    {
+      "pid": 4143547,
+      "alive": true,
+      "state": "S",
+      "starttime_ticks": "868054456",
+      "command": "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python /data/caoqinlu/projects/apex-takehome/scripts/resume_merged_asi_on_hle_service.py --project /data/caoqinlu/projects/apex-takehome "
+    }
+  ],
+  "read_only_snapshot": true,
+  "new_model_requests": 0,
+  "task_replays_or_restarts": 0,
+  "driver_status_summary": {
+    "hle_migration": "finished; all3 profiles resumed; driver exited normally",
+    "execution_migration": "finished; both groups resumed; all_driver_workers_finished=true",
+    "asi_migration": "finished; job727879 acd_u; original parent2752099/starttime retained and resumed S",
+    "avg_asi_reuse": "alive; waiting for expert ASI generation CPU release and full AVG HLE generation drain",
+    "normal_hle_release": "alive; expert727855 released04:26:42CST after2500 and metrics0; controls and AVG service retained for outstanding consumers",
+    "failed_or_needs_attention_driver_detected": false
+  },
+  "asi_service_resume_confirmed": {
+    "job_id": 727879,
+    "partition": "acd_u",
+    "node": "ACD1-8",
+    "parent_pid": 2752099,
+    "parent_starttime_ticks": "867337587",
+    "parent_current_state": "S"
+  },
+  "score_reporting": "Only complete=true scores are reportable; every current formal_score is null"
+}

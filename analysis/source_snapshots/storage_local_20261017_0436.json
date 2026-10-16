@@ -1,0 +1,12 @@
+{
+  "at_utc": "2026-10-16T20:37:42.492252+00:00",
+  "host": "local",
+  "project": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试",
+  "capacity_bytes": 494384795648,
+  "available_bytes": 32180699136,
+  "inode_free": 314264640,
+  "df": "Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on\n/dev/disk3s5   460Gi   391Gi    30Gi    93%    3.8M  314M    1%   /System/Volumes/Data\n/dev/disk3s5   460Gi   391Gi    30Gi    93%    3.8M  314M    1%   /System/Volumes/Data\n",
+  "df_inode": "Filesystem   512-blocks      Used Available Capacity iused     ifree %iused  Mounted on\n/dev/disk3s5  965595304 820190120  62852928    93% 3823586 314264640    1%   /System/Volumes/Data\n/dev/disk3s5  965595304 820190120  62852928    93% 3823586 314264640    1%   /System/Volumes/Data\n",
+  "du": "6.3G\t.\n 41M\t.git\n6.3G\tartifacts\n 12K\tlogs\n9.4M\tanalysis\n",
+  "scope": "Project and its mount only; no global cleanup or scan"
+}

@@ -1,0 +1,2156 @@
+{
+  "capture_started_at_utc": "2026-10-16T20:37:48.455907+00:00",
+  "host": "10.123.4.80",
+  "hostname": "h3c-H3C-UniServer-R5300-G6",
+  "uid": 1012,
+  "read_only": true,
+  "df_capacity": {
+    "command": [
+      "df",
+      "-hT",
+      "/",
+      "/root",
+      "/home",
+      "/home/caoqinlu",
+      "/data",
+      "/tmp",
+      "/data/caoqinlu/projects/apex-takehome",
+      "/data/caoqinlu/projects/apex-takehome/artifacts"
+    ],
+    "returncode": 0,
+    "stdout": "文件系统       类型  大小  已用  可用 已用% 挂载点\n/dev/sda4      ext4  846G  771G   32G   97% /\n/dev/sda4      ext4  846G  771G   32G   97% /\n/dev/sda4      ext4  846G  771G   32G   97% /\n/dev/sda4      ext4  846G  771G   32G   97% /\n/dev/sdb1      ext4   11T  7.8T  2.1T   79% /data\n/dev/sda4      ext4  846G  771G   32G   97% /\n/dev/sdb1      ext4   11T  7.8T  2.1T   79% /data\n/dev/sdb1      ext4   11T  7.8T  2.1T   79% /data\n",
+    "stderr": "",
+    "elapsed_seconds": 0.004
+  },
+  "df_inode": {
+    "command": [
+      "df",
+      "-i",
+      "/",
+      "/root",
+      "/home",
+      "/home/caoqinlu",
+      "/data",
+      "/tmp",
+      "/data/caoqinlu/projects/apex-takehome",
+      "/data/caoqinlu/projects/apex-takehome/artifacts"
+    ],
+    "returncode": 0,
+    "stdout": "文件系统          Inodes    已用I     可用I 已用I% 挂载点\n/dev/sda4       56352768  3424059  52928709     7% /\n/dev/sda4       56352768  3424059  52928709     7% /\n/dev/sda4       56352768  3424059  52928709     7% /\n/dev/sda4       56352768  3424059  52928709     7% /\n/dev/sdb1      351629312 13605320 338023992     4% /data\n/dev/sda4       56352768  3424059  52928709     7% /\n/dev/sdb1      351629312 13605320 338023992     4% /data\n/dev/sdb1      351629312 13605320 338023992     4% /data\n",
+    "stderr": "",
+    "elapsed_seconds": 0.005
+  },
+  "mounts": {
+    "/": {
+      "command": [
+        "findmnt",
+        "-T",
+        "/",
+        "-o",
+        "TARGET,SOURCE,FSTYPE,OPTIONS"
+      ],
+      "returncode": 0,
+      "stdout": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda4 ext4   rw,relatime,errors=remount-ro,stripe=64\n",
+      "stderr": "",
+      "elapsed_seconds": 0.002
+    },
+    "/data": {
+      "command": [
+        "findmnt",
+        "-T",
+        "/data",
+        "-o",
+        "TARGET,SOURCE,FSTYPE,OPTIONS"
+      ],
+      "returncode": 0,
+      "stdout": "TARGET SOURCE    FSTYPE OPTIONS\n/data  /dev/sdb1 ext4   rw,relatime,stripe=192\n",
+      "stderr": "",
+      "elapsed_seconds": 0.002
+    },
+    "/tmp": {
+      "command": [
+        "findmnt",
+        "-T",
+        "/tmp",
+        "-o",
+        "TARGET,SOURCE,FSTYPE,OPTIONS"
+      ],
+      "returncode": 0,
+      "stdout": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda4 ext4   rw,relatime,errors=remount-ro,stripe=64\n",
+      "stderr": "",
+      "elapsed_seconds": 0.003
+    }
+  },
+  "quota_tools": {
+    "quota": null,
+    "repquota": null,
+    "xfs_quota": null
+  },
+  "statvfs": {
+    "/": {
+      "total_bytes": 907619250176,
+      "available_to_user_bytes": 33753858048,
+      "free_bytes": 79933825024,
+      "inode_total": 56352768,
+      "inode_available": 52928709
+    },
+    "/data": {
+      "total_bytes": 11430169911296,
+      "available_to_user_bytes": 2305349595136,
+      "free_bytes": 2881474641920,
+      "inode_total": 351629312,
+      "inode_available": 338023992
+    }
+  },
+  "quota_status": "unknown: quota command unavailable; filesystem capacity is not a user-quota proof",
+  "du_artifacts": {
+    "command": [
+      "du",
+      "-x",
+      "-B1",
+      "--max-depth=2",
+      "/data/caoqinlu/projects/apex-takehome/artifacts"
+    ],
+    "returncode": 0,
+    "stdout": "2005700608\t/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2\n2005704704\t/data/caoqinlu/projects/apex-takehome/artifacts/recovery\n5246976\t/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_20261016\n218710016\t/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_ngspice_20261016\n249856\t/data/caoqinlu/projects/apex-takehome/artifacts/asi/instances_seed31415\n71630848\t/data/caoqinlu/projects/apex-takehome/artifacts/asi/hf_seed31415_agent_inputs\n7053312\t/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016\n1269760\t/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_final_20261016\n139198464\t/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_seed31415\n258048\t/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_tools\n443621376\t/data/caoqinlu/projects/apex-takehome/artifacts/asi\n131072\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_final\n223625216\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1\n10190848\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/validation_direct_20261016\n2015232\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_glibc\n1105920\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017\n12288\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/direct-expert-tunnel-20261017\n62693376\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2_20261016_infra1\n54841344\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_glibc_setup1\n409600\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/execution_partition_migration_20261017\n712704\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/sft_loss249_only_20261017-727689\n15024128\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/final_aggregation_20261017\n63655936\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017\n294117376\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_full\n242614272\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_full_x2\n106496\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_go_musl2\n20480\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_dedicated_tunnels_20261017\n12288\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_glibc_setup2\n22740992\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017\n65536\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_audited_hard51_20261017\n16384\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/merged_asi_existing_hle_service_20261017\n748101632\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28\n564592640\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017\n106496\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_go_glibc3\n102400\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_go_musl1\n114688\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_go_glibc4\n8294400\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2_20261016\n106496\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_go_musl3\n221184\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_go_glibc2\n4096\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/merged-execution-service-727660\n504274944\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017\n155648\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi-acdu-migration-20261017\n12288\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_execution_tunnel_20261017\n12288\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi-cpu-marker-normalization-20261017\n36864\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/expert_direct_pipeline_20261017\n12288\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/merged-direct-tunnel-20261017\n274432\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_teleport7744_proxy_repair_20261017\n3184553984\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017\n12288\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249-source-handoff-compat-20261017\n57344\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal-network-probe-20261017\n462848\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_budget_replay\n7646121984\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/validation_swe_20261016\n12288\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/normal_hle_service_release_20261017\n60198912\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017\n143360\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_bootstrap_args1\n126976\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_go_glibc1\n1864810496\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_hard51_20261016\n1978368\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_task_controls_20261017\n3629056\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017\n24576\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2\n290816\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_normal_migration_20261017\n18591744\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017\n28672\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/merged_direct_pipeline_20261017\n704512\t/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_envrepair1\n15602589696\t/data/caoqinlu/projects/apex-takehome/artifacts/eval\n17186443264\t/data/caoqinlu/projects/apex-takehome/artifacts/data/candidates\n429834240\t/data/caoqinlu/projects/apex-takehome/artifacts/data/_metadata\n45056\t/data/caoqinlu/projects/apex-takehome/artifacts/data/_plans\n207163392\t/data/caoqinlu/projects/apex-takehome/artifacts/data/audits\n11382665216\t/data/caoqinlu/projects/apex-takehome/artifacts/data/raw\n29206368256\t/data/caoqinlu/projects/apex-takehome/artifacts/data\n114688\t/data/caoqinlu/projects/apex-takehome/artifacts/runs/swe-base-725705\n12873728\t/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196\n3215360\t/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_seq20\n84779008\t/data/caoqinlu/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335\n16384\t/data/caoqinlu/projects/apex-takehome/artifacts/runs/baseline-tunnels-20261016\n8192\t/data/caoqinlu/projects/apex-takehome/artifacts/runs/swe-base-725561\n16384\t/data/caoqinlu/projects/apex-takehome/artifacts/runs/merged-execution-tunnel-20261017\n84783104\t/data/caoqinlu/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336\n17338368\t/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-724242\n12288\t/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_night\n12947456\t/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_infra1\n6041600\t/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016\n84783104\t/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664\n770048\t/data/caoqinlu/projects/apex-takehome/artifacts/runs/direct-hpc-tunnels-20261016\n15941632\t/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_seq50\n49152\t/data/caoqinlu/projects/apex-takehome/artifacts/runs/baseline-x2-725705\n42004480\t/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016\n84783104\t/data/caoqinlu/projects/apex-takehome/artifacts/runs/terminal-retry-sft-r16-726665\n450519040\t/data/caoqinlu/projects/apex-takehome/artifacts/runs\n109744128\t/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/terminal-bench-2\n6709956608\t/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/asi\n166559744\t/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/swe-bench-pro\n103015469056\t/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif\n221184\t/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/swe-hard51\n368640\t/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/terminal-bench-2-registered\n152563712\t/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/harbor\n275005440\t/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/hle\n110429892608\t/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks\n164515840\t/data/caoqinlu/projects/apex-takehome/artifacts/cache/swe-v2-wheels\n133584048128\t/data/caoqinlu/projects/apex-takehome/artifacts/cache/apptainer\n215359488\t/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-v2-native\n1192275968\t/data/caoqinlu/projects/apex-takehome/artifacts/cache/uv\n104718336\t/data/caoqinlu/projects/apex-takehome/artifacts/cache/swe-score-go\n31121408\t/data/caoqinlu/projects/apex-takehome/artifacts/cache/swe-v2-runtime\n274432\t/data/caoqinlu/projects/apex-takehome/artifacts/cache/apptainer-tmp\n40558747648\t/data/caoqinlu/projects/apex-takehome/artifacts/cache/ranged-oci\n66592768\t/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public\n7397376\t/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-v2-runtime\n175925055488\t/data/caoqinlu/projects/apex-takehome/artifacts/cache\n20480\t/data/caoqinlu/projects/apex-takehome/artifacts/validation/lora-service-727113\n184320\t/data/caoqinlu/projects/apex-takehome/artifacts/validation/swe_rebench_source_20261016\n208896\t/data/caoqinlu/projects/apex-takehome/artifacts/validation\n58179584\t/data/caoqinlu/projects/apex-takehome/artifacts/agent_teacher/pilot_rich_4201\n58183680\t/data/caoqinlu/projects/apex-takehome/artifacts/agent_teacher\n24576\t/data/caoqinlu/projects/apex-takehome/artifacts/private\n259731456\t/data/caoqinlu/projects/apex-takehome/artifacts/tasks/raw\n16384\t/data/caoqinlu/projects/apex-takehome/artifacts/tasks/receipts\n6209536\t/data/caoqinlu/projects/apex-takehome/artifacts/tasks/catalog\n265994240\t/data/caoqinlu/projects/apex-takehome/artifacts/tasks\n167567360\t/data/caoqinlu/projects/apex-takehome/artifacts/tools/apptainer-1.4.5\n17415753728\t/data/caoqinlu/projects/apex-takehome/artifacts/tools/terminal_verifier_offline_20261016\n1073152\t/data/caoqinlu/projects/apex-takehome/artifacts/tools/python\n74354688\t/data/caoqinlu/projects/apex-takehome/artifacts/tools/uv\n376832\t/data/caoqinlu/projects/apex-takehome/artifacts/tools/slirp4netns\n8192\t/data/caoqinlu/projects/apex-takehome/artifacts/tools/python-bin\n708608\t/data/caoqinlu/projects/apex-takehome/artifacts/tools/fakeroot-1.25.3\n10412032\t/data/caoqinlu/projects/apex-takehome/artifacts/tools/ngspice\n7770112\t/data/caoqinlu/projects/apex-takehome/artifacts/tools/aria2\n351301632\t/data/caoqinlu/projects/apex-takehome/artifacts/tools/opencode-1.17.15\n18029625344\t/data/caoqinlu/projects/apex-takehome/artifacts/tools\n12288\t/data/caoqinlu/projects/apex-takehome/artifacts/envs/sab-validation-logs\n1533657088\t/data/caoqinlu/projects/apex-takehome/artifacts/envs/sab-validation-py310\n56238080\t/data/caoqinlu/projects/apex-takehome/artifacts/envs/mini-swe\n939180032\t/data/caoqinlu/projects/apex-takehome/artifacts/envs/merge-cpu\n35815424\t/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor\n29401088\t/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle\n95481856\t/data/caoqinlu/projects/apex-takehome/artifacts/envs/asi-py312\n2689789952\t/data/caoqinlu/projects/apex-takehome/artifacts/envs\n385024\t/data/caoqinlu/projects/apex-takehome/artifacts/protocol_sources/opencode_v1.17.15\n864256\t/data/caoqinlu/projects/apex-takehome/artifacts/protocol_sources/asi\n24576\t/data/caoqinlu/projects/apex-takehome/artifacts/protocol_sources/hle\n1277952\t/data/caoqinlu/projects/apex-takehome/artifacts/protocol_sources\n32768\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/hle-seq50-726663-binder\n24576\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-submission-711k_lgl\n29503488\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi\n819200\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-score-x6gjidtc\n389120\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-real-calibration-20261016\n49152\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/hle-direct-725539-synthetic\n397312\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/backend_v2\n843776\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-score-u6rt73b6\n7081984\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/terminal-v2\n151552\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/hle-judge-20261015T132438Z\n16384\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/base-worker-probe-724241\n86016\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/base-night-724196\n61440\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/hkust-luna-20261015\n856064\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-score-8gf9gqmm\n49152\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/hle-direct-725539-synthetic-r2\n24576\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-submission-q38i0oi0\n864256\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-score-ybeo7rbd\n32768\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-ngspice-t3_zg9o5\n28672\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-submission-lsrw2t4e\n835584\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-score-5erii5uu\n12288\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/hkust-models-20261015\n57344\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/base-transfer\n32768\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/deepseek-vision-20261015\n151552\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-ngspice-rmyfh0ie\n24576\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/daocloud-check\n1119506432\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/swe_tb\n94105600\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/swe_v2\n770048\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-score-gz10mr02\n28672\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-submission-n6ovup0i\n16384\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/base-worker-probe-724242\n155648\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-ngspice-phx9p21t\n24576\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-submission-stcvbolj\n1257140224\t/data/caoqinlu/projects/apex-takehome/artifacts/preflight\n10870784\t/data/caoqinlu/projects/apex-takehome/artifacts/tmp/terminal-native9\n147456\t/data/caoqinlu/projects/apex-takehome/artifacts/tmp/terminal-grading\n11022336\t/data/caoqinlu/projects/apex-takehome/artifacts/tmp\n71927078912\t/data/caoqinlu/projects/apex-takehome/artifacts/models/Qwen3.6-35B-A3B\n12857344\t/data/caoqinlu/projects/apex-takehome/artifacts/models/base_metadata\n71939944448\t/data/caoqinlu/projects/apex-takehome/artifacts/models\n423788544\t/data/caoqinlu/projects/apex-takehome/artifacts/merges/four-experts-avg-v1-20261017\n423792640\t/data/caoqinlu/projects/apex-takehome/artifacts/merges\n372736\t/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017\n23121440768\t/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016\n2260992\t/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242\n19349979136\t/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016\n2260992\t/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2\n118784\t/data/caoqinlu/projects/apex-takehome/artifacts/results/base_baseline_final_20261016\n52256768\t/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2\n1308823552\t/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-native-gaps-20261017\n43837517824\t/data/caoqinlu/projects/apex-takehome/artifacts/results\n472578293760\t/data/caoqinlu/projects/apex-takehome/artifacts\n",
+    "stderr": "",
+    "elapsed_seconds": 2.322,
+    "rows": [
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-v2",
+        "allocated_bytes": 2005700608
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery",
+        "allocated_bytes": 2005704704
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_20261016",
+        "allocated_bytes": 5246976
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_ngspice_20261016",
+        "allocated_bytes": 218710016
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/instances_seed31415",
+        "allocated_bytes": 249856
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/hf_seed31415_agent_inputs",
+        "allocated_bytes": 71630848
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016",
+        "allocated_bytes": 7053312
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_final_20261016",
+        "allocated_bytes": 1269760
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_seed31415",
+        "allocated_bytes": 139198464
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_tools",
+        "allocated_bytes": 258048
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/asi",
+        "allocated_bytes": 443621376
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_final",
+        "allocated_bytes": 131072
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_manual_infra1",
+        "allocated_bytes": 223625216
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/validation_direct_20261016",
+        "allocated_bytes": 10190848
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_glibc",
+        "allocated_bytes": 2015232
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_gap_repair_20261017",
+        "allocated_bytes": 1105920
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/direct-expert-tunnel-20261017",
+        "allocated_bytes": 12288
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2_20261016_infra1",
+        "allocated_bytes": 62693376
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_glibc_setup1",
+        "allocated_bytes": 54841344
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/execution_partition_migration_20261017",
+        "allocated_bytes": 409600
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/sft_loss249_only_20261017-727689",
+        "allocated_bytes": 712704
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/final_aggregation_20261017",
+        "allocated_bytes": 15024128
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017",
+        "allocated_bytes": 63655936
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_full",
+        "allocated_bytes": 294117376
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_full_x2",
+        "allocated_bytes": 242614272
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_go_musl2",
+        "allocated_bytes": 106496
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_dedicated_tunnels_20261017",
+        "allocated_bytes": 20480
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_glibc_setup2",
+        "allocated_bytes": 12288
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017",
+        "allocated_bytes": 22740992
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_audited_hard51_20261017",
+        "allocated_bytes": 65536
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/merged_asi_existing_hle_service_20261017",
+        "allocated_bytes": 16384
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28",
+        "allocated_bytes": 748101632
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017",
+        "allocated_bytes": 564592640
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_go_glibc3",
+        "allocated_bytes": 106496
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_go_musl1",
+        "allocated_bytes": 102400
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_go_glibc4",
+        "allocated_bytes": 114688
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2_20261016",
+        "allocated_bytes": 8294400
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_go_musl3",
+        "allocated_bytes": 106496
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_go_glibc2",
+        "allocated_bytes": 221184
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/merged-execution-service-727660",
+        "allocated_bytes": 4096
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017",
+        "allocated_bytes": 504274944
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi-acdu-migration-20261017",
+        "allocated_bytes": 155648
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_execution_tunnel_20261017",
+        "allocated_bytes": 12288
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi-cpu-marker-normalization-20261017",
+        "allocated_bytes": 12288
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/expert_direct_pipeline_20261017",
+        "allocated_bytes": 36864
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/merged-direct-tunnel-20261017",
+        "allocated_bytes": 12288
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_teleport7744_proxy_repair_20261017",
+        "allocated_bytes": 274432
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017",
+        "allocated_bytes": 3184553984
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249-source-handoff-compat-20261017",
+        "allocated_bytes": 12288
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal-network-probe-20261017",
+        "allocated_bytes": 57344
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_budget_replay",
+        "allocated_bytes": 462848
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/validation_swe_20261016",
+        "allocated_bytes": 7646121984
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/normal_hle_service_release_20261017",
+        "allocated_bytes": 12288
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017",
+        "allocated_bytes": 60198912
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_bootstrap_args1",
+        "allocated_bytes": 143360
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_go_glibc1",
+        "allocated_bytes": 126976
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_hard51_20261016",
+        "allocated_bytes": 1864810496
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_task_controls_20261017",
+        "allocated_bytes": 1978368
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017",
+        "allocated_bytes": 3629056
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2",
+        "allocated_bytes": 24576
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_normal_migration_20261017",
+        "allocated_bytes": 290816
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017",
+        "allocated_bytes": 18591744
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/merged_direct_pipeline_20261017",
+        "allocated_bytes": 28672
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_score_envrepair1",
+        "allocated_bytes": 704512
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval",
+        "allocated_bytes": 15602589696
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/data/candidates",
+        "allocated_bytes": 17186443264
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/data/_metadata",
+        "allocated_bytes": 429834240
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/data/_plans",
+        "allocated_bytes": 45056
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/data/audits",
+        "allocated_bytes": 207163392
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/data/raw",
+        "allocated_bytes": 11382665216
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/data",
+        "allocated_bytes": 29206368256
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/swe-base-725705",
+        "allocated_bytes": 114688
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196",
+        "allocated_bytes": 12873728
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_seq20",
+        "allocated_bytes": 3215360
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335",
+        "allocated_bytes": 84779008
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/baseline-tunnels-20261016",
+        "allocated_bytes": 16384
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/swe-base-725561",
+        "allocated_bytes": 8192
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/merged-execution-tunnel-20261017",
+        "allocated_bytes": 16384
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336",
+        "allocated_bytes": 84783104
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-724242",
+        "allocated_bytes": 17338368
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_night",
+        "allocated_bytes": 12288
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_infra1",
+        "allocated_bytes": 12947456
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016",
+        "allocated_bytes": 6041600
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664",
+        "allocated_bytes": 84783104
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/direct-hpc-tunnels-20261016",
+        "allocated_bytes": 770048
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_seq50",
+        "allocated_bytes": 15941632
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/baseline-x2-725705",
+        "allocated_bytes": 49152
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016",
+        "allocated_bytes": 42004480
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/terminal-retry-sft-r16-726665",
+        "allocated_bytes": 84783104
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs",
+        "allocated_bytes": 450519040
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/terminal-bench-2",
+        "allocated_bytes": 109744128
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/asi",
+        "allocated_bytes": 6709956608
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/swe-bench-pro",
+        "allocated_bytes": 166559744
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif",
+        "allocated_bytes": 103015469056
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/swe-hard51",
+        "allocated_bytes": 221184
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/terminal-bench-2-registered",
+        "allocated_bytes": 368640
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/harbor",
+        "allocated_bytes": 152563712
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/hle",
+        "allocated_bytes": 275005440
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks",
+        "allocated_bytes": 110429892608
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/swe-v2-wheels",
+        "allocated_bytes": 164515840
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/apptainer",
+        "allocated_bytes": 133584048128
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-v2-native",
+        "allocated_bytes": 215359488
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/uv",
+        "allocated_bytes": 1192275968
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/swe-score-go",
+        "allocated_bytes": 104718336
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/swe-v2-runtime",
+        "allocated_bytes": 31121408
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/apptainer-tmp",
+        "allocated_bytes": 274432
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/ranged-oci",
+        "allocated_bytes": 40558747648
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-verifier-public",
+        "allocated_bytes": 66592768
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-v2-runtime",
+        "allocated_bytes": 7397376
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/cache",
+        "allocated_bytes": 175925055488
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/validation/lora-service-727113",
+        "allocated_bytes": 20480
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/validation/swe_rebench_source_20261016",
+        "allocated_bytes": 184320
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/validation",
+        "allocated_bytes": 208896
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/agent_teacher/pilot_rich_4201",
+        "allocated_bytes": 58179584
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/agent_teacher",
+        "allocated_bytes": 58183680
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/private",
+        "allocated_bytes": 24576
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tasks/raw",
+        "allocated_bytes": 259731456
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tasks/receipts",
+        "allocated_bytes": 16384
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tasks/catalog",
+        "allocated_bytes": 6209536
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tasks",
+        "allocated_bytes": 265994240
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/apptainer-1.4.5",
+        "allocated_bytes": 167567360
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/terminal_verifier_offline_20261016",
+        "allocated_bytes": 17415753728
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/python",
+        "allocated_bytes": 1073152
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/uv",
+        "allocated_bytes": 74354688
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/slirp4netns",
+        "allocated_bytes": 376832
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/python-bin",
+        "allocated_bytes": 8192
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/fakeroot-1.25.3",
+        "allocated_bytes": 708608
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/ngspice",
+        "allocated_bytes": 10412032
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/aria2",
+        "allocated_bytes": 7770112
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/opencode-1.17.15",
+        "allocated_bytes": 351301632
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tools",
+        "allocated_bytes": 18029625344
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/envs/sab-validation-logs",
+        "allocated_bytes": 12288
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/envs/sab-validation-py310",
+        "allocated_bytes": 1533657088
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/envs/mini-swe",
+        "allocated_bytes": 56238080
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/envs/merge-cpu",
+        "allocated_bytes": 939180032
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor",
+        "allocated_bytes": 35815424
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle",
+        "allocated_bytes": 29401088
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/envs/asi-py312",
+        "allocated_bytes": 95481856
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/envs",
+        "allocated_bytes": 2689789952
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/protocol_sources/opencode_v1.17.15",
+        "allocated_bytes": 385024
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/protocol_sources/asi",
+        "allocated_bytes": 864256
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/protocol_sources/hle",
+        "allocated_bytes": 24576
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/protocol_sources",
+        "allocated_bytes": 1277952
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/hle-seq50-726663-binder",
+        "allocated_bytes": 32768
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-submission-711k_lgl",
+        "allocated_bytes": 24576
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi",
+        "allocated_bytes": 29503488
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-score-x6gjidtc",
+        "allocated_bytes": 819200
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-real-calibration-20261016",
+        "allocated_bytes": 389120
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/hle-direct-725539-synthetic",
+        "allocated_bytes": 49152
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/backend_v2",
+        "allocated_bytes": 397312
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-score-u6rt73b6",
+        "allocated_bytes": 843776
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/terminal-v2",
+        "allocated_bytes": 7081984
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/hle-judge-20261015T132438Z",
+        "allocated_bytes": 151552
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/base-worker-probe-724241",
+        "allocated_bytes": 16384
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/base-night-724196",
+        "allocated_bytes": 86016
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/hkust-luna-20261015",
+        "allocated_bytes": 61440
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-score-8gf9gqmm",
+        "allocated_bytes": 856064
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/hle-direct-725539-synthetic-r2",
+        "allocated_bytes": 49152
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-submission-q38i0oi0",
+        "allocated_bytes": 24576
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-score-ybeo7rbd",
+        "allocated_bytes": 864256
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-ngspice-t3_zg9o5",
+        "allocated_bytes": 32768
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-submission-lsrw2t4e",
+        "allocated_bytes": 28672
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-score-5erii5uu",
+        "allocated_bytes": 835584
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/hkust-models-20261015",
+        "allocated_bytes": 12288
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/base-transfer",
+        "allocated_bytes": 57344
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/deepseek-vision-20261015",
+        "allocated_bytes": 32768
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-ngspice-rmyfh0ie",
+        "allocated_bytes": 151552
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/daocloud-check",
+        "allocated_bytes": 24576
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/swe_tb",
+        "allocated_bytes": 1119506432
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/swe_v2",
+        "allocated_bytes": 94105600
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-score-gz10mr02",
+        "allocated_bytes": 770048
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-submission-n6ovup0i",
+        "allocated_bytes": 28672
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/base-worker-probe-724242",
+        "allocated_bytes": 16384
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-ngspice-phx9p21t",
+        "allocated_bytes": 155648
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-submission-stcvbolj",
+        "allocated_bytes": 24576
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight",
+        "allocated_bytes": 1257140224
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tmp/terminal-native9",
+        "allocated_bytes": 10870784
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tmp/terminal-grading",
+        "allocated_bytes": 147456
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tmp",
+        "allocated_bytes": 11022336
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/models/Qwen3.6-35B-A3B",
+        "allocated_bytes": 71927078912
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/models/base_metadata",
+        "allocated_bytes": 12857344
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/models",
+        "allocated_bytes": 71939944448
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/merges/four-experts-avg-v1-20261017",
+        "allocated_bytes": 423788544
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/merges",
+        "allocated_bytes": 423792640
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017",
+        "allocated_bytes": 372736
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016",
+        "allocated_bytes": 23121440768
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242",
+        "allocated_bytes": 2260992
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016",
+        "allocated_bytes": 19349979136
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2",
+        "allocated_bytes": 2260992
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base_baseline_final_20261016",
+        "allocated_bytes": 118784
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2",
+        "allocated_bytes": 52256768
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-native-gaps-20261017",
+        "allocated_bytes": 1308823552
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results",
+        "allocated_bytes": 43837517824
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts",
+        "allocated_bytes": 472578293760
+      }
+    ]
+  },
+  "du_project_excluding_artifacts": {
+    "command": [
+      "du",
+      "-x",
+      "-B1",
+      "-s",
+      "--exclude=artifacts",
+      "/data/caoqinlu/projects/apex-takehome"
+    ],
+    "returncode": 0,
+    "stdout": "2770362368\t/data/caoqinlu/projects/apex-takehome\n",
+    "stderr": "",
+    "elapsed_seconds": 1.02
+  },
+  "du_root_disk_user_cache_tmp": {
+    "command": [
+      "du",
+      "-x",
+      "-B1",
+      "-s",
+      "/tmp",
+      "/home/caoqinlu/.cache",
+      "/home/caoqinlu/.local"
+    ],
+    "returncode": 1,
+    "stdout": "101791047680\t/tmp\n2545307648\t/home/caoqinlu/.cache\n57344\t/home/caoqinlu/.local\n",
+    "stderr": "du: 无法读取目录 '/tmp/mcp-ypYTks': 权限不够\ndu: 无法读取目录 '/tmp/mcp-i8arZC': 权限不够\ndu: 无法读取目录 '/tmp/mcp-5zD6H7': 权限不够\ndu: 无法读取目录 '/tmp/mcp-kHS8IP': 权限不够\ndu: 无法读取目录 '/tmp/mcp-Dj2TPj': 权限不够\ndu: 无法读取目录 '/tmp/mcp-ODEsmD': 权限不够\ndu: 无法读取目录 '/tmp/mcp-2H9jkZ': 权限不够\ndu: 无法读取目录 '/tmp/mcp-wRr8a3': 权限不够\ndu: 无法读取目录 '/tmp/ssh-XXXXXXatcQn8': 权限不够\ndu: 无法读取目录 '/tmp/tmpn9owvixmwandb-media': 权限不够\ndu: 无法读取目录 '/tmp/aide_py_k1ejhn57': 权限不够\ndu: 无法读取目录 '/tmp/tmprnkqopwywandb-media': 权限不够\ndu: 无法读取目录 '/tmp/tmpohsipvvewandb-media': 权限不够\ndu: 无法读取目录 '/tmp/tmpmw_0u_ofwandb-media': 权限不够\ndu: 无法读取目录 '/tmp/tmp7oyjda1vwandb-artifacts': 权限不够\ndu: 无法读取目录 '/tmp/tmpb4lt5h7kwandb-artifacts': 权限不够\ndu: 无法读取目录 '/tmp/pip-unpack-cggpl0ni': 权限不够\ndu: 无法读取目录 '/tmp/pip-build-tracker-yaf0k__e': 权限不够\ndu: 无法读取目录 '/tmp/pip-install-tjgesjpi': 权限不够\ndu: 无法读取目录 '/tmp/pip-ephem-wheel-cache-doai7x1y': 权限不够\ndu: 无法读取目录 '/tmp/pip-unpack-jz9xhth7': 权限不够\ndu: 无法读取目录 '/tmp/pip-metadata-hwtgbeqx': 权限不够\ndu: 无法读取目录 '/tmp/pip-unpack-pn5rbd86': 权限不够\ndu: 无法读取目录 '/tmp/pip-build-tracker-5evfqma1': 权限不够\ndu: 无法读取目录 '/tmp/pip-unpack-zeg_z6xi': 权限不够\ndu: 无法读取目录 '/tmp/pip-metadata-ev6bmtss': 权限不够\ndu: 无法读取目录 '/tmp/pip-unpack-sb2hba65': 权限不够\ndu: 无法读取目录 '/tmp/pip-metadata-fyzl0ybq': 权限不够\ndu: 无法读取目录 '/tmp/pip-unpack-9rofacgl': 权限不够\ndu: 无法读取目录 '/tmp/pip-metadata-r9mvl369': 权限不够\ndu: 无法读取目录 '/tmp/pip-unpack-v74okpkm': 权限不够\ndu: 无法读取目录 '/tmp/pip-metadata-nfmi8npk': 权限不够\ndu: 无法读取目录 '/tmp/pip-unpack-158om13j': 权限不够\ndu: 无法读取目录 '/tmp/pip-unpack-zani_4a_': 权限不够\ndu: 无法读取目录 '/tmp/pip",
+    "elapsed_seconds": 1.16,
+    "partial_due_permission_denied": true,
+    "interpretation": "/tmp is a readable-subtree lower bound, includes other users/workloads, cannot attribute to this project. No files changed."
+  },
+  "current_log_scan": {
+    "scope": "Existing formal/controller/native logs only, mtime since 2026-10-17 00:00 CST; max depth4, skip payload/audit/runtime; newest100 tails max64KiB each. No whole historical corpus scan.",
+    "selected_output_names": [
+      "terminal250_full445_20261017",
+      "avg64_terminal_full445_20261017",
+      "avg64_swe_hard51_20261017",
+      "expert_direct_pipeline_20261017",
+      "merged_direct_pipeline_20261017",
+      "hle250_hle2500_20261017",
+      "avg64_hle2500_20261017",
+      "hle_task_controls_20261017",
+      "execution_partition_migration_20261017",
+      "asi-acdu-migration-20261017",
+      "hle_normal_migration_20261017",
+      "normal_hle_service_release_20261017",
+      "direct-expert-tunnel-20261017",
+      "merged-direct-tunnel-20261017",
+      "hle_dedicated_tunnels_20261017"
+    ],
+    "visited_file_entries": 11368,
+    "candidate_count": 268,
+    "scanned_count": 100,
+    "pattern": "No space left on device|\\bENOSPC\\b|Disk quota exceeded|\\bEDQUOT\\b|Read-only file system|\\bEROFS\\b|(?:write|writing|flush|fsync).{0,60}(?:failed|error)|(?:failed|error).{0,60}(?:write|writing|flush|fsync)",
+    "matches": [],
+    "files": [
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/path-tracing__seed0/trial.log",
+        "bytes": 540,
+        "mtime_utc": "2026-10-16T20:37:49.954284+00:00",
+        "tail_bytes_read": 540,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/controller/scoring.log",
+        "bytes": 1748020,
+        "mtime_utc": "2026-10-16T20:37:49.839287+00:00",
+        "tail_bytes_read": 65536,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/controller/scoring.log",
+        "bytes": 403951,
+        "mtime_utc": "2026-10-16T20:37:49.814287+00:00",
+        "tail_bytes_read": 65536,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_task_controls_20261017/avg16_generation.log",
+        "bytes": 6583,
+        "mtime_utc": "2026-10-16T20:37:49.234298+00:00",
+        "tail_bytes_read": 6583,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/fix-git__seed0/trial.log",
+        "bytes": 676,
+        "mtime_utc": "2026-10-16T20:37:48.972303+00:00",
+        "tail_bytes_read": 676,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_task_controls_20261017/avg16_scoring.log",
+        "bytes": 51466,
+        "mtime_utc": "2026-10-16T20:37:48.376315+00:00",
+        "tail_bytes_read": 51466,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_task_controls_20261017/mixed883_scoring.log",
+        "bytes": 1651698,
+        "mtime_utc": "2026-10-16T20:37:48.253317+00:00",
+        "tail_bytes_read": 65536,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/fix-code-vulnerability__seed0/trial.log",
+        "bytes": 655,
+        "mtime_utc": "2026-10-16T20:37:47.545331+00:00",
+        "tail_bytes_read": 655,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/controller/generation.log",
+        "bytes": 53300,
+        "mtime_utc": "2026-10-16T20:37:47.173338+00:00",
+        "tail_bytes_read": 53300,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/fix-ocaml-gc__seed0/trial.log",
+        "bytes": 838,
+        "mtime_utc": "2026-10-16T20:37:46.538350+00:00",
+        "tail_bytes_read": 838,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/financial-document-processor__seed0/trial.log",
+        "bytes": 582,
+        "mtime_utc": "2026-10-16T20:37:43.374412+00:00",
+        "tail_bytes_read": 582,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/financial-document-processor__seed0/trial.log",
+        "bytes": 588,
+        "mtime_utc": "2026-10-16T20:37:41.314451+00:00",
+        "tail_bytes_read": 588,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/gcode-to-text__seed0/trial.log",
+        "bytes": 706,
+        "mtime_utc": "2026-10-16T20:37:35.441564+00:00",
+        "tail_bytes_read": 706,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/fix-code-vulnerability__seed0/trial.log",
+        "bytes": 751,
+        "mtime_utc": "2026-10-16T20:37:31.451641+00:00",
+        "tail_bytes_read": 751,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/fix-ocaml-gc__seed0/trial.log",
+        "bytes": 540,
+        "mtime_utc": "2026-10-16T20:37:27.401718+00:00",
+        "tail_bytes_read": 540,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/expert_direct_pipeline_20261017/asi_generation.log",
+        "bytes": 6155,
+        "mtime_utc": "2026-10-16T20:37:23.733788+00:00",
+        "tail_bytes_read": 6155,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/path-tracing-reverse__seed0/trial.log",
+        "bytes": 558,
+        "mtime_utc": "2026-10-16T20:37:19.597867+00:00",
+        "tail_bytes_read": 558,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/fix-git__seed0/trial.log",
+        "bytes": 538,
+        "mtime_utc": "2026-10-16T20:37:14.939955+00:00",
+        "tail_bytes_read": 538,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/path-tracing-reverse__seed0/trial.log",
+        "bytes": 401,
+        "mtime_utc": "2026-10-16T20:37:09.163064+00:00",
+        "tail_bytes_read": 401,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_future-architect__vuls-e1fab805afcfc92a2a615371d0ec1e667503c254-v264a82e2f4818e30f5a25e4da53b27ba119f62b5/trial.log",
+        "bytes": 13711,
+        "mtime_utc": "2026-10-16T20:36:26.202863+00:00",
+        "tail_bytes_read": 13711,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/portfolio-optimization__seed0/trial.log",
+        "bytes": 268,
+        "mtime_utc": "2026-10-16T20:36:22.116938+00:00",
+        "tail_bytes_read": 268,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/portfolio-optimization__seed0/trial.log",
+        "bytes": 265,
+        "mtime_utc": "2026-10-16T20:36:14.463077+00:00",
+        "tail_bytes_read": 265,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_future-architect__vuls-ca3f6b1dbf2cd24d1537bfda43e788443ce03a0c/trial.log",
+        "bytes": 14380,
+        "mtime_utc": "2026-10-16T20:35:49.057541+00:00",
+        "tail_bytes_read": 14380,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/trial.log",
+        "bytes": 13487,
+        "mtime_utc": "2026-10-16T20:35:48.428558+00:00",
+        "tail_bytes_read": 13487,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15/trial.log",
+        "bytes": 10056,
+        "mtime_utc": "2026-10-16T20:35:40.322776+00:00",
+        "tail_bytes_read": 10056,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_flipt-io__flipt-c188284ff0c094a4ee281afebebd849555ebee59/trial.log",
+        "bytes": 17123,
+        "mtime_utc": "2026-10-16T20:35:38.818817+00:00",
+        "tail_bytes_read": 17123,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_flipt-io__flipt-e2bd19dafa7166c96b082fb2a59eb54b4be0d778/trial.log",
+        "bytes": 13621,
+        "mtime_utc": "2026-10-16T20:35:38.740819+00:00",
+        "tail_bytes_read": 13621,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_flipt-io__flipt-c1728053367c753688f114ec26e703c8fdeda125/trial.log",
+        "bytes": 11378,
+        "mtime_utc": "2026-10-16T20:35:38.730819+00:00",
+        "tail_bytes_read": 11378,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_flipt-io__flipt-3d5a345f94c2adc8a0eaa102c189c08ad4c0f8e8/trial.log",
+        "bytes": 17418,
+        "mtime_utc": "2026-10-16T20:35:38.719819+00:00",
+        "tail_bytes_read": 17418,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_flipt-io__flipt-2ca5dfb3513e4e786d2b037075617cccc286d5c3/trial.log",
+        "bytes": 14442,
+        "mtime_utc": "2026-10-16T20:35:38.522825+00:00",
+        "tail_bytes_read": 14442,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_flipt-io__flipt-cd18e54a0371fa222304742c6312e9ac37ea86c1/trial.log",
+        "bytes": 14340,
+        "mtime_utc": "2026-10-16T20:35:38.515825+00:00",
+        "tail_bytes_read": 14340,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/polyglot-c-py__seed0/trial.log",
+        "bytes": 231,
+        "mtime_utc": "2026-10-16T20:35:31.347018+00:00",
+        "tail_bytes_read": 231,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/path-tracing__seed0/trial.log",
+        "bytes": 230,
+        "mtime_utc": "2026-10-16T20:35:31.268020+00:00",
+        "tail_bytes_read": 230,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/polyglot-c-py__seed0/trial.log",
+        "bytes": 231,
+        "mtime_utc": "2026-10-16T20:35:31.268020+00:00",
+        "tail_bytes_read": 231,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/polyglot-rust-c__seed0/trial.log",
+        "bytes": 233,
+        "mtime_utc": "2026-10-16T20:35:31.215022+00:00",
+        "tail_bytes_read": 233,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/polyglot-rust-c__seed0/trial.log",
+        "bytes": 233,
+        "mtime_utc": "2026-10-16T20:35:31.112024+00:00",
+        "tail_bytes_read": 233,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/logs/portfolio-optimization__seed0.log",
+        "bytes": 333,
+        "mtime_utc": "2026-10-16T20:35:29.692063+00:00",
+        "tail_bytes_read": 333,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/logs/path-tracing-reverse__seed0.log",
+        "bytes": 333,
+        "mtime_utc": "2026-10-16T20:35:29.690063+00:00",
+        "tail_bytes_read": 333,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/logs/fix-code-vulnerability__seed0.log",
+        "bytes": 333,
+        "mtime_utc": "2026-10-16T20:35:29.597065+00:00",
+        "tail_bytes_read": 333,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/logs/fix-ocaml-gc__seed0.log",
+        "bytes": 333,
+        "mtime_utc": "2026-10-16T20:35:29.476068+00:00",
+        "tail_bytes_read": 333,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/logs/polyglot-c-py__seed0.log",
+        "bytes": 330,
+        "mtime_utc": "2026-10-16T20:35:29.470068+00:00",
+        "tail_bytes_read": 330,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/logs/financial-document-processor__seed0.log",
+        "bytes": 333,
+        "mtime_utc": "2026-10-16T20:35:29.413070+00:00",
+        "tail_bytes_read": 333,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/logs/polyglot-c-py__seed0.log",
+        "bytes": 333,
+        "mtime_utc": "2026-10-16T20:35:29.377071+00:00",
+        "tail_bytes_read": 333,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/logs/path-tracing__seed0.log",
+        "bytes": 330,
+        "mtime_utc": "2026-10-16T20:35:29.354072+00:00",
+        "tail_bytes_read": 330,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/logs/polyglot-rust-c__seed0.log",
+        "bytes": 333,
+        "mtime_utc": "2026-10-16T20:35:29.339072+00:00",
+        "tail_bytes_read": 333,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/logs/path-tracing__seed0.log",
+        "bytes": 333,
+        "mtime_utc": "2026-10-16T20:35:29.312073+00:00",
+        "tail_bytes_read": 333,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/filter-js-from-html__seed0/trial.log",
+        "bytes": 100,
+        "mtime_utc": "2026-10-16T20:35:29.298073+00:00",
+        "tail_bytes_read": 100,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/logs/fix-git__seed0.log",
+        "bytes": 333,
+        "mtime_utc": "2026-10-16T20:35:29.286073+00:00",
+        "tail_bytes_read": 333,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/logs/filter-js-from-html__seed0.log",
+        "bytes": 333,
+        "mtime_utc": "2026-10-16T20:35:29.274074+00:00",
+        "tail_bytes_read": 333,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/logs/polyglot-rust-c__seed0.log",
+        "bytes": 330,
+        "mtime_utc": "2026-10-16T20:35:29.240075+00:00",
+        "tail_bytes_read": 330,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/logs/gcode-to-text__seed0.log",
+        "bytes": 330,
+        "mtime_utc": "2026-10-16T20:35:29.178077+00:00",
+        "tail_bytes_read": 330,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/logs/portfolio-optimization__seed0.log",
+        "bytes": 330,
+        "mtime_utc": "2026-10-16T20:35:29.136078+00:00",
+        "tail_bytes_read": 330,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/logs/path-tracing-reverse__seed0.log",
+        "bytes": 330,
+        "mtime_utc": "2026-10-16T20:35:29.124078+00:00",
+        "tail_bytes_read": 330,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/logs/financial-document-processor__seed0.log",
+        "bytes": 330,
+        "mtime_utc": "2026-10-16T20:35:29.072079+00:00",
+        "tail_bytes_read": 330,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/logs/fix-ocaml-gc__seed0.log",
+        "bytes": 330,
+        "mtime_utc": "2026-10-16T20:35:29.050080+00:00",
+        "tail_bytes_read": 330,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/logs/fix-git__seed0.log",
+        "bytes": 330,
+        "mtime_utc": "2026-10-16T20:35:29.043080+00:00",
+        "tail_bytes_read": 330,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/logs/fix-code-vulnerability__seed0.log",
+        "bytes": 330,
+        "mtime_utc": "2026-10-16T20:35:29.006081+00:00",
+        "tail_bytes_read": 330,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/execution_partition_migration_20261017/avg64_execution/avg64_swe_hard51_20261017-resume.log",
+        "bytes": 0,
+        "mtime_utc": "2026-10-16T20:35:28.438096+00:00",
+        "tail_bytes_read": 0,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/execution_partition_migration_20261017/avg64_execution/avg64_terminal_full445_20261017-resume.log",
+        "bytes": 0,
+        "mtime_utc": "2026-10-16T20:35:25.432177+00:00",
+        "tail_bytes_read": 0,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/execution_partition_migration_20261017/terminal250/terminal250_full445_20261017-resume.log",
+        "bytes": 0,
+        "mtime_utc": "2026-10-16T20:35:25.280181+00:00",
+        "tail_bytes_read": 0,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/tunnel/terminal250.log",
+        "bytes": 3060,
+        "mtime_utc": "2026-10-16T20:34:22.018887+00:00",
+        "tail_bytes_read": 3060,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_task_controls_20261017/mixed883_generation.log",
+        "bytes": 214934,
+        "mtime_utc": "2026-10-16T20:32:13.335360+00:00",
+        "tail_bytes_read": 65536,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/execution_partition_migration_20261017/avg64_execution/tunnel-supervisor.log",
+        "bytes": 0,
+        "mtime_utc": "2026-10-16T20:26:33.598566+00:00",
+        "tail_bytes_read": 0,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/controller/generation.log",
+        "bytes": 214715,
+        "mtime_utc": "2026-10-16T20:26:27.923720+00:00",
+        "tail_bytes_read": 65536,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi-acdu-migration-20261017/driver.log",
+        "bytes": 8587,
+        "mtime_utc": "2026-10-16T20:25:43.945917+00:00",
+        "tail_bytes_read": 8587,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/controller.log",
+        "bytes": 4762,
+        "mtime_utc": "2026-10-16T20:25:26.166401+00:00",
+        "tail_bytes_read": 4762,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/password-recovery__seed0/trial.log",
+        "bytes": 5866,
+        "mtime_utc": "2026-10-16T20:25:25.744413+00:00",
+        "tail_bytes_read": 5866,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/controller.log",
+        "bytes": 4895,
+        "mtime_utc": "2026-10-16T20:25:19.735577+00:00",
+        "tail_bytes_read": 4895,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/filter-js-from-html__seed0/trial.log",
+        "bytes": 402,
+        "mtime_utc": "2026-10-16T20:25:19.371587+00:00",
+        "tail_bytes_read": 402,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/password-recovery__seed0/trial.log",
+        "bytes": 2731,
+        "mtime_utc": "2026-10-16T20:24:59.952116+00:00",
+        "tail_bytes_read": 2731,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/direct-expert-tunnel-20261017/expert_direct.log",
+        "bytes": 3480,
+        "mtime_utc": "2026-10-16T20:24:40.312652+00:00",
+        "tail_bytes_read": 3480,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/replay/instance_element-hq__element-web-ecfd1736e5dd9808e87911fc264e6c816653e1a9-vnan/trial.log",
+        "bytes": 536,
+        "mtime_utc": "2026-10-16T20:24:17.608272+00:00",
+        "tail_bytes_read": 536,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/feal-linear-cryptanalysis__seed0/trial.log",
+        "bytes": 2070,
+        "mtime_utc": "2026-10-16T20:24:12.194420+00:00",
+        "tail_bytes_read": 2070,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/overfull-hbox__seed0/trial.log",
+        "bytes": 7258,
+        "mtime_utc": "2026-10-16T20:24:08.879510+00:00",
+        "tail_bytes_read": 7258,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/overfull-hbox__seed0/trial.log",
+        "bytes": 5781,
+        "mtime_utc": "2026-10-16T20:23:35.926411+00:00",
+        "tail_bytes_read": 5781,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_element-hq__element-web-ecfd1736e5dd9808e87911fc264e6c816653e1a9-vnan/trial.log",
+        "bytes": 198223,
+        "mtime_utc": "2026-10-16T20:23:34.871440+00:00",
+        "tail_bytes_read": 65536,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/feal-linear-cryptanalysis__seed0/trial.log",
+        "bytes": 967,
+        "mtime_utc": "2026-10-16T20:23:23.795743+00:00",
+        "tail_bytes_read": 967,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/feal-differential-cryptanalysis__seed0/trial.log",
+        "bytes": 2181,
+        "mtime_utc": "2026-10-16T20:18:00.026675+00:00",
+        "tail_bytes_read": 2181,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/feal-differential-cryptanalysis__seed0/trial.log",
+        "bytes": 2490,
+        "mtime_utc": "2026-10-16T20:17:51.286918+00:00",
+        "tail_bytes_read": 2490,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/replay/instance_ansible__ansible-d72025be751c894673ba85caa063d835a0ad3a8c-v390e508d27db7a51eece36bb6d9698b63a5b638a/trial.log",
+        "bytes": 566,
+        "mtime_utc": "2026-10-16T20:17:23.680689+00:00",
+        "tail_bytes_read": 566,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/count-dataset-tokens__seed0/trial.log",
+        "bytes": 6007,
+        "mtime_utc": "2026-10-16T20:15:19.708170+00:00",
+        "tail_bytes_read": 6007,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/replay/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/trial.log",
+        "bytes": 566,
+        "mtime_utc": "2026-10-16T20:14:53.238919+00:00",
+        "tail_bytes_read": 566,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/nginx-request-logging__seed0/trial.log",
+        "bytes": 4019,
+        "mtime_utc": "2026-10-16T20:14:22.015804+00:00",
+        "tail_bytes_read": 4019,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/constraints-scheduling__seed0/trial.log",
+        "bytes": 1541,
+        "mtime_utc": "2026-10-16T20:13:57.367505+00:00",
+        "tail_bytes_read": 1541,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/count-dataset-tokens__seed0/trial.log",
+        "bytes": 6165,
+        "mtime_utc": "2026-10-16T20:13:35.985115+00:00",
+        "tail_bytes_read": 6165,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_ansible__ansible-d72025be751c894673ba85caa063d835a0ad3a8c-v390e508d27db7a51eece36bb6d9698b63a5b638a/trial.log",
+        "bytes": 211197,
+        "mtime_utc": "2026-10-16T20:13:32.278221+00:00",
+        "tail_bytes_read": 65536,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/configure-git-webserver__seed0/trial.log",
+        "bytes": 1716,
+        "mtime_utc": "2026-10-16T20:13:25.355419+00:00",
+        "tail_bytes_read": 1716,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/trial.log",
+        "bytes": 6626,
+        "mtime_utc": "2026-10-16T20:13:16.205681+00:00",
+        "tail_bytes_read": 6626,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/trial.log",
+        "bytes": 186052,
+        "mtime_utc": "2026-10-16T20:12:07.740649+00:00",
+        "tail_bytes_read": 65536,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/mteb-retrieve__seed0/trial.log",
+        "bytes": 5385,
+        "mtime_utc": "2026-10-16T20:12:00.529858+00:00",
+        "tail_bytes_read": 5385,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_normal_migration_20261017/driver.log",
+        "bytes": 24162,
+        "mtime_utc": "2026-10-16T20:11:32.736663+00:00",
+        "tail_bytes_read": 24162,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_normal_migration_20261017/merged-resumed-controller.log",
+        "bytes": 0,
+        "mtime_utc": "2026-10-16T20:11:32.527669+00:00",
+        "tail_bytes_read": 0,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/replay/instance_ansible__ansible-e9e6001263f51103e96e58ad382660df0f3d0e39-v30a923fb5c164d6cd18280c02422f75e611e8fb2/trial.log",
+        "bytes": 381,
+        "mtime_utc": "2026-10-16T20:11:16.918123+00:00",
+        "tail_bytes_read": 381,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/replay/instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf/trial.log",
+        "bytes": 566,
+        "mtime_utc": "2026-10-16T20:11:16.680130+00:00",
+        "tail_bytes_read": 566,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/replay/instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59/trial.log",
+        "bytes": 419,
+        "mtime_utc": "2026-10-16T20:11:11.415283+00:00",
+        "tail_bytes_read": 419,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/replay/instance_ansible__ansible-b748edea457a4576847a10275678127895d2f02f-v1055803c3a812189a1133297f7f5468579283f86/trial.log",
+        "bytes": 566,
+        "mtime_utc": "2026-10-16T20:11:09.252346+00:00",
+        "tail_bytes_read": 566,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/replay/instance_ansible__ansible-de5858f48dc9e1ce9117034e0d7e76806f420ca8-v1055803c3a812189a1133297f7f5468579283f86/trial.log",
+        "bytes": 419,
+        "mtime_utc": "2026-10-16T20:11:00.871591+00:00",
+        "tail_bytes_read": 419,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_ansible__ansible-e9e6001263f51103e96e58ad382660df0f3d0e39-v30a923fb5c164d6cd18280c02422f75e611e8fb2/trial.log",
+        "bytes": 159621,
+        "mtime_utc": "2026-10-16T20:10:28.175547+00:00",
+        "tail_bytes_read": 65536,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59/trial.log",
+        "bytes": 156724,
+        "mtime_utc": "2026-10-16T20:10:24.668650+00:00",
+        "tail_bytes_read": 65536,
+        "matches": [],
+        "matching_line_count": 0
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/generation/instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf/trial.log",
+        "bytes": 183593,
+        "mtime_utc": "2026-10-16T20:10:24.093667+00:00",
+        "tail_bytes_read": 65536,
+        "matches": [],
+        "matching_line_count": 0
+      }
+    ]
+  },
+  "execution_migration_state": {
+    "at_utc": "2026-10-16T20:35:46.369361+00:00",
+    "pid": 3421568,
+    "groups": {
+      "terminal250": {
+        "stage": "resumed",
+        "old_job": 727640,
+        "new_job": 727912,
+        "new_node": "ACD1-22",
+        "service_ends": "2026-10-18T02:01:28+08:00",
+        "error": null,
+        "queue_drains": {
+          "artifacts/eval/terminal250_full445_20261017": {
+            "ready": true,
+            "parent_alive": false,
+            "checkpoint_state": "stopped_admission",
+            "active": 0,
+            "pending": 408,
+            "terminal": 37,
+            "cpu_ids": [
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51
+            ]
+          }
+        },
+        "resumed_queues": {
+          "artifacts/eval/terminal250_full445_20261017": {
+            "state": "launched",
+            "at": "2026-10-16T20:35:25.281787+00:00",
+            "pid": 489933,
+            "terminal_before": 37,
+            "pending_before": 408,
+            "original_parent": 2878518,
+            "argv": [
+              "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+              "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py",
+              "--output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017"
+            ],
+            "retained_terminal_ledger": "artifacts/eval/execution_partition_migration_20261017/terminal250/before-resume/terminal250_full445_20261017/checkpoint.json"
+          }
+        }
+      },
+      "avg64_execution": {
+        "stage": "resumed",
+        "old_job": 727660,
+        "new_job": 727913,
+        "new_node": "ACD1-22",
+        "service_ends": "2026-10-18T02:09:28+08:00",
+        "error": null,
+        "queue_drains": {
+          "artifacts/eval/avg64_terminal_full445_20261017": {
+            "ready": true,
+            "parent_alive": false,
+            "checkpoint_state": "stopped_admission",
+            "active": 0,
+            "pending": 409,
+            "terminal": 36,
+            "cpu_ids": [
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91
+            ]
+          },
+          "artifacts/eval/avg64_swe_hard51_20261017": {
+            "ready": true,
+            "parent_alive": false,
+            "checkpoint_state": "stopped_admission",
+            "active": 0,
+            "pending": 38,
+            "terminal": 13,
+            "cpu_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ]
+          }
+        },
+        "resumed_queues": {
+          "artifacts/eval/avg64_terminal_full445_20261017": {
+            "state": "launched",
+            "at": "2026-10-16T20:35:25.433693+00:00",
+            "pid": 489934,
+            "terminal_before": 36,
+            "pending_before": 409,
+            "original_parent": 2878519,
+            "argv": [
+              "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+              "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py",
+              "--output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017"
+            ],
+            "retained_terminal_ledger": "artifacts/eval/execution_partition_migration_20261017/avg64_execution/before-resume/avg64_terminal_full445_20261017/checkpoint.json"
+          },
+          "artifacts/eval/avg64_swe_hard51_20261017": {
+            "state": "launched",
+            "at": "2026-10-16T20:35:28.440243+00:00",
+            "pid": 489978,
+            "terminal_before": 13,
+            "pending_before": 38,
+            "original_parent": 3239747,
+            "argv": [
+              "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+              "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_merged_benchmark.py",
+              "--config=/data/caoqinlu/projects/apex-takehome/configs/eval/avg64_swe_hard51_20261017.json"
+            ],
+            "retained_terminal_ledger": "artifacts/eval/execution_partition_migration_20261017/avg64_execution/before-resume/avg64_swe_hard51_20261017/checkpoint.json"
+          }
+        }
+      }
+    }
+  },
+  "capture_finished_at_utc": "2026-10-16T20:38:15.417264+00:00",
+  "conclusion": {
+    "project_data_mount": "rw; capacity and inode available",
+    "root_disk": "capacity pressure at 97 percent used, about32GiB available; no automatic cleanup performed",
+    "current_storage_error_matches": 0,
+    "quota": "unknown, not inferred from df",
+    "historical_errors": "This scan does not classify all older historical logs or user-generated task errors.",
+    "all_current_top_level_log_error_matches": 0
+  },
+  "controller_log_scan": {
+    "captured_at_utc": "2026-10-16T20:38:15.417264+00:00",
+    "scope": "All existing top-level current controller/pipeline/migration .log/.out/.err, including empty and older controller logs; each max64KiB tail",
+    "scanned_count": 24,
+    "matching_files": 0,
+    "files": [
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/controller.log",
+        "bytes": 4895,
+        "mtime_utc": "2026-10-16T20:25:19.735577+00:00",
+        "tail_bytes_read": 4895,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/acceptance.log",
+        "bytes": 2002,
+        "mtime_utc": "2026-10-16T18:10:20.546352+00:00",
+        "tail_bytes_read": 2002,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/tunnel.log",
+        "bytes": 0,
+        "mtime_utc": "2026-10-16T18:05:24.532425+00:00",
+        "tail_bytes_read": 0,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/controller.log",
+        "bytes": 4762,
+        "mtime_utc": "2026-10-16T20:25:26.166401+00:00",
+        "tail_bytes_read": 4762,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/acceptance-controller.log",
+        "bytes": 1965,
+        "mtime_utc": "2026-10-16T18:17:46.727575+00:00",
+        "tail_bytes_read": 1965,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/controller.log",
+        "bytes": 0,
+        "mtime_utc": "2026-10-16T18:12:24.547367+00:00",
+        "tail_bytes_read": 0,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/controller-partial-cpu.log",
+        "bytes": 0,
+        "mtime_utc": "2026-10-16T19:40:27.825938+00:00",
+        "tail_bytes_read": 0,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/expert_direct_pipeline_20261017/coordinator_parallel_hle.log",
+        "bytes": 0,
+        "mtime_utc": "2026-10-16T19:39:42.942093+00:00",
+        "tail_bytes_read": 0,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/expert_direct_pipeline_20261017/controller.log",
+        "bytes": 0,
+        "mtime_utc": "2026-10-16T18:10:41.617846+00:00",
+        "tail_bytes_read": 0,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/expert_direct_pipeline_20261017/asi_generation.log",
+        "bytes": 6155,
+        "mtime_utc": "2026-10-16T20:37:23.733788+00:00",
+        "tail_bytes_read": 6155,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/merged_direct_pipeline_20261017/coordinator_parallel_hle.log",
+        "bytes": 0,
+        "mtime_utc": "2026-10-16T19:39:43.043091+00:00",
+        "tail_bytes_read": 0,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/merged_direct_pipeline_20261017/controller.log",
+        "bytes": 0,
+        "mtime_utc": "2026-10-16T18:10:41.617846+00:00",
+        "tail_bytes_read": 0,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_task_controls_20261017/avg16_scoring.log",
+        "bytes": 53204,
+        "mtime_utc": "2026-10-16T20:37:51.423256+00:00",
+        "tail_bytes_read": 53204,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_task_controls_20261017/controller.log",
+        "bytes": 508,
+        "mtime_utc": "2026-10-16T20:01:58.432417+00:00",
+        "tail_bytes_read": 508,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_task_controls_20261017/mixed883_generation.log",
+        "bytes": 214934,
+        "mtime_utc": "2026-10-16T20:32:13.335360+00:00",
+        "tail_bytes_read": 65536,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_task_controls_20261017/tunnel.log",
+        "bytes": 0,
+        "mtime_utc": "2026-10-16T19:41:12.148796+00:00",
+        "tail_bytes_read": 0,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_task_controls_20261017/avg16_generation.log",
+        "bytes": 7182,
+        "mtime_utc": "2026-10-16T20:38:14.839799+00:00",
+        "tail_bytes_read": 7182,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_task_controls_20261017/mixed883_scoring.log",
+        "bytes": 1667181,
+        "mtime_utc": "2026-10-16T20:38:15.003795+00:00",
+        "tail_bytes_read": 65536,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/execution_partition_migration_20261017/driver.log",
+        "bytes": 0,
+        "mtime_utc": "2026-10-16T20:04:45.496965+00:00",
+        "tail_bytes_read": 0,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_normal_migration_20261017/controls-resumed-controller.log",
+        "bytes": 0,
+        "mtime_utc": "2026-10-16T20:07:41.544512+00:00",
+        "tail_bytes_read": 0,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_normal_migration_20261017/merged-resumed-controller.log",
+        "bytes": 0,
+        "mtime_utc": "2026-10-16T20:11:32.527669+00:00",
+        "tail_bytes_read": 0,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_normal_migration_20261017/driver.log",
+        "bytes": 24162,
+        "mtime_utc": "2026-10-16T20:11:32.736663+00:00",
+        "tail_bytes_read": 24162,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_normal_migration_20261017/expert-resumed-controller.log",
+        "bytes": 0,
+        "mtime_utc": "2026-10-16T20:07:41.330518+00:00",
+        "tail_bytes_read": 0,
+        "matching_line_count": 0,
+        "matches": []
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi-acdu-migration-20261017/driver.log",
+        "bytes": 8587,
+        "mtime_utc": "2026-10-16T20:25:43.945917+00:00",
+        "tail_bytes_read": 8587,
+        "matching_line_count": 0,
+        "matches": []
+      }
+    ]
+  }
+}

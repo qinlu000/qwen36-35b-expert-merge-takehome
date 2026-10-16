@@ -1,0 +1,585 @@
+{
+  "schema": "hpc_storage_and_allocation_readonly_v1",
+  "requested_filename_label": "20261017_0436; actual collection times below",
+  "collection_started_at_utc": "2026-10-16T20:36:59.876466+00:00",
+  "collection_finished_at_utc": "2026-10-16T20:37:54.343117+00:00",
+  "timezone_note": "Slurm start/end values are cluster Asia/Shanghai (+08:00); UTC capture timestamps are explicit.",
+  "scope": "HPC only: shared project/home mounts, login tmp, allocated-node tmp/cache mounts, available quota tools, current project Slurm allocations and bounded service logs. Does not audit laptop or host80 storage.",
+  "method": {
+    "read_only": true,
+    "new_gpu_allocations": 0,
+    "deletions": 0,
+    "configuration_changes": 0,
+    "srun_used": false,
+    "write_probes": false,
+    "du_scans": false,
+    "file_hash_scans": false,
+    "model_or_scoring_calls": 0,
+    "compute_node_method": "SSH only to four already allocated nodes; df/statvfs/access metadata"
+  },
+  "login": {
+    "hostname": "ACD-Login-3",
+    "project": "/data/user/qinlucao/projects/apex-takehome",
+    "home": "/data/user/qinlucao",
+    "paths_checked": [
+      {
+        "path": "/data/user/qinlucao/projects/apex-takehome",
+        "resolved": "/data/user/qinlucao/projects/apex-takehome",
+        "exists": true
+      },
+      {
+        "path": "/data/user/qinlucao",
+        "resolved": "/data/user/qinlucao",
+        "exists": true
+      },
+      {
+        "path": "/tmp",
+        "resolved": "/tmp",
+        "exists": true
+      },
+      {
+        "path": "/data/user/qinlucao/projects/apex-takehome/artifacts",
+        "resolved": "/data/user/qinlucao/projects/apex-takehome/artifacts",
+        "exists": true
+      },
+      {
+        "path": "/data/user/qinlucao/projects/apex-takehome/artifacts/cache",
+        "resolved": "/data/user/qinlucao/projects/apex-takehome/artifacts/cache",
+        "exists": true
+      },
+      {
+        "path": "/data/user/qinlucao/projects/apex-takehome/artifacts/models",
+        "resolved": "/data/user/qinlucao/projects/apex-takehome/artifacts/models",
+        "exists": true
+      },
+      {
+        "path": "/data/user/qinlucao/projects/apex-takehome/artifacts/envs",
+        "resolved": "/data/user/qinlucao/projects/apex-takehome/artifacts/envs",
+        "exists": true
+      },
+      {
+        "path": "/data/user/qinlucao/datasets/training_mix_hpc_wheelhouse_v1/python",
+        "resolved": "/data/user/qinlucao/datasets/training_mix_hpc_wheelhouse_v1/python",
+        "exists": true
+      }
+    ],
+    "mount_capacity": [
+      {
+        "filesystem": "/LK02",
+        "type": "dpc",
+        "total_kib": 19945020431104,
+        "used_kib": 7800463460712,
+        "available_kib": 12144556970392,
+        "capacity": "40%",
+        "mount": "/data"
+      },
+      {
+        "filesystem": "/dev/sdc2",
+        "type": "xfs",
+        "total_kib": 15592341504,
+        "used_kib": 134328940,
+        "available_kib": 15458012564,
+        "capacity": "1%",
+        "mount": "/tmp"
+      }
+    ],
+    "mount_inodes": [
+      {
+        "filesystem": "/LK02",
+        "total": 500000000000,
+        "used": 4706350666,
+        "free": 495293649334,
+        "used_percent": "1%",
+        "mount": "/data"
+      },
+      {
+        "filesystem": "/dev/sdc2",
+        "total": 1559442816,
+        "used": 193846,
+        "free": 1559248970,
+        "used_percent": "1%",
+        "mount": "/tmp"
+      }
+    ],
+    "mount_flags": [
+      {
+        "path": "/data/user/qinlucao/projects/apex-takehome",
+        "mount_read_only": false,
+        "directory_writable_by_user": true
+      },
+      {
+        "path": "/data/user/qinlucao",
+        "mount_read_only": false,
+        "directory_writable_by_user": true
+      },
+      {
+        "path": "/tmp",
+        "mount_read_only": false,
+        "directory_writable_by_user": true
+      }
+    ],
+    "note": "Project, home, artifacts/cache/models/envs and wheelhouse Python all resolve to /data /LK02 DPC. df reports aggregate shared capacity, not personal quota. Repeated shared df samples varied slightly with concurrent filesystem activity."
+  },
+  "quota": {
+    "status": "unavailable_not_proven_unlimited",
+    "quota_s": {
+      "tool": "/bin/quota",
+      "argv": [
+        "quota",
+        "-s"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    "quota_vs": {
+      "argv": [
+        "quota",
+        "-vs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    "lfs_available": false,
+    "other_helpers_available": {
+      "dpc": false,
+      "dpcfs": false,
+      "dpcs": false,
+      "showquota": false,
+      "myquota": false,
+      "mmlsquota": false,
+      "xfs_quota": false
+    },
+    "interpretation": "No usable per-user quota report was available. Neither quota exhaustion nor unlimited quota is established by these empty results."
+  },
+  "allocated_compute_nodes": [
+    {
+      "hostname": "ACD1-22",
+      "collected_at_utc": "2026-10-16T20:37:20.987038+00:00",
+      "capacity": [
+        {
+          "filesystem": "/dev/md0",
+          "type": "xfs",
+          "total_kib": 15000580096,
+          "used_kib": 268321952,
+          "available_kib": 14732258144,
+          "capacity": "2%",
+          "mount": "/tmp"
+        },
+        {
+          "filesystem": "/LK02",
+          "type": "dpc",
+          "total_kib": 19945030901196,
+          "used_kib": 7800526572792,
+          "available_kib": 12144504328404,
+          "capacity": "40%",
+          "mount": "/data"
+        }
+      ],
+      "inodes": [
+        {
+          "filesystem": "/dev/md0",
+          "total": 1500266688,
+          "used": 3966521,
+          "free": 1496300167,
+          "used_percent": "1%",
+          "mount": "/tmp"
+        },
+        {
+          "filesystem": "/LK02",
+          "total": 500000000000,
+          "used": 4706271789,
+          "free": 495293728211,
+          "used_percent": "1%",
+          "mount": "/data"
+        }
+      ],
+      "job_cache_parent_directories": [
+        "/tmp/apex-terminal-727912.gI9NjI",
+        "/tmp/apex-avg64-execution-727913.0HbiKh"
+      ],
+      "cache_subdirectories_checked": [
+        "cache",
+        "cache/triton",
+        "cache/vllm",
+        "cache/torch",
+        "cache/huggingface"
+      ],
+      "all_checked_cache_mounts_read_only": false,
+      "all_checked_cache_directories_writable_by_user": true,
+      "minimum_cache_mount_available_bytes": 15085831659520,
+      "minimum_cache_mount_available_inodes": 1496300149
+    },
+    {
+      "hostname": "ACD1-8",
+      "collected_at_utc": "2026-10-16T20:37:21.307309+00:00",
+      "capacity": [
+        {
+          "filesystem": "/dev/md0",
+          "type": "xfs",
+          "total_kib": 15000580096,
+          "used_kib": 381506048,
+          "available_kib": 14619074048,
+          "capacity": "3%",
+          "mount": "/tmp"
+        },
+        {
+          "filesystem": "/LK02",
+          "type": "dpc",
+          "total_kib": 19945030901196,
+          "used_kib": 7800526574088,
+          "available_kib": 12144504327108,
+          "capacity": "40%",
+          "mount": "/data"
+        }
+      ],
+      "inodes": [
+        {
+          "filesystem": "/dev/md0",
+          "total": 1500266688,
+          "used": 3786644,
+          "free": 1496480044,
+          "used_percent": "1%",
+          "mount": "/tmp"
+        },
+        {
+          "filesystem": "/LK02",
+          "total": 500000000000,
+          "used": 4706271662,
+          "free": 495293728338,
+          "used_percent": "1%",
+          "mount": "/data"
+        }
+      ],
+      "job_cache_parent_directories": [
+        "/tmp/apex-direct-727879.2bb9W3"
+      ],
+      "cache_subdirectories_checked": [
+        "cache",
+        "cache/triton",
+        "cache/vllm",
+        "cache/torch",
+        "cache/huggingface"
+      ],
+      "all_checked_cache_mounts_read_only": false,
+      "all_checked_cache_directories_writable_by_user": true,
+      "minimum_cache_mount_available_bytes": 14969931825152,
+      "minimum_cache_mount_available_inodes": 1496480044
+    },
+    {
+      "hostname": "ACD1-20",
+      "collected_at_utc": "2026-10-16T20:37:21.574858+00:00",
+      "capacity": [
+        {
+          "filesystem": "/dev/md0",
+          "type": "xfs",
+          "total_kib": 15000580096,
+          "used_kib": 237854256,
+          "available_kib": 14762725840,
+          "capacity": "2%",
+          "mount": "/tmp"
+        },
+        {
+          "filesystem": "/LK02",
+          "type": "dpc",
+          "total_kib": 19945030901196,
+          "used_kib": 7800526574288,
+          "available_kib": 12144504326908,
+          "capacity": "40%",
+          "mount": "/data"
+        }
+      ],
+      "inodes": [
+        {
+          "filesystem": "/dev/md0",
+          "total": 1500266688,
+          "used": 1812700,
+          "free": 1498453988,
+          "used_percent": "1%",
+          "mount": "/tmp"
+        },
+        {
+          "filesystem": "/LK02",
+          "total": 500000000000,
+          "used": 4706271536,
+          "free": 495293728464,
+          "used_percent": "1%",
+          "mount": "/data"
+        }
+      ],
+      "job_cache_parent_directories": [
+        "/tmp/apex-direct-727856.dgEJOQ"
+      ],
+      "cache_subdirectories_checked": [
+        "cache",
+        "cache/triton",
+        "cache/vllm",
+        "cache/torch",
+        "cache/huggingface"
+      ],
+      "all_checked_cache_mounts_read_only": false,
+      "all_checked_cache_directories_writable_by_user": true,
+      "minimum_cache_mount_available_bytes": 15117031260160,
+      "minimum_cache_mount_available_inodes": 1498453988
+    },
+    {
+      "hostname": "ACD1-30",
+      "collected_at_utc": "2026-10-16T20:37:21.960558+00:00",
+      "capacity": [
+        {
+          "filesystem": "/dev/md0",
+          "type": "xfs",
+          "total_kib": 15000580096,
+          "used_kib": 226249404,
+          "available_kib": 14774330692,
+          "capacity": "2%",
+          "mount": "/tmp"
+        },
+        {
+          "filesystem": "/LK02",
+          "type": "dpc",
+          "total_kib": 19945030901196,
+          "used_kib": 7800526577840,
+          "available_kib": 12144504323356,
+          "capacity": "40%",
+          "mount": "/data"
+        }
+      ],
+      "inodes": [
+        {
+          "filesystem": "/dev/md0",
+          "total": 1500266688,
+          "used": 2668236,
+          "free": 1497598452,
+          "used_percent": "1%",
+          "mount": "/tmp"
+        },
+        {
+          "filesystem": "/LK02",
+          "total": 500000000000,
+          "used": 4706271363,
+          "free": 495293728637,
+          "used_percent": "1%",
+          "mount": "/data"
+        }
+      ],
+      "job_cache_parent_directories": [
+        "/tmp/apex-direct-727857.SRJjYW"
+      ],
+      "cache_subdirectories_checked": [
+        "cache",
+        "cache/triton",
+        "cache/vllm",
+        "cache/torch",
+        "cache/huggingface"
+      ],
+      "all_checked_cache_mounts_read_only": false,
+      "all_checked_cache_directories_writable_by_user": true,
+      "minimum_cache_mount_available_bytes": 15128914489344,
+      "minimum_cache_mount_available_inodes": 1497598470
+    }
+  ],
+  "slurm": {
+    "collected_at_utc": "2026-10-16T20:36:59.931483+00:00",
+    "selection": "All qinlucao queued jobs at capture were apex project service jobs (five).",
+    "running_jobs": 5,
+    "pending_jobs": 0,
+    "allocated_gpus": 10,
+    "ordinary_acd_u": {
+      "jobs": 5,
+      "gpus": 10,
+      "nice": 1000
+    },
+    "emergency_acd": {
+      "jobs": 0,
+      "gpus": 0
+    },
+    "other_partitions": {
+      "jobs": 0,
+      "gpus": 0
+    },
+    "jobs": [
+      {
+        "job_id": 727912,
+        "name": "apex-term-acdu-20261017",
+        "state": "RUNNING",
+        "partition": "acd_u",
+        "qos": "formal-user",
+        "nice": 1000,
+        "node": "ACD1-22",
+        "gpus": 2,
+        "alloc_tres": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+        "start_time_cst": "2026-10-17T04:26:28+08:00",
+        "end_time_cst": "2026-10-18T02:01:28+08:00",
+        "time_limit": "21:35:00",
+        "reason": "None",
+        "service_log": "/data/user/qinlucao/projects/apex-takehome/artifacts/eval/terminal-service-727912.log"
+      },
+      {
+        "job_id": 727913,
+        "name": "apex-avgexec-acdu-20261017",
+        "state": "RUNNING",
+        "partition": "acd_u",
+        "qos": "formal-user",
+        "nice": 1000,
+        "node": "ACD1-22",
+        "gpus": 2,
+        "alloc_tres": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+        "start_time_cst": "2026-10-17T04:26:28+08:00",
+        "end_time_cst": "2026-10-18T02:09:28+08:00",
+        "time_limit": "21:43:00",
+        "reason": "None",
+        "service_log": "/data/user/qinlucao/projects/apex-takehome/artifacts/eval/merged-execution-service-727913.log"
+      },
+      {
+        "job_id": 727879,
+        "name": "apex-asi-acdu-migrate-20261017",
+        "state": "RUNNING",
+        "partition": "acd_u",
+        "qos": "formal-user",
+        "nice": 1000,
+        "node": "ACD1-8",
+        "gpus": 2,
+        "alloc_tres": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+        "start_time_cst": "2026-10-17T04:15:55+08:00",
+        "end_time_cst": "2026-10-18T02:03:55+08:00",
+        "time_limit": "21:48:00",
+        "reason": "None",
+        "service_log": "/data/user/qinlucao/projects/apex-takehome/artifacts/eval/direct-expert-service-727879.log"
+      },
+      {
+        "job_id": 727856,
+        "name": "apex-hle-normal-merged",
+        "state": "RUNNING",
+        "partition": "acd_u",
+        "qos": "formal-user",
+        "nice": 1000,
+        "node": "ACD1-20",
+        "gpus": 2,
+        "alloc_tres": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+        "start_time_cst": "2026-10-17T04:02:33+08:00",
+        "end_time_cst": "2026-10-18T02:19:33+08:00",
+        "time_limit": "22:17:00",
+        "reason": "None",
+        "service_log": "/data/user/qinlucao/projects/apex-takehome/artifacts/eval/direct-expert-service-727856.log"
+      },
+      {
+        "job_id": 727857,
+        "name": "apex-hle-normal-controls",
+        "state": "RUNNING",
+        "partition": "acd_u",
+        "qos": "formal-user",
+        "nice": 1000,
+        "node": "ACD1-30",
+        "gpus": 2,
+        "alloc_tres": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+        "start_time_cst": "2026-10-17T04:02:33+08:00",
+        "end_time_cst": "2026-10-17T23:39:33+08:00",
+        "time_limit": "19:37:00",
+        "reason": "None",
+        "service_log": "/data/user/qinlucao/projects/apex-takehome/artifacts/eval/direct-expert-service-727857.log"
+      }
+    ],
+    "ordinary_migration_state": "All five currently allocated project services are RUNNING on acd_u/nice1000; no emergency project service remains in squeue."
+  },
+  "service_logs": {
+    "collected_at_utc": "2026-10-16T20:37:20.084934+00:00",
+    "maximum_tail_bytes_per_log": 262144,
+    "patterns": "ENOSPC/no space left/disk quota/quota exceeded/read-only filesystem/errno28/122/I-O error and OSError/failed/unable/cannot write/create/save",
+    "logs": [
+      {
+        "job_id": "727912",
+        "path": "/data/user/qinlucao/projects/apex-takehome/artifacts/eval/terminal-service-727912.log",
+        "bytes": 32294,
+        "mtime_utc": "2026-10-16T20:37:19.609320+00:00",
+        "tail_bytes_checked": 32294,
+        "storage_error_matches": [],
+        "matched_line_count": 0,
+        "last_lines": [
+          "(APIServer pid=12) INFO:     <client> - \"POST /v1/chat/completions HTTP/1.1\" 200 OK",
+          "(APIServer pid=12) INFO 10-17 04:37:19 [loggers.py:271] Engine 000: Avg prompt throughput: 255.6 tokens/s, Avg generation throughput: 64.3 tokens/s, Running: 7 reqs, Waiting: 0 reqs, GPU KV cache usage: 1.6%, Prefix cache hit rate: 0.0%",
+          "(APIServer pid=12) INFO:     <client> - \"POST /tokenize HTTP/1.1\" 200 OK",
+          "(APIServer pid=12) INFO:     <client> - \"POST /tokenize HTTP/1.1\" 200 OK"
+        ]
+      },
+      {
+        "job_id": "727913",
+        "path": "/data/user/qinlucao/projects/apex-takehome/artifacts/eval/merged-execution-service-727913.log",
+        "bytes": 53916,
+        "mtime_utc": "2026-10-16T20:37:19.965484+00:00",
+        "tail_bytes_checked": 53916,
+        "storage_error_matches": [],
+        "matched_line_count": 0,
+        "last_lines": [
+          "(APIServer pid=13) INFO:     <client> - \"POST /v1/chat/completions HTTP/1.1\" 200 OK",
+          "(APIServer pid=13) INFO:     <client> - \"POST /v1/chat/completions HTTP/1.1\" 200 OK",
+          "(APIServer pid=13) INFO:     <client> - \"POST /tokenize HTTP/1.1\" 200 OK",
+          "(APIServer pid=13) INFO:     <client> - \"POST /tokenize HTTP/1.1\" 200 OK"
+        ]
+      },
+      {
+        "job_id": "727879",
+        "path": "/data/user/qinlucao/projects/apex-takehome/artifacts/eval/direct-expert-service-727879.log",
+        "bytes": 259509,
+        "mtime_utc": "2026-10-16T20:37:19.978050+00:00",
+        "tail_bytes_checked": 259509,
+        "storage_error_matches": [],
+        "matched_line_count": 0,
+        "last_lines": [
+          "(APIServer pid=13) INFO:     <client> - \"GET /health HTTP/1.1\" 200 OK",
+          "(APIServer pid=13) INFO:     <client> - \"GET /health HTTP/1.1\" 200 OK",
+          "(APIServer pid=13) INFO:     <client> - \"GET /health HTTP/1.1\" 200 OK",
+          "(APIServer pid=13) INFO:     <client> - \"GET /health HTTP/1.1\" 200 OK"
+        ]
+      },
+      {
+        "job_id": "727856",
+        "path": "/data/user/qinlucao/projects/apex-takehome/artifacts/eval/direct-expert-service-727856.log",
+        "bytes": 304218,
+        "mtime_utc": "2026-10-16T20:37:19.659060+00:00",
+        "tail_bytes_checked": 262144,
+        "storage_error_matches": [],
+        "matched_line_count": 0,
+        "last_lines": [
+          "(APIServer pid=13) INFO:     <client> - \"GET /health HTTP/1.1\" 200 OK",
+          "(APIServer pid=13) INFO:     <client> - \"POST /tokenize HTTP/1.1\" 200 OK",
+          "(APIServer pid=13) INFO:     <client> - \"GET /health HTTP/1.1\" 200 OK",
+          "(APIServer pid=13) INFO:     <client> - \"GET /health HTTP/1.1\" 200 OK"
+        ]
+      },
+      {
+        "job_id": "727857",
+        "path": "/data/user/qinlucao/projects/apex-takehome/artifacts/eval/direct-expert-service-727857.log",
+        "bytes": 715201,
+        "mtime_utc": "2026-10-16T20:37:19.907011+00:00",
+        "tail_bytes_checked": 262144,
+        "storage_error_matches": [],
+        "matched_line_count": 0,
+        "last_lines": [
+          "(APIServer pid=13) INFO:     <client> - \"POST /tokenize HTTP/1.1\" 200 OK",
+          "(APIServer pid=13) INFO:     <client> - \"GET /health HTTP/1.1\" 200 OK",
+          "(APIServer pid=13) INFO:     <client> - \"GET /health HTTP/1.1\" 200 OK",
+          "(APIServer pid=13) INFO:     <client> - \"GET /health HTTP/1.1\" 200 OK"
+        ]
+      }
+    ],
+    "total_storage_error_matches": 0
+  },
+  "conclusion": {
+    "demonstrated_storage_blockers": [],
+    "shared_capacity_exhausted": false,
+    "shared_inodes_exhausted": false,
+    "allocated_node_tmp_exhausted": false,
+    "checked_cache_mounts_read_only": false,
+    "recent_service_log_storage_errors_found": false,
+    "unresolved": [
+      "Personal quota could not be obtained with available commands.",
+      "Only bounded current service-log tails were inspected; this does not prove absence of every historical storage error.",
+      "Current status is a point-in-time operational snapshot, not a completed benchmark score."
+    ]
+  },
+  "owned_files": [
+    "analysis/source_snapshots/storage_hpc_20261017_0436.json"
+  ]
+}
