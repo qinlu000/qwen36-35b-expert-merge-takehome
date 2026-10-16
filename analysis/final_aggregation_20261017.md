@@ -1,5 +1,7 @@
 # 正式结果统一汇总与配对 bootstrap
 
+下文初次运行数值是02:29–02:30保存快照；03:25更新与Terminal双视图见文末补记及[最新执行说明](terminal_budget_aggregation_20261017.md)。默认strict字段原义保持。
+
 实现：[summarize_experiment.py](../scripts/summarize_experiment.py)。显式路径清单：[final_results_20261017.json](../configs/eval/final_results_20261017.json)。本脚本独立读取原 owner 输出，没有修改 Base collector、任何答卷选择、队列或评分。
 
 已在80实际运行，输出为 `/data/caoqinlu/projects/apex-takehome/artifacts/eval/final_aggregation_20261017/`：
@@ -78,3 +80,13 @@ HLE Base已只读核对原 `infra1/manual_retry_manifest.json` 和2500份冻结i
 02:30:33 CST瞬时核查：TB9个未接受键中，`pytorch-model-cli` seed3/4为VerifierTimeoutError；`train-fasttext` seed3/4为原AgentTimeout且pytest wrapper写零但无测试执行证据；其余5键是`feal-differential-cryptanalysis` seed0/4、`make-doom-for-mips` seed3、`sam-cell-seg` seed3、`model-extraction-relu-logits` seed4，原exception为AgentTimeout且canonical未有有效评分。这是“原预算结束后仍无有效原生判分”，不能仅凭AgentTimeout自动计模型0分。9个键均有保存状态receipt，但文件存在不证明能恢复任务的实时服务状态。SWE5项分别是NodeBB verifier超时、flipt公开Go依赖超时、vuls replay RemoteProtocolError、teleport RewardFileNotFoundError、protonmail empty_tests_requires_audit。HLE唯一invalid为`672ecc6946f619ca9b0495c5`，两次Judge均HTTP200但finish_reason=length且内容不是有效JSON，已用完原两次尝试。
 
 同次进程名审计仅发现原 `collect_baseline_final_v2.py`（PID4181090）；未发现匹配followon/regrade/clean-replay/HLE-scoring脚本的在途修复进程。这不能排除其他chat尚未启动的计划。本轮只读原canonical与错误工件，没有叠加新答案、修改Base、补答卷或启动评分。
+
+## 03:25来源与统计更新
+
+Base owner仅补评分后，配置明确读取`base-gap-completion-20261017/swe51_summary.json`及`terminal_strict_summary.json`；HLE原source已2500/2500有效、99正确、3.96%。SWE专家改读[独立四项原生0审计汇总](swe249_audited_summary_20261017.md)，每次统计前先运行其只读collector刷新，原答案与原始invalid保持。
+
+默认strict本次为Base SWE50/51、HLE2500/2500、ASI240/240、TB442/445；SWE专家41/51，Terminal专家/AVG64分别15/14份有效，所有宏平均与模型配对差仍null。
+
+显式增加`--terminal-budget-policy configs/eval/terminal_budget_policy_20261017.json`会在同一输出下另写`audited_terminal_budget/`。严格结果及原生reward不变；平行视图只对已独立审核、精确路径匹配且真实测试后900秒计算超时的结果派生预算0，未准入或环境故障不补分。Base平行TB为442 native＋3 derived＝445，mean20.224719%、五seed sample SD2.635065个百分点；89任务簇95%CI[13.033708%,27.865169%]。该政策对所有比较模型一致，Base audit不能迁给专家同名task。其他三项仍需完整，预算宏平均与配对CI才可生成。
+
+实现复用原固定ID和10000次paired bootstrap；新人工算例验证计算超时/环境错误/未准入分离、exact path与模型不符拒绝、strict原dict和文件不变、完整445和空active/pending、89簇保留五seed及缺项阻止macro。[双视图执行收据](source_snapshots/terminal_budget_aggregation_execution_20261017.json)和[人工算例](source_snapshots/terminal_budget_aggregation_cpu_20261017.json)均已保存，无新模型/API/GPU或任务评测调用。

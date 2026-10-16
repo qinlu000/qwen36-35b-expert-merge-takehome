@@ -49,6 +49,8 @@ Terminal保留全89×5范围，但 **30min/4CPU/8GiB/64K/8K低于原题3h/32CPU/
 
 四项主分转百分数后严格等权：`macro=(SWE%+HLE%+ASI%+TB%)/4`。任何缺失、无效或owner未完成都会阻止该项主分；不丢样本计算“完整分数”，也不把四个不同专家拼成一个宏平均。已有效判错与评分基础设施invalid分开。采用10000次paired bootstrap、seed20261015、95% percentile CI：SWE按51任务、HLE按2500题、TB按89任务保留五seed、ASI按60项目保留四condition；同ID抽样用于模型差值，宏平均按同一replicate的四项等权差聚合。实现和人工算例见 [统一汇总与统计](analysis/final_aggregation_20261017.md)。
 
+默认汇总保持上述严格原生口径；另可显式生成[审计固定预算视图](analysis/terminal_budget_aggregation_20261017.md)。它沿用Harbor将None映为失败的均值语义，但只接受精确逐结果审查通过的计算超时，保留原native null、原生覆盖及审计来源，未决环境故障继续留空。03:25的Base Terminal为442份原生有效＋3个审计超时，独立预算分**20.224719%**、五seed sample SD **2.635065个百分点**；严格主分仍为空。此规则对专家/AVG64同样适用，不能套用Base的task白名单；两种视图和宏平均分别保存，不混称全445份原生reward。
+
 原统一Base审计曾有5 SWE＋1 HLE＋9 TB判分缺口；其owner仅用原答案补评分，HLE现已2500/2500有效、99正确、**3.96%**；03:13记录SWE49/51、TB439/445原生有效，后续仍在收尾，见[补评记录](analysis/base_gap_completion_20261017.md)。三个进入官方测试后耗尽900秒的TB结果仍保留native null，另有逐结果计算超时审计，不能与环境故障混算。SWE专家四个已核审native0另存[独立汇总](analysis/swe249_audited_summary_20261017.md)，未改原队列。专家目标项和AVG64四项正式运行仍未收齐，完整矩阵、宏平均提升及其CI尚未齐备，未声明达到3pp/5pp目标。动态结果以 [显式结果路径清单](configs/eval/final_results_20261017.json) 指向的owner输出及其更新时间为准。
 
 ## 在原环境复现
@@ -110,9 +112,12 @@ Terminal由 [prepare_terminal_expert_benchmark.py](scripts/prepare_terminal_expe
 artifacts/envs/asi-py312/bin/python scripts/collect_swe249_audited.py --project "$PWD"
 artifacts/envs/asi-py312/bin/python scripts/summarize_experiment.py \
   --project "$PWD" --config configs/eval/final_results_20261017.json \
-  --output artifacts/eval/final_aggregation_20261017
+  --output artifacts/eval/final_aggregation_20261017 \
+  --terminal-budget-policy configs/eval/terminal_budget_policy_20261017.json
 artifacts/envs/asi-py312/bin/python scripts/check_experiment_aggregation.py
 ```
+
+可选预算视图位于输出的`audited_terminal_budget/`，原根目录仍为strict；省略最后一个可选参数只产strict。刷新汇总不会重答或修改原生结果。
 
 ## 资源、目录与未完成交付
 

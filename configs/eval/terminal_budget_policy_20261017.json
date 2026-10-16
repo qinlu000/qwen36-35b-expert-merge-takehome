@@ -1,0 +1,39 @@
+{
+  "policy_id": "audited-terminal-fixed900-budget-v1-20261017",
+  "metric": "Audited fixed-budget success rate using Harbor Mean's None-to-zero mapping; native grades remain unchanged",
+  "expected_scope": "89 fixed tasks x seeds0..4 =445; every ID unique, no unresolved infrastructure or unadmitted trials",
+  "eligibility": "Only exact reviewed original results with null verifier result, matching900s verifier phase/log, official test entry and complete pre-verifier snapshot; top-level exception alone is neither sufficient nor required",
+  "models": {
+    "base": {
+      "model_id": "base",
+      "served_model": "apex-qwen",
+      "owner_kind": "base_owner",
+      "source_summary": "artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json",
+      "owner_budget_summary": "artifacts/results/base-gap-completion-20261017/terminal_budget_summary.json",
+      "result_root": "artifacts/results/base-terminal-independent-repair32-20261016/trials",
+      "audit_files": ["analysis/source_snapshots/terminal_three_compute_timeout_audit_20261017.json"]
+    },
+    "terminal250": {
+      "model_id": "terminal250",
+      "served_model": "apex-terminal250",
+      "owner_kind": "trial_queue",
+      "source_summary": "artifacts/eval/terminal250_full445_20261017/summary.json",
+      "result_root": "artifacts/eval/terminal250_full445_20261017/trials",
+      "audit_files": []
+    },
+    "avg64": {
+      "model_id": "avg64",
+      "served_model": "apex-avg64",
+      "owner_kind": "trial_queue",
+      "source_summary": "artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+      "result_root": "artifacts/eval/avg64_terminal_full445_20261017/trials",
+      "audit_files": []
+    }
+  },
+  "disclosures": [
+    "Harbor itself maps all supplied None reward dicts to zero; excluding infrastructure failures here is an explicit audit policy, not a native verifier reward.",
+    "Audit records belong only to their configured model and exact original path; no Base task whitelist is transferred to experts or AVG64.",
+    "The default strict outputs, native coverage and raw results remain unchanged. Complete means full policy-accounted coverage only in this parallel view.",
+    "This resource-constrained900s verifier/30min solver experiment still differs from the original takehome Terminal resource requirements."
+  ]
+}

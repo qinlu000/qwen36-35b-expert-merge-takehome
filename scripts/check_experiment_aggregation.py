@@ -2,16 +2,120 @@
 """Small hand-calculated examples for the final aggregation contract."""
 import json
 import math
+from pathlib import Path
+import tempfile
 
 import numpy as np
 
 from summarize_experiment import (bootstrap_scores, cluster_arrays, expected_records,
-    interval, macro, materialize, observation, scored)
+    interval, macro, materialize, observation, scored, terminal_budget_rows)
 
 
 def owner(count, primary, complete=True):
     return {'summary': 'manual-example', 'owner_complete': complete,
             'owner_expected': count, 'owner_primary': primary}
+
+
+def budget_checks():
+    """One synthetic genuine timeout, one infra failure, one unadmitted trial."""
+    with tempfile.TemporaryDirectory() as temporary:
+        project = Path(temporary)
+        expected = expected_records('terminal', {'task_ids': [f't{i:02d}' for i in range(89)]})
+        result_path = project / 'results/base/t00__seed0/result.json'
+        result_path.parent.mkdir(parents=True)
+        (result_path.parent / 'verifier').mkdir()
+        snapshot = result_path.parent / 'artifacts/logs/artifacts/final-task-state.json'
+        snapshot.parent.mkdir(parents=True)
+        snapshot.write_text(json.dumps({'return_code': 0, 'captured_before_verifier': True, 'complete_prefixes': ['app']}))
+        snapshot.with_suffix('.tar').write_bytes(b'synthetic archive fixture; no benchmark payload')
+        trial_log = result_path.parent / 'trial.log'
+        trial_log.write_text('harbor.trial.errors.VerifierTimeoutError: Verifier execution timed out after 900.0 seconds\n')
+        stdout = result_path.parent / 'verifier/test-stdout.txt'
+        stdout.write_text('collected 1 item\n../tests/test_outputs.py::test_fixture\n')
+        official = project / 'tasks/t00/tests/test_outputs.py'
+        official.parent.mkdir(parents=True)
+        official.write_text('# synthetic filename proof only; never executed\n')
+        raw = {'task_name': 't00', 'finished_at': '2026-10-17T00:15:00.100000+00:00', 'verifier_result': None,
+               'exception_info': {'exception_type': 'AgentTimeoutError'},
+               'config': {'agent': {'model_name': 'base-alias', 'kwargs': {'seed': 0}},
+                          'verifier': {'override_timeout_sec': 900}},
+               'verifier': {'started_at': '2026-10-17T00:00:00+00:00', 'finished_at': '2026-10-17T00:15:00.100000+00:00'}}
+        result_path.write_text(json.dumps(raw))
+        audit = {'key': 't00/seed0', 'task_name': 't00', 'seed': 0, 'exact_original_result_path': str(result_path),
+                 'native_reward': None, 'native_grade_unchanged': True, 'strict_valid_scored': False,
+                 'derived_budget_reward': 0, 'derivation_kind': 'synthetic reviewed computation timeout',
+                 'eligibility': {'verifier_timeout_sec': 900, 'verifier_wall_seconds': 900.1, 'official_test_started': True,
+                     'official_pytest_collected': 1, 'native_verifier_timeout_in_trial_log': True,
+                     'preverifier_snapshot_complete': True, 'native_reward_files_absent': True,
+                     'matched_infrastructure_error_markers': []},
+                 'evidence': {'trial_log': str(trial_log), 'verifier_stdout': str(stdout), 'official_test': str(official),
+                     'snapshot_receipt': str(snapshot), 'snapshot_archive': str(snapshot.with_suffix('.tar')),
+                     'candidate_member': 'app/fixture.py', 'candidate_computation_snippets': [{'line': 1, 'text': 'synthetic'}]}}
+        audit_path = project / 'audit.json'
+        audit_path.write_text(json.dumps({'entries': [audit]}))
+        policy = {'policy_id': 'manual', 'models': {'base': {'model_id': 'base', 'served_model': 'base-alias',
+                  'owner_kind': 'trial_queue', 'source_summary': 'owner.json', 'result_root': 'results/base',
+                  'audit_files': ['audit.json']}}}
+        rows = [scored(key, int(meta['unit_id'] == 't88'), 1, 'synthetic-' + key, binary=True)
+                for key, meta in expected.items()]
+        rows[0] = observation('t00/seed0', 'invalid', result_path, reason='AgentTimeoutError')
+        rows[5] = observation('t01/seed0', 'invalid', 'infra-result', reason='missing_dependency')
+        rows[10] = observation('t02/seed0', 'pending', 'owner.json', reason='not_admitted')
+        source = owner(445, None, False)
+        source['summary'] = str(project / 'owner.json')
+        queue = {'expected': 445, 'model': 'base-alias', 'valid_scored': 442, 'active': {}, 'pending': ['t02/seed0'],
+                 'terminal': {key: 'finished' for key in expected if key != 't02/seed0'}}
+        (project / 'owner.json').write_text(json.dumps(queue))
+        original = json.dumps([rows, source, raw], sort_keys=True)
+        converted, info, issues = terminal_budget_rows(project, 'base', rows, source, [], expected, policy)
+        result, records = materialize('terminal', expected, converted, info, issues)
+        assert result['native_valid'] == 442 and result['derived_timeout'] == 1 and result['accounted'] == 443
+        assert records['t00/seed0']['derived'] and records['t00/seed0']['native_status'] == 'invalid'
+        assert records['t00/seed0']['native_reward'] is None and records['t00/seed0']['score'] == 0
+        assert records['t01/seed0']['score'] is None and records['t02/seed0']['score'] is None
+        assert result['primary_score_percent'] is None
+        assert original == json.dumps([rows, source, json.loads(result_path.read_text())], sort_keys=True)
+
+        # A path mismatch and a copied Base audit under another model cannot supply zeros.
+        audit['exact_original_result_path'] = str(project / 'other-result.json')
+        audit_path.write_text(json.dumps({'entries': [audit]}))
+        rejected, _, problems = terminal_budget_rows(project, 'base', rows, source, [], expected, policy)
+        assert not rejected[0]['derived'] and any('exact_result_path_mismatch' in p for p in problems)
+        audit['exact_original_result_path'] = str(result_path)
+        audit_path.write_text(json.dumps({'entries': [audit]}))
+        expert = dict(policy['models']['base'], model_id='expert', served_model='expert-alias', result_root='results/expert')
+        rejected, _, problems = terminal_budget_rows(project, 'expert', rows, source, [], expected,
+                                                     {'policy_id': 'manual', 'models': {'expert': expert}})
+        assert not rejected[0]['derived'] and any('wrong_model_result_root' in p for p in problems)
+        stdout.write_text('collected 1 item\n../tests/test_outputs.py\nModuleNotFoundError: missing fixture dependency\n')
+        rejected, _, problems = terminal_budget_rows(project, 'base', rows, source, [], expected, policy)
+        assert not rejected[0]['derived'] and any('infrastructure_marker' in p for p in problems)
+        stdout.write_text('collected 1 item\n../tests/test_outputs.py::test_fixture\n')
+
+        # Full445 budget, with one audited null; all89 cluster denominators stay five.
+        rows[5] = scored('t01/seed0', 0, 1, 'native-infra-recovered', binary=True)
+        rows[10] = scored('t02/seed0', 0, 1, 'native-admitted', binary=True)
+        queue.update(valid_scored=444, pending=[], terminal={key: 'finished' for key in expected})
+        (project / 'owner.json').write_text(json.dumps(queue))
+        converted, info, issues = terminal_budget_rows(project, 'base', rows, source, [], expected, policy)
+        result, records = materialize('terminal', expected, converted, info, issues)
+        assert result['complete'] and result['accounted'] == 445 and result['native_valid'] == 444
+        assert result['strict_native_complete'] is False and result['derived_timeout'] == 1
+        num, den = cluster_arrays(expected, records)
+        assert len(num) == 89 and den.tolist() == [5] * 89
+        draws = bootstrap_scores({'base': (num, den), 'candidate': cluster_arrays(expected, dict(reversed(list(records.items()))))},
+                                 seed_sequence=np.random.SeedSequence(20261015))
+        ci = interval(draws['candidate'] - draws['base'])
+        assert ci['lower'] == ci['upper'] == 0
+        assert macro({'swe': 10, 'hle': None, 'asi': 30, 'terminal': result['primary_score_percent']}) is None
+        queue['active'] = {'t02/seed0': 'still active'}
+        (project / 'owner.json').write_text(json.dumps(queue))
+        converted, info, issues = terminal_budget_rows(project, 'base', rows, source, [], expected, policy)
+        assert not materialize('terminal', expected, converted, info, issues)[0]['complete']
+    return {'one_compute_timeout_only_zero': True, 'infra_and_unadmitted_remain_unscored': True,
+            'exact_path_and_wrong_model_rejected': True, 'strict_rows_source_and_native_result_unchanged': True,
+            'all445_and_empty_active_pending_required': True, 'clusters': 89, 'seeds_per_cluster': 5,
+            'identical_paired_ci': ci, 'other_missing_benchmark_blocks_macro': True}
 
 
 def run():
@@ -83,6 +187,7 @@ def run():
     assert macro({'swe': 0, 'hle': 100, 'asi': 0, 'terminal': 0}) == 25
     assert macro({'swe': 100, 'hle': None, 'asi': 100, 'terminal': 100}) is None
     checks['four_benchmarks_equal_weight_missing_benchmark_blocks_macro'] = True
+    checks['audited_terminal_budget_view'] = budget_checks()
     return {'passed': True, 'fixture_scope': 'Hand-calculated artificial scores only; no benchmark questions or model calls',
             'bootstrap_repetitions': 10000, 'seed': 20261015, 'checks': checks}
 

@@ -1,0 +1,426 @@
+{
+  "captured_at_utc": "2026-10-16T19:25:00.664054+00:00",
+  "host": "10.123.4.80",
+  "cpus": [
+    10
+  ],
+  "command": [
+    "/data/caoqinlu/projects/apex-takehome/artifacts/envs/asi-py312/bin/python",
+    "/data/caoqinlu/projects/apex-takehome/scripts/summarize_experiment.py",
+    "--project",
+    "/data/caoqinlu/projects/apex-takehome",
+    "--config",
+    "/data/caoqinlu/projects/apex-takehome/configs/eval/final_results_20261017.json",
+    "--output",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/eval/final_aggregation_20261017",
+    "--terminal-budget-policy",
+    "/data/caoqinlu/projects/apex-takehome/configs/eval/terminal_budget_policy_20261017.json"
+  ],
+  "exit_code": 0,
+  "cpu_checks_passed": true,
+  "views": {
+    "strict": {
+      "as_of_utc": "2026-10-16T19:25:00.040245+00:00",
+      "complete_primary_comparison": false,
+      "models": {
+        "base": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "swe": {
+              "expected": 51,
+              "valid_scored": 50,
+              "invalid": 1,
+              "pending": 0,
+              "missing": 0,
+              "complete": false,
+              "primary_score_percent": null,
+              "source_issues": []
+            },
+            "hle": {
+              "expected": 2500,
+              "valid_scored": 2500,
+              "invalid": 0,
+              "pending": 0,
+              "missing": 0,
+              "complete": true,
+              "primary_score_percent": 3.96,
+              "source_issues": []
+            },
+            "asi": {
+              "expected": 240,
+              "valid_scored": 240,
+              "invalid": 0,
+              "pending": 0,
+              "missing": 0,
+              "complete": true,
+              "primary_score_percent": 1.5709884069083986,
+              "source_issues": []
+            },
+            "terminal": {
+              "expected": 445,
+              "valid_scored": 442,
+              "invalid": 3,
+              "pending": 0,
+              "missing": 0,
+              "complete": false,
+              "primary_score_percent": null,
+              "source_issues": []
+            }
+          }
+        },
+        "swe249": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "swe": {
+              "expected": 51,
+              "valid_scored": 41,
+              "invalid": 2,
+              "pending": 8,
+              "missing": 0,
+              "complete": false,
+              "primary_score_percent": null,
+              "source_issues": []
+            }
+          }
+        },
+        "hle250": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "hle": {
+              "expected": 2500,
+              "valid_scored": 0,
+              "invalid": 0,
+              "pending": 0,
+              "missing": 2500,
+              "complete": false,
+              "primary_score_percent": null,
+              "source_issues": []
+            }
+          }
+        },
+        "asi128": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "asi": {
+              "expected": 240,
+              "valid_scored": 0,
+              "invalid": 0,
+              "pending": 0,
+              "missing": 240,
+              "complete": false,
+              "primary_score_percent": null,
+              "source_issues": []
+            }
+          }
+        },
+        "terminal250": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "terminal": {
+              "expected": 445,
+              "valid_scored": 15,
+              "invalid": 0,
+              "pending": 430,
+              "missing": 0,
+              "complete": false,
+              "primary_score_percent": null,
+              "source_issues": []
+            }
+          }
+        },
+        "avg64": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "swe": {
+              "expected": 51,
+              "valid_scored": 0,
+              "invalid": 0,
+              "pending": 51,
+              "missing": 0,
+              "complete": false,
+              "primary_score_percent": null,
+              "source_issues": []
+            },
+            "hle": {
+              "expected": 2500,
+              "valid_scored": 0,
+              "invalid": 0,
+              "pending": 0,
+              "missing": 2500,
+              "complete": false,
+              "primary_score_percent": null,
+              "source_issues": []
+            },
+            "asi": {
+              "expected": 240,
+              "valid_scored": 0,
+              "invalid": 0,
+              "pending": 0,
+              "missing": 240,
+              "complete": false,
+              "primary_score_percent": null,
+              "source_issues": []
+            },
+            "terminal": {
+              "expected": 445,
+              "valid_scored": 14,
+              "invalid": 0,
+              "pending": 431,
+              "missing": 0,
+              "complete": false,
+              "primary_score_percent": null,
+              "source_issues": []
+            }
+          }
+        }
+      },
+      "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/final_aggregation_20261017"
+    },
+    "audited_terminal_budget": {
+      "as_of_utc": "2026-10-16T19:25:00.541867+00:00",
+      "complete_primary_comparison": false,
+      "models": {
+        "base": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "swe": {
+              "expected": 51,
+              "valid_scored": 50,
+              "invalid": 1,
+              "pending": 0,
+              "missing": 0,
+              "complete": false,
+              "primary_score_percent": null,
+              "source_issues": []
+            },
+            "hle": {
+              "expected": 2500,
+              "valid_scored": 2500,
+              "invalid": 0,
+              "pending": 0,
+              "missing": 0,
+              "complete": true,
+              "primary_score_percent": 3.96,
+              "source_issues": []
+            },
+            "asi": {
+              "expected": 240,
+              "valid_scored": 240,
+              "invalid": 0,
+              "pending": 0,
+              "missing": 0,
+              "complete": true,
+              "primary_score_percent": 1.5709884069083986,
+              "source_issues": []
+            },
+            "terminal": {
+              "expected": 445,
+              "valid_scored": 445,
+              "invalid": 0,
+              "pending": 0,
+              "missing": 0,
+              "complete": true,
+              "primary_score_percent": 20.224719101123597,
+              "native_valid": 442,
+              "derived_timeout": 3,
+              "accounted": 445,
+              "source_issues": []
+            }
+          }
+        },
+        "swe249": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "swe": {
+              "expected": 51,
+              "valid_scored": 41,
+              "invalid": 2,
+              "pending": 8,
+              "missing": 0,
+              "complete": false,
+              "primary_score_percent": null,
+              "source_issues": []
+            }
+          }
+        },
+        "hle250": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "hle": {
+              "expected": 2500,
+              "valid_scored": 0,
+              "invalid": 0,
+              "pending": 0,
+              "missing": 2500,
+              "complete": false,
+              "primary_score_percent": null,
+              "source_issues": []
+            }
+          }
+        },
+        "asi128": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "asi": {
+              "expected": 240,
+              "valid_scored": 0,
+              "invalid": 0,
+              "pending": 0,
+              "missing": 240,
+              "complete": false,
+              "primary_score_percent": null,
+              "source_issues": []
+            }
+          }
+        },
+        "terminal250": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "terminal": {
+              "expected": 445,
+              "valid_scored": 15,
+              "invalid": 0,
+              "pending": 430,
+              "missing": 0,
+              "complete": false,
+              "primary_score_percent": null,
+              "native_valid": 15,
+              "derived_timeout": 0,
+              "accounted": 15,
+              "source_issues": []
+            }
+          }
+        },
+        "avg64": {
+          "macro_primary_percent": null,
+          "benchmarks": {
+            "swe": {
+              "expected": 51,
+              "valid_scored": 0,
+              "invalid": 0,
+              "pending": 51,
+              "missing": 0,
+              "complete": false,
+              "primary_score_percent": null,
+              "source_issues": []
+            },
+            "hle": {
+              "expected": 2500,
+              "valid_scored": 0,
+              "invalid": 0,
+              "pending": 0,
+              "missing": 2500,
+              "complete": false,
+              "primary_score_percent": null,
+              "source_issues": []
+            },
+            "asi": {
+              "expected": 240,
+              "valid_scored": 0,
+              "invalid": 0,
+              "pending": 0,
+              "missing": 240,
+              "complete": false,
+              "primary_score_percent": null,
+              "source_issues": []
+            },
+            "terminal": {
+              "expected": 445,
+              "valid_scored": 14,
+              "invalid": 0,
+              "pending": 431,
+              "missing": 0,
+              "complete": false,
+              "primary_score_percent": null,
+              "native_valid": 14,
+              "derived_timeout": 0,
+              "accounted": 14,
+              "source_issues": []
+            }
+          }
+        }
+      },
+      "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/final_aggregation_20261017/audited_terminal_budget"
+    }
+  },
+  "actions": "One-shot read-only aggregation of existing owner records; no model/API/GPU/container/test or queue changes",
+  "output_verification": {
+    "aggregation_rerun": false,
+    "strict_derived_observations": 0,
+    "budget_derived_observations": 3,
+    "derived_native_rewards": [
+      null,
+      null,
+      null
+    ],
+    "SWE_observations_with_existing_audit_fields": 8,
+    "base_budget_terminal": {
+      "native_valid": 442,
+      "derived_timeout": 3,
+      "accounted": 445,
+      "primary_score_percent": 20.224719101123597,
+      "per_seed_score_percent": [
+        17.97752808988764,
+        22.471910112359552,
+        19.10112359550562,
+        23.59550561797753,
+        17.97752808988764
+      ],
+      "sample_sd_percent_ddof1": 2.6350650336086683,
+      "primary_ci95_percent": {
+        "lower": 13.03370786516854,
+        "upper": 27.865168539325843,
+        "method": "percentile cluster bootstrap"
+      }
+    }
+  },
+  "gate_proof_read_only_verification": {
+    "read_at_utc": "2026-10-16T19:27:09.760988+00:00",
+    "strict_source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json",
+    "strict_source_mtime_utc": "2026-10-16T19:26:57.447610+00:00",
+    "note": "Separate thin metadata reread after the aggregation; not a new scoring or aggregation execution. The rolling owner source mtime is later than the original capture.",
+    "field_presence": {
+      "active_trials": true,
+      "pending_not_admitted": true,
+      "expected": true,
+      "expected_trials": true,
+      "valid_scored": true,
+      "complete": true,
+      "primary_mean_percent": true
+    },
+    "fields": {
+      "active_trials": 0,
+      "pending_not_admitted": 0,
+      "expected": 445,
+      "expected_trials": 445,
+      "valid_scored": 442,
+      "complete": false,
+      "primary_mean_percent": null
+    },
+    "audited_native_models": [
+      {
+        "key": "feal-differential-cryptanalysis/seed0",
+        "config.agent.model_name": "apex-qwen",
+        "native_verifier_result": null
+      },
+      {
+        "key": "feal-differential-cryptanalysis/seed4",
+        "config.agent.model_name": "apex-qwen",
+        "native_verifier_result": null
+      },
+      {
+        "key": "model-extraction-relu-logits/seed4",
+        "config.agent.model_name": "apex-qwen",
+        "native_verifier_result": null
+      }
+    ],
+    "capture_gate_interpretation": {
+      "base_budget_terminal_proof_gate_passed": true,
+      "base_budget_terminal_complete": true,
+      "base_budget_terminal_source_issues": [],
+      "base_strict_terminal_incomplete_reason": "442 native valid; 3 native invalid/null",
+      "base_budget_macro_incomplete_reason": "SWE has 50/51 native valid and 1 invalid; Terminal budget proof is complete",
+      "expert_and_avg_terminal_incomplete_reason": "Only15/14 native scored at capture; 430/431 pending; no timeout audits or derived zeros"
+    }
+  }
+}

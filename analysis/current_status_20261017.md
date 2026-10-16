@@ -29,6 +29,8 @@
 
 **后续Base评分恢复补记**：原owner的固定答案仅补评分，HLE现已2500/2500有效、99正确、3.96%；SWE截至03:13为49/51有效，Terminal截至03:13为439/445原生有效，之后仍在收尾。来源为[Base缺口记录](base_gap_completion_20261017.md)，这些计数有自己的保存时点，不改写上表03:03–03:05的专家/合版快照。三个Base Terminal结果进入真实官方测试后耗尽900秒，原始reward仍null；Harbor默认将这类None映射失败，但它同样会映射其他故障。后续只对有精确逐结果审计的计算超时提供独立固定预算视图，原生严格覆盖继续保留，不能把所有缺失填0。
 
+**03:25统一统计补记**：[双视图收据](terminal_budget_aggregation_20261017.md)已实际运行：Base SWE50/51有效；Terminal严格442/445、3 native null，审计预算则445/445、均值20.224719%、五seed sample SD2.635065个百分点、89任务簇95%CI[13.033708%,27.865169%]。派生3项均保留native null，未改原始reward。Terminal专家/AVG64分别15/14份有效，仍在运行；HLE/ASI专家与合版尚待后续评分。严格与预算宏平均、模型差值和配对CI均未齐备。
+
 ## 已记录、需要继续处理的事项
 
 1. **评分有效性**：Base由原baseline流程仅补评分，HLE已完整，SWE/TB继续收尾。SWE专家的[审计](swe_formal_scoring_audit_20261017.md)已核审四个模型导致的native0，另存[独立只读汇总](swe249_audited_summary_20261017.md)并显式接最终结果配置，原队列和原invalid不变。03:20源快照为41/51有效、0 resolved，43终态、8 active；后续汇总前须再运行该只读collector刷新。NodeBB及未审计项继续null；未重新生成答案。

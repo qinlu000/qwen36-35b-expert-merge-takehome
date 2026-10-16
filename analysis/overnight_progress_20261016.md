@@ -522,3 +522,13 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - 原始51attempt/有效分与model-finished、scoring=false为完成前提；CPU排空可用当前空scope或精确、同CPU集合且晚于最终marker的AVG SWE历史admission交接证明。避免CPU交给新模型后，已完成专家分数被新消费者永远阻塞。原80七组文件算例通过，后修订本地九组通过，41快照未重跑/改写。
 - final_results明确改用该专家audited summary；Base SWE/TB指原owner的base-gap-completion严格来源，HLE原source现已2500完整/99正确/3.96%。原Base答案与历史canonical保留，新增均为评分恢复。README补单次纯读刷新命令；后续每次最终统计/heartbeat先刷新SWE专家audited summary再汇总。
 - Terminal真实计算超时的Harbor None→0语义另以平行预算视图实现，默认严格原生字段与原始null不变；本提交未把该新功能的在改文件纳入。只提交本轮自有8文件及共享文档追加，原baseline WIP保留。
+
+
+## 2026-10-17：Terminal双视图汇总已验收，阶段报告更新
+
+- 冻结Harbor Mean会将已传入的整个None reward dict映0，不会为未返回trial补行，也不区分环境/计算故障。默认strict保留native有效性；新增显式--terminal-budget-policy configs/eval/terminal_budget_policy_20261017.json，在同output/audited_terminal_budget另存完整矩阵/observations/CI，不改原生结果、控制器或Base collector。
+- 仅精确审计的已完成计算超时可派生预算0，核模型/绝对原路径/task/seed、verifier900s实际阶段及日志、官方测试启动、完整预测试候选快照、无infra证据；顶层AgentTimeout不作自动放行/拒绝。Base audit不迁给专家同task。固定445唯一键、每seed89、own queue终态和无pending/unresolved才完整；原native_status/native_reward/source/audit全部保留。
+- 03:25 CPU10一次只读汇总验收：Base严格TB442/445与3native null；独立预算445项mean20.2247191011%、五seed sample SD2.635065pp、89簇95%CI[13.0337079,27.8651685]。3派生仍native_reward=null，未伪造3个native0；Base SWE50/51阻止两视图macro，HLE3.96%和ASI1.570988%已完整。专家/AVG TB15/14均无派生仍待完整，所有paired差值/CI为null。
+- 人工例与实际两个视图检查通过，Base source_issues为空；03:27另薄读确认actual Base active_trials/pending_not_admitted字段存在为0、原模型alias全apex-qwen，完整预算gate已通过。实际检查/汇总约1.6秒，CPU10释放，无新API/GPU/任务或容器。SWE已有审计字段逐行透传。
+- README/统计说明/资产索引与当前进展已接新owner路径和预算视图，初次快照保留日期。后续heartbeat先刷新collect_swe249_audited.py，再运行summarize_experiment.py并带上述policy，分别读strict与预算结果；不要按哪个结果更好切换政策或对未审计null补0。
+- 阶段PDF更新为03:25严格矩阵与独立预算行，03:29:34实际生成；摘要178汉字、A4一页、字体嵌入、重渲染目视通过。仍是阶段草稿，最终20真实合版失败/完整正式模型矩阵/最终成本及report.pdf待完成。本轮仅13自有文件和共享文档追加纳Git，原会话WIP保留。

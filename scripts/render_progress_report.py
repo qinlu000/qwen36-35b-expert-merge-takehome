@@ -42,7 +42,9 @@ def render(output, font):
     pdfmetrics.registerFont(TTFont('Chinese', str(font)))
     training = load('configs/train/four_experts_v1.json')
     loss = load('analysis/source_snapshots/sft_loss_only_execution_20261017.json')
-    formal = load('analysis/source_snapshots/final_aggregation_execution_20261017.json')
+    formal_receipt = load('analysis/source_snapshots/terminal_budget_aggregation_execution_20261017.json')
+    formal = formal_receipt['views']['strict']
+    budget_terminal = formal_receipt['views']['audited_terminal_budget']['models']['base']['benchmarks']['terminal']
     merge = load('analysis/source_snapshots/merge_export_20261017.json')
     publication = load('analysis/source_snapshots/hf_publication_20261017.json')
     github = load('analysis/source_snapshots/github_repository_20261017.json')
@@ -140,8 +142,11 @@ def render(output, font):
                 row.append('待齐备')
         matrix.append(row)
     table(matrix, [96] + [(width - 96) / 6] * 6, row_height=23)
-    paragraph('ASI的1.571%来自完整240条件的公开local原生聚合；未评为专家非目标项。其余目标项待齐备，'
+    paragraph('Base HLE 3.96%来自完整2500题；ASI 1.571%来自完整240条件的公开local原生聚合。未评为专家非目标项；其余目标项待齐备，'
               '不以部分coverage估正式分。四项等权宏平均、相对Base提升及配对CI均待齐备。',
+              size=8.1, leading=11.7, color=GRAY, after=2)
+    paragraph(f'BaseTB独立预算{budget_terminal["primary_score_percent"]:.6f}%，'
+              f'{budget_terminal["native_valid"]} native+{budget_terminal["derived_timeout"]}审计超时派生0，raw null不变。',
               size=8.1, leading=11.7, color=GRAY, after=2)
 
     section('固定同249条留出集  |  监督交叉熵，不是benchmark准确率')
@@ -167,7 +172,7 @@ def render(output, font):
     pdf.line(margin, 79, page_w - margin, 79)
     footer = [
         '阶段性草稿，不是最终 report.pdf；生成 ' + generated.strftime('%Y-%m-%d %H:%M:%S CST') + '  |  1 / 1',
-        '结果收据：analysis/source_snapshots/final_aggregation_execution_20261017.json（正式评分快照02:29 CST）',
+        '结果收据：analysis/source_snapshots/terminal_budget_aggregation_execution_20261017.json（03:25 CST，strict视图）',
         'loss收据：analysis/source_snapshots/sft_loss_only_execution_20261017.json；合版：merge_export_20261017.json',
         '发布收据：analysis/source_snapshots/hf_publication_20261017.json；github_repository_20261017.json',
     ]
