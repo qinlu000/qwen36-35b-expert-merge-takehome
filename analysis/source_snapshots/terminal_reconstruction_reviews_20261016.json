@@ -1,0 +1,197 @@
+{
+  "positive_reviews": [
+    {
+      "reviewed_at": "2026-10-16T13:34:25.769332+00:00",
+      "reconstruction_complete_for_verifier": true,
+      "review_method": "Manual read-only comparison of the official checker/test launcher, original saved-state receipt and archive members, and existing native replay logs. No new model calls or tests. Completeness is assessed independently of reward.",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/merge-diff-arc-agi-task__seed0__manual2__shorttmp1/result.json",
+      "savedstate_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/merge-diff-arc-agi-task__seed0__manual2__shorttmp1__savedstate2/result.json",
+      "archive": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/merge-diff-arc-agi-task__seed0__manual2__shorttmp1/artifacts/logs/artifacts/final-task-state.tar",
+      "snapshot_receipt": {
+        "reason": "before_native_verifier",
+        "paths": [
+          "app"
+        ],
+        "return_code": 0,
+        "stderr": ""
+      },
+      "archive_regular_files": [
+        {
+          "name": "app/examples.json",
+          "size": 6977,
+          "type": "0"
+        },
+        {
+          "name": "app/bundle1.bundle",
+          "size": 1009,
+          "type": "0"
+        },
+        {
+          "name": "app/bundle2.bundle",
+          "size": 1244,
+          "type": "0"
+        }
+      ],
+      "evidence": {
+        "candidate_state_required_by_checker": [
+          "/app/repo including .git and algo.py; original task bundle/example inputs"
+        ],
+        "archive_coverage": "The successful before_native_verifier snapshot covers the entire /app tree. The archive contains the original examples.json and two bundle files, and does not contain /app/repo. The required repository and solution are therefore absent in the saved candidate state, rather than lost by selecting an output-only subset.",
+        "external_state_assessment": "The checker reads the candidate Git repository under /app, invokes Git, and imports its algo.py. Its native test.sh installs Git and uses an isolated pinned Python test environment. No candidate-created daemon or mutable directory outside /app is required by the checker.",
+        "execution_evidence": "Existing savedstate2 native replay executed all five official tests; each failed because the required candidate repository or its files were absent. Git and the test runner executed. No new test was run for this review.",
+        "completeness_basis": "All candidate-observable filesystem paths used by the verifier are inside the fully archived workdir. Missing expected outputs are represented by their absence in that complete workdir archive."
+      },
+      "new_model_calls": 0,
+      "new_verifier_runs": 0,
+      "byte_identical_entire_container": false,
+      "acceptance_scope": "Only the saved candidate state required by this task verifier; not a claim that the entire container was snapshotted."
+    },
+    {
+      "reviewed_at": "2026-10-16T13:34:25.770270+00:00",
+      "reconstruction_complete_for_verifier": true,
+      "review_method": "Manual read-only comparison of the official checker/test launcher, original saved-state receipt and archive members, and existing native replay logs. No new model calls or tests. Completeness is assessed independently of reward.",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/torch-pipeline-parallelism__seed0__manual1__shorttmp1/result.json",
+      "savedstate_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/torch-pipeline-parallelism__seed0__manual1__shorttmp1__savedstate2/result.json",
+      "archive": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/torch-pipeline-parallelism__seed0__manual1__shorttmp1/artifacts/logs/artifacts/final-task-state.tar",
+      "snapshot_receipt": {
+        "reason": "before_native_verifier",
+        "paths": [
+          "app",
+          "app/pipeline_parallel.py"
+        ],
+        "return_code": 0,
+        "stderr": ""
+      },
+      "archive_regular_files": [
+        {
+          "name": "app/pipeline_parallel.py",
+          "size": 6625,
+          "type": "0"
+        }
+      ],
+      "evidence": {
+        "candidate_state_required_by_checker": [
+          "/app/pipeline_parallel.py"
+        ],
+        "archive_coverage": "The successful before_native_verifier snapshot covers the entire /app tree and explicitly /app/pipeline_parallel.py. The candidate file is present in the archive (6625 bytes).",
+        "external_state_assessment": "The checker imports the archived candidate module and constructs a fresh local Llama model for CPU/gloo world sizes one and two. It does not depend on candidate-created services or unarchived model/data files. Native test.sh recreates the declared pinned torch 2.7.0 and transformers 4.55.0 environment.",
+        "execution_evidence": "Existing savedstate2 native replay executed four official tests: two passed and two reached the archived candidate layer call and failed with TypeError when position_embeddings was None. This is candidate behavior under the official dependency versions. No new test was run for this review.",
+        "completeness_basis": "The sole candidate artifact imported by the official verifier is preserved. Runtime process groups and local test models are created by the official verifier and are not original solver state."
+      },
+      "new_model_calls": 0,
+      "new_verifier_runs": 0,
+      "byte_identical_entire_container": false,
+      "acceptance_scope": "Only the saved candidate state required by this task verifier; not a claim that the entire container was snapshotted."
+    },
+    {
+      "reviewed_at": "2026-10-16T13:35:50.493385+00:00",
+      "reconstruction_complete_for_verifier": true,
+      "review_method": "Manual read-only comparison of the official checker/test launcher, original raw command history, saved-state receipt/archive members, and existing native replay logs. No new model calls or tests.",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/break-filter-js-from-html__seed0__manual2/result.json",
+      "savedstate_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/break-filter-js-from-html__seed0__manual2__savedstate3/result.json",
+      "archive": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/break-filter-js-from-html__seed0__manual2/artifacts/logs/artifacts/final-task-state.tar",
+      "snapshot_receipt": {
+        "reason": "before_native_verifier",
+        "paths": [
+          "app",
+          "app/out.html",
+          "usr/bin/chromedriver",
+          "usr/bin/chromium"
+        ],
+        "return_code": 0,
+        "stderr": ""
+      },
+      "evidence": {
+        "candidate_state_required_by_checker": [
+          "/app/out.html",
+          "the official filter.py and fresh Selenium/browser runner"
+        ],
+        "archive_coverage": "The successful pre-verifier snapshot preserves the entire /app tree including the final 89-byte out.html and both /usr/bin/chromedriver and /usr/bin/chromium. The browser wrapper uses the unchanged browser installation from the same task SIF.",
+        "external_state_assessment": "All 32 raw request receipts were inspected for actual solver commands, including the history preceding verifier failure. They create candidate/self-test files under /app and /tmp, create a temporary /tests/filter.py symlink, and launch/stop browser diagnostic processes. They do not modify the browser installation under /usr/lib or its configuration. The final pip install attempt concerns Playwright, whereas the official verifier uses its independently pinned Selenium environment. The official checker uploads its own /tests/filter.py and creates its own browser session, so diagnostic process state is not required.",
+        "execution_evidence": "Existing savedstate3 replay executed the one official test and successfully launched the browser. It reached the semantic no-alert assertion after applying the official filter, rather than a missing-browser or dependency error. No new verifier run was made.",
+        "completeness_basis": "The candidate HTML and relevant browser executable/wrapper are preserved, and the remaining checker runtime comes from the same unmodified task image and official isolated dependency launcher. Acceptance is based on state coverage, not on the zero reward."
+      },
+      "new_model_calls": 0,
+      "new_verifier_runs": 0,
+      "byte_identical_entire_container": false
+    }
+  ],
+  "blocked_reviews": [
+    {
+      "reviewed_at": "2026-10-16T13:35:50.493971+00:00",
+      "reconstruction_complete_for_verifier": false,
+      "review_method": "Manual read-only comparison of the official checker/test launcher, original raw command history, saved-state receipt/archive members, and existing native replay logs. No new model calls or tests.",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed1__manual1__shorttmp1/result.json",
+      "savedstate_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/make-doom-for-mips__seed1__manual1__shorttmp1__savedstate2/result.json",
+      "archive": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed1__manual1__shorttmp1/artifacts/logs/artifacts/final-task-state.tar",
+      "snapshot_receipt": {
+        "reason": "before_native_verifier",
+        "paths": [
+          "app",
+          "app/vm.js"
+        ],
+        "return_code": 0,
+        "stderr": ""
+      },
+      "evidence": {
+        "candidate_state_required_by_checker": [
+          "/app/vm.js and its workdir data",
+          "Node runtime",
+          "native test.sh dependency installation environment"
+        ],
+        "archive_coverage": "The successful pre-verifier snapshot preserves the full /app tree, including vm.js, doom.wad, and doomgeneric sources. The expected /tmp/frame.bmp was absent and was not snapshotted. vm.js only imports built-in Node fs/process modules.",
+        "blocking_evidence": "The full original raw solver command history explicitly overwrites /etc/apt/sources.list.d/snapshot.list in requests 00025-main, 00026-main and 00027-main, and removes /etc/apt/sources.list in 00026-main. Those system configuration files are outside the archive. The official native test.sh performs apt dependency installation, so its original installation state cannot be reconstructed from this archive alone.",
+        "existing_replay_observation": "The existing replay executed three tests but timed out waiting for /tmp/frame.bmp. This alone does not prove full reconstruction, and the zero reward is not accepted by this review.",
+        "unresolved_state": [
+          "Original /etc/apt/sources.list and /etc/apt/sources.list.d/snapshot.list contents and their effect on the verifier launcher"
+        ],
+        "action": "Keep unscored; do not regenerate the model answer or run new tests as part of this review."
+      },
+      "new_model_calls": 0,
+      "new_verifier_runs": 0,
+      "byte_identical_entire_container": false
+    },
+    {
+      "reviewed_at": "2026-10-16T13:36:38.047630+00:00",
+      "reconstruction_complete_for_verifier": false,
+      "review_method": "Manual read-only comparison of original trajectory and all raw-request response command history, archive members, official checker and existing replay. No new test or model call.",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed1__manual1__shorttmp1/result.json",
+      "savedstate_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/rescoring/rstan-to-pystan__seed1__manual1__shorttmp1__savedstate2/result.json",
+      "archive": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed1__manual1__shorttmp1/artifacts/logs/artifacts/final-task-state.tar",
+      "snapshot_receipt": {
+        "reason": "before_native_verifier",
+        "paths": [
+          "app"
+        ],
+        "return_code": 0,
+        "stderr": ""
+      },
+      "evidence": {
+        "archive_coverage": "The full /app archive contains the five original input files and no four expected output CSVs or analysis script.",
+        "system_r_assessment": "The checker prohibits R/rstan installation. The original command history contains no R installation command; it contains PyStan pip attempts. The existing native replay passed the R-absence test and failed the five output tests. That observation does not by itself establish reconstruction completeness.",
+        "blocking_evidence": "Original trajectory step 15 successfully appends 151.101.0.223 pypi.org to /etc/hosts (getaddrinfo subsequently returns that address). Step 17 deletes the old address and appends 104.16.0.1 mappings for pypi.org and files.pythonhosted.org. The archive does not preserve /etc/hosts. The original verifier failed before actual tests on pytest-json-ctrf TLS HandshakeFailure, whereas the fresh replay obtained its dependencies. Thus original verifier network configuration is materially changed and missing from the saved state.",
+        "unresolved_state": [
+          "Original /etc/hosts contents and their effect on the native verifier dependency downloads"
+        ],
+        "action": "Keep unscored. Do not infer an accepted zero from missing outputs while full verifier-state coverage is unproven."
+      },
+      "new_model_calls": 0,
+      "new_verifier_runs": 0,
+      "byte_identical_entire_container": false
+    }
+  ],
+  "model_extraction_seed1_timeout_audit": {
+    "scope": "Read-only; no additional verifier run or model call",
+    "native_verifier_timeout_seconds": 900,
+    "original_native_verifier_started_at": "2026-10-16T11:38:00.271718Z",
+    "original_native_verifier_finished_at": "2026-10-16T11:53:00.274162Z",
+    "original_elapsed_seconds": 900.002444,
+    "existing_savedstate2_exception": "TimeoutError from asyncio.wait_for(Verifier(...).verify(), timeout=timeout) in scripts/run_terminal_grader_only_v4.py:59; timeout is read from task.config.verifier.timeout_sec at lines 56-57",
+    "http_600_cutoff_evidence": false,
+    "existing_test_log": "Both logs show dependencies installed (7 packages in 14ms), collected one test, then no test completion. This is not an installation/download failure. Savedstate2 inherits some original timing fields, so those copied fields are not used as replay wall-time evidence.",
+    "conclusion": "The original verifier used its full native 900-second budget; the replay also ended through the configured native verifier budget wrapper rather than a 600-second HTTP ReadTimeout. Exact internal reason for the collected test hanging is not established. Preserve unscored, no blind rerun."
+  },
+  "reviewed_items": 5,
+  "confirmed_count": 3,
+  "blocked_count": 2
+}

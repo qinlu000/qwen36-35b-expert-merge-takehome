@@ -1319,3 +1319,14 @@
 - 以上是保留轨迹交叉熵val loss而非任务正确率，跨数据集不能横比。SWE/ASI从首测到best下降；HLE后期监督验证变差，best16保留，不据此直接断言准确率下降或过拟合已证实。
 - 三run eval_on_start=false，没有step0同val Base loss，step16已训练。只读HPC SFT及80现有eval/run未发现专家独立val生成/执行准确率或成功率输出，现有benchmark结果为Base，不混报。未新跑模型/API、改任务或训练方案。
 - 已整理analysis/three_expert_val_scores_20261016.md及逐次eval快照，修正主进度HLE最终250步loss及Terminal已获卡历史文字。Git只提交本轮自有文件和claud/overnight追加，无coauthor信息。
+
+
+## 2026-10-16 21:34 CST：Terminal原34项未评分根因复核
+
+- 用户追问Terminal34异常。21:28:47固定快照204有效+30在途+177待准入+34未评分=445，未缩分母。legacy字段infrastructure_unscored实际是“已终态但无有效评分”，不能统一说网络/基础设施错误；顶层30AgentTimeout+4Runtime。同期已接受过114条正常timeout0分和6条timeout1分，所以正常1800s本身不会被排除，须有有效native评分。
+- 原34根因精确不重叠：25项1800s结束后向80服务器/tmp staging复制官方tests/verifier_assets时ENOSPC/AddTestsDirError；3项评分依赖下载/TLS握手失败未执行tests，包装器0无效；2项真实900s verifier timeout；2项tmux session提前结束；2项solver清理未确认，拒绝切回公网评分。AgentTimeout顶层遮住了后续复制测试失败的secondary异常，不能只看result异常名。
+- 27个timeout且无reward里24项tests目录ENOSPC、1项verifier_assets ENOSPC、2项native900s超时。qemu-alpine-ssh轨迹明确模型发Ctrl-D后shell退出/recording结束，不能武断称纯基础设施；large-scale tmux消失具体原因未证实。manual0/1/2=3/18/13，不能因还有额度就重答正常预算结束。
+- 原34有archive7/无archive27。7内5已有真实native0且无grader异常但缺评分所需原状态覆盖审核；另configureGit0 archive未保留Nginx配置/服务状态被显式blocked，modelExtract1补评分也耗尽原900s且已经收集1test，不是HTTP600剪断。worker2748211在，但21:28active/child=null、已完成43次历史补评尝试，不代表34全都仍在待补队列。
+- 33增34来自rstan-to-pystan/seed1：20:24正常1800s结束后，拉pytest-json-ctrf TLS失败，没有执行官方测试。21:32实时队列又出现原34之外的pytorch-model-cli/seed2(900s评分超时、5/6test已通过后卡CLI输出)，原34审计集合保持不变，不把新项混进旧根因表。
+- 本轮只读原始日志/归档/已完成native评分；对5份已评分存档启动有证据的状态充分性审核，证据不足继续未评分，不按0分放松条件。没有新模型/API、pytest、重生成、hash扫描或修改在途driver；只读总汇说明已更正，代码保持KISS。明细analysis/terminal_unscored_explanation_20261016.md，两份逐项/独立分类JSON纳Git，保留其他会话SFT与文档工作区，无coauthor信息。
+- 本轮5项状态审核已完成并同步生产review：3 confirmed（mergeARC0、torchPipeline0、breakJS0）由observer自然采纳原native0；2 blocked（makeDoom1缺原/etc/apt修改、rstan1缺原/etc/hosts修改），另旧configureGit缺Nginx状态仍blocked、modelExtract1补评分900s仍未完成。原34因此可恢复3，剩27无archive+3外部状态不全+1补评超时。rstan的PyPI TLS失败与模型自己改hosts有关，不能全归因外部网络事故。没有新模型/pytest或手改评分/CP；review细节另存terminal_reconstruction_reviews_20261016.json。

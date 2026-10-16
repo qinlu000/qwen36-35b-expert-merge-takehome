@@ -1,0 +1,436 @@
+{
+ "audited_at_cst": "2026-10-16T21:29:34+08:00",
+ "mode": "Read-only inspection of existing result.json, trial.log, verifier logs and saved agent trajectories. No model/API request, test execution, scoring rerun or production mutation.",
+ "remote_project": "/data/caoqinlu/projects/apex-takehome",
+ "source_base": "artifacts/results/base-terminal-v2-recovery-20261016",
+ "source_path_rule": "Each trial row names a directory under source_base/trials; evidence line numbers refer to that directory's trial.log. Original exception fields are read from its result.json. For tests-directory cases the trial name is <task>__seed0__first for manual0, otherwise <task>__seed0__manual<N>.",
+ "fixed_denominator": 445,
+ "latest_observed_summary": {
+  "updated_at_utc": "2026-10-16T13:29:17.831839+00:00",
+  "valid_covered": 204,
+  "active_trials": 30,
+  "pending_not_admitted": 177,
+  "infrastructure_unscored": 34,
+  "identity": "204 + 30 + 177 + 34 = 445",
+  "primary_mean_percent": null,
+  "interpretation": "The field infrastructure_unscored is the residual count of terminal task/seed entries without an accepted native score. It is not a claim that every entry failed because of network or infrastructure, and it is not a reduced scoring denominator."
+ },
+ "cohort34": {
+  "membership_basis": "The same34 unaccepted terminal entries audited at21:26:52, re-read at21:29:34 before completion of the separate five-review work.",
+  "exception_counts": {
+   "AgentTimeoutError": 30,
+   "RuntimeError": 4
+  },
+  "reward_counts": {
+   "timeout_null_reward": 27,
+   "timeout_zero_without_valid_test_evidence": 3,
+   "runtime_null_reward": 4
+  },
+  "manual_attempt_counts": {
+   "0": 3,
+   "1": 18,
+   "2": 13
+  },
+  "all34_agent_execution_started": true,
+  "final_state_archives_present": 7,
+  "final_state_archives_absent": 27,
+  "manual_retry_rule": "Only13 entries reached the approved manual_attempt2 limit. Remaining allowance does not authorize repeating a normal budget-ended answer. Saved-state grading does not consume a new model generation.",
+  "no_new_generation_recommended_by_this_audit": true
+ },
+ "timeout_no_reward27": {
+  "top_level_exception": "AgentTimeoutError",
+  "mutually_exclusive_secondary_causes": {
+   "tmp_staging_tests_directory_ENOSPC": 24,
+   "tmp_staging_verifier_assets_copy_ENOSPC": 1,
+   "native_verifier_timeout_900_seconds": 2
+  },
+  "combined_AddTestsDirError_ENOSPC": 25,
+  "other_or_unconfirmed_secondary_cause": 0,
+  "interpretation": "These are secondary verifier outcomes following normal agent budget expiry. The first25 failed while staging tests or verifier assets; the remaining2 entered native verification and hit its900-second timeout. A generic claim that the old runner simply skipped all verification is inaccurate.",
+  "evidence_match_method": "For each original trial.log, require the /tmp/apex_baseline_staging_ path plus ENOSPC and AddTestsDirError; distinguish the tests directory from verifier_assets. For the remaining two require the explicit VerifierTimeoutError after900seconds.",
+  "verifier_assets_case": {
+   "key": "configure-git-webserver/seed0",
+   "trial": "configure-git-webserver__seed0__manual2",
+   "manual_attempt": 2,
+   "primary_secondary_cause": "tmp_staging_verifier_assets_copy_ENOSPC",
+   "trial_log_shutil_ENOSPC_line": 64,
+   "trial_log_AddTestsDirError_line": 87,
+   "evidence_summary": "shutil.Error while copying native/tmux and other verifier_assets into /tmp/apex_baseline_staging_*/verifier_assets; Errno28."
+  },
+  "verifier_timeout_cases": [
+   {
+    "key": "make-doom-for-mips/seed1",
+    "trial": "make-doom-for-mips__seed1__manual1__shorttmp1",
+    "manual_attempt": 1,
+    "trial_log_timeout_line": 54,
+    "trial_log_VerifierTimeoutError_line": 143
+   },
+   {
+    "key": "model-extraction-relu-logits/seed1",
+    "trial": "model-extraction-relu-logits__seed1__manual1__shorttmp1",
+    "manual_attempt": 1,
+    "trial_log_timeout_line": 15,
+    "trial_log_VerifierTimeoutError_line": 104
+   }
+  ],
+  "tests_directory_case_columns": [
+   "key",
+   "manual_attempt",
+   "ENOSPC_log_line",
+   "AddTestsDirError_log_line"
+  ],
+  "tests_directory_cases": [
+   [
+    "adaptive-rejection-sampler/seed0",
+    2,
+    53,
+    76
+   ],
+   [
+    "break-filter-js-from-html/seed0",
+    2,
+    48,
+    71
+   ],
+   [
+    "build-cython-ext/seed0",
+    2,
+    55,
+    78
+   ],
+   [
+    "build-pmars/seed0",
+    2,
+    56,
+    79
+   ],
+   [
+    "build-pov-ray/seed0",
+    2,
+    56,
+    79
+   ],
+   [
+    "caffe-cifar-10/seed0",
+    2,
+    57,
+    80
+   ],
+   [
+    "circuit-fibsqrt/seed0",
+    2,
+    27,
+    50
+   ],
+   [
+    "code-from-image/seed0",
+    2,
+    45,
+    68
+   ],
+   [
+    "compile-compcert/seed0",
+    2,
+    51,
+    74
+   ],
+   [
+    "count-dataset-tokens/seed0",
+    2,
+    51,
+    74
+   ],
+   [
+    "feal-differential-cryptanalysis/seed0",
+    1,
+    28,
+    51
+   ],
+   [
+    "feal-linear-cryptanalysis/seed0",
+    1,
+    34,
+    57
+   ],
+   [
+    "financial-document-processor/seed0",
+    1,
+    50,
+    73
+   ],
+   [
+    "fix-ocaml-gc/seed0",
+    1,
+    57,
+    80
+   ],
+   [
+    "gcode-to-text/seed0",
+    1,
+    39,
+    62
+   ],
+   [
+    "git-multibranch/seed0",
+    1,
+    51,
+    74
+   ],
+   [
+    "hf-model-inference/seed0",
+    1,
+    38,
+    61
+   ],
+   [
+    "install-windows-3.11/seed0",
+    1,
+    57,
+    80
+   ],
+   [
+    "kv-store-grpc/seed0",
+    1,
+    48,
+    71
+   ],
+   [
+    "largest-eigenval/seed0",
+    1,
+    41,
+    64
+   ],
+   [
+    "llm-inference-batching-scheduler/seed0",
+    1,
+    49,
+    72
+   ],
+   [
+    "mailman/seed0",
+    1,
+    79,
+    102
+   ],
+   [
+    "raman-fitting/seed0",
+    0,
+    41,
+    64
+   ],
+   [
+    "regex-chess/seed0",
+    0,
+    35,
+    58
+   ]
+  ]
+ },
+ "other7": {
+  "timeout_with_zero_but_invalid_verifier_evidence": [
+   {
+    "key": "merge-diff-arc-agi-task/seed0",
+    "manual_attempt": 2
+   },
+   {
+    "key": "torch-pipeline-parallelism/seed0",
+    "manual_attempt": 1
+   },
+   {
+    "key": "rstan-to-pystan/seed1",
+    "manual_attempt": 1
+   }
+  ],
+  "runtime_null_reward": [
+   {
+    "key": "chess-best-move/seed0",
+    "manual_attempt": 2,
+    "observed_reason": "Refusing public network after unconfirmed solver cleanup",
+    "trial_log_line": 30
+   },
+   {
+    "key": "large-scale-text-editing/seed0",
+    "manual_attempt": 1,
+    "observed_reason": "tmux session disappeared; cause not established"
+   },
+   {
+    "key": "qemu-alpine-ssh/seed0",
+    "manual_attempt": 0,
+    "observed_reason": "tmux session disappeared following an agent-issued EOF and shell exit; full cause not established"
+   },
+   {
+    "key": "configure-git-webserver/seed1",
+    "manual_attempt": 1,
+    "observed_reason": "Refusing public network after unconfirmed solver cleanup"
+   }
+  ],
+  "caution": "A RuntimeError alone does not establish a network outage, model fault, or entitlement to regenerate."
+ },
+ "count_changes": {
+  "source": "artifacts/runs/base-terminal-recovery-v2-20261016/followon/watch-final-v5.log",
+  "sequence": [
+   {
+    "at_cst": "2026-10-16T19:04:48+08:00",
+    "unscored": 31
+   },
+   {
+    "at_cst": "2026-10-16T19:48:25+08:00",
+    "unscored": 32,
+    "added": "make-doom-for-mips/seed1",
+    "original_result_finished_utc": "2026-10-16T11:48:18.868043Z"
+   },
+   {
+    "at_cst": "2026-10-16T19:53:26+08:00",
+    "unscored": 33,
+    "added": "model-extraction-relu-logits/seed1",
+    "original_result_finished_utc": "2026-10-16T11:53:02.442802Z"
+   },
+   {
+    "at_cst": "2026-10-16T20:25:01+08:00",
+    "unscored": 34,
+    "added": "rstan-to-pystan/seed1",
+    "original_result_finished_utc": "2026-10-16T12:24:50.933754Z"
+   }
+  ],
+  "rstan_delta": {
+   "agent_started_utc": "2026-10-16T11:54:07.839837Z",
+   "agent_finished_utc": "2026-10-16T12:24:08.455344Z",
+   "normal_agent_budget_seconds": 1800,
+   "original_wrapper_reward": 0,
+   "native_test_execution_evidence": false,
+   "source": "trials/rstan-to-pystan__seed1__manual1__shorttmp1/verifier/test-stdout.txt",
+   "observed_bootstrap_failure": "Fetching pytest-json-ctrf from pypi.org failed after3retries with TLS HandshakeFailure; no original CTRF test report.",
+   "interpretation": "The new34th entry was a normally budget-ended generated answer followed by evaluator dependency failure, not evidence of a model zero or a newly repeated answer."
+  }
+ },
+ "normal_timeout_scoring_control": {
+  "observed_during_prior_read_in_this_audit": {
+   "accepted_AgentTimeout_reward0": 114,
+   "accepted_AgentTimeout_reward1": 6
+  },
+  "interpretation": "Normal AgentTimeout is explicitly accepted when a valid native reward and test evidence exist. The34 are not excluded merely for having a timeout exception.",
+  "code": "scripts/run_terminal_routing_v2.py:30-38"
+ },
+ "recovery_status_before_five_reviews": {
+  "five_existing_native_zero_results": [
+   {
+    "key": "break-filter-js-from-html/seed0",
+    "tests": 1,
+    "passed": 0,
+    "failed": 1
+   },
+   {
+    "key": "merge-diff-arc-agi-task/seed0",
+    "tests": 5,
+    "passed": 0,
+    "failed": 5
+   },
+   {
+    "key": "torch-pipeline-parallelism/seed0",
+    "tests": 3,
+    "passed": 2,
+    "failed": 1
+   },
+   {
+    "key": "make-doom-for-mips/seed1",
+    "tests": 3,
+    "passed": 0,
+    "failed": 3
+   },
+   {
+    "key": "rstan-to-pystan/seed1",
+    "tests": 6,
+    "passed": 1,
+    "failed": 5
+   }
+  ],
+  "missing_acceptance_condition": "reconstruction-review.json with reconstruction_complete_for_verifier=true after sufficient original-state review",
+  "review_owner": "terminal_recovery",
+  "other_archived_entries": [
+   {
+    "key": "configure-git-webserver/seed0",
+    "status": "Recovery blocked because the archive does not establish the necessary complete service state"
+   },
+   {
+    "key": "model-extraction-relu-logits/seed1",
+    "status": "Existing native regrading ended with TimeoutError and no reward"
+   }
+  ],
+  "warning": "These five raw zeros were not blindly accepted. Their state sufficiency review is separate work and may change the live unscored count after this snapshot."
+ },
+ "tmux_last_command_audit": {
+  "source_rule": "Original trials/<trial>/agent/trajectory.json steps and observation, plus original result exception.",
+  "cases": [
+   {
+    "key": "large-scale-text-editing/seed0",
+    "trial": "large-scale-text-editing__seed0__manual1",
+    "last_step": 26,
+    "last_step_utc": "2026-10-16T09:29:28.531416+00:00",
+    "last_command_summary": "Three C-c keystrokes followed by newline; earlier step21 targeted job%1 and vim with kill commands.",
+    "direct_tmux_kill_or_harbor_socket_change_observed": false,
+    "conclusion": "session disappeared; cause unconfirmed. Agent interrupts/job-control actions are recorded, but do not prove which process ended the tmux server."
+   },
+   {
+    "key": "qemu-alpine-ssh/seed0",
+    "trial": "qemu-alpine-ssh__seed0__first",
+    "last_step": 17,
+    "last_step_utc": "2026-10-16T09:17:06.964335+00:00",
+    "last_commands": [
+     "C-d",
+     "newline",
+     "echo test123"
+    ],
+    "observation_summary": "The same final observation prints exit, asciinema recording finished/saved, and an Apptainer> prompt. A later tmux send-keys reports no server running.",
+    "earlier_actions": "Step15 targeted the QEMU process/job and /app/vm-serial plus /app/vm-monitor, not the Harbor tmux socket.",
+    "direct_tmux_kill_or_harbor_socket_change_observed": false,
+    "conclusion": "An agent-issued EOF and shell/recording exit are direct evidence of agent participation in the terminal failure. Full tmux disappearance causality remains unconfirmed; it must not be labelled a proven network/infrastructure outage."
+   }
+  ]
+ },
+ "classification_code_sources": [
+  {
+   "path": "scripts/observe_terminal_final_v5.py",
+   "lines": [
+    23,
+    30,
+    31,
+    33,
+    39,
+    46,
+    50
+   ],
+   "role": "Earliest valid native/recovery result; restored state requires sufficient review; full445 denominator and residual unscored count."
+  },
+  {
+   "path": "scripts/run_terminal_routing_v2.py",
+   "lines": [
+    30,
+    38,
+    41,
+    46,
+    80
+   ],
+   "role": "Normal budget exceptions can be scored; separate verifier-incomplete state; at most two explicitly approved manual retries."
+  },
+  {
+   "path": "scripts/terminal_verifier_evidence.py",
+   "lines": [
+    6,
+    23
+   ],
+   "role": "Reject a pytest wrapper zero without evidence that tests ran."
+  },
+  {
+   "path": "scripts/regrade_terminal_saved_states_v3.py",
+   "lines": [
+    50,
+    56,
+    64,
+    70,
+    96,
+    98
+   ],
+   "role": "Only existing archives; preserve completed recovery attempts; require original-state review before acceptance."
+  }
+ ]
+}

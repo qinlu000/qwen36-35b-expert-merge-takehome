@@ -1,0 +1,808 @@
+{
+  "at_utc": "2026-10-16T13:29:17.705987+00:00",
+  "mode": "Read-only audit; no model/test/restart or source changes",
+  "source_summary": {
+    "updated_at_utc": "2026-10-16T13:28:47.642601+00:00",
+    "valid_covered": 204,
+    "active_trials": 30,
+    "pending_not_admitted": 177,
+    "infrastructure_unscored": 34
+  },
+  "checkpoint_updated_at_utc": "2026-10-16T13:28:40.685349+00:00",
+  "audit_cohort_definition": "Exclude observer-accepted AND checkpoint first-valid results, plus active/pending; avoid observer-lag false positives",
+  "audit_unscored_count": 34,
+  "root_cause_counts": {
+    "normal_1800s_solver_end_then_tmp_full_lost_state": 23,
+    "normal_1800s_solver_end_then_tmp_full_archive_preserved": 2,
+    "solver_cleanup_unconfirmed_no_verifier": 2,
+    "partial_solver_tmux_session_lost": 2,
+    "normal_1800s_solver_end_then_verifier_dependency_network_failure": 3,
+    "normal_1800s_solver_end_then_verifier_timeout": 2
+  },
+  "archive_present": 7,
+  "archive_absent": 27,
+  "normal_solver_timeout_is_not_itself_scoring_infrastructure_error": true,
+  "reward_zero_without_test_execution_not_accepted": 3,
+  "resident_grader": {
+    "pid": 2748211,
+    "updated_at_utc": "2026-10-16T13:28:48.780362+00:00",
+    "active_key": null,
+    "child_pid": null,
+    "finished_attempts": 43,
+    "new_model_calls": 0,
+    "status": "Idle after existing attempts; this does not mean all34 are still queued"
+  },
+  "rows": [
+    {
+      "task_seed": "adaptive-rejection-sampler/seed0",
+      "manual_attempt": 2,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.6,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/adaptive-rejection-sampler__seed0__manual2/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_5mj_b2vm/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "break-filter-js-from-html/seed0",
+      "manual_attempt": 2,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.59,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_archive_preserved",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/break-filter-js-from-html__seed0__manual2/result.json",
+      "archive": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/break-filter-js-from-html__seed0__manual2/artifacts/logs/artifacts/final-task-state.tar",
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_7zp1umk2/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [
+        {
+          "result_path": "artifacts/results/base-terminal-v2-recovery-20261016/rescoring/break-filter-js-from-html__seed0__manual2__savedstate2/result.json",
+          "reward": null,
+          "exception_type": "RuntimeError",
+          "exception_message": "Namespace relay exited",
+          "finished_at": "2026-10-16T10:25:35.299012+00:00",
+          "reconstruction_review_exists": false,
+          "reconstruction_complete_for_verifier": null,
+          "native_test_execution_lines": []
+        },
+        {
+          "result_path": "artifacts/results/base-terminal-v2-recovery-20261016/rescoring/break-filter-js-from-html__seed0__manual2__savedstate3/result.json",
+          "reward": 0.0,
+          "exception_type": null,
+          "exception_message": null,
+          "finished_at": "2026-10-16T10:36:14.819849+00:00",
+          "reconstruction_review_exists": false,
+          "reconstruction_complete_for_verifier": null,
+          "native_test_execution_lines": [
+            "        assert result.returncode == 0, f\"Filter failed with error: {result.stderr}\"",
+            "            \"No alert detected after filtering. The XSS bypass failed. \"",
+            "E       AssertionError: No alert detected after filtering. The XSS bypass failed. The filter successfully removed the JavaScript. The HTML needs to be crafted to bypass the filter.",
+            "============================== 1 failed in 8.60s ==============================="
+          ]
+        }
+      ],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "build-cython-ext/seed0",
+      "manual_attempt": 2,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.59,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/build-cython-ext__seed0__manual2/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_p9nvwjwt/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "build-pmars/seed0",
+      "manual_attempt": 2,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.6,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/build-pmars__seed0__manual2/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_joxi4nmo/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "build-pov-ray/seed0",
+      "manual_attempt": 2,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.6,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/build-pov-ray__seed0__manual2/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_m603o8p1/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "caffe-cifar-10/seed0",
+      "manual_attempt": 2,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.6,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/caffe-cifar-10__seed0__manual2/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_uc06yx4n/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "chess-best-move/seed0",
+      "manual_attempt": 2,
+      "state": "failed_attempt",
+      "primary_exception_type": "RuntimeError",
+      "primary_exception_message": "Refusing public network after unconfirmed solver cleanup",
+      "solver_seconds": 1800.54,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "solver_cleanup_unconfirmed_no_verifier",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/chess-best-move__seed0__manual2/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "Trial chess-best-move__seed0__manual2 failed: Refusing public network after unconfirmed solver cleanup"
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "circuit-fibsqrt/seed0",
+      "manual_attempt": 2,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.59,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/circuit-fibsqrt__seed0__manual2/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_iwfgf36v/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "code-from-image/seed0",
+      "manual_attempt": 2,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.6,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/code-from-image__seed0__manual2/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_mfeijl0f/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "compile-compcert/seed0",
+      "manual_attempt": 2,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.59,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/compile-compcert__seed0__manual2/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_ob4x4l3n/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "configure-git-webserver/seed0",
+      "manual_attempt": 2,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.6,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_archive_preserved",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/configure-git-webserver__seed0__manual2/result.json",
+      "archive": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/configure-git-webserver__seed0__manual2/artifacts/logs/artifacts/final-task-state.tar",
+      "original_log_evidence": [
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": true
+    },
+    {
+      "task_seed": "count-dataset-tokens/seed0",
+      "manual_attempt": 2,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.59,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/count-dataset-tokens__seed0__manual2/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_3qsw_zb2/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "feal-differential-cryptanalysis/seed0",
+      "manual_attempt": 1,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.6,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/feal-differential-cryptanalysis__seed0__manual1/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_rm_uf20d/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "feal-linear-cryptanalysis/seed0",
+      "manual_attempt": 1,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.6,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/feal-linear-cryptanalysis__seed0__manual1/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_cmdptvj2/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "financial-document-processor/seed0",
+      "manual_attempt": 1,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.58,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/financial-document-processor__seed0__manual1/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_vs96pdbt/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "fix-ocaml-gc/seed0",
+      "manual_attempt": 1,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.6,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/fix-ocaml-gc__seed0__manual1/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_bbn1yjby/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "gcode-to-text/seed0",
+      "manual_attempt": 1,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.6,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/gcode-to-text__seed0__manual1/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_3mqdfps3/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "git-multibranch/seed0",
+      "manual_attempt": 1,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.62,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/git-multibranch__seed0__manual1/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_c2nb4n25/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "hf-model-inference/seed0",
+      "manual_attempt": 1,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.6,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/hf-model-inference__seed0__manual1/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_z0qic9pp/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "install-windows-3.11/seed0",
+      "manual_attempt": 1,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.6,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/install-windows-3.11__seed0__manual1/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_rabd5ywj/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "kv-store-grpc/seed0",
+      "manual_attempt": 1,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.6,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/kv-store-grpc__seed0__manual1/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_3ify636u/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "large-scale-text-editing/seed0",
+      "manual_attempt": 1,
+      "state": "failed_attempt",
+      "primary_exception_type": "RuntimeError",
+      "primary_exception_message": "large-scale-text-editing__seed0__manual1__env: failed to send non-blocking keys: command=\"tmux send-keys -t terminus-2 -- '\\n'\", return_code=1, stderr=None, stdout='no server running on /tmp/.harbor-tmux/tmux-0/default'",
+      "solver_seconds": 1177.88,
+      "solver_completed_normal_budget": false,
+      "reward_in_original_result": null,
+      "root_cause_group": "partial_solver_tmux_session_lost",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/large-scale-text-editing__seed0__manual1/result.json",
+      "archive": null,
+      "original_log_evidence": [],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "largest-eigenval/seed0",
+      "manual_attempt": 1,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.59,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/largest-eigenval__seed0__manual1/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_5q5q6ha_/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "llm-inference-batching-scheduler/seed0",
+      "manual_attempt": 1,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.58,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/llm-inference-batching-scheduler__seed0__manual1/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_yngihxrh/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "mailman/seed0",
+      "manual_attempt": 1,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.59,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mailman__seed0__manual1/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_p9hvn601/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "merge-diff-arc-agi-task/seed0",
+      "manual_attempt": 2,
+      "state": "verifier_incomplete",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.6,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": 0.0,
+      "root_cause_group": "normal_1800s_solver_end_then_verifier_dependency_network_failure",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/merge-diff-arc-agi-task__seed0__manual2__shorttmp1/result.json",
+      "archive": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/merge-diff-arc-agi-task__seed0__manual2__shorttmp1/artifacts/logs/artifacts/final-task-state.tar",
+      "original_log_evidence": [],
+      "original_verifier_evidence": [
+        "error: Failed to fetch: `https://pypi.org/simple/pytest/`",
+        "  Caused by: Request failed after 3 retries"
+      ],
+      "grading_attempts": [
+        {
+          "result_path": "artifacts/results/base-terminal-v2-recovery-20261016/rescoring/merge-diff-arc-agi-task__seed0__manual2__shorttmp1__savedstate2/result.json",
+          "reward": 0.0,
+          "exception_type": null,
+          "exception_message": null,
+          "finished_at": "2026-10-16T11:03:05.367885+00:00",
+          "reconstruction_review_exists": false,
+          "reconstruction_complete_for_verifier": null,
+          "native_test_execution_lines": [
+            "W: Failed to fetch https://mirrors.tuna.tsinghua.edu.cn/ubuntu/dists/noble-security/InRelease  Certificate verification failed: The certificate is NOT trusted. The certificate issu",
+            "W: Some index files failed to download. They have been ignored, or old ones used instead.",
+            "collected 5 items",
+            "============================== 5 failed in 0.12s ==============================="
+          ]
+        }
+      ],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "qemu-alpine-ssh/seed0",
+      "manual_attempt": 0,
+      "state": "failed_attempt",
+      "primary_exception_type": "RuntimeError",
+      "primary_exception_message": "qemu-alpine-ssh__seed0__first__env: failed to send non-blocking keys: command=\"tmux send-keys -t terminus-2 -- 'pwd\\n'\", return_code=1, stderr=None, stdout='no server running on /tmp/.harbor-tmux/tmux-0/default'",
+      "solver_seconds": 927.87,
+      "solver_completed_normal_budget": false,
+      "reward_in_original_result": null,
+      "root_cause_group": "partial_solver_tmux_session_lost",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/qemu-alpine-ssh__seed0__first/result.json",
+      "archive": null,
+      "original_log_evidence": [],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "raman-fitting/seed0",
+      "manual_attempt": 0,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.59,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/raman-fitting__seed0__first/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_fvj72yhe/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "regex-chess/seed0",
+      "manual_attempt": 0,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.59,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_tmp_full_lost_state",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/regex-chess__seed0__first/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "OSError: [Errno 28] No space left on device: '/tmp/apex_baseline_staging_1l3g4wlv/tests'",
+        "harbor.verifier.verifier.AddTestsDirError: Failed to add tests directory to environment."
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "torch-pipeline-parallelism/seed0",
+      "manual_attempt": 1,
+      "state": "verifier_incomplete",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.6,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": 0.0,
+      "root_cause_group": "normal_1800s_solver_end_then_verifier_dependency_network_failure",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/torch-pipeline-parallelism__seed0__manual1__shorttmp1/result.json",
+      "archive": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/torch-pipeline-parallelism__seed0__manual1__shorttmp1/artifacts/logs/artifacts/final-task-state.tar",
+      "original_log_evidence": [],
+      "original_verifier_evidence": [
+        "  \u00d7 Failed to download `nvidia-cusolver-cu12==11.7.1.2`",
+        "  \u2570\u2500\u25b6 Failed to download distribution due to network timeout. Try increasing"
+      ],
+      "grading_attempts": [
+        {
+          "result_path": "artifacts/results/base-terminal-v2-recovery-20261016/rescoring/torch-pipeline-parallelism__seed0__manual1__shorttmp1__savedstate2/result.json",
+          "reward": 0.0,
+          "exception_type": null,
+          "exception_message": null,
+          "finished_at": "2026-10-16T11:08:25.049101+00:00",
+          "reconstruction_review_exists": false,
+          "reconstruction_complete_for_verifier": null,
+          "native_test_execution_lines": [
+            "        msg = f\"\\n\\n-- Process {error_index:d} terminated with the following error:\\n\"",
+            ">       raise ProcessRaisedException(msg, error_index, failed_process.pid)",
+            "E       -- Process 0 terminated with the following error:",
+            "========================= 2 failed, 2 passed in 21.52s ========================="
+          ]
+        }
+      ],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "configure-git-webserver/seed1",
+      "manual_attempt": 1,
+      "state": "failed_attempt",
+      "primary_exception_type": "RuntimeError",
+      "primary_exception_message": "Refusing public network after unconfirmed solver cleanup",
+      "solver_seconds": 1207.42,
+      "solver_completed_normal_budget": false,
+      "reward_in_original_result": null,
+      "root_cause_group": "solver_cleanup_unconfirmed_no_verifier",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/configure-git-webserver__seed1__manual1__shorttmp1/result.json",
+      "archive": null,
+      "original_log_evidence": [
+        "Trial configure-git-webserver__seed1__manual1__shorttmp1 failed: Refusing public network after unconfirmed solver cleanup"
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "make-doom-for-mips/seed1",
+      "manual_attempt": 1,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.59,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_verifier_timeout",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed1__manual1__shorttmp1/result.json",
+      "archive": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed1__manual1__shorttmp1/artifacts/logs/artifacts/final-task-state.tar",
+      "original_log_evidence": [
+        "harbor.trial.errors.VerifierTimeoutError: Verifier execution timed out after 900.0 seconds"
+      ],
+      "original_verifier_evidence": [],
+      "grading_attempts": [
+        {
+          "result_path": "artifacts/results/base-terminal-v2-recovery-20261016/rescoring/make-doom-for-mips__seed1__manual1__shorttmp1__savedstate2/result.json",
+          "reward": 0.0,
+          "exception_type": null,
+          "exception_message": null,
+          "finished_at": "2026-10-16T11:49:19.310864+00:00",
+          "reconstruction_review_exists": false,
+          "reconstruction_complete_for_verifier": null,
+          "native_test_execution_lines": [
+            "collected 3 items",
+            "============================== 3 failed in 30.17s =============================="
+          ]
+        }
+      ],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "model-extraction-relu-logits/seed1",
+      "manual_attempt": 1,
+      "state": "failed_attempt",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.6,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": null,
+      "root_cause_group": "normal_1800s_solver_end_then_verifier_timeout",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/model-extraction-relu-logits__seed1__manual1__shorttmp1/result.json",
+      "archive": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/model-extraction-relu-logits__seed1__manual1__shorttmp1/artifacts/logs/artifacts/final-task-state.tar",
+      "original_log_evidence": [
+        "harbor.trial.errors.VerifierTimeoutError: Verifier execution timed out after 900.0 seconds"
+      ],
+      "original_verifier_evidence": [
+        "collected 1 item"
+      ],
+      "grading_attempts": [
+        {
+          "result_path": "artifacts/results/base-terminal-v2-recovery-20261016/rescoring/model-extraction-relu-logits__seed1__manual1__shorttmp1__savedstate2/result.json",
+          "reward": null,
+          "exception_type": "TimeoutError",
+          "exception_message": "",
+          "finished_at": "2026-10-16T12:08:23.855231+00:00",
+          "reconstruction_review_exists": false,
+          "reconstruction_complete_for_verifier": null,
+          "native_test_execution_lines": [
+            "collected 1 item"
+          ]
+        }
+      ],
+      "explicit_restore_block": false
+    },
+    {
+      "task_seed": "rstan-to-pystan/seed1",
+      "manual_attempt": 1,
+      "state": "verifier_incomplete",
+      "primary_exception_type": "AgentTimeoutError",
+      "primary_exception_message": "Agent execution timed out after 1800.0 seconds",
+      "solver_seconds": 1800.62,
+      "solver_completed_normal_budget": true,
+      "reward_in_original_result": 0.0,
+      "root_cause_group": "normal_1800s_solver_end_then_verifier_dependency_network_failure",
+      "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed1__manual1__shorttmp1/result.json",
+      "archive": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed1__manual1__shorttmp1/artifacts/logs/artifacts/final-task-state.tar",
+      "original_log_evidence": [],
+      "original_verifier_evidence": [
+        "error: Failed to fetch: `https://pypi.org/simple/pytest-json-ctrf/`",
+        "  Caused by: Request failed after 3 retries",
+        "  Caused by: received fatal alert: HandshakeFailure"
+      ],
+      "grading_attempts": [
+        {
+          "result_path": "artifacts/results/base-terminal-v2-recovery-20261016/rescoring/rstan-to-pystan__seed1__manual1__shorttmp1__savedstate2/result.json",
+          "reward": 0.0,
+          "exception_type": null,
+          "exception_message": null,
+          "finished_at": "2026-10-16T12:25:18.086397+00:00",
+          "reconstruction_review_exists": false,
+          "reconstruction_complete_for_verifier": null,
+          "native_test_execution_lines": [
+            "collected 6 items",
+            "========================= 5 failed, 1 passed in 0.08s =========================="
+          ]
+        }
+      ],
+      "explicit_restore_block": false
+    }
+  ]
+}
