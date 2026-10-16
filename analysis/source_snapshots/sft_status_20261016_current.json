@@ -1,0 +1,229 @@
+{
+  "snapshot_time_beijing": "2026-10-16T21:28:08.821827+08:00",
+  "jobs": [
+    {
+      "job_id": 726335,
+      "slurm_name_state_elapsed_start_end_exit": [
+        "apex-swe2k-sft",
+        "COMPLETED",
+        "02:03:00",
+        "2026-10-16T17:52:24",
+        "2026-10-16T19:55:24",
+        "0:0"
+      ],
+      "run_exists": true,
+      "run_path": "artifacts/runs/swe2k-sft-r16-726335",
+      "latest_optimizer": {
+        "loss": 0.36871618,
+        "epoch": 1,
+        "global_step/max_steps": "249/249",
+        "elapsed_time": "1h 54m 30s",
+        "remaining_time": "0s",
+        "memory(GiB)": 61.42
+      },
+      "latest_eval": {
+        "eval_loss": 0.31768048,
+        "epoch": 1,
+        "global_step/max_steps": "249/249",
+        "elapsed_time": "1h 55m 36s",
+        "remaining_time": "0s",
+        "memory(GiB)": 61.42
+      },
+      "completed_eval_passes": 16,
+      "native_final_summary": {
+        "global_step": 249,
+        "last_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+        "best_metric": 0.31768048
+      },
+      "latest_saved_checkpoint": "artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+      "checkpoint_state": {
+        "global_step": 249,
+        "max_steps": 249,
+        "epoch": 1,
+        "best_metric": 0.31768048,
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249"
+      },
+      "summary": {
+        "passed": true,
+        "world_size": 4,
+        "global_steps": 249,
+        "wall_seconds": 7286.073950213962,
+        "final_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249"
+      }
+    },
+    {
+      "job_id": 726336,
+      "slurm_name_state_elapsed_start_end_exit": [
+        "apex-asi-expanded-sft",
+        "COMPLETED",
+        "00:51:36",
+        "2026-10-16T16:56:09",
+        "2026-10-16T17:47:45",
+        "0:0"
+      ],
+      "run_exists": true,
+      "run_path": "artifacts/runs/asi-expanded-sft-r16-726336",
+      "latest_optimizer": {
+        "loss": 0.30870587,
+        "epoch": 1,
+        "global_step/max_steps": "134/134",
+        "elapsed_time": "46m 31s",
+        "remaining_time": "0s",
+        "memory(GiB)": 43.22
+      },
+      "latest_eval": {
+        "eval_loss": 0.58287901,
+        "epoch": 1,
+        "global_step/max_steps": "134/134",
+        "elapsed_time": "46m 41s",
+        "remaining_time": "0s",
+        "memory(GiB)": 43.26
+      },
+      "completed_eval_passes": 9,
+      "native_final_summary": {
+        "global_step": 134,
+        "last_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-134",
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128",
+        "best_metric": 0.58268344
+      },
+      "latest_saved_checkpoint": "artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-134",
+      "checkpoint_state": {
+        "global_step": 134,
+        "max_steps": 134,
+        "epoch": 1,
+        "best_metric": 0.58268344,
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128"
+      },
+      "summary": {
+        "passed": true,
+        "world_size": 2,
+        "global_steps": 134,
+        "wall_seconds": 2945.78616404254,
+        "final_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-134",
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128"
+      }
+    },
+    {
+      "job_id": 726664,
+      "slurm_name_state_elapsed_start_end_exit": [
+        "apex-hle-existing2k-sft",
+        "RUNNING",
+        "01:34:36",
+        "2026-10-16T19:53:32",
+        "Unknown",
+        "0:0"
+      ],
+      "run_exists": true,
+      "run_path": "artifacts/runs/hle-existing2k-sft-r16-726664",
+      "latest_optimizer": {
+        "loss": 0.47875816,
+        "epoch": 1,
+        "global_step/max_steps": "250/250",
+        "elapsed_time": "1h 29m 19s",
+        "remaining_time": "0s",
+        "memory(GiB)": 42.38
+      },
+      "latest_eval": {
+        "eval_loss": 3.51007748,
+        "epoch": 0.96,
+        "global_step/max_steps": "240/250",
+        "elapsed_time": "1h 26m 57s",
+        "remaining_time": "3m 37s",
+        "memory(GiB)": 42.38
+      },
+      "completed_eval_passes": 15,
+      "latest_saved_checkpoint": "artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-240",
+      "checkpoint_state": {
+        "global_step": 240,
+        "max_steps": 250,
+        "epoch": 0.96,
+        "best_metric": 2.00219154,
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-16"
+      }
+    },
+    {
+      "job_id": 726665,
+      "slurm_name_state_elapsed_start_end_exit": [
+        "apex-terminal-retry-sft",
+        "RUNNING",
+        "00:03:40",
+        "2026-10-16T21:24:28",
+        "Unknown",
+        "0:0"
+      ],
+      "scontrol_fields": [
+        "JobState=RUNNING Reason=None Dependency=(null)",
+        "RunTime=00:03:41 TimeLimit=16:00:00 TimeMin=N/A",
+        "StartTime=2026-10-16T21:24:28 EndTime=2026-10-17T13:24:28 Deadline=N/A",
+        "ReqNodeList=(null) ExcNodeList=ACD1-59",
+        "NodeList=ACD1-26",
+        "AllocTRES=cpu=24,mem=256G,node=1,billing=24,gres/gpu=4"
+      ],
+      "run_exists": true,
+      "run_path": "artifacts/runs/terminal-retry-sft-r16-726665",
+      "training_tail_markers": [
+        "[INFO:swift] model_kwargs: {'device_map': None, 'dtype': torch.bfloat16, 'experts_implementation': 'grouped_mm'}"
+      ],
+      "slurm_log_tail": "Loading apptainer/1.4.5\n  Loading requirement: go/1.25\n[INFO:swift] Successfully registered `/data/user/qinlucao/projects/apex-takehome/artifacts/envs/sft/lib/python3.12/site-packages/swift/dataset/data/dataset_info.json`.\n{\"native_swift_launched\": true, \"name\": \"terminal-retry\", \"world_size\": 4, \"gradient_accumulation_steps\": 2, \"max_length\": 65536, \"data_dir\": \"/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/terminal_sft_2k_20261016\", \"output\": \"/data/user/qinlucao/projects/apex-takehome/artifacts/runs/terminal-retry-sft-r16-726665\"}\n"
+    },
+    {
+      "job_id": 726666,
+      "slurm_name_state_elapsed_start_end_exit": [
+        "apex-mixed-existing2k-sft",
+        "RUNNING",
+        "01:32:44",
+        "2026-10-16T19:55:24",
+        "Unknown",
+        "0:0"
+      ],
+      "run_exists": true,
+      "run_path": "artifacts/runs/mixed-existing2k-sft-r16-726666",
+      "latest_optimizer": {
+        "loss": 0.44479984,
+        "epoch": 0.1993205,
+        "global_step/max_steps": "176/883",
+        "elapsed_time": "1h 22m 7s",
+        "remaining_time": "5h 29m 50s",
+        "memory(GiB)": 55.2
+      },
+      "latest_eval": {
+        "eval_loss": 1.67104614,
+        "epoch": 0.18120045,
+        "global_step/max_steps": "160/883",
+        "elapsed_time": "1h 18m 46s",
+        "remaining_time": "5h 55m 54s",
+        "memory(GiB)": 55.1
+      },
+      "completed_eval_passes": 10,
+      "latest_saved_checkpoint": "artifacts/runs/mixed-existing2k-sft-r16-726666/training/checkpoint-160",
+      "checkpoint_state": {
+        "global_step": 160,
+        "max_steps": 883,
+        "epoch": 0.1812004530011325,
+        "best_metric": 1.21849561,
+        "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/mixed-existing2k-sft-r16-726666/training/checkpoint-64"
+      }
+    }
+  ],
+  "followup_time_beijing": "2026-10-16T21:28:56.488993+08:00",
+  "followup_evidence": {
+    "hle_726664": {
+      "native_final_summary_observed": true,
+      "global_step": 250,
+      "last_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-250",
+      "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-16",
+      "note": "Native final summary appeared after the initial snapshot; no additional sacct poll was made."
+    },
+    "terminal_726665": {
+      "native_log_stage": "model_kwargs: BF16, grouped_mm; model loading",
+      "native_loaded_dataset_counts_available": false,
+      "optimizer_logging_jsonl_exists": false,
+      "note": "Processor field documentation warnings do not indicate job failure; no traceback or OOM observed."
+    },
+    "mixed_726666": {
+      "global_step_max_steps": "176/883"
+    }
+  }
+}

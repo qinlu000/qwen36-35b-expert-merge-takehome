@@ -1,18 +1,18 @@
-# SFT 进度（2026-10-16，21:08训练日志／21:12调度复核）
+# SFT 进度（2026-10-16，21:28原生日志复核）
 
 用户澄清需要更多现成 HLE 回答，随后授权继续。此前退回500条是执行方理解过窄；现在已实际完成HLE **2000 train /100原val**，没有恢复教师API。原500数据与725704权重保留历史，不作为新2k已训练的证据。
 
 | 模型 | 导出train→实际加载 / val加载 | 当前实证状态 |
 |---|---:|---|
 | SWE / 仓库修复 | 2000→**1993** /87 | 726335，4H100，19:55完成249步；best checkpoint249，val loss0.31768048 |
-| Terminal / 终端操作 | 2000→待确认 /准备42 | 726665，4H100，21:10解除旧依赖；21:12仍PENDING(Resources)，尚无新native run |
-| HLE / 学术推理 | 2000→2000 /100 | 726664，2H100，RUNNING，189/250步；best checkpoint16，val loss2.00219154 |
+| Terminal / 终端操作 | 2000→待确认 /准备42 | 726665，21:24:28已获4H100（ACD1-26）；原生Swift已启动并进入加载流程，尚无optimizer/loss |
+| HLE / 学术推理 | 2000→2000 /100 | 726664，250/250步；原生最终summary与checkpoint250已保存，best checkpoint16，val loss2.00219154 |
 | ASI / 科研编程 | 1073→1073 /20 | 726336已完成134步，51分36秒；best checkpoint128，val loss0.58268344 |
-| Mixed对照 | 7073→**7066** /249 | 726666，4H100，RUNNING，128/883步；best checkpoint64，val loss1.21849561 |
+| Mixed对照 | 7073→**7066** /249 | 726666，4H100，RUNNING，176/883步；best checkpoint64，val loss1.21849561 |
 
-21:08原生Trainer估计：HLE剩约23分钟，Mixed剩约6小时10分钟；这会随批次长度、验证和保存变化，不是完成承诺。Terminal当前调度器暂估10/17 01:11分配，尚未获卡，不能据此推算训练完成时间。HLE最新一次验证（176步）loss3.48262358高于早期最佳，保留早期checkpoint，随后按独立val选择；不能将此loss直接当HLE准确率。
+21:28原生Trainer估计Mixed剩约5小时30分钟，会随批次长度、验证和保存变化，不是完成承诺。Terminal实际21:24获卡，旧调度器01:11预测已经失效；模型加载与optimizer严格区分，尚不能说新run已经完成一次参数更新。HLE最新完整eval（240步）loss3.51007748高于早期最佳，最终summary仍选checkpoint16；按独立val再做生成与任务表现比较，不能将loss直接当HLE准确率。
 
-原始快照：[训练状态](source_snapshots/sft_status_latest_20261016.json)、[Terminal依赖释放与资源排队](source_snapshots/terminal_scheduling_20261016_2110.json)。
+原始快照：[21:28训练状态](source_snapshots/sft_status_20261016_current.json)、[21:08历史训练状态](source_snapshots/sft_status_latest_20261016.json)、[Terminal依赖释放与资源排队历史](source_snapshots/terminal_scheduling_20261016_2110.json)。
 
 本轮首次按native loader复核：SWE7条中途tool→user纠正反馈触发Swift `response_role:user`，被整条过滤；Mixed同7条也过滤。不是超长或截断。导出文件保持2000/7073，下文该数均为导出量；实际加载数与7条来源定位已修正，见[训练数据汇报表](training_data_report_20261016.md)。SWE2k实际run路径为`swe2k-sft-r16-726335`。加载数不等于每步batch的逐条曝光计数。
 
@@ -39,6 +39,8 @@
 原726346在PENDING/0运行时先hold，确认未读取旧5573后取消。新目录`artifacts/data/candidates/mixed_existing_hle2k_20261016`已在HPC实数7073/249：HLE2000→SWE2000→Terminal2000→ASI1073，各一次；val100/87/42/20。旧Mixed目录保留。
 
 HLE双卡、Mixed四卡（SWE完成后接续）。Terminal原依赖`afterany:726664:725705`用于覆盖此前Base服务迁移峰值；21:10实查本题运行GPU仅10张（HLE2＋Mixed4＋Base两个TP2共4），加Terminal4为14≤16，故只清除Terminal自有job旧依赖，21:12已核`Dependency=(null)`、因Resources等待。未操作Base或其他项目作业。
+
+21:24:28 Terminal已实际获得ACD1-26同机4卡；21:28本题运行合计14卡（Terminal4＋Mixed4＋HLE2＋Base4），HLE正在完成退出收尾，资源仍在16卡上限内。新Terminal run已生成配置/命令和Swift原生日志，尚未出现数据加载数量或optimizer记录。
 
 共用r16/alpha32/dropout.05、global8、LR1e-4、weight_decay.1、一epoch、BF16、原loss mask及完整样本策略。新HLE与Mixed不覆盖在训SWE数据；旧High生成STOP_ADMISSION与已停止的后续保持，无新教师API、数据hash审计或app自动化。
 

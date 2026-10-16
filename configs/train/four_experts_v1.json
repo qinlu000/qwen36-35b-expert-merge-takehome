@@ -28,7 +28,7 @@
       "data_dir": "artifacts/data/candidates/terminal_sft_2k_20261016",
       "train_rows": 2000,
       "requested_train_rows": 2000,
-      "status": "Pending Resources; obsolete dependencies cleared at 2026-10-16 21:10:29 CST; native loading not yet observed",
+      "status": "Running allocation since 2026-10-16 21:24:28 CST; native Swift model loading; first optimizer step not yet observed at21:28",
       "job_id": 726665,
       "afterany": [],
       "dependency_cleared_at": "2026-10-16T21:10:29+08:00",
@@ -37,7 +37,8 @@
       "run_dir": "artifacts/runs/terminal-retry-sft-r16-726665",
       "val_rows": 42,
       "max_length": 65536,
-      "superseded_pending_job_id": 726648
+      "superseded_pending_job_id": 726648,
+      "actual_start_time": "2026-10-16T21:24:28+08:00"
     },
     {
       "name": "hle",
@@ -46,7 +47,7 @@
       "data_dir": "artifacts/data/candidates/hle_existing_2k_20261016/swift_ready",
       "train_rows": 2000,
       "requested_train_rows": 2000,
-      "status": "Running; all 2000/100 loaded; 162 reference short answers disclosed",
+      "status": "250/250 optimizer steps; final checkpoint250 and native summary saved; best checkpoint16",
       "cancelled_expansion_job_id": 726344,
       "val_rows": 100,
       "max_length": 65536,
@@ -56,7 +57,9 @@
       "reference_short_answer_rows": 162,
       "failed_initial_job_id": 726647,
       "native_loaded_train_rows": 2000,
-      "native_loaded_val_rows": 100
+      "native_loaded_val_rows": 100,
+      "optimizer_steps_observed": 250,
+      "best_checkpoint_step": 16
     },
     {
       "name": "asi",

@@ -1303,3 +1303,11 @@
 - 用户问多久跑完。只读21:23:50 owner：193/445有效，30在途188待准入34infra未有效。按已接受结果finished_at统计最近30min完成39(78/h)、60min完成70(70/h)，均新服务；不是重新跑collector或新API。
 - 正常218项按70–78/h外推2.8–3.1h，留尾部/难度/验证波动报再3–4h，预计10/17 00:30–01:30清空正常队列。34infra/未评分单列，无法按正常速率承诺完整445/445的总ETA；不将其误计成已完成或答错0分。
 - ETA及方法已补analysis/terminal_base_latency_20261016.md，结构化快照terminal_base_eta_20261016.json。仅更新记录，无任何作业、服务、预算或答案变更，Git仅纳本轮自有内容，无coauthor信息。
+
+
+## 2026-10-16 21:28 CST：SFT是否全部启动实核
+
+- 用户问SFT是否都开始。四专家均已进入启动流程：SWE249/249与ASI134/134早已COMPLETED；HLE250/250，native final summary/最终checkpoint250已保存，best16；Mixed176/883(约20%)，原生动态剩余5h30。
+- Terminal726665已21:24:28实际获ACD1-26同机4H100，Swift native worker已启动，日志进入model_kwargs(BF16/grouped_mm)加载阶段；21:28尚无native数据数量、optimizer/loss，严格区分拿卡/模型加载和实际参数更新。此前凌晨01:11调度预测已失效，不能继续报仍待卡。
+- 21:28本题运行Terminal4+Mixed4+HLE2+Base4=14GPU（HLE收尾中）；无关项目1卡另计。此次仅只读，没有新调度/数据/配方修改或API。主进度/训练矩阵/独立新快照已更新，不覆盖旧21:08证据。
+- 原始训练/数据记录继续保留，HLE早期best16不被最后250覆盖；验证loss不当benchmark分。Git只提交本轮自有文件和claud/overnight追加，无coauthor信息。
