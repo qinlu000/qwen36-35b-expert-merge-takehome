@@ -22,8 +22,8 @@ from pypdf import PdfReader
 ROOT = Path(__file__).resolve().parents[1]
 ABSTRACT = ('本实验研究以四类任务训练专家，再以参数合版兼顾代码修复、终端交互、学术推理与科研编程。'
             '四个专家和同源混训对照均已完成监督训练，等权平均主模型已经冻结。'
-            '学术专家及混训对照完成全量评分，其余正式矩阵尚未齐备，不报告总体提升。'
-            '真实层验证发现冲突消解合版的低秩回投影误差较大，已完成完整权重导出。'
+            '学术专家、混训及合版取得完整学术分数，科研专家本地评分低于基座，不报告总体提升。'
+            '实测冲突消解合版的低秩回投影误差较大，已完成完整权重导出。'
             '实验保留资源预算、替代判分和调度差异，损失仅作训练诊断。'
             '后续收齐任务结果、配对区间与最终成本，未决项如实列出。')
 NAVY = colors.HexColor('#18354A')
@@ -42,7 +42,7 @@ def render(output, font):
     assert 150 <= han_count <= 200
     pdfmetrics.registerFont(TTFont('Chinese', str(font)))
     training = load('configs/train/four_experts_v1.json')
-    formal_receipt = load('analysis/source_snapshots/formal_aggregation_20261017_0522.json')
+    formal_receipt = load('analysis/source_snapshots/formal_aggregation_20261017_0727.json')
     formal = formal_receipt['views']['strict']
     budget_terminal = formal_receipt['views']['audited_terminal_budget']['models']['base']['benchmarks']['terminal']
     merge = load('analysis/source_snapshots/merge_export_20261017.json')
@@ -146,30 +146,36 @@ def render(output, font):
                 row.append('待齐备')
         matrix.append(row)
     table(matrix, [96] + [(width - 96) / 6] * 6, row_height=23)
-    paragraph('Base HLE 3.96%来自完整2500题；ASI 1.571%来自完整240条件的公开local原生聚合。未评为专家非目标项；其余目标项待齐备，'
-              '不以部分coverage估正式分。四项等权宏平均、相对Base提升及配对CI均待齐备。',
+    asi_ci = formal['comparisons']['asi128_vs_base']['benchmarks']['asi']['delta_ci95_percent_points']
+    paragraph(f'ASI专家0.379%低于Base1.571%，差-1.192pp，配对95%CI[{asi_ci["lower"]:.3f},{asi_ci["upper"]:.3f}]；'
+              '均为240条件公开local原生聚合。未评为专家非目标项；四项宏平均与提升仍待齐备，不以部分coverage估分。',
               size=8.1, leading=11.7, color=GRAY, after=2)
     paragraph(f'BaseTB独立预算{budget_terminal["primary_score_percent"]:.6f}%，'
               f'{budget_terminal["native_valid"]} native+{budget_terminal["derived_timeout"]}审计超时派生0，raw null不变。',
               size=8.1, leading=11.7, color=GRAY, after=2)
 
     section('已完整的 HLE 任务结果  |  同2500题、含342张图')
-    ids = ['base', 'hle250', 'mixed883']
+    ids = ['base', 'hle250', 'mixed883', 'avg64', 'avg16']
     hle = [formal['models'][name]['benchmarks']['hle'] for name in ids]
     assert all(row['complete'] for row in hle)
-    table([['完整HLE', 'Base', 'HLE专家', 'Mixed训练对照'],
+    table([['完整HLE', 'Base', 'HLE专家', 'Mixed对照', 'AVG64', 'AVG16'],
            ['准确率', *[f'{row["primary_score_percent"]:.2f}%' for row in hle]]],
-          [width / 4] * 4, row_height=22)
+          [width / 6] * 6, row_height=22)
     ci = formal['comparisons']['hle250_vs_base']['benchmarks']['hle']['delta_ci95_percent_points']
-    paragraph(f'专家较Base +2.96个百分点，逐题配对95%CI [{ci["lower"]:.2f}, {ci["upper"]:.2f}]；'
-              'Base原生无答1445题，专家30、Mixed41，历史队列/服务混杂未消除，不能单独归因权重。'
-              '八项Judge截断采用与Base相同的一次格式恢复，原答卷不变，显式披露两次上限外例外。',
+    avg_ci = formal['comparisons']['avg64_vs_base']['benchmarks']['hle']['delta_ci95_percent_points']
+    paragraph(f'专家较Base +2.96pp，配对95%CI [{ci["lower"]:.2f}, {ci["upper"]:.2f}]；'
+              f'AVG64 +0.72pp [{avg_ci["lower"]:.2f}, {avg_ci["upper"]:.2f}]，尚不足确认稳定提升。'
+              'Base/专家/Mixed/AVG原生无答1445/30/41/1196，历史服务混杂未消除，不能单独归因权重。'
+              '固定名单Judge截断作一次格式恢复，原答卷不变，显式披露2+1例外。'
+              'TIES全2500生成、2499有效，1项缺正确性字段仍未决，完整方法分差暂缺。',
               size=8.1, leading=11.7, color=GRAY, after=1)
 
     section('协议边界与交付')
     paragraph('实际统一64K/8K、非thinking；Terminal为30min/4CPU/8GiB，低于原题3h/32CPU/48GB/256K/80K，'
               '尚无例外批准。SWE为30min；HLE/ASI使用披露的替代Judge，ASI为公开local，服务并发差异仍保留。',
               size=8.5, leading=12.3, after=4)
+    paragraph('07:26资源账本：结束227.570 GPUh，在跑6卡暂计18.823 GPUh；API核算15.0291 CNY另0.3283 USD，'
+              '含保留reservation、非发票，HPC单价未知。', size=8.1, leading=11.7, color=GRAY, after=3)
     paragraph('已交付：五个Public HF adapter已匿名完整下载核对；Private GitHub已创建并推送默认master。'
               '模型链接与不可变revision见models/README.md。', size=8.5, leading=12.3, after=4)
     paragraph('已整理20个真实失败及3项后续实验。待完成：完整评分 / TIES任务对照 / 最终成本与离线资产。',
@@ -180,7 +186,7 @@ def render(output, font):
     pdf.line(margin, 79, page_w - margin, 79)
     footer = [
         '阶段性草稿，不是最终 report.pdf；生成 ' + generated.strftime('%Y-%m-%d %H:%M:%S CST') + '  |  1 / 1',
-        '结果收据：analysis/source_snapshots/formal_aggregation_20261017_0522.json（05:22 CST，strict与预算分开）',
+        '结果收据：analysis/source_snapshots/formal_aggregation_20261017_0727.json（07:26 CST，strict与预算分开）',
         '方法：analysis/merge_method_decision_20261017.md；失败：analysis/avg64_failure_cases_20261017.md',
         '发布收据：analysis/source_snapshots/hf_publication_20261017.json；github_repository_20261017.json',
     ]

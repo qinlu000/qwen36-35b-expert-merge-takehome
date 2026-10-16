@@ -1,0 +1,924 @@
+{
+  "observation_window_utc": {
+    "start": "2026-10-16T23:05:04.750753+00:00",
+    "end": "2026-10-16T23:08:05.817555+00:00"
+  },
+  "non_transactional_snapshot": true,
+  "scope": {
+    "read_only_status": true,
+    "own_prepare_network_calls": 0,
+    "shared_docs_git_mutated": false,
+    "model_or_gpu_request": false,
+    "proposed_classifier_applied": false,
+    "stop_written": false,
+    "collector_executed": false
+  },
+  "models": {
+    "avg64": {
+      "output": "artifacts/eval/avg64_hle2500_20261017",
+      "global_saved": 2500,
+      "generation_status_counts": {
+        "failed": 1196,
+        "completed": 1304
+      },
+      "global_image_count": 342,
+      "started_without_terminal_count": 0,
+      "generator": {
+        "pid": 4076145,
+        "exists": false
+      },
+      "original_grader": {
+        "pid": 3269010,
+        "exists": true,
+        "state": "S",
+        "startticks": "867904422"
+      },
+      "parent": {
+        "pid": 4075849,
+        "exists": true,
+        "state": "S",
+        "startticks": "868051655"
+      },
+      "summary": {
+        "complete": false,
+        "expected": 2500,
+        "frozen_terminal_results": 2499,
+        "scored": 2497,
+        "evaluation_invalid": 2,
+        "pending": 3,
+        "accuracy_percent": null,
+        "score": null,
+        "selection_states": {
+          "native_no_answer": 1195,
+          "answer": 1304,
+          "generation_protocol_invalid": 1
+        },
+        "judge_generation_calls": 1307,
+        "accounted_cost_cny": 1.42355325,
+        "updated_at_utc": "2026-10-16T23:04:53.998515+00:00"
+      },
+      "generation_summary": {
+        "mode": "formal",
+        "denominator": 2500,
+        "saved_results": 2500,
+        "status_counts": {
+          "failed": 1196,
+          "completed": 1304
+        },
+        "image_results": 342,
+        "prompt_tokens": 600880,
+        "completion_tokens": 827236,
+        "grading": "separate",
+        "controller_state": "completed",
+        "finished_at_utc": "2026-10-16T22:38:14.351612+00:00"
+      },
+      "session_checkpoint": {
+        "state": "completed",
+        "reason": null,
+        "admitted": 2298,
+        "completed": 2298
+      },
+      "invalid_inventory": [
+        {
+          "id": "67216b3c8238b402204d3432",
+          "judge_calls": 2,
+          "eligible_dual_length4096": true
+        },
+        {
+          "id": "6738e0e90afc5078575438a9",
+          "judge_calls": 2,
+          "eligible_dual_length4096": true
+        }
+      ],
+      "consumer_marker": {
+        "at_utc": "2026-10-16T22:38:14.513096+00:00",
+        "generation_pid": 4076145,
+        "generation_process_finished": true,
+        "saved_results": 2500
+      }
+    },
+    "avg16": {
+      "output": "artifacts/eval/avg16_hle2500_20261017",
+      "global_saved": 2324,
+      "generation_status_counts": {
+        "failed": 1174,
+        "completed": 1150
+      },
+      "global_image_count": 294,
+      "started_without_terminal_count": 50,
+      "generator": {
+        "pid": 485903,
+        "exists": true,
+        "state": "S",
+        "startticks": "868175753"
+      },
+      "original_grader": {
+        "pid": 485904,
+        "exists": true,
+        "state": "S",
+        "startticks": "868175753"
+      },
+      "parent": {
+        "pid": 3418011,
+        "exists": true,
+        "state": "S",
+        "startticks": "868028556"
+      },
+      "summary": {
+        "complete": false,
+        "expected": 2500,
+        "frozen_terminal_results": 2316,
+        "scored": 2315,
+        "evaluation_invalid": 1,
+        "pending": 185,
+        "accuracy_percent": null,
+        "score": null,
+        "selection_states": {
+          "answer": 1147,
+          "native_no_answer": 1169,
+          "generation_protocol_invalid": 1,
+          "pending_generation": 183
+        },
+        "judge_generation_calls": 1148,
+        "accounted_cost_cny": 1.1962215,
+        "updated_at_utc": "2026-10-16T23:04:47.850331+00:00"
+      },
+      "generation_summary": null,
+      "session_checkpoint": {
+        "state": "running",
+        "admitted": 2374,
+        "completed": 2324,
+        "active": 50
+      },
+      "invalid_inventory": [
+        {
+          "id": "6725fbd80aae355a51195cca",
+          "judge_calls": 2,
+          "eligible_dual_length4096": true
+        }
+      ],
+      "consumer_marker": null
+    },
+    "ties_dense": {
+      "output": "artifacts/eval/ties_dense_hle2500_20261017",
+      "global_saved": 2500,
+      "generation_status_counts": {
+        "completed": 2432,
+        "failed": 68
+      },
+      "global_image_count": 342,
+      "started_without_terminal_count": 0,
+      "generator": {
+        "pid": 887555,
+        "exists": false
+      },
+      "original_grader": {
+        "pid": 887556,
+        "exists": false
+      },
+      "parent": {
+        "pid": 782323,
+        "exists": false
+      },
+      "summary": {
+        "complete": false,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "scored": 2493,
+        "evaluation_invalid": 7,
+        "pending": 7,
+        "accuracy_percent": null,
+        "score": null,
+        "selection_states": {
+          "answer": 2432,
+          "native_no_answer": 68
+        },
+        "judge_generation_calls": 2439,
+        "accounted_cost_cny": 2.15669325,
+        "updated_at_utc": "2026-10-16T22:46:16.873851+00:00"
+      },
+      "generation_summary": {
+        "mode": "formal",
+        "denominator": 2500,
+        "saved_results": 2500,
+        "status_counts": {
+          "completed": 2432,
+          "failed": 68
+        },
+        "image_results": 342,
+        "prompt_tokens": 1142551,
+        "completion_tokens": 704597,
+        "grading": "separate",
+        "controller_state": "completed",
+        "finished_at_utc": "2026-10-16T22:10:51.773865+00:00"
+      },
+      "session_checkpoint": {
+        "state": "completed",
+        "reason": null,
+        "admitted": 2500,
+        "completed": 2500
+      },
+      "invalid_inventory": [
+        {
+          "id": "66e8cfa03add731d7fce4352",
+          "judge_calls": 2,
+          "eligible_dual_length4096": true
+        },
+        {
+          "id": "670fe03ef99389b3c7942186",
+          "judge_calls": 2,
+          "eligible_dual_length4096": true
+        },
+        {
+          "id": "6715e455f818cdd1872c0ef0",
+          "judge_calls": 2,
+          "eligible_dual_length4096": true
+        },
+        {
+          "id": "6717cc3a4d6b1e71cab9bc8c",
+          "judge_calls": 2,
+          "eligible_dual_length4096": true
+        },
+        {
+          "id": "67216b3c8238b402204d3432",
+          "judge_calls": 2,
+          "eligible_dual_length4096": true
+        },
+        {
+          "id": "6725a3721da5d29be1a9a573",
+          "judge_calls": 2,
+          "eligible_dual_length4096": true
+        },
+        {
+          "id": "672d8b9b504a98f0e4799ae0",
+          "judge_calls": 2,
+          "eligible_dual_length4096": false
+        }
+      ],
+      "consumer_marker": {
+        "at_utc": "2026-10-16T22:11:00.675448+00:00",
+        "generation_pid": 887555,
+        "generation_process_finished": true,
+        "saved_results": 2500,
+        "job_absent_from_squeue": true,
+        "native_metrics_zero_before_release": true
+      }
+    }
+  },
+  "resources": {
+    "slurm_jobs": [
+      {
+        "job_id": 727912,
+        "name": "apex-term-acdu-20261017",
+        "state": "RUNNING",
+        "partition": "acd_u",
+        "node": "ACD1-22",
+        "gres": "gres/gpu:2"
+      },
+      {
+        "job_id": 727913,
+        "name": "apex-avgexec-acdu-20261017",
+        "state": "RUNNING",
+        "partition": "acd_u",
+        "node": "ACD1-22",
+        "gres": "gres/gpu:2"
+      },
+      {
+        "job_id": 727856,
+        "name": "apex-hle-normal-merged",
+        "state": "RUNNING",
+        "partition": "acd_u",
+        "node": "ACD1-20",
+        "gres": "gres/gpu:2"
+      },
+      {
+        "job_id": 727857,
+        "name": "apex-hle-normal-controls",
+        "state": "RUNNING",
+        "partition": "acd_u",
+        "node": "ACD1-30",
+        "gres": "gres/gpu:2"
+      }
+    ],
+    "gpu_count": 8,
+    "ties_job728016_absent": true,
+    "ties_release": {
+      "state.json": {
+        "at_utc": "2026-10-16T22:11:00.675790+00:00",
+        "pid": 782323,
+        "new_gpu_allocations": 2,
+        "job_id": 728016,
+        "node": "ACD1-19",
+        "generation_pid": 887555,
+        "saved_results": 2500,
+        "job_absent_from_squeue": true
+      }
+    },
+    "normal_release_watcher": {
+      "state.json": {
+        "at_utc": "2026-10-16T23:04:59.035487+00:00",
+        "pid": 3321991,
+        "released": {
+          "expert": {
+            "job_id": 727855,
+            "gpus": 2,
+            "at_utc": "2026-10-16T20:26:42.529347+00:00",
+            "marker": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/model-consumer-finished.json",
+            "marker_observed": {
+              "model_consumer_finished": true,
+              "generation_process_finished": true,
+              "generation_pid": 3418010,
+              "saved_results": 2500,
+              "model": "apex-hle250",
+              "at_utc": "2026-10-16T20:26:28.068001+00:00",
+              "scoring_uses_external_judge_only": true
+            },
+            "running_and_waiting_requests": 0,
+            "external_judges_continue": true
+          }
+        }
+      }
+    },
+    "endpoint_health": {
+      "28095": {
+        "health_http_status": 200,
+        "metrics_http_status": 200,
+        "request_metrics": [
+          "vllm:num_requests_running{engine=\"0\",model_name=\"apex-direct-base\"} 7.0",
+          "vllm:num_requests_waiting{engine=\"0\",model_name=\"apex-direct-base\"} 0.0"
+        ]
+      },
+      "28096": {
+        "health_http_status": 200,
+        "metrics_http_status": 200,
+        "request_metrics": [
+          "vllm:num_requests_running{engine=\"0\",model_name=\"apex-direct-base\"} 50.0",
+          "vllm:num_requests_waiting{engine=\"0\",model_name=\"apex-direct-base\"} 0.0"
+        ]
+      }
+    }
+  },
+  "reuse": {
+    "launch": {
+      "at_utc": "2026-10-16T22:38:25.855296+00:00",
+      "pid": 1126014,
+      "command": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/asi-py312/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/scripts/run_direct_formal_pipeline.py",
+        "--project",
+        "/data/caoqinlu/projects/apex-takehome",
+        "--profile",
+        "merged",
+        "--endpoint",
+        "http://127.0.0.1:28095"
+      ],
+      "endpoint": "http://127.0.0.1:28095",
+      "reused_service_job": 727856,
+      "expert_generation_cpu_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/generation_cpu_finished.json",
+      "hle_generation_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/summary.json",
+      "new_gpu_allocations": 0,
+      "original_727654_remains_released": true
+    },
+    "processes": [
+      {
+        "pid": 1126014,
+        "exists": true,
+        "state": "S",
+        "startticks": "868932987"
+      },
+      {
+        "pid": 1126055,
+        "exists": true,
+        "state": "S",
+        "startticks": "868933000"
+      }
+    ],
+    "pipeline_state": {
+      "state": "asi_generation",
+      "pid": 1126055,
+      "at_utc": "2026-10-16T22:38:25.985909+00:00"
+    },
+    "new_gpu_allocations": 0,
+    "deliberately_released_endpoints_not_rebuilt": [
+      28090,
+      28097
+    ]
+  },
+  "asi": {
+    "expert": {
+      "global_saved": 240,
+      "generation_status_counts": {
+        "failed": 226,
+        "completed": 14
+      },
+      "score_metadata": {
+        "schema_version": 2,
+        "repo": "seed31415",
+        "official": false,
+        "score_scope": "public_local_replacement_judge",
+        "mode": "paid",
+        "expected_instance_count": 240,
+        "instance_count": 240,
+        "scored_instance_count": 239,
+        "complete": false,
+        "prepared_instance_count": 0,
+        "scorer_error_count": 1,
+        "pending_count": 0,
+        "total_score": 79.95793165941141,
+        "total_max_score": 23900,
+        "mean_percent": null,
+        "native_valid_subset_mean_percent": 0.3345520153113448,
+        "expected_total_max_score": 24000,
+        "auxiliary_zero_fill_mean_percent": 0.3331580485808809,
+        "synthetic_calibration": false
+      },
+      "all_cpu_consumers_finished": {
+        "state": "finished",
+        "at_utc": "2026-10-16T22:21:42.083374+00:00",
+        "generation_conditions": 240,
+        "generation_cpu_sets": [
+          [
+            96,
+            97,
+            98,
+            99
+          ],
+          [
+            100,
+            101,
+            102,
+            103
+          ],
+          [
+            104,
+            105,
+            106,
+            107
+          ],
+          [
+            108,
+            109,
+            110,
+            111
+          ],
+          [
+            112,
+            113,
+            114,
+            115
+          ],
+          [
+            116,
+            117,
+            118,
+            119
+          ],
+          [
+            120,
+            121,
+            122,
+            123
+          ],
+          [
+            124,
+            125,
+            126,
+            127
+          ]
+        ],
+        "grader_cpus": [
+          92,
+          93,
+          94,
+          95
+        ],
+        "grader_process_exitcode": 0,
+        "grader_complete": false,
+        "scorer_error_count": 1,
+        "generation_worker_pool_shutdown": true,
+        "grader_process_finished": true,
+        "active_program_scopes": [],
+        "all_cpu_consumers_finished": true,
+        "normalized_at": "2026-10-16T22:21:50.506207+00:00",
+        "normalization_source": {
+          "script": "scripts/normalize_asi_cpu_markers.py",
+          "reason": "Derived synonymous bool for already-running Terminal expansion gates.",
+          "required_original_fields": {
+            "state": "finished",
+            "generation_worker_pool_shutdown": true,
+            "grader_process_finished": true,
+            "active_program_scopes": [],
+            "generation_conditions": 240
+          },
+          "original_snapshot": "artifacts/eval/asi-cpu-marker-normalization-20261017/asi128_asi240_20261017.original.json"
+        }
+      }
+    },
+    "avg64": {
+      "global_saved": 25,
+      "generation_status_counts": {
+        "failed": 24,
+        "completed": 1
+      },
+      "generation_cpu_finished": null
+    }
+  },
+  "ties_compact_preparation": {
+    "config": "configs/eval/hle_compact_judge_recovery_ties_dense_20261017.json",
+    "receipt": "analysis/source_snapshots/hle_ties_dense_compact_preparation_20261017.json",
+    "expected_items": 6,
+    "final_invalid_count": 7,
+    "excluded_task": "672d8b9b504a98f0e4799ae0",
+    "excluded_reason": "Both stop/79-token JSON objects omit correct; outside dual-length4096 rule.",
+    "mode": "prepare_only",
+    "own_network_calls": 0,
+    "root_later_execution_notice": "Root subsequently authorized and started the six fixed recovery calls; execution receipt/cost is owned by root, not included as a completed outcome here."
+  },
+  "readtimeout_audit": {
+    "at_utc": "2026-10-16T23:07:08.787843+00:00",
+    "models": {
+      "base": {
+        "selected_count": 2500,
+        "terminal_records": 2500,
+        "pending_or_missing": 0,
+        "error_type_counts": {
+          "TimeoutError": 1445,
+          "none": 1055
+        },
+        "readtimeout_count": 0,
+        "readtimeout_ge299_count": 0,
+        "readtimeouts": []
+      },
+      "expert": {
+        "selected_count": 2500,
+        "terminal_records": 2500,
+        "pending_or_missing": 0,
+        "error_type_counts": {
+          "none": 2470,
+          "TimeoutError": 30
+        },
+        "readtimeout_count": 0,
+        "readtimeout_ge299_count": 0,
+        "readtimeouts": []
+      },
+      "mixed": {
+        "selected_count": 2500,
+        "terminal_records": 2500,
+        "pending_or_missing": 0,
+        "error_type_counts": {
+          "none": 2459,
+          "TimeoutError": 41
+        },
+        "readtimeout_count": 0,
+        "readtimeout_ge299_count": 0,
+        "readtimeouts": []
+      },
+      "avg64": {
+        "selected_count": 2500,
+        "terminal_records": 2500,
+        "pending_or_missing": 0,
+        "error_type_counts": {
+          "TimeoutError": 1195,
+          "none": 1304,
+          "ReadTimeout": 1
+        },
+        "readtimeout_count": 1,
+        "readtimeout_ge299_count": 1,
+        "readtimeouts": [
+          {
+            "task_id": "673a97d7414ad0600dc7819e",
+            "manual_retry_index": 0,
+            "source": "artifacts/eval/avg64_hle2500_20261017/questions/673a97d7414ad0600dc7819e.json",
+            "sha256": "4e88459275458420fd7885ab0b84af3cf4b7ccf336947a9d2efae839cfeb1953",
+            "status": "failed",
+            "error_type": "ReadTimeout",
+            "started_at_utc": "2026-10-16T22:09:24.717560+00:00",
+            "finished_at_utc": "2026-10-16T22:14:24.721061+00:00",
+            "elapsed_seconds": 300.0035,
+            "prompt_tokens_exact": 319,
+            "raw_response_present": false,
+            "infrastructure_failure": null,
+            "usage_present": false,
+            "attempts": [
+              {
+                "path": "/tokenize",
+                "attempt": 1,
+                "http_status": 200,
+                "elapsed_seconds": 0.0076
+              },
+              {
+                "path": "/v1/chat/completions",
+                "attempt": 1
+              }
+            ]
+          }
+        ]
+      },
+      "avg16": {
+        "selected_count": 2500,
+        "terminal_records": 2360,
+        "pending_or_missing": 140,
+        "error_type_counts": {
+          "none": 1166,
+          "TimeoutError": 1193,
+          "ReadTimeout": 1
+        },
+        "readtimeout_count": 1,
+        "readtimeout_ge299_count": 1,
+        "readtimeouts": [
+          {
+            "task_id": "6720066a447f1bb0370f36b1",
+            "manual_retry_index": 0,
+            "source": "artifacts/eval/avg16_hle2500_20261017/questions/6720066a447f1bb0370f36b1.json",
+            "sha256": "c1a81d103a5497677ce638bbc9052726b2e20cba085aad0874d79c775db40c97",
+            "status": "failed",
+            "error_type": "ReadTimeout",
+            "started_at_utc": "2026-10-16T21:46:00.405282+00:00",
+            "finished_at_utc": "2026-10-16T21:51:00.411423+00:00",
+            "elapsed_seconds": 300.0061,
+            "prompt_tokens_exact": 1232,
+            "raw_response_present": false,
+            "infrastructure_failure": null,
+            "usage_present": false,
+            "attempts": [
+              {
+                "path": "/tokenize",
+                "attempt": 1,
+                "http_status": 200,
+                "elapsed_seconds": 0.0297
+              },
+              {
+                "path": "/v1/chat/completions",
+                "attempt": 1
+              }
+            ]
+          }
+        ]
+      },
+      "ties_dense": {
+        "selected_count": 2500,
+        "terminal_records": 2500,
+        "pending_or_missing": 0,
+        "error_type_counts": {
+          "none": 2432,
+          "TimeoutError": 68
+        },
+        "readtimeout_count": 0,
+        "readtimeout_ge299_count": 0,
+        "readtimeouts": []
+      }
+    }
+  },
+  "protocol_invalid_records": [
+    {
+      "model": "avg64",
+      "selection": {
+        "id": "673a97d7414ad0600dc7819e",
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/questions/673a97d7414ad0600dc7819e.json",
+        "manual_retry_index": 0,
+        "state": "generation_protocol_invalid"
+      },
+      "record": {
+        "id": "673a97d7414ad0600dc7819e",
+        "status": "failed",
+        "error_type": "ReadTimeout",
+        "error": "",
+        "infrastructure_failure": null,
+        "elapsed_seconds": 300.0035,
+        "finished_at_utc": "2026-10-16T22:14:24.721061+00:00",
+        "prompt_tokens_exact": 319,
+        "usage": null,
+        "finish_reason": null,
+        "source_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/questions/673a97d7414ad0600dc7819e.json",
+        "source_sha256": "4e88459275458420fd7885ab0b84af3cf4b7ccf336947a9d2efae839cfeb1953",
+        "record_keys": [
+          "attempts",
+          "elapsed_seconds",
+          "error",
+          "error_type",
+          "finished_at_utc",
+          "id",
+          "is_image",
+          "mode",
+          "prompt_tokens_exact",
+          "request_sha256",
+          "started_at_utc",
+          "status"
+        ],
+        "raw_response_present": false
+      }
+    },
+    {
+      "model": "avg16",
+      "selection": {
+        "id": "6720066a447f1bb0370f36b1",
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017/questions/6720066a447f1bb0370f36b1.json",
+        "manual_retry_index": 0,
+        "state": "generation_protocol_invalid"
+      },
+      "record": {
+        "id": "6720066a447f1bb0370f36b1",
+        "status": "failed",
+        "error_type": "ReadTimeout",
+        "error": "",
+        "infrastructure_failure": null,
+        "elapsed_seconds": 300.0061,
+        "finished_at_utc": "2026-10-16T21:51:00.411423+00:00",
+        "prompt_tokens_exact": 1232,
+        "usage": null,
+        "finish_reason": null,
+        "source_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017/questions/6720066a447f1bb0370f36b1.json",
+        "source_sha256": "c1a81d103a5497677ce638bbc9052726b2e20cba085aad0874d79c775db40c97",
+        "record_keys": [
+          "attempts",
+          "elapsed_seconds",
+          "error",
+          "error_type",
+          "finished_at_utc",
+          "id",
+          "is_image",
+          "mode",
+          "prompt_tokens_exact",
+          "request_sha256",
+          "started_at_utc",
+          "status"
+        ],
+        "raw_response_present": false
+      }
+    }
+  ],
+  "classifier_proposal": {
+    "patch": "analysis/source_snapshots/hle_readtimeout_budget_classifier_20261017.patch",
+    "source_bindings": {
+      "scripts/score_hle_baseline_v2_rolling.py": {
+        "sha256": "148721d67dd9f6644e5fa575e2e25b17fb3129eb70727f3bf5c9c176de3905ef",
+        "bytes": 19180
+      },
+      "artifacts/eval/avg64_hle2500_20261017/scoring/scorer_source.py": {
+        "sha256": "148721d67dd9f6644e5fa575e2e25b17fb3129eb70727f3bf5c9c176de3905ef",
+        "bytes": 19180
+      },
+      "artifacts/eval/avg16_hle2500_20261017/scoring/scorer_source.py": {
+        "sha256": "148721d67dd9f6644e5fa575e2e25b17fb3129eb70727f3bf5c9c176de3905ef",
+        "bytes": 19180
+      },
+      "artifacts/eval/ties_dense_hle2500_20261017/scoring/scorer_source.py": {
+        "sha256": "148721d67dd9f6644e5fa575e2e25b17fb3129eb70727f3bf5c9c176de3905ef",
+        "bytes": 19180
+      }
+    },
+    "runner_bindings": {
+      "avg64_hle2500_20261017": {
+        "runner_sha256": "78249bbdac5c2b03d0b2cd6958f776c26a8ef348513c78a102f49fbce51b0042",
+        "protocol_sha256": "dcd28455f0ebd81d9e4b9043694eb57e9e42abb6c72f8bbe41cfa01745c1f081",
+        "solver_concurrency": 50,
+        "thinking": false,
+        "preserve_thinking": false,
+        "question_walltime_seconds": 300,
+        "model_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+        "served_model": "apex-avg64"
+      },
+      "avg16_hle2500_20261017": {
+        "runner_sha256": "78249bbdac5c2b03d0b2cd6958f776c26a8ef348513c78a102f49fbce51b0042",
+        "protocol_sha256": "dcd28455f0ebd81d9e4b9043694eb57e9e42abb6c72f8bbe41cfa01745c1f081",
+        "solver_concurrency": 50,
+        "thinking": false,
+        "preserve_thinking": false,
+        "question_walltime_seconds": 300,
+        "model_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+        "served_model": "apex-avg16"
+      }
+    },
+    "offline_check": {
+      "current_local_source_sha256": "148721d67dd9f6644e5fa575e2e25b17fb3129eb70727f3bf5c9c176de3905ef",
+      "proposed_source_sha256": "608c5d6a5045a1b0029d102b7d53846e5ff826c904c31f25ee193ae20dedbd61",
+      "patch_sha256": "d2c317e5f09026247857ee1ed38cf091d731934302e181205a7634d4ccd3c3ac",
+      "syntax_passed": true,
+      "offline_cases_passed": [
+        "readtimeout_deadline",
+        "existing_timeout",
+        "readtimeout_before_budget",
+        "explicit_infrastructure",
+        "received_response",
+        "unrelated_error"
+      ],
+      "patch_applied": false
+    },
+    "policy": "Only error_type membership expands to TimeoutError/ReadTimeout. Existing early infrastructure rejection, >=299 seconds and no raw response remain. No answer regeneration, criteria/parser/frozen-source/original-record changes."
+  },
+  "avg_stop_prepare": {
+    "original_grader": {
+      "pid": 3269010,
+      "exists": true,
+      "state": "S",
+      "startticks": "867904422"
+    },
+    "terminal_inputs": 2499,
+    "terminal_results": 2499,
+    "answer_selection": 1304,
+    "answer_results": 1304,
+    "budget_statuses": [
+      "failed_full_reservation",
+      "completed"
+    ],
+    "stop_exists": false,
+    "generation_summary": {
+      "mode": "formal",
+      "denominator": 2500,
+      "saved_results": 2500,
+      "status_counts": {
+        "failed": 1196,
+        "completed": 1304
+      },
+      "image_results": 342,
+      "prompt_tokens": 600880,
+      "completion_tokens": 827236,
+      "grading": "separate",
+      "controller_state": "completed",
+      "finished_at_utc": "2026-10-16T22:38:14.351612+00:00"
+    },
+    "proposal": "Use the existing scoring/stop.json gate only after an independent recheck. No SIGKILL or loop change. Once original grader exits and lock is free, review the one-line classifier compatibility and run the unchanged scoring configuration with --collect-only (zero requests), then separately prepare the two compact candidates. AVG16 must finish generation and all answer grading first.",
+    "applied": false
+  },
+  "root_followthrough": {
+    "at_utc": "2026-10-16T23:09:56.918204+00:00",
+    "classifier_applied_by_root": true,
+    "live_source_sha256": "608c5d6a5045a1b0029d102b7d53846e5ff826c904c31f25ee193ae20dedbd61",
+    "frozen_source_sha256": "148721d67dd9f6644e5fa575e2e25b17fb3129eb70727f3bf5c9c176de3905ef",
+    "avg_original_grader_exited": true,
+    "avg_stop_written_by_root": {
+      "reason": "root_reviewed_idle_postgeneration_collection_fix",
+      "at_utc": "2026-10-16T23:09:33.869874+00:00"
+    },
+    "avg_collect_state": "root_collect_only_finished; default_prepare_passed_at_2026-10-16T23:11:22.701970+00:00",
+    "avg_compact_config": "configs/eval/hle_compact_judge_recovery_avg64_20261017.json",
+    "avg_compact_prepare_receipt": "analysis/source_snapshots/hle_avg64_compact_preparation_20261017.json",
+    "avg_compact_prepare_network_calls": 0,
+    "original_grader_saved_argv": {
+      "source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/controller/launch.json",
+      "scoring_pid": 3269010,
+      "scorer_reattached": true,
+      "scoring_argv": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/scripts/score_direct_hle_formal.py",
+        "--project",
+        "/data/caoqinlu/projects/apex-takehome",
+        "--retry",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017",
+        "--output",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring",
+        "--max-cny",
+        "20",
+        "--max-calls",
+        "5000",
+        "--workers",
+        "2"
+      ]
+    },
+    "ties_completed_root_report": {
+      "source": "Direct message from root; execution receipt/cost owned by root",
+      "additional_calls": 6,
+      "additional_cost_cny": 0.00472125,
+      "combined_cost_cny": 2.1614145,
+      "valid": 2499,
+      "remaining_invalid": 1,
+      "correct": 131,
+      "complete": false,
+      "score": null
+    },
+    "avg_completed_root_report": {
+      "source": "Root completion and byte-preservation report in this task; execution receipt owned by root",
+      "complete": true,
+      "valid": 2500,
+      "correct": 117,
+      "accuracy_percent": 4.68,
+      "native_no_answer": 1196,
+      "additional_calls": 2,
+      "additional_cost_cny": 0.003009,
+      "combined_calls": 1309,
+      "combined_cost_cny": 1.42656225,
+      "original_source_budget_config_and_generation_bytes_unchanged_root_verified": true,
+      "executed_by_this_agent": false
+    }
+  },
+  "avg16_followup_0712": {
+    "at_utc": "2026-10-16T23:12:37.201371+00:00",
+    "global_saved": 2422,
+    "active_started_without_terminal": 50,
+    "generator_pid": 485903,
+    "generator_exists": true,
+    "original_grader_pid": 485904,
+    "original_grader_startticks": 868175753,
+    "original_grader_exists": true,
+    "scored": 2419,
+    "judge_invalid": 1,
+    "readtimeout_count": 1,
+    "budget_calls": 1186,
+    "budget_status_counts": {
+      "completed": 1184,
+      "failed_full_reservation": 2
+    },
+    "stop_or_collect_executed": false,
+    "final_compact_manifest_created": false
+  }
+}

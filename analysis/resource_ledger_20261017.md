@@ -1,5 +1,21 @@
 # 资源与 API 账本：2026-10-17 快照
 
+## 07:26 CST 新快照（0730目录标签）
+
+[新固定账本](source_snapshots/resource_ledger_20261017_0730/snapshot.json)的Slurm实际采集于07:26:43 CST，API元数据07:26:44，目录0730是标签。70个本项目顶层作业，排除9个其他WorkDir；已结束 **227.570000 GPUh**，在跑暂计 **18.822778 GPUh**，截至本时点合计 **246.392778 GPUh**。当前仅727856/727912/727913三个普通`acd_u` TP2服务，共**6 H100、emergency 0**；727857/728016/727879均已释放，没有重建。五trainer46.541425 GPUh是总数内子集，不能再累加。等待、加载、失败和空闲均占allocation，计入GPUh；在跑部分不是最终值。
+
+现存CNY账本**11,307次调用**，usage记录估计/上界 **14.482675044 CNY**，失败/未结reservation **0.546459750 CNY**，预算核算量合计 **15.029134794 CNY**；另376次USD记录合计 **0.328327020 USD**，不混币种、不当作支付发票。新AVG64/TIES/AVG16 compact恢复独立budget各记录2/6/1次，本快照已分别纳一次，不再加动态summary。ASI专家原journal仍15次paid、估计上界0.0380304 CNY，新增9次cache_reused未计新调用或新费用。BaseASI及尚未开始AVGASI的ledger路径仍missing=unknown，旧快照也保持原missing状态。
+
+逐行来源见[GPU表](source_snapshots/resource_ledger_20261017_0730/slurm_jobs.csv)、[API表](source_snapshots/resource_ledger_20261017_0730/api_ledgers.csv)和[训练表](source_snapshots/resource_ledger_20261017_0730/training_runs.csv)。HPC货币单价、真实发票、未记账API及主动人工时仍unknown/未计时。
+
+[07:27存储元数据](source_snapshots/storage_20261017_0730.json)只用df/statvfs，没有递归du或删除：本机工作区剩**30.14 GiB**（df93%）；80项目/data剩**1.99 TiB**（80%），系统/home/tmp同盘剩**31.54 GiB**（97%）；HPC项目/home所在共享/data挂载剩约**11.04 PiB**（40%），登录节点/tmp剩14.40 TiB。各项目挂载可写、inode充足，未观察到容量耗尽；80系统盘余量最紧。HPC共享挂载空闲不等于用户quota，所有host quota本轮未核实。macOS密封系统卷只读属正常，工作区所在Data卷非只读。
+
+## 07:03 CST 新快照（历史记录见下）
+
+[固定账本](source_snapshots/resource_ledger_20261017_0703/snapshot.json)采集于07:03:06 CST：已结束 **220.988889 GPUh**，四普通TP2共 **8H100** 在跑暂计 **22.476667 GPUh**。TIES HLE728016已自然释放，其allocation计入结束，不重建旧服务；五trainer46.541425 GPUh已包含。当前70个本项目顶层作业，分类区分TIES导出与其推理服务。
+
+CNY账本11229次，usage估计14.403732294、失败/未知reservation0.54645975，合计预算核算 **14.950192044 CNY**；USD376次仍0.328327020。ASI专家原journal已首次生成，15次paid/0.0380304 CNY上界纳同一次总计；原路径正确，先前missing快照仍保持unknown，不回写0或改旧历史。AVG ASI尚未paid ledger，维持unknown。随后的HLE6+2恢复与ASI路径修复不在本时点内，独立ledger/原journal追加后再下一次汇总，不能将动态summary重复计费。非提供商发票，HPC单价/主动人工时仍未知。
+
 ## 06:09 CST 新快照（历史记录见下）
 
 [只读账本](source_snapshots/resource_ledger_20261017_0611/snapshot.json)实际采集于06:09:49 CST；目录0611仅为标签。70个本项目顶层作业，已结束 **219.743889 GPUh**，五个普通服务共 **10 H100** 在跑暂计 **16.582778 GPUh**。五个最终trainer46.541425 GPUh已包含，不能重复相加。新增TIES pilot/导出按merge计，728016的HLE推理服务归inference_service；只修用途分类，总GPUh与原采集时点不变。

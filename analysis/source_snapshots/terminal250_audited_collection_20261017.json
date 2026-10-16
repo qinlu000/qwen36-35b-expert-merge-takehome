@@ -1,0 +1,139 @@
+{
+  "collected_at_utc": "2026-10-16T23:23:20.306140+00:00",
+  "model": "apex-terminal250",
+  "expected": 445,
+  "valid_scored": 92,
+  "original_valid_scored": 91,
+  "audited_native_zero_count": 1,
+  "resolved": 13,
+  "complete": false,
+  "primary_mean_percent": null,
+  "sample_sd_percent_ddof1": null,
+  "source_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/summary.json",
+  "source_summary_sha256": "64a503d621103843cc842c7833492fba69456531f0f4a909ff0acd1f79404dd0",
+  "source_updated_at_utc": "2026-10-16T23:23:20.251612+00:00",
+  "audit_source": "/data/caoqinlu/projects/apex-takehome/configs/eval/terminal250_audited_20261017.json",
+  "audit_manifest_sha256": "5fd628c6862363213b216c6c5200cf93b06b201c81d7b0fd0aa5faa2e9c559a6",
+  "task_manifest_sha256": "78dd5cda85a782f72f3b995b463bd65eb49b3c0653c98cd81a73250d68176fd3",
+  "per_seed": [
+    {
+      "seed": 0,
+      "expected": 89,
+      "valid_scored": 87,
+      "correct": 13,
+      "score_percent": null
+    },
+    {
+      "seed": 1,
+      "expected": 89,
+      "valid_scored": 5,
+      "correct": 0,
+      "score_percent": null
+    },
+    {
+      "seed": 2,
+      "expected": 89,
+      "valid_scored": 0,
+      "correct": 0,
+      "score_percent": null
+    },
+    {
+      "seed": 3,
+      "expected": 89,
+      "valid_scored": 0,
+      "correct": 0,
+      "score_percent": null
+    },
+    {
+      "seed": 4,
+      "expected": 89,
+      "valid_scored": 0,
+      "correct": 0,
+      "score_percent": null
+    }
+  ],
+  "completion_gates": {
+    "all445_manifest_keys_unique": true,
+    "all445_original_attempts_terminal": false,
+    "original_active_empty": false,
+    "original_pending_empty": false,
+    "owner_final_state": false,
+    "all445_valid": false,
+    "each_seed89_valid": false
+  },
+  "all_other_score_rows_unchanged": true,
+  "source_files_read_only": true,
+  "new_model_calls": 0,
+  "new_native_verifier_runs": 0,
+  "summary_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_audited_20261017/summary.json",
+  "summary_sha256": "3d69f37cd480ec6246a3fd2e161ef0e6b45fc68d13f584dcc8295dc6f392f1fc",
+  "terminal": 94,
+  "active": 12,
+  "pending": 339,
+  "remaining_invalid": [
+    {
+      "key": "torch-tensor-parallelism/seed0",
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/torch-tensor-parallelism__seed0/result.json",
+      "valid": false,
+      "reward": null,
+      "exception": "AgentTimeoutError",
+      "verifier_issue": null
+    },
+    {
+      "key": "train-fasttext/seed0",
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/train-fasttext__seed0/result.json",
+      "valid": false,
+      "reward": null,
+      "exception": "AgentTimeoutError",
+      "verifier_issue": "pytest wrapper returned zero reward without evidence that tests executed"
+    }
+  ],
+  "accepted_row": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/native-grade/result.json",
+    "valid": true,
+    "reward": 0,
+    "exception": null,
+    "verifier_issue": null,
+    "accepted_path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/native-grade/result.json",
+    "original_invalid": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/result.json",
+      "valid": false,
+      "reward": null,
+      "exception": "RuntimeError",
+      "verifier_issue": null
+    },
+    "original_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/result.json",
+    "audit_source": "/data/caoqinlu/projects/apex-takehome/configs/eval/terminal250_audited_20261017.json",
+    "audit_reason": "Exact original final-state candidate restored with the approved static etc delta and unchanged resolver policy; six restore commands succeeded without installing/starting nginx. Official verifier ran eight tests, all failed because required nginx product state is absent; native reward0 and no Harbor exception. Parent-held shared lease drained twice; original raw null and all 26 bindings preserved.",
+    "audit_provenance": {
+      "key": "nginx-request-logging/seed0",
+      "task_checksum": "888ac1ae711acf0400d8631e2603924d716b3bf3f02012775fb06ba29a75cc83",
+      "original_result": "artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/result.json",
+      "original_result_sha256": "bc3df94fa93163edb3aef4066615771911db06fe3e5afde32f8900d58b368004",
+      "accepted_result": "artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/native-grade/result.json",
+      "accepted_result_sha256": "0807af5e6c27d2e04d605007d9c3e31747457cd463b999a606d746968417f5c0",
+      "restore_manifest": "artifacts/recovery/terminal250-nginx-grade-only-20261017/restore.json",
+      "restore_manifest_sha256": "8307a59b2001e5d59ddc230d36152371072d3b94d47197eb64876d6ecb55cd4c",
+      "parent_launch": "artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/parent-launch.json",
+      "parent_launch_sha256": "c95f4775579cd966ef564d4c3c1131f90cd30d94698bc74455541739a6ef2454",
+      "parent_state": "artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/parent-state.json",
+      "parent_state_sha256": "34fc2d23d2c0ddd3b333df30155ef1ef8bac207526ed3ee5339a9cee3ad6f1b1",
+      "execution_claim": "artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/execution-claim.json",
+      "execution_claim_sha256": "2712ea03f0878b39356a7bc53c3cd040d98c81297ac769138a7a78f70c4f97da",
+      "parent_script_sha256": "eccfce88c679cace936b4824ba3a99901646ee1c573a1afa0ab40e6f3de167ca"
+    },
+    "audit_kind": "root_approved_grade_only_of_exact_saved_candidate",
+    "derived": false
+  },
+  "collector_script_sha256": "2eab00ef40adea23dc234cf73be32deadea5d0fd633d77ae6b6620e6f9b4c34d",
+  "approval_source": "Root directly approved this exact saved-candidate native0 after independent inspection; collector does not grant new audits.",
+  "validation": {
+    "ast_valid": true,
+    "manifest_json_valid": true,
+    "actual_read_only_collection_exit_code": 0,
+    "all_non_target_score_rows_equal_to_source_snapshot": true,
+    "all_fixed_source_receipts_and_26_claim_bindings_verified": true,
+    "no_native_or_model_code_imported": true
+  },
+  "remaining_invalid_interpretation": "These two rows are copied from the owner snapshot without new classification or acceptance; AgentTimeoutError alone never authorizes zero."
+}

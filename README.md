@@ -8,7 +8,9 @@
 
 当前队列快照、已完成项、未决问题和后续交付见 [进展文档](analysis/current_status_20261017.md)；[一页阶段报告](output/pdf/progress_report_20261017.pdf)及其[生成说明](analysis/progress_report_20261017.md)已保存，正式评分尚未齐备。
 
-最新资源安排：按用户要求迁移至普通`acd_u/Nice1000`，HLE每模型50并发；04:37快照为五套TP2共10卡、emergency为0，HLE专家生成完已释放2卡，外部grader继续。已释放的独立合版ASI副本不重申，后续复用AVG64 HLE服务；新方法调研尚未申请GPU。详见[评测及存储快照](analysis/progress_and_storage_20261017_0436.md)和[分区迁移与卡数](analysis/ordinary_partition_handover_20261017.md)。[20个真实合版失败案例及三项后续实验](analysis/avg64_failure_cases_20261017.md)已整理；它们不是完整成绩或合版独有退化证据。
+07:27有效结果：完整HLE为Base3.96%、专家6.92%、Mixed5.84%、AVG644.68%、AVG164.04%；TIES-Dense2499/2500有效，余1项缺`correct`仍null。ASI专家240/240有效，公开local原生聚合0.378991%，Base1.570988%；真实退化及配对区间见[最新双视图](analysis/source_snapshots/formal_aggregation_20261017_0727.json)。不按这些正式结果更换冻结主模型。SWE两模型各48/51有效，Terminal仍在跑，四项宏平均尚不可报告。
+
+当前资源为三个普通`acd_u/Nice1000`TP2、共6H100：Terminal专家、AVG64共享SWE/Terminal服务、AVG64 HLE后复用ASI服务。TIES生成和Mixed/AVG16生成均已结束并释放自身GPU，离线端点不重建；AVG64 ASI已自动接续，不需另申请卡。SWE结束释放的12CPU已真实交接，Terminal专家12槽、AVG11槽；后续扩容仍等ASI实际CPU完成标记。[20个真实合版失败案例及三项后续实验](analysis/avg64_failure_cases_20261017.md)已整理；同ID Base也失败，不能称合版独有退化。
 
 ## 实验设计与数据
 
@@ -34,11 +36,11 @@
 
 AVG64表示 `Δ = Σ_i 0.25 × (32/16) B_i A_i`，通过因子拼接精确保存平均更新，输出rank64/alpha64；不是分别平均A/B。AVG16对同一更新做薄QR+SVD的rank16近似，全局相对Frobenius截断误差约0.144715。AVG64已在新增loss比较和正式评测前固定为最终模型；容量是单个rank16专家/Mixed的4倍，线性平均可能抵消冲突方向。原理、验证和配方见 [合版记录](analysis/merge_execution_20261017.md)、[固定配置](configs/merge/four_experts_avg_v1.json)。
 
-原题明确列出的合版配置示例是合并系数、层范围、是否保留基座；压缩rank未被点名，不能仅凭AVG64/AVG16宣称合版消融要求已经完成。用户随后要求真正不同的方法，已撤回任务算术改系数的拟议对照；其CPU产物保留为未使用草稿，无模型评测或GPU提交。TIES真实层试跑已完成，但rank64回投影样例误差30%–57%，因此不导出该近似；[TIES-Dense完整模型](analysis/source_snapshots/ties_dense_export_728007_20261017.json)现已导出并完成310目标/735非目标位一致及重载校验，去掉SVD，BF16相对更新偏差10.531%单列。它不再是同r64参数化容量对照；独立普通TP2服务728016已通过text/image协议验收并正式运行HLE2500，任务比较尚未完成。主AVG64身份、权重及已有答卷保持固定。
+原题明确列出的合版配置示例是合并系数、层范围、是否保留基座；压缩rank未被点名，不能仅凭AVG64/AVG16宣称合版消融要求已经完成。用户随后要求真正不同的方法，已撤回任务算术改系数的拟议对照；其CPU产物保留为未使用草稿，无模型评测或GPU提交。TIES真实层试跑已完成，但rank64回投影样例误差30%–57%，因此不导出该近似；[TIES-Dense完整模型](analysis/source_snapshots/ties_dense_export_728007_20261017.json)现已导出并完成310目标/735非目标位一致及重载校验，去掉SVD，BF16相对更新偏差10.531%单列。它不再是同r64参数化容量对照；独立普通TP2服务728016已通过text/image协议验收、全2500生成并释放；2499有效，余1项缺correct仍未决，完整方法分差尚不可报告。主AVG64身份、权重及已有答卷保持固定。
 
 相同249条原生SFT留出集、64K上限、相同监督mask的loss-only对照已全部完成：Base **2.105976**、AVG64 **1.357921**、AVG16 **1.379223**、Mixed883 **1.672463**。AVG16与AVG64的差值为0.021302，记录固定压缩/容量消融；没有生成新答案、运行task-val或据此重新选择主模型。Mixed883重复原训练最终val loss的数值完全一致。这里是原生Trainer的teacher-forced loss，不能作为任务准确率或benchmark提升。详见 [结果、图及重画命令](analysis/sft_loss_only_plan_20261017.md)。
 
-实际任务对照已提交：Mixed883与固定AVG16复用同一HLE2500题、图像和正式生成/判分协议，另与AVG64、HLE专家和Base比较。新增服务727831只依次服务两项对照；HLE-only对照不产生四项宏平均，也不回流选择主模型。主HLE专家/AVG64已分别获得独立服务，不再等ASI结束。见 [任务对照及loss边界](analysis/hle_task_controls_20261017.md)。
+实际HLE任务对照已完成Mixed883和固定AVG16的全2500评分，与AVG64、HLE专家和Base同范围比较；原普通接续服务727857已自动释放。AVG64比AVG16高0.64pp，配对95%CI[-0.24,1.481]，尚不能确认稳定收益。HLE-only对照不产生四项宏平均，也不回流选择主模型。TIES仍有1项评分未决，不报告其完整主分或方法差值。见[最新收据](analysis/source_snapshots/formal_aggregation_20261017_0727.json)。
 
 ## 评测协议与限制
 
@@ -57,7 +59,7 @@ Terminal保留全89×5范围，但 **30min/4CPU/8GiB/64K/8K低于原题3h/32CPU/
 
 默认汇总保持上述严格原生口径；另可显式生成[审计固定预算视图](analysis/terminal_budget_aggregation_20261017.md)。它沿用Harbor将None映为失败的均值语义，但只接受精确逐结果审查通过的计算超时，保留原native null、原生覆盖及审计来源，未决环境故障继续留空。03:25的Base Terminal为442份原生有效＋3个审计超时，独立预算分**20.224719%**、五seed sample SD **2.635065个百分点**；严格主分仍为空。此规则对专家/AVG64同样适用，不能套用Base的task白名单；两种视图和宏平均分别保存，不混称全445份原生reward。
 
-原统一Base审计曾有5 SWE＋1 HLE＋9 TB判分缺口；其owner仅用原答案补评分，HLE现已2500/2500有效、99正确、**3.96%**；03:13记录SWE49/51、TB439/445原生有效，后续仍在收尾，见[补评记录](analysis/base_gap_completion_20261017.md)。三个进入官方测试后耗尽900秒的TB结果仍保留native null，另有逐结果计算超时审计，不能与环境故障混算。SWE专家四个已核审native0另存[独立汇总](analysis/swe249_audited_summary_20261017.md)，未改原队列。专家目标项和AVG64四项正式运行仍未收齐，完整矩阵、宏平均提升及其CI尚未齐备，未声明达到3pp/5pp目标。动态结果以 [显式结果路径清单](configs/eval/final_results_20261017.json) 指向的owner输出及其更新时间为准。
+原统一Base审计曾有5 SWE＋1 HLE＋9 TB判分缺口；其owner已03:29仅用原答案补评分收尾，SWE51/51有效、10正确、19.607843%，HLE2500/2500有效、99正确、**3.96%**，ASI240/240、1.570988%，TB442native另3审计超时派生0仅进独立预算视图，见[补评记录](analysis/base_gap_completion_20261017.md)。三个进入官方测试后耗尽900秒的TB结果仍保留native null，另有逐结果计算超时审计，不能与环境故障混算。SWE专家四个已核审native0另存[独立汇总](analysis/swe249_audited_summary_20261017.md)，未改原队列。专家目标项和AVG64四项正式运行仍未收齐，完整矩阵、宏平均提升及其CI尚未齐备，未声明达到3pp/5pp目标。动态结果以 [显式结果路径清单](configs/eval/final_results_20261017.json) 指向的owner输出及其更新时间为准。
 
 ## 在原环境复现
 

@@ -1,0 +1,118 @@
+{
+  "at_utc": "2026-10-16T23:11:22.701970+00:00",
+  "mode": "prepare_only",
+  "network_calls": 0,
+  "models": [
+    {
+      "model": "apex-avg64",
+      "eligible_tasks": [
+        "67216b3c8238b402204d3432",
+        "6738e0e90afc5078575438a9"
+      ],
+      "already_reserved": [],
+      "original_grader_exited": true,
+      "original_controller_lock_exclusive": true,
+      "original_calls": 1307,
+      "original_cost_cny": 1.42355325,
+      "combined_calls_after_reservations": 1309,
+      "combined_cost_cny_after_reservations": 1.4527642500000002,
+      "original_budget_sha256": "4574f5ae14c4882bfd8d32f9d3ae54b2bf28c2bbd341056939a15bbb67a53f85",
+      "frozen_scorer_sha256": "148721d67dd9f6644e5fa575e2e25b17fb3129eb70727f3bf5c9c176de3905ef"
+    }
+  ],
+  "config": "configs/eval/hle_compact_judge_recovery_avg64_20261017.json",
+  "configuration_state": "prepared_only; execution requires root approval",
+  "precondition_verified_frozen_terminal_results": 2500,
+  "verified_final_invalid_task_ids": [
+    "67216b3c8238b402204d3432",
+    "6738e0e90afc5078575438a9"
+  ],
+  "final_inventory": true,
+  "original_grader_pid": 3269010,
+  "original_grader_exited": true,
+  "original_invalid_evidence": [
+    {
+      "id": "67216b3c8238b402204d3432",
+      "evaluation_status": "evaluation_invalid",
+      "judge_calls": 2,
+      "correct": null,
+      "is_image": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exists": true,
+          "http_status": 200,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        },
+        {
+          "attempt": 2,
+          "exists": true,
+          "http_status": 200,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        }
+      ]
+    },
+    {
+      "id": "6738e0e90afc5078575438a9",
+      "evaluation_status": "evaluation_invalid",
+      "judge_calls": 2,
+      "correct": null,
+      "is_image": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exists": true,
+          "http_status": 200,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        },
+        {
+          "attempt": 2,
+          "exists": true,
+          "http_status": 200,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        }
+      ]
+    }
+  ],
+  "backup_audit": {
+    "created_during_prepare": false,
+    "original_budget_mutation_allowed": false,
+    "solver_mutation_allowed": false,
+    "unknown_outcome_resend_allowed": false,
+    "execution_requires_preserving_originals": true
+  },
+  "subsequent_root_execution_report": {
+    "source": "Root completion and byte-preservation report in this task; execution receipt owned by root",
+    "complete": true,
+    "valid": 2500,
+    "correct": 117,
+    "accuracy_percent": 4.68,
+    "native_no_answer": 1196,
+    "additional_calls": 2,
+    "additional_cost_cny": 0.003009,
+    "combined_calls": 1309,
+    "combined_cost_cny": 1.42656225,
+    "original_source_budget_config_and_generation_bytes_unchanged_root_verified": true,
+    "executed_by_this_agent": false
+  }
+}

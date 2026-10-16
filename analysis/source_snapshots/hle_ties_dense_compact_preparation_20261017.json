@@ -1,0 +1,342 @@
+{
+  "at_utc": "2026-10-16T23:06:25.430342+00:00",
+  "mode": "prepare_only",
+  "network_calls": 0,
+  "models": [
+    {
+      "model": "apex-ties-dense",
+      "eligible_tasks": [
+        "66e8cfa03add731d7fce4352",
+        "670fe03ef99389b3c7942186",
+        "6715e455f818cdd1872c0ef0",
+        "6717cc3a4d6b1e71cab9bc8c",
+        "67216b3c8238b402204d3432",
+        "6725a3721da5d29be1a9a573"
+      ],
+      "already_reserved": [],
+      "original_grader_exited": true,
+      "original_controller_lock_exclusive": true,
+      "original_calls": 2439,
+      "original_cost_cny": 2.15669325,
+      "combined_calls_after_reservations": 2445,
+      "combined_cost_cny_after_reservations": 2.23206525,
+      "original_budget_sha256": "ca16362aec84b5b3462a7578013484b052129f9577f3568eaae23a4ac60e4006",
+      "frozen_scorer_sha256": "148721d67dd9f6644e5fa575e2e25b17fb3129eb70727f3bf5c9c176de3905ef"
+    }
+  ],
+  "config": "configs/eval/hle_compact_judge_recovery_ties_dense_20261017.json",
+  "configuration_state": "prepared_only; execution requires root approval",
+  "original_total_invalid": 7,
+  "eligible_count": 6,
+  "final_inventory": true,
+  "original_grader": {
+    "pid": 887556,
+    "exists": false
+  },
+  "original_summary": {
+    "complete": false,
+    "expected": 2500,
+    "frozen_terminal_results": 2500,
+    "scored": 2493,
+    "evaluation_invalid": 7,
+    "pending": 7,
+    "accuracy_percent": null,
+    "score": null,
+    "selection_states": {
+      "answer": 2432,
+      "native_no_answer": 68
+    },
+    "judge_generation_calls": 2439,
+    "accounted_cost_cny": 2.15669325,
+    "updated_at_utc": "2026-10-16T22:46:16.873851+00:00"
+  },
+  "original_invalid_evidence": [
+    {
+      "id": "66e8cfa03add731d7fce4352",
+      "evaluation_status": "evaluation_invalid",
+      "judge_calls": 2,
+      "correct": null,
+      "is_image": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exists": true,
+          "http_status": 200,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        },
+        {
+          "attempt": 2,
+          "exists": true,
+          "http_status": 200,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        }
+      ]
+    },
+    {
+      "id": "670fe03ef99389b3c7942186",
+      "evaluation_status": "evaluation_invalid",
+      "judge_calls": 2,
+      "correct": null,
+      "is_image": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exists": true,
+          "http_status": 200,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        },
+        {
+          "attempt": 2,
+          "exists": true,
+          "http_status": 200,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        }
+      ]
+    },
+    {
+      "id": "6715e455f818cdd1872c0ef0",
+      "evaluation_status": "evaluation_invalid",
+      "judge_calls": 2,
+      "correct": null,
+      "is_image": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exists": true,
+          "http_status": 200,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        },
+        {
+          "attempt": 2,
+          "exists": true,
+          "http_status": 200,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        }
+      ]
+    },
+    {
+      "id": "6717cc3a4d6b1e71cab9bc8c",
+      "evaluation_status": "evaluation_invalid",
+      "judge_calls": 2,
+      "correct": null,
+      "is_image": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exists": true,
+          "http_status": 200,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        },
+        {
+          "attempt": 2,
+          "exists": true,
+          "http_status": 200,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        }
+      ]
+    },
+    {
+      "id": "67216b3c8238b402204d3432",
+      "evaluation_status": "evaluation_invalid",
+      "judge_calls": 2,
+      "correct": null,
+      "is_image": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exists": true,
+          "http_status": 200,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        },
+        {
+          "attempt": 2,
+          "exists": true,
+          "http_status": 200,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        }
+      ]
+    },
+    {
+      "id": "6725a3721da5d29be1a9a573",
+      "evaluation_status": "evaluation_invalid",
+      "judge_calls": 2,
+      "correct": null,
+      "is_image": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exists": true,
+          "http_status": 200,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        },
+        {
+          "attempt": 2,
+          "exists": true,
+          "http_status": 200,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        }
+      ]
+    },
+    {
+      "id": "672d8b9b504a98f0e4799ae0",
+      "evaluation_status": "evaluation_invalid",
+      "judge_calls": 2,
+      "correct": null,
+      "is_image": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "exists": true,
+          "http_status": 200,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "finish_reason": "stop",
+          "completion_tokens": 79,
+          "frozen_parse_failed": true,
+          "parse_error_type": "AssertionError"
+        },
+        {
+          "attempt": 2,
+          "exists": true,
+          "http_status": 200,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "finish_reason": "stop",
+          "completion_tokens": 79,
+          "frozen_parse_failed": true,
+          "parse_error_type": "AssertionError"
+        }
+      ]
+    }
+  ],
+  "excluded_schema_evidence": [
+    {
+      "ties_nonlength_task": "672d8b9b504a98f0e4799ae0",
+      "attempt": 1,
+      "http_status": 200,
+      "finish_reason": "stop",
+      "completion_tokens": 79,
+      "schema": {
+        "exact_keys": [
+          "confidence",
+          "extracted_final_answer",
+          "reasoning",
+          "strict"
+        ],
+        "types": {
+          "extracted_final_answer": "str",
+          "reasoning": "str",
+          "confidence": "int",
+          "strict": "bool"
+        },
+        "correct_allowed": false,
+        "strict_is_true": true,
+        "confidence_int_range": true
+      }
+    },
+    {
+      "ties_nonlength_task": "672d8b9b504a98f0e4799ae0",
+      "attempt": 2,
+      "http_status": 200,
+      "finish_reason": "stop",
+      "completion_tokens": 79,
+      "schema": {
+        "exact_keys": [
+          "confidence",
+          "extracted_final_answer",
+          "reasoning",
+          "strict"
+        ],
+        "types": {
+          "extracted_final_answer": "str",
+          "reasoning": "str",
+          "confidence": "int",
+          "strict": "bool"
+        },
+        "correct_allowed": false,
+        "strict_is_true": true,
+        "confidence_int_range": true
+      }
+    }
+  ],
+  "backup_audit": {
+    "created_during_prepare": false,
+    "reason": "Default prepare is read-only and sends zero calls. Execution must preserve original budget, invalid results, inputs, both requests/responses/errors, summary, scoring config, identity and frozen source before making one independent reservation per eligible task.",
+    "original_ledger_mutation_allowed": false,
+    "solver_mutation_allowed": false,
+    "unknown_outcome_resend_allowed": false
+  },
+  "subsequent_root_execution_report": {
+    "source": "Root completion and byte-preservation report in this task; execution receipt owned by root",
+    "complete": false,
+    "valid": 2499,
+    "correct": 131,
+    "remaining_invalid": 1,
+    "score": null,
+    "additional_calls": 6,
+    "additional_cost_cny": 0.00472125,
+    "combined_calls": 2445,
+    "combined_cost_cny": 2.1614145,
+    "executed_by_this_agent": false
+  }
+}

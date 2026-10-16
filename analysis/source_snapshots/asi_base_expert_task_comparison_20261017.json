@@ -1,0 +1,1067 @@
+{
+  "collected_at_utc": "2026-10-16T23:32:09.922103+00:00",
+  "sources": {
+    "base": {
+      "path": "artifacts/asi/scoring_v2_formal_params_20261016/local_score_seed31415.json",
+      "sha256": "e71f33e4164b2f4da09b574254854fea360822af1c53eef1f77ea065f39ef706",
+      "official": false,
+      "score_scope": "public_local_replacement_judge",
+      "total_score": 377.03721765801566,
+      "total_max_score": 24000.0,
+      "mean_percent": 1.5709884069083986
+    },
+    "expert": {
+      "path": "artifacts/eval/asi128_asi240_20261017/audited/local_score_seed31415.json",
+      "sha256": "625510f2df933e22d3c25ab18ac96b570952270b7674ecd5bca536bfa270816b",
+      "official": false,
+      "score_scope": "public_local_replacement_judge",
+      "total_score": 90.95793165941141,
+      "total_max_score": 24000.0,
+      "mean_percent": 0.37899138191421416
+    }
+  },
+  "largest_declines": [
+    {
+      "task_id": "robotics.multiregime_icp_degeneracy",
+      "domain": "robotics",
+      "base_mean_native": 23.550967973002166,
+      "expert_mean_native": 0.0,
+      "delta_native_points": -23.550967973002166,
+      "conditions": {
+        "B1": {
+          "base": 63.821323126373805,
+          "expert": 0.0,
+          "delta": -63.821323126373805
+        },
+        "B2": {
+          "base": 15.497877951194733,
+          "expert": 0.0,
+          "delta": -15.497877951194733
+        },
+        "B3": {
+          "base": 14.884670814440126,
+          "expert": 0.0,
+          "delta": -14.884670814440126
+        },
+        "B4": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        }
+      }
+    },
+    {
+      "task_id": "math.multiply_connected_conformal_mapping",
+      "domain": "math",
+      "base_mean_native": 10.377402835847631,
+      "expert_mean_native": 0.0,
+      "delta_native_points": -10.377402835847631,
+      "conditions": {
+        "B1": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        },
+        "B2": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        },
+        "B3": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        },
+        "B4": {
+          "base": 41.509611343390524,
+          "expert": 0.0,
+          "delta": -41.509611343390524
+        }
+      }
+    },
+    {
+      "task_id": "biology.gene_network_timeseries",
+      "domain": "biology",
+      "base_mean_native": 16.439865629504034,
+      "expert_mean_native": 7.299192764529504,
+      "delta_native_points": -9.14067286497453,
+      "conditions": {
+        "B1": {
+          "base": 9.032015500340833,
+          "expert": 0.0,
+          "delta": -9.032015500340833
+        },
+        "B2": {
+          "base": 13.766145903816273,
+          "expert": 0.0,
+          "delta": -13.766145903816273
+        },
+        "B3": {
+          "base": 23.647524284876425,
+          "expert": 0.0,
+          "delta": -23.647524284876425
+        },
+        "B4": {
+          "base": 19.313776828982604,
+          "expert": 29.196771058118017,
+          "delta": 9.882994229135413
+        }
+      }
+    },
+    {
+      "task_id": "earth_science.farquhar_ballberry_photosynthesis",
+      "domain": "earth_science",
+      "base_mean_native": 8.36243531249653,
+      "expert_mean_native": 0.0,
+      "delta_native_points": -8.36243531249653,
+      "conditions": {
+        "B1": {
+          "base": 33.44974124998612,
+          "expert": 0.0,
+          "delta": -33.44974124998612
+        },
+        "B2": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        },
+        "B3": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        },
+        "B4": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        }
+      }
+    },
+    {
+      "task_id": "biology.scrna_seq_analysis",
+      "domain": "biology",
+      "base_mean_native": 7.243792206635551,
+      "expert_mean_native": 0.0,
+      "delta_native_points": -7.243792206635551,
+      "conditions": {
+        "B1": {
+          "base": 17.30936419247246,
+          "expert": 0.0,
+          "delta": -17.30936419247246
+        },
+        "B2": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        },
+        "B3": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        },
+        "B4": {
+          "base": 11.665804634069744,
+          "expert": 0.0,
+          "delta": -11.665804634069744
+        }
+      }
+    }
+  ],
+  "largest_gains": [
+    {
+      "task_id": "robotics.occupancy_grid_mapping_correlated_clutter",
+      "domain": "robotics",
+      "base_mean_native": 2.1207030229469592,
+      "expert_mean_native": 8.091656137018962,
+      "delta_native_points": 5.970953114072003,
+      "conditions": {
+        "B1": {
+          "base": 0.0,
+          "expert": 32.36662454807585,
+          "delta": 32.36662454807585
+        },
+        "B2": {
+          "base": 8.482812091787837,
+          "expert": 0.0,
+          "delta": -8.482812091787837
+        },
+        "B3": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        },
+        "B4": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        }
+      }
+    },
+    {
+      "task_id": "electrical_engineering.cmos_opamp_design",
+      "domain": "electrical_engineering",
+      "base_mean_native": 0.0,
+      "expert_mean_native": 3.5,
+      "delta_native_points": 3.5,
+      "conditions": {
+        "B1": {
+          "base": 0.0,
+          "expert": 11.0,
+          "delta": 11.0
+        },
+        "B2": {
+          "base": 0.0,
+          "expert": 1.0,
+          "delta": 1.0
+        },
+        "B3": {
+          "base": 0.0,
+          "expert": 2.0,
+          "delta": 2.0
+        },
+        "B4": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        }
+      }
+    },
+    {
+      "task_id": "physics.ks_2d_anisotropic",
+      "domain": "physics",
+      "base_mean_native": 3.537837266796229,
+      "expert_mean_native": 3.8069673466377196,
+      "delta_native_points": 0.26913007984149095,
+      "conditions": {
+        "B1": {
+          "base": 0.8333333333333334,
+          "expert": 0.0,
+          "delta": -0.8333333333333334
+        },
+        "B2": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        },
+        "B3": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        },
+        "B4": {
+          "base": 13.318015733851581,
+          "expert": 15.227869386550879,
+          "delta": 1.9098536526992973
+        }
+      }
+    },
+    {
+      "task_id": "robotics.ukf_bearing_only_tracking",
+      "domain": "robotics",
+      "base_mean_native": 0.0,
+      "expert_mean_native": 0.0,
+      "delta_native_points": 0.0,
+      "conditions": {
+        "B1": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        },
+        "B2": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        },
+        "B3": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        },
+        "B4": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        }
+      }
+    },
+    {
+      "task_id": "robotics.robust_pose_graph_false_loops",
+      "domain": "robotics",
+      "base_mean_native": 0.0,
+      "expert_mean_native": 0.0,
+      "delta_native_points": 0.0,
+      "conditions": {
+        "B1": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        },
+        "B2": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        },
+        "B3": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        },
+        "B4": {
+          "base": 0.0,
+          "expert": 0.0,
+          "delta": 0.0
+        }
+      }
+    }
+  ],
+  "by_domain": [
+    {
+      "group": "astronomy",
+      "conditions": 12,
+      "tasks": 3,
+      "base_mean_native": 0.0,
+      "expert_mean_native": 0.0,
+      "delta_native_points": 0.0
+    },
+    {
+      "group": "biology",
+      "conditions": 24,
+      "tasks": 6,
+      "base_mean_native": 4.468775702642041,
+      "expert_mean_native": 1.2165321274215841,
+      "delta_native_points": -3.2522435752204575
+    },
+    {
+      "group": "biostat",
+      "conditions": 4,
+      "tasks": 1,
+      "base_mean_native": 0.0,
+      "expert_mean_native": 0.0,
+      "delta_native_points": 0.0
+    },
+    {
+      "group": "chemistry",
+      "conditions": 24,
+      "tasks": 6,
+      "base_mean_native": 0.0,
+      "expert_mean_native": 0.0,
+      "delta_native_points": 0.0
+    },
+    {
+      "group": "computer_science",
+      "conditions": 36,
+      "tasks": 9,
+      "base_mean_native": 0.2777777865504361,
+      "expert_mean_native": 0.0,
+      "delta_native_points": -0.2777777865504361
+    },
+    {
+      "group": "earth_science",
+      "conditions": 16,
+      "tasks": 4,
+      "base_mean_native": 2.0906088281241324,
+      "expert_mean_native": 0.0,
+      "delta_native_points": -2.0906088281241324
+    },
+    {
+      "group": "electrical_engineering",
+      "conditions": 8,
+      "tasks": 2,
+      "base_mean_native": 0.0,
+      "expert_mean_native": 1.75,
+      "delta_native_points": 1.75
+    },
+    {
+      "group": "materials",
+      "conditions": 8,
+      "tasks": 2,
+      "base_mean_native": 3.0846560846560847,
+      "expert_mean_native": 0.0,
+      "delta_native_points": -3.0846560846560847
+    },
+    {
+      "group": "math",
+      "conditions": 48,
+      "tasks": 12,
+      "base_mean_native": 1.3885310894952392,
+      "expert_mean_native": 0.0034722222222222216,
+      "delta_native_points": -1.3850588672730169
+    },
+    {
+      "group": "physics",
+      "conditions": 32,
+      "tasks": 8,
+      "base_mean_native": 1.0101073209996319,
+      "expert_mean_native": 0.47587091832971495,
+      "delta_native_points": -0.5342364026699169
+    },
+    {
+      "group": "robotics",
+      "conditions": 28,
+      "tasks": 7,
+      "base_mean_native": 3.667381570849875,
+      "expert_mean_native": 1.1559508767169946,
+      "delta_native_points": -2.5114306941328803
+    }
+  ],
+  "by_budget_group": [
+    {
+      "group": "B1",
+      "conditions": 60,
+      "tasks": 60,
+      "base_mean_native": 2.4760605810196568,
+      "expert_mean_native": 0.7227770758012642,
+      "delta_native_points": -1.7532835052183924
+    },
+    {
+      "group": "B2",
+      "conditions": 60,
+      "tasks": 60,
+      "base_mean_native": 0.6971000435577585,
+      "expert_mean_native": 0.016666666666666666,
+      "delta_native_points": -0.6804333768910918
+    },
+    {
+      "group": "B3",
+      "conditions": 60,
+      "tasks": 60,
+      "base_mean_native": 1.3593148360265808,
+      "expert_mean_native": 0.034722222222222224,
+      "delta_native_points": -1.3245926138043587
+    },
+    {
+      "group": "B4",
+      "conditions": 60,
+      "tasks": 60,
+      "base_mean_native": 1.751478167029599,
+      "expert_mean_native": 0.7417995629667038,
+      "delta_native_points": -1.0096786040628951
+    }
+  ],
+  "pairing_checks": {
+    "conditions": 240,
+    "tasks": 60,
+    "conditions_per_task": 4,
+    "completed_all": true,
+    "max_score_all": 100,
+    "divisor_same_per_pair": true,
+    "divisor_counts": {
+      "1.0": 236,
+      "1.05": 4
+    }
+  },
+  "schema": "asi_base_expert_task_descriptive_comparison_v1",
+  "csv": {
+    "path": "analysis/asi_base_expert_task_comparison_20261017.csv",
+    "sha256": "4534252ae199c97eead239c4d758079d479081e19ae7e5d2e4153f3610182885",
+    "rows": 240,
+    "tasks": 60
+  },
+  "direction_counts": {
+    "up": 3,
+    "down": 11,
+    "tie": 46
+  },
+  "largest5_decline_share_of_net_delta": 0.8204057275680235,
+  "paired_result_reused": {
+    "path": "analysis/source_snapshots/formal_aggregation_20261017_0727.json",
+    "sha256": "d6dc46a0bcfa412bbd042a8d0291c15b93b2cd4258ff8c4b8bc03288bb2c772f",
+    "result": {
+      "complete_pair": true,
+      "expected_observations": 240,
+      "valid_paired_observations": 240,
+      "expected_clusters": 60,
+      "complete_paired_clusters": 60,
+      "delta_percent_points": -1.1919970249941845,
+      "delta_ci95_percent_points": {
+        "lower": -2.278709642549218,
+        "upper": -0.30302291762722916,
+        "method": "percentile cluster bootstrap"
+      }
+    },
+    "new_bootstrap_performed": false
+  },
+  "selected_generation_metadata": [
+    {
+      "model": "base",
+      "task_id": "robotics.multiregime_icp_degeneracy",
+      "generation_status_counts": {
+        "completed": 3,
+        "failed": 1
+      },
+      "agent_status_counts": {
+        "completed": 3,
+        "failed": 1
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 3,
+      "positive_native_conditions": 3,
+      "persisted_file_types": {
+        ".py": 4,
+        ".npy": 6
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "robotics.multiregime_icp_degeneracy__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2_20261016_infra1/robotics.multiregime_icp_degeneracy/robotics.multiregime_icp_degeneracy__seed31415__b1.json",
+          "source_sha256": "aaec2b77e967e8e5481198125cc391b6f1135e67b0853d3d3dbeb3fb6fbd7249"
+        }
+      ]
+    },
+    {
+      "model": "base",
+      "task_id": "math.multiply_connected_conformal_mapping",
+      "generation_status_counts": {
+        "failed": 3,
+        "completed": 1
+      },
+      "agent_status_counts": {
+        "failed": 3,
+        "completed": 1
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 1,
+      "positive_native_conditions": 1,
+      "persisted_file_types": {
+        ".py": 4,
+        ".csv": 1,
+        ".npy": 9
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "math.multiply_connected_conformal_mapping__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2_20261016_infra1/math.multiply_connected_conformal_mapping/math.multiply_connected_conformal_mapping__seed31415__b1.json",
+          "source_sha256": "344fdfc547232d5f88eef1041822eca65f78a0d0383b3766af5b66642a478b24"
+        }
+      ]
+    },
+    {
+      "model": "base",
+      "task_id": "biology.gene_network_timeseries",
+      "generation_status_counts": {
+        "completed": 3,
+        "failed": 1
+      },
+      "agent_status_counts": {
+        "completed": 3,
+        "failed": 1
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 4,
+      "positive_native_conditions": 4,
+      "persisted_file_types": {
+        ".py": 4,
+        ".npy": 8,
+        ".json": 12
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "biology.gene_network_timeseries__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2_20261016_infra1/biology.gene_network_timeseries/biology.gene_network_timeseries__seed31415__b1.json",
+          "source_sha256": "e2523b6b7388f035d92fffc6d2426bfb30476f4e81d89cc4288918d3a976d66e"
+        }
+      ]
+    },
+    {
+      "model": "base",
+      "task_id": "earth_science.farquhar_ballberry_photosynthesis",
+      "generation_status_counts": {
+        "completed": 2,
+        "failed": 2
+      },
+      "agent_status_counts": {
+        "completed": 2,
+        "failed": 2
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 2,
+      "positive_native_conditions": 1,
+      "persisted_file_types": {
+        ".py": 4,
+        ".csv": 4
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "earth_science.farquhar_ballberry_photosynthesis__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2_20261016_infra1/earth_science.farquhar_ballberry_photosynthesis/earth_science.farquhar_ballberry_photosynthesis__seed31415__b1.json",
+          "source_sha256": "c0c48b5e7c1d3dafcc93101e1f0000e3b77f0d02aa7299151cbc6460603fab2d"
+        }
+      ]
+    },
+    {
+      "model": "base",
+      "task_id": "biology.scrna_seq_analysis",
+      "generation_status_counts": {
+        "completed": 2,
+        "failed": 2
+      },
+      "agent_status_counts": {
+        "completed": 2,
+        "failed": 2
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 2,
+      "positive_native_conditions": 2,
+      "persisted_file_types": {
+        ".py": 4,
+        ".npy": 6,
+        ".json": 4
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "biology.scrna_seq_analysis__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2_20261016_infra1/biology.scrna_seq_analysis/biology.scrna_seq_analysis__seed31415__b1.json",
+          "source_sha256": "6ea848b81d411bc1b68240244558fb818c48f424171e1df609547d05bc1f56e5"
+        }
+      ]
+    },
+    {
+      "model": "base",
+      "task_id": "robotics.occupancy_grid_mapping_correlated_clutter",
+      "generation_status_counts": {
+        "failed": 3,
+        "completed": 1
+      },
+      "agent_status_counts": {
+        "failed": 3,
+        "completed": 1
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 1,
+      "positive_native_conditions": 1,
+      "persisted_file_types": {
+        ".py": 4,
+        ".npy": 3
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "robotics.occupancy_grid_mapping_correlated_clutter__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2_20261016_infra1/robotics.occupancy_grid_mapping_correlated_clutter/robotics.occupancy_grid_mapping_correlated_clutter__seed31415__b1.json",
+          "source_sha256": "3be8ec8fda5ab63f3907b62858b8b744f70c621693a50ebeca09a7734b9453dc"
+        }
+      ]
+    },
+    {
+      "model": "base",
+      "task_id": "electrical_engineering.cmos_opamp_design",
+      "generation_status_counts": {
+        "failed": 4
+      },
+      "agent_status_counts": {
+        "failed": 4
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 0,
+      "positive_native_conditions": 0,
+      "persisted_file_types": {
+        ".py": 4
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "electrical_engineering.cmos_opamp_design__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2_20261016_infra1/electrical_engineering.cmos_opamp_design/electrical_engineering.cmos_opamp_design__seed31415__b1.json",
+          "source_sha256": "2034403025478fd576a08cf217baa58aff24d55476e3c973f248af7308c84b02"
+        }
+      ]
+    },
+    {
+      "model": "base",
+      "task_id": "physics.ks_2d_anisotropic",
+      "generation_status_counts": {
+        "failed": 3,
+        "completed": 1
+      },
+      "agent_status_counts": {
+        "failed": 3,
+        "completed": 1
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 2,
+      "positive_native_conditions": 2,
+      "persisted_file_types": {
+        ".py": 4,
+        ".npy": 4,
+        ".json": 3
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "physics.ks_2d_anisotropic__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2_20261016_infra1/physics.ks_2d_anisotropic/physics.ks_2d_anisotropic__seed31415__b1.json",
+          "source_sha256": "af908eecd847d9c864f5ada7d01a902a02d505aaab96b42b35e896aad77678d4"
+        }
+      ]
+    },
+    {
+      "model": "base",
+      "task_id": "robotics.ukf_bearing_only_tracking",
+      "generation_status_counts": {
+        "failed": 4
+      },
+      "agent_status_counts": {
+        "failed": 4
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 0,
+      "positive_native_conditions": 0,
+      "persisted_file_types": {
+        ".py": 4
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "robotics.ukf_bearing_only_tracking__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2_20261016_infra1/robotics.ukf_bearing_only_tracking/robotics.ukf_bearing_only_tracking__seed31415__b1.json",
+          "source_sha256": "d1454ffd9c2eb44860343670019cf509dffcf9e2e92ab19887a78692f61c0b59"
+        }
+      ]
+    },
+    {
+      "model": "base",
+      "task_id": "robotics.robust_pose_graph_false_loops",
+      "generation_status_counts": {
+        "failed": 4
+      },
+      "agent_status_counts": {
+        "failed": 4
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 0,
+      "positive_native_conditions": 0,
+      "persisted_file_types": {
+        ".py": 4
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "robotics.robust_pose_graph_false_loops__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_asi_v2_20261016_infra1/robotics.robust_pose_graph_false_loops/robotics.robust_pose_graph_false_loops__seed31415__b1.json",
+          "source_sha256": "61c51c30fde2dd657b5d285e476868d69df6f64d84738fca7c2bce9d2f7eab1e"
+        }
+      ]
+    },
+    {
+      "model": "expert",
+      "task_id": "robotics.multiregime_icp_degeneracy",
+      "generation_status_counts": {
+        "failed": 4
+      },
+      "agent_status_counts": {
+        "failed": 4
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 0,
+      "positive_native_conditions": 0,
+      "persisted_file_types": {
+        ".py": 4
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "robotics.multiregime_icp_degeneracy__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/robotics.multiregime_icp_degeneracy/robotics.multiregime_icp_degeneracy__seed31415__b1.json",
+          "source_sha256": "58f5e0a35164ce2f83fb3f28f22cfcf31f8671578d4228074a68b4cd55e079d9"
+        }
+      ]
+    },
+    {
+      "model": "expert",
+      "task_id": "math.multiply_connected_conformal_mapping",
+      "generation_status_counts": {
+        "failed": 4
+      },
+      "agent_status_counts": {
+        "failed": 4
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 0,
+      "positive_native_conditions": 0,
+      "persisted_file_types": {
+        ".py": 4,
+        ".csv": 1
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "math.multiply_connected_conformal_mapping__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/math.multiply_connected_conformal_mapping/math.multiply_connected_conformal_mapping__seed31415__b1.json",
+          "source_sha256": "747f37906644b7e1b0484baadd499ab83e9b5cb3fd5d6409323c8b6720bde3bf"
+        }
+      ]
+    },
+    {
+      "model": "expert",
+      "task_id": "biology.gene_network_timeseries",
+      "generation_status_counts": {
+        "failed": 4
+      },
+      "agent_status_counts": {
+        "failed": 4
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 1,
+      "positive_native_conditions": 1,
+      "persisted_file_types": {
+        ".py": 4,
+        ".npy": 4,
+        ".json": 5
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "biology.gene_network_timeseries__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/biology.gene_network_timeseries/biology.gene_network_timeseries__seed31415__b1.json",
+          "source_sha256": "78b6507cc83053901e3f3e3e79470afa3b261e571c2cb3042967a42c59790d8a"
+        }
+      ]
+    },
+    {
+      "model": "expert",
+      "task_id": "earth_science.farquhar_ballberry_photosynthesis",
+      "generation_status_counts": {
+        "failed": 4
+      },
+      "agent_status_counts": {
+        "failed": 4
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 0,
+      "positive_native_conditions": 0,
+      "persisted_file_types": {
+        ".py": 4
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "earth_science.farquhar_ballberry_photosynthesis__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/earth_science.farquhar_ballberry_photosynthesis/earth_science.farquhar_ballberry_photosynthesis__seed31415__b1.json",
+          "source_sha256": "0e380f67cd61447efd9e52d2c3d08a6369f582f5b7290137c8ebdc37e3d68afb"
+        }
+      ]
+    },
+    {
+      "model": "expert",
+      "task_id": "biology.scrna_seq_analysis",
+      "generation_status_counts": {
+        "failed": 4
+      },
+      "agent_status_counts": {
+        "failed": 4
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 0,
+      "positive_native_conditions": 0,
+      "persisted_file_types": {
+        ".py": 4
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "biology.scrna_seq_analysis__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/biology.scrna_seq_analysis/biology.scrna_seq_analysis__seed31415__b1.json",
+          "source_sha256": "a035c32dbaf6423c9eb2af04cbbfb8080b1e5a180be7f04e9fe280cb7b1410aa"
+        }
+      ]
+    },
+    {
+      "model": "expert",
+      "task_id": "robotics.occupancy_grid_mapping_correlated_clutter",
+      "generation_status_counts": {
+        "completed": 1,
+        "failed": 3
+      },
+      "agent_status_counts": {
+        "completed": 1,
+        "failed": 3
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 1,
+      "positive_native_conditions": 1,
+      "persisted_file_types": {
+        ".py": 4,
+        ".npy": 3
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "robotics.occupancy_grid_mapping_correlated_clutter__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/robotics.occupancy_grid_mapping_correlated_clutter/robotics.occupancy_grid_mapping_correlated_clutter__seed31415__b1.json",
+          "source_sha256": "39ed1622750259e33860ba655ba5d7c67995b15e4c64a4fda54d17c9472307bc"
+        }
+      ]
+    },
+    {
+      "model": "expert",
+      "task_id": "electrical_engineering.cmos_opamp_design",
+      "generation_status_counts": {
+        "failed": 4
+      },
+      "agent_status_counts": {
+        "failed": 4
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 1,
+      "positive_native_conditions": 3,
+      "persisted_file_types": {
+        ".py": 4,
+        ".cir": 5
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "electrical_engineering.cmos_opamp_design__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/electrical_engineering.cmos_opamp_design/electrical_engineering.cmos_opamp_design__seed31415__b1.json",
+          "source_sha256": "0515dfd5628e9c9d3b7f697a2497692a932e85983389b1939c80453271aa3608"
+        }
+      ]
+    },
+    {
+      "model": "expert",
+      "task_id": "physics.ks_2d_anisotropic",
+      "generation_status_counts": {
+        "failed": 4
+      },
+      "agent_status_counts": {
+        "failed": 4
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 1,
+      "positive_native_conditions": 1,
+      "persisted_file_types": {
+        ".py": 4,
+        ".npy": 2,
+        ".json": 2
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "physics.ks_2d_anisotropic__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/physics.ks_2d_anisotropic/physics.ks_2d_anisotropic__seed31415__b1.json",
+          "source_sha256": "1fec1a3866154f29f7546fb94b36ad0cb425052432cc4b3fb376627c06ba29df"
+        }
+      ]
+    },
+    {
+      "model": "expert",
+      "task_id": "robotics.ukf_bearing_only_tracking",
+      "generation_status_counts": {
+        "failed": 4
+      },
+      "agent_status_counts": {
+        "failed": 4
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 0,
+      "positive_native_conditions": 0,
+      "persisted_file_types": {
+        ".py": 4
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "robotics.ukf_bearing_only_tracking__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/robotics.ukf_bearing_only_tracking/robotics.ukf_bearing_only_tracking__seed31415__b1.json",
+          "source_sha256": "f6270657db5168923f9723db9875086362011b8ec109458216729e7a2abb7b7c"
+        }
+      ]
+    },
+    {
+      "model": "expert",
+      "task_id": "robotics.robust_pose_graph_false_loops",
+      "generation_status_counts": {
+        "failed": 4
+      },
+      "agent_status_counts": {
+        "failed": 4
+      },
+      "timeout_phases": {
+        "None": 4
+      },
+      "native_hard_gate_passed": 0,
+      "positive_native_conditions": 0,
+      "persisted_file_types": {
+        ".py": 4
+      },
+      "error_message_present_count": 0,
+      "process_exit_code_recorded_count": 0,
+      "source_examples": [
+        {
+          "condition": "robotics.robust_pose_graph_false_loops__seed31415__b1",
+          "source_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/robotics.robust_pose_graph_false_loops/robotics.robust_pose_graph_false_loops__seed31415__b1.json",
+          "source_sha256": "9caa9b0bcb642a056bb63f18568ef309d0c1a83c6722a15694736b82c34cc78d"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Public seed31415/local replacement Judge; not Portal-certified.",
+    "Descriptive post-result top-task ranking; no task-specific multiplicity-corrected significance claimed.",
+    "Historical scheduling/service topology/environment differences are not removed by paired task bootstrap.",
+    "Generation failed status alone does not prove code failure, evaluator bias, environment failure or training causality.",
+    "Training-task coverage/format mismatch and catastrophic forgetting remain untested hypotheses; no new training-data or task audit."
+  ]
+}

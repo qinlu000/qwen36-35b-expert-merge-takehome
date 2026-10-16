@@ -1,0 +1,29 @@
+{
+  "recovery_id": "avg64-hle-compact-20261017",
+  "expected_items": 2,
+  "authorization": "Root independently reviewed the complete AVG64 two-item exhausted dual-HTTP200/length4096/parser-failed inventory and explicitly approved one compact Judge-only call per listed item under the existing2+1 exception; no solver regeneration.",
+  "base_precedent": "scripts/recover_hle_last_judge_20261017.py",
+  "wrapper_append": " Serialize keys in this order: correct, confidence, strict, extracted_final_answer, reasoning. Keep reasoning to one short sentence of at most 40 words; do not repeat the response or solve the problem. Finish the JSON object immediately after that sentence.",
+  "judge_identity": {
+    "requested_model": "DeepSeek-V4-Flash",
+    "reported_model": "DeepSeek-V4-Flash",
+    "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+    "provider_revision_pinned": false
+  },
+  "tls_tunnel_port": 28443,
+  "max_cny_per_model_combined": 20,
+  "max_calls_per_model_combined": 5000,
+  "additional_calls_per_item": 1,
+  "final_invalid_inventory_count": 2,
+  "models": [
+    {
+      "model": "apex-avg64",
+      "scoring": "artifacts/eval/avg64_hle2500_20261017/scoring",
+      "original_scorer_pid": 3269010,
+      "task_ids": [
+        "67216b3c8238b402204d3432",
+        "6738e0e90afc5078575438a9"
+      ]
+    }
+  ]
+}

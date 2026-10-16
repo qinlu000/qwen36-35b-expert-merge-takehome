@@ -1,0 +1,42 @@
+{
+  "collected_at_utc": "2026-10-16T23:23:26.794449+00:00",
+  "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/audited/local_score_seed31415.json",
+  "output_bytes": 1037034,
+  "output_sha256": "625510f2df933e22d3c25ab18ac96b570952270b7674ecd5bca536bfa270816b",
+  "original_report_sha256_unchanged": "047be7bf4608e8e1984d19d4f2ee0376f3b8351720dd8d99fbc3ec744876ad81",
+  "instance_count": 240,
+  "scored_instance_count": 240,
+  "task_cluster_count": 60,
+  "complete": true,
+  "scorer_error_count": 0,
+  "pending_count": 0,
+  "total_score": 90.95793165941141,
+  "total_max_score": 24000,
+  "mean_percent": 0.37899138191421416,
+  "official": false,
+  "score_scope": "public_local_replacement_judge",
+  "unchanged_other_conditions": 239,
+  "new_evaluations_by_collector": 0,
+  "schema": "asi128_audited_onecase_collection_v1",
+  "collector": {
+    "path": "scripts/collect_asi128_audited.py",
+    "sha256": "62fcaddc86ed3a8e18e8d06a9cc7ea6d90b6b45b99bb2207ca43850a17204b0f"
+  },
+  "config": {
+    "path": "configs/eval/asi128_audited_recovery_20261017.json",
+    "sha256": "0f05d7ccb12dfe9470a0b2b1c2a49721392cab6f043296d069e3c694b5f727d1"
+  },
+  "synthetic_checks": {
+    "passed": true,
+    "accept_240_fixed": true,
+    "reject_new_paid": true,
+    "reject_only_one_empty_scope_sample": true,
+    "reject_internal_error": true,
+    "reject_changed_source": true,
+    "native_evaluations": 0,
+    "api_calls": 0
+  },
+  "executed_once": true,
+  "original_report_modified": false,
+  "final_results_source_config_modified_by_agent": false
+}

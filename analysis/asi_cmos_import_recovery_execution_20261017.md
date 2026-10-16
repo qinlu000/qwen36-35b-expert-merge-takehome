@@ -1,0 +1,21 @@
+# CMOS一次原评分恢复：只读验收
+
+2026-10-17 07:21:25 Asia/Shanghai只读核验。建议root接受该独立onecase恢复：`electrical_engineering.cmos_opamp_design__seed31415__b1`原生评分为**completed，11/100，scorer_internal_error=false**。两项原报import异常的CMOS scorer现分别正常返回0/54和0/30；本次没有修改评分公式或将异常当零分。完整小型证据见[execution收据](source_snapshots/asi_cmos_import_recovery_execution_20261017.json)。本agent不接入canonical summary。
+
+root审核后于07:20:26启动唯一grade，PID1244523/startticks869185024；07:20:34写finished receipt，核验时parent已退出。独立输出位于80项目`artifacts/eval/asi128_asi240_20261017/import_recovery_20261017/`，其中native_result.json SHA256为`908dca5363820523e7a64da10431fbffbf00419eb6fbabd949025bc014414f52`。source仍为原5925B结果，三个persisted文件继续匹配生成时的SHA/大小；原9对cache和复制到grading2的18个文件逐字节一致，Judge identity与备份相同。
+
+新增paid调用**0**，原9次Judge全部cache复用。共享journal仅追加9个cache_reused，原17,383B前缀SHA保持`37c275c922942aa9145db8e6252295c980d012afaea46854f947ca387df3cd53`；全局仍15 started/15 completed/0 unsettled，reserved0.1431576元，处于同一396次/20元预算内。没有新的模型生成或第二次grade。
+
+冻结runtime、task_eval.yaml、custom_scorer.py、cmos_eval_runtime.py前后不变。原完整239有效+1异常report及原invalid条件record均与完整备份SHA相同；原canonical主分仍null，必须由root独立接入后才能变成240项完整报告。结束receipt记录CPU92–95实际scope交集于07:20:32.187744、07:20:34.284132两次均为空，间隔2.096秒；不借旧all-CPU marker证明本次排空。
+
+AVG未来评分runtime由root于07:20:25.896安装成功。安装receipt路径为`artifacts/eval/asi-import-fix-installation-20261017/receipt.json`；source树及symlink目标不变，只新增sitecustomize，shim SHA256 `2bc605c6ba3465f5b30b81c8c5a4589b101f6e31d2d9ec9cd7591535ad2c911f`，import GREEN。保留14项原树身份（含链接指向的168文件），workers1；generator1126055/startticks868933000未受打断，07:21:25只读观测AVG progress仍running。没有重启coordinator/generator、重建GPU或更改生成协议。
+
+本次只新增本Markdown与对应JSON；wrapper、生产队列、预算、原答卷/缓存/评分和canonical均未由审计者改动。该结论是一个固定条件的工程评分恢复验收，不是新的训练或任务级验证。
+
+## 获批后的独立audited汇总
+
+root独立核审后批准接入exact onecase。[KISS collector](../scripts/collect_asi128_audited.py)及[固定config](../configs/eval/asi128_audited_recovery_20261017.json)已同步80，并于07:23:26执行一次纯汇总。collector先核固定native/receipt、原source/三输出、18个cache文件、原journal前缀、0新paid/9复用、两次排空、原budget/identity及criteria身份；仅替换该invalid，其余239行逐值完全保持，previous_invalid及accepted_source完整保留。小型[汇总收据](source_snapshots/asi128_audited_collection_20261017.json)记录输出身份和实数。
+
+输出为80项目`artifacts/eval/asi128_asi240_20261017/audited/local_score_seed31415.json`，SHA256 `625510f2df933e22d3c25ab18ac96b570952270b7674ecd5bca536bfa270816b`。240/240 completed、60任务簇、complete=true、error0/pending0；原native公式得到total_score90.95793165941141/total_max24000，mean_percent0.37899138191421416。原239项合计79.95793165941141，新增固定11分；native run没有额外归一化、score_divisor为1，因此低分尺度是原生结果。保留official=false、score_scope=public_local_replacement_judge，不能称官方Judge结果。
+
+原report SHA仍为`047be7bf4608e8e1984d19d4f2ee0376f3b8351720dd8d99fbc3ec744876ad81`，不改canonical文件，不运行其余239项评分。collector的合成fixture已验证正常接入240项，并拒绝新增paid、只有一次空scope、internal error及source字节改变；无native evaluator/API。root负责切换最终汇总source config，本agent未修改该共享配置。

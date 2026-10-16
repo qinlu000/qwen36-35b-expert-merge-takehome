@@ -6,6 +6,12 @@
 
 状态：**公开**=有固定公共repo/package/model来源（权限要求另列）；**可重建**=由固定源与既有脚本派生，但先决输入必须齐；**离线原件**=目前只在80/HPC留存、没有本项目公开下载入口。三者可同时适用：例如SIF可从公开OCI重建，但本次实际SIF仍是离线原件。
 
+**07:27评分收尾补充**：新[ASI只读collector](../scripts/collect_asi128_audited.py)依赖`configs/eval/asi128_audited_recovery_20261017.json`精确定位原239+1-invalid报告、CMOS原生成文件/3份程序、9组既有Judge cache、一次import修复native结果及排空收据；输出固定`artifacts/eval/asi128_asi240_20261017/audited/local_score_seed31415.json`，原报告不覆盖。未来AVG评分runtime已在原generator仍运行时提前安装，仅在原完整runtime的sitecustomize追加冻结ASI源码根，原13份代码/链接保持；安装收据`artifacts/eval/asi-import-fix-installation-20261017/receipt.json`。这不替代task-envs、ngspice或bubblewrap依赖。
+
+新[Terminal只读collector](../scripts/collect_terminal250_audited.py)在每次汇总前刷新，manifest固定nginx/seed0及原/新native文件、原archive/restore delta、唯一parent/资源/排空证据；输出`artifacts/eval/terminal250_audited_20261017/summary.json`，动态源队列仍为`terminal250_full445_20261017`。三次bootstrap历史保留在`artifacts/recovery/terminal250-nginx-grade-only-20261017/`，不能把首次Python/CPU映射错误当作正式测试失败。最终只接受`bootstrap-cpu-recovery-20261017/native-grade/result.json`，未补装或启动nginx。
+
+HLE AVG64/TIES/AVG16各自`scoring/compact-recovery-20261017/`保存固定名单、旧结果备份、一次额外格式恢复、独立预算和原请求/响应；两项满300秒ReadTimeout的只读收集修正保留于各自`scoring/readtimeout-budget-audit-20261017/`。这属于评分异常恢复资产，不是新模型回答；TIES缺correct一项仍不纳入完整成绩。原runtime/scorer_source及原budget不覆盖。
+
 ## 1. 基座、五个公开adapter与合版证据
 
 基座公开ID为[Qwen/Qwen3.6-35B-A3B](https://huggingface.co/Qwen/Qwen3.6-35B-A3B/tree/995ad96eacd98c81ed38be0c5b274b04031597b0)，冻结revision `995ad96eacd98c81ed38be0c5b274b04031597b0`。两端均有`artifacts/models/Qwen3.6-35B-A3B/<revision>/`；完整下载身份见该目录`download_receipts.json`与仓库[model_sources.json](../model_sources.json)。下载入口[download_base.py](../scripts/download_base.py)，不仅需26个权重分片，也需同revision的tokenizer、chat template、processor/config/index；不能只取adapter或改文本模型架构。

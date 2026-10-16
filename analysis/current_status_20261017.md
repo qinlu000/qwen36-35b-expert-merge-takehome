@@ -1,5 +1,19 @@
 # 当前进展与未决事项
 
+**07:28收尾更新（最新）**：完整HLE为Base **99/2500=3.96%**、专家 **173/2500=6.92%**、Mixed **146/2500=5.84%**、AVG64 **117/2500=4.68%**、AVG16 **101/2500=4.04%**。AVG64较Base +0.72pp，配对95%CI[-0.20,1.64]；较Mixed -1.16pp[-2.24,-0.12]；较AVG16 +0.64pp[-0.24,1.481]。历史native-no-answer为Base1445/专家30/Mixed41/AVG1196/AVG161302，服务和排队混杂仍在，不能把差异全部归因权重。来源[07:26:42完整双视图](source_snapshots/formal_aggregation_20261017_0727.json)。
+
+**ASI专家已全240有效**：唯一CMOS b1导入故障经冻结原候选一次native补评分，复用9条原Judge cache、0新增付费调用，原239行不变；新[只读汇总](../configs/eval/asi128_audited_recovery_20261017.json)累计90.9579316594/24000，即 **0.378991%**，低于Base1.570988%，差 **-1.191997pp，60任务簇配对95%CI[-2.278710,-0.303023]**。已核原native公式/score_divisor，无汇总缩放错误；只代表公开local/替代Judge实验。保留原报告的invalid与历史ASI128选择，不据此更换权重。[执行证据](asi_cmos_import_recovery_execution_20261017.md)。未来AVG评分runtime提前追加冻结ASI源码根，完整原代码和symlink保留、import验收通过，workers仍1。[60任务逐项对照](asi_base_expert_task_comparison_20261017.md)为3任务上升/11下降/46持平，前5下降贡献净降幅82.04%；多数对应专家未形成所需科学产物或未过hard gate，原因尚不能归为训练或环境。
+
+**实际资源为6H100**：普通acd_u/Nice1000三个TP2（727912/727913/727856），727857在Mixed+AVG16全5000生成、原生metrics0后07:19:59自动释放；TIES728016、ASI专家727879和用户旧4卡继续释放，离线端点不重建。AVG HLE已06:38生成完，AVG ASI coordinator1126014/generator1126055已复用727856/28095接续，生成不再等专家科学评分。AVG SWE全51次尝试06:47结束、scope/marker已验，CPU0–11已自动交接：Terminal专家12槽、AVG11槽；第二阶段额外8槽仍等两ASI真实CPU完成标记，不抢未来CPU96–127。
+
+**评分兼容修复及剩余缺口**：两项原满300秒ReadTimeout在原答卷/配置/预算不变、原grader无在途自然退出后，按已有TimeoutError同等native-no-answer规则collect-only，0模型/Judge调用；早退transport/infra判断不变。固定原2次HTTP200+length4096+parsefail名单的compact恢复为AVG2/TIES6/AVG161，9次新增共¥0.00827325，原budget/答卷/criteria/identity均保留，显式2+1格式例外。TIES仍 **2499/2500有效、131correct、1invalid**：缺correct的原JSON不在length规则内，完整分/差值/CI继续null，记录待讨论，不扩大parser或自动再评。
+
+nginx最终补评分07:19实际执行8项官方测试、全部失败且native0/无Harbor异常；只恢复原archive/delta，不安装或启动nginx。原Python和CPUoffset bootstrap失败保留，最终一次原生测试经独立审阅后接[Terminal只读collector](../scripts/collect_terminal250_audited.py)，原队列和raw null不改。07:26严格有效覆盖：Terminal专家 **92/445**（另2invalid）、AVG **90/445**（另3invalid）；两SWE各 **48/51**，专家0resolved/AVG4resolved，各3评分未决，已有[原答案补评方案](swe_remaining_grade_only_plan_20261017.md)，尚无新native准入。完整AVG四项与macro仍null，不用部分coverage算分。每次按专家SWE→AVG SWE→Terminal审计collector→统一双视图刷新；ASI已完成的固定审计输出不重复写。
+
+[07:26成本](resource_ledger_20261017.md)：结束227.570GPUh、6卡active暂计18.8228GPUh；API预算核算15.029134794CNY另0.328327020USD，缓存9次不重复收费、未知发票/CPU工时不编造。[存储快照](source_snapshots/storage_20261017_0730.json)：本机可用30.14GiB，80项目盘1.99TiB/系统31.54GiB（97%已用），HPC项目共享盘11.04PiB、quota未知，未耗尽。阶段PDF07:28已纳完整HLE/ASI真实退化，摘要181中文字符/含标点199字符，一页及PNG目视通过；仍非最终report.pdf。
+
+以下06:15及更早内容保留历史过程，当前阶段以上述07:28为准。
+
 **06:15接续（最新）**：TIES-Dense已全2500生成、原generator退出0、原生metrics0并确认job728016消失；06:11只释放其自身2GPU，外部Judge887556继续，不能因28097离线重建。[本轮Direct审计](direct_status_20261017_0607.md)与后续释放收据保留原始时点。当前四个普通TP2共**8H100**：Terminal专家727912、AVG执行727913、AVG HLE→ASI727856、AVG16 HLE727857；727879/728016及更早用户释放的4卡均保持释放。
 
 [06:14:39双视图](source_snapshots/formal_aggregation_20261017_0615.json)已依次刷新两SWE collector、通过既有人工算例后生成：AVG SWE37/51、HLE2186/2500、TB68/445；Terminal专家68/445，SWE专家48/51，ASI专家109/240；AVG16 HLE1534、TIES1272。AVG新增OpenLibrary630空patch缺题目要求Bestbook产品module，root独立重读任务/原test/native0后接受exact只读overlay，未套专家白名单；其余网络/未知故障仍null。以上均为有效判分覆盖，非生成总数或子集主分；完整AVG64宏平均与TIES方法差值/CI仍null。HLE专家/Mixed完整6.92%/5.84%不变。

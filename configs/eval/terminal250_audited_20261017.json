@@ -1,0 +1,38 @@
+{
+  "model": "apex-terminal250",
+  "scope": "Only the exact original nginx-request-logging/seed0 saved candidate; no cross-model audit reuse",
+  "approval": "Root independently reviewed and approved the exact native0, original archive/delta, resources, tests, source bytes and drained lease on 2026-10-17 after 07:19 CST",
+  "source_summary": "artifacts/eval/terminal250_full445_20261017/summary.json",
+  "task_manifest": "artifacts/eval/terminal250_full445_20261017/manifest.json",
+  "task_manifest_sha256": "78dd5cda85a782f72f3b995b463bd65eb49b3c0653c98cd81a73250d68176fd3",
+  "output": "artifacts/eval/terminal250_audited_20261017",
+  "evidence_audit": "analysis/terminal_nginx_bootstrap_recovery_20261017.md",
+  "approved_native_zero": {
+    "key": "nginx-request-logging/seed0",
+    "task_checksum": "888ac1ae711acf0400d8631e2603924d716b3bf3f02012775fb06ba29a75cc83",
+    "original_result": "artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/result.json",
+    "original_result_sha256": "bc3df94fa93163edb3aef4066615771911db06fe3e5afde32f8900d58b368004",
+    "original_invalid": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/result.json",
+      "valid": false,
+      "reward": null,
+      "exception": "RuntimeError",
+      "verifier_issue": null
+    },
+    "accepted_result": "artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/native-grade/result.json",
+    "accepted_result_sha256": "0807af5e6c27d2e04d605007d9c3e31747457cd463b999a606d746968417f5c0",
+    "restore_manifest": "artifacts/recovery/terminal250-nginx-grade-only-20261017/restore.json",
+    "restore_manifest_sha256": "8307a59b2001e5d59ddc230d36152371072d3b94d47197eb64876d6ecb55cd4c",
+    "parent_launch": "artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/parent-launch.json",
+    "parent_launch_sha256": "c95f4775579cd966ef564d4c3c1131f90cd30d94698bc74455541739a6ef2454",
+    "parent_state": "artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/parent-state.json",
+    "parent_state_sha256": "34fc2d23d2c0ddd3b333df30155ef1ef8bac207526ed3ee5339a9cee3ad6f1b1",
+    "execution_claim": "artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/execution-claim.json",
+    "execution_claim_sha256": "2712ea03f0878b39356a7bc53c3cd040d98c81297ac769138a7a78f70c4f97da",
+    "parent_script_sha256": "eccfce88c679cace936b4824ba3a99901646ee1c573a1afa0ab40e6f3de167ca",
+    "reason": "Exact original final-state candidate restored with the approved static etc delta and unchanged resolver policy; six restore commands succeeded without installing/starting nginx. Official verifier ran eight tests, all failed because required nginx product state is absent; native reward0 and no Harbor exception. Parent-held shared lease drained twice; original raw null and all 26 bindings preserved."
+  },
+  "new_audits_require_explicit_review": true,
+  "new_model_calls": 0,
+  "new_native_verifier_runs": 0
+}

@@ -656,3 +656,17 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - compact恢复最小复用已去硬编码8，改显式expected_items和(model,task_id)唯一；旧8项原名单不变，12sanity+旧名单prepare-only均0新增请求通过。AVG/TIES原grader仍活，阶段invalid库存非final，未建新恢复配置/发请求；后续各自原grader退出后独立固定审核，遵既有2+1格式例外，unknown不重发。
 - 06:09资源固定快照：70本项目顶层作业，已结束219.743889GPUh，当时10卡active暂计16.582778GPUh（早于TIES释放）；API现存CNY预算核算13.105821894，USD另0.328327020，不混币种/不当发票。修正TIES HLE服务归推理而非merge，不改总GPUh。80/data余2094.9GiB、系统/tmp31.38GiB/97%使用，未见空间耗尽，未删原数据。
 - 每小时automation沿用原ID保持ACTIVE，补当前8卡/故意释放/TIES生成完、旧202字段、ASI正常长跑及exact第二SWE审计。核心截止10/18 02:20及最后12小时保留不变。自有代码AST/JSON/diff、恢复sanity、统计人工算例已通过；本轮无新的人工模型/Judge请求、训练、task-val、loss-only或Base求解，无邮件/邀请/其他会话消息、无coauthor。
+
+
+## 2026-10-17 07:31 CST：HLE完整、ASI评分收尾与CPU交接
+
+- 已读最新claud/current_status/Git，保留其他会话WIP，只提交明确owned文件，无coauthor、邮件、邀请或其他会话消息。主AVG64和四专家/ASI128历史身份保持，loss只诊断、task-val不恢复、旧答卷不重生。
+- 完整HLE2500含342图：Base99=3.96%、HLE专家173=6.92%、Mixed146=5.84%、AVG64117=4.68%、AVG16101=4.04%。AVG对Base+.72pp CI[-.20,1.64]；对Mixed-1.16[-2.24,-.12]；对AVG16+.64[-.24,1.481]。原生无答1445/30/41/1196/1302和历史服务/排队混杂继续披露，不以正式分数换主模型。
+- 两项原满300s ReadTimeout边界经root读原记录和冻结runner，按既有TimeoutError同等native-no-answer收集兼容修正；infra优先/早退TransportError不变。原grader无在途、自然退出后collect-only，0模型/Judge，原source/scorer_source/budget/config/identity字节保持。AVG2/TIES6/AVG161固定双200+length4096+parsefail名单各一次compact，9新调用均结算、总¥.00827325，明确原2+1格式例外及备份，不重发unknown。TIES仍2499有效/131correct/1缺correct，完整score/方法差/CI null；不扩规则或改parser。
+- ASI专家唯一CMOS b1 tasks导入故障：冻结原候选/3程序不改，完整runtime仅加冻结repo根；原公共预算396calls/20CNY及global92–95锁保持。唯一native1244523于07:20:34完成11/100，复用9既有cache、0新paid、原15paid journal前缀/239其他行/旧invalid均未改，两scope排空后释放锁。审计collector固定240/240、60簇、90.9579316594/24000=.3789913819%，对Base1.570988%差-1.191997pp CI[-2.278710,-.303023]；原native公式/score_divisor已独立核对，不是汇总缩放bug。未来AVG评分完整runtime已提前安装，仅sitecustomize追加同源码根，symlink/旧代码保持、import验收通过，workers仍1。
+- nginx bootstrap原851972找错Python、后1209420外taskset后错误offset92均在测试前失败，历史不覆盖。改用Harbor lexical venv+logical0→physical92–95，经同SIF资源probe后唯一1240267/start869176365于07:19:21完成，恢复原archive/etc delta且resolver排除，未安装/起nginx；官方8tests全部fail/native0/noHarbor异常。root独立读test/恢复日志/26源文件未变/两scope空后接受exact只读overlay，原raw null/队列不改。Terminal collector仅此行变化，其余逐dict一致。
+- AVG SWE全51次attempt06:47结束，真实CPU0–11交接后Terminal专家12槽/AVG11槽；第二阶段8槽仍等两ASI实际CPU marker。AVG HLE06:38生成完，coordinator1126014/generator1126055复用727856/28095运行ASI，无新GPU。Mixed+AVG16全5000生成和native metrics0后727857于07:19:59自动释放；当前727912/727913/727856三个普通acd_u/Nice1000 TP2共6H100，旧释放端点不重建。
+- 07:26:42双视图先专家SWE→AVG SWE→Terminal审计collector→summarize：SWE各48/51（专家0resolved/AVG4resolved，第三AVG Qutebrowser exact native0 root重读task/原patch/测试批准，未套专家名单）；TB专家92/445另2invalid、AVG90/445另3invalid；ASI专家240完整，AVG ASI生成中；TIES2499/1invalid。source issues空，完整AVG四项macro仍null。固定ASI审计产物只校验不重复执行一次性collector。
+- 07:26资源结束227.570GPUh、6卡active暂计18.8228GPUh；CNY11307calls预算核算15.029134794另USD.328327020，9缓存不重复算paid，未知发票/CPU工时保留unknown。存储本机余30.14GiB、80项目1.99TiB/系统31.54GiB（97%），HPC共享11.04PiB/quota未知，无耗尽；未大树扫描/删除旧原件。阶段PDF07:28已更新完整HLE与ASI退化/CI，摘要181中文字符/含标点199字符，一页/字体/PNG目视通过，仍非最终report.pdf。
+- 新SWE剩6项grade-only仅做只读可行性准备，不原样跑Base硬编码脚本、不改patch、不加测试时限。CPU92–95须同global锁且实际仍属grader池，Terminal扩容不拿该flock，不能凭锁空或瞬空scope抢已交接核。每小时automation沿用ID保持ACTIVE，已更新实际6卡/claims/有意释放/完整结果/未决项；核心截止仍10月18日02:20，保留最后12小时。
+- 补充真实ASI Base/专家60任务×4condition的CSV及B1–B4/11领域对照：3任务上升、11下降、46持平，前5下降约占净降幅82.04%；max/divisor逐对相同且不重复归一化。原failed记录/产物/hard gate差异只说明可观察结果，错误/退出字段缺失，监督不匹配或遗忘仍假设，不把配对CI当因果证明。

@@ -1,6 +1,6 @@
 # 最终交付的最小剩余清单
 
-初审时点：2026-10-17 03:03–03:10 CST；**05:29更新实际完成状态**。依据用户最初粘贴的多专家题面（附件`20b2f4c3-6e03-4746-a389-d488086d7780/Pasted text.txt`）、[需求转录](../EXPERIMENT_REQUIREMENTS.md)、当前[根README](../README.md)、模型/训练/合版/统计/资源回执。后来的线上SFT→stage2模板不覆盖原题面。原初审只读；后续真实执行与时点见统一进展日志和逐项收据。
+初审时点：2026-10-17 03:03–03:10 CST；**07:28更新实际完成状态**。依据用户最初粘贴的多专家题面（附件`20b2f4c3-6e03-4746-a389-d488086d7780/Pasted text.txt`）、[需求转录](../EXPERIMENT_REQUIREMENTS.md)、当前[根README](../README.md)、模型/训练/合版/统计/资源回执。后来的线上SFT→stage2模板不覆盖原题面。原初审只读；后续真实执行与时点见统一进展日志和逐项收据。
 
 ## 已完成，不再列作待重做
 
@@ -16,13 +16,13 @@
 
 ## 真正还缺的交付
 
-1. **完成剩余正式范围及有效判分，再生成最终结果包。** Base固定答案补评分已完成：SWE51/51、HLE2500/2500、ASI240/240；Terminal442native，另3计算超时仅在独立预算视图派生0，raw null保留。HLE专家及Mixed全2500有效，6.92%/5.84%；SWE专家48/51还有3评分未决；AVG64四项和Terminal专家仍在运行，ASI科学评分尚缺。每次先刷新专家/AVG两SWE collector，再执行strict+独立预算`summarize_experiment.py`。只交付完整有效范围的主分/paired CI，未齐备保持null，不用有效子集估最终提升。最新[固定快照](source_snapshots/formal_aggregation_20261017_0522.json)。
+1. **完成剩余正式范围及有效判分，再生成最终结果包。** Base固定答案补评分已完成：SWE51/51、HLE2500/2500、ASI240/240；Terminal442native，另3计算超时仅在独立预算视图派生0，raw null保留。HLE专家/Mixed/AVG64/AVG16已全2500有效，6.92%/5.84%/4.68%/4.04%；ASI专家全240有效，公开local原生0.378991%低于Base1.570988%，如实保留。两SWE各48/51仍各3评分未决；Terminal专家92/445、AVG90/445，AVG ASI生成正在复用28095接续。每次先刷新专家/AVG两SWE collector及Terminal只读审计collector，再执行strict+独立预算`summarize_experiment.py`。只交付完整有效范围的主分/paired CI，未齐备保持null，不用有效子集估最终提升。最新[固定快照](source_snapshots/formal_aggregation_20261017_0727.json)。
 
 2. **失败材料已完成，收尾时同步最终索引。** [20个真实AVG64有效wrong与三项后续实验](avg64_failure_cases_20261017.md)已有原始输出/评分路径及短证据；同ID Base也全失败，不能称合版引入退化。没有把环境invalid或pending充作20例，不需再凑占位案例。最终只需把已成文材料和完整矩阵/资产索引关联。
 
-3. **一页`report.pdf`。** 根目录最终`report.pdf`尚无；[05:27一页阶段稿](progress_report_20261017.md)及重画源脚本已生成并目视验收。原题固定结构为摘要（150–200个中文字符）、过程、结果，总计不超过一页。结果至少包含四项×{Base、目标专家、AVG64}分数矩阵、专家范围标注、宏平均提升、失败率和成本，详细曲线/20案例/CI留仓库链接。若截止仍不完整，表格需明确null/未完成及真实coverage，不能将报告排版完成冒称实验全部完成。需要实际生成PDF、核对页数并目视检查可读性；保留生成源稿便于后续更新。
+3. **一页`report.pdf`。** 根目录最终`report.pdf`尚无；[07:28一页阶段稿](progress_report_20261017.md)及重画源脚本已生成并目视验收。原题固定结构为摘要（150–200个中文字符）、过程、结果，总计不超过一页。结果至少包含四项×{Base、目标专家、AVG64}分数矩阵、专家范围标注、宏平均提升、失败率和成本，详细曲线/20案例/CI留仓库链接。若截止仍不完整，表格需明确null/未完成及真实coverage，不能将报告排版完成冒称实验全部完成。需要实际生成PDF、核对页数并目视检查可读性；保留生成源稿便于后续更新。
 
-4. **补齐原题明确的合版方法/配置对照，并收束训练对照。** 用户指出压缩不在原题合版示例中，AVG64/AVG16仅为辅助压缩对照，Mixed属于另一条训练对照；不能据此称该项完成。任务算术改系数草稿又被用户撤回，未启动新评测/GPU。真实TIES六shape pilot已通过，但SVD64残差30%-57%，未导出该近似；现[完整Dense导出](source_snapshots/ties_dense_export_728007_20261017.json)728007已验收：1045tensor/310目标/735非目标，BF16相对更新误差10.531%；普通TP2服务728016已正式运行HLE2500方法对照，完整任务比较尚缺。该表示不再是同r64参数化容量，需要披露dense-vs-LoRA舍入差异。主AVG64保持冻结，不按正式成绩换主模型、不恢复独立task-val；已有CE仅作诊断，不新增loss-only工作。新方法导出验证、实际任务成绩、配对区间与方法指标图齐备后才可称完成对照。
+4. **补齐原题明确的合版方法/配置对照，并收束训练对照。** 用户指出压缩不在原题合版示例中，AVG64/AVG16仅为辅助压缩对照，Mixed属于另一条训练对照；不能据此称该项完成。任务算术改系数草稿又被用户撤回，未启动新评测/GPU。真实TIES六shape pilot已通过，但SVD64残差30%-57%，未导出该近似；现[完整Dense导出](source_snapshots/ties_dense_export_728007_20261017.json)728007已验收：1045tensor/310目标/735非目标，BF16相对更新误差10.531%；普通TP2服务728016已全2500生成并释放，TIES2499有效、131correct，另1项缺correct且不符合已批准截断恢复例外，保留null；完整方法比较尚缺。该表示不再是同r64参数化容量，需要披露dense-vs-LoRA舍入差异。主AVG64保持冻结，不按正式成绩换主模型、不恢复独立task-val；已有CE仅作诊断，不新增loss-only工作。新方法导出验证、实际任务成绩、配对区间与方法指标图齐备后才可称完成对照。
 
 5. **补齐可复现交付的资产取用路径。** README已诚实说明固定机器路径和offline依赖，不是fresh portable安装。但现有命令仍依赖clone不会带来的资产：HPC外部donor Python/wheelhouse与SIF、`artifacts/source`、已筛选train/val与行级provenance、task SIF/cache、Base修复runtime多层快照、native环境缓存与完整训练/评测日志。最小补充是一份可随最终提交定位的资产索引：每类资产的固定版本/来源、公开下载或构建命令、派生资产的重建顺序，以及无法公开资产给面试方的受控取用方式。尤其Terminal preparer依赖`configs/eval/*terminal*.json`列出的`artifacts/.../runtime*/scripts`，仅有Git中的顶层controller与路径名不足以从空目录重建。保留这些代码overlay与source_inventory并给出可取用位置；不要为补齐复现而公开凭据、隐藏测试/参考答案或不宜再分发的原始benchmark包。现有公共HF adapter已解决模型取用，不需要重复导出大权重。
 
@@ -36,4 +36,4 @@ Terminal当前全89×5并不等于满足原题的3h/32CPU/48GB/256K/80K；目前
 
 本清单不要求扩训练、再采数据、重启已完成训练、重复发布模型或恢复已取消的独立任务级validation。最小主线是 **收齐有效正式结果 → 真实20案例 → 一页报告与已完成对照整理 → 资产取用与最终提交**；无法完成的条目必须保留真实未完成状态。
 
-以下保留03:03历史审核来源，不代表05:29当前状态（均以`/data/caoqinlu/projects/apex-takehome/`为根）：`artifacts/eval/avg64_swe_hard51_20261017/summary.json`（as_of2026-10-16T18:12:25Z、仍waiting）、`artifacts/eval/avg64_terminal_full445_20261017/summary.json`（updated2026-10-16T19:03:20.992602Z，即10月17日03:03:20 CST）、`artifacts/eval/avg64_hle2500_20261017/scoring/summary.json`（缺失）、`artifacts/eval/avg64_asi240_20261017/scoring/local_score_seed31415.json`（缺失）。这些是审核时点的保存状态，不当作持续进度。
+以下保留03:03历史审核来源，不代表07:28当前状态（均以`/data/caoqinlu/projects/apex-takehome/`为根）：`artifacts/eval/avg64_swe_hard51_20261017/summary.json`（as_of2026-10-16T18:12:25Z、仍waiting）、`artifacts/eval/avg64_terminal_full445_20261017/summary.json`（updated2026-10-16T19:03:20.992602Z，即10月17日03:03:20 CST）、`artifacts/eval/avg64_hle2500_20261017/scoring/summary.json`（缺失）、`artifacts/eval/avg64_asi240_20261017/scoring/local_score_seed31415.json`（缺失）。这些是审核时点的保存状态，不当作持续进度。

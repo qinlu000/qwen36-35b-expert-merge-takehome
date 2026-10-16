@@ -1,0 +1,154 @@
+{
+  "schema": "asi_fixed_onecase_recovery_v1",
+  "condition": "electrical_engineering.cmos_opamp_design__seed31415__b1",
+  "original_report": {
+    "path": "artifacts/eval/asi128_asi240_20261017/scoring/local_score_seed31415.json",
+    "bytes": 981008,
+    "sha256": "047be7bf4608e8e1984d19d4f2ee0376f3b8351720dd8d99fbc3ec744876ad81"
+  },
+  "original_invalid": {
+    "path": "artifacts/eval/asi128_asi240_20261017/scoring/conditions/electrical_engineering.cmos_opamp_design__seed31415__b1.json",
+    "bytes": 11117,
+    "sha256": "c36738624ff51aab680b1622fa78eb7dfb54e5db55a279549175b6527c668115"
+  },
+  "source_result": {
+    "path": "artifacts/eval/asi128_asi240_20261017/electrical_engineering.cmos_opamp_design/electrical_engineering.cmos_opamp_design__seed31415__b1.json",
+    "bytes": 5925,
+    "sha256": "0515dfd5628e9c9d3b7f697a2497692a932e85983389b1939c80453271aa3608"
+  },
+  "persisted_outputs": [
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/electrical_engineering.cmos_opamp_design/electrical_engineering.cmos_opamp_design__seed31415__b1.outputs/simulation.py",
+      "bytes": 18044,
+      "sha256": "d6f556a300b8f9d90bac7160158f6559029bd90c6c8f56606780edcb9b491560"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/electrical_engineering.cmos_opamp_design/electrical_engineering.cmos_opamp_design__seed31415__b1.outputs/opamp_netlist.cir",
+      "bytes": 2127,
+      "sha256": "850f1a93970a3d0e503efeae28cf02ee73baa3f12dd7c2d7cf0dd777bc121452"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/electrical_engineering.cmos_opamp_design/electrical_engineering.cmos_opamp_design__seed31415__b1.outputs/tran_testbench.cir",
+      "bytes": 1105,
+      "sha256": "e9d43aebb43e0933cc546b16dae206cb358b2069205e593c76ecb032bed1cd1d"
+    }
+  ],
+  "cache_files": [
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls/electrical_engineering.cmos_opamp_design__seed31415__b1.grading1/216135cdfb46e6df8533e336a0ce1ec9fe03445991f51fb807f873bfa2c1f002.0.request.json",
+      "bytes": 3766,
+      "sha256": "9f3931e74c7dc473b03928729f9aaf4038371e90cd45f507ef512ba3b368eeff"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls/electrical_engineering.cmos_opamp_design__seed31415__b1.grading1/216135cdfb46e6df8533e336a0ce1ec9fe03445991f51fb807f873bfa2c1f002.0.response.json",
+      "bytes": 764,
+      "sha256": "898b89febcbc2f7ca9caafea1bb1c72c35a3f9ea4b61a0665b972d9fc1557c0d"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls/electrical_engineering.cmos_opamp_design__seed31415__b1.grading1/216135cdfb46e6df8533e336a0ce1ec9fe03445991f51fb807f873bfa2c1f002.1.request.json",
+      "bytes": 3766,
+      "sha256": "9f3931e74c7dc473b03928729f9aaf4038371e90cd45f507ef512ba3b368eeff"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls/electrical_engineering.cmos_opamp_design__seed31415__b1.grading1/216135cdfb46e6df8533e336a0ce1ec9fe03445991f51fb807f873bfa2c1f002.1.response.json",
+      "bytes": 773,
+      "sha256": "8828f58c6bc9d0c25837ec308014fedc1f969be6bbec2b27b4b1d2c8fa8b71cb"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls/electrical_engineering.cmos_opamp_design__seed31415__b1.grading1/216135cdfb46e6df8533e336a0ce1ec9fe03445991f51fb807f873bfa2c1f002.2.request.json",
+      "bytes": 3766,
+      "sha256": "9f3931e74c7dc473b03928729f9aaf4038371e90cd45f507ef512ba3b368eeff"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls/electrical_engineering.cmos_opamp_design__seed31415__b1.grading1/216135cdfb46e6df8533e336a0ce1ec9fe03445991f51fb807f873bfa2c1f002.2.response.json",
+      "bytes": 773,
+      "sha256": "9a1fa5e060bf65dd31b08fe961496708bc0753d4552bd400030b1981b9b9e5c0"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls/electrical_engineering.cmos_opamp_design__seed31415__b1.grading1/24cdb6a988e710b9ba6c9d82151f5d5b9e9f463ae7b956db32b16371c83c6f86.0.request.json",
+      "bytes": 3764,
+      "sha256": "ec9303ff580731d67799e49ce828aaf558e88e9d254a9e839439834557535cb3"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls/electrical_engineering.cmos_opamp_design__seed31415__b1.grading1/24cdb6a988e710b9ba6c9d82151f5d5b9e9f463ae7b956db32b16371c83c6f86.0.response.json",
+      "bytes": 759,
+      "sha256": "0fd8c49cbb97c8bd096be9d14f271aead8ef5c28691271af0274139aa5c402a5"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls/electrical_engineering.cmos_opamp_design__seed31415__b1.grading1/24cdb6a988e710b9ba6c9d82151f5d5b9e9f463ae7b956db32b16371c83c6f86.1.request.json",
+      "bytes": 3764,
+      "sha256": "ec9303ff580731d67799e49ce828aaf558e88e9d254a9e839439834557535cb3"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls/electrical_engineering.cmos_opamp_design__seed31415__b1.grading1/24cdb6a988e710b9ba6c9d82151f5d5b9e9f463ae7b956db32b16371c83c6f86.1.response.json",
+      "bytes": 771,
+      "sha256": "4aa909c0671506682e0b476eb9097ac4f3a6361d45e70f1878feaf786eb27999"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls/electrical_engineering.cmos_opamp_design__seed31415__b1.grading1/24cdb6a988e710b9ba6c9d82151f5d5b9e9f463ae7b956db32b16371c83c6f86.2.request.json",
+      "bytes": 3764,
+      "sha256": "ec9303ff580731d67799e49ce828aaf558e88e9d254a9e839439834557535cb3"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls/electrical_engineering.cmos_opamp_design__seed31415__b1.grading1/24cdb6a988e710b9ba6c9d82151f5d5b9e9f463ae7b956db32b16371c83c6f86.2.response.json",
+      "bytes": 771,
+      "sha256": "1e5ea524f5e8c62a0f02c414ec4c1d24ad6ec9dc0d1be6fbc170ea58f2d6d9f6"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls/electrical_engineering.cmos_opamp_design__seed31415__b1.grading1/aee8c3e565b83479cf7530dc8286e295ee43e7b033afd9d20322f16e8e893cfe.0.request.json",
+      "bytes": 3660,
+      "sha256": "30776d19ffe965cf6d606b30998044db40fc327a9574a12bd4bb679a181908ce"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls/electrical_engineering.cmos_opamp_design__seed31415__b1.grading1/aee8c3e565b83479cf7530dc8286e295ee43e7b033afd9d20322f16e8e893cfe.0.response.json",
+      "bytes": 774,
+      "sha256": "ab1b93c6f51357a66b89cb6555af23d5c539ba7ab12f2e2b1f26a690f31d8ac2"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls/electrical_engineering.cmos_opamp_design__seed31415__b1.grading1/aee8c3e565b83479cf7530dc8286e295ee43e7b033afd9d20322f16e8e893cfe.1.request.json",
+      "bytes": 3660,
+      "sha256": "30776d19ffe965cf6d606b30998044db40fc327a9574a12bd4bb679a181908ce"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls/electrical_engineering.cmos_opamp_design__seed31415__b1.grading1/aee8c3e565b83479cf7530dc8286e295ee43e7b033afd9d20322f16e8e893cfe.1.response.json",
+      "bytes": 825,
+      "sha256": "0ef46f90dc0121077cb956e6598c6721a34a10520127898784b3838fb02624ea"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls/electrical_engineering.cmos_opamp_design__seed31415__b1.grading1/aee8c3e565b83479cf7530dc8286e295ee43e7b033afd9d20322f16e8e893cfe.2.request.json",
+      "bytes": 3660,
+      "sha256": "30776d19ffe965cf6d606b30998044db40fc327a9574a12bd4bb679a181908ce"
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls/electrical_engineering.cmos_opamp_design__seed31415__b1.grading1/aee8c3e565b83479cf7530dc8286e295ee43e7b033afd9d20322f16e8e893cfe.2.response.json",
+      "bytes": 777,
+      "sha256": "3dbbd7d7c86b5d177dfad465ae308812411f0b5d7778f6481cf088f4f63318e2"
+    }
+  ],
+  "native_result": {
+    "path": "artifacts/eval/asi128_asi240_20261017/import_recovery_20261017/native_result.json",
+    "bytes": 24640,
+    "sha256": "908dca5363820523e7a64da10431fbffbf00419eb6fbabd949025bc014414f52"
+  },
+  "receipt": {
+    "path": "artifacts/eval/asi128_asi240_20261017/import_recovery_20261017/receipt.json",
+    "bytes": 2114,
+    "sha256": "a1ec2cedcfd5b30ba5753a44d222d4cc8d7b3a11f95d1cb85214830962ae1457"
+  },
+  "approved_native_score": 11,
+  "journal_prefix": {
+    "path": "artifacts/eval/asi128_asi240_20261017/import_recovery_20261017/original/judge_calls.jsonl",
+    "bytes": 17383,
+    "sha256": "37c275c922942aa9145db8e6252295c980d012afaea46854f947ca387df3cd53"
+  },
+  "original_journal": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls.jsonl",
+  "scoring_config": {
+    "path": "artifacts/eval/asi128_asi240_20261017/scoring/scoring_config.json",
+    "sha256": "a73d19de8505ecfe1c36440c8659ff16ac74d32cd7aa034664541541161230c3"
+  },
+  "judge_identity": {
+    "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_identity.json",
+    "sha256": "969c62fcd44de272be60d027f67f2b7d0d37d3bd51bff259ed231859c3e72551"
+  },
+  "output": "artifacts/eval/asi128_asi240_20261017/audited/local_score_seed31415.json"
+}

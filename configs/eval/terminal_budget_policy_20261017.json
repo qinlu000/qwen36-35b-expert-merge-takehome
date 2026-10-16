@@ -17,7 +17,7 @@
       "model_id": "terminal250",
       "served_model": "apex-terminal250",
       "owner_kind": "trial_queue",
-      "source_summary": "artifacts/eval/terminal250_full445_20261017/summary.json",
+      "source_summary": "artifacts/eval/terminal250_audited_20261017/summary.json",
       "result_root": "artifacts/eval/terminal250_full445_20261017/trials",
       "audit_files": []
     },

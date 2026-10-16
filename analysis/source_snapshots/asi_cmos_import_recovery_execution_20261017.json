@@ -1,0 +1,239 @@
+{
+  "schema": "asi_import_recovery_readonly_acceptance_v1",
+  "collected_at_utc": "2026-10-16T23:21:25.903466+00:00",
+  "condition": "electrical_engineering.cmos_opamp_design__seed31415__b1",
+  "read_only_audit": true,
+  "native_grade_passes": 1,
+  "canonical_modified_by_auditor": false,
+  "launcher": {
+    "root_reviewed": true,
+    "pid": 1244523,
+    "startticks": "869185024",
+    "at_utc": "2026-10-16T23:20:26.225884+00:00",
+    "script_sha256": "3e31c1e98676c5c7b0d59705c0a7166c868cb53f1821a8d6d2a480966f84421a",
+    "new_solver_calls": 0,
+    "single_native_grade_pass": true,
+    "max_generation_calls_combined": 396,
+    "max_cny_combined": 20
+  },
+  "grade_parent_exited": true,
+  "native_result_file": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/import_recovery_20261017/native_result.json",
+    "bytes": 24640,
+    "sha256": "908dca5363820523e7a64da10431fbffbf00419eb6fbabd949025bc014414f52"
+  },
+  "execution_receipt_file": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/import_recovery_20261017/receipt.json",
+    "bytes": 2114,
+    "sha256": "a1ec2cedcfd5b30ba5753a44d222d4cc8d7b3a11f95d1cb85214830962ae1457"
+  },
+  "native_result": {
+    "condition": "electrical_engineering.cmos_opamp_design__seed31415__b1",
+    "evaluation_status": "completed",
+    "final_score": 11,
+    "max_score": 100,
+    "scorer_internal_error": false,
+    "attempt": 2,
+    "recovery_reason": "import_path_tasks"
+  },
+  "receipt": {
+    "state": "finished",
+    "at_utc": "2026-10-16T23:20:34.304272+00:00",
+    "condition": "electrical_engineering.cmos_opamp_design__seed31415__b1",
+    "evaluation_status": "completed",
+    "source_bytes_unchanged": true,
+    "canonical_report_unchanged": true,
+    "active_program_scopes": [],
+    "scope_empty_samples": [
+      {
+        "at_utc": "2026-10-16T23:20:32.187744+00:00",
+        "active_program_scopes": []
+      },
+      {
+        "at_utc": "2026-10-16T23:20:34.284132+00:00",
+        "active_program_scopes": []
+      }
+    ],
+    "native_runtime_tree_unchanged": true,
+    "native_task_criteria_parser_files_unchanged": [
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/asi/tasks/electrical_engineering/cmos_opamp_design/task_eval.yaml",
+        "bytes": 9693,
+        "sha256": "79617e2139b1eeb01586a2b57c0144eabc6d2ab5b5558094b0c3c81bc448b871"
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/asi/tasks/electrical_engineering/cmos_opamp_design/custom_scorer.py",
+        "bytes": 124296,
+        "sha256": "7f29f95a1c14181a7c83e0f47f72383d8a9578dbe4768ff184b70e068f313fcd"
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/asi/tasks/electrical_engineering/cmos_opamp_design/cmos_eval_runtime.py",
+        "bytes": 23554,
+        "sha256": "2c68e7bc69dcc40164c28117517f87ac73c50754b878fc59d82468e0dc8f1561"
+      }
+    ],
+    "shared_budget_journal": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/scoring/judge_calls.jsonl",
+    "pass_count": 1,
+    "journal_original_prefix_unchanged": true,
+    "original_prefix_bytes": 17383,
+    "original_prefix_sha256": "37c275c922942aa9145db8e6252295c980d012afaea46854f947ca387df3cd53",
+    "budget_before": {
+      "started": 15,
+      "completed": 15,
+      "cache_reused": 0,
+      "reserved_cny": 0.1431576,
+      "unsettled_started": 0
+    },
+    "budget_after": {
+      "started": 15,
+      "completed": 15,
+      "cache_reused": 9,
+      "reserved_cny": 0.1431576,
+      "unsettled_started": 0
+    },
+    "new_calls": 0,
+    "cache_reuses": 9,
+    "canonical_record_not_accepted_or_overwritten": true
+  },
+  "independent_input_checks": {
+    "original_result": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/electrical_engineering.cmos_opamp_design/electrical_engineering.cmos_opamp_design__seed31415__b1.json",
+      "bytes": 5925,
+      "sha256": "0515dfd5628e9c9d3b7f697a2497692a932e85983389b1939c80453271aa3608"
+    },
+    "persisted_outputs": [
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/electrical_engineering.cmos_opamp_design/electrical_engineering.cmos_opamp_design__seed31415__b1.outputs/simulation.py",
+        "bytes": 18044,
+        "sha256": "d6f556a300b8f9d90bac7160158f6559029bd90c6c8f56606780edcb9b491560",
+        "matches_generation_recorded_bytes": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/electrical_engineering.cmos_opamp_design/electrical_engineering.cmos_opamp_design__seed31415__b1.outputs/opamp_netlist.cir",
+        "bytes": 2127,
+        "sha256": "850f1a93970a3d0e503efeae28cf02ee73baa3f12dd7c2d7cf0dd777bc121452",
+        "matches_generation_recorded_bytes": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/electrical_engineering.cmos_opamp_design/electrical_engineering.cmos_opamp_design__seed31415__b1.outputs/tran_testbench.cir",
+        "bytes": 1105,
+        "sha256": "e9d43aebb43e0933cc546b16dae206cb358b2069205e593c76ecb032bed1cd1d",
+        "matches_generation_recorded_bytes": true
+      }
+    ],
+    "original_cache_pairs_verified": 9,
+    "copied18cache_files_identical": true,
+    "canonical_full_report": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/scoring/local_score_seed31415.json",
+      "bytes": 981008,
+      "sha256": "047be7bf4608e8e1984d19d4f2ee0376f3b8351720dd8d99fbc3ec744876ad81"
+    },
+    "canonical_full_report_equal_backup": true,
+    "original_invalid_condition": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/scoring/conditions/electrical_engineering.cmos_opamp_design__seed31415__b1.json",
+      "bytes": 11117,
+      "sha256": "c36738624ff51aab680b1622fa78eb7dfb54e5db55a279549175b6527c668115"
+    },
+    "original_invalid_condition_equal_backup": true,
+    "judge_identity_unchanged_vs_backup": true
+  },
+  "shared_journal_check": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/scoring/judge_calls.jsonl",
+    "old_prefix_bytes": 17383,
+    "old_prefix_sha256": "37c275c922942aa9145db8e6252295c980d012afaea46854f947ca387df3cd53",
+    "old_prefix_unchanged": true,
+    "before": {
+      "started": 15,
+      "completed": 15,
+      "cache_reused": 0,
+      "reserved_cny": 0.14315759999999997,
+      "unsettled_started": 0
+    },
+    "after": {
+      "started": 15,
+      "completed": 15,
+      "cache_reused": 9,
+      "reserved_cny": 0.14315759999999997,
+      "unsettled_started": 0
+    },
+    "appended": {
+      "started": 0,
+      "completed": 0,
+      "cache_reused": 9,
+      "reserved_cny": 0,
+      "unsettled_started": 0
+    }
+  },
+  "installation": {
+    "receipt_file": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi-import-fix-installation-20261017/receipt.json",
+      "bytes": 21070,
+      "sha256": "31cbb589fd9f9ecea36825b26365a5ac74ddee988a1aafb954c38f6611dce6dc"
+    },
+    "state": "installed",
+    "at_utc": "2026-10-16T23:20:25.896274+00:00",
+    "target": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_asi240_20261017/scoring/runtime",
+    "source_tree_unchanged": true,
+    "copied_file_count": 14,
+    "added_only": "sitecustomize.py",
+    "shim_sha256": "2bc605c6ba3465f5b30b81c8c5a4589b101f6e31d2d9ec9cd7591535ad2c911f",
+    "import_probe": "green",
+    "generator_pid_observed": 1126055,
+    "generator_starttime_ticks": 868933000,
+    "progress_state_observed": "running",
+    "generation_not_interrupted": true,
+    "scoring_workers": 1,
+    "source_tree_entries": 14,
+    "symlinks": {
+      "ai4sci_bench": {
+        "target": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_20261016/runtime/ai4sci_bench",
+        "resolved_target": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_20261016/runtime/ai4sci_bench",
+        "referenced_file_count": 168
+      }
+    }
+  },
+  "native_custom_scorers": [
+    {
+      "name": "cmos_opamp_spec_compliance",
+      "score": 0,
+      "max_score": 54,
+      "details_keys": [
+        "ac_response_present",
+        "bench_results",
+        "dc_operating_point_report",
+        "dc_robustness_coefficient",
+        "gain_probe_freq_hz",
+        "noise_response_present",
+        "passed_scored_specs",
+        "pre_dc_operating_point_score",
+        "results_json_present",
+        "spec_checks",
+        "swing_response_present",
+        "testbench_judge_report",
+        "total_scored_specs",
+        "transient_response_present",
+        "unlock_gain_ratio",
+        "unlock_gate_met",
+        "unlock_settling_ratio",
+        "unlocked_spec_score"
+      ]
+    },
+    {
+      "name": "cmos_opamp_testbench_judge",
+      "score": 0,
+      "max_score": 30,
+      "details_keys": [
+        "bench_results",
+        "passed_benches",
+        "testbench_judge_report",
+        "total_benches",
+        "trusted_metrics"
+      ]
+    }
+  ],
+  "future_avg_observed_only": {
+    "runtime_exists": true,
+    "progress_state": "running"
+  },
+  "recommendation": "Accept this independent one-condition native recovery as completed11/100 after root review; do not overwrite canonical report in this audit."
+}

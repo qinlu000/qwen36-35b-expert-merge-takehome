@@ -69,14 +69,14 @@
       "label": "ASI128专家",
       "artifact": "artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128",
       "benchmarks": {
-        "asi": {"adapter": "asi_native", "summary": "artifacts/eval/asi128_asi240_20261017/scoring/local_score_seed31415.json", "scoring_config": "artifacts/eval/asi128_asi240_20261017/scoring/scoring_config.json"}
+        "asi": {"adapter": "asi_native", "summary": "artifacts/eval/asi128_asi240_20261017/audited/local_score_seed31415.json", "scoring_config": "artifacts/eval/asi128_asi240_20261017/scoring/scoring_config.json", "notes": ["Read-only exact CMOS b1 import-recovery overlay: one native grade of the unchanged saved candidate, nine existing Judge cache responses and zero new paid calls. Other239 rows and the original239+1-invalid report are preserved; public/local replacement-Judge scope remains unchanged."]}
       }
     },
     "terminal250": {
       "label": "Terminal250专家",
       "artifact": "artifacts/runs/terminal-retry-sft-r16-726665/training/checkpoint-250",
       "benchmarks": {
-        "terminal": {"adapter": "terminal_scores", "summary": "artifacts/eval/terminal250_full445_20261017/summary.json"}
+        "terminal": {"adapter": "terminal_scores", "summary": "artifacts/eval/terminal250_audited_20261017/summary.json", "notes": ["Read-only exact nginx/seed0 saved-candidate native0 recovery; original archive, candidate and raw invalid record preserved. No nginx installation/service start or new model call. Refresh collect_terminal250_audited.py before aggregation; all other original score rows remain unchanged."]}
       }
     },
     "mixed883": {
@@ -120,7 +120,7 @@
       "label": "AVG64合版",
       "artifact": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
       "benchmarks": {
-        "swe": {"adapter": "swe_tasks", "summary": "artifacts/eval/avg64_swe_audited_hard51_20261017/summary.json", "notes": ["Read-only overlay accepts independently reviewed exact AVG native-zero replays c1f2 and OpenLibrary630 with missing task-required product modules. Original source validity and pending rows remain; no expert audit whitelist is inherited. Refresh collect_avg64_swe_audited.py after collect_swe249_audited.py before aggregation."]},
+        "swe": {"adapter": "swe_tasks", "summary": "artifacts/eval/avg64_swe_audited_hard51_20261017/summary.json", "notes": ["Read-only overlay accepts independently reviewed exact AVG native-zero replays c1f2, OpenLibrary630 and Qutebrowser3e21 with task-required product behavior omitted. Original source validity and pending rows remain; no expert audit whitelist is inherited. Refresh collect_avg64_swe_audited.py after collect_swe249_audited.py before aggregation."]},
         "hle": {
           "adapter": "hle_results",
           "summary": "artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
@@ -139,6 +139,7 @@
     "Terminal1800s/4CPU/8GiB/64K/8K differs from original3h/32CPU/48GiB/256K/80K setting.",
     "Service replicas, global concurrency and scheduling differ between historical Base and later models; paired task resampling does not remove those confounds.",
     "HLE/ASI replacement Judge and public local ASI scope must remain disclosed.",
-    "Explicit HLE Judge-format recovery exception: after two original HTTP200 length-truncated unparseable grades, the fixed reviewed HLE expert2/Mixed6 items receive at most one compact-wrapper grade-only request, matching the existing Base precedent. Original criteria, answer, Judge identity, parser, seed and budgets are retained; original ledgers/results are backed up. This exceeds the original two-attempt cap and is disclosed, not answer regeneration."
+    "Explicit HLE Judge-format recovery exception: after two original HTTP200 length-truncated unparseable grades, the fixed reviewed expert2/Mixed6/AVG64two/TIESsix/AVG16one items receive at most one compact-wrapper grade-only request, matching the existing Base precedent. Original criteria, answer, Judge identity, parser, seed and budgets are retained; original ledgers/results are backed up. This exceeds the original two-attempt cap and is disclosed, not answer regeneration. TIES missing-correct schema failure is outside this exception and remains invalid.",
+    "Root-audited full300s HTTP ReadTimeout boundary records in AVG64 and AVG16 use the existing native-no-answer rule after idle original graders exit. Original solver records and frozen scoring sources are preserved; no model or Judge calls are needed for this collection compatibility fix."
   ]
 }

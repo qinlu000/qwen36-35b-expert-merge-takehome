@@ -1,0 +1,232 @@
+{
+  "schema": "storage_metadata_only_v1",
+  "capture_label": "20261017_0730",
+  "actual_capture_time_note": "Filename0730 is a label; each host records actual UTC collection time (07:27 local).",
+  "hosts": {
+    "80": {
+      "collected_at_utc": "2026-10-16T23:27:02.486699+00:00",
+      "paths": [
+        {
+          "name": "project",
+          "path": "/data/caoqinlu/projects/apex-takehome",
+          "device_id": 2065,
+          "block_size": 4096,
+          "total_bytes": 11430169911296,
+          "used_bytes": 8662270083072,
+          "available_bytes": 2191774781440,
+          "free_inodes": 336855849,
+          "total_inodes": 351629312,
+          "readonly": false
+        },
+        {
+          "name": "home",
+          "path": "/home/caoqinlu",
+          "device_id": 2052,
+          "block_size": 4096,
+          "total_bytes": 907619250176,
+          "used_bytes": 827573891072,
+          "available_bytes": 33865392128,
+          "free_inodes": 52926782,
+          "total_inodes": 56352768,
+          "readonly": false
+        },
+        {
+          "name": "tmp",
+          "path": "/tmp",
+          "device_id": 2052,
+          "block_size": 4096,
+          "total_bytes": 907619250176,
+          "used_bytes": 827573891072,
+          "available_bytes": 33865392128,
+          "free_inodes": 52926782,
+          "total_inodes": 56352768,
+          "readonly": false
+        },
+        {
+          "name": "system_root",
+          "path": "/",
+          "device_id": 2052,
+          "block_size": 4096,
+          "total_bytes": 907619250176,
+          "used_bytes": 827573891072,
+          "available_bytes": 33865392128,
+          "free_inodes": 52926782,
+          "total_inodes": 56352768,
+          "readonly": false
+        }
+      ],
+      "df_posix_kib": "Filesystem     1024-blocks       Used  Available Capacity Mounted on\n/dev/sdb1      11162275304 8459248128 2140405060      80% /data\n/dev/sda4        886346924  808177628   33071672      97% /\n/dev/sda4        886346924  808177628   33071672      97% /\n/dev/sda4        886346924  808177628   33071672      97% /\n",
+      "quota": "unknown_not_inferred_from_filesystem_free",
+      "recursive_du_performed": false,
+      "write_probe_performed": false
+    },
+    "local": {
+      "collected_at_utc": "2026-10-16T23:27:02.163289+00:00",
+      "paths": [
+        {
+          "name": "project",
+          "path": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试",
+          "device_id": 16777233,
+          "block_size": 4096,
+          "total_bytes": 494384795648,
+          "used_bytes": 462024138752,
+          "available_bytes": 32360656896,
+          "free_inodes": 316022040,
+          "total_inodes": 319846071,
+          "readonly": false
+        },
+        {
+          "name": "home",
+          "path": "/Users/caoqinlu",
+          "device_id": 16777233,
+          "block_size": 4096,
+          "total_bytes": 494384795648,
+          "used_bytes": 462024138752,
+          "available_bytes": 32360656896,
+          "free_inodes": 316022040,
+          "total_inodes": 319846071,
+          "readonly": false
+        },
+        {
+          "name": "tmp",
+          "path": "/tmp",
+          "device_id": 16777233,
+          "block_size": 4096,
+          "total_bytes": 494384795648,
+          "used_bytes": 462024138752,
+          "available_bytes": 32360656896,
+          "free_inodes": 316022040,
+          "total_inodes": 319846071,
+          "readonly": false
+        },
+        {
+          "name": "system_root",
+          "path": "/",
+          "device_id": 16777233,
+          "block_size": 4096,
+          "total_bytes": 494384795648,
+          "used_bytes": 462024138752,
+          "available_bytes": 32360656896,
+          "free_inodes": 316022040,
+          "total_inodes": 316447995,
+          "readonly": true
+        }
+      ],
+      "df_posix_kib": "Filesystem     1024-blocks      Used Available Capacity  Mounted on\n/dev/disk3s5     482797652 409919320  31602204    93%    /System/Volumes/Data\n/dev/disk3s5     482797652 409919320  31602204    93%    /System/Volumes/Data\n/dev/disk3s5     482797652 409919320  31602204    93%    /System/Volumes/Data\n/dev/disk3s1s1   482797652  18034904  31602204    37%    /\n",
+      "quota": "unknown_not_inferred_from_filesystem_free",
+      "recursive_du_performed": false,
+      "write_probe_performed": false
+    },
+    "HPC": {
+      "collected_at_utc": "2026-10-16T23:27:17.929822+00:00",
+      "paths": [
+        {
+          "name": "project",
+          "path": "/data/user/qinlucao/projects/apex-takehome",
+          "device_id": 50,
+          "block_size": 4096,
+          "total_bytes": 20422809798885376,
+          "used_bytes": 7994744169377792,
+          "available_bytes": 12428065629507584,
+          "free_inodes": 495293243950,
+          "total_inodes": 500000000000,
+          "readonly": false
+        },
+        {
+          "name": "home",
+          "path": "/data/user/qinlucao",
+          "device_id": 50,
+          "block_size": 4096,
+          "total_bytes": 20422809798885376,
+          "used_bytes": 7994744169377792,
+          "available_bytes": 12428065629507584,
+          "free_inodes": 495293243950,
+          "total_inodes": 500000000000,
+          "readonly": false
+        },
+        {
+          "name": "tmp",
+          "path": "/tmp",
+          "device_id": 2082,
+          "block_size": 4096,
+          "total_bytes": 15966557700096,
+          "used_bytes": 137554124800,
+          "available_bytes": 15829003575296,
+          "free_inodes": 1559248965,
+          "total_inodes": 1559442816,
+          "readonly": false
+        },
+        {
+          "name": "system_root",
+          "path": "/",
+          "device_id": 2050,
+          "block_size": 4096,
+          "total_bytes": 958619074560,
+          "used_bytes": 57720897536,
+          "available_bytes": 900898177024,
+          "free_inodes": 468105847,
+          "total_inodes": 468304384,
+          "readonly": false
+        }
+      ],
+      "df_posix_kib": "Filesystem        1024-blocks          Used      Available Capacity Mounted on\n/LK02          19944150194224 7807367354956 12136782839268      40% /data\n/LK02          19944150194224 7807367354956 12136782839268      40% /data\n/dev/sdc2         15592341504     134330200    15458011304       1% /tmp\n/dev/sda2           936151440      56368064      879783376       7% /\n",
+      "quota": "unknown_not_inferred_from_filesystem_free",
+      "recursive_du_performed": false,
+      "write_probe_performed": false
+    }
+  },
+  "gpu_allocation_at_resource_capture": {
+    "captured_at": "2026-10-17T07:26:43.889020+08:00",
+    "active_gpu_count": 6,
+    "ordinary_acd_u_gpus": 6,
+    "emergency_gpus": 0,
+    "active_jobs": [
+      {
+        "job_id": "727856",
+        "job_name": "apex-hle-normal-merged",
+        "partition": "acd_u",
+        "gpus": 2,
+        "elapsed_seconds": 12251,
+        "gpu_hours": 6.806111111111111
+      },
+      {
+        "job_id": "727912",
+        "job_name": "apex-term-acdu-20261017",
+        "partition": "acd_u",
+        "gpus": 2,
+        "elapsed_seconds": 10815,
+        "gpu_hours": 6.008333333333334
+      },
+      {
+        "job_id": "727913",
+        "job_name": "apex-avgexec-acdu-20261017",
+        "partition": "acd_u",
+        "gpus": 2,
+        "elapsed_seconds": 10815,
+        "gpu_hours": 6.008333333333334
+      }
+    ],
+    "released_jobs_not_restarted": [
+      "727857",
+      "728016",
+      "727879"
+    ]
+  },
+  "findings": {
+    "no_project_mount_readonly": true,
+    "project_and_system_mounts_not_exhausted": true,
+    "inode_exhaustion_not_observed": true,
+    "tight_mount": "host80 system/home/tmp:97% df usage, available31.54GiB",
+    "local_macos_sealed_system_volume_readonly_is_expected": true,
+    "quota_unknown_on_all_hosts": true,
+    "project_tree_sizes_unknown_no_recursive_du": true,
+    "scope": "df/statvfs only; no deletions, write probes, full-tree scans, GPU/API calls or configuration changes"
+  },
+  "available_summary": {
+    "local_project_gib": 30.13821029663086,
+    "host80_project_tib": 1.9934075511991978,
+    "host80_system_home_tmp_gib": 31.53960418701172,
+    "hpc_project_filesystem_pib": 11.038339690745488,
+    "hpc_tmp_login_node_tib": 14.39639488607645
+  }
+}

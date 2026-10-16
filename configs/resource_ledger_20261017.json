@@ -32,7 +32,10 @@
     {"name": "AVG16 HLE compression control Judge", "path": "artifacts/eval/avg16_hle2500_20261017/scoring/budget.json", "kind": "budget"},
     {"name": "TIES-Dense HLE method Judge", "path": "artifacts/eval/ties_dense_hle2500_20261017/scoring/budget.json", "kind": "budget"},
     {"name": "ASI expert formal Judge", "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls.jsonl", "kind": "journal"},
-    {"name": "AVG64 ASI formal Judge", "path": "artifacts/eval/avg64_asi240_20261017/scoring/judge_calls.jsonl", "kind": "journal"}
+    {"name": "AVG64 ASI formal Judge", "path": "artifacts/eval/avg64_asi240_20261017/scoring/judge_calls.jsonl", "kind": "journal"},
+    {"name": "AVG64 HLE compact Judge recovery", "path": "artifacts/eval/avg64_hle2500_20261017/scoring/compact-recovery-20261017/budget.json", "kind": "budget"},
+    {"name": "TIES-Dense HLE compact Judge recovery", "path": "artifacts/eval/ties_dense_hle2500_20261017/scoring/compact-recovery-20261017/budget.json", "kind": "budget"},
+    {"name": "AVG16 HLE compact Judge recovery", "path": "artifacts/eval/avg16_hle2500_20261017/scoring/compact-recovery-20261017/budget.json", "kind": "budget"}
   ],
   "journal_price_source": "scripts/asi_score_transport.py; scripts/run_sab_validation_queue.py: prompt*0.3 USD/M + completion*1.2 USD/M, multiplied by budget safety factor 8; cache savings deliberately ignored",
   "raw_summaries": [

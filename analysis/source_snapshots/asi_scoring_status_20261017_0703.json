@@ -1,0 +1,188 @@
+{
+  "name_time_label": "20261017_0703",
+  "collected_at_utc": "2026-10-16T23:03:09.998786+00:00",
+  "scope_observation_utc": "2026-10-16T23:04:25.316790+00:00",
+  "expert": {
+    "scored": 239,
+    "expected": 240,
+    "evaluation_invalid": 1,
+    "pending": 0,
+    "complete": false,
+    "canonical_mean_percent": null,
+    "report_last_write_utc": "2026-10-16T22:21:41.385712+00:00",
+    "invalid_condition": "electrical_engineering.cmos_opamp_design__seed31415__b1",
+    "error_class": "ModuleNotFoundError: No module named tasks",
+    "invalid_scorers": [
+      "cmos_opamp_spec_compliance",
+      "cmos_opamp_testbench_judge"
+    ],
+    "scorer_internal_error": true,
+    "pipeline3237024_exited": true,
+    "scorer837390_exited": true,
+    "generation_cpu_finished": {
+      "state": "finished",
+      "completed_conditions": 240,
+      "worker_pool_shutdown": true,
+      "active_owned_scopes": [],
+      "at_utc": "2026-10-16T21:38:35.929286+00:00"
+    },
+    "all_cpu_consumers_finished": {
+      "state": "finished",
+      "at_utc": "2026-10-16T22:21:42.083374+00:00",
+      "grader_process_exitcode": 0,
+      "grader_complete": false,
+      "scorer_error_count": 1,
+      "grader_process_finished": true,
+      "active_program_scopes": [],
+      "all_cpu_consumers_finished": true
+    },
+    "global92_95_lock_holder": null,
+    "current_expert_program_scopes": [],
+    "budget_reference": {
+      "outer_condition_seconds": 7200,
+      "http_seconds": 90,
+      "maxsat_native_seconds": 1800,
+      "tsp_native_seconds": 3600,
+      "native_submission_cpu": 1,
+      "native_submission_memory_bytes": 3221225472
+    },
+    "release_note": "Old28090 GPU intentionally retired; no route health probe or GPU rebuild."
+  },
+  "api_cost": {
+    "journal": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls.jsonl",
+    "bytes": 17383,
+    "sha256": "37c275c922942aa9145db8e6252295c980d012afaea46854f947ca387df3cd53",
+    "mtime_utc": "2026-10-16T22:15:21.479163+00:00",
+    "started": 15,
+    "completed": 15,
+    "failed": 0,
+    "unsettled_starts": 0,
+    "reserved_cny_sum": 0.1431576,
+    "completed_observed_ceiling_cny_sum": 0.0380304,
+    "usage": {
+      "prompt_tokens": 13482,
+      "completion_tokens": 591,
+      "total_tokens": 14073,
+      "prompt_cache_hit_tokens": 7424,
+      "prompt_cache_miss_tokens": 6058
+    },
+    "hard_budget": {
+      "max_generation_calls": 396,
+      "max_cny": 20
+    },
+    "semantics": "Reservations and observed token-price ceilings are distinct; neither is a provider invoice. All15 started calls settled. No request/response bodies exported."
+  },
+  "avg": {
+    "reused_service_job": 727856,
+    "endpoint": "http://127.0.0.1:28095",
+    "new_gpu_allocations": 0,
+    "coordinator_pid": 1126014,
+    "coordinator_lock_owner": 1126014,
+    "generator_pid": 1126055,
+    "generator_ppid": 1126014,
+    "generator_lock_owner": 1126055,
+    "formal_alias": "apex-avg64",
+    "parallel": 8,
+    "completed": 18,
+    "expected": 240,
+    "active": 8,
+    "progress_at_utc": "2026-10-16T23:03:02.029731+00:00",
+    "cpu_sets": [
+      [
+        96,
+        97,
+        98,
+        99
+      ],
+      [
+        100,
+        101,
+        102,
+        103
+      ],
+      [
+        104,
+        105,
+        106,
+        107
+      ],
+      [
+        108,
+        109,
+        110,
+        111
+      ],
+      [
+        112,
+        113,
+        114,
+        115
+      ],
+      [
+        116,
+        117,
+        118,
+        119
+      ],
+      [
+        120,
+        121,
+        122,
+        123
+      ],
+      [
+        124,
+        125,
+        126,
+        127
+      ]
+    ],
+    "actual_program_scope_at_sample": {
+      "scope": "apex-asi-6eb20139ce6741a085f7c3ae9ca57f3c.scope",
+      "process_count": 4,
+      "cpu_union": [
+        124,
+        125,
+        126,
+        127
+      ],
+      "memory_max": 8589934592
+    },
+    "note": "Eight logical active conditions need not have eight simultaneous program scopes; API phases are also consumers.",
+    "generation_cpu_finished_marker_exists": false,
+    "all_cpu_marker_exists": false,
+    "scoring_workers_source": 1,
+    "production_pool_changes": false
+  },
+  "ties": {
+    "job_id": 728016,
+    "full_generation_saved": 2500,
+    "model_consumer_finished": true,
+    "state": "generation_released_scoring_external",
+    "job_absent_from_squeue": true,
+    "sacct_state": "CANCELLED by14348",
+    "slurm_elapsed": "00:37:21",
+    "slurm_reported_end": "2026-10-17T06:10:55",
+    "model_requests_or_rebuilds_by_this_agent": 0
+  },
+  "active_hpc_services": {
+    "observed_jobs": [
+      727912,
+      727913,
+      727856,
+      727857
+    ],
+    "gpus": 8,
+    "partitions": [
+      "acd_u"
+    ]
+  },
+  "recovery_followup": "analysis/asi_cmos_import_recovery_prep_20261017.md",
+  "actions": {
+    "read_only_status": true,
+    "no_new_task_scoring": true,
+    "no_api_requests": true,
+    "no_queue_changes": true,
+    "no_gpu_rebuild": true
+  }
+}

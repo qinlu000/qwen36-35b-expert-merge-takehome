@@ -1,0 +1,1003 @@
+{
+  "help_differential": {
+    "captured_at_utc": "2026-10-16T23:04:15.753940+00:00",
+    "feedback_loop": "Same frozen grade CLI --help; only interpreter lexical path differs.",
+    "hypotheses": [
+      "Resolved base Python lacks venv distribution metadata: predicts RED/base and GREEN/venv.",
+      "Venv metadata itself damaged: predicts both fail.",
+      "Frozen PYTHONPATH incompatible: predicts both fail with same environment."
+    ],
+    "verdict": "RED/GREEN confirms interpreter/venv identity as the specific bootstrap cause.",
+    "cases": [
+      {
+        "label": "red-resolved",
+        "command": [
+          "/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/bin/python3.12",
+          "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_repair_grade_v2.py",
+          "--help"
+        ],
+        "returncode": 1,
+        "elapsed_seconds": 0.09463432244956493,
+        "stdout": {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/red-resolved.stdout.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        "stderr": {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/red-resolved.stderr.txt",
+          "sha256": "7ce6413a0d2f3ee6b1a1ef460f728a9cf4bd939d8887c4b1da7a75a3057c4ea1",
+          "bytes": 1730
+        },
+        "specific_metadata_error": true,
+        "help_contains_original_result": false,
+        "help_contains_cpu_offset": false
+      },
+      {
+        "label": "green-venv",
+        "command": [
+          "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+          "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_repair_grade_v2.py",
+          "--help"
+        ],
+        "returncode": 0,
+        "elapsed_seconds": 0.2447876948863268,
+        "stdout": {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/green-venv.stdout.txt",
+          "sha256": "6237fdaa72606d4ae7fd0dcb780ec6466fdec22d0da693cff0b53624091cf674",
+          "bytes": 496
+        },
+        "stderr": {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/green-venv.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        "specific_metadata_error": false,
+        "help_contains_original_result": true,
+        "help_contains_cpu_offset": true
+      }
+    ],
+    "preserved_original_attempt_files": [
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/execution-claim.json",
+        "sha256_before": "b4ff1f0cd7878e1f72129e603f0698867b64fd57f4689fe927956ce85ad26843",
+        "sha256_after": "b4ff1f0cd7878e1f72129e603f0698867b64fd57f4689fe927956ce85ad26843",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-state.json",
+        "sha256_before": "d2c8b47769ad282368c0e1f4f42c9084229982feb5310162b6da67d37bace9ac",
+        "sha256_after": "d2c8b47769ad282368c0e1f4f42c9084229982feb5310162b6da67d37bace9ac",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-events.jsonl",
+        "sha256_before": "34a4aabc96e8da62d4db8ff97897dfc35b176fb3205bf2ce8cdd6b0d59f97946",
+        "sha256_after": "34a4aabc96e8da62d4db8ff97897dfc35b176fb3205bf2ce8cdd6b0d59f97946",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-launch.json",
+        "sha256_before": "e8c47506c156cc2d3ba1040eea621d21b5608ff7e060c67c1770bc9eca35d1d2",
+        "sha256_after": "e8c47506c156cc2d3ba1040eea621d21b5608ff7e060c67c1770bc9eca35d1d2",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-launch.log",
+        "sha256_before": "32bbb03c629cdd361e0709f499261e4327f4e458d6200552a69b6e5e849c7143",
+        "sha256_after": "32bbb03c629cdd361e0709f499261e4327f4e458d6200552a69b6e5e849c7143",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/native-child.log",
+        "sha256_before": "7ce6413a0d2f3ee6b1a1ef460f728a9cf4bd939d8887c4b1da7a75a3057c4ea1",
+        "sha256_after": "7ce6413a0d2f3ee6b1a1ef460f728a9cf4bd939d8887c4b1da7a75a3057c4ea1",
+        "unchanged": true
+      }
+    ],
+    "native_directory_exists": false,
+    "native_starts": 0,
+    "new_model_calls": 0,
+    "new_verifier_runs": 0,
+    "global_lock_acquired": false
+  },
+  "preflight": {
+    "checked_at_utc": "2026-10-16T23:06:41.516008+00:00",
+    "mode": "pure_checks",
+    "script_sha256": "ff0df32c67c95d78b16503148fe94009b54cbab4f5d148a748ce3ab99ad28ee3",
+    "bindings_valid": true,
+    "native_output_exists": false,
+    "execution_claim_exists": false,
+    "bootstrap_recovery": {
+      "old_pid": 851972,
+      "old_startticks": "868587717",
+      "old_child_returncode": 1,
+      "native_environment_or_test_started": false,
+      "preserved_old_evidence_sha256": {
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/execution-claim.json": "b4ff1f0cd7878e1f72129e603f0698867b64fd57f4689fe927956ce85ad26843",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-state.json": "d2c8b47769ad282368c0e1f4f42c9084229982feb5310162b6da67d37bace9ac",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-events.jsonl": "34a4aabc96e8da62d4db8ff97897dfc35b176fb3205bf2ce8cdd6b0d59f97946",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-launch.json": "e8c47506c156cc2d3ba1040eea621d21b5608ff7e060c67c1770bc9eca35d1d2",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-launch.log": "32bbb03c629cdd361e0709f499261e4327f4e458d6200552a69b6e5e849c7143",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/native-child.log": "7ce6413a0d2f3ee6b1a1ef460f728a9cf4bd939d8887c4b1da7a75a3057c4ea1"
+      }
+    },
+    "cpu_ids": [
+      92,
+      93,
+      94,
+      95
+    ],
+    "memory_mib": 8192,
+    "native_verifier_seconds": 900,
+    "shared_lock": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/direct_asi_grader_cpu92_95.lock",
+      "device": 2065,
+      "inode": 90775088,
+      "acquired": false
+    },
+    "new_model_calls": 0,
+    "verifier_launched": false
+  },
+  "production_python_lexical": "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+  "frozen_grader": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_repair_grade_v2.py",
+  "receipt_identities": [
+    {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/help-differential.json",
+      "sha256": "ea8f7e7a54d55e71675bacbd7d0783735fd552976f9e20737c6f26f2608dc5c7",
+      "size_bytes": 5035
+    },
+    {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/parent-preflight.json",
+      "sha256": "ae2839ab73dc76d2d666bf23ccdcc0e5318eb8c576114061a3bb45ecaab16b86",
+      "size_bytes": 5574
+    }
+  ],
+  "new_execution_claim_exists": false,
+  "new_parent_state_exists": false,
+  "offline_gate_checks": {
+    "offline_gate_checks": [
+      {
+        "case": "exact bootstrap passes",
+        "passed": true
+      },
+      {
+        "case": "old parent alive rejects",
+        "passed": true
+      },
+      {
+        "case": "old rc0 rejects",
+        "passed": true
+      },
+      {
+        "case": "native directory rejects",
+        "passed": true
+      },
+      {
+        "case": "changed candidate rejects",
+        "passed": true
+      },
+      {
+        "case": "wrong bootstrap error rejects",
+        "passed": true
+      },
+      {
+        "case": "old evidence change rejects",
+        "passed": true
+      },
+      {
+        "case": "nonempty old drain sample rejects",
+        "passed": true
+      }
+    ],
+    "passed": 8,
+    "native_starts": 0,
+    "lock_calls": 0,
+    "new_model_calls": 0
+  },
+  "execution_approval_pending_root_review": false,
+  "preflight_had_no_execute": true,
+  "no_execute_performed_by_this_agent": true,
+  "config_preparation_and_frozen_harness_modified": false,
+  "root_owned_followup_execution": {
+    "state": {
+      "pid": 1209420,
+      "startticks": "869108324",
+      "state": "finished_pending_review",
+      "shared_lock": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/direct_asi_grader_cpu92_95.lock",
+      "lock_held": false,
+      "new_model_calls": 0,
+      "native_output": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/native-grade",
+      "stop_requested": false,
+      "bootstrap_recovery": true,
+      "core_deadline": "2026-10-18T02:20:00+08:00",
+      "minimum_admission_runway_seconds": 1800,
+      "updated_at_utc": "2026-10-16T23:07:46.461144+00:00",
+      "remaining_core_runway_seconds": 69133.53885245323,
+      "remaining_cpu_scopes": [],
+      "child_pid": 1209421,
+      "child_startticks": "869108335",
+      "child_returncode": 0,
+      "consecutive_empty_scope_samples": [
+        {
+          "at_utc": "2026-10-16T23:07:44.385828+00:00",
+          "remaining_cpu_scopes": []
+        },
+        {
+          "at_utc": "2026-10-16T23:07:46.457999+00:00",
+          "remaining_cpu_scopes": []
+        }
+      ],
+      "original_and_restore_files_unchanged": true,
+      "native_result_exists": true,
+      "native_reward": null,
+      "exception_type": "RuntimeError",
+      "accepted_into_formal_summary": false,
+      "released_at_utc": "2026-10-16T23:07:46.461136+00:00"
+    },
+    "launch": {
+      "root_reviewed": true,
+      "pid": 1209420,
+      "startticks": "869108324",
+      "at_utc": "2026-10-16T23:07:39.220695+00:00",
+      "command": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/scripts/run_terminal_nginx_grade_only_20261017.py",
+        "--project",
+        "/data/caoqinlu/projects/apex-takehome",
+        "--bootstrap-recovery",
+        "--execute"
+      ],
+      "script_sha256": "ff0df32c67c95d78b16503148fe94009b54cbab4f5d148a748ce3ab99ad28ee3",
+      "new_solver_calls": 0,
+      "bootstrap_only_failure_recovery": true,
+      "one_native_attempt_only": true
+    },
+    "bound_files_unchanged": true,
+    "result_exists": true,
+    "verifier_result": null,
+    "exception_type": "RuntimeError",
+    "restore_results": [],
+    "verifier_files": [],
+    "current_busy_scopes92_95": [],
+    "safe_failure": {
+      "type": "RuntimeError",
+      "message": "Baseline bootstrap failed",
+      "server_log": "/data/caoqinlu/apex-terminal250-tmp/apex_baseline_staging_xln34_n9/server.log",
+      "server_log_sha256": "07637fa86387ce6ef62d9452055c3c36779f9f4b10d43b2d7d1357d24a176c20",
+      "trace": "baseline_exec_limits.py:21 os.sched_setaffinity(0, available[args.cpu_offset:])",
+      "native_exception": "OSError: [Errno22] Invalid argument",
+      "restore_commands_executed": 0,
+      "verifier_runs": 0,
+      "formal_summary_modified": false
+    }
+  },
+  "cpu_mapping_probe": {
+    "captured_at_utc": "2026-10-16T23:09:37.063439+00:00",
+    "command_prefix": "taskset -c92-95 python3",
+    "frozen_wrapper": "runtime/scripts/baseline_exec_limits.py:21",
+    "cases": [
+      {
+        "logical_offset": 92,
+        "actual_available": [
+          92,
+          93,
+          94,
+          95
+        ],
+        "selected_tail": [],
+        "errno": 22,
+        "result": "RED"
+      },
+      {
+        "logical_offset": 0,
+        "actual_available": [
+          92,
+          93,
+          94,
+          95
+        ],
+        "selected_tail": [
+          92,
+          93,
+          94,
+          95
+        ],
+        "actual_affinity_after": [
+          92,
+          93,
+          94,
+          95
+        ],
+        "errno": null,
+        "result": "GREEN"
+      }
+    ],
+    "new_native_starts": 0,
+    "global_lock_acquired": false,
+    "frozen_runtime_modified": false,
+    "interpretation": "Actual standalone kernel-affinity probe confirms the relative-index mechanism. Original failed wrapper did not log its mask; no container retry was run."
+  },
+  "next_repair_is_preparation_only": {
+    "checked_at_utc": "2026-10-16T23:18:59.326988+00:00",
+    "explicit_flag": "--bootstrap-cpu-recovery",
+    "physical_affinity": [
+      92,
+      93,
+      94,
+      95
+    ],
+    "logical_cpu_offset": 0,
+    "parent_script_sha256": "eccfce88c679cace936b4824ba3a99901646ee1c573a1afa0ab40e6f3de167ca",
+    "new_workdir_80": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017",
+    "new_native_output": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/native-grade",
+    "claim_created": false,
+    "shared_lock_acquired": false,
+    "native_verifier_started": false,
+    "root_review_required_before_execute": true,
+    "old_evidence_frozen": true,
+    "core_admission_deadline": "2026-10-18T01:50:00+08:00",
+    "core_deadline": "2026-10-18T02:20:00+08:00",
+    "no_retry_of_existing_native_output": true,
+    "superseded_by_root_launch_at_utc": "2026-10-16T23:18:59.631672+00:00"
+  },
+  "synthetic_bootstrap_smokes": [
+    {
+      "started_at_utc": "2026-10-16T23:13:57.236548+00:00",
+      "state": "finished",
+      "model_calls": 0,
+      "candidate_restore_commands": 0,
+      "verifier_runs": 0,
+      "source_sha256_before": {
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/result.json": "bc3df94fa93163edb3aef4066615771911db06fe3e5afde32f8900d58b368004",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/config.json": "d457b05c3961cbfed0dfb56d69496d79a05631fb67365313dd98777a47faa20b",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/artifacts/logs/artifacts/final-task-state.tar": "2d7948649da98fd89b08c0a0761cb15358e09ddc2f98a1ef1c8543e7bdd224e3",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/artifacts/logs/artifacts/final-task-state.json": "a8ff036ac6de0c807be337a54fcf5868437dea9d983710ba5bc80944a11ff714",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/nginx-request-logging/task.toml": "397ab70a9eb27a4d700400b43d502c658cbad301e0b733aec3e8ec8c5a4cb5d1",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/nginx-request-logging/environment/Dockerfile": "43003466d89ab83484a3fa618e35b58cdb74a002b1e8716ef30f12b3ac8302d8",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/baseline_singularity.py": "4c01b92729d94cb4ea700edd2dc79dc857ec378374459930aba00e53907b6532",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/baseline_netns.py": "09303db588a5b15f95116a679140af7eb4ad0b7dfb24d52d033c1d81e3990a23",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_repair_environment_v2.py": "3f436e877a1fd4019a39d4ea33a4f24f10fd3f9c25d6ec30c2fabac0b7194450",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_repair_grade_v2.py": "a65c7868a2455b0dec80c33c6b5d3552310dc829b4789314d8be0cbe92dc8439",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/restore.json": "8307a59b2001e5d59ddc230d36152371072d3b94d47197eb64876d6ecb55cd4c",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/etc-delta.tar": "5a27ab1a1d7eef8972c0f8fe1a643b1632d516149f6f4c687ddf971b56784a84",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/execution-claim.json": "b4ff1f0cd7878e1f72129e603f0698867b64fd57f4689fe927956ce85ad26843",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-state.json": "d2c8b47769ad282368c0e1f4f42c9084229982feb5310162b6da67d37bace9ac",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-events.jsonl": "34a4aabc96e8da62d4db8ff97897dfc35b176fb3205bf2ce8cdd6b0d59f97946",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-launch.json": "e8c47506c156cc2d3ba1040eea621d21b5608ff7e060c67c1770bc9eca35d1d2",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-launch.log": "32bbb03c629cdd361e0709f499261e4327f4e458d6200552a69b6e5e849c7143",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/native-child.log": "7ce6413a0d2f3ee6b1a1ef460f728a9cf4bd939d8887c4b1da7a75a3057c4ea1",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/execution-claim.json": "f28b70a4b3669131ab6adf3c0c43e1316412c3b85941b97930de787c258faeec",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/parent-state.json": "f25991b1be06d203f2ecaaee33eb17862a9cb56ca549eca5d45e9721d95455a1",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/parent-events.jsonl": "1dc725fd623af65314501b7d199241711c6a0667b08d854a3211a6c1bc703feb",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/parent-launch.json": "4875634a6e9af7d275d35455d559fe86880b6e5efa1113656c8e45f3f1ee2d6d",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/native-child.log": "bae62c66b92778686f48fddf73784bd421dfa5e7d45c2bb4c19c9a9f744a5337",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/native-grade/result.json": "e084c7343a0bfb1b95d37d26c4c54b3d84170c06b21489ef8dbebdd4618ad1c2"
+      },
+      "lock_acquired_at_utc": "2026-10-16T23:13:57.291936+00:00",
+      "passed": false,
+      "error_type": "FileNotFoundError",
+      "error": "[Errno 2] No such file or directory: '/sys/fs/cgroup/memory.max'",
+      "finished_at_utc": "2026-10-16T23:14:03.513309+00:00",
+      "consecutive_empty_scope_samples": [
+        {
+          "at_utc": "2026-10-16T23:14:01.451690+00:00",
+          "remaining_cpu_scopes": []
+        },
+        {
+          "at_utc": "2026-10-16T23:14:03.513032+00:00",
+          "remaining_cpu_scopes": []
+        }
+      ],
+      "all_original_attempt_bytes_unchanged": true,
+      "lock_released_at_utc": "2026-10-16T23:14:03.515206+00:00",
+      "lock_held": false,
+      "receipt_path_80": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/cpu-bootstrap-smoke-20261017/smoke.json",
+      "receipt_sha256": "ba8b3daa6251eeaa3d693d6f5cb06675a11877feb5952c882c42ce790c7d33db",
+      "probe_sha256": "ffa9e05640e843eae912f3ec09970c666caa34f93c022e8735cd17f768bbbe99"
+    },
+    {
+      "started_at_utc": "2026-10-16T23:15:22.186847+00:00",
+      "state": "finished",
+      "model_calls": 0,
+      "candidate_restore_commands": 0,
+      "verifier_runs": 0,
+      "source_sha256_before": {
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/result.json": "bc3df94fa93163edb3aef4066615771911db06fe3e5afde32f8900d58b368004",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/config.json": "d457b05c3961cbfed0dfb56d69496d79a05631fb67365313dd98777a47faa20b",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/artifacts/logs/artifacts/final-task-state.tar": "2d7948649da98fd89b08c0a0761cb15358e09ddc2f98a1ef1c8543e7bdd224e3",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/artifacts/logs/artifacts/final-task-state.json": "a8ff036ac6de0c807be337a54fcf5868437dea9d983710ba5bc80944a11ff714",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/nginx-request-logging/task.toml": "397ab70a9eb27a4d700400b43d502c658cbad301e0b733aec3e8ec8c5a4cb5d1",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/nginx-request-logging/environment/Dockerfile": "43003466d89ab83484a3fa618e35b58cdb74a002b1e8716ef30f12b3ac8302d8",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/baseline_singularity.py": "4c01b92729d94cb4ea700edd2dc79dc857ec378374459930aba00e53907b6532",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/baseline_netns.py": "09303db588a5b15f95116a679140af7eb4ad0b7dfb24d52d033c1d81e3990a23",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_repair_environment_v2.py": "3f436e877a1fd4019a39d4ea33a4f24f10fd3f9c25d6ec30c2fabac0b7194450",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_repair_grade_v2.py": "a65c7868a2455b0dec80c33c6b5d3552310dc829b4789314d8be0cbe92dc8439",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/restore.json": "8307a59b2001e5d59ddc230d36152371072d3b94d47197eb64876d6ecb55cd4c",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/etc-delta.tar": "5a27ab1a1d7eef8972c0f8fe1a643b1632d516149f6f4c687ddf971b56784a84",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/execution-claim.json": "b4ff1f0cd7878e1f72129e603f0698867b64fd57f4689fe927956ce85ad26843",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-state.json": "d2c8b47769ad282368c0e1f4f42c9084229982feb5310162b6da67d37bace9ac",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-events.jsonl": "34a4aabc96e8da62d4db8ff97897dfc35b176fb3205bf2ce8cdd6b0d59f97946",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-launch.json": "e8c47506c156cc2d3ba1040eea621d21b5608ff7e060c67c1770bc9eca35d1d2",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-launch.log": "32bbb03c629cdd361e0709f499261e4327f4e458d6200552a69b6e5e849c7143",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/native-child.log": "7ce6413a0d2f3ee6b1a1ef460f728a9cf4bd939d8887c4b1da7a75a3057c4ea1",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/execution-claim.json": "f28b70a4b3669131ab6adf3c0c43e1316412c3b85941b97930de787c258faeec",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/parent-state.json": "f25991b1be06d203f2ecaaee33eb17862a9cb56ca549eca5d45e9721d95455a1",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/parent-events.jsonl": "1dc725fd623af65314501b7d199241711c6a0667b08d854a3211a6c1bc703feb",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/parent-launch.json": "4875634a6e9af7d275d35455d559fe86880b6e5efa1113656c8e45f3f1ee2d6d",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/native-child.log": "bae62c66b92778686f48fddf73784bd421dfa5e7d45c2bb4c19c9a9f744a5337",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/native-grade/result.json": "e084c7343a0bfb1b95d37d26c4c54b3d84170c06b21489ef8dbebdd4618ad1c2"
+      },
+      "lock_acquired_at_utc": "2026-10-16T23:15:22.242229+00:00",
+      "actual_affinity": [
+        92,
+        93,
+        94,
+        95
+      ],
+      "native_stdout": "{\"affinity\": [92, 93, 94, 95]}",
+      "scope": "apex-baseline-629af4e012e2.scope",
+      "logical_cpu_offset": 0,
+      "passed": true,
+      "memory_max_bytes": 8589934592,
+      "memory_swap_max_bytes": 0,
+      "same_sif": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/sha256-693e64431a0dbf45952e8b91a298d54fd60247e501c6623fb8fa3ebc07fc3d3d.sif",
+      "cgroup": "/user.slice/user-1012.slice/user@1012.service/app.slice/apex-baseline-629af4e012e2.scope",
+      "finished_at_utc": "2026-10-16T23:15:28.518555+00:00",
+      "consecutive_empty_scope_samples": [
+        {
+          "at_utc": "2026-10-16T23:15:26.443100+00:00",
+          "remaining_cpu_scopes": []
+        },
+        {
+          "at_utc": "2026-10-16T23:15:28.518132+00:00",
+          "remaining_cpu_scopes": []
+        }
+      ],
+      "all_original_attempt_bytes_unchanged": true,
+      "lock_released_at_utc": "2026-10-16T23:15:28.520599+00:00",
+      "lock_held": false,
+      "receipt_path_80": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/cpu-bootstrap-smoke-observer2-20261017/smoke.json",
+      "receipt_sha256": "9765981266c185d9691b89c2cd83fdf821b663679de828bd8e719f5b13b9c962",
+      "probe_sha256": "7bb3ab0eacf9746f06b2ee15a97ba108cc607a395925b3d74bbc64fb4e9d5b92"
+    }
+  ],
+  "synthetic_smoke_interpretation": "First observer failed because systemctl scope suffix was omitted; preserved as passed=false. Second same-SIF bootstrap passed. Neither restored the candidate nor ran tests/verifier/model; no score was produced.",
+  "cpu_recovery_preflight": {
+    "checked_at_utc": "2026-10-16T23:18:59.326988+00:00",
+    "mode": "pure_checks",
+    "script_sha256": "eccfce88c679cace936b4824ba3a99901646ee1c573a1afa0ab40e6f3de167ca",
+    "parent_affinity": [
+      10
+    ],
+    "bindings_valid": true,
+    "native_output_exists": false,
+    "execution_claim_exists": false,
+    "command": [
+      "taskset",
+      "-c",
+      "92-95",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_repair_grade_v2.py",
+      "--original-result",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/result.json",
+      "--restore-manifest",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/restore.json",
+      "--output",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/native-grade",
+      "--cpu-offset",
+      "0"
+    ],
+    "bootstrap_recovery": {
+      "old_pid": 1209420,
+      "old_startticks": "869108324",
+      "old_child_returncode": 0,
+      "old_failure_stage": "environment_start_before_restore",
+      "new_logical_cpu_offset": 0,
+      "physical_cpu_ids": [
+        92,
+        93,
+        94,
+        95
+      ],
+      "preserved_old_evidence_sha256": {
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/execution-claim.json": "b4ff1f0cd7878e1f72129e603f0698867b64fd57f4689fe927956ce85ad26843",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-state.json": "d2c8b47769ad282368c0e1f4f42c9084229982feb5310162b6da67d37bace9ac",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-events.jsonl": "34a4aabc96e8da62d4db8ff97897dfc35b176fb3205bf2ce8cdd6b0d59f97946",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-launch.json": "e8c47506c156cc2d3ba1040eea621d21b5608ff7e060c67c1770bc9eca35d1d2",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/parent-launch.log": "32bbb03c629cdd361e0709f499261e4327f4e458d6200552a69b6e5e849c7143",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/native-child.log": "7ce6413a0d2f3ee6b1a1ef460f728a9cf4bd939d8887c4b1da7a75a3057c4ea1",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/execution-claim.json": "f28b70a4b3669131ab6adf3c0c43e1316412c3b85941b97930de787c258faeec",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/parent-state.json": "f25991b1be06d203f2ecaaee33eb17862a9cb56ca549eca5d45e9721d95455a1",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/parent-events.jsonl": "1dc725fd623af65314501b7d199241711c6a0667b08d854a3211a6c1bc703feb",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/parent-launch.json": "4875634a6e9af7d275d35455d559fe86880b6e5efa1113656c8e45f3f1ee2d6d",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-recovery-20261017/native-child.log": "bae62c66b92778686f48fddf73784bd421dfa5e7d45c2bb4c19c9a9f744a5337",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/native-grade/result.json": "e084c7343a0bfb1b95d37d26c4c54b3d84170c06b21489ef8dbebdd4618ad1c2",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/cpu-bootstrap-smoke-observer2-20261017/smoke.json": "9765981266c185d9691b89c2cd83fdf821b663679de828bd8e719f5b13b9c962",
+        "/data/caoqinlu/apex-terminal250-tmp/apex_baseline_staging_xln34_n9/server.log": "07637fa86387ce6ef62d9452055c3c36779f9f4b10d43b2d7d1357d24a176c20"
+      }
+    },
+    "bootstrap_cpu_recovery": true,
+    "cpu_ids": [
+      92,
+      93,
+      94,
+      95
+    ],
+    "memory_mib": 8192,
+    "native_verifier_seconds": 900,
+    "parent_effective_cgroup_cpus": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127
+    ],
+    "shared_lock": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/direct_asi_grader_cpu92_95.lock",
+      "device": 2065,
+      "inode": 90775088,
+      "acquired": false
+    },
+    "environment": {
+      "PATH": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/apptainer-1.4.5/rootfs/usr/bin:/data/caoqinlu/projects/apex-takehome/artifacts/tools/fakeroot-1.25.3/rootfs/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "PYTHONPATH": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts",
+      "XDG_RUNTIME_DIR": "/run/user/1012",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1012/bus",
+      "TMPDIR": "/data/caoqinlu/apex-terminal250-tmp",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    },
+    "existing_verifier_assets": [
+      "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-v2-native/harness-only",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-v2-native/native",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-v2-native/verifier-bin",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-v2-native/uv-wheel",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-v2-native/python",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-v2-native/bootstrap.sh",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-v2-native/server.py",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-v2-native/rootmap.sh",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/cache/swe-v2-runtime/harbor-server",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/tools/terminal_verifier_offline_20261016/core-uv-cache",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/tools/terminal_verifier_offline_20261016/task_cache_map.json"
+    ],
+    "new_model_calls": 0,
+    "verifier_launched": false
+  },
+  "cpu_recovery_offline_gate_checks": {
+    "checks": [
+      {
+        "case": "exact_pre_restore_cpu_failure",
+        "admitted": true,
+        "expected": true,
+        "passed": true
+      },
+      {
+        "case": "live_prior_parent",
+        "admitted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "case": "extra_restore_evidence",
+        "admitted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "case": "fresh_output_already_exists",
+        "admitted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "case": "source_bytes_changed",
+        "admitted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "case": "prior_evidence_changed",
+        "admitted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "case": "wrong_failure_log",
+        "admitted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "case": "scope_not_drained",
+        "admitted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "case": "smoke_wrong_physical_cpus",
+        "admitted": false,
+        "expected": false,
+        "passed": true
+      }
+    ],
+    "all_passed": true,
+    "new_model_calls": 0,
+    "native_environments_started": 0,
+    "shared_locks_acquired": 0
+  },
+  "root_owned_cpu_recovery_execution": {
+    "captured_at_utc": "2026-10-16T23:19:28.922687+00:00",
+    "state": {
+      "pid": 1240267,
+      "startticks": "869176365",
+      "state": "finished_pending_review",
+      "command": [
+        "taskset",
+        "-c",
+        "92-95",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_repair_grade_v2.py",
+        "--original-result",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/result.json",
+        "--restore-manifest",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/restore.json",
+        "--output",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/native-grade",
+        "--cpu-offset",
+        "0"
+      ],
+      "shared_lock": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/direct_asi_grader_cpu92_95.lock",
+      "lock_held": false,
+      "new_model_calls": 0,
+      "native_output": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/native-grade",
+      "stop_requested": false,
+      "bootstrap_recovery": true,
+      "bootstrap_cpu_recovery": true,
+      "core_deadline": "2026-10-18T02:20:00+08:00",
+      "minimum_admission_runway_seconds": 1800,
+      "updated_at_utc": "2026-10-16T23:19:21.894532+00:00",
+      "remaining_core_runway_seconds": 68438.10546445847,
+      "remaining_cpu_scopes": [],
+      "child_pid": 1240269,
+      "child_startticks": "869176376",
+      "child_returncode": 0,
+      "consecutive_empty_scope_samples": [
+        {
+          "at_utc": "2026-10-16T23:19:19.813667+00:00",
+          "remaining_cpu_scopes": []
+        },
+        {
+          "at_utc": "2026-10-16T23:19:21.891014+00:00",
+          "remaining_cpu_scopes": []
+        }
+      ],
+      "original_and_restore_files_unchanged": true,
+      "native_result_exists": true,
+      "native_reward": 0,
+      "exception_type": null,
+      "accepted_into_formal_summary": false,
+      "released_at_utc": "2026-10-16T23:19:21.894525+00:00"
+    },
+    "launch": {
+      "root_reviewed": true,
+      "pid": 1240267,
+      "startticks": "869176365",
+      "at_utc": "2026-10-16T23:18:59.631672+00:00",
+      "command": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/scripts/run_terminal_nginx_grade_only_20261017.py",
+        "--project",
+        "/data/caoqinlu/projects/apex-takehome",
+        "--bootstrap-cpu-recovery",
+        "--execute"
+      ],
+      "script_sha256": "eccfce88c679cace936b4824ba3a99901646ee1c573a1afa0ab40e6f3de167ca",
+      "new_solver_calls": 0,
+      "logical_offset": 0,
+      "physical_cpu_ids": [
+        92,
+        93,
+        94,
+        95
+      ],
+      "one_native_attempt_only": true
+    },
+    "all_claim_bindings_unchanged": true,
+    "binding_count": 26,
+    "native_files": [
+      "restore-command-5.json",
+      "result.json",
+      "restore-command-4.json",
+      "restore-command-1.json",
+      "restore-command-0.json",
+      "restore-command-3.json",
+      "restore-command-2.json",
+      "verifier/test-stdout.txt",
+      "verifier/reward.txt",
+      "verifier/ctrf.json",
+      "artifacts/final-task-state.paths",
+      "artifacts/final-task-state.json",
+      "artifacts/final-task-state.tar"
+    ],
+    "native_result": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/native-grade/result.json",
+      "sha256": "0807af5e6c27d2e04d605007d9c3e31747457cd463b999a606d746968417f5c0",
+      "verifier_result": {
+        "rewards": {
+          "reward": 0
+        }
+      },
+      "exception_type": null,
+      "exception_message": null,
+      "verifier_timing": null,
+      "started_at": "2026-10-16T19:43:08.021953Z",
+      "finished_at": "2026-10-16T23:19:14.823569+00:00"
+    },
+    "restore_commands": [
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/native-grade/restore-command-5.json",
+        "sha256": "64c4c7e2304e1cafc0e4d2ccc791a94c8520cdc24c86cbe593c602941c8d8812",
+        "keys": [
+          "stdout",
+          "stderr",
+          "return_code"
+        ],
+        "return_code": 0,
+        "exit_code": null,
+        "stdout_short": "None",
+        "stderr_short": "None"
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/native-grade/restore-command-4.json",
+        "sha256": "64c4c7e2304e1cafc0e4d2ccc791a94c8520cdc24c86cbe593c602941c8d8812",
+        "keys": [
+          "stdout",
+          "stderr",
+          "return_code"
+        ],
+        "return_code": 0,
+        "exit_code": null,
+        "stdout_short": "None",
+        "stderr_short": "None"
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/native-grade/restore-command-1.json",
+        "sha256": "64c4c7e2304e1cafc0e4d2ccc791a94c8520cdc24c86cbe593c602941c8d8812",
+        "keys": [
+          "stdout",
+          "stderr",
+          "return_code"
+        ],
+        "return_code": 0,
+        "exit_code": null,
+        "stdout_short": "None",
+        "stderr_short": "None"
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/native-grade/restore-command-0.json",
+        "sha256": "64c4c7e2304e1cafc0e4d2ccc791a94c8520cdc24c86cbe593c602941c8d8812",
+        "keys": [
+          "stdout",
+          "stderr",
+          "return_code"
+        ],
+        "return_code": 0,
+        "exit_code": null,
+        "stdout_short": "None",
+        "stderr_short": "None"
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/native-grade/restore-command-3.json",
+        "sha256": "64c4c7e2304e1cafc0e4d2ccc791a94c8520cdc24c86cbe593c602941c8d8812",
+        "keys": [
+          "stdout",
+          "stderr",
+          "return_code"
+        ],
+        "return_code": 0,
+        "exit_code": null,
+        "stdout_short": "None",
+        "stderr_short": "None"
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/native-grade/restore-command-2.json",
+        "sha256": "64c4c7e2304e1cafc0e4d2ccc791a94c8520cdc24c86cbe593c602941c8d8812",
+        "keys": [
+          "stdout",
+          "stderr",
+          "return_code"
+        ],
+        "return_code": 0,
+        "exit_code": null,
+        "stdout_short": "None",
+        "stderr_short": "None"
+      }
+    ],
+    "native_logs": [
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/native-grade/verifier/test-stdout.txt",
+        "size_bytes": 160162,
+        "sha256": "9865f031dea1e9eb66046d4fb5085603e90c179a4ac51e05a5489c8db2fe0413",
+        "tail": "\n/staging/verifier_assets/uv-cache/archive-v0/mYNSbDFnmFPAK1YG9Hgib/lib/python3.13/site-packages/requests/adapters.py:700: ConnectionError\n=========================== short test summary info ============================\nFAILED ../tests/test_outputs.py::test_nginx_installed - AssertionError: Nginx...\nFAILED ../tests/test_outputs.py::test_nginx_running - AssertionError: Nginx i...\nFAILED ../tests/test_outputs.py::test_index_page_content - requests.exception...\nFAILED ../tests/test_outputs.py::test_custom_404_page - requests.exceptions.C...\nFAILED ../tests/test_outputs.py::test_nginx_config_syntax - FileNotFoundError...\nFAILED ../tests/test_outputs.py::test_nginx_config_settings - AssertionError:...\nFAILED ../tests/test_outputs.py::test_log_file_creation - requests.exceptions...\nFAILED ../tests/test_outputs.py::test_log_file_format - requests.exceptions.C...\n============================== 8 failed in 4.81s ==============================="
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-nginx-grade-only-20261017/bootstrap-cpu-recovery-20261017/native-grade/verifier/reward.txt",
+        "size_bytes": 2,
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "tail": "0"
+      }
+    ],
+    "current_busy_scopes92_95": [],
+    "restore_semantics_review": {
+      "manifest_sha256": "8307a59b2001e5d59ddc230d36152371072d3b94d47197eb64876d6ecb55cd4c",
+      "archive_sha256": "2d7948649da98fd89b08c0a0761cb15358e09ddc2f98a1ef1c8543e7bdd224e3",
+      "etc_delta_sha256": "5a27ab1a1d7eef8972c0f8fe1a643b1632d516149f6f4c687ddf971b56784a84",
+      "commands": 6,
+      "all_return_codes": 0,
+      "install_or_service_start_commands": 0,
+      "runtime_resolver_excluded": true,
+      "original_tmp_resolv_preserved_as_ordinary_file": true,
+      "frozen_grader_source_unchanged": true,
+      "test_summary": {
+        "tests": 8,
+        "passed": 0,
+        "failed": 8,
+        "skipped": 0,
+        "pending": 0,
+        "wall_seconds": 4.8069901
+      },
+      "safe_test_evidence": [
+        {
+          "line": 88,
+          "text": "AssertionError: Nginx is not installed"
+        },
+        {
+          "line": 762,
+          "text": "AssertionError: Nginx is not running on port 8080"
+        },
+        {
+          "line": 2254,
+          "text": "FileNotFoundError: [Errno 2] No such file or directory: 'nginx'"
+        }
+      ],
+      "interpretation": "Independent native reward 0 on the exact saved candidate; original candidate did not supply required nginx product state. Raw original null is preserved. Formal acceptance remains root-owned."
+    }
+  },
+  "formal_acceptance_pending_root_review": true,
+  "original_raw_native_reward_remains_null": true,
+  "root_subsequent_acceptance": {
+    "reviewed_at_cst": "2026-10-17 07:21",
+    "accepted": true,
+    "key": "nginx-request-logging/seed0",
+    "native_reward": 0,
+    "reason": "Root independently checked exact original candidate restoration, eight official failed tests/no Harbor exception, resource enforcement, source bytes and two empty scope samples. No installation/service start or answer regeneration.",
+    "read_only_manifest": "configs/eval/terminal250_audited_20261017.json",
+    "read_only_summary": "artifacts/eval/terminal250_audited_20261017/summary.json",
+    "original_raw_result_unchanged": true,
+    "earlier_pending_review_fields_are_historical": true
+  }
+}

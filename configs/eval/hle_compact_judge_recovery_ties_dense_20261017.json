@@ -1,0 +1,39 @@
+{
+  "recovery_id": "ties-dense-hle-compact-20261017",
+  "expected_items": 6,
+  "authorization": "Root independently reviewed the final seven-item inventory and explicitly approved one compact Judge-only call for each of the six listed dual-HTTP200/length4096/parser-failed items. The excluded stop/missing-correct result remains null; no solver regeneration.",
+  "base_precedent": "scripts/recover_hle_last_judge_20261017.py",
+  "wrapper_append": " Serialize keys in this order: correct, confidence, strict, extracted_final_answer, reasoning. Keep reasoning to one short sentence of at most 40 words; do not repeat the response or solve the problem. Finish the JSON object immediately after that sentence.",
+  "judge_identity": {
+    "requested_model": "DeepSeek-V4-Flash",
+    "reported_model": "DeepSeek-V4-Flash",
+    "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+    "provider_revision_pinned": false
+  },
+  "tls_tunnel_port": 28443,
+  "max_cny_per_model_combined": 20,
+  "max_calls_per_model_combined": 5000,
+  "additional_calls_per_item": 1,
+  "final_invalid_inventory_count": 7,
+  "excluded_invalid": [
+    {
+      "task_id": "672d8b9b504a98f0e4799ae0",
+      "reason": "Both original responses are HTTP200/stop/79 completion tokens; JSON lacks correct. Outside the approved dual-length4096 compact recovery rule; retain null."
+    }
+  ],
+  "models": [
+    {
+      "model": "apex-ties-dense",
+      "scoring": "artifacts/eval/ties_dense_hle2500_20261017/scoring",
+      "original_scorer_pid": 887556,
+      "task_ids": [
+        "66e8cfa03add731d7fce4352",
+        "670fe03ef99389b3c7942186",
+        "6715e455f818cdd1872c0ef0",
+        "6717cc3a4d6b1e71cab9bc8c",
+        "67216b3c8238b402204d3432",
+        "6725a3721da5d29be1a9a573"
+      ]
+    }
+  ]
+}

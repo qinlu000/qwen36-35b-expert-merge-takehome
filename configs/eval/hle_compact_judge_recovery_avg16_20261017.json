@@ -1,0 +1,26 @@
+{
+  "recovery_id": "avg16-hle-compact-20261017",
+  "expected_items": 1,
+  "authorization": "Root reviewed full2500 generation, natural exit485904, audited budget-boundary collect-only and the unique final eligible item on2026-10-17 after07:22 CST. Authorize the existing2+1 compact-format exception once for this fixed original answer; do not resend unknown outcomes or change original criteria, solver records, Judge identity or budgets.",
+  "base_precedent": "scripts/recover_hle_last_judge_20261017.py",
+  "wrapper_append": " Serialize keys in this order: correct, confidence, strict, extracted_final_answer, reasoning. Keep reasoning to one short sentence of at most 40 words; do not repeat the response or solve the problem. Finish the JSON object immediately after that sentence.",
+  "judge_identity": {
+    "requested_model": "DeepSeek-V4-Flash",
+    "reported_model": "DeepSeek-V4-Flash",
+    "system_fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+    "provider_revision_pinned": false
+  },
+  "tls_tunnel_port": 28443,
+  "max_cny_per_model_combined": 20,
+  "max_calls_per_model_combined": 5000,
+  "additional_calls_per_item": 1,
+  "final_invalid_inventory_count": 1,
+  "models": [
+    {
+      "model": "apex-avg16",
+      "scoring": "artifacts/eval/avg16_hle2500_20261017/scoring",
+      "original_scorer_pid": 485904,
+      "task_ids": ["6725fbd80aae355a51195cca"]
+    }
+  ]
+}

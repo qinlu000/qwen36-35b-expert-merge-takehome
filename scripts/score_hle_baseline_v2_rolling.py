@@ -168,7 +168,7 @@ def run(args):
             if record.get("infrastructure_failure"):
                 selections[task_id]["state"] = "generation_infrastructure_invalid"
                 continue
-            is_timeout = (record.get("error_type") == "TimeoutError" and not record.get("raw_response")
+            is_timeout = (record.get("error_type") in ("TimeoutError", "ReadTimeout") and not record.get("raw_response")
                           and record.get("elapsed_seconds", 0) >= 299)
             if record.get("status") == "completed" and isinstance(record.get("response"), str):
                 kind = "answer"

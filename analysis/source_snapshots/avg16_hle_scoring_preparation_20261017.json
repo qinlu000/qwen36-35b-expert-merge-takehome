@@ -1,0 +1,309 @@
+{
+  "at_utc": "2026-10-16T23:21:54.834613+00:00",
+  "global_saved": 2500,
+  "generation_status_counts": {
+    "failed": 1302,
+    "completed": 1198
+  },
+  "image_count": 342,
+  "active_started_without_terminal": 0,
+  "generator": {
+    "pid": 485903,
+    "exists": false
+  },
+  "original_grader": {
+    "pid": 485904,
+    "exists": true,
+    "state": "S",
+    "startticks": "868175753"
+  },
+  "summary": {
+    "complete": false,
+    "expected": 2500,
+    "frozen_terminal_results": 2499,
+    "judged_answers": 1197,
+    "native_no_answer": 1301,
+    "evaluation_invalid": 1,
+    "scored": 2498,
+    "pending": 2,
+    "correct": 101,
+    "accuracy_percent": null,
+    "score": null,
+    "partial_correct_over_full_denominator_percent": 4.04,
+    "subgroups": {
+      "text": {
+        "denominator": 2158,
+        "scored": 2157,
+        "correct": 82,
+        "accuracy_percent": null
+      },
+      "image": {
+        "denominator": 342,
+        "scored": 341,
+        "correct": 19,
+        "accuracy_percent": null
+      }
+    },
+    "selection_states": {
+      "answer": 1198,
+      "native_no_answer": 1301,
+      "generation_protocol_invalid": 1
+    },
+    "judge_generation_calls": 1199,
+    "accounted_cost_cny": 1.2532275,
+    "budget_halted": false,
+    "max_cny": 20,
+    "max_calls": 5000,
+    "updated_at_utc": "2026-10-16T23:21:28.962745+00:00",
+    "provider": "DeepSeek-V4-Flash",
+    "official": false,
+    "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+  },
+  "input_count": 2499,
+  "result_count": 2499,
+  "frozen_answers": 1198,
+  "terminal_answer_results": 1198,
+  "budget_status_counts": {
+    "completed": 1197,
+    "failed_full_reservation": 2
+  },
+  "budget_sha256": "c3b8f9e4cea62a97baaa47409d00ab5290918c090a6c8b804f5b67bb0a30ed3d",
+  "readtimeout_records": [
+    {
+      "id": "6720066a447f1bb0370f36b1",
+      "started_at_utc": "2026-10-16T21:46:00.405282+00:00",
+      "finished_at_utc": "2026-10-16T21:51:00.411423+00:00",
+      "elapsed_seconds": 300.0061,
+      "error_type": "ReadTimeout",
+      "infrastructure_failure": null,
+      "prompt_tokens_exact": 1232,
+      "sha256": "c1a81d103a5497677ce638bbc9052726b2e20cba085aad0874d79c775db40c97",
+      "raw_response_present": false,
+      "usage_present": false
+    }
+  ],
+  "generation_summary": {
+    "mode": "formal",
+    "denominator": 2500,
+    "saved_results": 2500,
+    "status_counts": {
+      "failed": 1302,
+      "completed": 1198
+    },
+    "image_results": 342,
+    "prompt_tokens": 576886,
+    "completion_tokens": 741777,
+    "grading": "separate",
+    "controller_state": "completed",
+    "finished_at_utc": "2026-10-16T23:19:49.125617+00:00"
+  },
+  "model_consumer_finished": {
+    "model_consumer_finished": true,
+    "at_utc": "2026-10-16T23:19:49.265201+00:00",
+    "model": "apex-avg16",
+    "expected": 2500,
+    "generation_process_finished": true,
+    "saved_results": 2500,
+    "scoring_uses_external_judge_only": true
+  },
+  "controls_consumer_finished": {
+    "model_consumer_finished": true,
+    "at_utc": "2026-10-16T23:19:49.266085+00:00",
+    "models": [
+      {
+        "model": "apex-mixed883",
+        "saved_results": 2500,
+        "generation_exit_code": 0,
+        "grader_pid": 3268683
+      },
+      {
+        "model": "apex-avg16",
+        "saved_results": 2500,
+        "generation_exit_code": 0,
+        "grader_pid": 485904
+      }
+    ],
+    "total_saved_results": 5000,
+    "generation_processes_finished": true,
+    "scoring_uses_external_judge_only": true
+  },
+  "release_watcher": {
+    "released": {
+      "expert": {
+        "job_id": 727855,
+        "gpus": 2,
+        "at_utc": "2026-10-16T20:26:42.529347+00:00",
+        "marker": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/model-consumer-finished.json",
+        "marker_observed": {
+          "model_consumer_finished": true,
+          "generation_process_finished": true,
+          "generation_pid": 3418010,
+          "saved_results": 2500,
+          "model": "apex-hle250",
+          "at_utc": "2026-10-16T20:26:28.068001+00:00",
+          "scoring_uses_external_judge_only": true
+        },
+        "running_and_waiting_requests": 0,
+        "external_judges_continue": true
+      },
+      "controls": {
+        "job_id": 727857,
+        "gpus": 2,
+        "at_utc": "2026-10-16T23:19:59.534705+00:00",
+        "marker": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle_task_controls_20261017/model-consumer-finished.json",
+        "marker_observed": {
+          "model_consumer_finished": true,
+          "at_utc": "2026-10-16T23:19:49.266085+00:00",
+          "models": [
+            {
+              "model": "apex-mixed883",
+              "saved_results": 2500,
+              "generation_exit_code": 0,
+              "grader_pid": 3268683
+            },
+            {
+              "model": "apex-avg16",
+              "saved_results": 2500,
+              "generation_exit_code": 0,
+              "grader_pid": 485904
+            }
+          ],
+          "total_saved_results": 5000,
+          "generation_processes_finished": true,
+          "scoring_uses_external_judge_only": true
+        },
+        "running_and_waiting_requests": 0,
+        "external_judges_continue": true
+      }
+    },
+    "pid": 3321991,
+    "at_utc": "2026-10-16T23:21:44.553279+00:00"
+  },
+  "release_watcher_process": {
+    "pid": 3321991,
+    "exists": true,
+    "state": "S",
+    "startticks": "868018087"
+  },
+  "original_scorer_argv": [
+    "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+    "/data/caoqinlu/projects/apex-takehome/scripts/score_direct_hle_formal.py",
+    "--project",
+    "/data/caoqinlu/projects/apex-takehome",
+    "--retry",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017",
+    "--output",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017/scoring",
+    "--max-cny",
+    "20",
+    "--max-calls",
+    "5000",
+    "--workers",
+    "2"
+  ],
+  "stop_exists": false,
+  "invalid_inventory": [
+    {
+      "id": "6725fbd80aae355a51195cca",
+      "judge_calls": 2,
+      "correct": null,
+      "is_image": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        },
+        {
+          "attempt": 2,
+          "http_status": 200,
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        }
+      ]
+    }
+  ],
+  "source_bindings": {
+    "scripts/score_hle_baseline_v2_rolling.py": "608c5d6a5045a1b0029d102b7d53846e5ff826c904c31f25ee193ae20dedbd61",
+    "artifacts/eval/avg16_hle2500_20261017/scoring/scorer_source.py": "148721d67dd9f6644e5fa575e2e25b17fb3129eb70727f3bf5c9c176de3905ef"
+  },
+  "gate_assessment": {
+    "generation_all_2500_terminal": true,
+    "generation_process_finished": true,
+    "model_consumer_finished": true,
+    "current_frozen_answers_all_terminal": true,
+    "budget_has_reserved_or_unknown": false,
+    "safe_for_root_natural_stop": true,
+    "stop_written_by_this_agent": false,
+    "collector_executed_by_this_agent": false,
+    "api_requests": 0,
+    "gpu_requests": 0,
+    "original_grader_exit_required_before_prepare": true,
+    "root_collect_only_to_2500_required_before_prepare": true
+  },
+  "final_compact_candidate": {
+    "config": "configs/eval/hle_compact_judge_recovery_avg16_20261017.json",
+    "expected_items": 1,
+    "final_invalid_task_ids": [
+      "6725fbd80aae355a51195cca"
+    ],
+    "eligibility": "Both original requests returned HTTP200/length4096 with frozen JSONDecodeError; same identity. Full detailed original-message/solver-byte/cap/lock audit remains defaultprepare after root stop/collect.",
+    "defaultprepare_executed": true,
+    "execute": false
+  },
+  "resource_assessment": {
+    "controls_job_id": 727857,
+    "released_at_utc": "2026-10-16T23:19:59.534705+00:00",
+    "slurm_absent": true,
+    "release_marker_saved_results": 5000,
+    "running_and_waiting_requests_before_release": 0,
+    "current_gpu_count": 6,
+    "slurm_snapshot": [
+      "727912|apex-term-acdu-20261017|RUNNING|acd_u|ACD1-22|gres/gpu:2",
+      "727913|apex-avgexec-acdu-20261017|RUNNING|acd_u|ACD1-22|gres/gpu:2",
+      "727856|apex-hle-normal-merged|RUNNING|acd_u|ACD1-20|gres/gpu:2"
+    ],
+    "rebuild_or_resubmit": false
+  },
+  "previous_observations": [
+    {
+      "at_utc": "2026-10-16T23:15:45.757683+00:00",
+      "global_saved": 2459,
+      "active_started_without_terminal": 41
+    },
+    {
+      "at_utc": "2026-10-16T23:18:55.827525+00:00",
+      "global_saved": 2492,
+      "active_started_without_terminal": 8
+    }
+  ],
+  "ties_unresolved_schema_discussion": {
+    "task_id": "672d8b9b504a98f0e4799ae0",
+    "missing_required_key": "correct",
+    "original_finish_reason_each": "stop",
+    "original_completion_tokens_each": 79,
+    "outside_compact_eligibility": true,
+    "status": "Remains null; no eligibility expansion"
+  },
+  "root_followthrough": {
+    "original_grader_exited": true,
+    "frozen_terminal_results_after_root_collect_only": 2500,
+    "root_used_existing_natural_stop_gate": true,
+    "root_used_original_hle_interpreter_collect_only": true,
+    "defaultprepare_at_utc": "2026-10-16T23:22:49.705439+00:00",
+    "defaultprepare_mode": "prepare_only",
+    "defaultprepare_network_calls": 0,
+    "defaultprepare_receipt": "analysis/source_snapshots/hle_avg16_compact_preparation_20261017.json",
+    "original_controller_lock_exclusive": true,
+    "execute_by_this_agent": false
+  }
+}

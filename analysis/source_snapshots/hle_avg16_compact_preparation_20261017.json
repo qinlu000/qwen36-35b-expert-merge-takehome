@@ -1,0 +1,69 @@
+{
+  "at_utc": "2026-10-16T23:22:49.705439+00:00",
+  "mode": "prepare_only",
+  "network_calls": 0,
+  "models": [
+    {
+      "model": "apex-avg16",
+      "eligible_tasks": [
+        "6725fbd80aae355a51195cca"
+      ],
+      "already_reserved": [],
+      "original_grader_exited": true,
+      "original_controller_lock_exclusive": true,
+      "original_calls": 1199,
+      "original_cost_cny": 1.2532275,
+      "combined_calls_after_reservations": 1200,
+      "combined_cost_cny_after_reservations": 1.26528525,
+      "original_budget_sha256": "c3b8f9e4cea62a97baaa47409d00ab5290918c090a6c8b804f5b67bb0a30ed3d",
+      "frozen_scorer_sha256": "148721d67dd9f6644e5fa575e2e25b17fb3129eb70727f3bf5c9c176de3905ef"
+    }
+  ],
+  "config": "configs/eval/hle_compact_judge_recovery_avg16_20261017.json",
+  "configuration_state": "prepared_only; execution requires root approval",
+  "precondition_verified_frozen_terminal_results": 2500,
+  "verified_final_invalid_task_ids": [
+    "6725fbd80aae355a51195cca"
+  ],
+  "final_inventory": true,
+  "original_grader_pid": 485904,
+  "original_grader_exited": true,
+  "original_invalid_evidence": [
+    {
+      "id": "6725fbd80aae355a51195cca",
+      "judge_calls": 2,
+      "correct": null,
+      "is_image": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "http_status": 200,
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        },
+        {
+          "attempt": 2,
+          "http_status": 200,
+          "finish_reason": "length",
+          "completion_tokens": 4096,
+          "reported_model": "DeepSeek-V4-Flash",
+          "fingerprint": "vllm-0.25.1-dp16-ep-35b4db70",
+          "frozen_parse_failed": true,
+          "parse_error_type": "JSONDecodeError"
+        }
+      ]
+    }
+  ],
+  "backup_audit": {
+    "created_during_prepare": false,
+    "original_budget_mutation_allowed": false,
+    "solver_mutation_allowed": false,
+    "unknown_outcome_resend_allowed": false,
+    "execution_requires_preserving_originals": true
+  },
+  "root_preceding_actions": "Root used the existing stop gate, original HLE interpreter and collect-only for the one fixed ReadTimeout case. This agent only verified exit/full freeze and ran defaultprepare."
+}
