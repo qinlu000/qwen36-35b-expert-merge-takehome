@@ -1168,3 +1168,10 @@
 - 非思考 SFT 可以使用原始思考教师的最终回答：删除独立 reasoning_content / 成对 think 内部隐藏推理，保留完整可见解答；这不等于教师当时关闭 thinking，也不保证 final 保留全部原始推导。现成数据无需为此重新调用教师。
 - 数量供给足够继续筛约 2k；数学/物化生优先 Math-v4 + Science-v2 明确 V4-Pro 子集。CS、人文、Other、工程的严格比例仍需筛实际候选，不用数学默默填满缺额。此前生成并保留的 722 accepted 也是现成资产，若采用须按题去重，不能与旧 500 直接相加。
 - 本轮仅来源和结构调研，没有恢复 API、导出新训练池、改 Mixed/参数/队列。实际运行方案仍按上次已落地状态记录，未来 2k 尚非已完成事实。详见 analysis/hle_existing_math_science_20261016.md 与 analysis/hle_existing_broad_sources_20261016.md；更新 claud.md 并用 Git 只提交本轮自有内容，无 coauthor 信息。
+
+
+### 18:24 CST：Terminal已实际恢复30槽双副本
+
+- native10于18:23恢复，PID2719240；现场checkpoint为30admitted、348pending，旧35个有效结果保留。主28082实际8running＋1waiting，副28084实际7running；make-doom/make-mips已写正式agent/v2_requests原始请求，不能将30槽理解为30条HTTP同时执行。任务结束立即补位，原4CPU/8GiB/1800s、题目/seed/prompt和64K/8K不变。
+- 短临时目录/data/caoqinlu/apex-tb-tmp解决根盘/tmp满，并避免长目录触发AF_UNIX路径上限。native9的零模型setup失败目录保留，native10使用独立物理后缀，同一manual_attempt，不添加模型生成重试。378项确认agent_setup/execution/result均无实际模型执行后才恢复；另32项已有模型输出交独立评分恢复，正常AgentTimeout不重答。
+- 18:23最终只读汇总HLE1337/2500，仍8active；ASI240/240为公开本地评分口径1.5709884069%，SWE51/51官方fresh replay为9.8039215686%。Terminal主分仍待445原定项有效齐全。

@@ -1,0 +1,2298 @@
+{
+  "launched_at_utc": "2026-10-16T10:23:15.623495+00:00",
+  "pid": 2719240,
+  "argv": [
+    "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime10/scripts/run_terminal_native7.py",
+    "--manifest",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime10/manifest.json",
+    "--output",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016",
+    "--endpoint",
+    "http://127.0.0.1:28082",
+    "--api-key-path",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key",
+    "--concurrency",
+    "16",
+    "--resume-after-bridge-approval",
+    "--stop-admission-file",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime10/STOP_ADMISSION"
+  ],
+  "pending_admissions": 378,
+  "max_solver_futures": 30,
+  "tmpdir": "/data/caoqinlu/apex-tb-tmp",
+  "disk_available_bytes": 2748125556736,
+  "physical_setup_failures_selected": [
+    {
+      "key": "make-doom-for-mips/seed0",
+      "manual_attempt": 2,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed0__manual2/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "make-mips-interpreter/seed0",
+      "manual_attempt": 2,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-mips-interpreter__seed0__manual2/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "mcmc-sampling-stan/seed0",
+      "manual_attempt": 2,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mcmc-sampling-stan__seed0__manual2/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "merge-diff-arc-agi-task/seed0",
+      "manual_attempt": 2,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/merge-diff-arc-agi-task__seed0__manual2/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "model-extraction-relu-logits/seed0",
+      "manual_attempt": 2,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/model-extraction-relu-logits__seed0__manual2/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "regex-log/seed0",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/regex-log__seed0__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "reshard-c4-data/seed0",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/reshard-c4-data__seed0__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "rstan-to-pystan/seed0",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed0__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sam-cell-seg/seed0",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sam-cell-seg__seed0__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sanitize-git-repo/seed0",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sanitize-git-repo__seed0__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "schemelike-metacircular-eval/seed0",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/schemelike-metacircular-eval__seed0__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sparql-university/seed0",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sparql-university__seed0__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sqlite-db-truncate/seed0",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sqlite-db-truncate__seed0__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sqlite-with-gcov/seed0",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sqlite-with-gcov__seed0__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "torch-pipeline-parallelism/seed0",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/torch-pipeline-parallelism__seed0__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "torch-tensor-parallelism/seed0",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/torch-tensor-parallelism__seed0__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "train-fasttext/seed0",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/train-fasttext__seed0__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "tune-mjcf/seed0",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/tune-mjcf__seed0__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "video-processing/seed0",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/video-processing__seed0__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "vulnerable-secret/seed0",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/vulnerable-secret__seed0__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "winning-avg-corewars/seed0",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/winning-avg-corewars__seed0__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "write-compressor/seed0",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/write-compressor__seed0__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "adaptive-rejection-sampler/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/adaptive-rejection-sampler__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "bn-fit-modify/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/bn-fit-modify__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "break-filter-js-from-html/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/break-filter-js-from-html__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "build-cython-ext/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/build-cython-ext__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "build-pmars/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/build-pmars__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "build-pov-ray/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/build-pov-ray__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "caffe-cifar-10/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/caffe-cifar-10__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "cancel-async-tasks/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/cancel-async-tasks__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "chess-best-move/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/chess-best-move__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "circuit-fibsqrt/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/circuit-fibsqrt__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "cobol-modernization/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/cobol-modernization__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "code-from-image/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/code-from-image__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "compile-compcert/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/compile-compcert__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "configure-git-webserver/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/configure-git-webserver__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "constraints-scheduling/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/constraints-scheduling__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "count-dataset-tokens/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/count-dataset-tokens__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "crack-7z-hash/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/crack-7z-hash__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "custom-memory-heap-crash/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/custom-memory-heap-crash__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "db-wal-recovery/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/db-wal-recovery__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "distribution-search/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/distribution-search__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "dna-assembly/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/dna-assembly__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "dna-insert/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/dna-insert__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "extract-elf/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/extract-elf__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "extract-moves-from-video/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/extract-moves-from-video__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "feal-differential-cryptanalysis/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/feal-differential-cryptanalysis__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "feal-linear-cryptanalysis/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/feal-linear-cryptanalysis__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "filter-js-from-html/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/filter-js-from-html__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "financial-document-processor/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/financial-document-processor__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "fix-code-vulnerability/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/fix-code-vulnerability__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "fix-git/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/fix-git__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "fix-ocaml-gc/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/fix-ocaml-gc__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "gcode-to-text/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/gcode-to-text__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "git-leak-recovery/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/git-leak-recovery__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "git-multibranch/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/git-multibranch__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "gpt2-codegolf/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/gpt2-codegolf__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "headless-terminal/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/headless-terminal__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "hf-model-inference/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/hf-model-inference__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "install-windows-3.11/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/install-windows-3.11__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "kv-store-grpc/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/kv-store-grpc__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "large-scale-text-editing/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/large-scale-text-editing__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "largest-eigenval/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/largest-eigenval__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "llm-inference-batching-scheduler/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/llm-inference-batching-scheduler__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "log-summary-date-ranges/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/log-summary-date-ranges__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "mailman/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mailman__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "make-doom-for-mips/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "make-mips-interpreter/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-mips-interpreter__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "mcmc-sampling-stan/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mcmc-sampling-stan__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "merge-diff-arc-agi-task/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/merge-diff-arc-agi-task__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "model-extraction-relu-logits/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/model-extraction-relu-logits__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "modernize-scientific-stack/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/modernize-scientific-stack__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "mteb-leaderboard/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mteb-leaderboard__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "mteb-retrieve/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mteb-retrieve__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "multi-source-data-merger/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/multi-source-data-merger__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "nginx-request-logging/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/nginx-request-logging__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "openssl-selfsigned-cert/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/openssl-selfsigned-cert__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "overfull-hbox/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/overfull-hbox__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "password-recovery/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/password-recovery__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "path-tracing/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/path-tracing__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "path-tracing-reverse/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/path-tracing-reverse__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "polyglot-c-py/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/polyglot-c-py__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "polyglot-rust-c/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/polyglot-rust-c__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "portfolio-optimization/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/portfolio-optimization__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "protein-assembly/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/protein-assembly__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "prove-plus-comm/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/prove-plus-comm__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "pypi-server/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/pypi-server__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "pytorch-model-cli/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/pytorch-model-cli__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "pytorch-model-recovery/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/pytorch-model-recovery__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "qemu-alpine-ssh/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/qemu-alpine-ssh__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "qemu-startup/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/qemu-startup__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "query-optimize/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/query-optimize__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "raman-fitting/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/raman-fitting__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "regex-chess/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/regex-chess__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "regex-log/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/regex-log__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "reshard-c4-data/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/reshard-c4-data__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "rstan-to-pystan/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sam-cell-seg/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sam-cell-seg__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sanitize-git-repo/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sanitize-git-repo__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "schemelike-metacircular-eval/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/schemelike-metacircular-eval__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sparql-university/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sparql-university__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sqlite-db-truncate/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sqlite-db-truncate__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sqlite-with-gcov/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sqlite-with-gcov__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "torch-pipeline-parallelism/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/torch-pipeline-parallelism__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "torch-tensor-parallelism/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/torch-tensor-parallelism__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "train-fasttext/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/train-fasttext__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "tune-mjcf/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/tune-mjcf__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "video-processing/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/video-processing__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "vulnerable-secret/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/vulnerable-secret__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "winning-avg-corewars/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/winning-avg-corewars__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "write-compressor/seed1",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/write-compressor__seed1__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "adaptive-rejection-sampler/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/adaptive-rejection-sampler__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "bn-fit-modify/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/bn-fit-modify__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "break-filter-js-from-html/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/break-filter-js-from-html__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "build-cython-ext/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/build-cython-ext__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "build-pmars/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/build-pmars__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "build-pov-ray/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/build-pov-ray__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "caffe-cifar-10/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/caffe-cifar-10__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "cancel-async-tasks/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/cancel-async-tasks__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "chess-best-move/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/chess-best-move__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "circuit-fibsqrt/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/circuit-fibsqrt__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "cobol-modernization/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/cobol-modernization__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "code-from-image/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/code-from-image__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "compile-compcert/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/compile-compcert__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "configure-git-webserver/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/configure-git-webserver__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "constraints-scheduling/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/constraints-scheduling__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "count-dataset-tokens/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/count-dataset-tokens__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "crack-7z-hash/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/crack-7z-hash__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "custom-memory-heap-crash/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/custom-memory-heap-crash__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "db-wal-recovery/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/db-wal-recovery__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "distribution-search/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/distribution-search__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "dna-assembly/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/dna-assembly__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "dna-insert/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/dna-insert__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "extract-elf/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/extract-elf__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "extract-moves-from-video/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/extract-moves-from-video__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "feal-differential-cryptanalysis/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/feal-differential-cryptanalysis__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "feal-linear-cryptanalysis/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/feal-linear-cryptanalysis__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "filter-js-from-html/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/filter-js-from-html__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "financial-document-processor/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/financial-document-processor__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "fix-code-vulnerability/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/fix-code-vulnerability__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "fix-git/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/fix-git__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "fix-ocaml-gc/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/fix-ocaml-gc__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "gcode-to-text/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/gcode-to-text__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "git-leak-recovery/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/git-leak-recovery__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "git-multibranch/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/git-multibranch__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "gpt2-codegolf/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/gpt2-codegolf__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "headless-terminal/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/headless-terminal__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "hf-model-inference/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/hf-model-inference__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "install-windows-3.11/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/install-windows-3.11__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "kv-store-grpc/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/kv-store-grpc__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "large-scale-text-editing/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/large-scale-text-editing__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "largest-eigenval/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/largest-eigenval__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "llm-inference-batching-scheduler/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/llm-inference-batching-scheduler__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "log-summary-date-ranges/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/log-summary-date-ranges__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "mailman/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mailman__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "make-doom-for-mips/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "make-mips-interpreter/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-mips-interpreter__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "mcmc-sampling-stan/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mcmc-sampling-stan__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "merge-diff-arc-agi-task/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/merge-diff-arc-agi-task__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "model-extraction-relu-logits/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/model-extraction-relu-logits__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "modernize-scientific-stack/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/modernize-scientific-stack__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "mteb-leaderboard/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mteb-leaderboard__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "mteb-retrieve/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mteb-retrieve__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "multi-source-data-merger/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/multi-source-data-merger__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "nginx-request-logging/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/nginx-request-logging__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "openssl-selfsigned-cert/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/openssl-selfsigned-cert__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "overfull-hbox/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/overfull-hbox__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "password-recovery/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/password-recovery__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "path-tracing/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/path-tracing__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "path-tracing-reverse/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/path-tracing-reverse__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "polyglot-c-py/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/polyglot-c-py__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "polyglot-rust-c/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/polyglot-rust-c__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "portfolio-optimization/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/portfolio-optimization__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "protein-assembly/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/protein-assembly__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "prove-plus-comm/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/prove-plus-comm__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "pypi-server/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/pypi-server__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "pytorch-model-cli/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/pytorch-model-cli__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "pytorch-model-recovery/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/pytorch-model-recovery__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "qemu-alpine-ssh/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/qemu-alpine-ssh__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "qemu-startup/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/qemu-startup__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "query-optimize/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/query-optimize__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "raman-fitting/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/raman-fitting__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "regex-chess/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/regex-chess__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "regex-log/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/regex-log__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "reshard-c4-data/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/reshard-c4-data__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "rstan-to-pystan/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sam-cell-seg/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sam-cell-seg__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sanitize-git-repo/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sanitize-git-repo__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "schemelike-metacircular-eval/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/schemelike-metacircular-eval__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sparql-university/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sparql-university__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sqlite-db-truncate/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sqlite-db-truncate__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sqlite-with-gcov/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sqlite-with-gcov__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "torch-pipeline-parallelism/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/torch-pipeline-parallelism__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "torch-tensor-parallelism/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/torch-tensor-parallelism__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "train-fasttext/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/train-fasttext__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "tune-mjcf/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/tune-mjcf__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "video-processing/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/video-processing__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "vulnerable-secret/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/vulnerable-secret__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "winning-avg-corewars/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/winning-avg-corewars__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "write-compressor/seed2",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/write-compressor__seed2__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "adaptive-rejection-sampler/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/adaptive-rejection-sampler__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "bn-fit-modify/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/bn-fit-modify__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "break-filter-js-from-html/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/break-filter-js-from-html__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "build-cython-ext/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/build-cython-ext__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "build-pmars/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/build-pmars__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "build-pov-ray/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/build-pov-ray__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "caffe-cifar-10/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/caffe-cifar-10__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "cancel-async-tasks/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/cancel-async-tasks__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "chess-best-move/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/chess-best-move__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "circuit-fibsqrt/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/circuit-fibsqrt__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "cobol-modernization/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/cobol-modernization__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "code-from-image/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/code-from-image__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "compile-compcert/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/compile-compcert__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "configure-git-webserver/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/configure-git-webserver__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "constraints-scheduling/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/constraints-scheduling__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "count-dataset-tokens/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/count-dataset-tokens__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "crack-7z-hash/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/crack-7z-hash__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "custom-memory-heap-crash/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/custom-memory-heap-crash__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "db-wal-recovery/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/db-wal-recovery__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "distribution-search/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/distribution-search__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "dna-assembly/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/dna-assembly__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "dna-insert/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/dna-insert__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "extract-elf/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/extract-elf__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "extract-moves-from-video/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/extract-moves-from-video__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "feal-differential-cryptanalysis/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/feal-differential-cryptanalysis__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "feal-linear-cryptanalysis/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/feal-linear-cryptanalysis__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "filter-js-from-html/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/filter-js-from-html__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "financial-document-processor/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/financial-document-processor__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "fix-code-vulnerability/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/fix-code-vulnerability__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "fix-git/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/fix-git__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "fix-ocaml-gc/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/fix-ocaml-gc__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "gcode-to-text/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/gcode-to-text__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "git-leak-recovery/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/git-leak-recovery__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "git-multibranch/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/git-multibranch__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "gpt2-codegolf/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/gpt2-codegolf__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "headless-terminal/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/headless-terminal__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "hf-model-inference/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/hf-model-inference__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "install-windows-3.11/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/install-windows-3.11__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "kv-store-grpc/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/kv-store-grpc__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "large-scale-text-editing/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/large-scale-text-editing__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "largest-eigenval/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/largest-eigenval__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "llm-inference-batching-scheduler/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/llm-inference-batching-scheduler__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "log-summary-date-ranges/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/log-summary-date-ranges__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "mailman/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mailman__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "make-doom-for-mips/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "make-mips-interpreter/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-mips-interpreter__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "mcmc-sampling-stan/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mcmc-sampling-stan__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "merge-diff-arc-agi-task/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/merge-diff-arc-agi-task__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "model-extraction-relu-logits/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/model-extraction-relu-logits__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "modernize-scientific-stack/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/modernize-scientific-stack__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "mteb-leaderboard/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mteb-leaderboard__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "mteb-retrieve/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mteb-retrieve__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "multi-source-data-merger/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/multi-source-data-merger__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "nginx-request-logging/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/nginx-request-logging__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "openssl-selfsigned-cert/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/openssl-selfsigned-cert__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "overfull-hbox/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/overfull-hbox__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "password-recovery/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/password-recovery__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "path-tracing/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/path-tracing__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "path-tracing-reverse/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/path-tracing-reverse__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "polyglot-c-py/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/polyglot-c-py__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "polyglot-rust-c/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/polyglot-rust-c__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "portfolio-optimization/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/portfolio-optimization__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "protein-assembly/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/protein-assembly__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "prove-plus-comm/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/prove-plus-comm__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "pypi-server/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/pypi-server__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "pytorch-model-cli/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/pytorch-model-cli__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "pytorch-model-recovery/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/pytorch-model-recovery__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "qemu-alpine-ssh/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/qemu-alpine-ssh__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "qemu-startup/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/qemu-startup__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "query-optimize/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/query-optimize__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "raman-fitting/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/raman-fitting__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "regex-chess/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/regex-chess__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "regex-log/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/regex-log__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "reshard-c4-data/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/reshard-c4-data__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "rstan-to-pystan/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sam-cell-seg/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sam-cell-seg__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sanitize-git-repo/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sanitize-git-repo__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "schemelike-metacircular-eval/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/schemelike-metacircular-eval__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sparql-university/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sparql-university__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sqlite-db-truncate/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sqlite-db-truncate__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sqlite-with-gcov/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sqlite-with-gcov__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "torch-pipeline-parallelism/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/torch-pipeline-parallelism__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "torch-tensor-parallelism/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/torch-tensor-parallelism__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "train-fasttext/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/train-fasttext__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "tune-mjcf/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/tune-mjcf__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "video-processing/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/video-processing__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "vulnerable-secret/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/vulnerable-secret__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "winning-avg-corewars/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/winning-avg-corewars__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "write-compressor/seed3",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/write-compressor__seed3__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "adaptive-rejection-sampler/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/adaptive-rejection-sampler__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "bn-fit-modify/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/bn-fit-modify__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "break-filter-js-from-html/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/break-filter-js-from-html__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "build-cython-ext/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/build-cython-ext__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "build-pmars/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/build-pmars__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "build-pov-ray/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/build-pov-ray__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "caffe-cifar-10/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/caffe-cifar-10__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "cancel-async-tasks/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/cancel-async-tasks__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "chess-best-move/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/chess-best-move__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "circuit-fibsqrt/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/circuit-fibsqrt__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "cobol-modernization/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/cobol-modernization__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "code-from-image/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/code-from-image__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "compile-compcert/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/compile-compcert__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "configure-git-webserver/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/configure-git-webserver__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "constraints-scheduling/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/constraints-scheduling__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "count-dataset-tokens/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/count-dataset-tokens__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "crack-7z-hash/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/crack-7z-hash__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "custom-memory-heap-crash/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/custom-memory-heap-crash__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "db-wal-recovery/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/db-wal-recovery__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "distribution-search/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/distribution-search__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "dna-assembly/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/dna-assembly__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "dna-insert/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/dna-insert__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "extract-elf/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/extract-elf__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "extract-moves-from-video/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/extract-moves-from-video__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "feal-differential-cryptanalysis/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/feal-differential-cryptanalysis__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "feal-linear-cryptanalysis/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/feal-linear-cryptanalysis__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "filter-js-from-html/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/filter-js-from-html__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "financial-document-processor/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/financial-document-processor__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "fix-code-vulnerability/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/fix-code-vulnerability__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "fix-git/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/fix-git__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "fix-ocaml-gc/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/fix-ocaml-gc__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "gcode-to-text/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/gcode-to-text__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "git-leak-recovery/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/git-leak-recovery__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "git-multibranch/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/git-multibranch__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "gpt2-codegolf/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/gpt2-codegolf__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "headless-terminal/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/headless-terminal__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "hf-model-inference/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/hf-model-inference__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "install-windows-3.11/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/install-windows-3.11__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "kv-store-grpc/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/kv-store-grpc__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "large-scale-text-editing/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/large-scale-text-editing__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "largest-eigenval/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/largest-eigenval__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "llm-inference-batching-scheduler/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/llm-inference-batching-scheduler__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "log-summary-date-ranges/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/log-summary-date-ranges__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "mailman/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mailman__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "make-doom-for-mips/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "make-mips-interpreter/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-mips-interpreter__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "mcmc-sampling-stan/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mcmc-sampling-stan__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "merge-diff-arc-agi-task/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/merge-diff-arc-agi-task__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "model-extraction-relu-logits/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/model-extraction-relu-logits__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "modernize-scientific-stack/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/modernize-scientific-stack__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "mteb-leaderboard/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mteb-leaderboard__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "mteb-retrieve/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mteb-retrieve__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "multi-source-data-merger/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/multi-source-data-merger__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "nginx-request-logging/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/nginx-request-logging__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "openssl-selfsigned-cert/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/openssl-selfsigned-cert__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "overfull-hbox/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/overfull-hbox__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "password-recovery/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/password-recovery__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "path-tracing/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/path-tracing__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "path-tracing-reverse/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/path-tracing-reverse__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "polyglot-c-py/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/polyglot-c-py__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "polyglot-rust-c/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/polyglot-rust-c__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "portfolio-optimization/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/portfolio-optimization__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "protein-assembly/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/protein-assembly__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "prove-plus-comm/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/prove-plus-comm__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "pypi-server/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/pypi-server__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "pytorch-model-cli/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/pytorch-model-cli__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "pytorch-model-recovery/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/pytorch-model-recovery__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "qemu-alpine-ssh/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/qemu-alpine-ssh__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "qemu-startup/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/qemu-startup__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "query-optimize/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/query-optimize__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "raman-fitting/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/raman-fitting__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "regex-chess/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/regex-chess__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "regex-log/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/regex-log__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "reshard-c4-data/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/reshard-c4-data__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "rstan-to-pystan/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sam-cell-seg/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sam-cell-seg__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sanitize-git-repo/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sanitize-git-repo__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "schemelike-metacircular-eval/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/schemelike-metacircular-eval__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sparql-university/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sparql-university__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sqlite-db-truncate/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sqlite-db-truncate__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "sqlite-with-gcov/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/sqlite-with-gcov__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "torch-pipeline-parallelism/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/torch-pipeline-parallelism__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "torch-tensor-parallelism/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/torch-tensor-parallelism__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "train-fasttext/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/train-fasttext__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "tune-mjcf/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/tune-mjcf__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "video-processing/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/video-processing__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "vulnerable-secret/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/vulnerable-secret__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "winning-avg-corewars/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/winning-avg-corewars__seed4__manual1/result.json",
+      "model_execution_started": false
+    },
+    {
+      "key": "write-compressor/seed4",
+      "manual_attempt": 1,
+      "physical_setup_failure": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/write-compressor__seed4__manual1/result.json",
+      "model_execution_started": false
+    }
+  ],
+  "complete_answers_regenerated": 0,
+  "additional_model_manual_attempts": 0,
+  "prior_results_retained": true
+}

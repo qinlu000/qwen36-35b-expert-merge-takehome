@@ -1,0 +1,85 @@
+{
+  "at_utc": "2026-10-16T10:24:14.524952+00:00",
+  "controller_pid": 2719240,
+  "runtime": "runtime10",
+  "status_counts": {
+    "failed_attempt": 29,
+    "valid": 26,
+    "verifier_incomplete": 12,
+    "admitted": 30,
+    "pending": 348
+  },
+  "active_endpoint_counts": {
+    "http://127.0.0.1:28084": 14,
+    "http://127.0.0.1:28082": 16
+  },
+  "request_status_counts": {
+    "completed": 31,
+    "request_in_flight": 17
+  },
+  "raw_request_files": [
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed0__manual2__shorttmp1/agent/v2_requests/00002-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed0__manual2__shorttmp1/agent/v2_requests/00003-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed0__manual2__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/make-mips-interpreter__seed0__manual2__shorttmp1/agent/v2_requests/00002-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/make-mips-interpreter__seed0__manual2__shorttmp1/agent/v2_requests/00003-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/make-mips-interpreter__seed0__manual2__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/mcmc-sampling-stan__seed0__manual2__shorttmp1/agent/v2_requests/00002-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/mcmc-sampling-stan__seed0__manual2__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/model-extraction-relu-logits__seed0__manual2__shorttmp1/agent/v2_requests/00002-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/model-extraction-relu-logits__seed0__manual2__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/regex-log__seed0__manual1__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/reshard-c4-data__seed0__manual1__shorttmp1/agent/v2_requests/00002-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/reshard-c4-data__seed0__manual1__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/rstan-to-pystan__seed0__manual1__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/sam-cell-seg__seed0__manual1__shorttmp1/agent/v2_requests/00002-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/sam-cell-seg__seed0__manual1__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/sanitize-git-repo__seed0__manual1__shorttmp1/agent/v2_requests/00002-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/sanitize-git-repo__seed0__manual1__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/schemelike-metacircular-eval__seed0__manual1__shorttmp1/agent/v2_requests/00002-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/schemelike-metacircular-eval__seed0__manual1__shorttmp1/agent/v2_requests/00003-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/schemelike-metacircular-eval__seed0__manual1__shorttmp1/agent/v2_requests/00004-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/schemelike-metacircular-eval__seed0__manual1__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/sparql-university__seed0__manual1__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/sqlite-db-truncate__seed0__manual1__shorttmp1/agent/v2_requests/00002-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/sqlite-db-truncate__seed0__manual1__shorttmp1/agent/v2_requests/00003-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/sqlite-db-truncate__seed0__manual1__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/train-fasttext__seed0__manual1__shorttmp1/agent/v2_requests/00002-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/train-fasttext__seed0__manual1__shorttmp1/agent/v2_requests/00003-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/train-fasttext__seed0__manual1__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/tune-mjcf__seed0__manual1__shorttmp1/agent/v2_requests/00002-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/tune-mjcf__seed0__manual1__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/video-processing__seed0__manual1__shorttmp1/agent/v2_requests/00002-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/video-processing__seed0__manual1__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/vulnerable-secret__seed0__manual1__shorttmp1/agent/v2_requests/00002-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/vulnerable-secret__seed0__manual1__shorttmp1/agent/v2_requests/00003-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/vulnerable-secret__seed0__manual1__shorttmp1/agent/v2_requests/00004-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/vulnerable-secret__seed0__manual1__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/winning-avg-corewars__seed0__manual1__shorttmp1/agent/v2_requests/00002-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/winning-avg-corewars__seed0__manual1__shorttmp1/agent/v2_requests/00003-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/winning-avg-corewars__seed0__manual1__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/break-filter-js-from-html__seed1__manual1__shorttmp1/agent/v2_requests/00002-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/break-filter-js-from-html__seed1__manual1__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/build-cython-ext__seed1__manual1__shorttmp1/agent/v2_requests/00002-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/build-cython-ext__seed1__manual1__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/build-pmars__seed1__manual1__shorttmp1/agent/v2_requests/00002-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/build-pmars__seed1__manual1__shorttmp1/agent/v2_requests/00001-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/cancel-async-tasks__seed1__manual1__shorttmp1/agent/v2_requests/00002-main.json",
+    "artifacts/results/base-terminal-v2-recovery-20261016/trials/cancel-async-tasks__seed1__manual1__shorttmp1/agent/v2_requests/00001-main.json"
+  ],
+  "model_metrics": {
+    "28082": {
+      "vllm:num_requests_running": 8.0,
+      "vllm:num_requests_waiting": 2.0
+    },
+    "28084": {
+      "vllm:num_requests_running": 7.0,
+      "vllm:num_requests_waiting": 0.0
+    }
+  },
+  "tmpdir": "/data/caoqinlu/apex-tb-tmp",
+  "fixed_expected": 445,
+  "prior_valid_results_preserved": true,
+  "completed_model_answers_regenerated": 0,
+  "setup_recovery": "378 zero-model ENOSPC failures; namespace physical setup retained separately under same manual model attempt"
+}

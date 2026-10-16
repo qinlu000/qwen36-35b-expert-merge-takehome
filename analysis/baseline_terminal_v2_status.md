@@ -1,3 +1,31 @@
+# Terminal full rolling queue resumed on /data — 2026-10-16 18:24 CST
+
+Actual native10 controller **PID2719240** launched **18:23:15**. At18:24:14 it has **30 admitted /348 pending**, with31 completed native policy HTTP responses and17 calls in flight. Model28082 is actually8 running+2 waiting,28084 is7 running; both GPU allocations are serving requests. Canonical valid coverage remains **35/445** (including accepted saved-state grades); a final mean/SD is not yet available. The checkpoint alone has26 in-place valid results, with9 additional accepted recovery grades counted by the final observer.
+
+The prior native8 queue ended17:49 after its host root partition filled. The **410 unscored** entries were **378 zero-model setup failures** (agent_setup/execution/result absent) plus32 retained model-output cases. The378 were not378 attempted model answers. Native9 moved temporary staging to/data but its long Unix-socket path exceeded the AF_UNIX path limit before agent execution. Its physical setup failures are preserved. Native10 uses short **/data/caoqinlu/apex-tb-tmp** (2.75TB available), also setting APPTAINER_TMPDIR and APPTAINER_CACHEDIR. Each same manual model attempt gets an explicit physical setup suffix, preserving native9 files without consuming another model retry. Existing completed answers are never regenerated. A known global setup ENOSPC/namespace-relay failure now stops new admissions naturally instead of rapidly consuming every pending ID.
+
+All378 zero-model entries resumed asynchronously under the same445 denominator, model/prompts/seeds/1800s4CPU8GiB/64K8K settings; manual model retry counts remain at most2. Already produced32 model outputs are separate grading recovery, including27 normal1800s budget ends that must never receive new answers. Six have saved-state archives; the other26 need an available original state before they can be validly scored. Infrastructure remains unscored until an actual official verifier executes. The queue replenishes by FIRST_COMPLETED; no cohort barrier was introduced. Native10 is frozen after launch. CPU0–119 is the30-slot solver pool; grading-only recovery remains120–123. Other benchmarks/training were not changed.
+
+Evidence: `analysis/source_snapshots/terminal_native10_launch_20261016.json`, `terminal_native10_progress_20261016.json`; remote `artifacts/runs/base-terminal-recovery-v2-20261016/{launch-native10.json,native10-progress.json,runner-native10.log,runtime10/manifest.json}`. The original native8/9 results and checkpoint-before-resume are retained. `scripts/run_terminal_rolling_v2.py` is the actual runtime10 driver source, deployed under compatibility filename `run_terminal_native7.py`. Current source mappings are in `terminal_production_files_20261016.json`.
+
+All sections below are historical snapshots.
+
+---
+
+# Terminal runtime8 rolling full scope is running — 2026-10-16 16:55 CST
+
+Actual controller **PID2571204** launched16:54:42 under the existing main flock. The combined rolling queue has **419 admissions**:39 authorized incomplete infrastructure retries plus380 never-started entries. First16 have actually been admitted; current fixed445 summary is **25 valid /16 active /403 pending /1 infrastructure-unscored**. The remaining infrastructure item is the original MTEB answer's heavyweight official dependency installation, moved to independent CPU120–123 grading with its original saved task state. It receives no new model answer. Original runtime7 is fully drained; no cohort barrier remains.
+
+Model endpoint28082 is job726129/maxseq8. Parent controls `runtime8/ENABLE_SECOND_REPLICA` after SWE and old grader CPU completion: this appends14 slots to the same16-slot CPU pool and increases rolling futures to30 across28082/28084. Each task is fixed to its chosen service; every new B admission needs35 minutes of its recorded allocation remaining, then A continues while existing B tasks finish. The scheduler checks new capacity once per second. Original task/seed/4CPU/8GiB/1800s and64K/8K budgets remain fixed.
+
+Canonical checkpoint/raw results are unchanged paths under `artifacts/results/base-terminal-v2-recovery-20261016`; `final_summary.json` updates every30s from observer PID2562657. Mean and sample SD(ddof1) stay null until5×89 scores exist. All archive-based grades, passing and failing, require a separate reconstruction-sufficiency review; original in-place native grades do not. Current saved-state grader observer is PID2522411/CPU120–123. The GPU completion marker remains `followon/full445.COMPLETE.json` with445 valid and `queue_summary:{halted:false,pending_not_admitted:0}`.
+
+Evidence: `launch-native8.json`, `runner-native8.log`, `runtime8/manifest.json`, and `deferred-mteb-grader.json` in the canonical run directory. The old7-only curl/APT repair observers were stopped after that controller fully drained; they do not touch runtime8. The one-time MTEB deferral copied only published complete package links (none were published at that instant), not unfinished downloads, then stopped only its official dependency installer. Native test non-execution is infrastructure, never a fabricated zero. All original outputs, raw calls, costs and failed scoring attempts remain retained. Source-to-runtime mappings are in `analysis/source_snapshots/terminal_production_files_20261016.json`; the runtime8 dispatcher is the Git file `scripts/run_terminal_rolling_v2.py` deployed under compatibility filename `runtime8/scripts/run_terminal_native7.py`. Runtime8 core is frozen after launch.
+
+All sections below are historical snapshots.
+
+---
+
 # Terminal rolling recovery — 2026-10-16 16:45 CST
 
 Canonical fixed scope remains **445 = 89 tasks × seeds0–4**. Current accepted coverage is **22/445**, including all seven recovered original answers; **4 original runtime7 trials remain active**, **380 remain never admitted**, and **39 remain infrastructure/unscored**. Scores remain null until every seed has89 valid outcomes. The accepted result paths and reward chronology are explicit in `artifacts/results/base-terminal-v2-recovery-20261016/final_summary.json`, updated every30s by observer **PID2552032**. The first valid3 were **2 pass/1 fail**; the five earlier tool-missing false zeros were invalidated with their original files preserved.

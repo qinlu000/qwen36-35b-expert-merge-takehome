@@ -2,31 +2,31 @@
   "files": [
     {
       "git_source": "scripts/run_terminal_rolling_v2.py",
-      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime8/scripts/run_terminal_native7.py"
+      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime10/scripts/run_terminal_native7.py"
     },
     {
       "git_source": "scripts/terminal_admission_rolling_v2.py",
-      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime8/scripts/terminal_admission_rolling_v2.py"
+      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime10/scripts/terminal_admission_rolling_v2.py"
     },
     {
       "git_source": "scripts/terminal_rolling_environment.py",
-      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime8/scripts/terminal_rolling_environment.py"
+      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime10/scripts/terminal_rolling_environment.py"
     },
     {
       "git_source": "scripts/terminal_verifier_apt_environment.py",
-      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime8/scripts/terminal_verifier_apt_environment.py"
+      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime10/scripts/terminal_verifier_apt_environment.py"
     },
     {
       "git_source": "scripts/terminal_verifier_environment.py",
-      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime8/scripts/terminal_verifier_environment.py"
+      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime10/scripts/terminal_verifier_environment.py"
     },
     {
       "git_source": "scripts/terminal_verifier_curl.py",
-      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime8/scripts/terminal_verifier_curl.py"
+      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime10/scripts/terminal_verifier_curl.py"
     },
     {
       "git_source": "scripts/terminal_verifier_evidence.py",
-      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime8/scripts/terminal_verifier_evidence.py"
+      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime10/scripts/terminal_verifier_evidence.py"
     },
     {
       "git_source": "scripts/terminal_native_environment.py",
@@ -53,9 +53,9 @@
       "production_source": "/data/caoqinlu/projects/apex-takehome/scripts/run_terminal_grader_only_v4.py"
     },
     {
-      "git_source": "scripts/observe_terminal_final_v4.py",
-      "production_source": "/data/caoqinlu/projects/apex-takehome/scripts/observe_terminal_final_v4.py",
-      "pid": 2552032
+      "git_source": "scripts/observe_terminal_final_v5.py",
+      "production_source": "/data/caoqinlu/projects/apex-takehome/scripts/observe_terminal_final_v5.py",
+      "pid": 2562657
     },
     {
       "git_source": "scripts/patch_terminal_verifier_downloads_v2.py",
@@ -83,13 +83,61 @@
       "cpu_pool": "120-123, grading only"
     },
     {
-      "git_source": "scripts/patch_terminal_verifier_apt_v2.py",
-      "production_source": "/data/caoqinlu/projects/apex-takehome/scripts/patch_terminal_verifier_apt_v2.py",
-      "pid": 2537106,
+      "git_source": "scripts/patch_terminal_verifier_apt_v3.py",
+      "production_source": "/data/caoqinlu/projects/apex-takehome/scripts/patch_terminal_verifier_apt_v3.py",
+      "pid": 2566414,
       "scope": "only old7 saved-state verifier instances; no solver mutation"
+    },
+    {
+      "git_source": "scripts/defer_terminal_mteb_grader_v2.py",
+      "production_source": "/data/caoqinlu/projects/apex-takehome/scripts/defer_terminal_mteb_grader_v2.py",
+      "scope": "one-time old MTEB official installer deferral, original task files preserved"
+    },
+    {
+      "git_source": "scripts/resume_terminal_data_tmp_v2.py",
+      "production_source": "/data/caoqinlu/projects/apex-takehome/scripts/resume_terminal_data_tmp_v2.py"
+    },
+    {
+      "git_source": "scripts/resume_terminal_short_tmp_v2.py",
+      "production_source": "/data/caoqinlu/projects/apex-takehome/scripts/resume_terminal_short_tmp_v2.py"
     }
   ],
   "frozen7_driver": "analysis/source_snapshots/terminal_native7_driver_frozen_20261016.py",
   "stage_commit_owner": "root",
-  "new_tests_or_hash_scans": false
+  "new_tests_or_hash_scans": false,
+  "historical_runtime8_files": [
+    {
+      "git_source": "scripts/run_terminal_rolling_v2.py",
+      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime8/scripts/run_terminal_native7.py"
+    },
+    {
+      "git_source": "scripts/terminal_admission_rolling_v2.py",
+      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime8/scripts/terminal_admission_rolling_v2.py"
+    },
+    {
+      "git_source": "scripts/terminal_rolling_environment.py",
+      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime8/scripts/terminal_rolling_environment.py"
+    },
+    {
+      "git_source": "scripts/terminal_verifier_apt_environment.py",
+      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime8/scripts/terminal_verifier_apt_environment.py"
+    },
+    {
+      "git_source": "scripts/terminal_verifier_environment.py",
+      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime8/scripts/terminal_verifier_environment.py"
+    },
+    {
+      "git_source": "scripts/terminal_verifier_curl.py",
+      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime8/scripts/terminal_verifier_curl.py"
+    },
+    {
+      "git_source": "scripts/terminal_verifier_evidence.py",
+      "production_source": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime8/scripts/terminal_verifier_evidence.py"
+    }
+  ],
+  "current_runtime": "runtime10",
+  "controller_pid": 2719240,
+  "updated_at_cst": "2026-10-16 18:24:14",
+  "launch_evidence": "analysis/source_snapshots/terminal_native10_launch_20261016.json",
+  "progress_evidence": "analysis/source_snapshots/terminal_native10_progress_20261016.json"
 }

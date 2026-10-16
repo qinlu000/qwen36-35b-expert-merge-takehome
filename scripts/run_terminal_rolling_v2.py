@@ -53,7 +53,7 @@ def result_record(path):
 
 def trial_name(entry):
     label = 'first' if entry['manual_attempt'] == 0 else 'manual' + str(entry['manual_attempt'])
-    return f"{entry['task_id']}__seed{entry['seed']}__{label}"
+    return f"{entry['task_id']}__seed{entry['seed']}__{label}" + entry.get("physical_setup_suffix", "")
 
 
 async def main():
@@ -218,6 +218,8 @@ async def main():
                 else:
                     status['state'] = classify_result(result)
                     exception = result.get('exception_info') or {}
+                    if result.get('agent_execution') is None and any(reason in exception.get('exception_message', '') for reason in ('No space left on device', 'Namespace relay exited')):
+                        args.stop_admission_file.write_text(exception.get('exception_message', '') + '\n')
                     status['unscored_reason'] = exception.get('exception_type') or verifier_infra_reason(result)
             else:
                 status.update(state='incomplete_preserved', trial_dir=str(result_path.parent))

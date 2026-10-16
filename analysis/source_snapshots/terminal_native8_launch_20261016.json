@@ -1,0 +1,500 @@
+{
+  "prepared_at_utc": "2026-10-16T08:16:17.676125+00:00",
+  "historical_incomplete_retries": 39,
+  "fixed445": true,
+  "manual_retry_max": 2,
+  "existing_solver_answers_regenerated": 0,
+  "items": [
+    {
+      "key": "adaptive-rejection-sampler/seed0",
+      "manual_attempt": 2,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/adaptive-rejection-sampler__seed0__manual1/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 15413,
+        "n_output_tokens": 1528
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "bn-fit-modify/seed0",
+      "manual_attempt": 2,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/bn-fit-modify__seed0__manual1/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 17945,
+        "n_output_tokens": 1313
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "break-filter-js-from-html/seed0",
+      "manual_attempt": 2,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/break-filter-js-from-html__seed0__manual1/result.json",
+      "exception_type": "RuntimeError",
+      "v2_end_reason": null,
+      "retained_agent_usage": {
+        "n_input_tokens": null,
+        "n_output_tokens": null
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "build-cython-ext/seed0",
+      "manual_attempt": 2,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/build-cython-ext__seed0__manual1/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": null,
+      "retained_agent_usage": {
+        "n_input_tokens": null,
+        "n_output_tokens": null
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "build-pmars/seed0",
+      "manual_attempt": 2,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/build-pmars__seed0__manual1/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 863,
+        "n_output_tokens": 172
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "build-pov-ray/seed0",
+      "manual_attempt": 2,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/build-pov-ray__seed0__manual1/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 16978,
+        "n_output_tokens": 1636
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "caffe-cifar-10/seed0",
+      "manual_attempt": 2,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/caffe-cifar-10__seed0__manual1/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 16926,
+        "n_output_tokens": 1710
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "cancel-async-tasks/seed0",
+      "manual_attempt": 2,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/cancel-async-tasks__seed0__manual1/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": null,
+      "retained_agent_usage": {
+        "n_input_tokens": null,
+        "n_output_tokens": null
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "chess-best-move/seed0",
+      "manual_attempt": 2,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/chess-best-move__seed0__manual1/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": null,
+      "retained_agent_usage": {
+        "n_input_tokens": null,
+        "n_output_tokens": null
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "circuit-fibsqrt/seed0",
+      "manual_attempt": 2,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/circuit-fibsqrt__seed0__manual1/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": null,
+      "retained_agent_usage": {
+        "n_input_tokens": null,
+        "n_output_tokens": null
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "cobol-modernization/seed0",
+      "manual_attempt": 2,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/cobol-modernization__seed0__manual1/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": null,
+      "retained_agent_usage": {
+        "n_input_tokens": null,
+        "n_output_tokens": null
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "code-from-image/seed0",
+      "manual_attempt": 2,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/code-from-image__seed0__manual1/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": null,
+      "retained_agent_usage": {
+        "n_input_tokens": null,
+        "n_output_tokens": null
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "compile-compcert/seed0",
+      "manual_attempt": 2,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/compile-compcert__seed0__manual1/result.json",
+      "exception_type": "RuntimeError",
+      "v2_end_reason": null,
+      "retained_agent_usage": {
+        "n_input_tokens": null,
+        "n_output_tokens": null
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "configure-git-webserver/seed0",
+      "manual_attempt": 2,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/configure-git-webserver__seed0__manual1/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": null,
+      "retained_agent_usage": {
+        "n_input_tokens": null,
+        "n_output_tokens": null
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "constraints-scheduling/seed0",
+      "manual_attempt": 2,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/constraints-scheduling__seed0__manual1/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": null,
+      "retained_agent_usage": {
+        "n_input_tokens": null,
+        "n_output_tokens": null
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "count-dataset-tokens/seed0",
+      "manual_attempt": 2,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/count-dataset-tokens__seed0__manual1/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": null,
+      "retained_agent_usage": {
+        "n_input_tokens": null,
+        "n_output_tokens": null
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "feal-differential-cryptanalysis/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/feal-differential-cryptanalysis__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 9067,
+        "n_output_tokens": 4166
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "feal-linear-cryptanalysis/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/feal-linear-cryptanalysis__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 7844,
+        "n_output_tokens": 691
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "filter-js-from-html/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/filter-js-from-html__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 23290,
+        "n_output_tokens": 4406
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "financial-document-processor/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/financial-document-processor__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 37596,
+        "n_output_tokens": 2661
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "fix-code-vulnerability/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/fix-code-vulnerability__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 42224,
+        "n_output_tokens": 2041
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "fix-git/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/fix-git__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 14361,
+        "n_output_tokens": 1623
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "fix-ocaml-gc/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/fix-ocaml-gc__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 0,
+        "n_output_tokens": 0
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "gcode-to-text/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/gcode-to-text__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 64357,
+        "n_output_tokens": 3227
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "git-multibranch/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/git-multibranch__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 79716,
+        "n_output_tokens": 4761
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "gpt2-codegolf/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/gpt2-codegolf__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 46632,
+        "n_output_tokens": 6862
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "headless-terminal/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/headless-terminal__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 65374,
+        "n_output_tokens": 7536
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "hf-model-inference/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/hf-model-inference__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 48165,
+        "n_output_tokens": 2994
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "install-windows-3.11/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/install-windows-3.11__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 41223,
+        "n_output_tokens": 3304
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "kv-store-grpc/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/kv-store-grpc__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 39456,
+        "n_output_tokens": 2507
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "large-scale-text-editing/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/large-scale-text-editing__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 60259,
+        "n_output_tokens": 7101
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "largest-eigenval/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/largest-eigenval__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 36813,
+        "n_output_tokens": 4609
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "llm-inference-batching-scheduler/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/llm-inference-batching-scheduler__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 60468,
+        "n_output_tokens": 8713
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "mailman/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mailman__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 84059,
+        "n_output_tokens": 3455
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "make-doom-for-mips/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-doom-for-mips__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 105933,
+        "n_output_tokens": 3382
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "make-mips-interpreter/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/make-mips-interpreter__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 144015,
+        "n_output_tokens": 7905
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "mcmc-sampling-stan/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/mcmc-sampling-stan__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 48829,
+        "n_output_tokens": 3265
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "merge-diff-arc-agi-task/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/merge-diff-arc-agi-task__seed0__first/result.json",
+      "exception_type": "RuntimeError",
+      "v2_end_reason": "RuntimeError: merge-diff-arc-agi-task__seed0__first__env: failed to send non-blocking keys: command='tmux send-keys -t terminus-2 -- \\'which git 2>/dev/null; echo \"---\"\\n\\'', return_code=127, stderr=None, stdout='tmux: error while loading shared libraries: libutempter.so.0: cannot open shared object file: No such file or directory'",
+      "retained_agent_usage": {
+        "n_input_tokens": 18082,
+        "n_output_tokens": 1435
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    },
+    {
+      "key": "model-extraction-relu-logits/seed0",
+      "manual_attempt": 1,
+      "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/trials/model-extraction-relu-logits__seed0__first/result.json",
+      "exception_type": "CancelledError",
+      "v2_end_reason": "CancelledError: ",
+      "retained_agent_usage": {
+        "n_input_tokens": 0,
+        "n_output_tokens": 0
+      },
+      "classification": "observed_queue_peer_cancellation_or_fixed_harness_bootstrap_failure"
+    }
+  ],
+  "launched_at_utc": "2026-10-16T08:54:42.823775+00:00",
+  "pid": 2571204,
+  "argv": [
+    "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime8/scripts/run_terminal_native7.py",
+    "--manifest",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime8/manifest.json",
+    "--output",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016",
+    "--endpoint",
+    "http://127.0.0.1:28082",
+    "--api-key-path",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key",
+    "--concurrency",
+    "16",
+    "--resume-after-bridge-approval",
+    "--stop-admission-file",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base-terminal-recovery-v2-20261016/runtime8/STOP_ADMISSION"
+  ],
+  "pending_admissions": 419,
+  "max_solver_futures": 16,
+  "max_model_sequences": 8,
+  "model_job": 726129
+}
