@@ -12,7 +12,9 @@ def concatenate(paths, output):
             with path.open() as source:
                 for line in source:
                     if line.strip():
-                        target.write(line.rstrip('\n') + '\n')
+                        row = json.loads(line)
+                        training_row = {'messages': row['messages'], 'tools': row.get('tools') or []}
+                        target.write(json.dumps(training_row, ensure_ascii=False) + '\n')
                         count += 1
             counts.append({'path': str(path), 'rows': count})
     return counts
@@ -30,7 +32,9 @@ def main():
     manifest = {'train_sources': train, 'val_sources': val,
         'train_rows': sum(r['rows'] for r in train),
         'val_rows': sum(r['rows'] for r in val),
-        'rule': 'Each expert training/validation example appears once; no oversampling or truncation'}
+        'rule': 'Each expert training/validation example appears once; no oversampling or truncation',
+        'columns': ['messages', 'tools'],
+        'metadata': 'Source metadata remains in the expert partitions; missing tools are empty lists'}
     (args.output_dir / 'summary.json').write_text(json.dumps(manifest, indent=2) + '\n')
     print(json.dumps(manifest))
 

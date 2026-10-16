@@ -3,9 +3,9 @@
 | 模型 | train / val | H100 | 作业 | 本次查询状态 |
 |---|---:|---:|---:|---|
 | 学术推理专家 | 500 / 100 | 1 | 725704 | 完成，63步，43分34秒 |
-| 仓库修复专家 | 448 / 87 | 2 | 725982 | RUNNING；尚未确认首个optimizer step |
-| 交互执行专家 | 456 / 62 | 2 | 725987 | RUNNING；尚未确认首个optimizer step |
-| 同数据Mixed对照 | 1404 / 249 | 2 | 725984 | PENDING(Resources)，已解除依赖，可并行 |
+| 仓库修复专家 | 448 / 87 | 4 | 726017 | FAILED，首批反向FLA autotune OOM，0步；等价内存修复中 |
+| 交互执行专家 | 456 / 62 | 4 | 726065 | RUNNING，已进入首个长batch，尚无optimizer loss |
+| 同数据Mixed对照 | 1404 / 249 | 4 | 726073 | PENDING(DependencyNeverSatisfied)，等待更新至修复后的SWE作业 |
 
 此前四卡排期较晚，已取消仅本项目尚未启动的旧申请，改同节点双卡。global batch保持8，GA从2改4；所有新训练仍从同一Base开始、r16/alpha32/dropout0.05、LR1e-4、1epoch、非思考模式。新三组使用64K完整序列、显式delete超长，不截断工具历史，group_by_length=true。HLE原实跑为2K。AdamW weight_decay显式0.1，与已完成HLE的实际默认一致；共享配置原写0的记录已纠正，无需重训HLE。
 
@@ -15,4 +15,6 @@ SWE完整序列筛选保留448/500训练和87/100验证，约15.68M训练token�
 
 HLE最终权重为`artifacts/runs/hle-sft-r16-725704/training/checkpoint-63`，第16步另保留。验证loss从2.624升到3.155，不能声称HLE成绩提升。训练/验证loss源CSV及图已保存到`curves/hle_sft_725704_loss.*`，绘图入口`scripts/plot_sft_loss.py`。新三组保留每个小LoRA checkpoint，后续只用独立dev比较。
 
-当前baseline占8卡、两组专家占4卡，共12；Mixed若分配再加2卡，共14，低于用户16卡上限。没有额外任务环境验收、教师API、重复hash或诊断callback。
+GPU上限16卡；baseline最多8卡，SWE与执行各4卡，Mixed待一组专家释放后再跑。没有额外任务环境验收、教师API、重复hash或诊断callback。
+
+专家共三个：仓库修复→SWE，交互执行→Terminal/ASI，学术推理→HLE。Mixed是同数据混合训练对照，不计入专家，也不参与专家合版。Mixed的metadata列不一致已仅规范化顶层messages/tools，1404/249及所有消息/工具正文不变；原生datasets CPU读取通过。SWE四卡实际失败原因是FLA backward autotune临时显存，而非已跑出有效step。正在核官方等价内存优化，不缩减数据/64K/8K/rank。
