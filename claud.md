@@ -1870,3 +1870,14 @@
 原生日志已生成TensorBoard event文件；本机6006尚未同步新run，不声称自动实时可见。首步137秒含冷启动，后两步合计约59秒；当前原生含首步均速65.30秒/步，剩余2h16m仅初步滚动估计，不能当完成承诺。GPU已实际有4个本rank进程、约46GiB/卡分配、Triton缓存增长；未重启/截断/新增服务，当前仍原4卡+新4=8卡。
 
 独立新收据analysis/source_snapshots/swe_lr2e5_max32k_native_start_20261017.json保存实际配置diff、squeue/scontrol、原生metrics、TB路径和实际加载数，candidate尚未完成。run/plan/源文件已bound，HPC同步只更新静态文档，不重写它们。33d1da8已push两remote并同步静态；本轮仅补实际进展与claud追加，保留foreign WIP，无coauthor。自动化保持删除，不新增loss-only/task-val或正式生成/评分，不更换冻结主AVG64/ASI128；新候选会按原生一epoch自然完成并释放其4GPU。
+
+
+## 2026-10-17 14:47 CST：原专家结果更新，低LR SWE候选训练已完成
+
+用户问原四专家是否已有完整结果。本轮按三collector顺序刷新并保存strict/terminal_budget双视图，实际14:45:58/14:46:01：SWE249 **51/51、0%** vs Base19.607843%；HLE250 **2500/2500、6.92%** vs Base3.96%；ASI128 audited **240/240、0.378991%归一化得分** vs Base1.570988%。ASI仅核冻结结果，不重复一次性collector；HLE含342图，替代Judge/public-local/历史服务混杂保持。四专家只测各自目标项，不冒称4×4全矩阵。
+
+Terminal250 **285/445有效、7异常、153待完成**，完整主分/五次标准差仍null，不用部分coverage算全量分，异常不填0。本轮仅汇总，没有恢复/重试评分、改预算或生成新答卷。Base strict442/445+3invalid，独立既有预算视图445/445=20.224719%不能混报成strict；AVG64 ASI94/240有效、Terminal263/445另6异常/176待完成，完整macro仍null。具体表及source见analysis/original_experts_status_20261017_1447.md和formal_aggregation_20261017_1447.json。
+
+此前用户授权的728713低LR+32K完整轨迹筛选SWE候选已**COMPLETED/0:0**，Slurm00:57:52、global_step128/epoch1.0、final checkpoint-128/84,760,832字节，620FP32 A/B tensor/r16alpha32；只读summary/state/header核产物，无大hash/新forward/loss选模。GPU4已自然释放，当前仅原727912/727913共4H100。新候选尚无任务评测分数，不替换旧SWE249/主AVG64/ASI128，也不自动合版或发布；完整完成收据单独保存。
+
+更新claud/current_status与候选执行记录，仅提交owned/保留foreign WIP，无coauthor；自动化保持删除，不创建其他定时任务。HPC训练source/config和旧bound执行文件均不重写，静态文档仅独立同步。

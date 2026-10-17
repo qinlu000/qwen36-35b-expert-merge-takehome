@@ -1,3 +1,14 @@
+## 2026-10-17 14:47 CST：原专家结果更新，低LR SWE候选训练已完成
+
+用户问原四专家是否已有完整结果。本轮按三collector顺序刷新并保存strict/terminal_budget双视图，实际14:45:58/14:46:01：SWE249 **51/51、0%** vs Base19.607843%；HLE250 **2500/2500、6.92%** vs Base3.96%；ASI128 audited **240/240、0.378991%归一化得分** vs Base1.570988%。ASI仅核冻结结果，不重复一次性collector；HLE含342图，替代Judge/public-local/历史服务混杂保持。四专家只测各自目标项，不冒称4×4全矩阵。
+
+Terminal250 **285/445有效、7异常、153待完成**，完整主分/五次标准差仍null，不用部分coverage算全量分，异常不填0。本轮仅汇总，没有恢复/重试评分、改预算或生成新答卷。Base strict442/445+3invalid，独立既有预算视图445/445=20.224719%不能混报成strict；AVG64 ASI94/240有效、Terminal263/445另6异常/176待完成，完整macro仍null。具体表及source见analysis/original_experts_status_20261017_1447.md和formal_aggregation_20261017_1447.json。
+
+此前用户授权的728713低LR+32K完整轨迹筛选SWE候选已**COMPLETED/0:0**，Slurm00:57:52、global_step128/epoch1.0、final checkpoint-128/84,760,832字节，620FP32 A/B tensor/r16alpha32；只读summary/state/header核产物，无大hash/新forward/loss选模。GPU4已自然释放，当前仅原727912/727913共4H100。新候选尚无任务评测分数，不替换旧SWE249/主AVG64/ASI128，也不自动合版或发布；完整完成收据单独保存。
+
+更新claud/current_status与候选执行记录，仅提交owned/保留foreign WIP，无coauthor；自动化保持删除，不创建其他定时任务。HPC训练source/config和旧bound执行文件均不重写，静态文档仅独立同步。
+
+
 ## 2026-10-17 13:58 CST：SWE候选首批真实更新已完成
 
 728713普通acd_u/Nice1000、ACD1-19同节点4H100已完成真实optimizer更新，13:58:11原生logging.jsonl为**3/128**，实际加载**1025 train/87历史teacher-forced held-out**；原两条角色格式错误整条删除，导出1027不冒称全部参与。首步loss0.51078051/gradnorm0.33788907/LR5e-6；第3步loss0.55829525/gradnorm0.37195792/LR1.5e-5均有限，peak仍2e-5、4步warmup。这里仅说明训练在运行，不作为质量分或选模证据。
