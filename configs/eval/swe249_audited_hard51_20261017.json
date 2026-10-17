@@ -1,5 +1,5 @@
 {
-  "scope": "Six explicitly reviewed SWE249 native-zero results only",
+  "scope": "Seven explicitly reviewed SWE249 native-zero results only",
   "approval": "Root independently reviewed and explicitly approved these exact results on 2026-10-17",
   "model": "apex-val-swe249",
   "checkpoint": "artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
@@ -94,9 +94,24 @@
       "patch_sha256": "f0873d617097b9398e18013a37affc954228a7ddf3a26cc16481181e2f862fd7",
       "original_invalid_reason": "empty_tests_requires_audit",
       "reason": "Captured patch applies but does not change keyutils.py; native required KeySequence(KeyInfo(...)) construction fails at the existing product type assertion. No Harbor exception; original native reward is zero. Deletion provenance is not inferred."
+    },
+    {
+      "task_id": "instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e",
+      "original_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/result.json",
+      "accepted_result": "artifacts/recovery/swe-remaining-grade-only-20261017/swe249/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1/native/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/result.json",
+      "original_result_sha256": "86f0aaa9099eec75842eecd7684f5c53a635ce1b4f41a1f51fb17a7335a2dfc1",
+      "accepted_result_sha256": "fc42ad8b387209f00ce8fd1077997e9e6e8fdbc83d1be99ec8f0e8c37926e4e0",
+      "source_patch": "artifacts/eval/swe249_hard51_20261016/generation/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/agent/model.patch",
+      "patch_bytes": 0,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_invalid_reason": "harbor_replay_exception:RemoteProtocolError",
+      "reason": "Exact own saved empty patch replayed once with original1CPU/4GiB/3000s, original Go cache contents copied to disk scratch and durable logs. Root independently read task requirement isRunningKernel(pack,family,release,kernel); native official test compilation reaches its four-argument call but unchanged product accepts three. Native0/no Harbor exception, required11/parsed0 compilation-blocked (not11 executed failures); workspace prep0, cgroup oom/oom_kill0, frozen source unchanged, both native/after-guard scope samples empty and shared lease released. Original transport-error record remains invalid; no cross-model grade or reward-based selection."
     }
   ],
   "no_reward_search": true,
   "new_audits_require_explicit_review": true,
-  "source_specific_cpu_handoff": "artifacts/eval/avg64_swe_hard51_20261017/source-expert-consumers-finished.json"
+  "source_specific_cpu_handoff": "artifacts/eval/avg64_swe_hard51_20261017/source-expert-consumers-finished.json",
+  "additional_evidence_audits": [
+    "analysis/swe_vuls_grade_review_20261017.md"
+  ]
 }

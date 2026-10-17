@@ -1,0 +1,182 @@
+{
+  "schema": "swe_additional_grade_only_execution_v1",
+  "collected_at_utc": "2026-10-17T01:18:27.774959+00:00",
+  "timezone": "Asia/Shanghai; all timestamps with +00:00/Z are UTC",
+  "purpose": "read-only verify the unique root-launched cohort; not accepted scores",
+  "root_launch": {
+    "at_utc": "2026-10-17T01:18:02.027187+00:00",
+    "pid": 1738438,
+    "startticks": "869890604",
+    "script_sha256": "197184f50fd10f92a46ed29bc10c50b88d4b5adfdec07f177790248d9dc38b6d",
+    "manifest_sha256": "7156a584a50340c2661efe6569d0c11528b90b6d871bcf4cf0557ce7406ac151",
+    "cpu_by_item": {
+      "swe249/nodebb": 92,
+      "swe249/teleport2b": 93,
+      "avg64/teleport2b": 94
+    },
+    "model_calls": 0
+  },
+  "root_launch_receipt": "artifacts/recovery/swe-additional-grade-only-20261017/root-launch-20261017.json",
+  "canonical_parent_state": "artifacts/recovery/swe-additional-grade-only-20261017/cohort-attempt1/parent-state.json",
+  "state": {
+    "state": "finished_pending_root_review",
+    "lock_held": false,
+    "at_utc": "2026-10-17T01:18:13.037195+00:00",
+    "guard_observed": {
+      "unit": "apex-baseline-swe-additional-1738438.scope",
+      "affinities": {
+        "1738444": [
+          92,
+          93,
+          94,
+          95
+        ]
+      },
+      "memory_max_bytes": 33554432,
+      "memory_swap_max_bytes": 0
+    },
+    "remaining_scopes": [],
+    "guard_stopped": true,
+    "released_at_utc": "2026-10-17T01:18:13.037179+00:00",
+    "consecutive_empty_native_scope_samples": [
+      {
+        "at_utc": "2026-10-17T01:18:08.759790+00:00",
+        "remaining_scopes": []
+      },
+      {
+        "at_utc": "2026-10-17T01:18:10.828435+00:00",
+        "remaining_scopes": []
+      }
+    ],
+    "consecutive_empty_scope_samples_after_guard_stop": [
+      {
+        "at_utc": "2026-10-17T01:18:10.894872+00:00",
+        "remaining_scopes": []
+      },
+      {
+        "at_utc": "2026-10-17T01:18:12.973216+00:00",
+        "remaining_scopes": []
+      }
+    ]
+  },
+  "actual_parent_alive_at_collection": false,
+  "global_lock": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/direct_asi_grader_cpu92_95.lock",
+    "inode": 90775088,
+    "kernel_lock_rows": []
+  },
+  "items": [
+    {
+      "key": "swe249/nodebb",
+      "output": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-additional-grade-only-20261017/swe249/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/attempt1",
+      "child_pid": 1738451,
+      "child_startticks": "869890770",
+      "launched_physical_cpu": 92,
+      "actual_child_alive_at_collection": false,
+      "input_binding_count": 38,
+      "all_input_sha_unchanged": true,
+      "sif_metadata_unchanged": true,
+      "native_result_exists": true,
+      "native_result": {
+        "exception_type": "RuntimeError",
+        "exception_message": "Namespace relay exited",
+        "reward": null,
+        "started_at": "2026-10-17T01:18:04.182012Z",
+        "finished_at": "2026-10-17T01:18:04.398676Z",
+        "agent_execution": null,
+        "verifier": null
+      },
+      "child_returncode": 0,
+      "accepted_into_formal_summary": false,
+      "new_model_calls": 0,
+      "tmpdir_length_bytes": 223,
+      "derived_control_socket_length_bytes": 263
+    },
+    {
+      "key": "swe249/teleport2b",
+      "output": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-additional-grade-only-20261017/swe249/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/attempt1",
+      "child_pid": 1738452,
+      "child_startticks": "869890770",
+      "launched_physical_cpu": 93,
+      "actual_child_alive_at_collection": false,
+      "input_binding_count": 38,
+      "all_input_sha_unchanged": true,
+      "sif_metadata_unchanged": true,
+      "native_result_exists": true,
+      "native_result": {
+        "exception_type": "RuntimeError",
+        "exception_message": "Namespace relay exited",
+        "reward": null,
+        "started_at": "2026-10-17T01:18:04.166797Z",
+        "finished_at": "2026-10-17T01:18:04.340908Z",
+        "agent_execution": null,
+        "verifier": null
+      },
+      "child_returncode": 0,
+      "accepted_into_formal_summary": false,
+      "new_model_calls": 0,
+      "tmpdir_length_bytes": 232,
+      "derived_control_socket_length_bytes": 272
+    },
+    {
+      "key": "avg64/teleport2b",
+      "output": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-additional-grade-only-20261017/avg64/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/attempt1",
+      "child_pid": 1738453,
+      "child_startticks": "869890770",
+      "launched_physical_cpu": 94,
+      "actual_child_alive_at_collection": false,
+      "input_binding_count": 38,
+      "all_input_sha_unchanged": true,
+      "sif_metadata_unchanged": true,
+      "native_result_exists": true,
+      "native_result": {
+        "exception_type": "RuntimeError",
+        "exception_message": "Namespace relay exited",
+        "reward": null,
+        "started_at": "2026-10-17T01:18:04.190380Z",
+        "finished_at": "2026-10-17T01:18:04.362520Z",
+        "agent_execution": null,
+        "verifier": null
+      },
+      "child_returncode": 0,
+      "accepted_into_formal_summary": false,
+      "new_model_calls": 0,
+      "tmpdir_length_bytes": 231,
+      "derived_control_socket_length_bytes": 271
+    }
+  ],
+  "diagnosis": {
+    "native_exception_type": "RuntimeError",
+    "native_exception_message": "Namespace relay exited",
+    "boundary": [
+      "Harbor Trial._prepare",
+      "baseline_singularity.py:134",
+      "baseline_netns.py:98"
+    ],
+    "native_agent_execution": null,
+    "native_verifier": null,
+    "relay_bind_source": "scripts/baseline_netns.py:140-142; asyncio.start_unix_server(control_socket)",
+    "tmpdir_source": "scripts/run_swe_additional_grade_only_20261017.py:35",
+    "network_dir_source": "scripts/baseline_singularity.py:123",
+    "socket_path_source": "scripts/baseline_netns.py:82",
+    "linux_limit_source": "/usr/include/x86_64-linux-gnu/sys/un.h:32 char sun_path[108]",
+    "underlying_oserror_preserved": false,
+    "network_temp_log": "removed by normal namespace cleanup; no invented original OSError text",
+    "confirmed_path_construction_defect": "all derived control.sock pathname lengths exceed Linux sun_path[108]",
+    "minimal_followup_direction": "separate short per-item TMPDIR; requires root review, frozen attempt1 not changed"
+  },
+  "verification_limits": [
+    "children exited before direct /proc affinity sampling; physical CPU mapping comes from fixed taskset child commands and claims",
+    "failure occurred before native cgroup creation; no actual 1CPU/4GiB native cgroup claimed",
+    "setup bootstrap failure gives no result for original patch/tests or their prior failures"
+  ],
+  "agent_actions": {
+    "read_only_queries": true,
+    "new_execution_or_retry": false,
+    "live_script_or_manifest_modified": false,
+    "original_source_modified": false,
+    "canonical_summary_modified": false,
+    "model_or_api_calls": 0,
+    "accepted_scores": 0
+  }
+}

@@ -684,3 +684,18 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - 发现旧Terminal仅2100秒GPU准入余量，小于最坏600环境+360Agent setup+1800solver=2760；verifier900不需GPU，不能说35min一定失败，但存在尾部截断风险。root审核最小新guard后08:14:45唯一启动1508852/start869510981（91b262ff…），真实waiting_cutoff、两STOP未产生。10/18 01:10只x-create两队既有STOP_ADMISSION，留已知setup/solver/verifier/cleanup裕量，原在途全预算自然收尾；不改live父/每题预算、不kill/release服务、不写CPU完成marker，两队先全445且activepending空则早退出。未知其他phase/cleanup不作硬保证，core仍02:20停定时推进。
 - 08:12账本已结束227.570GPUh、6卡active暂计23.388889、总250.958889；API仍11307 CNYcalls预算15.029134794另USD.328327020，无新paid，缺失仍unknown。08:14只读statvfs显示80/data余2176642637824B、tmp33756135424B，未耗尽，新scratch走data。完整HLE/ASI单项与一页稿指标未变，保留07:28已验收PDF，不做重复重画。
 - 每小时原automation已更新ACTIVE，记录两Vuls唯一claim/冻结源码/排空顺序、未来01:10唯一guard、新队列进度及未决项，防下轮重复启动。进展/资产索引/成本均更新，原其他会话WIP保留；未发送邮件、邀请或其他会话消息。
+
+
+## 2026-10-17 09:30 CST：接受Vuls原生结果、修复启动路径并继续任务评测
+
+- 先读最新claud/current_status/Git，保留其他会话WIP，仅提交owned文件，无coauthor。无Base新求解、loss-only、task-val、邮件、邀请或其他会话消息，冻结AVG64/ASI128及全部每题协议不变。
+- 两Vuls原答案补评分均已自然结束，root独立读自身原task/空patch/官方test/native编译错误和资源/完整排空证据后分别接受exact native0。题目要求四参数isRunningKernel，原实现仍三参数；是产品接口未实现，不是仅据build failed判0，更不能说11个测试均运行失败。原29binding/SIF stat、1CPU/4GiB/3000s保持，保存OOM/OOMkill0，旧raw RemoteProtocolError保留。专家/AVG审计manifest现7/4项，两SWE各49/51有效、仍各2invalid；主分不提前计算。
+- 09:13:51依序刷新专家SWE→AVG SWE→Terminal审计collector→统一strict/独立预算双视图，source issues空。Terminal专家141/445另3invalid、AVG131/445另3invalid；AVG ASI科学评分0。HLE五组完整指标、ASI专家240及相关区间不变，AVG四项macro仍null；固定ASI审计只验证不重写。
+- root/direct审核后09:18唯一追加cohort1738438启动三项，但长host TMPDIR使Unix socket263–272B超过sun_path108，全部在namespace relay退出，agent/verifier尚未开始、reward null。明确这是本轮工程疏漏；原失败和实际source按claim SHA归档80 cohort-attempt1/frozen-source，完整双排空/guard停/解锁，未接分。
+- 仅改TMPDIR取短manifest字段和默认新manifest两行，原输入/预算/代码绑定保持；三个真实control.sock bind78/82/82B及defaultprepare3×38通过，独立审阅后09:24:49唯一bootstrap恢复parent1765416/start869931371启动。新root artifacts/recovery/swe-additional-short-tmp-20261017；script7da575a63c408d49727ff52493a0b8b203cd139456db8bdd17bae32b32ea8ace、manifest b6dcd8442b336e9916d443e4ca7afe80fce2b3252723b00e8c2bc65c1fe2a138冻结，不能同步时截断重写。原manifest7156a584仍不变，Vuls源码a0eb/manifest19f6不动。E/NodeBB92、E/T2 93、AVG/T2 94，各1CPU/4GiB/3000s，单global92–95锁/guard；09:25实际三child affinity正确、native4GiB/swap0，NodeBB已原patch apply0并进入官方测试，两T2复制原cache，保存OOM/OOMkill0但有内存压力。结果尚pending，不能自动valid/按reward重试；必须各原生日志/资源/源bytes与整个cohort清理链审核。AVG T774仍未准入，仅原proxy静态方案。
+- 新Terminal专家git-leak-recovery/seed1为1800s求解后cleanup guard阻断，verifier未开始，不是900s计算超时，继续null、无预算0。原archive含.git；正在只读核对象闭包、同SIF差分和必要外部产物，不复用nginx清单、不抢SWE池、不启动该项native。nginx原raw/null与exact0 overlay保持，不再评分。
+- AVG ASI09:10全目录132/240保存、8在途、100未准入，科学判分0；原1126014/1126055唯一正常，复用727856/28095。96–127生成租约保留，未来grader仍workers1/global92–95，不因瞬空scope抢核。当前三普通acd_u/Nice1000 TP2共6H100：727912/727913/727856，无新增或重建。Terminal12/11槽用0–91，stage2等两ASI真实marker与scope排空。唯一metadata guard1508852/start869510981仍等10/18 01:10，两STOP无，不重复启动。
+- 新HLE完整配对表为都对38、Base对AVG错61、Base错AVG对79、都错2322；61项中35有AVG答案/26原生无答，固定ID顺序取20有答退化案例，补充原20真实失败。未输出题面/金标/答案，历史服务/并发混杂和语义原因unknown保留，不作纯权重因果断言，0新生成/Judge调用。
+- 09:13账本结束227.570GPUh、6卡active暂计29.532778，总257.102778；现存CNY预算15.029134794、USD另.328327020，未知账本不填0。09:24准入80/data余2,126,852,165,632B、MemAvailable1,988,225,520kB，未耗尽，新scratch走/data。完整单项未变，保留07:28已验收阶段PDF。新操作/问题/收据写current_status、统一日志及资产索引；原automation继续ACTIVE到10/18 02:20，最终保留12小时。
+
+- Terminal离线准备已完成：独立app副本的完整git fsck返回0、stdout/stderr空、无外部对象依赖，30原source绑定保持；23处精确etc差分和跨app硬链约束已记录，不能盲恢复etc或普通复制该硬链。没有该项driver/claim/native/成绩；后续等SWE自然释放后再准备独立4CPU/8GiB/900秒租约、至少2400秒runway。

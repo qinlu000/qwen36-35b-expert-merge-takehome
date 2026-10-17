@@ -1,5 +1,14 @@
 # 复现资产索引（2026-10-17）
 
+**git-leak/seed1离线准备**：[文档与机器收据](terminal_git_leak_grade_only_preparation_20261017.md)索引80 `artifacts/recovery/terminal250-git-leak-seed1-preparation-20261017/`的独立app副本、fsck与静态SIF etc差分；原task/archive与30个源码绑定保持。副本含任务secret/Git blob，属于离线原件，不随Git公开。23项etc delta及跨app硬链约束尚未转成可执行恢复包；没有driver、claim或native结果，不能把fsck成功当作评测通过。
+
+**09:25追加SWE运行资产**：[初次启动失败](swe_additional_grade_only_execution_20261017.md)保留原null，实际197184f5源码/7156a584 manifest归档在80 `artifacts/recovery/swe-additional-grade-only-20261017/cohort-attempt1/frozen-source/`。两行短TMPDIR修正及实测收据见[启动恢复](swe_additional_short_tmp_recovery_20261017.md)。新唯一parent1765416、root-launch、cohort/per-item claim、native和日志在80 `artifacts/recovery/swe-additional-short-tmp-20261017/`；短目录为`/data/caoqinlu/apex-grade-tmp/{e-nodebb,e-teleport2b,a-teleport2b}`。当前script7da575a6与新manifest b6dcd844在消费者终态前冻结，同步不得重写live文件。旧答卷/测试/预算保持，评分有效性仍需独立原生审核。
+
+**09:15新增证据**：[两Vuls原生结果审核](swe_vuls_grade_review_20261017.md)及[精确绑定](source_snapshots/swe_vuls_grade_review_20261017.json)保留各自原任务、空patch、官方四参数接口编译错误、4GiB事件和完整排空链。root已分别接受exact native0，审计manifest现专家7项/AVG4项批准，两SWE各49/51有效，原raw invalid不变。[双视图](source_snapshots/formal_aggregation_20261017_0915.json)保存真实部分coverage。
+
+新增[HLE完整配对表与20个有答案退化案例](hle_base_avg_disagreements_20261017.md)，机器[JSON](hle_base_avg_disagreements_20261017.json)/[CSV](hle_base_avg_disagreements_20261017.csv)只含task ID、模态、长度、身份及来源，不含题面/金标/答案。旧20失败案例仍保留，历史服务混杂与原因unknown不改。
+
+
 **08:20新增运行资产**：[SWE六项manifest](../configs/eval/swe_remaining_grade_only_20261017.json)仅开启两Vuls，原代码/patch/tests/SIF身份及各自attempt1独立保存于80 `artifacts/recovery/swe-remaining-grade-only-20261017/{swe249,avg64}/<VulsID>/attempt1/`，shared root-launch-20261017.json记录两唯一parent。新[grade-only脚本](../scripts/run_swe_remaining_grade_only_20261017.py)在已运行两父结束前冻结，原始invalid/summary不覆盖；磁盘scratch及cache复制、live日志/资源收据均随原件移交。未完成判分不能把目录存在当有效成绩。
 
 新[Terminal核心准入guard](../scripts/terminal_core_admission_guard_20261017.py)只在01:10向既有两正式队列写STOP_ADMISSION，不更改native协议；80 `artifacts/eval/terminal-core-admission-guard-20261017/{claim,state,log.jsonl}`为当前唯一进程1508852的审计原件，另launch receipt在同eval根。它不是新的模型/评测运行，不写完成marker，也不能代替shared92–95资源guard。

@@ -1,0 +1,420 @@
+{
+  "schema": "swe_additional_short_tmp_recovery_v1",
+  "status": "prepared_only_waiting_root_review",
+  "preflight_at_utc": "2026-10-17T01:23:12.097021+00:00",
+  "source_archive": {
+    "schema": "swe_additional_bootstrap_failed_source_archive_v1",
+    "archived_at_utc": "2026-10-17T01:22:08.817476+00:00",
+    "source_root_launch": "artifacts/recovery/swe-additional-grade-only-20261017/root-launch-20261017.json",
+    "source_cohort_claim": "artifacts/recovery/swe-additional-grade-only-20261017/cohort-attempt1/execution-claim.json",
+    "claim_hashes_matched": true,
+    "old_pids_alive": {
+      "1738438": false,
+      "1738451": false,
+      "1738452": false,
+      "1738453": false
+    },
+    "busy_scopes_before_archive": [],
+    "global_lock_rows": [],
+    "files": {
+      "artifacts/recovery/swe-additional-grade-only-20261017/cohort-attempt1/frozen-source/run_swe_additional_grade_only_20261017.py": {
+        "bytes": 21213,
+        "sha256": "197184f50fd10f92a46ed29bc10c50b88d4b5adfdec07f177790248d9dc38b6d"
+      },
+      "artifacts/recovery/swe-additional-grade-only-20261017/cohort-attempt1/frozen-source/swe_additional_grade_only_20261017.json": {
+        "bytes": 18882,
+        "sha256": "7156a584a50340c2661efe6569d0c11528b90b6d871bcf4cf0557ce7406ac151"
+      }
+    },
+    "failed_attempt1_preserved": true
+  },
+  "original_failed_attempt_execution_snapshot": "analysis/source_snapshots/swe_additional_grade_only_execution_20261017.json",
+  "source_archive_index_only_no_duplicate_tracked_source": true,
+  "script": "scripts/run_swe_additional_grade_only_20261017.py",
+  "script_sha256": "7da575a63c408d49727ff52493a0b8b203cd139456db8bdd17bae32b32ea8ace",
+  "manifest": "configs/eval/swe_additional_short_tmp_recovery_20261017.json",
+  "manifest_sha256": "b6dcd8442b336e9916d443e4ca7afe80fce2b3252723b00e8c2bc65c1fe2a138",
+  "original_manifest_unchanged_sha256": "7156a584a50340c2661efe6569d0c11528b90b6d871bcf4cf0557ce7406ac151",
+  "minimal_diff": {
+    "exact_two_line_script_diff_verified": true,
+    "script_lines": [
+      "production_env: env['TMPDIR'] = item['host_tmp']",
+      "default --manifest: configs/eval/swe_additional_short_tmp_recovery_20261017.json"
+    ],
+    "manifest_only_changes": [
+      "output root: artifacts/recovery/swe-additional-short-tmp-20261017",
+      "each item's output uses new root, retaining independent attempt1/task namespace",
+      "each item adds fixed host_tmp"
+    ],
+    "code_sha256_bindings_unchanged": true,
+    "source_input_and_resource_fields_unchanged": true
+  },
+  "full_preflight_receipt_on_80": "artifacts/preflight/swe_additional_short_tmp_recovery_20261017.json",
+  "old_or_new_cohort_process_matches_before_preflight": [],
+  "af_unix_bind_tests": [
+    {
+      "item": "swe249/nodebb",
+      "host_tmp": "/data/caoqinlu/apex-grade-tmp/e-nodebb",
+      "actual_control_socket": "/data/caoqinlu/apex-grade-tmp/e-nodebb/apex_baseline_net_i867809l/control.sock",
+      "control_socket_bytes": 78,
+      "model_socket_bytes": 76,
+      "bind_passed": true,
+      "socket_closed_unlinked_temp_subdir_removed": true
+    },
+    {
+      "item": "swe249/teleport2b",
+      "host_tmp": "/data/caoqinlu/apex-grade-tmp/e-teleport2b",
+      "actual_control_socket": "/data/caoqinlu/apex-grade-tmp/e-teleport2b/apex_baseline_net_a0pg0u64/control.sock",
+      "control_socket_bytes": 82,
+      "model_socket_bytes": 80,
+      "bind_passed": true,
+      "socket_closed_unlinked_temp_subdir_removed": true
+    },
+    {
+      "item": "avg64/teleport2b",
+      "host_tmp": "/data/caoqinlu/apex-grade-tmp/a-teleport2b",
+      "actual_control_socket": "/data/caoqinlu/apex-grade-tmp/a-teleport2b/apex_baseline_net_rz2_7bot/control.sock",
+      "control_socket_bytes": 82,
+      "model_socket_bytes": 80,
+      "bind_passed": true,
+      "socket_closed_unlinked_temp_subdir_removed": true
+    }
+  ],
+  "default_prepare": {
+    "at_utc": "2026-10-17T01:23:12.027862+00:00",
+    "returncode": 0,
+    "stderr": "",
+    "checks": [
+      {
+        "item": "swe249/nodebb",
+        "bindings_verified": 38,
+        "physical_cpu_ids": [
+          92
+        ],
+        "logical_cpu_offset": 0,
+        "cpus": 1,
+        "memory_mib": 4096,
+        "verifier_seconds": 3000,
+        "named_environment_scratch_binding_checked": true,
+        "TMPDIR": "/data/caoqinlu/apex-grade-tmp/e-nodebb"
+      },
+      {
+        "item": "swe249/teleport2b",
+        "bindings_verified": 38,
+        "physical_cpu_ids": [
+          93
+        ],
+        "logical_cpu_offset": 0,
+        "cpus": 1,
+        "memory_mib": 4096,
+        "verifier_seconds": 3000,
+        "named_environment_scratch_binding_checked": true,
+        "TMPDIR": "/data/caoqinlu/apex-grade-tmp/e-teleport2b"
+      },
+      {
+        "item": "avg64/teleport2b",
+        "bindings_verified": 38,
+        "physical_cpu_ids": [
+          94
+        ],
+        "logical_cpu_offset": 0,
+        "cpus": 1,
+        "memory_mib": 4096,
+        "verifier_seconds": 3000,
+        "named_environment_scratch_binding_checked": true,
+        "TMPDIR": "/data/caoqinlu/apex-grade-tmp/a-teleport2b"
+      }
+    ],
+    "execution_claim_created": false,
+    "native_started": false,
+    "guard_created": false,
+    "shared_lock_acquired": false
+  },
+  "preflight_affinity": [
+    10
+  ],
+  "short_tmp_cleanup": "only newly-created control.sock and isolated tempfile subdirectories removed; short base directories retained; no original attempt/source deleted",
+  "new_attempt_outputs_absent": true,
+  "execute_run": false,
+  "native_calls": 0,
+  "model_calls": 0,
+  "new_api_calls": 0,
+  "conclusion": "real AF_UNIX pathname bind is GREEN; no claim that original NodeBB/T2 scoring issues are repaired; no new valid scores",
+  "latest_status": "root_unique_cohort_native_running_as_of_captured_sample",
+  "preparation_fields_preserved": "Earlier status/execute_run describe agent prepare-only; later root launch is independently recorded below.",
+  "root_execution": {
+    "collected_at_utc": "2026-10-17T01:25:08.406363+00:00",
+    "latest_native_scope_sample_at_utc": "2026-10-17T01:25:51.506128+00:00",
+    "launched_by": "root after root/direct PASS",
+    "launch_receipt_on_80": "artifacts/recovery/swe-additional-short-tmp-20261017/root-launch-20261017.json",
+    "launch_receipt_small": {
+      "at_utc": "2026-10-17T01:24:49.688795+00:00",
+      "pid": 1765416,
+      "startticks": "869931371",
+      "script_sha256": "7da575a63c408d49727ff52493a0b8b203cd139456db8bdd17bae32b32ea8ace",
+      "manifest_sha256": "b6dcd8442b336e9916d443e4ca7afe80fce2b3252723b00e8c2bc65c1fe2a138",
+      "cpu_by_item": {
+        "swe249/nodebb": 92,
+        "swe249/teleport2b": 93,
+        "avg64/teleport2b": 94
+      },
+      "model_calls": 0,
+      "prior_bootstrap": "1738438 failed before candidate replay/verifier; exact original budgets and answers unchanged, original attempts retained"
+    },
+    "parent": {
+      "pid": 1765416,
+      "startticks": "869931371",
+      "affinity": [
+        92,
+        93,
+        94,
+        95
+      ],
+      "state": "native_running",
+      "lock_held": true,
+      "global_lock_rows": [
+        "118: FLOCK  ADVISORY  WRITE 1765416 08:11:90775088 0 EOF"
+      ]
+    },
+    "guard": {
+      "unit": "apex-baseline-swe-additional-1765416.scope",
+      "affinities": {
+        "1765417": [
+          92,
+          93,
+          94,
+          95
+        ]
+      },
+      "memory_max_bytes": 33554432,
+      "memory_swap_max_bytes": 0
+    },
+    "items": [
+      {
+        "item": "swe249/nodebb",
+        "output": "artifacts/recovery/swe-additional-short-tmp-20261017/swe249/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/attempt1",
+        "child_pid": 1765421,
+        "child_startticks": "869931534",
+        "child_actual_affinity": [
+          92
+        ],
+        "child_controller_cgroup": "/user.slice/user-1012.slice/session-47717.scope",
+        "child_controller_memory_limit_note": "controller shares login session; the separate native scope below enforces per-trial memory",
+        "input_bindings_verified": 38,
+        "all_input_sha_unchanged": true,
+        "sif_stat_unchanged": true,
+        "native_runtime": {
+          "at": "2026-10-17T01:24:54.388527+00:00",
+          "scope": "apex-baseline-649dae5c3168.scope",
+          "cpus": 1,
+          "memory_mib": 4096,
+          "verifier_seconds": 3000,
+          "model_calls": 0,
+          "return_code": 0
+        },
+        "native_scope": {
+          "scope": "/user.slice/user-1012.slice/user@1012.service/app.slice/apex-baseline-649dae5c3168.scope",
+          "process_count": 15,
+          "actual_cpu_union": [
+            92
+          ],
+          "pid_examples": [
+            1765500,
+            1765564,
+            1765598
+          ],
+          "memory.max": "4294967296",
+          "memory.current": "840646656",
+          "memory.swap.max": "0",
+          "memory.events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0
+          }
+        },
+        "phase_at_utc": "2026-10-17T01:25:31.906704+00:00",
+        "phase": "original patch replay apply_rc0; original test.sh / npm mocha / node verifier active",
+        "patch_apply_rc": 0,
+        "active_comm_counts": {
+          "starter": 1,
+          "appinit": 1,
+          "squashfuse_ll": 1,
+          "fuse-overlayfs": 1,
+          "fakeroot": 1,
+          "faked": 1,
+          "python3": 1,
+          "timeout": 1,
+          "bash": 2,
+          "test.sh": 1,
+          "redis-server": 1,
+          "npm exec mocha": 1,
+          "sh": 1,
+          "node": 1
+        },
+        "cache_copy_processes": [],
+        "finished_native_result_observed": false,
+        "accepted_into_formal_summary": false
+      },
+      {
+        "item": "swe249/teleport2b",
+        "output": "artifacts/recovery/swe-additional-short-tmp-20261017/swe249/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/attempt1",
+        "child_pid": 1765422,
+        "child_startticks": "869931534",
+        "child_actual_affinity": [
+          93
+        ],
+        "child_controller_cgroup": "/user.slice/user-1012.slice/session-47717.scope",
+        "child_controller_memory_limit_note": "controller shares login session; the separate native scope below enforces per-trial memory",
+        "input_bindings_verified": 38,
+        "all_input_sha_unchanged": true,
+        "sif_stat_unchanged": true,
+        "native_runtime": {
+          "at": "2026-10-17T01:24:54.248248+00:00",
+          "scope": "apex-baseline-994fbdaf2bb2.scope",
+          "cpus": 1,
+          "memory_mib": 4096,
+          "verifier_seconds": 3000,
+          "model_calls": 0,
+          "return_code": 0
+        },
+        "native_scope": {
+          "scope": "/user.slice/user-1012.slice/user@1012.service/app.slice/apex-baseline-994fbdaf2bb2.scope",
+          "process_count": 7,
+          "actual_cpu_union": [
+            93
+          ],
+          "pid_examples": [
+            1765503,
+            1765593,
+            1765610
+          ],
+          "memory.max": "4294967296",
+          "memory.current": "4293332992",
+          "memory.swap.max": "0",
+          "memory.events": {
+            "low": 0,
+            "high": 0,
+            "max": 8467,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0
+          }
+        },
+        "phase_at_utc": "2026-10-17T01:25:31.906704+00:00",
+        "phase": "environment startup Go module cache copy active; candidate replay/verifier not observed yet",
+        "patch_apply_rc": null,
+        "active_comm_counts": {
+          "starter": 1,
+          "appinit": 1,
+          "squashfuse_ll": 1,
+          "fuse-overlayfs": 1,
+          "ld-linux-x86-64": 1,
+          "timeout": 1,
+          "bash": 1,
+          "cp": 1
+        },
+        "cache_copy_processes": [
+          {
+            "pid": 1767991,
+            "affinity": [
+              93
+            ],
+            "argv": [
+              "cp",
+              "-a",
+              "/go/pkg/mod/.",
+              "/tmp/apex-native-go-module-cache"
+            ]
+          }
+        ],
+        "finished_native_result_observed": false,
+        "accepted_into_formal_summary": false
+      },
+      {
+        "item": "avg64/teleport2b",
+        "output": "artifacts/recovery/swe-additional-short-tmp-20261017/avg64/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/attempt1",
+        "child_pid": 1765423,
+        "child_startticks": "869931535",
+        "child_actual_affinity": [
+          94
+        ],
+        "child_controller_cgroup": "/user.slice/user-1012.slice/session-47717.scope",
+        "child_controller_memory_limit_note": "controller shares login session; the separate native scope below enforces per-trial memory",
+        "input_bindings_verified": 38,
+        "all_input_sha_unchanged": true,
+        "sif_stat_unchanged": true,
+        "native_runtime": {
+          "at": "2026-10-17T01:24:54.186329+00:00",
+          "scope": "apex-baseline-3212acbece62.scope",
+          "cpus": 1,
+          "memory_mib": 4096,
+          "verifier_seconds": 3000,
+          "model_calls": 0,
+          "return_code": 0
+        },
+        "native_scope": {
+          "scope": "/user.slice/user-1012.slice/user@1012.service/app.slice/apex-baseline-3212acbece62.scope",
+          "process_count": 7,
+          "actual_cpu_union": [
+            94
+          ],
+          "pid_examples": [
+            1765499,
+            1765549,
+            1765582
+          ],
+          "memory.max": "4294967296",
+          "memory.current": "4292927488",
+          "memory.swap.max": "0",
+          "memory.events": {
+            "low": 0,
+            "high": 0,
+            "max": 8611,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0
+          }
+        },
+        "phase_at_utc": "2026-10-17T01:25:31.906704+00:00",
+        "phase": "environment startup Go module cache copy active; candidate replay/verifier not observed yet",
+        "patch_apply_rc": null,
+        "active_comm_counts": {
+          "starter": 1,
+          "appinit": 1,
+          "squashfuse_ll": 1,
+          "fuse-overlayfs": 1,
+          "ld-linux-x86-64": 1,
+          "timeout": 1,
+          "bash": 1,
+          "cp": 1
+        },
+        "cache_copy_processes": [
+          {
+            "pid": 1767993,
+            "affinity": [
+              94
+            ],
+            "argv": [
+              "cp",
+              "-a",
+              "/go/pkg/mod/.",
+              "/tmp/apex-native-go-module-cache"
+            ]
+          }
+        ],
+        "finished_native_result_observed": false,
+        "accepted_into_formal_summary": false
+      }
+    ],
+    "boundary": "all three actual native runtime receipts passed network/server startup; original namespace-relay failure boundary cleared",
+    "risk": "T2 memory.current close to fixed 4GiB and memory.events.max increasing; oom/oom_kill remain zero in captured sample. This is pressure evidence, not a failed score or proof of future completion.",
+    "model_calls": 0,
+    "new_api_calls": 0,
+    "no_native_terminal_or_recovered_score_claimed": true,
+    "agent_live_code_or_manifest_changes": false,
+    "agent_restart_or_retry": false
+  }
+}

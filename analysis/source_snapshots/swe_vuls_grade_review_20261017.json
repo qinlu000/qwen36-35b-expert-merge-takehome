@@ -1,0 +1,362 @@
+{
+  "captured_at_utc": "2026-10-17T01:09:57.478309+00:00",
+  "drain_and_guard_recheck_at_utc": "2026-10-17T01:10:57.799836+00:00",
+  "script_sha256": "a0eb0e252e27b56d3c615324c83a3fe0831ba1c85565ce9413c4782c27edfd10",
+  "manifest_sha256": "19f6c69a335d68fcc75369f962daaf8c0fabe49f265db8939aab324287311717",
+  "read_only_review": true,
+  "new_native_runs": 0,
+  "new_model_api_calls": 0,
+  "new_claims": 0,
+  "source_or_collector_changes": false,
+  "current_busy_scopes92_95": [],
+  "guard_rechecks": [
+    {
+      "unit": "apex-baseline-swe-grade-1520240.scope",
+      "returncode": 0,
+      "properties": "ControlGroup=\nLoadState=not-found\nActiveState=inactive",
+      "stderr": ""
+    },
+    {
+      "unit": "apex-baseline-swe-grade-1520241.scope",
+      "returncode": 0,
+      "properties": "ControlGroup=\nLoadState=not-found\nActiveState=inactive",
+      "stderr": ""
+    }
+  ],
+  "global_lock_inode": 90775088,
+  "current_global_lock_records": [],
+  "items": [
+    {
+      "key": "swe249/vuls",
+      "output": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-remaining-grade-only-20261017/swe249/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1",
+      "parent": 1520240,
+      "parent_startticks": "869530503",
+      "child": 1520253,
+      "state": "finished_pending_root_review",
+      "processes_gone": true,
+      "claim_sha256": "ecc7ba7174b3bc74de3ac47311e628a0cc34be4d6a330c68e9b41e30b4dfac2a",
+      "parent_state_sha256": "a5c0f0904af30b673031d7f8e4969db00190805bf803a35d9e87f193f41537cf",
+      "source_bindings_count": 29,
+      "changed_bindings": [],
+      "sif": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/sha256-ce030de85a57473a9b52d493fd023ab90871959e7129b4281edb1b2e5038d078.sif",
+      "sif_stat_matches": true,
+      "native_result": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-remaining-grade-only-20261017/swe249/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1/native/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/result.json",
+        "sha256": "fc42ad8b387209f00ce8fd1077997e9e6e8fdbc83d1be99ec8f0e8c37926e4e0",
+        "task_checksum": "8f7e762cfc234f8889dcf110f78cdcf12c337f2fb24c1317fa03309308d233c5",
+        "verifier_result": {
+          "rewards": {
+            "reward": 0
+          }
+        },
+        "exception_type": null,
+        "safe_exception": "",
+        "finished_at": "2026-10-17T00:24:35.623370Z"
+      },
+      "generation_model": "openai/apex-val-swe249",
+      "config_differences": [
+        {
+          "field": "/environment/import_path",
+          "old": "swe_clean_glibc_runtime:SweCleanGlibcGoRuntimeEnvironment",
+          "new": "run_swe_remaining_grade_only_20261017:VulsDiskLogs"
+        },
+        {
+          "field": "/environment/kwargs/baseline_cpu_offset",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "field": "/trials_dir",
+          "old": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_hard51_20261016/replay",
+          "new": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-remaining-grade-only-20261017/swe249/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1/native"
+        }
+      ],
+      "timings": {
+        "started_at": "2026-10-17T00:18:03.478277Z",
+        "finished_at": "2026-10-17T00:24:35.623370Z",
+        "environment_setup": {
+          "started_at": "2026-10-17T00:18:03.479134Z",
+          "finished_at": "2026-10-17T00:18:37.846544Z"
+        },
+        "agent_setup": {
+          "started_at": "2026-10-17T00:18:37.846596Z",
+          "finished_at": "2026-10-17T00:18:37.846653Z"
+        },
+        "agent_execution": {
+          "started_at": "2026-10-17T00:18:37.846724Z",
+          "finished_at": "2026-10-17T00:18:37.988158Z"
+        }
+      },
+      "guard_observed": {
+        "unit": "apex-baseline-swe-grade-1520240.scope",
+        "cgroup": "/user.slice/user-1012.slice/user@1012.service/app.slice/apex-baseline-swe-grade-1520240.scope",
+        "affinities": {
+          "1520245": [
+            92,
+            93,
+            94,
+            95
+          ]
+        },
+        "memory_max_bytes": 33554432,
+        "memory_swap_max_bytes": 0
+      },
+      "guard_stopped": true,
+      "double_native_empty": [
+        {
+          "at_utc": "2026-10-17T00:24:38.117555+00:00",
+          "remaining_scopes": []
+        },
+        {
+          "at_utc": "2026-10-17T00:24:40.197303+00:00",
+          "remaining_scopes": []
+        }
+      ],
+      "double_full_empty_after_guard_stop": [
+        {
+          "at_utc": "2026-10-17T00:24:40.275837+00:00",
+          "remaining_scopes": []
+        },
+        {
+          "at_utc": "2026-10-17T00:24:42.353273+00:00",
+          "remaining_scopes": []
+        }
+      ],
+      "lock_released_at_utc": "2026-10-17T00:24:42.426957+00:00",
+      "all_scope_sequences_ordered": true,
+      "go_workspace_preparation": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-remaining-grade-only-20261017/swe249/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1/native/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/agent/native-go-workspace-preparation.json",
+        "sha256": "5611d46c63b8c89c107498e09c54625481c754c14289c667e7d8ef1437f4f136",
+        "data": {
+          "command": "cd /app 2>/dev/null || cd /testbed; export GOPROXY=file:///opt/apex-swe-score-go/gopath/pkg/mod/cache/download,https://goproxy.cn,direct; export GOSUMDB=sum.golang.org GOTOOLCHAIN=local; if [ -f go.work ]; then go work sync; fi; go mod download all",
+          "return_code": 0,
+          "elapsed_seconds": 53.93304022960365,
+          "stdout": null,
+          "stderr": null,
+          "original_test_command_unchanged": true
+        }
+      },
+      "go_cache_copy": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-remaining-grade-only-20261017/swe249/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1/native/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/verifier/native-go-disk-cache.json",
+        "sha256": "f53b0afa9875bbc7d0aa0b9df02e2b8031c96caeacdc720bfbbf1d419329099e",
+        "data": {
+          "original_caches": [
+            "/root/.cache/go-build",
+            "/go/pkg/mod"
+          ],
+          "disk_caches": [
+            "/tmp/apex-native-go-build-cache",
+            "/tmp/apex-native-go-module-cache"
+          ],
+          "return_code": 0,
+          "stderr": null,
+          "contents_preserved": true
+        }
+      },
+      "resource_events": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-remaining-grade-only-20261017/swe249/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1/native/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/verifier/repair-resource-events.json",
+        "sha256": "a44ba574831ffa41a66be12b330c64d125c021933f262ef43d9cc594d75dea83",
+        "data": {
+          "memory.max": "4294967296\n",
+          "memory.swap.max": "0\n",
+          "memory.events": "low 0\nhigh 0\nmax 25140\noom 0\noom_kill 0\noom_group_kill 0\n",
+          "memory.current": "2653204480\n",
+          "memory.peak": "4295655424\n",
+          "cpu.stat": "usage_usec 349403408\nuser_usec 282482285\nsystem_usec 66921122\ncore_sched.force_idle_usec 0\n"
+        }
+      },
+      "test_evidence": {
+        "instruction_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_hard51_20261016/tasks/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/instruction.md",
+        "instruction_line": 118,
+        "required_contract": "isRunningKernel(pack,family,release,kernel)",
+        "required_tests": 11,
+        "required_count_parse_method": "Official test.sh parse_tests: JSON string fallback to ast.literal_eval; fail_to_pass11, pass_to_pass0. Raw string characters are not test IDs.",
+        "parsed_tests": 0,
+        "failure_stage": "candidate_product_contract_compile_error",
+        "exact_error_lines": [
+          "scanner/utils_test.go:170:94: too many arguments in call to isRunningKernel",
+          "have (models.Package, string, string, models.Kernel)",
+          "want (models.Package, string, models.Kernel)"
+        ],
+        "stdout_path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-remaining-grade-only-20261017/swe249/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1/native/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/verifier/run-script-stdout.txt",
+        "stdout_sha256": "8ebf1d206c0ee5f9f3e20c03e054cb3b33e3f37f5eeca67c24bf74aa9a090ae6",
+        "stderr_bytes": 0,
+        "reward_txt_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "official_test_stdout_sha256": "2d3ac9af66ada8dc5ee8a1d7fd010385d322a664b7c7e8f96dd226df9a852e11",
+        "parsed_output_sha256": "58e3a5c3daba970fc031b9e24d27bc107c18ca7c30e77371752d833e6b79d141",
+        "server_log_path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-remaining-grade-only-20261017/swe249/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1/native/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/verifier/repair-server.log",
+        "server_log_sha256": "4c445e75dd7adef177a2f0bfa74fe64a9051ba51ec15aa6403aec4420f695736",
+        "server_log_observation": "Startup complete; tmux pre-start warning only; no fatal/transport traceback in saved log."
+      },
+      "recommendation": "Exact own saved candidate native0 is supported by the task-required four-argument product contract, empty unchanged patch, concrete compiler failure, successful prep, zero saved OOM/OOM-kill counters, no Harbor exception and drained lease. Acceptance is root-owned; this review does not update any scoring source.",
+      "formal_summary_modified": false,
+      "root_independent_review": "Root independently read exact native stdout, memory events, task contract and test_patch; requested final cleanup/binding confirmation before manifest acceptance."
+    },
+    {
+      "key": "avg64/vuls",
+      "output": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-remaining-grade-only-20261017/avg64/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1",
+      "parent": 1520241,
+      "parent_startticks": "869530503",
+      "child": 1558973,
+      "state": "finished_pending_root_review",
+      "processes_gone": true,
+      "claim_sha256": "1edad799b3b77a1e8082277467a44f264c2887f36156eefafe79fe5721ad5a82",
+      "parent_state_sha256": "b841204c842cb3fe032b6a5d52fdf7db72b29884d7b5c936d61e683d0a08052d",
+      "source_bindings_count": 29,
+      "changed_bindings": [],
+      "sif": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/sha256-ce030de85a57473a9b52d493fd023ab90871959e7129b4281edb1b2e5038d078.sif",
+      "sif_stat_matches": true,
+      "native_result": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-remaining-grade-only-20261017/avg64/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1/native/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/result.json",
+        "sha256": "ec738c0dd2ab2b624f7c3b74342728adae352856bde62ca628896f2e589eafe3",
+        "task_checksum": "8f7e762cfc234f8889dcf110f78cdcf12c337f2fb24c1317fa03309308d233c5",
+        "verifier_result": {
+          "rewards": {
+            "reward": 0
+          }
+        },
+        "exception_type": null,
+        "safe_exception": "",
+        "finished_at": "2026-10-17T00:31:34.766944Z"
+      },
+      "generation_model": "openai/apex-avg64",
+      "config_differences": [
+        {
+          "field": "/environment/import_path",
+          "old": "swe_clean_glibc_runtime:SweCleanGlibcGoRuntimeEnvironment",
+          "new": "run_swe_remaining_grade_only_20261017:VulsDiskLogs"
+        },
+        {
+          "field": "/environment/kwargs/baseline_cpu_offset",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "field": "/trials_dir",
+          "old": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/replay",
+          "new": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-remaining-grade-only-20261017/avg64/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1/native"
+        }
+      ],
+      "timings": {
+        "started_at": "2026-10-17T00:24:48.702761Z",
+        "finished_at": "2026-10-17T00:31:34.766944Z",
+        "environment_setup": {
+          "started_at": "2026-10-17T00:24:48.703432Z",
+          "finished_at": "2026-10-17T00:25:23.334512Z"
+        },
+        "agent_setup": {
+          "started_at": "2026-10-17T00:25:23.334557Z",
+          "finished_at": "2026-10-17T00:25:23.334632Z"
+        },
+        "agent_execution": {
+          "started_at": "2026-10-17T00:25:23.334706Z",
+          "finished_at": "2026-10-17T00:25:23.474175Z"
+        }
+      },
+      "guard_observed": {
+        "unit": "apex-baseline-swe-grade-1520241.scope",
+        "cgroup": "/user.slice/user-1012.slice/user@1012.service/app.slice/apex-baseline-swe-grade-1520241.scope",
+        "affinities": {
+          "1558757": [
+            92,
+            93,
+            94,
+            95
+          ]
+        },
+        "memory_max_bytes": 33554432,
+        "memory_swap_max_bytes": 0
+      },
+      "guard_stopped": true,
+      "double_native_empty": [
+        {
+          "at_utc": "2026-10-17T00:31:38.332306+00:00",
+          "remaining_scopes": []
+        },
+        {
+          "at_utc": "2026-10-17T00:31:40.409533+00:00",
+          "remaining_scopes": []
+        }
+      ],
+      "double_full_empty_after_guard_stop": [
+        {
+          "at_utc": "2026-10-17T00:31:40.473678+00:00",
+          "remaining_scopes": []
+        },
+        {
+          "at_utc": "2026-10-17T00:31:42.536084+00:00",
+          "remaining_scopes": []
+        }
+      ],
+      "lock_released_at_utc": "2026-10-17T00:31:42.591022+00:00",
+      "all_scope_sequences_ordered": true,
+      "go_workspace_preparation": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-remaining-grade-only-20261017/avg64/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1/native/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/agent/native-go-workspace-preparation.json",
+        "sha256": "b7e0f678433aa619be64c554dee3de65c0e57b8168ab0e792869cf47d649d2c7",
+        "data": {
+          "command": "cd /app 2>/dev/null || cd /testbed; export GOPROXY=file:///opt/apex-swe-score-go/gopath/pkg/mod/cache/download,https://goproxy.cn,direct; export GOSUMDB=sum.golang.org GOTOOLCHAIN=local; if [ -f go.work ]; then go work sync; fi; go mod download all",
+          "return_code": 0,
+          "elapsed_seconds": 64.45456164516509,
+          "stdout": null,
+          "stderr": null,
+          "original_test_command_unchanged": true
+        }
+      },
+      "go_cache_copy": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-remaining-grade-only-20261017/avg64/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1/native/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/verifier/native-go-disk-cache.json",
+        "sha256": "f53b0afa9875bbc7d0aa0b9df02e2b8031c96caeacdc720bfbbf1d419329099e",
+        "data": {
+          "original_caches": [
+            "/root/.cache/go-build",
+            "/go/pkg/mod"
+          ],
+          "disk_caches": [
+            "/tmp/apex-native-go-build-cache",
+            "/tmp/apex-native-go-module-cache"
+          ],
+          "return_code": 0,
+          "stderr": null,
+          "contents_preserved": true
+        }
+      },
+      "resource_events": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-remaining-grade-only-20261017/avg64/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1/native/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/verifier/repair-resource-events.json",
+        "sha256": "cd47b5df508aeb5f9f28e3dab001910c2b500281d7f51ef5591ea79f94463ae8",
+        "data": {
+          "memory.max": "4294967296\n",
+          "memory.swap.max": "0\n",
+          "memory.events": "low 0\nhigh 0\nmax 17624\noom 0\noom_kill 0\noom_group_kill 0\n",
+          "memory.current": "2635464704\n",
+          "memory.peak": "4295925760\n",
+          "cpu.stat": "usage_usec 352188558\nuser_usec 283016910\nsystem_usec 69171647\ncore_sched.force_idle_usec 0\n"
+        }
+      },
+      "test_evidence": {
+        "instruction_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/instruction.md",
+        "instruction_line": 118,
+        "required_contract": "isRunningKernel(pack,family,release,kernel)",
+        "required_tests": 11,
+        "required_count_parse_method": "Official test.sh parse_tests: JSON string fallback to ast.literal_eval; fail_to_pass11, pass_to_pass0. Raw string characters are not test IDs.",
+        "parsed_tests": 0,
+        "failure_stage": "candidate_product_contract_compile_error",
+        "exact_error_lines": [
+          "scanner/utils_test.go:170:94: too many arguments in call to isRunningKernel",
+          "have (models.Package, string, string, models.Kernel)",
+          "want (models.Package, string, models.Kernel)"
+        ],
+        "stdout_path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-remaining-grade-only-20261017/avg64/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1/native/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/verifier/run-script-stdout.txt",
+        "stdout_sha256": "8ebf1d206c0ee5f9f3e20c03e054cb3b33e3f37f5eeca67c24bf74aa9a090ae6",
+        "stderr_bytes": 0,
+        "reward_txt_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "official_test_stdout_sha256": "5274fdc150fa4a06f6db502c8815628db1bc1d1da9eb40c9d5d5a323bb4f0861",
+        "parsed_output_sha256": "58e3a5c3daba970fc031b9e24d27bc107c18ca7c30e77371752d833e6b79d141",
+        "server_log_path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-remaining-grade-only-20261017/avg64/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1/native/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/verifier/repair-server.log",
+        "server_log_sha256": "5679b3b7f4f3f448184c7f22e905b211bfbaa6a38611672773d317725ff886c3",
+        "server_log_observation": "Startup complete; tmux pre-start warning only; no fatal/transport traceback in saved log."
+      },
+      "recommendation": "Exact own saved candidate native0 is supported by the task-required four-argument product contract, empty unchanged patch, concrete compiler failure, successful prep, zero saved OOM/OOM-kill counters, no Harbor exception and drained lease. Acceptance is root-owned; this review does not update any scoring source.",
+      "formal_summary_modified": false,
+      "root_independent_review": "Root independently read exact native stdout, memory events, task contract and test_patch; requested final cleanup/binding confirmation before manifest acceptance."
+    }
+  ]
+}

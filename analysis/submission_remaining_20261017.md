@@ -1,5 +1,10 @@
 # 最终交付的最小剩余清单
 
+**09:25运行增量**：三个SWE原答案补评分已在独立92/93/94三核运行，见[短TMPDIR恢复](swe_additional_short_tmp_recovery_20261017.md)；原namespace启动失败保留，不构成有效分数或模型重答。新Terminal git-leak/seed1的[离线恢复准备](terminal_git_leak_grade_only_preparation_20261017.md)已完成Git完整性与同SIF差分，但尚无native/成绩，仍是待完成评分。不得以这些准备状态覆盖下述正式coverage。
+
+**09:15增量**：两项Vuls一次原答案native补评经root独立读任务/日志/资源与排空证据后接受0，各SWE有效coverage升至49/51，仍各2invalid，完整分继续null。Terminal专家141/445另3invalid、AVG131/445另3invalid，均非完整成绩。新增专家git-leak-recovery/seed1清理异常正在只读核查，不派生预算0。[最新双视图](source_snapshots/formal_aggregation_20261017_0915.json)与[独立Vuls审核](swe_vuls_grade_review_20261017.md)。[额外HLE配对退化案例](hle_base_avg_disagreements_20261017.md)补充20个Base对/AVG错且AVG有答案的真实案例，原20失败与三项未来实验不替换。
+
+
 初审时点：2026-10-17 03:03–03:10 CST；**07:28更新实际完成状态**。依据用户最初粘贴的多专家题面（附件`20b2f4c3-6e03-4746-a389-d488086d7780/Pasted text.txt`）、[需求转录](../EXPERIMENT_REQUIREMENTS.md)、当前[根README](../README.md)、模型/训练/合版/统计/资源回执。后来的线上SFT→stage2模板不覆盖原题面。原初审只读；后续真实执行与时点见统一进展日志和逐项收据。
 
 ## 已完成，不再列作待重做

@@ -1,5 +1,25 @@
 # 当前进展与未决事项
 
+**Terminal离线准备补充**：[git-leak原归档恢复条件](terminal_git_leak_grade_only_preparation_20261017.md)已核50个app成员/46个.git成员，独立副本fsck完整检查rc0且无输出、无外部对象依赖，30来源绑定保持。记录23处精确etc差分和跨路径硬链`/etc/apt/apt.conf.d/01-vendor-ubuntu`→`/app/repo/.git/info/refs`；未来恢复必须保留该拓扑、排除resolver，不能盲恢复全etc。尚无该项driver/claim/native/成绩，先等SWE1765416合法收尾，再准备独立4CPU/8GiB/900秒grader租约；建议2400秒准入余量。
+
+**09:25:51实际原生核验**：恢复cohort三个child1765421/22/23的实际CPU分别92/93/94，各native scope为4GiB/swap0，parent1765416持global锁，guard92–95/32MiB。NodeBB原patch应用成功并进入官方测试；两T2复制原Go缓存，接近4GiB但采样OOM/OOMkill0。已通过原namespace启动阻塞，尚无终态或恢复分数；全部原绑定保持，见[执行收据](swe_additional_short_tmp_recovery_20261017.md)。
+
+**09:25接续（最新）**：[09:13:51正式双视图](source_snapshots/formal_aggregation_20261017_0915.json)按三collector指定顺序刷新后生成strict与独立预算视图，source issues空。两SWE各**49/51有效**，专家0resolved、AVG4resolved，各2invalid，完整分仍null；Terminal专家**141/445另3invalid**、AVG**131/445另3invalid**，均是部分coverage。HLE五组完整成绩和ASI专家240完整成绩不变，AVG四项macro仍null。
+
+**两Vuls已分别接受exact native0。** [审核](swe_vuls_grade_review_20261017.md)和root重读确认：各自原空patch保留三参数接口，官方任务要求四参数，新编译明确到达该产品错误；无Harbor异常，不能称11个测试都执行失败。各自原29绑定、SIF stat及1CPU/4GiB/3000秒保持，保存OOM/OOMkill0，双native空→停guard→双全scope空→解锁完整。manifest现专家7项/AVG4项批准，原raw null保留，不跨模型借评分。
+
+**三个追加补评分正在启动恢复。** [初次cohort](swe_additional_grade_only_execution_20261017.md)于09:18启动后都在namespace relay失败，agent/verifier未开始、reward null：新host TMPDIR过长使内部socket达263–272B，超过Linux108B限制。这是本轮工程疏漏，原失败及实际源码已归档。安全排空后只改两行，短路径实际bind78/82/82B及默认prepare三项各38绑定通过；root/direct独立审阅后，**09:24:49唯一恢复parent1765416/start869931371**已启动，见[恢复收据](swe_additional_short_tmp_recovery_20261017.md)。新根`artifacts/recovery/swe-additional-short-tmp-20261017`，script冻结7da575a6、新manifest b6dcd844；E/NodeBB92、E/T2 93、AVG/T2 94，各1CPU/4GiB/3000秒，单global92–95租约/guard，0模型调用。所有原答卷/测试/预算保持，pending_root_review不自动valid；不能由启动修复声称旧超时已解决。AVG T774仍仅静态原proxy方案、未准入。
+
+**Terminal新增异常保留null。** [git-leak-recovery/seed1](terminal_new_invalid_audit_20261017.md)在求解1800s后的cleanup guard阻断评分交接，verifier未开始，不是900s评分计算超时，不能派生预算0。归档含.git，完整恢复条件仍在只读核查，未启动该项native/claim；nginx旧raw null和已批准exact0 overlay均保留，不重复评分。
+
+[09:10 Direct核查](direct_status_20261017_0910.md)：AVG ASI保存132/240、8在途、100未准入，科学评分0；coordinator1126014/generator1126055唯一正常，复用727856/28095。仍三个普通acd_u/Nice1000 TP2共**6H100**，无新卡或重建。96–127未来生成租约保持；Terminal12/11槽用0–91，stage2等两ASI真实marker及scope排空，不能取回已交接核。唯一metadata guard1508852/start869510981仍等明日01:10，两STOP尚无，不重复创建。
+
+新增[HLE完整配对表与20例补充](hle_base_avg_disagreements_20261017.md)：都对38、Base对AVG错61、Base错AVG对79、都错2322；61项中35有AVG答案、26原生无答，固定ID排序取20个有答案例。未公开题面/金标/答案，原20失败保留；历史服务混杂和语义原因unknown继续披露，不当纯权重因果退化。
+
+[09:13资源账本](resource_ledger_20261017.md)：结束227.570GPUh、6卡active暂计29.532778，总257.102778；API仍15.029134794CNY另.328327020USD，缺失unknown。09:24恢复准入时80/data余2,126,852,165,632B，MemAvailable1,988,225,520kB；未耗尽，新scratch走/data。完整单项未变化，保留07:28一页阶段稿。
+
+以下08:20及更早保留历史过程，最新阶段以上述09:25为准。
+
 **08:20接续（最新）**：[08:08双视图](source_snapshots/formal_aggregation_20261017_0810.json)依指定顺序刷新三份collector后生成，Terminal专家110/445有效另2invalid、AVG103/445另3invalid；完整主分、AVG四项macro仍null，source issues空。08:09独立队列更新AVG到104有效，所有当前invalid均早于07:26、未新增。两SWE各48/51，HLE/ASI完整单项与配对区间不变。
 
 **实际推进了两项SWE补评分**：[Vuls执行记录](swe_remaining_grade_only_execution_20261017.md) root已08:18唯一提交专家1520240与AVG1520241（startticks均869530503），只重放各自原空patch/测试/SIF，1CPU/4GiB/3000s、0新模型调用；同global92–95锁串行，专家child1520253已运行、AVG尚等锁。守护scope实际92–95/32MiB、真实native只92/4GiB/swap0，原29source bindings/镜像元数据保持。结果未出/未审不能变主分；旧RemoteProtocolError/OOM归因未决，磁盘scratch+durable logs只提供可验证的环境修复候选。两父结束前冻结新script/manifest，不扩4项disabled，不重启或重复submit。08:23 workspace准备53.93秒/rc0、原cache磁盘复制rc0，测试仍在跑，未报新分。后续清理必须先等child自然结束与双native空，再清guard、双全scope空、最后解锁；不能只凭guard不见或helper reward0就接分。

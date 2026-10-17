@@ -1,0 +1,175 @@
+{
+  "collected_at_utc": "2026-10-17T01:15:03.917764+00:00",
+  "checks": [
+    {
+      "case": "lexical_venv_help_green",
+      "returncode": 0,
+      "expected": true
+    },
+    {
+      "case": "unselected_T774_rejected",
+      "returncode": 1,
+      "expected": false
+    },
+    {
+      "case": "duplicate_selection_rejected",
+      "returncode": 1,
+      "expected": false
+    },
+    {
+      "case": "tampered_source_sha_rejected",
+      "returncode": 1,
+      "expected": false
+    },
+    {
+      "case": "default_prepare_three_green",
+      "returncode": 0,
+      "expected": true
+    }
+  ],
+  "ast_passed": true,
+  "old_vuls_contract_unchanged": {
+    "vuls_script": "a0eb0e252e27b56d3c615324c83a3fe0831ba1c85565ce9413c4782c27edfd10",
+    "vuls_manifest": "19f6c69a335d68fcc75369f962daaf8c0fabe49f265db8939aab324287311717"
+  },
+  "execution_claims": 0,
+  "guards_created": 0,
+  "global_lock_acquired": false,
+  "native_runs": 0,
+  "model_or_api_calls": 0,
+  "new_output_root_absent": true,
+  "root_cause_green_not_proven": true,
+  "final_prepare": {
+    "at_utc": "2026-10-17T01:15:43.350301+00:00",
+    "mode": "prepare_only",
+    "checks": [
+      {
+        "item": "swe249/nodebb",
+        "bindings_verified": 38,
+        "cohort": "glibc",
+        "original_exception_type": "VerifierTimeoutError",
+        "patch_bytes": 7422,
+        "native_directory_exists": false,
+        "physical_cpu_ids": [
+          92
+        ],
+        "logical_cpu_offset": 0,
+        "cpus": 1,
+        "memory_mib": 4096,
+        "verifier_seconds": 3000,
+        "named_environment_scratch_binding_checked": true,
+        "production_environment": {
+          "PATH": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/apptainer-1.4.5/rootfs/usr/bin:/data/caoqinlu/projects/apex-takehome/artifacts/tools/fakeroot-1.25.3/rootfs/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "PYTHONPATH": "/data/caoqinlu/projects/apex-takehome/scripts:/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/swe-bench-pro/v2/tooling:/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/harbor/src",
+          "TMPDIR": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-additional-grade-only-20261017/swe249/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/attempt1/host-tmp",
+          "XDG_RUNTIME_DIR": "/run/user/1012",
+          "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1012/bus"
+        }
+      },
+      {
+        "item": "swe249/teleport2b",
+        "bindings_verified": 38,
+        "cohort": "musl",
+        "original_exception_type": "VerifierTimeoutError",
+        "patch_bytes": 0,
+        "native_directory_exists": false,
+        "physical_cpu_ids": [
+          93
+        ],
+        "logical_cpu_offset": 0,
+        "cpus": 1,
+        "memory_mib": 4096,
+        "verifier_seconds": 3000,
+        "named_environment_scratch_binding_checked": true,
+        "production_environment": {
+          "PATH": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/swe_v2/musl_compat/shim:/data/caoqinlu/projects/apex-takehome/artifacts/tools/apptainer-1.4.5/rootfs/usr/bin:/data/caoqinlu/projects/apex-takehome/artifacts/tools/fakeroot-1.25.3/rootfs/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "PYTHONPATH": "/data/caoqinlu/projects/apex-takehome/scripts:/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/swe-bench-pro/v2/tooling:/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/harbor/src",
+          "TMPDIR": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-additional-grade-only-20261017/swe249/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/attempt1/host-tmp",
+          "XDG_RUNTIME_DIR": "/run/user/1012",
+          "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1012/bus"
+        }
+      },
+      {
+        "item": "avg64/teleport2b",
+        "bindings_verified": 38,
+        "cohort": "musl",
+        "original_exception_type": "RewardFileNotFoundError",
+        "patch_bytes": 0,
+        "native_directory_exists": false,
+        "physical_cpu_ids": [
+          94
+        ],
+        "logical_cpu_offset": 0,
+        "cpus": 1,
+        "memory_mib": 4096,
+        "verifier_seconds": 3000,
+        "named_environment_scratch_binding_checked": true,
+        "production_environment": {
+          "PATH": "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/swe_v2/musl_compat/shim:/data/caoqinlu/projects/apex-takehome/artifacts/tools/apptainer-1.4.5/rootfs/usr/bin:/data/caoqinlu/projects/apex-takehome/artifacts/tools/fakeroot-1.25.3/rootfs/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "PYTHONPATH": "/data/caoqinlu/projects/apex-takehome/scripts:/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/swe-bench-pro/v2/tooling:/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/harbor/src",
+          "TMPDIR": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-additional-grade-only-20261017/avg64/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/attempt1/host-tmp",
+          "XDG_RUNTIME_DIR": "/run/user/1012",
+          "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1012/bus"
+        }
+      }
+    ],
+    "script_sha256": "197184f50fd10f92a46ed29bc10c50b88d4b5adfdec07f177790248d9dc38b6d",
+    "manifest_sha256": "7156a584a50340c2661efe6569d0c11528b90b6d871bcf4cf0557ce7406ac151",
+    "execution_claim_created": false,
+    "native_started": false,
+    "guard_created": false,
+    "shared_lock_acquired": false,
+    "model_calls": 0,
+    "new_api_calls": 0,
+    "patch_replay_origin": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/swe-bench-pro/v2/tooling/patch_replay.py",
+    "python_lexical": "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+    "root_cause_or_repair_not_proven": true
+  },
+  "schema": "swe_additional_grade_only_preparation_v1",
+  "final_script": {
+    "path": "scripts/run_swe_additional_grade_only_20261017.py",
+    "sha256": "197184f50fd10f92a46ed29bc10c50b88d4b5adfdec07f177790248d9dc38b6d"
+  },
+  "fixed_manifest": {
+    "path": "configs/eval/swe_additional_grade_only_20261017.json",
+    "sha256": "7156a584a50340c2661efe6569d0c11528b90b6d871bcf4cf0557ce7406ac151"
+  },
+  "cohort_contract": {
+    "selected": [
+      "swe249/nodebb",
+      "swe249/teleport2b",
+      "avg64/teleport2b"
+    ],
+    "physical_cpu_by_item": {
+      "swe249/nodebb": 92,
+      "swe249/teleport2b": 93,
+      "avg64/teleport2b": 94
+    },
+    "child_logical_cpu_offset": 0,
+    "per_child_cpus": 1,
+    "per_child_memory_mib": 4096,
+    "per_child_verifier_seconds": 3000,
+    "parent_global_guard_cpus": [
+      92,
+      93,
+      94,
+      95
+    ],
+    "max_native_total_cpus": 3,
+    "max_native_total_memory_mib": 12288,
+    "shared_lock": "artifacts/eval/direct_asi_grader_cpu92_95.lock",
+    "native_after_root_review_only": true,
+    "failure_policy": "No child cancellation or retry; parent waits all admitted children, double native drain, stops guard, double full drain then unlock; result acceptance separate."
+  },
+  "a_t774_static_plan_only": {
+    "selected_or_implemented": false,
+    "host": "proxy.golang.org:443",
+    "original_url": "https://proxy.golang.org/github.com/mdlayher/netlink/@v/list",
+    "reference": "scripts/swe_score_original_proxy_repair.py:40,77",
+    "plan": "Separate future namespace/socket; restrict CONNECT exact host443, preserve original URI/TLS/Go/versions/tests. First root-approved same-environment URL metadata probe, then separate grade approval.",
+    "public_probe_executed": false,
+    "relay_started": false,
+    "model_or_api_calls": 0,
+    "current_reachability": "unknown"
+  }
+}

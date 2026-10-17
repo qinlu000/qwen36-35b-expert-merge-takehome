@@ -1,0 +1,175 @@
+{
+  "read_only_audit": true,
+  "raw_capture_at_utc": "2026-10-17T01:15:00.323786+00:00",
+  "detail_capture_at_utc": "2026-10-17T01:15:22.151734+00:00",
+  "archive_metadata_capture_at_utc": "2026-10-17T01:16:30.669631+00:00",
+  "comparison": {
+    "earlier_snapshot": "analysis/source_snapshots/execution_status_20261017_0810.json",
+    "earlier_raw_source_at_utc": "2026-10-17T00:09:14.028012+00:00",
+    "earlier_raw_invalid_keys": [
+      "nginx-request-logging/seed0",
+      "torch-tensor-parallelism/seed0",
+      "train-fasttext/seed0"
+    ],
+    "formal_snapshots": [
+      {
+        "path": "analysis/source_snapshots/formal_aggregation_20261017_0810.json",
+        "as_of_utc": "2026-10-17T00:08:08.428825+00:00",
+        "terminal250": {
+          "valid": 110,
+          "invalid": 2,
+          "pending": 333
+        },
+        "avg64": {
+          "valid": 103,
+          "invalid": 3,
+          "pending": 339
+        }
+      },
+      {
+        "path": "analysis/source_snapshots/formal_aggregation_20261017_0915.json",
+        "as_of_utc": "2026-10-17T01:13:51.977161+00:00",
+        "terminal250": {
+          "valid": 141,
+          "invalid": 3,
+          "pending": 301
+        },
+        "avg64": {
+          "valid": 131,
+          "invalid": 3,
+          "pending": 311
+        }
+      }
+    ],
+    "snapshot_0920_found_local_or_80": false,
+    "note": "No matching 0920 snapshot existed in the inspected source_snapshots directory at capture; use actual0915 rather than inventing a later capture."
+  },
+  "raw_summary": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/summary.json",
+    "sha256": "6218064ab356f618de24cd0c185b0e04cc785462fd44618a7e13bfbd7b0099a5",
+    "updated_at_utc": "2026-10-17T01:14:58.271357+00:00",
+    "terminal": 146,
+    "valid": 142,
+    "invalid": 4,
+    "active": 12,
+    "pending": 287,
+    "nginx_already_accepted_by_separate_exact_overlay": true
+  },
+  "new_invalid": {
+    "key": "git-leak-recovery/seed1",
+    "model": "apex-terminal250",
+    "seed": 1,
+    "task_checksum": "da0aeda47b324bff84c67faa3d8bed3b3b5f1200e3b17cecbc7dc8f802fd366a",
+    "finished_at_utc": "2026-10-17T00:28:04.055193+00:00",
+    "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/result.json",
+    "result_sha256": "cb48b18ec0d4df51783385f475970120cc3a43932afbc6e7660dfc42314440ca",
+    "config_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/config.json",
+    "config_sha256": "6257eb4c685891a50ec8a627f69dcbc81447b28a9bcc75ac5c1155a2ad3c3371",
+    "exception": "RuntimeError",
+    "safe_error": "Refusing public network after unconfirmed solver cleanup",
+    "native_reward": null,
+    "verifier_test_stdout_exists": false,
+    "verifier_reward_exists": false,
+    "verifier_directory_files": [],
+    "classification": "unresolved_cleanup_guard_before_verifier",
+    "not_audited_verifier_compute_timeout": true,
+    "budget_zero_eligible": false,
+    "solver_started_at_utc": "2026-10-16T23:58:00.508249Z",
+    "solver_finished_at_utc": "2026-10-17T00:28:01.596639Z",
+    "solver_wall_seconds": 1801.08839,
+    "trial_log_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/trial.log",
+    "trial_log_sha256": "265c57461a6db69c3af4cb529ec5f385b023b8d2baa12f9aa7b0b568bbeca417",
+    "safe_phase_evidence": [
+      {
+        "line": 41,
+        "text": "Unknown Error in LLM interaction: shared 1800s solver deadline"
+      },
+      {
+        "line": 43,
+        "text": "Trial git-leak-recovery__seed1 failed: Refusing public network after unconfirmed solver cleanup"
+      }
+    ],
+    "frozen_guard_source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/baseline_singularity.py:58",
+    "frozen_policy_wrapper": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_repair_environment_v2.py:89"
+  },
+  "candidate": {
+    "archive_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/artifacts/logs/artifacts/final-task-state.tar",
+    "archive_bytes": 829440,
+    "archive_sha256": "1f8863211b0189c011fdd1bf39717c8ec9481a273c7e66ee45267b68c2b7dffd",
+    "tar_readable": true,
+    "member_count": 561,
+    "prefix_counts": {
+      "app": 50,
+      "etc": 510,
+      "root": 1
+    },
+    "git_metadata": {
+      "members": 46,
+      "HEAD_present": true,
+      "object_files_present": true,
+      "reflogs_present": true,
+      "logical_object_closure_not_verified": true
+    },
+    "snapshot_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/artifacts/logs/artifacts/final-task-state.json",
+    "snapshot_sha256": "9ccbc62dae3761a3d4a7b3f95f13b7d9497b86a1862e7404d849c100adacec8c",
+    "snapshot_reason": "CancelledError: ",
+    "return_code": 0,
+    "captured_before_verifier": true,
+    "complete_prefixes": [
+      "app",
+      "etc"
+    ],
+    "changed_external_file_count": 1,
+    "process_count_at_capture": 15,
+    "stderr_present": false,
+    "live_process_state_not_reconstructed": true,
+    "trajectory_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/agent/trajectory.json",
+    "trajectory_bytes": 126314,
+    "trajectory_sha256": "be88be9f92735574e6aaf8b7e7cfd7a725a55f9dce47b042dc963bb84efdf175",
+    "answer_or_secret_content_copied": false
+  },
+  "frozen_environment": {
+    "original_task_path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/git-leak-recovery",
+    "task_toml_sha256": "3eca5fbd4d0dd2b5710d616f9303605666971983965e97ba14b2c6ef85abdb71",
+    "dockerfile_sha256": "006bf5d2e3502a059f9a87bc855a7f85d6c40c67bf8a523dd3f1e9c6f64cc112",
+    "image": "alexgshaw/git-leak-recovery:20251031",
+    "sif_tag": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/alexgshaw_git-leak-recovery_20251031.sif",
+    "sif_resolved": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/sha256-62160e522a4238b8bcd522411ea97b5b200f811e5899d34947e66809bef7e586.sif",
+    "sif_size_bytes": 92987392,
+    "sif_mtime_ns": "1792079169674202869",
+    "sif_content_not_rehashed": true,
+    "cpus": 4,
+    "memory_mib": 8192,
+    "formal_solver_override_seconds": 1800,
+    "verifier_seconds": 900,
+    "environment_build_seconds": 600
+  },
+  "preparation_only_direction": {
+    "requires_complete_original_git_and_artifact_binding": true,
+    "requires_task_specific_sif_static_etc_difference": true,
+    "do_not_restore_all_etc_or_change_runtime_resolver": true,
+    "no_nginx_manifest_reuse": true,
+    "no_solver_rerun": true,
+    "no_new_native_started": true,
+    "global_lock": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/direct_asi_grader_cpu92_95.lock",
+    "requires_actual_root_granted_grader_lease": true,
+    "physical_cpus": [
+      92,
+      93,
+      94,
+      95
+    ],
+    "logical_cpu_offset": 0,
+    "native_memory_mib": 8192,
+    "native_verifier_seconds": 900,
+    "recommended_minimum_admission_runway_seconds": 2400,
+    "core_deadline": "2026-10-18T02:20:00+08:00",
+    "latest_admission_for_2400s_runway": "2026-10-18T01:40:00+08:00",
+    "if_restore_and_cleanup_bounds_exceed_runway_increase_gate": true,
+    "current_new_SWE_cohort_has_priority_and_was_not_inspected": true
+  },
+  "new_model_api_calls": 0,
+  "new_native_runs": 0,
+  "new_claims": 0,
+  "formal_source_or_queue_changes": false
+}
