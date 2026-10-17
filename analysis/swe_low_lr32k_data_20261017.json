@@ -1,0 +1,203 @@
+{
+  "created_at_utc": "2026-10-17T05:45:54.166586+00:00",
+  "source_directory": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k",
+  "output_directory": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试/artifacts/data/candidates/swe_low_lr32k_20261017",
+  "source_dataset": "nvidia/Open-SWE-Traces",
+  "source_revision": "1db674173119d71df45c22007af99e214600711a",
+  "teacher": "Qwen3.8-Flash-Next",
+  "max_complete_sequence_tokens": 32768,
+  "token_count_scope": "Existing full_sequence_tokens from pinned original HF Qwen chat template; not newly tokenized native Swift lengths or supervised-token counts.",
+  "filter_rule": "Train complete sequence <= limit; preserve selected messages/manifest original line bytes and source order. No truncation, resampling or model execution.",
+  "inputs": {
+    "summary.json": {
+      "path": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/summary.json",
+      "bytes": 1741
+    },
+    "train.messages.jsonl": {
+      "path": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.messages.jsonl",
+      "bytes": 234890765
+    },
+    "train.manifest.jsonl": {
+      "path": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.manifest.jsonl",
+      "bytes": 3062620
+    },
+    "val.messages.jsonl": {
+      "path": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/val.messages.jsonl",
+      "bytes": 10543360
+    },
+    "val.manifest.jsonl": {
+      "path": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/val.manifest.jsonl",
+      "bytes": 14342
+    }
+  },
+  "original_train": {
+    "rows": 2000,
+    "full_sequence_tokens": 67735326,
+    "min_full_sequence_tokens": 5143,
+    "median_full_sequence_tokens": 32157,
+    "max_full_sequence_tokens": 65424,
+    "assistant_output_tokens": 14751457,
+    "max_assistant_output_tokens": 4702,
+    "languages": {
+      "go": 520,
+      "js": 477,
+      "python": 955,
+      "ts": 48
+    },
+    "sources": {
+      "swe-rebench-v2": 1229,
+      "scale-swe": 771
+    }
+  },
+  "kept_train": {
+    "rows": 1027,
+    "full_sequence_tokens": 23353670,
+    "min_full_sequence_tokens": 5143,
+    "median_full_sequence_tokens": 23317,
+    "max_full_sequence_tokens": 32754,
+    "assistant_output_tokens": 5034955,
+    "max_assistant_output_tokens": 2442,
+    "languages": {
+      "go": 233,
+      "js": 242,
+      "python": 528,
+      "ts": 24
+    },
+    "sources": {
+      "swe-rebench-v2": 576,
+      "scale-swe": 451
+    }
+  },
+  "excluded_train": {
+    "rows": 973,
+    "full_sequence_tokens": 44381656,
+    "min_full_sequence_tokens": 32783,
+    "median_full_sequence_tokens": 43986,
+    "max_full_sequence_tokens": 65424,
+    "assistant_output_tokens": 9716502,
+    "max_assistant_output_tokens": 4702,
+    "languages": {
+      "go": 287,
+      "js": 235,
+      "python": 427,
+      "ts": 24
+    },
+    "sources": {
+      "swe-rebench-v2": 653,
+      "scale-swe": 320
+    }
+  },
+  "original_train_thresholds": {
+    "32768": {
+      "rows": 1027,
+      "full_sequence_tokens": 23353670,
+      "min_full_sequence_tokens": 5143,
+      "median_full_sequence_tokens": 23317,
+      "max_full_sequence_tokens": 32754,
+      "assistant_output_tokens": 5034955,
+      "max_assistant_output_tokens": 2442,
+      "languages": {
+        "go": 233,
+        "js": 242,
+        "python": 528,
+        "ts": 24
+      },
+      "sources": {
+        "swe-rebench-v2": 576,
+        "scale-swe": 451
+      }
+    },
+    "49152": {
+      "rows": 1672,
+      "full_sequence_tokens": 49306082,
+      "min_full_sequence_tokens": 5143,
+      "median_full_sequence_tokens": 29119,
+      "max_full_sequence_tokens": 49140,
+      "assistant_output_tokens": 10631131,
+      "max_assistant_output_tokens": 4138,
+      "languages": {
+        "go": 416,
+        "js": 408,
+        "python": 806,
+        "ts": 42
+      },
+      "sources": {
+        "swe-rebench-v2": 1003,
+        "scale-swe": 669
+      }
+    },
+    "65536": {
+      "rows": 2000,
+      "full_sequence_tokens": 67735326,
+      "min_full_sequence_tokens": 5143,
+      "median_full_sequence_tokens": 32157,
+      "max_full_sequence_tokens": 65424,
+      "assistant_output_tokens": 14751457,
+      "max_assistant_output_tokens": 4702,
+      "languages": {
+        "go": 520,
+        "js": 477,
+        "python": 955,
+        "ts": 48
+      },
+      "sources": {
+        "swe-rebench-v2": 1229,
+        "scale-swe": 771
+      }
+    }
+  },
+  "kept_structure": {
+    "messages": 58743,
+    "bash_calls": 32651,
+    "tool_observations": 31624,
+    "complete_final_submissions": 1027
+  },
+  "val": {
+    "rows": 87,
+    "byte_identical_messages_and_manifest": true,
+    "length_filter_applied": false,
+    "purpose": "Historical teacher-forced training diagnostic only; no task-level validation."
+  },
+  "scope": "Local CPU-only complete-trajectory filtering. No training, inference, remote mutation, job submission or automation changes.",
+  "audit_at_utc": "2026-10-17T05:46:29.322055+00:00",
+  "selected_messages_and_manifest_byte_equal_to_source_lines": 1027,
+  "all_2000_train_and_87_val_trajectories_passed_tool_pairing_and_final_submission_checks": true,
+  "original_native_role_error_source_lines_selected": [
+    223,
+    279
+  ],
+  "native_loaded_rows_and_steps": "Unknown until new Swift loader runs; the two preserved original role-error rows may again be removed. No roles or sample content were rewritten.",
+  "candidate_interpretation": "Joint candidate: lower LR plus removal of over-32K complete training trajectories. Not a strict LR-only ablation. Training context limit remains 64K and output limit remains 8K.",
+  "output_files": {
+    "summary.json": {
+      "path": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试/artifacts/data/candidates/swe_low_lr32k_20261017/summary.json",
+      "bytes": 24090
+    },
+    "train.excluded_over_limit.manifest.jsonl": {
+      "path": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试/artifacts/data/candidates/swe_low_lr32k_20261017/train.excluded_over_limit.manifest.jsonl",
+      "bytes": 1492701
+    },
+    "train.manifest.jsonl": {
+      "path": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试/artifacts/data/candidates/swe_low_lr32k_20261017/train.manifest.jsonl",
+      "bytes": 1569919
+    },
+    "val.manifest.jsonl": {
+      "path": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试/artifacts/data/candidates/swe_low_lr32k_20261017/val.manifest.jsonl",
+      "bytes": 14342
+    },
+    "train.row_mapping.jsonl": {
+      "path": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试/artifacts/data/candidates/swe_low_lr32k_20261017/train.row_mapping.jsonl",
+      "bytes": 490642
+    },
+    "val.messages.jsonl": {
+      "path": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试/artifacts/data/candidates/swe_low_lr32k_20261017/val.messages.jsonl",
+      "bytes": 10543360
+    },
+    "train.messages.jsonl": {
+      "path": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试/artifacts/data/candidates/swe_low_lr32k_20261017/train.messages.jsonl",
+      "bytes": 81801893
+    }
+  },
+  "row_mapping": "train.row_mapping.jsonl records each original row and its selected/excluded 1-based row; selected/excluded manifests keep original bytes.",
+  "no_large_file_hashes": true
+}

@@ -1,0 +1,13 @@
+{
+  "source_training_config": "artifacts/runs/swe2k-sft-r16-726335/training_config.json",
+  "data_dir": "artifacts/data/candidates/swe_low_lr32k_20261017",
+  "name": "swe-lr2e5-max32k",
+  "learning_rate": 0.00002,
+  "selection_max_full_sequence_tokens": 32768,
+  "world_size": 4,
+  "selection": "Drop complete training trajectories above the existing full-sequence token threshold; never truncate messages or observations.",
+  "experiment": "Exploratory lower-learning-rate plus long-trajectory filtering; not a learning-rate-only comparison.",
+  "template_policy": "Retain the original non-thinking template and preserve_thinking=false. The separately diagnosed empty-think-shell discrepancy is not changed in this candidate.",
+  "checkpoint_policy": "Train from the original Base, one epoch; retain the final checkpoint without loss-based selection. Do not replace the frozen main experts or AVG64 automatically.",
+  "logging": "Native TensorBoard scalars are training diagnostics only; entropy is not synthesized."
+}

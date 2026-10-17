@@ -1850,3 +1850,14 @@
 建议顺序为扩大真实编码parity→固定输入HF/vLLM/LoRA数值诊断→同一修正模板下1e-4对2e-5受控SWE候选→兼容harness的non-thinking/纠错覆盖→正式测试外的真实任务证据。2e-5只是候选；单样本28token空壳修正仍不证明0/51根因，正常CE/gradnorm不证明质量。正式分数不用于循环挑超参或删专家；若要重新开展可信任务效果比较，需要先明确独立开发任务范围，未擅自恢复此前取消的task-val。
 
 本轮仅调研/文档，未新训练、模型/Judge/API推理、评分、GPU作业、服务改动、正式统计重算、checkpoint/主AVG64/ASI128替换或自动化恢复。所有冻结64K/8K/nonthinking/预算和既有在途保持。仅提交两份owned笔记及本共享日志追加、保留foreign WIP，无coauthor。前一轮fa8fde7已push并同步；TensorBoard本机6006原日志查看继续。
+
+
+## 2026-10-17 13:50 CST：用户授权SWE重训，低LR与长轨迹过滤实际提交
+
+用户明确授权降低LR重训，随后允许筛掉过长轨迹。新候选从原Base重新初始化，峰值LR **2e-5**，整条保留原HF完整序列≤32768的**1027条/23,353,670完整token/5,034,955 assistant输出token**，排除973条；原行bytes/顺序/工具观察/最终提交全部保留，不截断，不把训练max_length从65536调小。原87条held-out仅teacher-forced诊断；没有恢复task-val。源角色错误223/279仍在，实际加载数/步数以后续原生日志为准，预计可能1025。
+
+[执行记录](swe_low_lr32k_execution_20261017.md)：原728711在容器检查阶段1秒FAILED，wrapper将单独--project目录参数误当sandbox，未进入Python/加载模型；只改成原成功脚本相同--project=PATH，保存原源/失败日志/终态，确认旧job退净后13:48:28唯一重提**728713**。13:49:56新job已RUNNING于**ACD1-19、普通acd_u/Nice1000、同节点4H100/24CPU256G/4h**。4-rank命令和原生config已写，原生日志暂空、初始化中，不能称首步完成。当前原727912/727913共4GPU＋新4=**8H100**，无emergency或新服务。
+
+新run `artifacts/runs/swe-lr2e5-max32k-728713/`，唯一control `artifacts/runs/swe_lr2e5_max32k_control_20261017/attempt2/`；已有claim/job，不重复sbatch。独立审阅实际配置与原726335仅7项预期变化：LR、train/val路径、新output/TensorBoard/run_name；原batch8/累积2/r16alpha32/一epoch/cosine/warmup.03/wd.1/非thinking/preserveFalse/ZeRO3/SDPA/grouped_mm/Liger保持，不resume旧adapter。此前空think壳差异此候选未改；联合改变LR和样本/长度/步数，不能声称LR单变量或已修根因。最终checkpoint固定，不按loss选优，不自动替换冻结AVG64/专家。
+
+[筛选记录](swe_low_lr32k_data_20261017.md)含32K/48K/64K分布、原行映射与1027行逐字节检查；HPC基于既有原数据用同脚本重新导出一致计数。原生TensorBoard2.21日志已启用，旧本机6006仍是原五组，未冒称新曲线已同步。原版耗时约2小时，新版待实际吞吐估算。自动化继续删除，既有正式评测与64K/8K协议、ASI128和主AVG64冻结；未新生成正式答卷或Judge评分。仅提交本轮owned与共享日志追加，保留foreign WIP，无coauthor。新bound训练source/config不再同步重写；静态材料和源码版本分别保存，后续先核新原生日志。
