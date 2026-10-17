@@ -22,7 +22,7 @@ from pypdf import PdfReader
 ROOT = Path(__file__).resolve().parents[1]
 ABSTRACT = ('本实验研究以四类任务训练专家，再以参数合版兼顾代码修复、终端交互、学术推理与科研编程。'
             '四个专家和同源混训对照均已完成监督训练，等权平均主模型已经冻结。'
-            '学术专家、混训及合版取得完整学术分数，科研专家本地评分低于基座，不报告总体提升。'
+            '代码修复专家完整评测零通过，科研专家低于基座；学术专家取得提升，不报告总体提升。'
             '实测冲突消解合版的低秩回投影误差较大，已完成完整权重导出。'
             '实验保留资源预算、替代判分和调度差异，损失仅作训练诊断。'
             '后续收齐任务结果、配对区间与最终成本，未决项如实列出。')
@@ -42,7 +42,7 @@ def render(output, font):
     assert 150 <= han_count <= 200
     pdfmetrics.registerFont(TTFont('Chinese', str(font)))
     training = load('configs/train/four_experts_v1.json')
-    formal_receipt = load('analysis/source_snapshots/formal_aggregation_20261017_0727.json')
+    formal_receipt = load('analysis/source_snapshots/formal_aggregation_20261017_1027.json')
     formal = formal_receipt['views']['strict']
     budget_terminal = formal_receipt['views']['audited_terminal_budget']['models']['base']['benchmarks']['terminal']
     merge = load('analysis/source_snapshots/merge_export_20261017.json')
@@ -146,6 +146,10 @@ def render(output, font):
                 row.append('待齐备')
         matrix.append(row)
     table(matrix, [96] + [(width - 96) / 6] * 6, row_height=23)
+    swe_ci = formal['comparisons']['swe249_vs_base']['benchmarks']['swe']['delta_ci95_percent_points']
+    paragraph(f'SWE专家0/51，Base10/51；差-19.608pp，95%CI[{swe_ci["lower"]:.3f},{swe_ci["upper"]:.3f}]。'
+              '专家50份原生判分及1份完整官方测试解析审计；原timeout/null与trap reward1保留。',
+              size=8.1, leading=11.7, color=GRAY, after=2)
     asi_ci = formal['comparisons']['asi128_vs_base']['benchmarks']['asi']['delta_ci95_percent_points']
     paragraph(f'ASI专家0.379%低于Base1.571%，差-1.192pp，配对95%CI[{asi_ci["lower"]:.3f},{asi_ci["upper"]:.3f}]；'
               '均为240条件公开local原生聚合。未评为专家非目标项；四项宏平均与提升仍待齐备，不以部分coverage估分。',
@@ -174,7 +178,7 @@ def render(output, font):
     paragraph('实际统一64K/8K、非thinking；Terminal为30min/4CPU/8GiB，低于原题3h/32CPU/48GB/256K/80K，'
               '尚无例外批准。SWE为30min；HLE/ASI使用披露的替代Judge，ASI为公开local，服务并发差异仍保留。',
               size=8.5, leading=12.3, after=4)
-    paragraph('07:26资源账本：结束227.570 GPUh，在跑6卡暂计18.823 GPUh；API核算15.0291 CNY另0.3283 USD，'
+    paragraph('10:10资源账本：结束227.570 GPUh，在跑6卡暂计35.191 GPUh；API核算15.0291 CNY另0.3283 USD，'
               '含保留reservation、非发票，HPC单价未知。', size=8.1, leading=11.7, color=GRAY, after=3)
     paragraph('已交付：五个Public HF adapter已匿名完整下载核对；Private GitHub已创建并推送默认master。'
               '模型链接与不可变revision见models/README.md。', size=8.5, leading=12.3, after=4)
@@ -186,7 +190,7 @@ def render(output, font):
     pdf.line(margin, 79, page_w - margin, 79)
     footer = [
         '阶段性草稿，不是最终 report.pdf；生成 ' + generated.strftime('%Y-%m-%d %H:%M:%S CST') + '  |  1 / 1',
-        '结果收据：analysis/source_snapshots/formal_aggregation_20261017_0727.json（07:26 CST，strict与预算分开）',
+        '结果收据：analysis/source_snapshots/formal_aggregation_20261017_1027.json（10:26 CST，strict与预算分开）',
         '方法：analysis/merge_method_decision_20261017.md；失败：analysis/avg64_failure_cases_20261017.md',
         '发布收据：analysis/source_snapshots/hf_publication_20261017.json；github_repository_20261017.json',
     ]

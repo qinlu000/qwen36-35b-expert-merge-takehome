@@ -1,5 +1,30 @@
 # 当前进展与未决事项
 
+**10:42唯一等待器已启动**：root与独立审阅通过新版fb5a/8cff及真实route receipt后，10:40:56只启动一次T774 parent**2223041/start870388084**；10:41:47仍waiting_source_or_route、lock_held=false、0native。它只在原AVG ASI全240/pool shutdown/源scope空marker与124–127实际scope排空后领取独立未来租约，native仅124/1CPU4GiB3000s，不碰92–95或Terminal到123的原扩容。当前232保存、8在途，不能释放生成核。route依赖Mac专用84416/control socket，结束无消费者后只关自身route，不能因中途断路自动重跑未知原生结果。
+
+
+**10:39计分更新**：[新strict/预算快照](source_snapshots/formal_aggregation_20261017_1039.json)实际10:38:34，已按三collector指定顺序刷新，root再次通过17人工检查。git-leak seed1 exact native1已显式接入只读overlay，nginx0不变；Terminal专家**177/445有效另5invalid**、AVG**165/445另4invalid**，完整主分及macro仍null、source issues空。SWE专家完整0/51与AVG50/51保持。AVG ASI10:34:45已226/240生成、8在途，科学评分0，未写完成marker。
+
+**T774原站路由已准备**：HPC对AVG自己原IP142.250.73.145唯一HEAD失败，Mac同IP/原URL HEAD200/TLS校验通过；root建立独立Mac ssh84416反向到80 loopback38444，80同URL HEAD也200/TLS0/无正文。route receipt已不可变写出；新driver的reverse识别分支仍待独立审阅，尚无native/claim。仅评分器原站路径，不改变solver禁网、依赖/Go版本、URI或答案，未来仍须等ASI240生成和真实124–127交接。
+
+
+**10:33接续（最新）**：SWE专家全51题已审结，**0/51=0%**；Base10/51=19.607843%，专家−Base差−19.607843pp，配对95%CI[−31.372549,−9.803922]，如实保留负面结果，不据此换checkpoint或主模型。[51任务对照](swe_task_comparison_20261017.md)记录43空patch/8非空；34项有原request明确context_budget_exceeded，17项exit_status缺失记unknown，不倒推全部失败根因。AVG SWE50/51有效、4resolved、1项Teleport7744仍null，完整分未齐。
+
+[追加SWE最终审核](swe_additional_grade_final_review_20261017.md)：两个T2各自原空patch没有实现任务明确要求接口，原生编译到达产品缺项，root分别接受exact native0；并非14个测试均已执行。NodeBB原生3000s超时/null和EXIT-trap reward1保持；原Mocha335调用去重后311个官方required测试完整覆盖，307P2P全PASS、4F2P全FAIL，经原官方parser和Base同类先例显式批准parsed-report审计0。不是native0或通用timeout归零。专家manifest为8项native0+1项完整报告审计，AVG5项native0。cohort1765416已10:15双native空→停guard→双全scope空→解锁，全部源绑定与预算保持。
+
+**Terminal git-leak原答案已获官方5/5通过。** [原生执行](terminal_git_leak_header_mode_recovery_execution_20261017.md)唯一parent2189065/start870321012于10:29:53产出native1/noHarbor，10:29:59完整排空解锁、44绑定未变，root已独立读原result/config/CTRF/73恢复验证及原测试名并接受exact1。此前2152787恢复校验失败、2170741诊断均在官方测试前结束，原null及失败保留。仅将跨路径硬链alias header0644与canonical600冲突的预期权限归到同inode600；不chmod候选、不拆链、其他72项mode/type/hash仍严格。collector正在追加精确只读overlay，原队列和raw null不覆盖。
+
+[10:26双视图](source_snapshots/formal_aggregation_20261017_1027.json)在三collector指定顺序刷新后生成：Terminal专家171/445另6invalid、AVG159/445另4invalid，均部分coverage且早于git-leak接入；source issues空，AVG四项macro仍null。HLE五完整组、ASI专家240完整和TIES2499/1invalid保持。新[Terminal库存](terminal_invalid_inventory_20261017_1030.md)记录reshard等新增异常；专家sanitize-git-repo/seed1与AVG qemu-alpine-ssh/seed1缺最终归档，继续null，未重建候选或答卷。
+
+[AVG T774独立准备](avg64_teleport7744_grade_preparation_20261017.md)已审原IP为142.250.73.145，与旧专家不同；旧38443关闭，尚无新route或native/claim。新prepare-only脚本拟CPU124/1CPU4GiB3000s，独立124–127锁/guard；两Terminal现及全部既有扩容只到123，但124–127仍属AVG ASI生成，必须等240生成完成/worker pool关闭marker与真实scope排空，不能凭瞬空抢占。root尚未批准执行，先核原站TLS路由与独立审阅，不动92–95科学评分或stage2。
+
+当前三个普通acd_u/Nice1000 TP2共**6H100**：727912/727913/727856；没有新增、重建或emergency。AVG ASI10:10保存193/240、8在途，10:22约205/240，科学评分0，原1126014/1126055和28095接续；生成/全CPU marker未齐。future评分仍workers1/global92–95/原runtime和预算，Terminal12/11槽0–91保持。01:10 metadata guard1508852仍唯一等待，不伪造完成marker。
+
+[10:10成本](resource_ledger_20261017.md)结束227.570GPUh、6卡active暂计35.190556，总262.760556；API仍15.029134794CNY另.328327020USD，缺账本unknown。10:18 /data余2,060,775,186,432B，未耗尽。**10:33一页阶段PDF**已加入SWE真实退化及区间，摘要181汉字/199总字符、1页/字体嵌入/缺字0，PNG目视通过；仍非最终report.pdf。
+
+以下09:25及更早记录保留历史，以本轮更新为准。
+
+
 **Terminal离线准备补充**：[git-leak原归档恢复条件](terminal_git_leak_grade_only_preparation_20261017.md)已核50个app成员/46个.git成员，独立副本fsck完整检查rc0且无输出、无外部对象依赖，30来源绑定保持。记录23处精确etc差分和跨路径硬链`/etc/apt/apt.conf.d/01-vendor-ubuntu`→`/app/repo/.git/info/refs`；未来恢复必须保留该拓扑、排除resolver，不能盲恢复全etc。尚无该项driver/claim/native/成绩，先等SWE1765416合法收尾，再准备独立4CPU/8GiB/900秒grader租约；建议2400秒准入余量。
 
 **09:25:51实际原生核验**：恢复cohort三个child1765421/22/23的实际CPU分别92/93/94，各native scope为4GiB/swap0，parent1765416持global锁，guard92–95/32MiB。NodeBB原patch应用成功并进入官方测试；两T2复制原Go缓存，接近4GiB但采样OOM/OOMkill0。已通过原namespace启动阻塞，尚无终态或恢复分数；全部原绑定保持，见[执行收据](swe_additional_short_tmp_recovery_20261017.md)。

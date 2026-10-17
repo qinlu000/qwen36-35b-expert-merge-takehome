@@ -1,0 +1,793 @@
+{
+  "schema_version": 1,
+  "observation_window_utc": [
+    "2026-10-17T02:10:26.900012Z",
+    "2026-10-17T02:10:52.413656+00:00"
+  ],
+  "non_transactional_snapshot": true,
+  "scope": "Read-only metadata and existing JSON/process/cgroup/lock/health inspection. No model/Judge/API-inference/native execution, collector, process/GPU/queue/config/marker changes or lease acquisition.",
+  "source_docs_read": [
+    "claud.md latest09:30",
+    "analysis/current_status_20261017.md latest09:25/terminal-preparation"
+  ],
+  "at_utc": "2026-10-17T02:10:27.038119+00:00",
+  "processes": [
+    {
+      "pid": 1126014,
+      "exists": true,
+      "state": "S",
+      "startticks": "868932987",
+      "affinity": "0-127",
+      "command": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/asi-py312/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/scripts/run_direct_formal_pipeline.py",
+        "--project",
+        "/data/caoqinlu/projects/apex-takehome",
+        "--profile",
+        "merged",
+        "--endpoint",
+        "http://127.0.0.1:28095"
+      ],
+      "children": [
+        1126055
+      ]
+    },
+    {
+      "pid": 1126055,
+      "exists": true,
+      "state": "S",
+      "startticks": "868933000",
+      "affinity": "0-127",
+      "command": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/asi-py312/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/scripts/run_direct_asi_formal.py",
+        "--project",
+        "/data/caoqinlu/projects/apex-takehome",
+        "--model",
+        "apex-avg64",
+        "--endpoint",
+        "http://127.0.0.1:28095",
+        "--key-file",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/private/base_smoke_api_key",
+        "--output",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_asi240_20261017",
+        "--parallel",
+        "8",
+        "--cpu-offset",
+        "96"
+      ],
+      "children": [
+        1126698,
+        1126700,
+        1126703,
+        1126704,
+        1126705,
+        1126706,
+        1126707,
+        1126708,
+        1126709
+      ]
+    },
+    {
+      "pid": 3321991,
+      "exists": true,
+      "state": "S",
+      "startticks": "868018087",
+      "affinity": "0-127",
+      "command": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/hle/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/scripts/release_completed_normal_hle_services.py",
+        "--project",
+        "/data/caoqinlu/projects/apex-takehome"
+      ],
+      "children": []
+    },
+    {
+      "pid": 2945577,
+      "exists": true,
+      "state": "S",
+      "startticks": "867537225",
+      "affinity": "0-127",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/data/caoqinlu/projects/apex-takehome/scripts/normalize_asi_cpu_markers.py",
+        "--project",
+        "/data/caoqinlu/projects/apex-takehome"
+      ],
+      "children": []
+    },
+    {
+      "pid": 489933,
+      "exists": true,
+      "state": "S",
+      "startticks": "868194930",
+      "affinity": "0-127",
+      "command": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py",
+        "--output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017"
+      ],
+      "children": [
+        1932370,
+        1938373,
+        1939090,
+        1943880,
+        1968261,
+        1976049,
+        2053566,
+        2076277,
+        2078798,
+        2090666,
+        2105455,
+        2105936
+      ]
+    },
+    {
+      "pid": 489934,
+      "exists": true,
+      "state": "R",
+      "startticks": "868194945",
+      "affinity": "0-127",
+      "command": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py",
+        "--output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017"
+      ],
+      "children": [
+        1943702,
+        1949442,
+        1951483,
+        1957175,
+        1966197,
+        1968399,
+        2058083,
+        2074131,
+        2086279,
+        2111655,
+        2117050
+      ]
+    },
+    {
+      "pid": 1508852,
+      "exists": true,
+      "state": "S",
+      "startticks": "869510981",
+      "affinity": [
+        10
+      ],
+      "command": [
+        "/usr/bin/python3",
+        "/data/caoqinlu/projects/apex-takehome/scripts/terminal_core_admission_guard_20261017.py",
+        "--project",
+        "/data/caoqinlu/projects/apex-takehome",
+        "--execute"
+      ],
+      "children": []
+    },
+    {
+      "pid": 1765416,
+      "exists": true,
+      "state": "S",
+      "startticks": "869931371",
+      "affinity": [
+        92,
+        93,
+        94,
+        95
+      ],
+      "command": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_additional_grade_only_20261017.py",
+        "--manifest",
+        "/data/caoqinlu/projects/apex-takehome/configs/eval/swe_additional_short_tmp_recovery_20261017.json",
+        "--execute",
+        "--item",
+        "swe249/nodebb",
+        "--item",
+        "swe249/teleport2b",
+        "--item",
+        "avg64/teleport2b"
+      ],
+      "children": [
+        1765417,
+        1765421,
+        1765422,
+        1765423
+      ]
+    }
+  ],
+  "avg_asi": {
+    "global_saved": 193,
+    "started_total": 201,
+    "active_conditions": [
+      "physics.kt_phase_transition_2d_xy_model__seed31415__b2",
+      "physics.kt_phase_transition_2d_xy_model__seed31415__b3",
+      "physics.kt_phase_transition_2d_xy_model__seed31415__b4",
+      "physics.lbm_square_wake__seed31415__b1",
+      "physics.lbm_square_wake__seed31415__b2",
+      "physics.lbm_square_wake__seed31415__b3",
+      "physics.lbm_square_wake__seed31415__b4",
+      "physics.lid_driven_cavity_flow__seed31415__b1"
+    ],
+    "not_admitted_count": 39,
+    "generation_status_counts": {
+      "failed": 180,
+      "completed": 13
+    },
+    "latest_saved": [
+      {
+        "condition": "physics.kt_phase_transition_2d_xy_model__seed31415__b1",
+        "status": "failed",
+        "mtime_utc": "2026-10-17T02:09:22.141502+00:00"
+      },
+      {
+        "condition": "physics.ks_2d_anisotropic__seed31415__b3",
+        "status": "failed",
+        "mtime_utc": "2026-10-17T02:08:34.481890+00:00"
+      },
+      {
+        "condition": "physics.ks_2d_anisotropic__seed31415__b2",
+        "status": "failed",
+        "mtime_utc": "2026-10-17T02:07:04.456513+00:00"
+      }
+    ],
+    "progress": {
+      "completed_conditions": 193,
+      "expected_conditions": 240,
+      "updated_at": "2026-10-17T02:09:22.176370+00:00",
+      "scored": false,
+      "state": "running",
+      "active": [
+        "physics.kt_phase_transition_2d_xy_model__seed31415__b2",
+        "physics.kt_phase_transition_2d_xy_model__seed31415__b3",
+        "physics.kt_phase_transition_2d_xy_model__seed31415__b4",
+        "physics.lbm_square_wake__seed31415__b1",
+        "physics.lbm_square_wake__seed31415__b2",
+        "physics.lbm_square_wake__seed31415__b3",
+        "physics.lbm_square_wake__seed31415__b4",
+        "physics.lid_driven_cavity_flow__seed31415__b1"
+      ]
+    },
+    "session_admitted": 201,
+    "session_completed": 193,
+    "scientific_condition_files": 0,
+    "scientific_condition_status_counts": {},
+    "scientific_report": null,
+    "generation_summary": {},
+    "generation_cpu_finished": null,
+    "all_cpu_consumers_finished": null
+  },
+  "pipeline": {
+    "state.json": {
+      "state": "asi_generation",
+      "pid": 1126055,
+      "at_utc": "2026-10-16T22:38:25.985909+00:00"
+    },
+    "controller.json": {
+      "pid": 1126014,
+      "profile": "merged",
+      "endpoint": "http://127.0.0.1:28095",
+      "aliases": {
+        "asi": "apex-avg64",
+        "hle": "apex-avg64"
+      },
+      "at_utc": "2026-10-16T22:38:25.983388+00:00",
+      "state": "waiting_service",
+      "external_hle_controller": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/controller"
+    },
+    "asi_score_launch.json": null
+  },
+  "project_scopes_92_127": {
+    "0::/user.slice/user-1012.slice/user@1012.service/app.slice/apex-baseline-swe-additional-1765416.scope": {
+      "pids": [
+        1765417
+      ],
+      "affinities": {
+        "1765417": [
+          92,
+          93,
+          94,
+          95
+        ]
+      },
+      "resources": {
+        "memory.max": "33554432",
+        "memory.swap.max": "0",
+        "memory.current": "200704",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+      }
+    },
+    "0::/user.slice/user-1012.slice/user@1012.service/app.slice/apex-baseline-649dae5c3168.scope": {
+      "pids": [
+        1765500,
+        1765564,
+        1765598,
+        1765616,
+        1765698,
+        1765711,
+        1765718,
+        1766546,
+        1766547,
+        1766548,
+        1767377,
+        1767379,
+        1767387,
+        1767401,
+        1767402
+      ],
+      "affinities": {
+        "1765500": [
+          92
+        ],
+        "1765564": [
+          92
+        ],
+        "1765598": [
+          92
+        ],
+        "1765616": [
+          92
+        ],
+        "1765698": [
+          92
+        ],
+        "1765711": [
+          92
+        ],
+        "1765718": [
+          92
+        ],
+        "1766546": [
+          92
+        ],
+        "1766547": [
+          92
+        ],
+        "1766548": [
+          92
+        ],
+        "1767377": [
+          92
+        ],
+        "1767379": [
+          92
+        ],
+        "1767387": [
+          92
+        ],
+        "1767401": [
+          92
+        ],
+        "1767402": [
+          92
+        ]
+      },
+      "resources": {
+        "memory.max": "4294967296",
+        "memory.swap.max": "0",
+        "memory.current": "782110720",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+      }
+    }
+  },
+  "matching_processes": {
+    "run_direct_formal_pipeline.py": [
+      {
+        "pid": 1126014,
+        "startticks": "868932987",
+        "child": false
+      }
+    ],
+    "run_direct_asi_formal.py": [
+      {
+        "pid": 1126055,
+        "startticks": "868933000",
+        "child": false
+      }
+    ],
+    "terminal_core_admission_guard_20261017.py": [
+      {
+        "pid": 1508852,
+        "startticks": "869510981",
+        "child": false
+      }
+    ],
+    "run_swe_additional_grade_only_20261017.py": [
+      {
+        "pid": 1765416,
+        "startticks": "869931371",
+        "child": false
+      },
+      {
+        "pid": 1765421,
+        "startticks": "869931534",
+        "child": true
+      }
+    ]
+  },
+  "global_lock": {
+    "path": "artifacts/eval/direct_asi_grader_cpu92_95.lock",
+    "inode": 90775088,
+    "device_inode": "08:11:90775088",
+    "proc_lock_lines": [
+      "114: FLOCK  ADVISORY  WRITE 1765416 08:11:90775088 0 EOF"
+    ]
+  },
+  "terminals": {
+    "terminal250_full445_20261017": {
+      "checkpoint": {
+        "updated_at_utc": "2026-10-17T02:10:24.945307+00:00",
+        "pid": 489933,
+        "state": "running",
+        "leased_cpu_offsets": [
+          0,
+          4,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48
+        ],
+        "max_parallel_tasks": 12,
+        "valid_scored": 163,
+        "infrastructure_unscored_finished": 6
+      },
+      "active": 12,
+      "pending": 264,
+      "terminal": 169,
+      "asi_expansion": null,
+      "STOP_ADMISSION_exists": false,
+      "runtime_source_sha256": "20fbbfd02e77c24d4bbffcb6e8f74e85757bdd715f6cae2b6c1296f68b267b5c"
+    },
+    "avg64_terminal_full445_20261017": {
+      "checkpoint": {
+        "updated_at_utc": "2026-10-17T02:10:27.254759+00:00",
+        "pid": 489934,
+        "state": "running",
+        "leased_cpu_offsets": [
+          8,
+          52,
+          56,
+          60,
+          64,
+          68,
+          72,
+          76,
+          80,
+          84,
+          88
+        ],
+        "max_parallel_tasks": 11,
+        "valid_scored": 154,
+        "infrastructure_unscored_finished": 4
+      },
+      "active": 11,
+      "pending": 276,
+      "terminal": 158,
+      "asi_expansion": null,
+      "STOP_ADMISSION_exists": false,
+      "runtime_source_sha256": "20fbbfd02e77c24d4bbffcb6e8f74e85757bdd715f6cae2b6c1296f68b267b5c"
+    }
+  },
+  "cutoff": {
+    "claim": {
+      "pid": 1508852,
+      "startticks": "869510981",
+      "cutoff": "2026-10-18T01:10:00+08:00",
+      "script_sha256": "91b262ff2798739ca5c0dabd30050815cfdac7e30f4cef4cc2e8df1f8227eaac"
+    },
+    "state": {
+      "at_utc": "2026-10-17T02:10:22.584626+00:00",
+      "state": "waiting_cutoff",
+      "pid": 1508852,
+      "terminal_counts": [
+        169,
+        158
+      ],
+      "active_counts": [
+        12,
+        11
+      ],
+      "pending_counts": [
+        264,
+        276
+      ]
+    },
+    "source_sha256": "91b262ff2798739ca5c0dabd30050815cfdac7e30f4cef4cc2e8df1f8227eaac"
+  },
+  "swe_cohort": {
+    "path": "artifacts/recovery/swe-additional-short-tmp-20261017/cohort-attempt1",
+    "parent_state": {
+      "pid": 1765416,
+      "startticks": "869931371",
+      "state": "native_running",
+      "lock_held": true,
+      "children": {
+        "swe249/nodebb": {
+          "pid": 1765421,
+          "startticks": "869931534",
+          "physical_cpu": 92,
+          "output": "artifacts/recovery/swe-additional-short-tmp-20261017/swe249/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/attempt1"
+        },
+        "swe249/teleport2b": {
+          "pid": 1765422,
+          "startticks": "869931534",
+          "physical_cpu": 93,
+          "output": "artifacts/recovery/swe-additional-short-tmp-20261017/swe249/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/attempt1"
+        },
+        "avg64/teleport2b": {
+          "pid": 1765423,
+          "startticks": "869931535",
+          "physical_cpu": 94,
+          "output": "artifacts/recovery/swe-additional-short-tmp-20261017/avg64/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/attempt1"
+        }
+      },
+      "model_calls": 0,
+      "at_utc": "2026-10-17T01:24:51.328108+00:00",
+      "guard_observed": {
+        "unit": "apex-baseline-swe-additional-1765416.scope",
+        "affinities": {
+          "1765417": [
+            92,
+            93,
+            94,
+            95
+          ]
+        },
+        "memory_max_bytes": 33554432,
+        "memory_swap_max_bytes": 0
+      }
+    }
+  },
+  "service_28095": {
+    "health_status": 200,
+    "metrics_status": 200,
+    "request_metrics": [
+      "vllm:num_requests_running{engine=\"0\",model_name=\"apex-direct-base\"} 8.0",
+      "vllm:num_requests_waiting{engine=\"0\",model_name=\"apex-direct-base\"} 0.0",
+      "vllm:num_requests_waiting_by_reason{engine=\"0\",model_name=\"apex-direct-base\",reason=\"capacity\"} 0.0",
+      "vllm:num_requests_waiting_by_reason{engine=\"0\",model_name=\"apex-direct-base\",reason=\"deferred\"} 0.0"
+    ]
+  },
+  "fixed_asi_audited": {
+    "path": "artifacts/eval/asi128_asi240_20261017/audited/local_score_seed31415.json",
+    "sha256": "625510f2df933e22d3c25ab18ac96b570952270b7674ecd5bca536bfa270816b",
+    "matches_frozen_sha": true,
+    "metadata": {
+      "complete": true,
+      "expected_instance_count": 240,
+      "instance_count": 240,
+      "scored_instance_count": 240,
+      "scorer_error_count": 0,
+      "pending_count": 0,
+      "mean_percent": 0.37899138191421416,
+      "total_score": 90.95793165941141,
+      "total_max_score": 24000
+    },
+    "collector_executed": false
+  },
+  "expert_all_cpu_marker": {
+    "state": "finished",
+    "at_utc": "2026-10-16T22:21:42.083374+00:00",
+    "generation_conditions": 240,
+    "generation_cpu_sets": [
+      [
+        96,
+        97,
+        98,
+        99
+      ],
+      [
+        100,
+        101,
+        102,
+        103
+      ],
+      [
+        104,
+        105,
+        106,
+        107
+      ],
+      [
+        108,
+        109,
+        110,
+        111
+      ],
+      [
+        112,
+        113,
+        114,
+        115
+      ],
+      [
+        116,
+        117,
+        118,
+        119
+      ],
+      [
+        120,
+        121,
+        122,
+        123
+      ],
+      [
+        124,
+        125,
+        126,
+        127
+      ]
+    ],
+    "grader_cpus": [
+      92,
+      93,
+      94,
+      95
+    ],
+    "grader_process_exitcode": 0,
+    "grader_complete": false,
+    "scorer_error_count": 1,
+    "generation_worker_pool_shutdown": true,
+    "grader_process_finished": true,
+    "active_program_scopes": [],
+    "all_cpu_consumers_finished": true,
+    "normalized_at": "2026-10-16T22:21:50.506207+00:00",
+    "normalization_source": {
+      "script": "scripts/normalize_asi_cpu_markers.py",
+      "reason": "Derived synonymous bool for already-running Terminal expansion gates.",
+      "required_original_fields": {
+        "state": "finished",
+        "generation_worker_pool_shutdown": true,
+        "grader_process_finished": true,
+        "active_program_scopes": [],
+        "generation_conditions": 240
+      },
+      "original_snapshot": "artifacts/eval/asi-cpu-marker-normalization-20261017/asi128_asi240_20261017.original.json"
+    }
+  },
+  "ordinary_gpu_jobs": [
+    {
+      "JobId": "727912",
+      "JobName": "apex-term-acdu-20261017",
+      "JobState": "RUNNING",
+      "Partition": "acd_u",
+      "Nice": "1000",
+      "NodeList": "ACD1-22",
+      "StartTime": "2026-10-17T04:26:28",
+      "EndTime": "2026-10-18T02:01:28",
+      "TresPerNode": "gres/gpu:2",
+      "AllocTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2"
+    },
+    {
+      "JobId": "727913",
+      "JobName": "apex-avgexec-acdu-20261017",
+      "JobState": "RUNNING",
+      "Partition": "acd_u",
+      "Nice": "1000",
+      "NodeList": "ACD1-22",
+      "StartTime": "2026-10-17T04:26:28",
+      "EndTime": "2026-10-18T02:09:28",
+      "TresPerNode": "gres/gpu:2",
+      "AllocTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2"
+    },
+    {
+      "JobId": "727856",
+      "JobName": "apex-hle-normal-merged",
+      "JobState": "RUNNING",
+      "Partition": "acd_u",
+      "Nice": "1000",
+      "NodeList": "ACD1-20",
+      "StartTime": "2026-10-17T04:02:33",
+      "EndTime": "2026-10-18T02:19:33",
+      "TresPerNode": "gres/gpu:2",
+      "AllocTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2"
+    }
+  ],
+  "complete_user_squeue": [
+    "727912|apex-term-acdu-20261017|RUNNING|acd_u|gres/gpu:2|ACD1-22",
+    "727913|apex-avgexec-acdu-20261017|RUNNING|acd_u|gres/gpu:2|ACD1-22",
+    "727856|apex-hle-normal-merged|RUNNING|acd_u|gres/gpu:2|ACD1-20"
+  ],
+  "gpu_count": 6,
+  "swe_children_followup": {
+    "at_utc": "2026-10-17T02:10:52.413656+00:00",
+    "swe_children": [
+      {
+        "pid": 1765421,
+        "exists": true,
+        "state": "S",
+        "startticks": "869931534",
+        "affinity": [
+          92
+        ]
+      },
+      {
+        "pid": 1765422,
+        "exists": true,
+        "state": "Z",
+        "startticks": "869931534",
+        "affinity": [
+          93
+        ]
+      },
+      {
+        "pid": 1765423,
+        "exists": true,
+        "state": "Z",
+        "startticks": "869931535",
+        "affinity": [
+          94
+        ]
+      }
+    ]
+  },
+  "derived": {
+    "avg_asi_progress_vs_0910": {
+      "saved_then": 132,
+      "saved_now": 193,
+      "increase": 61
+    },
+    "avg_asi_active_count": 8,
+    "saved_waiting_for_scientific_scoring": 193,
+    "total_scientific_pending": 240,
+    "actual_scientific_grader_started": false,
+    "actual_grader_runtime_workers_caps": "not observed: original scientific grader has not launched",
+    "frozen_future_grader_contract": {
+      "source": "scripts/run_direct_formal_pipeline.py",
+      "exclusive_lock": "artifacts/eval/direct_asi_grader_cpu92_95.lock",
+      "cpu_ids": [
+        92,
+        93,
+        94,
+        95
+      ],
+      "workers": 1,
+      "max_generation_calls": 396,
+      "max_cny": 20,
+      "condition_timeout_seconds": 7200,
+      "launch_requires_generation_exit_and_generation_cpu_finished": true,
+      "no_new_grader_launched_by_this_audit": true
+    },
+    "terminal_stage2_currently_open": false,
+    "normalizer_still_alive": true,
+    "cutoff_identity_and_source_match_claim": true,
+    "cutoff_unique": true,
+    "no_duplicate_direct_coordinator_or_generator_found": true,
+    "swept_92_95_lease": {
+      "owner_pid": 1765416,
+      "lock_inode": 90775088,
+      "guard_affinity": [
+        92,
+        93,
+        94,
+        95
+      ],
+      "guard_memory_bytes": 33554432,
+      "native_nodebb_affinity": [
+        92
+      ],
+      "native_memory_bytes": 4294967296,
+      "swap_bytes": 0,
+      "swe_t2_children_zombies_not_active_native_scopes": [
+        1765422,
+        1765423
+      ]
+    },
+    "gen_cpu_pool_reserved": "96-127, until the original generation pool producer emits completion after drain; instantaneous absence of a native scope is not a release.",
+    "no_current_terminal_stage2_or_avg_grader_overlap_observed": true
+  },
+  "limitations": [
+    "No ETA or scientific score is inferred from generation completed/failed states.",
+    "SWE child zombie/termination metadata does not decide native score validity; no reward was read for this audit.",
+    "Future grader runtime and caps must be checked from its actual launch when it exists; this snapshot records only the frozen existing contract.",
+    "HLE/TIES results/parser/compact rules were not changed or rejudged; released endpoints were not rebuilt."
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "captured_at_utc": "2026-10-17T02:28:25.381972+00:00",
+  "status": "exact_header_mode_recovery_prepared_not_executed",
+  "preflight": {
+    "at_utc": "2026-10-17T02:28:25.374570+00:00",
+    "mode": "exact_header_mode_recovery_prepare_only",
+    "namespace_control_socket_bytes": 58,
+    "source_bindings_verified": 42,
+    "terminal_has_grader_lease": false,
+    "script_sha256": "a13001baf6656973a9553d78a0b107ca36ee5035023c48992ce02dca18c5b447",
+    "manifest_sha256": "e56b4e8327ba748d72f37e77bce1ec8c46dec1ee85b633087720f34dc90494c0",
+    "frozen_parent_sha256": "e0ad3fb1a72dc5a9db597611de3cd8ac8690ab9a61c33f212a9c13c1ce71da6c",
+    "restore": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-header-mode-recovery-20261017/prepared/restore.json",
+      "sha256": "21b88d338071b430a956c0e96f42c0b74218fc8e93aecd0fd9457652dba9f09a"
+    },
+    "commands0_1_identical_to_frozen_restore": true,
+    "all73_members_strictly_checked": true,
+    "exact_alias_uses_regular_target_mode0600": true,
+    "candidate_chmod_or_hardlink_split": false,
+    "priority_swe_drained": true,
+    "priority_asi_ready_for_grader": false,
+    "execution_claim_created": false,
+    "guard_created": false,
+    "shared_lock_acquired": false,
+    "native_started": false,
+    "model_calls": 0,
+    "new_api_calls": 0
+  },
+  "tiny_fixture": {
+    "started_at_utc": "2026-10-17T02:28:25.068175+00:00",
+    "finished_at_utc": "2026-10-17T02:28:25.325891+00:00",
+    "source": "synthetic 73-member metadata-compatible tree; every regular file contains only synthetic fixture text; no original contents, candidate execution, task tests or container",
+    "original_conflicting_header_strict_red": true,
+    "canonical_header_strict_green": true,
+    "all73_members_verified": true,
+    "wrong_target_mapping_red": true,
+    "wrong_regular_header_mode_red": true,
+    "wrong_actual_inode_mode_red": true,
+    "wrong_archive_sha_red": true
+  },
+  "normalization_scope": {
+    "key": "git-leak-recovery/seed1",
+    "archive_sha256": "1f8863211b0189c011fdd1bf39717c8ec9481a273c7e66ee45267b68c2b7dffd",
+    "alias": "/etc/apt/apt.conf.d/01-vendor-ubuntu",
+    "raw_alias_mode": "0o644",
+    "regular_target": "/app/repo/.git/info/refs",
+    "canonical_mode": "0o600",
+    "candidate_chmod": false,
+    "hardlink_split": false,
+    "other72_raw_modes_unchanged": true,
+    "all73_type_content_link_checks_retained": true
+  },
+  "no_execution": {
+    "attempt_directory_exists": false,
+    "execution_claim_created": false,
+    "guard_created": false,
+    "shared_lock_acquired": false,
+    "native_started": false,
+    "official_verifier_started": false,
+    "model_calls": 0,
+    "new_api_calls": 0
+  }
+}

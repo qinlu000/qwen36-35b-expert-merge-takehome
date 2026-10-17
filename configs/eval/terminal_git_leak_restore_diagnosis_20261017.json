@@ -1,0 +1,272 @@
+{
+  "key": "git-leak-recovery/seed1",
+  "model": "apex-terminal250",
+  "seed": 1,
+  "task_checksum": "da0aeda47b324bff84c67faa3d8bed3b3b5f1200e3b17cecbc7dc8f802fd366a",
+  "original_result": "artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/result.json",
+  "archive": "artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/artifacts/logs/artifacts/final-task-state.tar",
+  "snapshot": "artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/artifacts/logs/artifacts/final-task-state.json",
+  "static_receipt": "artifacts/recovery/terminal250-git-leak-seed1-preparation-20261017/preparation.json",
+  "sif_tag": "artifacts/benchmarks/sif/alexgshaw_git-leak-recovery_20251031.sif",
+  "sif_resolved": "artifacts/benchmarks/sif/sha256-62160e522a4238b8bcd522411ea97b5b200f811e5899d34947e66809bef7e586.sif",
+  "sif_size_bytes": 92987392,
+  "sif_mtime_ns": "1792079169674202869",
+  "runtime": "artifacts/eval/terminal250_full445_20261017/runtime",
+  "output": "artifacts/recovery/terminal250-git-leak-seed1-restore-diagnosis-20261017",
+  "host_tmpdir": "/data/caoqinlu/tg1",
+  "shared_lock": "artifacts/eval/direct_asi_grader_cpu92_95.lock",
+  "priority_swe_state": "artifacts/recovery/swe-additional-short-tmp-20261017/cohort-attempt1/parent-state.json",
+  "priority_asi_generation_marker": "artifacts/eval/avg64_asi240_20261017/generation_cpu_finished.json",
+  "priority_asi_all_cpu_marker": "artifacts/eval/avg64_asi240_20261017/all_cpu_consumers_finished.json",
+  "cpu_ids": [
+    92,
+    93,
+    94,
+    95
+  ],
+  "logical_cpu_offset": 0,
+  "memory_mib": 8192,
+  "verifier_seconds": 900,
+  "core_deadline": "2026-10-18T02:20:00+08:00",
+  "minimum_runway_seconds": 2400,
+  "etc_delta": [
+    {
+      "path": "/etc/apt/apt.conf.d/01-vendor-ubuntu",
+      "change": "added_or_changed",
+      "candidate_kind": "hardlink",
+      "candidate_mode": "0o644",
+      "candidate_bytes": 0,
+      "candidate_link_target": "app/repo/.git/info/refs",
+      "candidate_content_sha256": "e6b8dbb3ef476e33a3d09b0f160bb5cf36f683a820f80c03cb25ad79ad43b5bc",
+      "same_sif_content_sha256": "364d5eeac5475b7dddfd629899ea88b91ed8d8e8e319c29bb9dbd6772e87ed55"
+    },
+    {
+      "path": "/etc/apt/apt.conf.d/99-apex-rootmap",
+      "change": "added_or_changed",
+      "candidate_kind": "file",
+      "candidate_mode": "0o600",
+      "candidate_bytes": 27,
+      "candidate_content_sha256": "3abdae1e98cd78a24d4de9f6707f611d21b8495a8f04228dda69c9d69f62d7b3"
+    },
+    {
+      "path": "/etc/apt/sources.list",
+      "change": "added_or_changed",
+      "candidate_kind": "file",
+      "candidate_mode": "0o644",
+      "candidate_bytes": 400,
+      "candidate_content_sha256": "37812058502d188a5521356cbd670e2a8994978a75200b5b7cf2be9ad050bcad",
+      "same_sif_content_sha256": "8ce6407d5487bed332b5fcb4aab26dacf3f516d811c26792efb0c67f06f1958b"
+    },
+    {
+      "path": "/etc/dpkg",
+      "change": "added_or_changed",
+      "candidate_kind": "dir",
+      "candidate_mode": "0o700",
+      "candidate_bytes": 0
+    },
+    {
+      "path": "/etc/dpkg/dpkg.cfg",
+      "change": "added_or_changed",
+      "candidate_kind": "file",
+      "candidate_mode": "0o600",
+      "candidate_bytes": 446,
+      "candidate_content_sha256": "fead43b89af3ea5691c48f32d7fe1ba0f7ab229fb5d230f612d76fe8e6f5a015",
+      "same_sif_content_sha256": "fead43b89af3ea5691c48f32d7fe1ba0f7ab229fb5d230f612d76fe8e6f5a015"
+    },
+    {
+      "path": "/etc/dpkg/dpkg.cfg.d",
+      "change": "added_or_changed",
+      "candidate_kind": "dir",
+      "candidate_mode": "0o700",
+      "candidate_bytes": 0
+    },
+    {
+      "path": "/etc/dpkg/dpkg.cfg.d/docker-apt-speedup",
+      "change": "added_or_changed",
+      "candidate_kind": "file",
+      "candidate_mode": "0o600",
+      "candidate_bytes": 16,
+      "candidate_content_sha256": "94372f4a7672c283c0fe956b0638ec8731e21584d880ba782a1a338b906caeb1",
+      "same_sif_content_sha256": "94372f4a7672c283c0fe956b0638ec8731e21584d880ba782a1a338b906caeb1"
+    },
+    {
+      "path": "/etc/dpkg/dpkg.cfg.d/excludes",
+      "change": "added_or_changed",
+      "candidate_kind": "file",
+      "candidate_mode": "0o600",
+      "candidate_bytes": 364,
+      "candidate_content_sha256": "61159013263411a7c7a4157a6ddcd4eca3329ee698e508850070af11338098db",
+      "same_sif_content_sha256": "61159013263411a7c7a4157a6ddcd4eca3329ee698e508850070af11338098db"
+    },
+    {
+      "path": "/etc/dpkg/dpkg.cfg.d/singularity-compat",
+      "change": "added_or_changed",
+      "candidate_kind": "file",
+      "candidate_mode": "0o600",
+      "candidate_bytes": 52,
+      "candidate_content_sha256": "4c4b0754d31bd9f0a3f3f446334426d6f4d4402bb7ae35dfc9c121a1aa504bde"
+    },
+    {
+      "path": "/etc/dpkg/origins",
+      "change": "added_or_changed",
+      "candidate_kind": "dir",
+      "candidate_mode": "0o700",
+      "candidate_bytes": 0
+    },
+    {
+      "path": "/etc/dpkg/origins/debian",
+      "change": "added_or_changed",
+      "candidate_kind": "file",
+      "candidate_mode": "0o600",
+      "candidate_bytes": 83,
+      "candidate_content_sha256": "bd81f9756beb90195877d808492a55d66c7155b1017679ced60fb278d378b55a",
+      "same_sif_content_sha256": "bd81f9756beb90195877d808492a55d66c7155b1017679ced60fb278d378b55a"
+    },
+    {
+      "path": "/etc/dpkg/origins/default",
+      "change": "added_or_changed",
+      "candidate_kind": "file",
+      "candidate_mode": "0o600",
+      "candidate_bytes": 114,
+      "candidate_content_sha256": "d2537b95a64d238223bd22c18cab773379359d078d495ed212f28b1ac139662d"
+    },
+    {
+      "path": "/etc/dpkg/origins/ubuntu",
+      "change": "added_or_changed",
+      "candidate_kind": "file",
+      "candidate_mode": "0o600",
+      "candidate_bytes": 114,
+      "candidate_content_sha256": "d2537b95a64d238223bd22c18cab773379359d078d495ed212f28b1ac139662d",
+      "same_sif_content_sha256": "d2537b95a64d238223bd22c18cab773379359d078d495ed212f28b1ac139662d"
+    },
+    {
+      "path": "/etc/inputrc",
+      "change": "added_or_changed",
+      "candidate_kind": "file",
+      "candidate_mode": "0o644",
+      "candidate_bytes": 1875,
+      "candidate_content_sha256": "efd629d8b3569cf2bdeac6586ffde95e6e277df85142753dc3a1629c657b87b1"
+    },
+    {
+      "path": "/etc/ld.so.cache",
+      "change": "added_or_changed",
+      "candidate_kind": "file",
+      "candidate_mode": "0o644",
+      "candidate_bytes": 7279,
+      "candidate_content_sha256": "d79c88d8809eb176fa43dcca9e2d3ce81a35065ba4c56a4f3e69efea1ef48817",
+      "same_sif_content_sha256": "434d8a402d63554ecb3b151da11fff2a7fdfacb3d49a3fe1dce5b09404ec0e40"
+    },
+    {
+      "path": "/etc/localtime",
+      "change": "added_or_changed",
+      "candidate_kind": "symlink",
+      "candidate_mode": "0o777",
+      "candidate_bytes": 0,
+      "candidate_link_target": "/usr/share/zoneinfo/Etc/UTC"
+    },
+    {
+      "path": "/etc/mime.types",
+      "change": "added_or_changed",
+      "candidate_kind": "file",
+      "candidate_mode": "0o644",
+      "candidate_bytes": 75113,
+      "candidate_content_sha256": "ff550bea7258b481ed07b7301a658d253bbbfd6c8ed2faca73ba7152a68406f9"
+    },
+    {
+      "path": "/etc/python3",
+      "change": "added_or_changed",
+      "candidate_kind": "dir",
+      "candidate_mode": "0o755",
+      "candidate_bytes": 0
+    },
+    {
+      "path": "/etc/python3.12",
+      "change": "added_or_changed",
+      "candidate_kind": "dir",
+      "candidate_mode": "0o755",
+      "candidate_bytes": 0
+    },
+    {
+      "path": "/etc/python3.12/sitecustomize.py",
+      "change": "added_or_changed",
+      "candidate_kind": "file",
+      "candidate_mode": "0o644",
+      "candidate_bytes": 155,
+      "candidate_content_sha256": "43d81125d92376b1a69d53a71126a041cc9a18d8080e92dea0a2ae23be138b1e"
+    },
+    {
+      "path": "/etc/python3/debian_config",
+      "change": "added_or_changed",
+      "candidate_kind": "file",
+      "candidate_mode": "0o644",
+      "candidate_bytes": 94,
+      "candidate_content_sha256": "baac6583459b290d3714e18439036d023402dce99f922d1b414fbd15a5b01744"
+    },
+    {
+      "path": "/etc/shells",
+      "change": "added_or_changed",
+      "candidate_kind": "file",
+      "candidate_mode": "0o644",
+      "candidate_bytes": 132,
+      "candidate_content_sha256": "f119f9c82a0dd20c224c7b7e957157fb6ca8e564e4238748275d4087a101258d",
+      "same_sif_content_sha256": "7c3c5b8e005446bad0b8f5ba8a121a9a0501c8dc417510871a0097d2ca329755"
+    },
+    {
+      "path": "/etc/timezone",
+      "change": "added_or_changed",
+      "candidate_kind": "file",
+      "candidate_mode": "0o644",
+      "candidate_bytes": 8,
+      "candidate_content_sha256": "f0dcac7b1d721d2f68937a71f0229b4c4f88564fd711339951528889913cd85d"
+    }
+  ],
+  "source_sha256": {
+    "artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/result.json": "cb48b18ec0d4df51783385f475970120cc3a43932afbc6e7660dfc42314440ca",
+    "artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/config.json": "6257eb4c685891a50ec8a627f69dcbc81447b28a9bcc75ac5c1155a2ad3c3371",
+    "artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/artifacts/logs/artifacts/final-task-state.tar": "1f8863211b0189c011fdd1bf39717c8ec9481a273c7e66ee45267b68c2b7dffd",
+    "artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/artifacts/logs/artifacts/final-task-state.json": "9ccbc62dae3761a3d4a7b3f95f13b7d9497b86a1862e7404d849c100adacec8c",
+    "artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/trial.log": "265c57461a6db69c3af4cb529ec5f385b023b8d2baa12f9aa7b0b568bbeca417",
+    "artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/agent/trajectory.json": "be88be9f92735574e6aaf8b7e7cfd7a725a55f9dce47b042dc963bb84efdf175",
+    "artifacts/results/base-terminal-v2-724242-r2/tasks/git-leak-recovery/task.toml": "3eca5fbd4d0dd2b5710d616f9303605666971983965e97ba14b2c6ef85abdb71",
+    "artifacts/results/base-terminal-v2-724242-r2/tasks/git-leak-recovery/instruction.md": "54ac693fd26a4c003f610d62c4b2671f1d1d04ac5b1286f780605e385a9a5861",
+    "artifacts/results/base-terminal-v2-724242-r2/tasks/git-leak-recovery/environment/Dockerfile": "006bf5d2e3502a059f9a87bc855a7f85d6c40c67bf8a523dd3f1e9c6f64cc112",
+    "artifacts/results/base-terminal-v2-724242-r2/tasks/git-leak-recovery/tests/test.sh": "4770437ea96c3cc84684b4f99d55fb148fcac09f9ea1e8ef49de487716e6c334",
+    "artifacts/results/base-terminal-v2-724242-r2/tasks/git-leak-recovery/tests/test_outputs.py": "dc7b01c1b9dbb0c123def54b146dc1dd399a600edee5970d043a5db5eac4c775",
+    "artifacts/eval/terminal250_full445_20261017/runtime/source_inventory.json": "f2a686cce00d6912af64d2396c690439a9c1c8613e061a80a4a941a50093c956",
+    "artifacts/eval/terminal250_full445_20261017/runtime/scripts/baseline_singularity.py": "4c01b92729d94cb4ea700edd2dc79dc857ec378374459930aba00e53907b6532",
+    "artifacts/eval/terminal250_full445_20261017/runtime/scripts/baseline_netns.py": "09303db588a5b15f95116a679140af7eb4ad0b7dfb24d52d033c1d81e3990a23",
+    "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_repair_environment_v2.py": "3f436e877a1fd4019a39d4ea33a4f24f10fd3f9c25d6ec30c2fabac0b7194450",
+    "artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_repair_grade_v2.py": "a65c7868a2455b0dec80c33c6b5d3552310dc829b4789314d8be0cbe92dc8439",
+    "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_repair_agent_v2.py": "a206fe07f07ec9578bdaaafb1b64dfccdeb4ffe8147bef6c137857cd081b6b95",
+    "artifacts/eval/terminal250_full445_20261017/runtime/scripts/baseline_exec_limits.py": "540f46a4b2b2b0d5a417f4b7ff99c309c6d2417c3e463f44b7df2af17d605757",
+    "artifacts/eval/terminal250_full445_20261017/runtime/scripts/asi_baseline_limits.py": "1a32b603cb4ff3594f32d16560045ab3b462b15cccf6d08b1eaa9e2c7db9279f",
+    "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_native_environment.py": "a0f92b41f9c834927bfb50a32265b2262dcab53fab117ce5b00695e00c927b1f",
+    "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_verifier_evidence.py": "942b7e2e8aedec5e00c3ab394f57f03b99223704cffd98b89bf6351ecb32707c",
+    "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_verifier_environment.py": "e8761afcdedf1fdcbd14e02281de1f91fa2960d7de1675fdac65e4e21efe72fc",
+    "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_verifier_apt_environment.py": "c04e8e789f4effb9b6b623938b245bd1448c2e8e8b0a0ed02ff5291f122adfd0",
+    "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_verifier_curl.py": "3a7baeed1cb848b8657de3745bf4aae13ecb810d171c2bfecd411edeef4ae9e8",
+    "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_recovery_v2.py": "1490a87bad544b69ee6cb9fbb12e611080888bd51323b1f3369a7d8cd8866379",
+    "artifacts/benchmarks/harbor/src/harbor/trial/trial.py": "3bb2c0b9dd7553022ba98da96ef5188abc27e2c8475ac949d541f47c5d86ecc6",
+    "artifacts/benchmarks/harbor/src/harbor/verifier/verifier.py": "6d3d9ed8882c5e07bae4aa6449732b096166fb9bbabc685b39c0e25f57b20aa9",
+    "artifacts/benchmarks/harbor/src/harbor/environments/singularity/singularity.py": "86e826120a375c006693c6bab6f238a80bcaae85de08d18f54c458da7728f62b",
+    "artifacts/benchmarks/harbor/src/harbor/environments/factory.py": "fba3de9630e350084c773e991e8e507abaa2815544028fe29c86f072c969dc37",
+    "artifacts/benchmarks/harbor/src/harbor/models/trial/config.py": "829d4dbd802ce913ccb1f29f149f5ad83ebb52d6c5e0fb1fb9456790f266f4c2",
+    "scripts/run_terminal_native_gap_queue_20261017.py": "0cf19a9b8b5b4e3f661c2087678777635f43b859177b095c5157dee18c21a4ab",
+    "artifacts/recovery/terminal250-git-leak-seed1-preparation-20261017/preparation.json": "032bc448ea306b16ff32750be117a022bc6f9b2c3838b0d4df28ff006752c1eb",
+    "artifacts/tools/terminal_verifier_offline_20261016/task_cache_map.json": "7d9624f74f84b799e1865d7a920bfecbedc245291a4f1401fdf99bcb8fcbcb6d",
+    "scripts/run_terminal_git_leak_grade_only_20261017.py": "e0ad3fb1a72dc5a9db597611de3cd8ac8690ab9a61c33f212a9c13c1ce71da6c",
+    "scripts/diagnose_terminal_git_leak_restore_20261017.py": "83fcadb53a7c9a3724e3c152b456bb23579075440860dafa9cd61515d1c41cfa",
+    "artifacts/recovery/terminal250-git-leak-seed1-grade-only-20261017/prepared/restore.json": "95017a6bc858485ac831c8c21602c171e65971f4f7b0c3ddba56ffc0d9073123",
+    "artifacts/recovery/terminal250-git-leak-seed1-grade-only-20261017/prepared/etc-delta.tar": "3031a95335ee6262b81a8184704d0365f9e1079602166422d13edaa4b64cbee0",
+    "artifacts/recovery/terminal250-git-leak-seed1-grade-only-20261017/attempt1/parent-state.json": "f574bffce96d587711e3fee798c37d979de5faa2a548df87232a5ff5b5961082",
+    "artifacts/recovery/terminal250-git-leak-seed1-grade-only-20261017/attempt1/execution-claim.json": "1179d3a74e05d29f7d80ccfcc5fb854911089aa92631ebc6657c316622317057",
+    "artifacts/recovery/terminal250-git-leak-seed1-grade-only-20261017/attempt1/native-grade/result.json": "3cbbd7c9f3d3dec49c5b46a3b0805ccae43820ece6be7943896ccf0b549b3dbe"
+  },
+  "formal_summary_changes": false,
+  "no_install_or_service_start": true,
+  "approval": "prepare_only_until_root_review; metadata-only native diagnosis; official verifier forbidden",
+  "original_restore": "artifacts/recovery/terminal250-git-leak-seed1-grade-only-20261017/prepared/restore.json",
+  "original_delta": "artifacts/recovery/terminal250-git-leak-seed1-grade-only-20261017/prepared/etc-delta.tar",
+  "diagnosis_only": true,
+  "deliberate_restore_exit_code": 86
+}

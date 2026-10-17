@@ -1,0 +1,183 @@
+{
+  "root_reviewed_at_utc": "2026-10-17T02:16:52.090308+00:00",
+  "parent_state": {
+    "pid": 1765416,
+    "startticks": "869931371",
+    "state": "finished_pending_root_review",
+    "lock_held": false,
+    "children": {
+      "swe249/nodebb": {
+        "pid": 1765421,
+        "startticks": "869931534",
+        "physical_cpu": 92,
+        "output": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-additional-short-tmp-20261017/swe249/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/attempt1",
+        "command": [
+          "taskset",
+          "-c",
+          "92",
+          "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+          "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_additional_grade_only_20261017.py",
+          "--manifest",
+          "/data/caoqinlu/projects/apex-takehome/configs/eval/swe_additional_short_tmp_recovery_20261017.json",
+          "--item",
+          "swe249/nodebb",
+          "--child",
+          "--physical-cpu",
+          "92",
+          "--lease-fd",
+          "4"
+        ]
+      },
+      "swe249/teleport2b": {
+        "pid": 1765422,
+        "startticks": "869931534",
+        "physical_cpu": 93,
+        "output": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-additional-short-tmp-20261017/swe249/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/attempt1",
+        "command": [
+          "taskset",
+          "-c",
+          "93",
+          "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+          "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_additional_grade_only_20261017.py",
+          "--manifest",
+          "/data/caoqinlu/projects/apex-takehome/configs/eval/swe_additional_short_tmp_recovery_20261017.json",
+          "--item",
+          "swe249/teleport2b",
+          "--child",
+          "--physical-cpu",
+          "93",
+          "--lease-fd",
+          "4"
+        ]
+      },
+      "avg64/teleport2b": {
+        "pid": 1765423,
+        "startticks": "869931535",
+        "physical_cpu": 94,
+        "output": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-additional-short-tmp-20261017/avg64/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/attempt1",
+        "command": [
+          "taskset",
+          "-c",
+          "94",
+          "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+          "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_additional_grade_only_20261017.py",
+          "--manifest",
+          "/data/caoqinlu/projects/apex-takehome/configs/eval/swe_additional_short_tmp_recovery_20261017.json",
+          "--item",
+          "avg64/teleport2b",
+          "--child",
+          "--physical-cpu",
+          "94",
+          "--lease-fd",
+          "4"
+        ]
+      }
+    },
+    "model_calls": 0,
+    "at_utc": "2026-10-17T02:15:05.711363+00:00",
+    "guard_observed": {
+      "unit": "apex-baseline-swe-additional-1765416.scope",
+      "affinities": {
+        "1765417": [
+          92,
+          93,
+          94,
+          95
+        ]
+      },
+      "memory_max_bytes": 33554432,
+      "memory_swap_max_bytes": 0
+    },
+    "remaining_scopes": [],
+    "guard_stopped": true,
+    "released_at_utc": "2026-10-17T02:15:05.711351+00:00",
+    "consecutive_empty_native_scope_samples": [
+      {
+        "at_utc": "2026-10-17T02:15:01.470266+00:00",
+        "remaining_scopes": []
+      },
+      {
+        "at_utc": "2026-10-17T02:15:03.531104+00:00",
+        "remaining_scopes": []
+      }
+    ],
+    "consecutive_empty_scope_samples_after_guard_stop": [
+      {
+        "at_utc": "2026-10-17T02:15:03.597552+00:00",
+        "remaining_scopes": []
+      },
+      {
+        "at_utc": "2026-10-17T02:15:05.657442+00:00",
+        "remaining_scopes": []
+      }
+    ]
+  },
+  "parent_gone": true,
+  "busy_pool_scopes": [],
+  "terminal_has_lease": false,
+  "items": [
+    {
+      "key": "swe249/nodebb",
+      "result": "artifacts/recovery/swe-additional-short-tmp-20261017/swe249/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/attempt1/native/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/result.json",
+      "result_sha256": "a7109bb07f12df026f91786b2b8a83e4146da398c9449be5c3ab9cf5b4669e36",
+      "original_result_sha256": "822402c314da8d9e068846a21352f318d55a76da215956100ae26530d68924e9",
+      "source_bindings_verified": 38,
+      "sif_stat_unchanged": true,
+      "reward": null,
+      "exception_type": "VerifierTimeoutError",
+      "finished_at": "2026-10-17T02:14:58.362696Z",
+      "resource_events": {
+        "memory.max": "4294967296\n",
+        "memory.swap.max": "0\n",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+        "memory.current": "782553088\n",
+        "memory.peak": "876376064\n",
+        "cpu.stat": "usage_usec 42136693\nuser_usec 29431362\nsystem_usec 12705331\ncore_sched.force_idle_usec 0\n"
+      }
+    },
+    {
+      "key": "swe249/teleport2b",
+      "result": "artifacts/recovery/swe-additional-short-tmp-20261017/swe249/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/attempt1/native/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/result.json",
+      "result_sha256": "c8172f34350ee745e6458a36081f755bb8f33d7989f6a24690e25fe340366ee3",
+      "original_result_sha256": "bdcd84c5d83fc4b2f8aab42578349ad72c0a88b2e7c682da3a70b0a85d2240a2",
+      "source_bindings_verified": 38,
+      "sif_stat_unchanged": true,
+      "reward": 0.0,
+      "exception_type": null,
+      "finished_at": "2026-10-17T01:33:54.206431Z",
+      "resource_events": {
+        "memory.max": "4294967296\n",
+        "memory.swap.max": "0\n",
+        "memory.events": "low 0\nhigh 0\nmax 18038\noom 0\noom_kill 0\noom_group_kill 0\n",
+        "memory.current": "2032156672\n",
+        "memory.peak": "4295327744\n",
+        "cpu.stat": "usage_usec 451316214\nuser_usec 371426884\nsystem_usec 79889329\ncore_sched.force_idle_usec 0\n"
+      }
+    },
+    {
+      "key": "avg64/teleport2b",
+      "result": "artifacts/recovery/swe-additional-short-tmp-20261017/avg64/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/attempt1/native/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/result.json",
+      "result_sha256": "4a6ae703fec7403ae737e38c235c5b7e5b29d6fce7776e23729b6a5e68ad4a9a",
+      "original_result_sha256": "fa0edc7b1a48b197cda3e4e74c23b6dd4648b31fde15b455c66cf81f07a05b73",
+      "source_bindings_verified": 38,
+      "sif_stat_unchanged": true,
+      "reward": 0.0,
+      "exception_type": null,
+      "finished_at": "2026-10-17T01:33:50.217301Z",
+      "resource_events": {
+        "memory.max": "4294967296\n",
+        "memory.swap.max": "0\n",
+        "memory.events": "low 0\nhigh 0\nmax 19532\noom 0\noom_kill 0\noom_group_kill 0\n",
+        "memory.current": "2055467008\n",
+        "memory.peak": "4295540736\n",
+        "cpu.stat": "usage_usec 452905856\nuser_usec 372795575\nsystem_usec 80110281\ncore_sched.force_idle_usec 0\n"
+      }
+    }
+  ],
+  "root_approved_exact_native_zero": [
+    "swe249/teleport2b",
+    "avg64/teleport2b"
+  ],
+  "nodebb_official_parse_review_pending": true,
+  "new_model_or_judge_calls": 0
+}

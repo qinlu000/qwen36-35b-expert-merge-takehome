@@ -1,0 +1,492 @@
+{
+  "schema": "swe_additional_grade_review_v1",
+  "collected_at_utc": "2026-10-17T02:09:35.647891+00:00",
+  "process_detail_at_utc": "2026-10-17T02:10:05.483404+00:00",
+  "metadata_affinity": [
+    10
+  ],
+  "cohort": {
+    "pid": 1765416,
+    "startticks": "869931371",
+    "actual_parent_state": "S",
+    "state_file": "native_running",
+    "state_file_at_utc": "2026-10-17T01:24:51.328108+00:00",
+    "lock_held": true,
+    "global_lock_rows": [
+      "117: FLOCK  ADVISORY  WRITE 1765416 08:11:90775088 0 EOF"
+    ]
+  },
+  "current_busy_scopes": [
+    "apex-baseline-649dae5c3168.scope",
+    "apex-baseline-swe-additional-1765416.scope"
+  ],
+  "guard": {
+    "unit": "apex-baseline-swe-additional-1765416.scope",
+    "affinities": {
+      "1765417": [
+        92,
+        93,
+        94,
+        95
+      ]
+    },
+    "memory_max_bytes": 33554432,
+    "memory_swap_max_bytes": 0
+  },
+  "full_cohort_natural_finish_observed": false,
+  "two_empty_native_scope_samples_observed": false,
+  "guard_stopped": false,
+  "two_empty_full_scope_samples_observed": false,
+  "global_lock_released": false,
+  "native_terminal_count": 2,
+  "native_inflight_count": 1,
+  "process_note": "T2 child /proc entries are zombies (state Z), not active native grading; their native scopes have gone. The parent has not yet reaped them while waiting for NodeBB.",
+  "source_identity": {
+    "script_sha256": "7da575a63c408d49727ff52493a0b8b203cd139456db8bdd17bae32b32ea8ace",
+    "manifest_sha256": "b6dcd8442b336e9916d443e4ca7afe80fce2b3252723b00e8c2bc65c1fe2a138",
+    "all_three_38_bindings_unchanged": true,
+    "all_three_sif_metadata_unchanged": true
+  },
+  "items": [
+    {
+      "key": "swe249/nodebb",
+      "output": "artifacts/recovery/swe-additional-short-tmp-20261017/swe249/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/attempt1",
+      "child": {
+        "pid": 1765421,
+        "state": "S",
+        "ppid": 1765416,
+        "startticks": "869931534",
+        "affinity": [
+          92
+        ],
+        "comm": "python"
+      },
+      "native_terminal": false,
+      "result_sha256": null,
+      "result": null,
+      "original_patch_bytes": 7422,
+      "bindings_count": 38,
+      "all_bindings_unchanged": true,
+      "sif_metadata_unchanged": true,
+      "instruction_sha256": "52de1203b5077923e832ebc37bd73e5a51bff564f027fd89bb4a6558540a5971",
+      "test_patch_sha256": "e06925e85187c01f93ad6a0aee28df14ce851775fe98c9e3c60645eb844cb409",
+      "test_patch_bytes": 33172,
+      "contract_proof": [
+        {
+          "line": 4,
+          "evidence": "**Title: Uploaded group and user cover and profile images are not fully cleaned up from disk when removed or on account deletion** **"
+        },
+        {
+          "line": 6,
+          "evidence": "**Exact steps to cause this issue** 1. Create and upload a cover image for a group or a user profile. 2. Optionally, upload or crop a new profile avatar for a user. 3. Remove the cover or avatar via the appropriate interface, or delete the user account. 4. Ver…"
+        },
+        {
+          "line": 8,
+          "evidence": "**What you expected** When a group cover, user cover, or uploaded avatar is explicitly removed, or when a user account is deleted, all related files stored on disk should also be removed automatically. This ensures no unused images remain in the uploads direct…"
+        },
+        {
+          "line": 12,
+          "evidence": " **Technical Implementation Details** The issue affects the following cleanup scenarios and requires implementation of specific utility functions: "
+        },
+        {
+          "line": 14,
+          "evidence": "**File Path Patterns:** - User profile images follow the pattern: `{uid}-profile{type}.{ext}` where type is \\\"cover\\\" or \\\"avatar\\\" and ext includes png, jpeg, jpg, bmp - Group cover images are stored under the uploads directory with group-specific naming conv…"
+        },
+        {
+          "line": 16,
+          "evidence": "**Required Utility Functions:** - `User.getLocalCoverPath(uid)`: Returns the local file system path for a user's cover image - `User.getLocalAvatarPath(uid)`: Returns the local file system path for a user's profile avatar - These functions should handle multip…"
+        },
+        {
+          "line": 18,
+          "evidence": " **Cleanup Expectations:** - After removal operations, exactly 0 image files should remain for the deleted covers/avatars - File cleanup should handle common image formats: .png, .jpeg, .jpg, .bmp - Account deletion should remove all associated profile images …"
+        },
+        {
+          "line": 23,
+          "evidence": "- In `src/socket.io/user/picture.js`, `SocketUser.removeUploadedPicture` should delegate to centralized removal logic in the user image layer and act when a user explicitly requests to remove their avatar, so that after removal the `uploadedpicture` field is e…"
+        },
+        {
+          "line": 27,
+          "evidence": "- The function handling account deletion in `src/user/delete.js` should ensure that all profile image files for the user are removed from `upload_path/profile`, covering both cover and avatar variants with all supported extensions (.png, .jpeg, .jpg, .bmp), so…"
+        },
+        {
+          "line": 29,
+          "evidence": "- `User.removeProfileImage(uid)` in `src/user/picture.js` must clear the `uploadedpicture` field and remove the uploaded avatar file from disk."
+        },
+        {
+          "line": 33,
+          "evidence": "- `User.getLocalCoverPath(uid)` and `User.getLocalAvatarPath(uid)` in `src/user/picture.js` must return the local filesystem path to the user's cover image and uploaded avatar respectively, handling the supported image extensions, and return `false` when the s…"
+        },
+        {
+          "line": 35,
+          "evidence": "- File removal operations should handle ENOENT errors gracefully when attempting to delete files that may not exist on disk."
+        },
+        {
+          "line": 46,
+          "evidence": "- Name: `User.getLocalCoverPath`"
+        },
+        {
+          "line": 50,
+          "evidence": "- Description: Returns the local filesystem path to the user's cover image, or false if not local."
+        },
+        {
+          "line": 53,
+          "evidence": "- Name: `User.getLocalAvatarPath`"
+        },
+        {
+          "line": 57,
+          "evidence": "- Description: Returns the local filesystem path to the user's uploaded avatar, or false if not local."
+        }
+      ],
+      "resources": {
+        "memory.max": 4294967296,
+        "memory.current": 782024704,
+        "memory.peak": 876376064,
+        "memory.events": {
+          "low": 0,
+          "high": 0,
+          "max": 0,
+          "oom": 0,
+          "oom_kill": 0,
+          "oom_group_kill": 0
+        },
+        "memory.swap.max": 0,
+        "cpu.stat": {
+          "usage_usec": 39992399,
+          "user_usec": 27890840,
+          "system_usec": 12101558,
+          "core_sched.force_idle_usec": 0
+        }
+      },
+      "classification": "native_inflight; explicit candidate requirement failures observed; retain null until terminal review",
+      "accepted_into_formal_summary": false,
+      "mocha_stats": {
+        "suites": 57,
+        "tests": 335,
+        "passes": 331,
+        "pending": 0,
+        "failures": 4,
+        "start": "2026-10-17T01:25:03.875Z",
+        "end": "2026-10-17T01:25:29.613Z",
+        "duration": 25738
+      },
+      "failure_errors": [
+        {
+          "test": "Groups groups cover should remove cover",
+          "error": "Expected values to be strictly equal:\n\ntrue !== false\n"
+        },
+        {
+          "test": "User profile methods should remove cover image",
+          "error": "User.getLocalCoverPath is not a function"
+        },
+        {
+          "test": "User profile methods user.uploadCroppedPicture should remove uploaded picture",
+          "error": "User.getLocalAvatarPath is not a function"
+        },
+        {
+          "test": "User socket methods should clean profile images after account deletion",
+          "error": "Expected values to be strictly equal:\n\n4 !== 0\n"
+        }
+      ],
+      "required_fail_to_pass_count": 4,
+      "all_four_failures_match_original_required_tests": true,
+      "mocha_finished_but_process_inflight": {
+        "mocha_end_utc": "2026-10-17T01:25:29.613Z",
+        "native_node_state": "S",
+        "native_node_wchan": "ep_poll",
+        "native_result_absent": true,
+        "reward_file_absent": true,
+        "reason_exact_open_handle_unknown": true
+      }
+    },
+    {
+      "key": "swe249/teleport2b",
+      "output": "artifacts/recovery/swe-additional-short-tmp-20261017/swe249/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/attempt1",
+      "child": {
+        "pid": 1765422,
+        "state": "Z",
+        "ppid": 1765416,
+        "startticks": "869931534",
+        "affinity": [
+          93
+        ],
+        "comm": "python"
+      },
+      "native_terminal": true,
+      "result_sha256": "c8172f34350ee745e6458a36081f755bb8f33d7989f6a24690e25fe340366ee3",
+      "result": {
+        "task_checksum": "077dc82cd7f22a0fc9667b5492f886b72ae4eddb68a9658f38552d90bbe4dcc6",
+        "started_at": "2026-10-17T01:24:51.827441Z",
+        "finished_at": "2026-10-17T01:33:54.206431Z",
+        "environment_setup": {
+          "started_at": "2026-10-17T01:24:51.827993Z",
+          "finished_at": "2026-10-17T01:25:38.288128Z"
+        },
+        "agent_setup": {
+          "started_at": "2026-10-17T01:25:38.288171Z",
+          "finished_at": "2026-10-17T01:25:38.288222Z"
+        },
+        "agent_execution": {
+          "started_at": "2026-10-17T01:25:38.288309Z",
+          "finished_at": "2026-10-17T01:25:38.427158Z"
+        },
+        "verifier": {
+          "started_at": "2026-10-17T01:25:38.427884Z",
+          "finished_at": "2026-10-17T01:33:52.062223Z"
+        },
+        "verifier_result": {
+          "rewards": {
+            "reward": 0
+          }
+        },
+        "exception_info": null
+      },
+      "original_patch_bytes": 0,
+      "bindings_count": 38,
+      "all_bindings_unchanged": true,
+      "sif_metadata_unchanged": true,
+      "instruction_sha256": "8a9aeafd26d9bde0c0d96f62c03fceec4cb47426dd1356a1ed16a7521c07afb2",
+      "test_patch_sha256": "0b40b83b97f8bebf7598b87d253e3901aa112a9ebf2b501b2ca11bc8e2db3df9",
+      "test_patch_bytes": 5271,
+      "contract_proof": [
+        {
+          "line": 11,
+          "evidence": "- `Chat.Complete` must have the signature `Complete(ctx context.Context, userInput string, progressUpdates func(*model.AgentAction)) (any, *TokenCount, error)`. It returns, in order, the assistant response or action, a non-nil `*TokenCount`, and an error. The …"
+        },
+        {
+          "line": 13,
+          "evidence": "- Depending on the input, `Chat.Complete` should still yield the appropriate result type: a `model.StreamingMessage` or a `model.CompletionCommand`, and the returned token count should reflect the prompt and completion usage for that same call. Callers must be…"
+        },
+        {
+          "line": 17,
+          "evidence": "- `NewAsynchronousTokenCounter` must have the signature `NewAsynchronousTokenCounter(completionStart string) (*AsynchronousTokenCounter, error)`. It initializes a streaming counter from the tokenized length of `completionStart`. Each `Add` increments the runni…"
+        },
+        {
+          "line": 19,
+          "evidence": "- A streaming counter's `TokenCount` method must have the signature `TokenCount() int`. It returns the running total plus the per-request overhead as a plain `int` and finalizes the counter, so any subsequent `Add` returns an error."
+        },
+        {
+          "line": 21,
+          "evidence": "- Tokenization in `lib/ai/model/tokencount.go` must use a package-level variable named exactly `defaultTokenizer`, accessible to other code in the `lib/ai/model` package (for example as `defaultTokenizer.Encode(...)`), and used as the tokenizer when counting p…"
+        }
+      ],
+      "resources": {
+        "memory.max": 4294967296,
+        "memory.swap.max": 0,
+        "memory.events": {
+          "low": 0,
+          "high": 0,
+          "max": 18038,
+          "oom": 0,
+          "oom_kill": 0,
+          "oom_group_kill": 0
+        },
+        "memory.current": 2032156672,
+        "memory.peak": 4295327744,
+        "cpu.stat": {
+          "usage_usec": 451316214,
+          "user_usec": 371426884,
+          "system_usec": 79889329,
+          "core_sched.force_idle_usec": 0
+        }
+      },
+      "classification": "candidate product-contract implementation failure; native reward0, exception=null; pending root acceptance",
+      "accepted_into_formal_summary": false,
+      "required_fail_to_pass_count": 14,
+      "required_passed_count": 0,
+      "native_go_workspace_preparation": {
+        "return_code": 0,
+        "elapsed_seconds": 105.70662659965456,
+        "original_test_command_unchanged": true
+      },
+      "native_cache_copy_return_code": 0,
+      "compiler_errors": [
+        "# github.com/gravitational/teleport/lib/ai [github.com/gravitational/teleport/lib/ai.test]",
+        "lib/ai/chat_test.go:118:26: assignment mismatch: 3 variables but chat.Complete returns 2 values",
+        "lib/ai/chat_test.go:155:15: assignment mismatch: 3 variables but chat.Complete returns 2 values",
+        "lib/ai/chat_test.go:161:18: assignment mismatch: 3 variables but chat.Complete returns 2 values",
+        "lib/ai/chat_test.go:173:18: assignment mismatch: 3 variables but chat.Complete returns 2 values",
+        "# github.com/gravitational/teleport/lib/ai/model [github.com/gravitational/teleport/lib/ai/model.test]",
+        "lib/ai/model/tokencount_test.go:68:15: undefined: NewAsynchronousTokenCounter",
+        "lib/ai/model/tokencount_test.go:70:22: undefined: defaultTokenizer",
+        "lib/ai/model/tokencount_test.go:84:13: undefined: NewAsynchronousTokenCounter"
+      ],
+      "instruction_to_test_patch_correspondence": {
+        "complete_three_return_values": {
+          "instruction_lines": [
+            11,
+            13
+          ],
+          "test_patch_lines": [
+            37,
+            53,
+            60,
+            69
+          ]
+        },
+        "new_async_counter_and_tokenizer": {
+          "instruction_lines": [
+            17,
+            21
+          ],
+          "test_patch_lines": [
+            146,
+            148
+          ]
+        }
+      },
+      "native_verifier_duration_seconds": 493.635
+    },
+    {
+      "key": "avg64/teleport2b",
+      "output": "artifacts/recovery/swe-additional-short-tmp-20261017/avg64/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/attempt1",
+      "child": {
+        "pid": 1765423,
+        "state": "Z",
+        "ppid": 1765416,
+        "startticks": "869931535",
+        "affinity": [
+          94
+        ],
+        "comm": "python"
+      },
+      "native_terminal": true,
+      "result_sha256": "4a6ae703fec7403ae737e38c235c5b7e5b29d6fce7776e23729b6a5e68ad4a9a",
+      "result": {
+        "task_checksum": "077dc82cd7f22a0fc9667b5492f886b72ae4eddb68a9658f38552d90bbe4dcc6",
+        "started_at": "2026-10-17T01:24:51.799973Z",
+        "finished_at": "2026-10-17T01:33:50.217301Z",
+        "environment_setup": {
+          "started_at": "2026-10-17T01:24:51.800520Z",
+          "finished_at": "2026-10-17T01:25:38.154280Z"
+        },
+        "agent_setup": {
+          "started_at": "2026-10-17T01:25:38.154325Z",
+          "finished_at": "2026-10-17T01:25:38.154375Z"
+        },
+        "agent_execution": {
+          "started_at": "2026-10-17T01:25:38.154447Z",
+          "finished_at": "2026-10-17T01:25:38.288205Z"
+        },
+        "verifier": {
+          "started_at": "2026-10-17T01:25:38.289158Z",
+          "finished_at": "2026-10-17T01:33:48.100165Z"
+        },
+        "verifier_result": {
+          "rewards": {
+            "reward": 0
+          }
+        },
+        "exception_info": null
+      },
+      "original_patch_bytes": 0,
+      "bindings_count": 38,
+      "all_bindings_unchanged": true,
+      "sif_metadata_unchanged": true,
+      "instruction_sha256": "8a9aeafd26d9bde0c0d96f62c03fceec4cb47426dd1356a1ed16a7521c07afb2",
+      "test_patch_sha256": "0b40b83b97f8bebf7598b87d253e3901aa112a9ebf2b501b2ca11bc8e2db3df9",
+      "test_patch_bytes": 5271,
+      "contract_proof": [
+        {
+          "line": 11,
+          "evidence": "- `Chat.Complete` must have the signature `Complete(ctx context.Context, userInput string, progressUpdates func(*model.AgentAction)) (any, *TokenCount, error)`. It returns, in order, the assistant response or action, a non-nil `*TokenCount`, and an error. The …"
+        },
+        {
+          "line": 13,
+          "evidence": "- Depending on the input, `Chat.Complete` should still yield the appropriate result type: a `model.StreamingMessage` or a `model.CompletionCommand`, and the returned token count should reflect the prompt and completion usage for that same call. Callers must be…"
+        },
+        {
+          "line": 17,
+          "evidence": "- `NewAsynchronousTokenCounter` must have the signature `NewAsynchronousTokenCounter(completionStart string) (*AsynchronousTokenCounter, error)`. It initializes a streaming counter from the tokenized length of `completionStart`. Each `Add` increments the runni…"
+        },
+        {
+          "line": 19,
+          "evidence": "- A streaming counter's `TokenCount` method must have the signature `TokenCount() int`. It returns the running total plus the per-request overhead as a plain `int` and finalizes the counter, so any subsequent `Add` returns an error."
+        },
+        {
+          "line": 21,
+          "evidence": "- Tokenization in `lib/ai/model/tokencount.go` must use a package-level variable named exactly `defaultTokenizer`, accessible to other code in the `lib/ai/model` package (for example as `defaultTokenizer.Encode(...)`), and used as the tokenizer when counting p…"
+        }
+      ],
+      "resources": {
+        "memory.max": 4294967296,
+        "memory.swap.max": 0,
+        "memory.events": {
+          "low": 0,
+          "high": 0,
+          "max": 19532,
+          "oom": 0,
+          "oom_kill": 0,
+          "oom_group_kill": 0
+        },
+        "memory.current": 2055467008,
+        "memory.peak": 4295540736,
+        "cpu.stat": {
+          "usage_usec": 452905856,
+          "user_usec": 372795575,
+          "system_usec": 80110281,
+          "core_sched.force_idle_usec": 0
+        }
+      },
+      "classification": "candidate product-contract implementation failure; native reward0, exception=null; pending root acceptance",
+      "accepted_into_formal_summary": false,
+      "required_fail_to_pass_count": 14,
+      "required_passed_count": 0,
+      "native_go_workspace_preparation": {
+        "return_code": 0,
+        "elapsed_seconds": 100.13625204376876,
+        "original_test_command_unchanged": true
+      },
+      "native_cache_copy_return_code": 0,
+      "compiler_errors": [
+        "# github.com/gravitational/teleport/lib/ai [github.com/gravitational/teleport/lib/ai.test]",
+        "lib/ai/chat_test.go:118:26: assignment mismatch: 3 variables but chat.Complete returns 2 values",
+        "lib/ai/chat_test.go:155:15: assignment mismatch: 3 variables but chat.Complete returns 2 values",
+        "lib/ai/chat_test.go:161:18: assignment mismatch: 3 variables but chat.Complete returns 2 values",
+        "lib/ai/chat_test.go:173:18: assignment mismatch: 3 variables but chat.Complete returns 2 values",
+        "# github.com/gravitational/teleport/lib/ai/model [github.com/gravitational/teleport/lib/ai/model.test]",
+        "lib/ai/model/tokencount_test.go:68:15: undefined: NewAsynchronousTokenCounter",
+        "lib/ai/model/tokencount_test.go:70:22: undefined: defaultTokenizer",
+        "lib/ai/model/tokencount_test.go:84:13: undefined: NewAsynchronousTokenCounter"
+      ],
+      "instruction_to_test_patch_correspondence": {
+        "complete_three_return_values": {
+          "instruction_lines": [
+            11,
+            13
+          ],
+          "test_patch_lines": [
+            37,
+            53,
+            60,
+            69
+          ]
+        },
+        "new_async_counter_and_tokenizer": {
+          "instruction_lines": [
+            17,
+            21
+          ],
+          "test_patch_lines": [
+            146,
+            148
+          ]
+        }
+      },
+      "native_verifier_duration_seconds": 489.811
+    }
+  ],
+  "review_conclusion": "Two T2 native zeros have matching problem-statement/test contract evidence for candidate failure. NodeBB shows four required test failures but no native terminal; keep null pending its natural terminal. No automatic acceptance.",
+  "source_root_launch": "artifacts/recovery/swe-additional-short-tmp-20261017/root-launch-20261017.json",
+  "source_parent_state": "artifacts/recovery/swe-additional-short-tmp-20261017/cohort-attempt1/parent-state.json",
+  "earlier_bootstrap_failure_retained": "artifacts/recovery/swe-additional-grade-only-20261017",
+  "actions": {
+    "read_only": true,
+    "new_native_or_claim": false,
+    "retry": false,
+    "live_code_changed": false,
+    "manifest_changed": false,
+    "canonical_summary_changed": false,
+    "model_calls": 0,
+    "new_api_calls": 0
+  }
+}

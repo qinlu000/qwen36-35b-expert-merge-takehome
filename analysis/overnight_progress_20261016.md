@@ -699,3 +699,20 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - 09:13账本结束227.570GPUh、6卡active暂计29.532778，总257.102778；现存CNY预算15.029134794、USD另.328327020，未知账本不填0。09:24准入80/data余2,126,852,165,632B、MemAvailable1,988,225,520kB，未耗尽，新scratch走/data。完整单项未变，保留07:28已验收阶段PDF。新操作/问题/收据写current_status、统一日志及资产索引；原automation继续ACTIVE到10/18 02:20，最终保留12小时。
 
 - Terminal离线准备已完成：独立app副本的完整git fsck返回0、stdout/stderr空、无外部对象依赖，30原source绑定保持；23处精确etc差分和跨app硬链约束已记录，不能盲恢复etc或普通复制该硬链。没有该项driver/claim/native/成绩；后续等SWE自然释放后再准备独立4CPU/8GiB/900秒租约、至少2400秒runway。
+
+
+## 2026-10-17 10:42 CST：SWE专家完整结果、Terminal原答案恢复与最后SWE评分排队
+
+- 本轮先读claud/current_status/Git，保留foreign WIP，只提交owned；代码KISS，无coauthor。未重生Base/已有答卷、未训练或新增loss-only/task-val，无邮件/邀请/其他会话消息。冻结AVG64/ASI128、64K/8K/nonthinking、每题预算及Terminal solver禁网保持。
+- 三追加SWE补评parent1765416自然收尾，两个T2各自原空patch缺任务明确接口，原生编译到达产品缺项，root分别接受exact native0；不能说14测试均已执行。NodeBB原native3000s超时/null、EXIT-trap reward1均保留；原Mocha335调用去重为311 required：307P2P全PASS、4F2P全FAIL，经原官方parser及Base相同完整报告审计先例，root显式批准parsed-report0，绝非native0或通用timeout归零。专家8native0+1parsed审计，AVG5native0；原绑定/预算不变，10:15双native空→停guard→双全scope空→解锁。
+- SWE专家已51/51有效、0/51=0%，Base10/51=19.607843%；专家−Base差−19.607843pp，95%CI[-31.372549,-9.803922]。51题对照已落md/json/csv，43空patch/8非空，34项末request有context_budget_exceeded、17 exit_status缺失记unknown，不纯归因权重或新改预算。AVG50/51有效、4resolved，1项T774仍null，完整主分不提前报。
+- Terminal git-leak seed1原archive和同SIF差分先恢复后严格73项检查；最初2152787在校验mode阶段失败、官方test未开始，2170741只作metadata诊断/exit86。诊断证明单一硬链alias tar0644与canonical普通文件0600互斥；仅修exact checker预期取同inode600，不chmod候选、不拆链、不泛放宽。Root/独立审阅后唯一2189065/start870321012于10:29:53首次实际官方5/5通过、native1/noHarbor，10:29:59完整双排空/停guard/解锁，44绑定/SIF stat不变。旧失败与rawnull保持，root独立审原result/config/CTRF/restore/claim后接受exact1。
+- 新Terminal collector仅在旧nginx0分支旁加显式git-leak seed1 native1，其他row/null严格不变；17人工检查及真实helper-only验收通过。10:38:34依序专家SWE→AVG SWE→Terminal collector→strict/独立预算双视图，source issues空：TB专家177/445另5invalid、AVG165/445另4invalid，均coverage非完整分；AVG四项macro仍null。固定ASI audited仅校验未重跑一次性collector，HLE五组和ASI专家240完整结论保持，TIES2499/1缺correct仍不扩规则。
+- 新Terminal库存含reshard-c4-data seed1清理异常、专家sanitize-git-repo seed1与AVG qemu-alpine-ssh seed1无最终archive；继续null、不派生预算0、不由轨迹重建候选。原nginx exact0不重复评分。所有未知和恢复证据均索引，未把缺失计0。
+- AVG T774仅自身原public Go proxy超时，不借专家结果。实际原IP142.250.73.145不同于旧专家142.251.34.209；HPC唯一固定IP HEAD失败，Mac同IP原URL HEAD200/TLS校验0/无正文。Root10:34:54建专用Mac SSH84416/control /tmp/apex-t774-route-20261017.ctl，精确-R127.0.0.1:38444:142.250.73.145:443；80同URL10:35:55 HEAD200/TLS0。不可变route receipt SHA6d8f90eb…0a7d，原Host/URI/SNI/CA、Go/依赖/校验均不变，未-k未redirect。
+- 专用route FD是root sshd当前user不可见，sudo-n不可用，未改权限或借sudo；同control channel祖先证明user sshd2206946→connection2206906/start870351829、Mac完整ps/argv/lstart/-Ocheck及80唯一loopback共同核验，不能说直接看到了FD归属。新版route branch及8离线fixtures通过，native仍必须同原musl环境原TLS200probe后才进verifier。
+- 两Terminal所有initial/stage1/stage2租约止于123，故新T774独立future124–127 lease/guard可在AVG生成真正释放后并行ASI科学评分92–95；不能凭瞬空scope抢占。Root/terminal双审fb5a495bc3fceab502ce6983a905a846b58cf26ba885282849ec938b617292ce及8cff408195321efd151b16eaeb42eae0bb55cf4c78670cebd2b6d9addb4f2abd后，10:40:56唯一waiter2223041/start870388084已启动，等待240生成/poolshutdown/源scope空marker和真实124–127scope排空。10:41:47仍waiting_source_or_route/lockfalse/0native，不重复提交或同步截断live源；future native只124、1CPU4GiB3000s/patchreplay1800/7200runway，结果pending root review、unknown不重试。
+- AVG ASI10:40为232保存/8在途/0未准入，原1126014/1126055正常，科学评分尚0。727856自动release watcher3321991仍有效：240+worker关闭+scopes空、metrics0、精确作业归属后释放自身2GPU，不等科学评分；当前仍有消费者不可释放。后续pipeline只有CPU/外部API grader，原workers1/396calls/20CNY/global92–95/runtime安装保留。Terminal第二阶段照原两ASI真实allCPU marker交接，不写假marker。
+- 当前727912/727913/727856三普通acd_u/Nice1000 TP2共6H100，无新卡/emergency，旧已释放端点不重建。01:10 metadata STOP guard1508852仍唯一，core10/18 02:20及最后12h保留，不压在途原预算。
+- 10:10成本结束227.570GPUh/active6卡35.190556/总262.760556；现存API15.029134794CNY另.328327020USD，缺账本unknown。10:18 /data余2,060,775,186,432B、未耗尽。PDF按技能编辑marker一次，10:33加入SWE负面结果/CI及50native+1parsed区分，摘要181汉字/199总字符、1页A4/嵌入字形完整/底y98.09/PNG目视通过，仍非最终report.pdf。
+- 已更新current_status/统一日志/资产索引/剩余清单/README；本轮自有代码AST/JSON/diff及必要人工检查通过。原automation保持ACTIVE，收据/精确PID及剩余null交后续小时继续；Git只提交本轮owned并同步两remote，80/HPC静态同步跳过所有live/bound执行文件，claud/overnight仅追加。

@@ -1,0 +1,66 @@
+{
+  "captured_at_utc": "2026-10-17T02:23:37.048790+00:00",
+  "status": "metadata_diagnosis_prepared_not_executed",
+  "preflight": {
+    "at_utc": "2026-10-17T02:23:37.040425+00:00",
+    "mode": "metadata_diagnosis_prepare_only",
+    "namespace_control_socket_bytes": 58,
+    "source_bindings_verified": 40,
+    "terminal_has_grader_lease": false,
+    "script_sha256": "83fcadb53a7c9a3724e3c152b456bb23579075440860dafa9cd61515d1c41cfa",
+    "manifest_sha256": "2831649f1b86f03be013ad5c602f2528ff8e70c1436fadde6c256df0a062aff7",
+    "frozen_parent_sha256": "e0ad3fb1a72dc5a9db597611de3cd8ac8690ab9a61c33f212a9c13c1ce71da6c",
+    "restore": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-restore-diagnosis-20261017/prepared/restore.json",
+      "sha256": "36fabc6d72167eac0469e1570bf1857e4c8d006c9e3774451f0c95e327905fe5"
+    },
+    "original_delta": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-grade-only-20261017/prepared/etc-delta.tar",
+      "sha256": "3031a95335ee6262b81a8184704d0365f9e1079602166422d13edaa4b64cbee0"
+    },
+    "commands0_1_identical_to_frozen_restore": true,
+    "restore2_deliberate_exit_code": 86,
+    "official_verifier_structurally_blocked": true,
+    "priority_swe_drained": true,
+    "priority_asi_ready_for_grader": false,
+    "execution_claim_created": false,
+    "guard_created": false,
+    "shared_lock_acquired": false,
+    "native_started": false,
+    "model_calls": 0,
+    "new_api_calls": 0
+  },
+  "synthetic_metadata_fixture": {
+    "started_at_utc": "2026-10-17T02:23:36.855380+00:00",
+    "finished_at_utc": "2026-10-17T02:23:36.979272+00:00",
+    "source": "synthetic three-member archive; no candidate, task tests, native or container",
+    "all_match_exit86": true,
+    "mode_mismatch_exit86": true,
+    "all_two_mode_differences_recorded": true,
+    "content_and_hardlink_booleans_correct": true,
+    "payload_error_exit86": true,
+    "no_bytes_or_secret_output": true
+  },
+  "commands0_1_byte_identical_objects": true,
+  "structural_stop": {
+    "frozen_cli_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_repair_grade_v2.py",
+    "nonzero_restore_command_raises_before_network_public_and_Verifier": true,
+    "diagnostic_exit_code": 86,
+    "schema_compile_only": true
+  },
+  "old_attempt_preserved": {
+    "original_parent_sha256": "e0ad3fb1a72dc5a9db597611de3cd8ac8690ab9a61c33f212a9c13c1ce71da6c",
+    "old_claim_exists": true,
+    "all_bound_source_bytes_unchanged": true
+  },
+  "no_execution": {
+    "attempt_directory_exists": false,
+    "execution_claim_created": false,
+    "guard_created": false,
+    "shared_lock_acquired": false,
+    "native_started": false,
+    "official_verifier_started": false,
+    "model_calls": 0,
+    "new_api_calls": 0
+  }
+}

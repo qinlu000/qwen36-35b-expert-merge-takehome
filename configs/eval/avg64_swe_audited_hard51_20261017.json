@@ -1,5 +1,5 @@
 {
-  "scope": "Four independently reviewed exact AVG64 native-zero results only",
+  "scope": "Five independently reviewed exact AVG64 native-zero results only",
   "approval": "Root independently read and approved each listed exact AVG64 task, frozen patch, model identity and native-zero evidence on 2026-10-17",
   "model": "apex-avg64",
   "generation_model": "openai/apex-avg64",
@@ -71,11 +71,24 @@
       "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "original_invalid_reason": "harbor_replay_exception:RemoteProtocolError",
       "reason": "Exact own saved empty patch replayed once with original1CPU/4GiB/3000s, original Go cache contents copied to disk scratch and durable logs. Root independently read task requirement isRunningKernel(pack,family,release,kernel); native official test compilation reaches its four-argument call but unchanged product accepts three. Native0/no Harbor exception, required11/parsed0 compilation-blocked (not11 executed failures); workspace prep0, cgroup oom/oom_kill0, frozen source unchanged, both native/after-guard scope samples empty and shared lease released. Original transport-error record remains invalid; no cross-model grade or reward-based selection."
+    },
+    {
+      "task_id": "instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "original_result": "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/result.json",
+      "accepted_result": "artifacts/recovery/swe-additional-short-tmp-20261017/avg64/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/attempt1/native/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/result.json",
+      "original_result_sha256": "fa0edc7b1a48b197cda3e4e74c23b6dd4648b31fde15b455c66cf81f07a05b73",
+      "accepted_result_sha256": "4a6ae703fec7403ae737e38c235c5b7e5b29d6fce7776e23729b6a5e68ad4a9a",
+      "source_patch": "artifacts/eval/avg64_swe_hard51_20261017/generation/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d/agent/model.patch",
+      "patch_bytes": 0,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_invalid_reason": "harbor_replay_exception:RewardFileNotFoundError",
+      "reason": "Root independently read this own frozen task and official test patch: Complete must return three values; NewAsynchronousTokenCounter/defaultTokenizer are required. Its own empty patch leaves two returns and missing symbols, as its actual official compile errors show. Same-source fresh native0/no Harbor exception; required14/parsed0 compilation-blocked, not14 executed failed tests. Original Go cache copy/workspace prep0; original1CPU/4GiB/3000s retained, memory OOM/OOMkill0, 38 bindings/SIF stat unchanged. Whole cohort naturally finished, two native-empty samples then guard stop/two full-empty samples/unlock verified. Original invalid record unchanged; no cross-model grade or reward selection."
     }
   ],
   "no_reward_search": true,
   "new_audits_require_explicit_review": true,
   "additional_evidence_audits": [
-    "analysis/swe_vuls_grade_review_20261017.md"
+    "analysis/swe_vuls_grade_review_20261017.md",
+    "analysis/swe_additional_grade_final_review_20261017.md"
   ]
 }

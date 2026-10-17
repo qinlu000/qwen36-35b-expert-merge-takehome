@@ -8,7 +8,7 @@
 
 当前队列快照、已完成项、未决问题和后续交付见 [进展文档](analysis/current_status_20261017.md)；[一页阶段报告](output/pdf/progress_report_20261017.pdf)及其[生成说明](analysis/progress_report_20261017.md)已保存，正式评分尚未齐备。
 
-07:27有效结果：完整HLE为Base3.96%、专家6.92%、Mixed5.84%、AVG644.68%、AVG164.04%；TIES-Dense2499/2500有效，余1项缺`correct`仍null。ASI专家240/240有效，公开local原生聚合0.378991%，Base1.570988%；真实退化及配对区间见[最新双视图](analysis/source_snapshots/formal_aggregation_20261017_0727.json)。不按这些正式结果更换冻结主模型。SWE两模型各48/51有效，Terminal仍在跑，四项宏平均尚不可报告。
+10:33完整结果：SWE专家**0/51=0%**，Base10/51=19.607843%，专家−Base配对95%CI[−31.372549,−9.803922]pp；50份native判分+1份完整官方报告解析审计，原timeout/null和trap reward1保留。完整HLE为Base3.96%、专家6.92%、Mixed5.84%、AVG644.68%、AVG164.04%；TIES-Dense2499/2500有效，余1项缺`correct`仍null。ASI专家240/240有效，公开local原生聚合0.378991%，Base1.570988%。[逐题对照与生成退出元数据](analysis/swe_task_comparison_20261017.md)、[双视图](analysis/source_snapshots/formal_aggregation_20261017_1027.json)如实记录退化、限制与区间，不据正式结果更换冻结主模型。AVG SWE50/51有效、4resolved，最后1项未决；Terminal及AVG ASI评分仍在推进，四项宏平均尚不可报告。
 
 当前资源为三个普通`acd_u/Nice1000`TP2、共6H100：Terminal专家、AVG64共享SWE/Terminal服务、AVG64 HLE后复用ASI服务。TIES生成和Mixed/AVG16生成均已结束并释放自身GPU，离线端点不重建；AVG64 ASI已自动接续，不需另申请卡。SWE结束释放的12CPU已真实交接，Terminal专家12槽、AVG11槽；后续扩容仍等ASI实际CPU完成标记。[20个真实合版失败案例及三项后续实验](analysis/avg64_failure_cases_20261017.md)已整理；同ID Base也失败，不能称合版独有退化。
 

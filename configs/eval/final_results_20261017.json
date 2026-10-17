@@ -3,17 +3,47 @@
   "protocol": "configs/eval/protocol_v2_unified64k8k.json",
   "reference_model": "base",
   "final_model": "avg64",
-  "statistics": {"repetitions": 10000, "seed": 20261015, "confidence_level": 0.95},
+  "statistics": {
+    "repetitions": 10000,
+    "seed": 20261015,
+    "confidence_level": 0.95
+  },
   "additional_comparisons": [
-    {"model": "avg64", "reference": "mixed883", "benchmarks": ["hle"]},
-    {"model": "avg64", "reference": "avg16", "benchmarks": ["hle"]},
-    {"model": "ties_dense", "reference": "avg64", "benchmarks": ["hle"]}
+    {
+      "model": "avg64",
+      "reference": "mixed883",
+      "benchmarks": [
+        "hle"
+      ]
+    },
+    {
+      "model": "avg64",
+      "reference": "avg16",
+      "benchmarks": [
+        "hle"
+      ]
+    },
+    {
+      "model": "ties_dense",
+      "reference": "avg64",
+      "benchmarks": [
+        "hle"
+      ]
+    }
   ],
   "benchmarks": {
-    "swe": {"manifest": "analysis/source_snapshots/protocol/swe_hard_task_ids.json"},
-    "hle": {"manifest": "analysis/source_snapshots/protocol/hle_task_ids.json"},
-    "asi": {"manifest": "analysis/source_snapshots/protocol/asi_task_ids.json"},
-    "terminal": {"manifest": "analysis/source_snapshots/protocol/terminal_task_ids.json"}
+    "swe": {
+      "manifest": "analysis/source_snapshots/protocol/swe_hard_task_ids.json"
+    },
+    "hle": {
+      "manifest": "analysis/source_snapshots/protocol/hle_task_ids.json"
+    },
+    "asi": {
+      "manifest": "analysis/source_snapshots/protocol/asi_task_ids.json"
+    },
+    "terminal": {
+      "manifest": "analysis/source_snapshots/protocol/terminal_task_ids.json"
+    }
   },
   "models": {
     "base": {
@@ -23,26 +53,37 @@
         "swe": {
           "adapter": "swe_tasks",
           "summary": "artifacts/results/base-gap-completion-20261017/swe51_summary.json",
-          "notes": ["Owner grade-only completion of frozen clean28+native23 answers: explicit native-zero audits and same-patch infrastructure replays. Historical canonical artifacts/eval/base_swe_v2_20261016_clean28/corrected51_summary.json is preserved; no new Base answers or reward-based selection."]
+          "notes": [
+            "Owner grade-only completion of frozen clean28+native23 answers: explicit native-zero audits and same-patch infrastructure replays. Historical canonical artifacts/eval/base_swe_v2_20261016_clean28/corrected51_summary.json is preserved; no new Base answers or reward-based selection."
+          ]
         },
         "hle": {
           "adapter": "hle_results",
           "summary": "artifacts/runs/hle_judge_v2_20261016/summary.json",
           "results": "artifacts/runs/hle_judge_v2_20261016/results",
           "selection_manifest": "artifacts/runs/base_hle_v2_724196_infra1/manual_retry_manifest.json",
-          "notes": ["Read frozen scoring results only. Existing input references are821 retained original and1679 original infra1 selection; no newly authorized answer selection.", "DeepSeek-V4-Flash experimental replacement Judge; historical serving4/20/50 and queue-time budget confounds retained."]
+          "notes": [
+            "Read frozen scoring results only. Existing input references are821 retained original and1679 original infra1 selection; no newly authorized answer selection.",
+            "DeepSeek-V4-Flash experimental replacement Judge; historical serving4/20/50 and queue-time budget confounds retained."
+          ]
         },
         "asi": {
           "adapter": "asi_native",
           "summary": "artifacts/asi/scoring_v2_formal_params_20261016/local_score_seed31415.json",
           "scoring_config": "artifacts/asi/scoring_v2_formal_params_20261016/scoring_config.json",
-          "notes": ["Official native local aggregation after frozen formal parameter and soil hard-gate repairs. Public seed31415/open/local, not Portal-certified; preserve all partial scores and zero scores."]
+          "notes": [
+            "Official native local aggregation after frozen formal parameter and soil hard-gate repairs. Public seed31415/open/local, not Portal-certified; preserve all partial scores and zero scores."
+          ]
         },
         "terminal": {
           "adapter": "terminal_accepted",
           "summary": "artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json",
           "status_only_source": "artifacts/results/base-terminal-independent-repair32-20261016/checkpoint.json",
-          "notes": ["Owner strict summary includes accepted_first_valid grade-only recoveries of the same frozen answers. The original187-row repair checkpoint supplies absent-key failure status only, never another answer or score.", "Native null remains invalid in this strict view, including separately audited computation timeouts. Optional audited fixed-budget aggregation is saved in a separate output view, never as fabricated native rewards.", "Full89x5 constrained protocol; independent repaired Base experiment and original outputs remain traceable."]
+          "notes": [
+            "Owner strict summary includes accepted_first_valid grade-only recoveries of the same frozen answers. The original187-row repair checkpoint supplies absent-key failure status only, never another answer or score.",
+            "Native null remains invalid in this strict view, including separately audited computation timeouts. Optional audited fixed-budget aggregation is saved in a separate output view, never as fabricated native rewards.",
+            "Full89x5 constrained protocol; independent repaired Base experiment and original outputs remain traceable."
+          ]
         }
       }
     },
@@ -50,7 +91,13 @@
       "label": "SWE249专家",
       "artifact": "artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
       "benchmarks": {
-        "swe": {"adapter": "swe_tasks", "summary": "artifacts/eval/swe249_audited_hard51_20261017/summary.json", "notes": ["Read-only, explicitly audited native-zero overlay of the frozen SWE249 answers; original queue and invalid attempts preserved. No answer regeneration or automatic addition of unaudited failures."]}
+        "swe": {
+          "adapter": "swe_tasks",
+          "summary": "artifacts/eval/swe249_audited_hard51_20261017/summary.json",
+          "notes": [
+            "Read-only frozen SWE249 overlay: eight exact native-zero audits plus one complete official NodeBB report audit. All311 required tests parsed,307P2P pass and4F2P fail; natural3000s rawtimeout/null and EXIT-trap reward file1 remain unchanged. Original queue preserved; no general timeout-to-zero rule or answer regeneration."
+          ]
+        }
       }
     },
     "hle250": {
@@ -69,14 +116,27 @@
       "label": "ASI128专家",
       "artifact": "artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128",
       "benchmarks": {
-        "asi": {"adapter": "asi_native", "summary": "artifacts/eval/asi128_asi240_20261017/audited/local_score_seed31415.json", "scoring_config": "artifacts/eval/asi128_asi240_20261017/scoring/scoring_config.json", "notes": ["Read-only exact CMOS b1 import-recovery overlay: one native grade of the unchanged saved candidate, nine existing Judge cache responses and zero new paid calls. Other239 rows and the original239+1-invalid report are preserved; public/local replacement-Judge scope remains unchanged."]}
+        "asi": {
+          "adapter": "asi_native",
+          "summary": "artifacts/eval/asi128_asi240_20261017/audited/local_score_seed31415.json",
+          "scoring_config": "artifacts/eval/asi128_asi240_20261017/scoring/scoring_config.json",
+          "notes": [
+            "Read-only exact CMOS b1 import-recovery overlay: one native grade of the unchanged saved candidate, nine existing Judge cache responses and zero new paid calls. Other239 rows and the original239+1-invalid report are preserved; public/local replacement-Judge scope remains unchanged."
+          ]
+        }
       }
     },
     "terminal250": {
       "label": "Terminal250专家",
       "artifact": "artifacts/runs/terminal-retry-sft-r16-726665/training/checkpoint-250",
       "benchmarks": {
-        "terminal": {"adapter": "terminal_scores", "summary": "artifacts/eval/terminal250_audited_20261017/summary.json", "notes": ["Read-only exact nginx/seed0 saved-candidate native0 recovery; original archive, candidate and raw invalid record preserved. No nginx installation/service start or new model call. Refresh collect_terminal250_audited.py before aggregation; all other original score rows remain unchanged."]}
+        "terminal": {
+          "adapter": "terminal_scores",
+          "summary": "artifacts/eval/terminal250_audited_20261017/summary.json",
+          "notes": [
+            "Read-only exact nginx/seed0 native0 and git-leak-recovery/seed1 native1 saved-candidate grade-only overlays; original archives, answers and raw invalid records preserved. The git-leak first official verifier passed all 5 tests after exact hardlink-header validation correction; no candidate chmod, link split, installation, service start or model call. Refresh collect_terminal250_audited.py before aggregation; all nonapproved score rows remain unchanged."
+          ]
+        }
       }
     },
     "mixed883": {
@@ -112,7 +172,10 @@
           "summary": "artifacts/eval/ties_dense_hle2500_20261017/scoring/summary.json",
           "results": "artifacts/eval/ties_dense_hle2500_20261017/scoring/results",
           "selection_manifest": "artifacts/eval/ties_dense_hle2500_20261017/manual_retry_manifest.json",
-          "notes": ["Fixed PEFT0.20 per-module true-delta TIES density0.2/total/ones/lambda1, no SVD. Same35B architecture; dense full-BF16 storage differs from AVG64 rank64 adapter parameterization and runtime addition order. Measured global storage deviation relative to TIES delta10.531%; source735 non-target tensors bitwise preserved.", "HLE-only method comparison under the same frozen2500/342image/50/300s/64K8K/nonthinking protocol, not final-model selection or a four-benchmark macro. Primary AVG64 remains unchanged."]
+          "notes": [
+            "Fixed PEFT0.20 per-module true-delta TIES density0.2/total/ones/lambda1, no SVD. Same35B architecture; dense full-BF16 storage differs from AVG64 rank64 adapter parameterization and runtime addition order. Measured global storage deviation relative to TIES delta10.531%; source735 non-target tensors bitwise preserved.",
+            "HLE-only method comparison under the same frozen2500/342image/50/300s/64K8K/nonthinking protocol, not final-model selection or a four-benchmark macro. Primary AVG64 remains unchanged."
+          ]
         }
       }
     },
@@ -120,15 +183,28 @@
       "label": "AVG64合版",
       "artifact": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
       "benchmarks": {
-        "swe": {"adapter": "swe_tasks", "summary": "artifacts/eval/avg64_swe_audited_hard51_20261017/summary.json", "notes": ["Read-only overlay accepts independently reviewed exact AVG native-zero replays c1f2, OpenLibrary630, Qutebrowser3e21 and its own same-patch Vuls disk-scratch recovery with task-required product behavior omitted. Original source validity and pending rows remain; no expert audit whitelist is inherited. Refresh collect_avg64_swe_audited.py after collect_swe249_audited.py before aggregation."]},
+        "swe": {
+          "adapter": "swe_tasks",
+          "summary": "artifacts/eval/avg64_swe_audited_hard51_20261017/summary.json",
+          "notes": [
+            "Read-only overlay accepts independently reviewed exact AVG native-zero replays c1f2, OpenLibrary630, Qutebrowser3e21 and its own same-patch Vuls/T2 disk-scratch recoveries with task-required product behavior omitted. Original source validity and pending rows remain; no expert audit whitelist is inherited. Refresh collect_avg64_swe_audited.py after collect_swe249_audited.py before aggregation."
+          ]
+        },
         "hle": {
           "adapter": "hle_results",
           "summary": "artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
           "results": "artifacts/eval/avg64_hle2500_20261017/scoring/results",
           "selection_manifest": "artifacts/eval/avg64_hle2500_20261017/manual_retry_manifest.json"
         },
-        "asi": {"adapter": "asi_native", "summary": "artifacts/eval/avg64_asi240_20261017/scoring/local_score_seed31415.json", "scoring_config": "artifacts/eval/avg64_asi240_20261017/scoring/scoring_config.json"},
-        "terminal": {"adapter": "terminal_scores", "summary": "artifacts/eval/avg64_terminal_full445_20261017/summary.json"}
+        "asi": {
+          "adapter": "asi_native",
+          "summary": "artifacts/eval/avg64_asi240_20261017/scoring/local_score_seed31415.json",
+          "scoring_config": "artifacts/eval/avg64_asi240_20261017/scoring/scoring_config.json"
+        },
+        "terminal": {
+          "adapter": "terminal_scores",
+          "summary": "artifacts/eval/avg64_terminal_full445_20261017/summary.json"
+        }
       }
     }
   },

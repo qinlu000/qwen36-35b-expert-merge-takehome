@@ -1,7 +1,7 @@
 {
   "model": "apex-terminal250",
-  "scope": "Only the exact original nginx-request-logging/seed0 saved candidate; no cross-model audit reuse",
-  "approval": "Root independently reviewed and approved the exact native0, original archive/delta, resources, tests, source bytes and drained lease on 2026-10-17 after 07:19 CST",
+  "scope": "Only the exact original nginx-request-logging/seed0 and git-leak-recovery/seed1 saved candidates; no cross-model audit reuse",
+  "approval": "Root independently approved the exact nginx native0 and git-leak seed1 native1 after reviewing original sources, restored candidates, native tests, fixed resources and complete lease cleanup on 2026-10-17 CST",
   "source_summary": "artifacts/eval/terminal250_full445_20261017/summary.json",
   "task_manifest": "artifacts/eval/terminal250_full445_20261017/manifest.json",
   "task_manifest_sha256": "78dd5cda85a782f72f3b995b463bd65eb49b3c0653c98cd81a73250d68176fd3",
@@ -34,5 +34,51 @@
   },
   "new_audits_require_explicit_review": true,
   "new_model_calls": 0,
-  "new_native_verifier_runs": 0
+  "new_native_verifier_runs": 0,
+  "approved_native_grades": [
+    {
+      "key": "git-leak-recovery/seed1",
+      "model": "apex-terminal250",
+      "seed": 1,
+      "task_checksum": "da0aeda47b324bff84c67faa3d8bed3b3b5f1200e3b17cecbc7dc8f802fd366a",
+      "original_result": "artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/result.json",
+      "original_result_sha256": "cb48b18ec0d4df51783385f475970120cc3a43932afbc6e7660dfc42314440ca",
+      "original_invalid": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/result.json",
+        "valid": false,
+        "reward": null,
+        "exception": "RuntimeError",
+        "verifier_issue": null
+      },
+      "expected_native_reward": 1,
+      "accepted_result": "artifacts/recovery/terminal250-git-leak-seed1-header-mode-recovery-20261017/attempt1/native-grade/result.json",
+      "accepted_result_sha256": "f7b9cd361ddaaa2d55362a501fdf43cc4adf63a4fc91ee14b4c6c5e50d5bab0b",
+      "restore_manifest": "artifacts/recovery/terminal250-git-leak-seed1-header-mode-recovery-20261017/prepared/restore.json",
+      "restore_manifest_sha256": "21b88d338071b430a956c0e96f42c0b74218fc8e93aecd0fd9457652dba9f09a",
+      "parent_launch": "artifacts/recovery/terminal250-git-leak-seed1-header-mode-recovery-20261017/root-launch-20261017.json",
+      "parent_launch_sha256": "78dcae2ec30fb867a07b29d5dfa47100130015b18bb118cd20c4e7f3f23f41cb",
+      "parent_state": "artifacts/recovery/terminal250-git-leak-seed1-header-mode-recovery-20261017/attempt1/parent-state.json",
+      "parent_state_sha256": "ac9a36aa75abe14f5f0d8bbc3001430fa6dcefedef930f84b28f8298b453acc1",
+      "execution_claim": "artifacts/recovery/terminal250-git-leak-seed1-header-mode-recovery-20261017/attempt1/execution-claim.json",
+      "execution_claim_sha256": "d0bef251a86e887f51c12117099fb466b220e31e95ca80a04038f54017b9fbd0",
+      "execution_review": "artifacts/recovery/terminal250-git-leak-seed1-header-mode-recovery-20261017/execution-review.json",
+      "execution_review_sha256": "c5882595b5775ddacc83b2acb6a5f4e6cbfd9cb2e2b6d5857e82dad0f50cdedd",
+      "ctrf": "artifacts/recovery/terminal250-git-leak-seed1-header-mode-recovery-20261017/attempt1/native-grade/verifier/ctrf.json",
+      "ctrf_sha256": "b60c2a924694fe7b39e45c99461989590513f5d5360d3b9a0cb677451ae2415b",
+      "parent_pid": 2189065,
+      "parent_startticks": "870321012",
+      "parent_script_sha256": "a13001baf6656973a9553d78a0b107ca36ee5035023c48992ce02dca18c5b447",
+      "parent_manifest_sha256": "e56b4e8327ba748d72f37e77bce1ec8c46dec1ee85b633087720f34dc90494c0",
+      "frozen_parent_sha256": "e0ad3fb1a72dc5a9db597611de3cd8ac8690ab9a61c33f212a9c13c1ce71da6c",
+      "official_test_names": [
+        "test_outputs.py::test_flag_file_exists_and_correct",
+        "test_outputs.py::test_no_secrets_in_commits",
+        "test_outputs.py::test_good_commits_preserved",
+        "test_outputs.py::test_no_secrets_in_unreachable_objects",
+        "test_outputs.py::test_repository_contents_checksum"
+      ],
+      "evidence_audit": "analysis/terminal_git_leak_header_mode_recovery_execution_20261017.md",
+      "reason": "Root independently accepted this exact unchanged saved candidate and native reward1: all five official tests passed after strict restoration of 50 app and 23 etc members, with only the exact conflicting hardlink-header mode expectation normalized to its canonical target. No candidate chmod, link split, installation, service start or model call; 44 source bindings unchanged, original raw null retained, and native double-drain then guard-stop and full double-drain preceded unlock."
+    }
+  ]
 }

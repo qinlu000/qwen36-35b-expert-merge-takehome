@@ -1,5 +1,14 @@
 # 最终交付的最小剩余清单
 
+**10:42唯一等待器已启动**：root与独立审阅通过新版fb5a/8cff及真实route receipt后，10:40:56只启动一次T774 parent**2223041/start870388084**；10:41:47仍waiting_source_or_route、lock_held=false、0native。它只在原AVG ASI全240/pool shutdown/源scope空marker与124–127实际scope排空后领取独立未来租约，native仅124/1CPU4GiB3000s，不碰92–95或Terminal到123的原扩容。当前232保存、8在途，不能释放生成核。route依赖Mac专用84416/control socket，结束无消费者后只关自身route，不能因中途断路自动重跑未知原生结果。
+
+
+**10:39正式覆盖**：[新双视图](source_snapshots/formal_aggregation_20261017_1039.json)已接git-leak原答案native1；Terminal专家177/445另5invalid、AVG165/445另4invalid，全部未齐备结果保持null。AVG T774原站TLS路由已恢复，CPU124 prepare-only入口仍待新版路由识别审核与ASI真实交接，不能把转发成功当官方测试已跑。
+
+
+**10:33更新覆盖旧coverage**：SWE专家全51题0通过（50nativevalid+1完整官方报告审计），Base10/51；[逐题对照](swe_task_comparison_20261017.md)与配对95%CI已齐。AVG50/51、4resolved，剩T774原proxy恢复准备，尚未native。Terminal git-leak原候选官方5/5/native1已独立接受，其他新增invalid尤其两项缺最终archive继续null；原raw和既有历史不改。10:26双视图TB171/159只是接入前coverage，不构成完整分。阶段PDF10:33已验收，继续等待Terminal445、AVG ASI科学评分、AVG SWE最后项及TIES唯一未决，仍无最终report.pdf/最终提交。
+
+
 **09:25运行增量**：三个SWE原答案补评分已在独立92/93/94三核运行，见[短TMPDIR恢复](swe_additional_short_tmp_recovery_20261017.md)；原namespace启动失败保留，不构成有效分数或模型重答。新Terminal git-leak/seed1的[离线恢复准备](terminal_git_leak_grade_only_preparation_20261017.md)已完成Git完整性与同SIF差分，但尚无native/成绩，仍是待完成评分。不得以这些准备状态覆盖下述正式coverage。
 
 **09:15增量**：两项Vuls一次原答案native补评经root独立读任务/日志/资源与排空证据后接受0，各SWE有效coverage升至49/51，仍各2invalid，完整分继续null。Terminal专家141/445另3invalid、AVG131/445另3invalid，均非完整成绩。新增专家git-leak-recovery/seed1清理异常正在只读核查，不派生预算0。[最新双视图](source_snapshots/formal_aggregation_20261017_0915.json)与[独立Vuls审核](swe_vuls_grade_review_20261017.md)。[额外HLE配对退化案例](hle_base_avg_disagreements_20261017.md)补充20个Base对/AVG错且AVG有答案的真实案例，原20失败与三项未来实验不替换。

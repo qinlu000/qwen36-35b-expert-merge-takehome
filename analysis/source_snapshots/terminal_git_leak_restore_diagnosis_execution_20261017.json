@@ -1,0 +1,1370 @@
+{
+  "captured_at_utc": "2026-10-17T02:25:48.313987+00:00",
+  "status": "metadata_diagnosis_complete_deliberate_exit86_no_verifier",
+  "key": "git-leak-recovery/seed1",
+  "model": "apex-terminal250",
+  "seed": 1,
+  "task_checksum": "da0aeda47b324bff84c67faa3d8bed3b3b5f1200e3b17cecbc7dc8f802fd366a",
+  "root_launch": {
+    "at_utc": "2026-10-17T02:24:22.949645+00:00",
+    "pid": 2170741,
+    "startticks": "870288696",
+    "command": [
+      "taskset",
+      "-c",
+      "10",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+      "/data/caoqinlu/projects/apex-takehome/scripts/diagnose_terminal_git_leak_restore_20261017.py",
+      "--manifest",
+      "/data/caoqinlu/projects/apex-takehome/configs/eval/terminal_git_leak_restore_diagnosis_20261017.json",
+      "--execute"
+    ],
+    "script_sha256": "83fcadb53a7c9a3724e3c152b456bb23579075440860dafa9cd61515d1c41cfa",
+    "manifest_sha256": "2831649f1b86f03be013ad5c602f2528ff8e70c1436fadde6c256df0a062aff7",
+    "frozen_parent_sha256": "e0ad3fb1a72dc5a9db597611de3cd8ac8690ab9a61c33f212a9c13c1ce71da6c",
+    "bindings_verified": 40,
+    "purpose": "metadata-only restore diagnosis; deliberate restore exit86 structurally blocks original verifier",
+    "swe_drained": true,
+    "asi_not_ready": true,
+    "busy_pool_scopes": [],
+    "cpu_ids": [
+      92,
+      93,
+      94,
+      95
+    ],
+    "logical_offset": 0,
+    "new_model_calls": 0,
+    "official_verifier_permitted": false
+  },
+  "root_launch_binding": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-restore-diagnosis-20261017/root-launch-20261017.json",
+    "bytes": 1095,
+    "sha256": "3bfb63621aa0f7fd8a5f6797fe9231ce4b9f307ca4b4e945b34af821e6e0dbb8"
+  },
+  "parent_state": {
+    "pid": 2170741,
+    "startticks": "870288696",
+    "state": "finished_pending_root_review",
+    "lock_held": false,
+    "model_calls": 0,
+    "command": [
+      "taskset",
+      "-c",
+      "92-95",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_repair_grade_v2.py",
+      "--original-result",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/result.json",
+      "--restore-manifest",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-restore-diagnosis-20261017/prepared/restore.json",
+      "--output",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-restore-diagnosis-20261017/attempt1/native-grade",
+      "--cpu-offset",
+      "0"
+    ],
+    "native_output": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-restore-diagnosis-20261017/attempt1/native-grade",
+    "accepted_into_formal_summary": false,
+    "at_utc": "2026-10-17T02:24:33.175971+00:00",
+    "guard_observed": {
+      "unit": "apex-baseline-git-leak-2170741.scope",
+      "affinities": {
+        "2170742": [
+          92,
+          93,
+          94,
+          95
+        ]
+      },
+      "memory_max": 33554432,
+      "memory_swap_max": 0
+    },
+    "child_pid": 2170746,
+    "child_startticks": "870288825",
+    "child_returncode": 0,
+    "native_reward": null,
+    "exception_type": "RuntimeError",
+    "original_and_restore_unchanged": true,
+    "remaining_scopes": [],
+    "guard_stopped": true,
+    "released_at_utc": "2026-10-17T02:24:33.175955+00:00",
+    "consecutive_empty_native_scope_samples": [
+      {
+        "at_utc": "2026-10-17T02:24:28.899586+00:00",
+        "remaining_scopes": []
+      },
+      {
+        "at_utc": "2026-10-17T02:24:30.963138+00:00",
+        "remaining_scopes": []
+      }
+    ],
+    "consecutive_empty_scope_samples_after_guard_stop": [
+      {
+        "at_utc": "2026-10-17T02:24:31.025029+00:00",
+        "remaining_scopes": []
+      },
+      {
+        "at_utc": "2026-10-17T02:24:33.103197+00:00",
+        "remaining_scopes": []
+      }
+    ]
+  },
+  "parent_state_binding": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-restore-diagnosis-20261017/attempt1/parent-state.json",
+    "bytes": 2174,
+    "sha256": "2ccb83610cba60a4e79330c223bc39986077558141014c140728f79e57dfc5dc"
+  },
+  "claim_binding": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-restore-diagnosis-20261017/attempt1/execution-claim.json",
+    "bytes": 9416,
+    "sha256": "f5379d2c58c189e8457227a65db0d4cadaacada00c75ebca4f067b3fc30443c4"
+  },
+  "processes": [
+    {
+      "pid": 2170741,
+      "expected_startticks": "870288696",
+      "same_live_process": false,
+      "present": false
+    },
+    {
+      "pid": 2170746,
+      "expected_startticks": "870288825",
+      "same_live_process": false,
+      "present": false
+    }
+  ],
+  "configured_resources": {
+    "cpus": 4,
+    "physical_cpu_ids": [
+      92,
+      93,
+      94,
+      95
+    ],
+    "logical_offset": 0,
+    "memory_mib": 8192,
+    "verifier_config_seconds": 900,
+    "official_verifier_structurally_blocked": true,
+    "guard": {
+      "unit": "apex-baseline-git-leak-2170741.scope",
+      "affinities": {
+        "2170742": [
+          92,
+          93,
+          94,
+          95
+        ]
+      },
+      "memory_max": 33554432,
+      "memory_swap_max": 0
+    },
+    "native_live_cgroup_sample_captured": false
+  },
+  "restore_commands": [
+    {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-restore-diagnosis-20261017/attempt1/native-grade/restore-command-0.json",
+      "bytes": 59,
+      "sha256": "64c4c7e2304e1cafc0e4d2ccc791a94c8520cdc24c86cbe593c602941c8d8812",
+      "return_code": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-restore-diagnosis-20261017/attempt1/native-grade/restore-command-1.json",
+      "bytes": 77,
+      "sha256": "e261af0168cc578b48588414eae761ee4554e244f1e0f55818fb2510e3e979ee",
+      "return_code": 0,
+      "stdout_bytes": 20,
+      "stderr_bytes": 0,
+      "safe_stdout": "/etc/resolv.conf: OK"
+    },
+    {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-restore-diagnosis-20261017/attempt1/native-grade/restore-command-2.json",
+      "bytes": 19564,
+      "sha256": "fac25f82315a31ce5ad50b6100d8aad4988ba9dd9f15eb478034336eaf653922",
+      "return_code": 86,
+      "stdout_bytes": 17338,
+      "stderr_bytes": 0
+    }
+  ],
+  "diagnostic_payload": {
+    "purpose": "metadata_only_restore_diagnosis",
+    "rows": [
+      {
+        "path": "/app",
+        "expected_type": "dir",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo",
+        "expected_type": "dir",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git",
+        "expected_type": "dir",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/ORIG_HEAD",
+        "expected_type": "file",
+        "expected_mode": "0o644",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o644",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/objects",
+        "expected_type": "dir",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/objects/pack",
+        "expected_type": "dir",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/objects/pack/pack-5451c76626c95a6a4bbc91c23c19388df594ee1c.idx",
+        "expected_type": "file",
+        "expected_mode": "0o600",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/objects/pack/pack-5451c76626c95a6a4bbc91c23c19388df594ee1c.pack",
+        "expected_type": "file",
+        "expected_mode": "0o600",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/objects/pack/pack-5451c76626c95a6a4bbc91c23c19388df594ee1c.rev",
+        "expected_type": "file",
+        "expected_mode": "0o600",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/objects/info",
+        "expected_type": "dir",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/objects/info/commit-graph",
+        "expected_type": "file",
+        "expected_mode": "0o400",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o400",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/objects/info/packs",
+        "expected_type": "file",
+        "expected_mode": "0o600",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/packed-refs",
+        "expected_type": "file",
+        "expected_mode": "0o600",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/HEAD",
+        "expected_type": "file",
+        "expected_mode": "0o644",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o644",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/branches",
+        "expected_type": "dir",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/config",
+        "expected_type": "file",
+        "expected_mode": "0o644",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o644",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/info",
+        "expected_type": "dir",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/info/exclude",
+        "expected_type": "file",
+        "expected_mode": "0o644",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o644",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/info/refs",
+        "expected_type": "file",
+        "expected_mode": "0o600",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/refs",
+        "expected_type": "dir",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/refs/tags",
+        "expected_type": "dir",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/refs/notes",
+        "expected_type": "dir",
+        "expected_mode": "0o700",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o700",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/refs/heads",
+        "expected_type": "dir",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/index",
+        "expected_type": "file",
+        "expected_mode": "0o644",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o644",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/logs",
+        "expected_type": "dir",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/logs/HEAD",
+        "expected_type": "file",
+        "expected_mode": "0o600",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/logs/refs",
+        "expected_type": "dir",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/logs/refs/notes",
+        "expected_type": "dir",
+        "expected_mode": "0o700",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o700",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/logs/refs/notes/commits",
+        "expected_type": "file",
+        "expected_mode": "0o600",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/logs/refs/heads",
+        "expected_type": "dir",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/logs/refs/heads/master",
+        "expected_type": "file",
+        "expected_mode": "0o600",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/hooks",
+        "expected_type": "dir",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/hooks/pre-merge-commit.sample",
+        "expected_type": "file",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/hooks/pre-applypatch.sample",
+        "expected_type": "file",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/hooks/fsmonitor-watchman.sample",
+        "expected_type": "file",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/hooks/pre-commit.sample",
+        "expected_type": "file",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/hooks/applypatch-msg.sample",
+        "expected_type": "file",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/hooks/sendemail-validate.sample",
+        "expected_type": "file",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/hooks/pre-push.sample",
+        "expected_type": "file",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/hooks/pre-rebase.sample",
+        "expected_type": "file",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/hooks/pre-receive.sample",
+        "expected_type": "file",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/hooks/prepare-commit-msg.sample",
+        "expected_type": "file",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/hooks/post-update.sample",
+        "expected_type": "file",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/hooks/commit-msg.sample",
+        "expected_type": "file",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/hooks/update.sample",
+        "expected_type": "file",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/hooks/push-to-checkout.sample",
+        "expected_type": "file",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/COMMIT_EDITMSG",
+        "expected_type": "file",
+        "expected_mode": "0o644",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o644",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/.git/description",
+        "expected_type": "file",
+        "expected_mode": "0o644",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o644",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/repo/README.md",
+        "expected_type": "file",
+        "expected_mode": "0o644",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o644",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/app/secret.txt",
+        "expected_type": "file",
+        "expected_mode": "0o600",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/python3",
+        "expected_type": "dir",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/python3/debian_config",
+        "expected_type": "file",
+        "expected_mode": "0o644",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o644",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/mime.types",
+        "expected_type": "file",
+        "expected_mode": "0o644",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o644",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/timezone",
+        "expected_type": "file",
+        "expected_mode": "0o644",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o644",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/python3.12",
+        "expected_type": "dir",
+        "expected_mode": "0o755",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o755",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/python3.12/sitecustomize.py",
+        "expected_type": "file",
+        "expected_mode": "0o644",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o644",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/apt/sources.list",
+        "expected_type": "file",
+        "expected_mode": "0o644",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o644",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/apt/apt.conf.d/01-vendor-ubuntu",
+        "expected_type": "hardlink",
+        "expected_mode": "0o644",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": false,
+        "type_same": true,
+        "content_hash_same": true,
+        "hardlink_samefile": true,
+        "difference": true
+      },
+      {
+        "path": "/etc/apt/apt.conf.d/99-apex-rootmap",
+        "expected_type": "file",
+        "expected_mode": "0o600",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/dpkg",
+        "expected_type": "dir",
+        "expected_mode": "0o700",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o700",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/dpkg/dpkg.cfg.d",
+        "expected_type": "dir",
+        "expected_mode": "0o700",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o700",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/dpkg/dpkg.cfg.d/excludes",
+        "expected_type": "file",
+        "expected_mode": "0o600",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/dpkg/dpkg.cfg.d/singularity-compat",
+        "expected_type": "file",
+        "expected_mode": "0o600",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/dpkg/dpkg.cfg.d/docker-apt-speedup",
+        "expected_type": "file",
+        "expected_mode": "0o600",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/dpkg/dpkg.cfg",
+        "expected_type": "file",
+        "expected_mode": "0o600",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/dpkg/origins",
+        "expected_type": "dir",
+        "expected_mode": "0o700",
+        "exists": true,
+        "actual_type": "dir",
+        "actual_mode": "0o700",
+        "mode_same": true,
+        "type_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/dpkg/origins/debian",
+        "expected_type": "file",
+        "expected_mode": "0o600",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/dpkg/origins/default",
+        "expected_type": "file",
+        "expected_mode": "0o600",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/dpkg/origins/ubuntu",
+        "expected_type": "file",
+        "expected_mode": "0o600",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o600",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/ld.so.cache",
+        "expected_type": "file",
+        "expected_mode": "0o644",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o644",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/localtime",
+        "expected_type": "symlink",
+        "expected_mode": "0o777",
+        "exists": true,
+        "actual_type": "symlink",
+        "actual_mode": "0o777",
+        "mode_same": true,
+        "type_same": true,
+        "link_target_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/shells",
+        "expected_type": "file",
+        "expected_mode": "0o644",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o644",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      },
+      {
+        "path": "/etc/inputrc",
+        "expected_type": "file",
+        "expected_mode": "0o644",
+        "exists": true,
+        "actual_type": "file",
+        "actual_mode": "0o644",
+        "mode_same": true,
+        "type_same": true,
+        "content_hash_same": true,
+        "difference": false
+      }
+    ],
+    "members": 73,
+    "differences": 1,
+    "app_inventory_same": true,
+    "app_missing_paths": [],
+    "app_extra_paths": [],
+    "official_verifier_started": false,
+    "deliberate_exit_code": 86
+  },
+  "raw_archive_hardlink_headers": [
+    {
+      "path": "/app/repo/.git/info/refs",
+      "typeflag": "0",
+      "mode": "0o600",
+      "uid": 0,
+      "gid": 0,
+      "mtime": 1792195310,
+      "size": 119,
+      "linkname": "",
+      "raw_header_mode": "0000600"
+    },
+    {
+      "path": "/etc/apt/apt.conf.d/01-vendor-ubuntu",
+      "typeflag": "1",
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "mtime": 1711102304,
+      "size": 0,
+      "linkname": "app/repo/.git/info/refs",
+      "raw_header_mode": "0000644"
+    }
+  ],
+  "finding": {
+    "only_difference": "/etc/apt/apt.conf.d/01-vendor-ubuntu mode raw0644 vs actual0600",
+    "all_contents_types_links_other_modes_match": true,
+    "app_inventory_same": true,
+    "regular_target_header_mode": "0o600",
+    "hardlink_alias_header_mode": "0o644",
+    "one_real_inode_cannot_have_both_modes": true,
+    "archive_alias_header_mtime_conflicts_too": true,
+    "cause_of_archive_header_conflict_not_proven": true,
+    "per_exec_chmod_not_evidenced_by_static_review": true
+  },
+  "native_result": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-restore-diagnosis-20261017/attempt1/native-grade/result.json",
+    "bytes": 111662,
+    "sha256": "c9a1557633b6657ae4d2fbca7128bb80d280c1a75726c3891920a84a43caef46",
+    "verifier_result": null,
+    "exception_type": "RuntimeError",
+    "safe_exception_message": "Original restore command 2 returned 86",
+    "finished_at": "2026-10-17T02:24:26.659675+00:00",
+    "official_tests_started": false,
+    "verifier_files": [],
+    "accepted_into_formal_summary": false
+  },
+  "source_recheck": {
+    "bound_files": 42,
+    "all_unchanged": true,
+    "entries": [
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/result.json",
+        "sha256": "cb48b18ec0d4df51783385f475970120cc3a43932afbc6e7660dfc42314440ca",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/config.json",
+        "sha256": "6257eb4c685891a50ec8a627f69dcbc81447b28a9bcc75ac5c1155a2ad3c3371",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/artifacts/logs/artifacts/final-task-state.tar",
+        "sha256": "1f8863211b0189c011fdd1bf39717c8ec9481a273c7e66ee45267b68c2b7dffd",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/artifacts/logs/artifacts/final-task-state.json",
+        "sha256": "9ccbc62dae3761a3d4a7b3f95f13b7d9497b86a1862e7404d849c100adacec8c",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/trial.log",
+        "sha256": "265c57461a6db69c3af4cb529ec5f385b023b8d2baa12f9aa7b0b568bbeca417",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/agent/trajectory.json",
+        "sha256": "be88be9f92735574e6aaf8b7e7cfd7a725a55f9dce47b042dc963bb84efdf175",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/git-leak-recovery/task.toml",
+        "sha256": "3eca5fbd4d0dd2b5710d616f9303605666971983965e97ba14b2c6ef85abdb71",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/git-leak-recovery/instruction.md",
+        "sha256": "54ac693fd26a4c003f610d62c4b2671f1d1d04ac5b1286f780605e385a9a5861",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/git-leak-recovery/environment/Dockerfile",
+        "sha256": "006bf5d2e3502a059f9a87bc855a7f85d6c40c67bf8a523dd3f1e9c6f64cc112",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/git-leak-recovery/tests/test.sh",
+        "sha256": "4770437ea96c3cc84684b4f99d55fb148fcac09f9ea1e8ef49de487716e6c334",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/git-leak-recovery/tests/test_outputs.py",
+        "sha256": "dc7b01c1b9dbb0c123def54b146dc1dd399a600edee5970d043a5db5eac4c775",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/source_inventory.json",
+        "sha256": "f2a686cce00d6912af64d2396c690439a9c1c8613e061a80a4a941a50093c956",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/baseline_singularity.py",
+        "sha256": "4c01b92729d94cb4ea700edd2dc79dc857ec378374459930aba00e53907b6532",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/baseline_netns.py",
+        "sha256": "09303db588a5b15f95116a679140af7eb4ad0b7dfb24d52d033c1d81e3990a23",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_repair_environment_v2.py",
+        "sha256": "3f436e877a1fd4019a39d4ea33a4f24f10fd3f9c25d6ec30c2fabac0b7194450",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_repair_grade_v2.py",
+        "sha256": "a65c7868a2455b0dec80c33c6b5d3552310dc829b4789314d8be0cbe92dc8439",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_repair_agent_v2.py",
+        "sha256": "a206fe07f07ec9578bdaaafb1b64dfccdeb4ffe8147bef6c137857cd081b6b95",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/baseline_exec_limits.py",
+        "sha256": "540f46a4b2b2b0d5a417f4b7ff99c309c6d2417c3e463f44b7df2af17d605757",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/asi_baseline_limits.py",
+        "sha256": "1a32b603cb4ff3594f32d16560045ab3b462b15cccf6d08b1eaa9e2c7db9279f",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_native_environment.py",
+        "sha256": "a0f92b41f9c834927bfb50a32265b2262dcab53fab117ce5b00695e00c927b1f",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_verifier_evidence.py",
+        "sha256": "942b7e2e8aedec5e00c3ab394f57f03b99223704cffd98b89bf6351ecb32707c",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_verifier_environment.py",
+        "sha256": "e8761afcdedf1fdcbd14e02281de1f91fa2960d7de1675fdac65e4e21efe72fc",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_verifier_apt_environment.py",
+        "sha256": "c04e8e789f4effb9b6b623938b245bd1448c2e8e8b0a0ed02ff5291f122adfd0",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_verifier_curl.py",
+        "sha256": "3a7baeed1cb848b8657de3745bf4aae13ecb810d171c2bfecd411edeef4ae9e8",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_recovery_v2.py",
+        "sha256": "1490a87bad544b69ee6cb9fbb12e611080888bd51323b1f3369a7d8cd8866379",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/harbor/src/harbor/trial/trial.py",
+        "sha256": "3bb2c0b9dd7553022ba98da96ef5188abc27e2c8475ac949d541f47c5d86ecc6",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/harbor/src/harbor/verifier/verifier.py",
+        "sha256": "6d3d9ed8882c5e07bae4aa6449732b096166fb9bbabc685b39c0e25f57b20aa9",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/harbor/src/harbor/environments/singularity/singularity.py",
+        "sha256": "86e826120a375c006693c6bab6f238a80bcaae85de08d18f54c458da7728f62b",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/harbor/src/harbor/environments/factory.py",
+        "sha256": "fba3de9630e350084c773e991e8e507abaa2815544028fe29c86f072c969dc37",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/harbor/src/harbor/models/trial/config.py",
+        "sha256": "829d4dbd802ce913ccb1f29f149f5ad83ebb52d6c5e0fb1fb9456790f266f4c2",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/scripts/run_terminal_native_gap_queue_20261017.py",
+        "sha256": "0cf19a9b8b5b4e3f661c2087678777635f43b859177b095c5157dee18c21a4ab",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-preparation-20261017/preparation.json",
+        "sha256": "032bc448ea306b16ff32750be117a022bc6f9b2c3838b0d4df28ff006752c1eb",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/terminal_verifier_offline_20261016/task_cache_map.json",
+        "sha256": "7d9624f74f84b799e1865d7a920bfecbedc245291a4f1401fdf99bcb8fcbcb6d",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/scripts/run_terminal_git_leak_grade_only_20261017.py",
+        "sha256": "e0ad3fb1a72dc5a9db597611de3cd8ac8690ab9a61c33f212a9c13c1ce71da6c",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/scripts/diagnose_terminal_git_leak_restore_20261017.py",
+        "sha256": "83fcadb53a7c9a3724e3c152b456bb23579075440860dafa9cd61515d1c41cfa",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-grade-only-20261017/prepared/restore.json",
+        "sha256": "95017a6bc858485ac831c8c21602c171e65971f4f7b0c3ddba56ffc0d9073123",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-grade-only-20261017/prepared/etc-delta.tar",
+        "sha256": "3031a95335ee6262b81a8184704d0365f9e1079602166422d13edaa4b64cbee0",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-grade-only-20261017/attempt1/parent-state.json",
+        "sha256": "f574bffce96d587711e3fee798c37d979de5faa2a548df87232a5ff5b5961082",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-grade-only-20261017/attempt1/execution-claim.json",
+        "sha256": "1179d3a74e05d29f7d80ccfcc5fb854911089aa92631ebc6657c316622317057",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-grade-only-20261017/attempt1/native-grade/result.json",
+        "sha256": "3cbbd7c9f3d3dec49c5b46a3b0805ccae43820ece6be7943896ccf0b549b3dbe",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-restore-diagnosis-20261017/prepared/restore.json",
+        "sha256": "36fabc6d72167eac0469e1570bf1857e4c8d006c9e3774451f0c95e327905fe5",
+        "unchanged": true
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/configs/eval/terminal_git_leak_restore_diagnosis_20261017.json",
+        "sha256": "2831649f1b86f03be013ad5c602f2528ff8e70c1436fadde6c256df0a062aff7",
+        "unchanged": true
+      }
+    ]
+  },
+  "sif_recheck": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/alexgshaw_git-leak-recovery_20251031.sif",
+    "resolved": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/sha256-62160e522a4238b8bcd522411ea97b5b200f811e5899d34947e66809bef7e586.sif",
+    "bytes": 92987392,
+    "mtime_ns": "1792079169674202869",
+    "matches_manifest": true
+  },
+  "cleanup": {
+    "native_empty_samples": [
+      {
+        "at_utc": "2026-10-17T02:24:28.899586+00:00",
+        "remaining_scopes": []
+      },
+      {
+        "at_utc": "2026-10-17T02:24:30.963138+00:00",
+        "remaining_scopes": []
+      }
+    ],
+    "guard_stopped": true,
+    "all_empty_samples_after_guard_stop": [
+      {
+        "at_utc": "2026-10-17T02:24:31.025029+00:00",
+        "remaining_scopes": []
+      },
+      {
+        "at_utc": "2026-10-17T02:24:33.103197+00:00",
+        "remaining_scopes": []
+      }
+    ],
+    "released_at_utc": "2026-10-17T02:24:33.175955+00:00",
+    "lock_held": false,
+    "independent_current_scope_samples": [
+      {
+        "at_utc": "2026-10-17T02:25:46.156493+00:00",
+        "remaining_scopes": []
+      },
+      {
+        "at_utc": "2026-10-17T02:25:48.234366+00:00",
+        "remaining_scopes": []
+      }
+    ],
+    "shared_lock": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/direct_asi_grader_cpu92_95.lock",
+      "inode": 90775088,
+      "kernel_holders_at_capture": [],
+      "probe_lock_acquired": false
+    }
+  },
+  "no_retry_no_new_native_no_collector_change": true,
+  "no_secret_or_answer_bytes_copied": true
+}

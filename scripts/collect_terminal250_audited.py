@@ -1,4 +1,4 @@
-"""Read one Terminal445 snapshot and overlay the exact approved nginx native grade."""
+"""Read one Terminal445 snapshot and overlay explicitly approved saved-candidate native grades."""
 import argparse
 import copy
 from datetime import datetime, timezone
@@ -26,6 +26,105 @@ def pinned(root, filename, expected):
 def valid(row):
     return (row is not None and row.get('valid') is True
             and type(row.get('reward')) in (int, float) and row['reward'] in (0, 1))
+
+
+def approved_native_grade(root, audit, previous, entry, model):
+    """Validate the fixed grade-only evidence; return its original native reward."""
+    key, seed = audit['key'], audit['seed']
+    assert key == entry['task_id'] + '/seed' + str(seed) and entry['seed'] == seed
+    assert audit['model'] == model and previous == audit['original_invalid'], 'Original invalid row changed'
+    assert previous['valid'] is False and previous['reward'] is None
+    assert Path(previous['path']) == root / audit['original_result']
+    evidence = {name: pinned(root, audit[name], audit[name + '_sha256']) for name in (
+        'original_result', 'accepted_result', 'restore_manifest', 'parent_launch',
+        'parent_state', 'execution_claim', 'execution_review', 'ctrf')}
+    original, accepted, restore = (evidence[name] for name in ('original_result', 'accepted_result', 'restore_manifest'))
+    launch, state, claim, review = (evidence[name] for name in (
+        'parent_launch', 'parent_state', 'execution_claim', 'execution_review'))
+    assert original['verifier_result'] is None and original['exception_info']['exception_type'] == previous['exception']
+    assert accepted['exception_info'] is None
+    reward = accepted['verifier_result']['rewards']['reward']
+    assert type(reward) in (int, float) and reward in (0, 1) and reward == audit['expected_native_reward']
+    for result in (original, accepted):
+        assert result['task_checksum'] == entry['task_checksum'] == audit['task_checksum']
+        config = result['config']
+        assert config['agent']['model_name'] == model and config['agent']['kwargs']['seed'] == seed
+        assert config['agent']['override_timeout_sec'] == 1800 and config['timeout_multiplier'] == 1
+        env = config['environment']
+        assert (env['override_cpus'], env['override_memory_mb'], env['override_gpus']) == (4, 8192, 0)
+        assert env['cpu_enforcement_policy'] == env['memory_enforcement_policy'] == 'limit'
+        assert config['verifier']['override_timeout_sec'] == 900 and config['verifier'].get('max_timeout_sec') is None
+    assert accepted['config']['environment']['kwargs']['baseline_cpu_offset'] == 0
+    assert accepted['config']['environment']['kwargs']['baseline_cpu_slots'] == 1
+    assert restore['original_result'] == str(root / audit['original_result'])
+    assert (restore['model'], restore['seed'], restore['task_checksum']) == (model, seed, audit['task_checksum'])
+    assert restore['no_install_or_service_start'] and restore['new_model_calls'] == 0
+    assert restore['resolver_policy'] == {'excluded': '/etc/resolv.conf', 'retain_frozen_runtime_policy': True}
+    mode = restore['mode_audit']
+    assert mode['key'] == key and mode['alias'] == '/etc/apt/apt.conf.d/01-vendor-ubuntu'
+    assert mode['regular_target'] == '/app/repo/.git/info/refs'
+    assert mode['raw_alias_mode'] == '0o644' and mode['canonical_mode'] == '0o600'
+    assert mode['candidate_chmod_or_hardlink_split'] is False and mode['all_other_mode_checks_unchanged']
+    assert launch['root_and_independent_review_passed'] and launch['new_model_calls'] == 0
+    assert launch['pid'] == state['pid'] == claim['pid'] == audit['parent_pid']
+    assert launch['startticks'] == state['startticks'] == claim['startticks'] == audit['parent_startticks']
+    assert launch['script_sha256'] == audit['parent_script_sha256']
+    assert launch['manifest_sha256'] == audit['parent_manifest_sha256']
+    assert launch['frozen_parent_sha256'] == audit['frozen_parent_sha256']
+    assert launch['cpu_ids'] == [92, 93, 94, 95] and launch['logical_offset'] == 0
+    assert launch['memory_mib'] == 8192 and launch['verifier_seconds'] == 900
+    assert state['command'] == claim['command'] and state['model_calls'] == claim['model_calls'] == 0
+    for flag, filename in (('--original-result', 'original_result'), ('--restore-manifest', 'restore_manifest')):
+        assert state['command'][state['command'].index(flag) + 1] == str(root / audit[filename])
+    assert Path(state['native_output']) / 'result.json' == root / audit['accepted_result']
+    assert claim['native_output'] == state['native_output']
+    assert state['state'] == 'finished_pending_root_review' and state['child_returncode'] == 0
+    assert state['native_reward'] == reward and state['exception_type'] is None
+    assert state['original_and_restore_unchanged'] and not state['lock_held'] and not state['remaining_scopes']
+    guard = state['guard_observed']
+    assert guard['affinities'] and all(cpus == [92, 93, 94, 95] for cpus in guard['affinities'].values())
+    assert guard['memory_max'] == 32 * 1024 ** 2 and guard['memory_swap_max'] == 0
+    native = state['consecutive_empty_native_scope_samples']
+    drained = state['consecutive_empty_scope_samples_after_guard_stop']
+    assert state['guard_stopped'] and len(native) == len(drained) == 2
+    assert all(not row['remaining_scopes'] for row in native + drained)
+    assert native[0]['at_utc'] < native[1]['at_utc'] < drained[0]['at_utc'] < drained[1]['at_utc'] < state['released_at_utc']
+    assert (review['key'], review['model'], review['seed'], review['task_checksum']) == (key, model, seed, audit['task_checksum'])
+    assert review['root_launch'] == launch and review['parent_state'] == state
+    assert review['native_result']['path'] == str(root / audit['accepted_result'])
+    assert review['native_result']['sha256'] == audit['accepted_result_sha256']
+    assert review['resolver_unchanged'] and review['actual_execution_protocol']['no_candidate_install_service_or_reexecution']
+    proof = review['strict_restore_proof']
+    assert (proof['restored_members_verified'], proof['app_members'], proof['etc_delta_members']) == (73, 50, 23)
+    assert proof['cross_path_hardlink_verified'] and proof['exact_hardlink_header_mode_normalized']
+    assert proof['raw_alias_mode'] == '0o644' and proof['canonical_regular_mode'] == '0o600'
+    assert proof['candidate_code_executed'] is False
+    header = review['exact_header_normalization']
+    assert header['candidate_chmod_or_link_split'] is False and header['other72_mode_checks_unchanged']
+    commands = review['restore_commands']
+    assert len(commands) == 3
+    for command in commands:
+        path = Path(command['path'])
+        assert path.parent == Path(state['native_output']) and sha256(path) == command['sha256']
+        result = read(path)
+        assert result['return_code'] == 0 and result['stderr'] in (None, '')
+    assert json.loads(read(Path(commands[2]['path']))['stdout']) == proof
+    ctrf = evidence['ctrf']['results']
+    assert {name: ctrf['summary'][name] for name in ('tests', 'passed', 'failed', 'skipped', 'pending', 'other')} == {
+        'tests': 5, 'passed': 5, 'failed': 0, 'skipped': 0, 'pending': 0, 'other': 0}
+    assert len(ctrf['tests']) == 5 and len({row['name'] for row in ctrf['tests']}) == 5
+    assert {row['name'] for row in ctrf['tests']} == set(audit['official_test_names'])
+    assert all(row['status'] == 'passed' for row in ctrf['tests'])
+    assert review['official_verifier']['ctrf_binding']['sha256'] == audit['ctrf_sha256']
+    bound = claim['bound_sha256']
+    recheck = review['source_recheck']
+    assert len(bound) == recheck['bound_files'] == len(recheck['entries']) == 44 and recheck['all_unchanged']
+    assert {row['path']: row['sha256'] for row in recheck['entries']} == bound
+    assert all(row['unchanged'] for row in recheck['entries'])
+    assert all(sha256(Path(path)) == expected for path, expected in bound.items())
+    assert bound[str(root / audit['original_result'])] == audit['original_result_sha256']
+    assert bound[str(root / audit['restore_manifest'])] == audit['restore_manifest_sha256']
+    return reward
 
 
 def collect(root, manifest_path):
@@ -103,7 +202,21 @@ def collect(root, manifest_path):
         audit_source=str(manifest_path), audit_reason=audit['reason'],
         audit_provenance={name: audit[name] for name in audit if name not in ('original_invalid', 'reason')},
         audit_kind='root_approved_grade_only_of_exact_saved_candidate', derived=False)
-    assert all(summary['scores'][name] == row for name, row in raw['scores'].items() if name != key)
+    audited_keys = {key}
+    grades = manifest.get('approved_native_grades', [])
+    for audit in grades:
+        key = audit['key']
+        assert key not in audited_keys and key in terminal, 'Duplicate or unfinished approved native grade'
+        previous = raw['scores'][key]
+        reward = approved_native_grade(root, audit, previous, entries[key], manifest['model'])
+        summary['scores'][key].update(valid=True, reward=reward, exception=None, verifier_issue=None,
+            path=str(root / audit['accepted_result']), accepted_path=str(root / audit['accepted_result']),
+            original_invalid=copy.deepcopy(previous), original_result=str(root / audit['original_result']),
+            audit_source=str(manifest_path), audit_reason=audit['reason'],
+            audit_provenance={name: audit[name] for name in audit if name not in ('original_invalid', 'reason')},
+            audit_kind='root_approved_grade_only_of_exact_saved_candidate', derived=False)
+        audited_keys.add(key)
+    assert all(summary['scores'][name] == row for name, row in raw['scores'].items() if name not in audited_keys)
     rows = {name: row for name, row in summary['scores'].items() if valid(row)}
     assert raw['valid_scored'] == sum(valid(row) for row in raw['scores'].values())
     per_seed = []
@@ -125,14 +238,16 @@ def collect(root, manifest_path):
         original_complete=raw['complete'], original_primary_mean_percent=raw['primary_mean_percent'],
         audit_source=str(manifest_path), audit_manifest_sha256=sha256(manifest_path),
         task_manifest=str(root / manifest['task_manifest']), task_manifest_sha256=manifest['task_manifest_sha256'],
-        audited_native_zero_count=1, valid_scored=len(rows), complete=complete,
+        audited_native_zero_count=1, audited_native_grade_count=len(grades),
+        audited_native_grade_one_count=sum(summary['scores'][row['key']]['reward'] == 1 for row in grades),
+        valid_scored=len(rows), complete=complete,
         resolved=sum(row['reward'] for row in rows.values()), per_seed=per_seed,
         primary_mean_percent=statistics.mean(values) if complete else None,
         sample_sd_percent_ddof1=statistics.stdev(values) if complete else None,
         infrastructure_unscored_finished=len(terminal) - len(rows), completion_gates=gates,
         all_other_score_rows_unchanged=True, source_files_read_only=True,
         new_model_calls=0, new_native_verifier_runs=0,
-        selection_policy='One exact root-approved saved-candidate native grade; no reward search or cross-model reuse.')
+        selection_policy='Exact explicitly root-approved saved-candidate native grades; no reward search or cross-model reuse.')
     return summary
 
 
@@ -150,5 +265,6 @@ if __name__ == '__main__':
     temporary.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + '\n')
     temporary.replace(output / 'summary.json')
     print(json.dumps({key: summary[key] for key in ['collected_at_utc', 'expected', 'valid_scored',
-        'original_valid_scored', 'audited_native_zero_count', 'resolved', 'complete',
+        'original_valid_scored', 'audited_native_zero_count', 'audited_native_grade_count',
+        'audited_native_grade_one_count', 'resolved', 'complete',
         'primary_mean_percent', 'sample_sd_percent_ddof1', 'completion_gates']}))

@@ -1,0 +1,818 @@
+{
+  "schema": "avg64_teleport7744_grade_preparation_v1",
+  "collected_at_utc": "2026-10-17T02:13:04.971668+00:00",
+  "status": "Mac route checker prepared and verified; generation handoff still false; waiting independent/root review, no admission",
+  "metadata_affinity": [
+    10
+  ],
+  "task": "instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+  "source_output": "artifacts/eval/avg64_swe_hard51_20261017",
+  "generation_model": "openai/apex-avg64",
+  "original_config_path": "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/config.json",
+  "original_result_path": "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
+  "original_task_checksum": "793a666f549694b8319137e9fbc9f09fd81137c5d336431bde4a086782140194",
+  "original_patch": {
+    "path": "artifacts/eval/avg64_swe_hard51_20261017/generation/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/agent/model.patch",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "original_sif": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/sha256-83645a1c5565267675a19af0916ba1eed14131c315d92cedb05abea398a03527.sif",
+    "size_bytes": 1659310080,
+    "mtime_ns": "1792093481285011650",
+    "expected_size_matches": true,
+    "expected_mtime_matches": true,
+    "no_large_sif_hash_run": true
+  },
+  "source_small_file_bindings": {
+    "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/config.json": {
+      "sha256": "44a88ab02e82fb99eb1f9d0513f790f687db1aa50002e056f10a969ae57e6d90",
+      "actual_match": true
+    },
+    "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json": {
+      "sha256": "1d68a5172d9c0835f69b654f6ec2ae5dcf30fde9db14d6b3692815e40f9c7b27",
+      "actual_match": true
+    },
+    "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/agent/replay.json": {
+      "sha256": "5417cd997d3e2f3c89384871ed437944ce3a11bc370a8b45bc3ce68603394706",
+      "actual_match": true
+    },
+    "artifacts/eval/avg64_swe_hard51_20261017/generation/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/config.json": {
+      "sha256": "17204c1297db5b6bc2f96f45135f74cdce4f6ba6a7119564b3e5f3046db78b00",
+      "actual_match": true
+    },
+    "artifacts/eval/avg64_swe_hard51_20261017/generation/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json": {
+      "sha256": "77d82774f78329b6f63322e02dc2f68121b0b0ad9f3df4f8169bb2ac45f049b2",
+      "actual_match": true
+    },
+    "artifacts/eval/avg64_swe_hard51_20261017/generation/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/agent/model.patch": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_match": true
+    },
+    "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/task.toml": {
+      "sha256": "749adf6184ac3d1427a6fe2e0d0ebf5f5a534133f78cbaa01b4d157331ebe8e8",
+      "actual_match": true
+    },
+    "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/instruction.md": {
+      "sha256": "22dc680321dc8f645117a605cd6c565437b537d82d99bca6b57a75304f9720c0",
+      "actual_match": true
+    },
+    "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/tests/config.json": {
+      "sha256": "40eff46f34cf9492ec21701012d4940b960f2f43efb1f106f8b04ad53b6e6629",
+      "actual_match": true
+    },
+    "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/tests/parser.py": {
+      "sha256": "264b094594a765a5dd6812a45154203110e3032c7de4704c993b09b2b4418534",
+      "actual_match": true
+    },
+    "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/tests/test.sh": {
+      "sha256": "9dcc9dfbf255bfa077f060458f878f2ffe03f9c8a310e74e165d111858874913",
+      "actual_match": true
+    },
+    "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/tests/run_script.sh": {
+      "sha256": "6fb7e44b14d82b80ff4b3488106ea410fb890332aa988c79914e5536633d0ddd",
+      "actual_match": true
+    },
+    "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/tests/test_patch.patch": {
+      "sha256": "55e696ae5518c82e32ab228df1a3bcb5c718609878956a002006a8de5cceffa0",
+      "actual_match": true
+    }
+  },
+  "runtime_code_bindings": {
+    "scripts/baseline_singularity.py": {
+      "sha256": "4c01b92729d94cb4ea700edd2dc79dc857ec378374459930aba00e53907b6532",
+      "actual_match": true
+    },
+    "scripts/baseline_netns.py": {
+      "sha256": "09303db588a5b15f95116a679140af7eb4ad0b7dfb24d52d033c1d81e3990a23",
+      "actual_match": true
+    },
+    "scripts/baseline_exec_limits.py": {
+      "sha256": "540f46a4b2b2b0d5a417f4b7ff99c309c6d2417c3e463f44b7df2af17d605757",
+      "actual_match": true
+    },
+    "scripts/asi_baseline_limits.py": {
+      "sha256": "1a32b603cb4ff3594f32d16560045ab3b462b15cccf6d08b1eaa9e2c7db9279f",
+      "actual_match": true
+    },
+    "scripts/swe_clean_glibc_runtime.py": {
+      "sha256": "fabd9977a737446a8c62050e639e0cfa710e28414b2c6051e4695dd0860ad172",
+      "actual_match": true
+    },
+    "scripts/swe_score_bootstrap_runtime.py": {
+      "sha256": "182d08c5b3377a08751e8e70f1834afd57a4a859dfcf4332c4743c269146eae6",
+      "actual_match": true
+    },
+    "scripts/swe_score_bootstrap.sh": {
+      "sha256": "6a6ab20819060c4d05c008a1c6a1494db6e45cf93466fc4f7ff671be3638814c",
+      "actual_match": true
+    },
+    "scripts/swe_runtime_rootmap.sh": {
+      "sha256": "c70d888b7fd1c4728143312b26d725fccc9dc935677ec023154a9992173da90e",
+      "actual_match": true
+    },
+    "scripts/swe_score_go_runtime.py": {
+      "sha256": "492a9196ef5c9d0ef5db5c16d332000d2dbc6acf73f9ed360bf9d2d8b5918ce2",
+      "actual_match": true
+    },
+    "scripts/swe_score_go_preseed.py": {
+      "sha256": "9931015302c5fae85266286a885563ff9b0389d2a4edf72199ae0e48602da963",
+      "actual_match": true
+    },
+    "scripts/swe_baseline_v2.py": {
+      "sha256": "bc1b23769da269a7c697384a1707f7a8b6f113e8bfb72f4c4e10f92933772209",
+      "actual_match": true
+    },
+    "scripts/run_terminal_native_gap_queue_20261017.py": {
+      "sha256": "0cf19a9b8b5b4e3f661c2087678777635f43b859177b095c5157dee18c21a4ab",
+      "actual_match": true
+    },
+    "artifacts/benchmarks/swe-bench-pro/v2/tooling/patch_replay.py": {
+      "sha256": "5c8b344de37164e9723f1724c2573013957fb644c3913a64c12c1718c737d876",
+      "actual_match": true
+    },
+    "artifacts/benchmarks/harbor/src/harbor/trial/trial.py": {
+      "sha256": "3bb2c0b9dd7553022ba98da96ef5188abc27e2c8475ac949d541f47c5d86ecc6",
+      "actual_match": true
+    },
+    "artifacts/benchmarks/harbor/src/harbor/verifier/verifier.py": {
+      "sha256": "6d3d9ed8882c5e07bae4aa6449732b096166fb9bbabc685b39c0e25f57b20aa9",
+      "actual_match": true
+    },
+    "artifacts/benchmarks/harbor/src/harbor/environments/singularity/singularity.py": {
+      "sha256": "86e826120a375c006693c6bab6f238a80bcaae85de08d18f54c458da7728f62b",
+      "actual_match": true
+    },
+    "scripts/swe_clean_musl_runtime.py": {
+      "sha256": "60b237b6606907f8a7b49cf260a5ed8290085e1d7086226ffca5e36ba50e9acb",
+      "actual_match": true
+    },
+    "scripts/swe_clean_musl_bootstrap.sh": {
+      "sha256": "f743e0b5847ed28040fe6000fe66b89820db6addd29ee990f53ff40fa7dd912b",
+      "actual_match": true
+    },
+    "scripts/repair_base_swe_gaps_20261017.py": {
+      "sha256": "70af28c9b39155677d18216ecfe8bddd4d93d60f99ce8bf1e4a8b7d8e8344aef",
+      "actual_match": true
+    },
+    "scripts/run_swe_remaining_grade_only_20261017.py": {
+      "sha256": "a0eb0e252e27b56d3c615324c83a3fe0831ba1c85565ce9413c4782c27edfd10",
+      "actual_match": true
+    },
+    "artifacts/preflight/swe_v2/musl_compat/shim/singularity": {
+      "sha256": "85061ee3717ffabb0b348ec954b315df918e14fff83fc99e2d2e5532fb47ef70",
+      "actual_match": true
+    },
+    "artifacts/preflight/swe_v2/musl_compat/python-wrapper": {
+      "sha256": "425a09f5551af5ec92b25285a69182cc1b437f28200c808afb11f470d261fc70",
+      "actual_match": true
+    },
+    "artifacts/preflight/swe_v2/musl_compat/uv-wrapper": {
+      "sha256": "778d31240d019387c9c9f3a9ce539f81eb4e358fe5dd4943bfd674e73c3a48d7",
+      "actual_match": true
+    },
+    "artifacts/preflight/swe_v2/musl_compat/rootmap.sh": {
+      "sha256": "c70d888b7fd1c4728143312b26d725fccc9dc935677ec023154a9992173da90e",
+      "actual_match": true
+    },
+    "configs/eval/swe_remaining_grade_only_20261017.json": {
+      "sha256": "19f6c69a335d68fcc75369f962daaf8c0fabe49f265db8939aab324287311717",
+      "actual_match": true
+    }
+  },
+  "binding_counts": {
+    "source_small_files": 13,
+    "original_common_runtime": 16,
+    "additional_musl_and_helper_identity": 9,
+    "total_verified": 38,
+    "old_proxy_script_separately_pinned": true
+  },
+  "old_proxy_script": {
+    "path": "scripts/swe_score_original_proxy_repair.py",
+    "sha256": "a44b797d2bb0622d9bfe8e45905b6b6c14e668105eb827a4a298e63bf50bbe22",
+    "not_executed": true,
+    "hardcoded_expert_source": true,
+    "hardcoded_expert_output": true,
+    "hardcoded_cpu10": true,
+    "hardcoded_shared_unix_socket": "/tmp/apex-swe249-original-proxy.sock",
+    "hardcoded_upstream": "127.0.0.1:38443",
+    "connect_allowlist": "CONNECT proxy.golang.org:443 only",
+    "declared_old_expert_origin_ip": "142.251.34.209"
+  },
+  "original_avg_failure": {
+    "native_raw_reward": 0,
+    "native_exception": null,
+    "accepted_score": null,
+    "classification": "public Go dependency timeout; native raw zero is not accepted",
+    "stderr": "go: finding module for package github.com/mdlayher/netlink\ngo: finding module for package github.com/mdlayher/netlink/nlenc\n# github.com/gravitational/teleport/lib/auditd\nlib/auditd/auditd_test.go:28:2: module github.com/mdlayher/netlink: Get \"https://proxy.golang.org/github.com/mdlayher/netlink/@v/list\": dial tcp 142.250.73.145:443: i/o timeout",
+    "original_avg_origin_ip_in_error": "142.250.73.145",
+    "cache_preparation_returncode": 0
+  },
+  "instruction_and_tests": {
+    "dependency_requirement_line": 79,
+    "dependency_requirement": "normal require github.com/mdlayher/netlink v1.6.0; no vendoring or hand-written replace",
+    "test_patch_import_lines": [
+      34,
+      35
+    ],
+    "imports": [
+      "github.com/mdlayher/netlink",
+      "github.com/mdlayher/netlink/nlenc"
+    ],
+    "test_config": {
+      "fail_to_pass": "['TestSendEvent']",
+      "pass_to_pass": "[]",
+      "selected_test_files_to_run": "[\"TestSendEvent\"]"
+    }
+  },
+  "current_route": {
+    "port38443_ss": {
+      "return_code": 0,
+      "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    "remote_ssh_processes": [],
+    "local_mac_forward_check": {
+      "at_utc": "2026-10-17T02:13:45.076776+00:00",
+      "local_mac_ssh_forward_processes_for38443": [],
+      "method": "only actual -R/-L 38443 mapping options; remote metadata command text excluded"
+    },
+    "listener_owner": null,
+    "upstream_route_identity": null,
+    "reusable_now": false,
+    "historical_close_source": "analysis/swe_formal_scoring_audit_20261017.md:108",
+    "historical_expert_origin_is_not_avg_original_ip": true
+  },
+  "one_host_probe": {
+    "at_utc": "2026-10-17T02:13:16.625484+00:00",
+    "metadata_affinity": [
+      10
+    ],
+    "url": "https://proxy.golang.org/github.com/mdlayher/netlink/@v/list",
+    "method": "HEAD",
+    "route": "connect-to proxy.golang.org:443 -> 127.0.0.1:38443; preserve URL/Host/SNI/TLS validation",
+    "max_time_seconds": 10,
+    "body_downloaded": false,
+    "return_code": 7,
+    "elapsed_seconds": 0.0084088034927845,
+    "stdout": "http_code=000 remote_ip= remote_port=0 ssl_verify_result=0 time_total=0.000144",
+    "stderr": "curl: (7) Failed to connect to 127.0.0.1 port 38443 after 0 ms: 连接被拒绝\n",
+    "new_forward_started": false
+  },
+  "probe_interpretation": {
+    "tcp_connection_established": false,
+    "tls_handshake_performed": false,
+    "tls_certificate_validity_currently_unknown": true,
+    "http_response_received": false,
+    "ssl_verify_result_zero_is_not_success_without_handshake": true,
+    "only_one_original_url_probe": true
+  },
+  "actions": {
+    "documentation_only": true,
+    "new_driver": false,
+    "old_hardcoded_script_executed": false,
+    "native_calls": 0,
+    "new_claim": false,
+    "shared_lock_acquired": false,
+    "new_ssh_forward": false,
+    "model_calls": 0,
+    "new_api_calls": 0,
+    "host_head_probe_calls": 1
+  },
+  "previous_1013_proposed_contract": {
+    "code_written": false,
+    "config_changed": false,
+    "independent_output": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1",
+    "short_host_tmp": "/data/caoqinlu/apex-grade-tmp/a-teleport7744",
+    "derived_control_socket_bytes": 84,
+    "private_proxy_unix_socket": "/data/caoqinlu/apex-grade-tmp/a-teleport7744/p.sock",
+    "private_proxy_socket_bytes": 51,
+    "namespace": "one fresh native network namespace; its own loopback proxy port18002 and private socket; do not reuse expert socket/output",
+    "environment_import_base": "swe_clean_musl_runtime:SweCleanMuslScoreEnvironment",
+    "cpus": 1,
+    "memory_mib": 4096,
+    "verifier_seconds": 3000,
+    "patch_replay_seconds": 1800,
+    "physical_cpu": "only future explicit lease inside shared92–95; logical offset0; never use old hardcoded10",
+    "lease": "existing global92–95 exclusive lease + visible guard + actual scope checks; respect higher-priority ASI and Terminal leases",
+    "minimum_core_runway_seconds": 7200,
+    "preserve": [
+      "same AVG original config/task/SIF/patch and PatchReplay source_job",
+      "image-native Go, dependencies, official tests and parser",
+      "original URL/Host/URI and TLS SNI/CA validation",
+      "original GOTOOLCHAIN=local/GOSUMDB behavior; no GOINSECURE, checksum disable, version pin added by evaluator",
+      "public only in original setup/verifier phases; no global networking change",
+      "HTTPS_PROXY only to the exact verifier environment, same CONNECT allowlist"
+    ],
+    "gates": [
+      "root approval and explicit reconstruction/ownership of original public proxy route",
+      "current host connection and native original URL connectivity must pass before saved-patch grading; no new endpoint allowlist",
+      "new output absent and fixed source hashes verified",
+      "no prior model/native retry selected by reward",
+      "natural children/native drain twice, own guard stop, full scopes drain twice, unlock; pending root review only"
+    ],
+    "unresolved": [
+      "38443 closed now, no current upstream/peer/TLS proof",
+      "no native probe or full dependency resolution performed",
+      "if new hosts such as checksum/CDN are needed, fail/report rather than widen allowlist without review",
+      "cannot infer AVG zero from expert result or modify Go/dependencies to force success"
+    ]
+  },
+  "standalone_preparation": {
+    "at_utc": "2026-10-17T02:30:02.672068+00:00",
+    "status": "code_prepared_only; generation_and_route_gates_unsatisfied",
+    "script": "scripts/run_avg64_teleport7744_grade_only_20261017.py",
+    "script_sha256": "8151eadc02727350d86eabf1f033c4fd6a8f012f5589fd6a6e8c4deb8e7eb311",
+    "manifest": "configs/eval/avg64_teleport7744_grade_only_20261017.json",
+    "manifest_sha256": "8cff408195321efd151b16eaeb42eae0bb55cf4c78670cebd2b6d9addb4f2abd",
+    "preflight": {
+      "at_utc": "2026-10-17T02:30:02.672068+00:00",
+      "help_returncode": 0,
+      "prepare_returncode": 0,
+      "prepare": {
+        "at_utc": "2026-10-17T02:30:01.932593+00:00",
+        "mode": "prepare_only",
+        "bindings_verified": 41,
+        "script_sha256": "8151eadc02727350d86eabf1f033c4fd6a8f012f5589fd6a6e8c4deb8e7eb311",
+        "manifest_sha256": "8cff408195321efd151b16eaeb42eae0bb55cf4c78670cebd2b6d9addb4f2abd",
+        "generation_released": false,
+        "terminal_contract_verified": true,
+        "busy_scopes_on_124_127": [],
+        "route_receipt_exists": false,
+        "route_ready": false,
+        "original_ip": "142.250.73.145",
+        "namespace_socket_bytes": 84,
+        "private_socket_bytes": 51,
+        "claim_created": false,
+        "lock_acquired": false,
+        "native_started": false,
+        "network_probes": 0,
+        "new_ssh_forward": false,
+        "model_calls": 0,
+        "new_api_calls": 0
+      },
+      "prepare_stderr": "",
+      "fixtures_returncode": 0,
+      "fixtures": {
+        "fixtures": [
+          {
+            "fixture": "complete240_shutdown_empty",
+            "result": "GREEN"
+          },
+          {
+            "fixture": "incomplete239",
+            "result": "RED rejected"
+          },
+          {
+            "fixture": "worker_pool_not_shutdown",
+            "result": "RED rejected"
+          },
+          {
+            "fixture": "terminal_stage_claims124",
+            "result": "RED rejected"
+          },
+          {
+            "fixture": "expert_origin_instead_of_avg_origin",
+            "result": "RED rejected before any listener/process/network check"
+          }
+        ],
+        "native_calls": 0,
+        "model_calls": 0,
+        "network_probes": 0,
+        "production_files_changed": false
+      },
+      "fixtures_stderr": ""
+    },
+    "cpu_handoff_audit": {
+      "as_of_utc": "2026-10-17T02:22:13.290606+00:00",
+      "generation_marker_absent_at_audit": true,
+      "generation_progress_saved": {
+        "completed_conditions": 205,
+        "expected_conditions": 240,
+        "updated_at": "2026-10-17T02:20:53.988892+00:00",
+        "active_count": 8
+      },
+      "ready_now": false,
+      "terminal_native_leases_exclude_124_127": true,
+      "management_process_affinity_is_not_native_lease": true,
+      "live_launchers": [
+        {
+          "output": "artifacts/eval/terminal250_full445_20261017",
+          "source_sha256": "20fbbfd02e77c24d4bbffcb6e8f74e85757bdd715f6cae2b6c1296f68b267b5c",
+          "initial_cpu_offsets": [
+            12,
+            16,
+            20,
+            24,
+            28,
+            32,
+            36,
+            40,
+            44,
+            48
+          ],
+          "all_cpu_offsets": [
+            0,
+            4,
+            12,
+            16,
+            20,
+            24,
+            28,
+            32,
+            36,
+            40,
+            44,
+            48,
+            92,
+            96,
+            100,
+            104
+          ],
+          "expansion_stages": [
+            {
+              "name": "swe_finished",
+              "cpu_offsets": [
+                0,
+                4
+              ]
+            },
+            {
+              "name": "asi_finished",
+              "cpu_offsets": [
+                92,
+                96,
+                100,
+                104
+              ]
+            }
+          ],
+          "worker_creation": "initial_cpu_offsets plus expansion_stages only"
+        },
+        {
+          "output": "artifacts/eval/avg64_terminal_full445_20261017",
+          "source_sha256": "20fbbfd02e77c24d4bbffcb6e8f74e85757bdd715f6cae2b6c1296f68b267b5c",
+          "initial_cpu_offsets": [
+            52,
+            56,
+            60,
+            64,
+            68,
+            72,
+            76,
+            80,
+            84,
+            88
+          ],
+          "all_cpu_offsets": [
+            8,
+            52,
+            56,
+            60,
+            64,
+            68,
+            72,
+            76,
+            80,
+            84,
+            88,
+            108,
+            112,
+            116,
+            120
+          ],
+          "expansion_stages": [
+            {
+              "name": "swe_finished",
+              "cpu_offsets": [
+                8
+              ]
+            },
+            {
+              "name": "asi_finished",
+              "cpu_offsets": [
+                108,
+                112,
+                116,
+                120
+              ]
+            }
+          ],
+          "worker_creation": "initial_cpu_offsets plus expansion_stages only"
+        }
+      ],
+      "latest_actual_pool_scopes_at_default_prepare": [],
+      "empty_scope_alone_does_not_open_admission": true,
+      "source_marker_required": {
+        "state": "finished",
+        "completed_conditions": 240,
+        "worker_pool_shutdown": true,
+        "active_owned_scopes": [],
+        "owned_scope_count": 240,
+        "cpu_sets": [
+          [
+            96,
+            97,
+            98,
+            99
+          ],
+          [
+            100,
+            101,
+            102,
+            103
+          ],
+          [
+            104,
+            105,
+            106,
+            107
+          ],
+          [
+            108,
+            109,
+            110,
+            111
+          ],
+          [
+            112,
+            113,
+            114,
+            115
+          ],
+          [
+            116,
+            117,
+            118,
+            119
+          ],
+          [
+            120,
+            121,
+            122,
+            123
+          ],
+          [
+            124,
+            125,
+            126,
+            127
+          ]
+        ]
+      }
+    },
+    "executable_contract": {
+      "physical_native_cpu": 124,
+      "logical_cpu_offset": 0,
+      "native_cpus": 1,
+      "memory_mib": 4096,
+      "verifier_seconds": 3000,
+      "patch_replay_seconds": 1800,
+      "private_lease_cpus": [
+        124,
+        125,
+        126,
+        127
+      ],
+      "private_lock": "artifacts/eval/avg64_teleport7744_cpu124_127.lock",
+      "guard_memory_max_bytes": 33554432,
+      "guard_swap_max_bytes": 0,
+      "old92_95_global_lock_used": false,
+      "source_markers_written": false,
+      "Terminal_stage2_dependency_changed": false,
+      "original_ip": "142.250.73.145",
+      "dedicated_port": 38444,
+      "private_socket": "/data/caoqinlu/apex-grade-tmp/a-teleport7744/p.sock",
+      "route_receipt": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/route-receipt.json",
+      "route_receipt_schema": {
+        "schema": "avg64_teleport7744_original_route_v1",
+        "state": "ready",
+        "origin_host": "proxy.golang.org",
+        "origin_ip": "142.250.73.145",
+        "origin_port": 443,
+        "upstream_bind_host": "127.0.0.1",
+        "upstream_bind_port": 38444,
+        "original_url": "https://proxy.golang.org/github.com/mdlayher/netlink/@v/list",
+        "ssh_pid": "actual integer PID on80",
+        "ssh_startticks": "actual /proc/PID/stat starttime string"
+      },
+      "route_ownership_check": "actual live ssh PID/startticks, exact -L127.0.0.1:38444:142.250.73.145:443 argument and ss listener owned by that PID; no route is created by the script",
+      "original_source_pinned_dependencies": 41,
+      "native_relay_readiness": "own namespace-ready receipt written only after loopback bind; avoids fixed-sleep race",
+      "no_old_expert_main_or_socket_or_output_import": true,
+      "final_drain": "wait child naturally, two native scope-empty samples excluding own guard, stop guard, two full pool-empty samples, unlock; no canonical score acceptance"
+    },
+    "actions_this_preparation": {
+      "execute": false,
+      "claim": false,
+      "lock_acquired": false,
+      "guard": false,
+      "new_native": false,
+      "new_ssh_forward": false,
+      "new_network_probe": false,
+      "model_calls": 0,
+      "new_api_calls": 0
+    }
+  },
+  "hpc_fixed_ip_route_feasibility": {
+    "hpc_probe": {
+      "at_utc": "2026-10-17T02:33:54.061531+00:00",
+      "host": "HPC existing hpc3 master",
+      "url": "https://proxy.golang.org/github.com/mdlayher/netlink/@v/list",
+      "method": "HEAD",
+      "fixed_ip": "142.250.73.145",
+      "tls_hostname": "proxy.golang.org",
+      "certificate_verification_disabled": false,
+      "redirects_followed": false,
+      "body_downloaded": false,
+      "max_time_seconds": 20,
+      "return_code": 7,
+      "elapsed_seconds": 7.132698812987655,
+      "stdout": "http_code=000 remote_ip= remote_port=0 ssl_verify_result=0 time_total=6.206199",
+      "stderr": "curl: (7) Failed to connect to proxy.golang.org port 443: Connection timed out\n",
+      "new_forward_started": false,
+      "first_launcher_pre_spawn_error": "HPC python3.6 does not support capture_output; curl was not invoked by that launcher"
+    },
+    "ssh_peer_metadata_from80": {
+      "at_utc": "2026-10-17T02:33:36.486805+00:00",
+      "host": "80",
+      "command": "ssh -G hpc3login.hpc.hkust-gz.edu.cn",
+      "return_code": 0,
+      "peer_metadata": {
+        "user": [
+          "qinlucao"
+        ],
+        "hostname": [
+          "10.120.81.30"
+        ],
+        "port": [
+          "22"
+        ],
+        "controlmaster": [
+          "false"
+        ],
+        "proxyusefdpass": [
+          "no"
+        ],
+        "identityfile": [
+          "~/.ssh/id_ed25519_hpc3_hkustgz"
+        ]
+      },
+      "proxycommand_configured": false,
+      "connected": false,
+      "new_forward_started": false,
+      "stderr": "Pseudo-terminal will not be allocated because stdin is not a terminal.\n"
+    },
+    "actual_curl_invocations_this_task": 1,
+    "earlier_launcher_failed_before_curl_spawn": true,
+    "current_hpc_fixed_ip_route_feasible": false,
+    "actual_ip_connected": null,
+    "tcp_connected": false,
+    "tls_handshake_completed": false,
+    "certificate_validity_not_tested": true,
+    "http_response_received": false,
+    "frozen_driver_unchanged_sha256": "8151eadc02727350d86eabf1f033c4fd6a8f012f5589fd6a6e8c4deb8e7eb311",
+    "frozen_manifest_unchanged_sha256": "8cff408195321efd151b16eaeb42eae0bb55cf4c78670cebd2b6d9addb4f2abd",
+    "no_new_forward": true,
+    "no_native": true,
+    "no_claim": true,
+    "next_step": "Root may separately authorize Mac-fixed-IP reverse route and a reviewed route-ownership checker adaptation. The current checker only accepts a live local ssh -L listener on80; it cannot certify a Mac reverse listener.",
+    "mac_fixed_ip_current_connectivity": "not tested in this task"
+  },
+  "mac_reverse_checker_adaptation": {
+    "at_utc": "2026-10-17T02:38:46.170058+00:00",
+    "script_sha256": "fb5a495bc3fceab502ce6983a905a846b58cf26ba885282849ec938b617292ce",
+    "manifest_sha256": "8cff408195321efd151b16eaeb42eae0bb55cf4c78670cebd2b6d9addb4f2abd",
+    "scope_of_change": "route_ready only; generation/Terminal source handoff/private124–127 lock/guard/native budgets unchanged",
+    "actual_root_receipt": {
+      "path": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/route-receipt.json",
+      "sha256": "6d8f90eb63ba0104c2ff8782511ec9f22aa101b5dc8fe955413e9227cdfd0a7d",
+      "mode": "mac_ssh_reverse",
+      "root_reviewed": true,
+      "mac_pid": 84416,
+      "mac_ps_lstart": "Sat Oct 17 10:34:54 2026",
+      "mac_control_socket": "/tmp/apex-t774-route-20261017.ctl",
+      "reverse_mapping": "127.0.0.1:38444:142.250.73.145:443",
+      "connection_sshd": {
+        "pid": 2206906,
+        "startticks": "870351829",
+        "comm": "sshd",
+        "bind_host": "127.0.0.1",
+        "bind_port": 38444
+      },
+      "owner_fd_visibility": false,
+      "proof_type": "same dedicated control connection ancestry + live connection sshd + unique loopback listener; direct FD ownership not visible",
+      "host_head_receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/avg64-teleport7744-original-proxy-20261017/host-original-url-head.json",
+      "host_head_receipt_sha256": "ac661562dc38791a9365c6674c87a80b95a95c6b8551b0ebee4490b41a091d14"
+    },
+    "root_operations_not_agent_actions": {
+      "mac_reverse_created_by_root": true,
+      "root_reported_host_head_http200_tls0_no_body": true,
+      "root_route_receipt_created_once": true
+    },
+    "code_checks": [
+      "root_reviewed is literal true",
+      "exact same original host/IP/port/URI",
+      "Mac actual ps command parses to recorded argv, lstart/pid metadata and Master-running pid record",
+      "exact single -R and dedicated -S control socket",
+      "recorded same-connection sshd pid/startticks/comm remains live",
+      "ancestry rows link consecutively and include user-sshd -> connection-sshd",
+      "original host HEAD receipt SHA unchanged",
+      "exactly one loopback127.0.0.1:38444 listener; no ss pid requirement",
+      "legacy no-mode/local_ssh_L branch retained"
+    ],
+    "actual_default_prepare_and_offline_tests": {
+      "at_utc": "2026-10-17T02:38:46.170058+00:00",
+      "prepare_returncode": 0,
+      "prepare_stderr": "",
+      "fixtures_returncode": 0,
+      "fixtures_stderr": "",
+      "prepare": {
+        "at_utc": "2026-10-17T02:38:45.399141+00:00",
+        "mode": "prepare_only",
+        "bindings_verified": 41,
+        "script_sha256": "fb5a495bc3fceab502ce6983a905a846b58cf26ba885282849ec938b617292ce",
+        "manifest_sha256": "8cff408195321efd151b16eaeb42eae0bb55cf4c78670cebd2b6d9addb4f2abd",
+        "generation_released": false,
+        "terminal_contract_verified": true,
+        "busy_scopes_on_124_127": [],
+        "route_receipt_exists": true,
+        "route_ready": true,
+        "original_ip": "142.250.73.145",
+        "namespace_socket_bytes": 84,
+        "private_socket_bytes": 51,
+        "claim_created": false,
+        "lock_acquired": false,
+        "native_started": false,
+        "network_probes": 0,
+        "new_ssh_forward": false,
+        "model_calls": 0,
+        "new_api_calls": 0
+      },
+      "fixtures": {
+        "fixtures": [
+          {
+            "fixture": "reviewed_mac_reverse",
+            "passed": true,
+            "route_ready": true
+          },
+          {
+            "fixture": "wrong_reverse_target",
+            "passed": true,
+            "route_ready": false
+          },
+          {
+            "fixture": "not_root_reviewed",
+            "passed": true,
+            "route_ready": false
+          },
+          {
+            "fixture": "dead_sshd_connection",
+            "passed": true,
+            "route_ready": false
+          },
+          {
+            "fixture": "wildcard_live_listener",
+            "passed": true,
+            "route_ready": false
+          },
+          {
+            "fixture": "nonloopback_receipt_bind",
+            "passed": true,
+            "route_ready": false
+          },
+          {
+            "fixture": "broken_connection_ancestry",
+            "passed": true,
+            "route_ready": false
+          },
+          {
+            "fixture": "legacy_local_L_branch",
+            "passed": true,
+            "route_ready": true
+          }
+        ],
+        "native_calls": 0,
+        "network_probes": 0,
+        "new_forward": false,
+        "production_route_receipt_modified": false
+      }
+    },
+    "fixture_setup_note": "The first offline legacy mock accidentally used an octal byte escape in its fake cmdline; corrected only that fixture to explicit NUL-joined argv. No production code/assertion was changed for the fixture.",
+    "independent_review_requested_from": "/root/terminal_expert_eval",
+    "agent_actions": {
+      "execute": false,
+      "new_waiter": false,
+      "claim": false,
+      "lock_acquired": false,
+      "guard_created": false,
+      "native": false,
+      "ssh_or_network_probe": false,
+      "route_receipt_changed": false
+    }
+  },
+  "current_driver_identity": {
+    "script_sha256": "fb5a495bc3fceab502ce6983a905a846b58cf26ba885282849ec938b617292ce",
+    "manifest_sha256": "8cff408195321efd151b16eaeb42eae0bb55cf4c78670cebd2b6d9addb4f2abd"
+  }
+}

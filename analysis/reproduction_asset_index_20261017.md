@@ -1,5 +1,16 @@
 # 复现资产索引（2026-10-17）
 
+**10:42唯一等待器已启动**：root与独立审阅通过新版fb5a/8cff及真实route receipt后，10:40:56只启动一次T774 parent**2223041/start870388084**；10:41:47仍waiting_source_or_route、lock_held=false、0native。它只在原AVG ASI全240/pool shutdown/源scope空marker与124–127实际scope排空后领取独立未来租约，native仅124/1CPU4GiB3000s，不碰92–95或Terminal到123的原扩容。当前232保存、8在途，不能释放生成核。route依赖Mac专用84416/control socket，结束无消费者后只关自身route，不能因中途断路自动重跑未知原生结果。
+
+
+**10:39计分资产**：Terminal manifest新增git-leak/seed1 exact native1及原生5/5/73恢复/44绑定/完整排空证据，原nginx0分支和未批准null保持；新[双视图](source_snapshots/formal_aggregation_20261017_1039.json)严格有效coverage专家177/AVG165。原route准备的“无新路由”仅是早时点：现Mac专用84416/control socket→80 loopback38444→AVG原IP142.250.73.145:443已TLS验收，receipt在80 T774新root；其defaultdriver仍未实际执行或占CPU。
+
+
+**10:33新增资产**：[SWE追加最终审核](swe_additional_grade_final_review_20261017.md)、[NodeBB官方报告解析](swe_nodebb_parse_audit_feasibility_20261017.md)和[51题对照](swe_task_comparison_20261017.md)保存专家完整0%、原native timeout/null与trap1、精确parsed-report审计和原生T2两0的区别。80 `artifacts/recovery/swe-nodebb-parsed-official-audit-20261017/`仅解析已有报告；原三项cohort已完整释放。
+
+[git-leak原答案实际恢复](terminal_git_leak_header_mode_recovery_execution_20261017.md)原件在80 `artifacts/recovery/terminal250-git-leak-seed1-header-mode-recovery-20261017/`，95017原restore、诊断和2152787失败均保留；新exact header checker产出5/5/native1，44绑定及完整lease释放。原archive含secret/Git对象，不进入Git。新[T774 CPU124准备](avg64_teleport7744_grade_preparation_20261017.md)只有代码/config和41绑定，route/claim/native尚未准入，不能把文件存在当完成。
+
+
 **git-leak/seed1离线准备**：[文档与机器收据](terminal_git_leak_grade_only_preparation_20261017.md)索引80 `artifacts/recovery/terminal250-git-leak-seed1-preparation-20261017/`的独立app副本、fsck与静态SIF etc差分；原task/archive与30个源码绑定保持。副本含任务secret/Git blob，属于离线原件，不随Git公开。23项etc delta及跨app硬链约束尚未转成可执行恢复包；没有driver、claim或native结果，不能把fsck成功当作评测通过。
 
 **09:25追加SWE运行资产**：[初次启动失败](swe_additional_grade_only_execution_20261017.md)保留原null，实际197184f5源码/7156a584 manifest归档在80 `artifacts/recovery/swe-additional-grade-only-20261017/cohort-attempt1/frozen-source/`。两行短TMPDIR修正及实测收据见[启动恢复](swe_additional_short_tmp_recovery_20261017.md)。新唯一parent1765416、root-launch、cohort/per-item claim、native和日志在80 `artifacts/recovery/swe-additional-short-tmp-20261017/`；短目录为`/data/caoqinlu/apex-grade-tmp/{e-nodebb,e-teleport2b,a-teleport2b}`。当前script7da575a6与新manifest b6dcd844在消费者终态前冻结，同步不得重写live文件。旧答卷/测试/预算保持，评分有效性仍需独立原生审核。

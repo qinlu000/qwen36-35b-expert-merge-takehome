@@ -1,5 +1,9 @@
 # 资源与 API 账本：2026-10-17 快照
 
+## 10:10 CST快照（1015目录标签）
+
+[固定账本](source_snapshots/resource_ledger_20261017_1015/snapshot.json)仍为三个普通acd_u/Nice1000 TP2、6H100；已结束227.570000 GPUh、active暂计35.190556 GPUh，总262.760556 GPUh。没有新增或重建GPU。现存CNY账本预算15.029134794、USD另0.328327020，与09:13一致；未来AVG ASI科学评分尚未形成账本，继续unknown。恢复原答案的评分/元数据诊断均未发模型或Judge请求，非发票或最终费用。
+
 ## 09:13 CST快照（0915目录标签）
 
 [固定账本](source_snapshots/resource_ledger_20261017_0915/snapshot.json)采集于09:13:51 CST：三个普通acd_u/Nice1000 TP2仍共6H100，无新GPU申请或释放。已结束227.570000 GPUh、active暂计29.532778 GPUh，合计257.102778 GPUh。CNY现存11307 calls、预算核算15.029134794，USD另0.328327020；没有新增模型/Judge请求。ASI未来评分账本尚未形成，继续unknown，不能由missing填0。allocation含服务等待，active不是最终成本，金额不是发票。

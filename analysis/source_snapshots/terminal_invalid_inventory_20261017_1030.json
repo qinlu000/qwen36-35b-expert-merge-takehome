@@ -1,0 +1,272 @@
+{
+  "captured_at_utc": "2026-10-17T02:28:09.725744+00:00",
+  "models": {
+    "terminal250": {
+      "raw_summary_updated_at_utc": "2026-10-17T02:28:09.217930+00:00",
+      "valid_scored_raw": 172,
+      "terminal_count": 179,
+      "active_count": 12,
+      "pending_count": 254,
+      "raw_invalid_rows": [
+        {
+          "key": "nginx-request-logging/seed0",
+          "raw_result": "artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/result.json",
+          "result_sha256": "bc3df94fa93163edb3aef4066615771911db06fe3e5afde32f8900d58b368004",
+          "raw_invalid_reason": null,
+          "exception_type": "RuntimeError",
+          "exception_message": "Refusing public network after unconfirmed solver cleanup",
+          "finished_at": "2026-10-16T20:13:16.207670Z",
+          "verifier_phase": {
+            "started_at": null,
+            "finished_at": null
+          },
+          "reward": null,
+          "archive_bytes": 727040,
+          "snapshot_returncode": 0,
+          "complete_prefixes": [
+            "app",
+            "etc"
+          ],
+          "captured_process_count": 12,
+          "test_stdout_bytes": null,
+          "already_exact_overlay": true
+        },
+        {
+          "key": "torch-tensor-parallelism/seed0",
+          "raw_result": "artifacts/eval/terminal250_full445_20261017/trials/torch-tensor-parallelism__seed0/result.json",
+          "result_sha256": "90eecfec685a0a9109194b34d9cd4a667d4b2087a25dd90055621fec603b5ea7",
+          "raw_invalid_reason": null,
+          "exception_type": "AgentTimeoutError",
+          "exception_message": "Agent execution timed out after 1800.0 seconds",
+          "finished_at": "2026-10-16T23:05:48.268717Z",
+          "verifier_phase": {
+            "started_at": "2026-10-16T22:52:43.688876Z",
+            "finished_at": "2026-10-16T23:05:48.134680Z"
+          },
+          "reward": null,
+          "archive_bytes": 686080,
+          "snapshot_returncode": 0,
+          "complete_prefixes": [
+            "app",
+            "etc"
+          ],
+          "captured_process_count": 15,
+          "test_stdout_bytes": 12421,
+          "already_exact_overlay": false
+        },
+        {
+          "key": "train-fasttext/seed0",
+          "raw_result": "artifacts/eval/terminal250_full445_20261017/trials/train-fasttext__seed0/result.json",
+          "result_sha256": "a345568d34820158fed842a2d426e6b7b7daf556176fd8f36a11947202b73aa1",
+          "raw_invalid_reason": "pytest wrapper returned zero reward without evidence that tests executed",
+          "exception_type": "AgentTimeoutError",
+          "exception_message": "Agent execution timed out after 1800.0 seconds",
+          "finished_at": "2026-10-16T23:08:40.748371Z",
+          "verifier_phase": {
+            "started_at": "2026-10-16T23:08:31.424488Z",
+            "finished_at": "2026-10-16T23:08:38.661840Z"
+          },
+          "reward": 0.0,
+          "archive_bytes": 305029120,
+          "snapshot_returncode": 0,
+          "complete_prefixes": [
+            "app",
+            "etc"
+          ],
+          "captured_process_count": 10,
+          "test_stdout_bytes": 8960,
+          "already_exact_overlay": false
+        },
+        {
+          "key": "git-leak-recovery/seed1",
+          "raw_result": "artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/result.json",
+          "result_sha256": "cb48b18ec0d4df51783385f475970120cc3a43932afbc6e7660dfc42314440ca",
+          "raw_invalid_reason": null,
+          "exception_type": "RuntimeError",
+          "exception_message": "Refusing public network after unconfirmed solver cleanup",
+          "finished_at": "2026-10-17T00:28:03.689213Z",
+          "verifier_phase": {
+            "started_at": null,
+            "finished_at": null
+          },
+          "reward": null,
+          "archive_bytes": 829440,
+          "snapshot_returncode": 0,
+          "complete_prefixes": [
+            "app",
+            "etc"
+          ],
+          "captured_process_count": 15,
+          "test_stdout_bytes": null,
+          "already_exact_overlay": false
+        },
+        {
+          "key": "reshard-c4-data/seed1",
+          "raw_result": "artifacts/eval/terminal250_full445_20261017/trials/reshard-c4-data__seed1/result.json",
+          "result_sha256": "2f9e2d3309329c6bb26d6c0dbc9116e365b9990f822df562967c7d74834137bb",
+          "raw_invalid_reason": null,
+          "exception_type": "RuntimeError",
+          "exception_message": "Refusing public network after unconfirmed solver cleanup",
+          "finished_at": "2026-10-17T01:56:49.870903Z",
+          "verifier_phase": {
+            "started_at": null,
+            "finished_at": null
+          },
+          "reward": null,
+          "archive_bytes": 1650954240,
+          "snapshot_returncode": 0,
+          "complete_prefixes": [
+            "app",
+            "etc"
+          ],
+          "captured_process_count": 10,
+          "test_stdout_bytes": null,
+          "already_exact_overlay": false
+        },
+        {
+          "key": "sanitize-git-repo/seed1",
+          "raw_result": "artifacts/eval/terminal250_full445_20261017/trials/sanitize-git-repo__seed1/result.json",
+          "result_sha256": "03504b43eb3499ac8ed32c21c3d141fb6eddedfb946d5bf7e9ee9475999c86c6",
+          "raw_invalid_reason": null,
+          "exception_type": "RuntimeError",
+          "exception_message": "Refusing public network after unconfirmed solver cleanup",
+          "finished_at": "2026-10-17T01:49:44.138938Z",
+          "verifier_phase": {
+            "started_at": null,
+            "finished_at": null
+          },
+          "reward": null,
+          "archive_bytes": null,
+          "snapshot_returncode": null,
+          "complete_prefixes": null,
+          "captured_process_count": 0,
+          "test_stdout_bytes": null,
+          "already_exact_overlay": false
+        },
+        {
+          "key": "train-fasttext/seed1",
+          "raw_result": "artifacts/eval/terminal250_full445_20261017/trials/train-fasttext__seed1/result.json",
+          "result_sha256": "9d71063828152adc43befc7b9fcb69052bcb6d0fee04a5e137a04c03c6efc93e",
+          "raw_invalid_reason": "pytest wrapper returned zero reward without evidence that tests executed",
+          "exception_type": "AgentTimeoutError",
+          "exception_message": "Agent execution timed out after 1800.0 seconds",
+          "finished_at": "2026-10-17T02:21:13.255808Z",
+          "verifier_phase": {
+            "started_at": "2026-10-17T02:21:03.719101Z",
+            "finished_at": "2026-10-17T02:21:11.183393Z"
+          },
+          "reward": 0.0,
+          "archive_bytes": 305018880,
+          "snapshot_returncode": 0,
+          "complete_prefixes": [
+            "app",
+            "etc"
+          ],
+          "captured_process_count": 10,
+          "test_stdout_bytes": 8960,
+          "already_exact_overlay": false
+        }
+      ]
+    },
+    "avg64": {
+      "raw_summary_updated_at_utc": "2026-10-17T02:28:08.802880+00:00",
+      "valid_scored_raw": 161,
+      "terminal_count": 165,
+      "active_count": 11,
+      "pending_count": 269,
+      "raw_invalid_rows": [
+        {
+          "key": "torch-pipeline-parallelism/seed0",
+          "raw_result": "artifacts/eval/avg64_terminal_full445_20261017/trials/torch-pipeline-parallelism__seed0/result.json",
+          "result_sha256": "3324894073c15fd47cd05c1ec0f3b21835cf910491dcca8fb38c82d3ef6ba895",
+          "raw_invalid_reason": null,
+          "exception_type": "AgentTimeoutError",
+          "exception_message": "Agent execution timed out after 1800.0 seconds",
+          "finished_at": "2026-10-16T23:06:40.027259Z",
+          "verifier_phase": {
+            "started_at": "2026-10-16T22:58:49.320558Z",
+            "finished_at": "2026-10-16T23:06:39.871622Z"
+          },
+          "reward": null,
+          "archive_bytes": 10690560,
+          "snapshot_returncode": 0,
+          "complete_prefixes": [
+            "app",
+            "etc"
+          ],
+          "captured_process_count": 15,
+          "test_stdout_bytes": 12475,
+          "already_exact_overlay": false
+        },
+        {
+          "key": "torch-tensor-parallelism/seed0",
+          "raw_result": "artifacts/eval/avg64_terminal_full445_20261017/trials/torch-tensor-parallelism__seed0/result.json",
+          "result_sha256": "b4dd7241dd125aa90612976d42bfcb245b6fe2c76f1f85781fa592c5db7ad41d",
+          "raw_invalid_reason": null,
+          "exception_type": "RemoteProtocolError",
+          "exception_message": "Server disconnected without sending a response.",
+          "finished_at": "2026-10-16T23:06:25.011400Z",
+          "verifier_phase": {
+            "started_at": "2026-10-16T22:55:35.169644Z",
+            "finished_at": "2026-10-16T23:06:24.870388Z"
+          },
+          "reward": null,
+          "archive_bytes": 686080,
+          "snapshot_returncode": 0,
+          "complete_prefixes": [
+            "app",
+            "etc"
+          ],
+          "captured_process_count": 15,
+          "test_stdout_bytes": 12358,
+          "already_exact_overlay": false
+        },
+        {
+          "key": "train-fasttext/seed0",
+          "raw_result": "artifacts/eval/avg64_terminal_full445_20261017/trials/train-fasttext__seed0/result.json",
+          "result_sha256": "3c49b94318057e724f33ed257f86fc529a1671bccf30e2b523c13b229aa344b4",
+          "raw_invalid_reason": "pytest wrapper returned zero reward without evidence that tests executed",
+          "exception_type": "AgentTimeoutError",
+          "exception_message": "Agent execution timed out after 1800.0 seconds",
+          "finished_at": "2026-10-16T23:09:30.552782Z",
+          "verifier_phase": {
+            "started_at": "2026-10-16T23:09:21.134888Z",
+            "finished_at": "2026-10-16T23:09:28.468551Z"
+          },
+          "reward": 0.0,
+          "archive_bytes": 305039360,
+          "snapshot_returncode": 0,
+          "complete_prefixes": [
+            "app",
+            "etc"
+          ],
+          "captured_process_count": 10,
+          "test_stdout_bytes": 8960,
+          "already_exact_overlay": false
+        },
+        {
+          "key": "qemu-alpine-ssh/seed1",
+          "raw_result": "artifacts/eval/avg64_terminal_full445_20261017/trials/qemu-alpine-ssh__seed1/result.json",
+          "result_sha256": "499dcbce2037848de1df97f25d4c6e9f2428c8a48026cfe38c78e98ae8ea70b1",
+          "raw_invalid_reason": null,
+          "exception_type": "RuntimeError",
+          "exception_message": "Refusing public network after unconfirmed solver cleanup",
+          "finished_at": "2026-10-17T02:00:50.819658Z",
+          "verifier_phase": {
+            "started_at": null,
+            "finished_at": null
+          },
+          "reward": null,
+          "archive_bytes": null,
+          "snapshot_returncode": null,
+          "complete_prefixes": null,
+          "captured_process_count": 0,
+          "test_stdout_bytes": null,
+          "already_exact_overlay": false
+        }
+      ]
+    }
+  },
+  "new_solver_or_verifier_calls": 0,
+  "source_results_unchanged": true
+}

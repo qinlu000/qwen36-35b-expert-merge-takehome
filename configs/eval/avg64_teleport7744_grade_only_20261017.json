@@ -1,0 +1,235 @@
+{
+  "key": "avg64/teleport7744",
+  "task_id": "instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+  "model": "apex-avg64",
+  "source_output": "artifacts/eval/avg64_swe_hard51_20261017",
+  "original_config": "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/config.json",
+  "original_result": "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
+  "task_checksum": "793a666f549694b8319137e9fbc9f09fd81137c5d336431bde4a086782140194",
+  "patch": "artifacts/eval/avg64_swe_hard51_20261017/generation/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/agent/model.patch",
+  "patch_bytes": 0,
+  "sif": "artifacts/benchmarks/sif/sha256-83645a1c5565267675a19af0916ba1eed14131c315d92cedb05abea398a03527.sif",
+  "sif_size": 1659310080,
+  "sif_mtime_ns": "1792093481285011650",
+  "output": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017",
+  "host_tmpdir": "/data/caoqinlu/apex-grade-tmp/a-teleport7744",
+  "private_proxy_socket": "/data/caoqinlu/apex-grade-tmp/a-teleport7744/p.sock",
+  "original_url": "https://proxy.golang.org/github.com/mdlayher/netlink/@v/list",
+  "origin_host": "proxy.golang.org",
+  "origin_ip": "142.250.73.145",
+  "origin_port": 443,
+  "upstream_bind_host": "127.0.0.1",
+  "upstream_bind_port": 38444,
+  "route_receipt": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/route-receipt.json",
+  "generation_marker": "artifacts/eval/avg64_asi240_20261017/generation_cpu_finished.json",
+  "expected_generation_cpu_sets": [
+    [
+      96,
+      97,
+      98,
+      99
+    ],
+    [
+      100,
+      101,
+      102,
+      103
+    ],
+    [
+      104,
+      105,
+      106,
+      107
+    ],
+    [
+      108,
+      109,
+      110,
+      111
+    ],
+    [
+      112,
+      113,
+      114,
+      115
+    ],
+    [
+      116,
+      117,
+      118,
+      119
+    ],
+    [
+      120,
+      121,
+      122,
+      123
+    ],
+    [
+      124,
+      125,
+      126,
+      127
+    ]
+  ],
+  "lease_cpus": [
+    124,
+    125,
+    126,
+    127
+  ],
+  "native_cpu": 124,
+  "logical_cpu_offset": 0,
+  "shared_lock": "artifacts/eval/avg64_teleport7744_cpu124_127.lock",
+  "memory_mib": 4096,
+  "verifier_seconds": 3000,
+  "patch_replay_seconds": 1800,
+  "core_deadline": "2026-10-18T02:20:00+08:00",
+  "minimum_runway_seconds": 7200,
+  "terminal_contracts": [
+    {
+      "output": "artifacts/eval/terminal250_full445_20261017",
+      "initial_cpu_offsets": [
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48
+      ],
+      "cpu_offsets": [
+        0,
+        4,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        92,
+        96,
+        100,
+        104
+      ],
+      "expansion_stages": [
+        {
+          "name": "swe_finished",
+          "cpu_offsets": [
+            0,
+            4
+          ]
+        },
+        {
+          "name": "asi_finished",
+          "cpu_offsets": [
+            92,
+            96,
+            100,
+            104
+          ]
+        }
+      ]
+    },
+    {
+      "output": "artifacts/eval/avg64_terminal_full445_20261017",
+      "initial_cpu_offsets": [
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88
+      ],
+      "cpu_offsets": [
+        8,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        108,
+        112,
+        116,
+        120
+      ],
+      "expansion_stages": [
+        {
+          "name": "swe_finished",
+          "cpu_offsets": [
+            8
+          ]
+        },
+        {
+          "name": "asi_finished",
+          "cpu_offsets": [
+            108,
+            112,
+            116,
+            120
+          ]
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "scripts/baseline_singularity.py": "4c01b92729d94cb4ea700edd2dc79dc857ec378374459930aba00e53907b6532",
+    "scripts/baseline_netns.py": "09303db588a5b15f95116a679140af7eb4ad0b7dfb24d52d033c1d81e3990a23",
+    "scripts/baseline_exec_limits.py": "540f46a4b2b2b0d5a417f4b7ff99c309c6d2417c3e463f44b7df2af17d605757",
+    "scripts/asi_baseline_limits.py": "1a32b603cb4ff3594f32d16560045ab3b462b15cccf6d08b1eaa9e2c7db9279f",
+    "scripts/swe_clean_glibc_runtime.py": "fabd9977a737446a8c62050e639e0cfa710e28414b2c6051e4695dd0860ad172",
+    "scripts/swe_score_bootstrap_runtime.py": "182d08c5b3377a08751e8e70f1834afd57a4a859dfcf4332c4743c269146eae6",
+    "scripts/swe_score_bootstrap.sh": "6a6ab20819060c4d05c008a1c6a1494db6e45cf93466fc4f7ff671be3638814c",
+    "scripts/swe_runtime_rootmap.sh": "c70d888b7fd1c4728143312b26d725fccc9dc935677ec023154a9992173da90e",
+    "scripts/swe_score_go_runtime.py": "492a9196ef5c9d0ef5db5c16d332000d2dbc6acf73f9ed360bf9d2d8b5918ce2",
+    "scripts/swe_score_go_preseed.py": "9931015302c5fae85266286a885563ff9b0389d2a4edf72199ae0e48602da963",
+    "scripts/swe_baseline_v2.py": "bc1b23769da269a7c697384a1707f7a8b6f113e8bfb72f4c4e10f92933772209",
+    "scripts/run_terminal_native_gap_queue_20261017.py": "0cf19a9b8b5b4e3f661c2087678777635f43b859177b095c5157dee18c21a4ab",
+    "artifacts/benchmarks/swe-bench-pro/v2/tooling/patch_replay.py": "5c8b344de37164e9723f1724c2573013957fb644c3913a64c12c1718c737d876",
+    "artifacts/benchmarks/harbor/src/harbor/trial/trial.py": "3bb2c0b9dd7553022ba98da96ef5188abc27e2c8475ac949d541f47c5d86ecc6",
+    "artifacts/benchmarks/harbor/src/harbor/verifier/verifier.py": "6d3d9ed8882c5e07bae4aa6449732b096166fb9bbabc685b39c0e25f57b20aa9",
+    "artifacts/benchmarks/harbor/src/harbor/environments/singularity/singularity.py": "86e826120a375c006693c6bab6f238a80bcaae85de08d18f54c458da7728f62b",
+    "scripts/swe_clean_musl_runtime.py": "60b237b6606907f8a7b49cf260a5ed8290085e1d7086226ffca5e36ba50e9acb",
+    "scripts/swe_clean_musl_bootstrap.sh": "f743e0b5847ed28040fe6000fe66b89820db6addd29ee990f53ff40fa7dd912b",
+    "scripts/repair_base_swe_gaps_20261017.py": "70af28c9b39155677d18216ecfe8bddd4d93d60f99ce8bf1e4a8b7d8e8344aef",
+    "scripts/run_swe_remaining_grade_only_20261017.py": "a0eb0e252e27b56d3c615324c83a3fe0831ba1c85565ce9413c4782c27edfd10",
+    "artifacts/preflight/swe_v2/musl_compat/shim/singularity": "85061ee3717ffabb0b348ec954b315df918e14fff83fc99e2d2e5532fb47ef70",
+    "artifacts/preflight/swe_v2/musl_compat/python-wrapper": "425a09f5551af5ec92b25285a69182cc1b437f28200c808afb11f470d261fc70",
+    "artifacts/preflight/swe_v2/musl_compat/uv-wrapper": "778d31240d019387c9c9f3a9ce539f81eb4e358fe5dd4943bfd674e73c3a48d7",
+    "artifacts/preflight/swe_v2/musl_compat/rootmap.sh": "c70d888b7fd1c4728143312b26d725fccc9dc935677ec023154a9992173da90e",
+    "configs/eval/swe_remaining_grade_only_20261017.json": "19f6c69a335d68fcc75369f962daaf8c0fabe49f265db8939aab324287311717",
+    "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/config.json": "44a88ab02e82fb99eb1f9d0513f790f687db1aa50002e056f10a969ae57e6d90",
+    "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json": "1d68a5172d9c0835f69b654f6ec2ae5dcf30fde9db14d6b3692815e40f9c7b27",
+    "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/agent/replay.json": "5417cd997d3e2f3c89384871ed437944ce3a11bc370a8b45bc3ce68603394706",
+    "artifacts/eval/avg64_swe_hard51_20261017/generation/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/config.json": "17204c1297db5b6bc2f96f45135f74cdce4f6ba6a7119564b3e5f3046db78b00",
+    "artifacts/eval/avg64_swe_hard51_20261017/generation/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json": "77d82774f78329b6f63322e02dc2f68121b0b0ad9f3df4f8169bb2ac45f049b2",
+    "artifacts/eval/avg64_swe_hard51_20261017/generation/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/agent/model.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/task.toml": "749adf6184ac3d1427a6fe2e0d0ebf5f5a534133f78cbaa01b4d157331ebe8e8",
+    "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/instruction.md": "22dc680321dc8f645117a605cd6c565437b537d82d99bca6b57a75304f9720c0",
+    "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/tests/config.json": "40eff46f34cf9492ec21701012d4940b960f2f43efb1f106f8b04ad53b6e6629",
+    "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/tests/parser.py": "264b094594a765a5dd6812a45154203110e3032c7de4704c993b09b2b4418534",
+    "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/tests/test.sh": "9dcc9dfbf255bfa077f060458f878f2ffe03f9c8a310e74e165d111858874913",
+    "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/tests/run_script.sh": "6fb7e44b14d82b80ff4b3488106ea410fb890332aa988c79914e5536633d0ddd",
+    "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/tests/test_patch.patch": "55e696ae5518c82e32ab228df1a3bcb5c718609878956a002006a8de5cceffa0",
+    "scripts/run_swe_additional_grade_only_20261017.py": "7da575a63c408d49727ff52493a0b8b203cd139456db8bdd17bae32b32ea8ace",
+    "artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py": "20fbbfd02e77c24d4bbffcb6e8f74e85757bdd715f6cae2b6c1296f68b267b5c",
+    "artifacts/eval/avg64_terminal_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py": "20fbbfd02e77c24d4bbffcb6e8f74e85757bdd715f6cae2b6c1296f68b267b5c"
+  },
+  "policy": "Default metadata preparation only. Root reviews source handoff and dedicated route, then may explicitly launch one fixed saved-answer grade. No automatic retry, accepted score, generation, source marker, or global92–95 lock."
+}

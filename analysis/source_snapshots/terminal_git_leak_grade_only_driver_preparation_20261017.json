@@ -1,0 +1,73 @@
+{
+  "captured_at_utc": "2026-10-17T02:14:55.881841+00:00",
+  "status": "prepared_not_executed",
+  "preflight": {
+    "at_utc": "2026-10-17T02:14:55.566415+00:00",
+    "mode": "prepare_only",
+    "namespace_control_socket_bytes": 58,
+    "source_bindings_verified": 33,
+    "terminal_has_grader_lease": false,
+    "script_sha256": "e0ad3fb1a72dc5a9db597611de3cd8ac8690ab9a61c33f212a9c13c1ce71da6c",
+    "manifest_sha256": "db12c5b04fd4815b424a467b2f78da99ed0cc5a3cf5fa987a5a5e755f337625b",
+    "prepared": [
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-grade-only-20261017/prepared/restore.json",
+        "sha256": "95017a6bc858485ac831c8c21602c171e65971f4f7b0c3ddba56ffc0d9073123",
+        "bytes": 5432
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-git-leak-seed1-grade-only-20261017/prepared/etc-delta.tar",
+        "sha256": "3031a95335ee6262b81a8184704d0365f9e1079602166422d13edaa4b64cbee0",
+        "bytes": 112640
+      }
+    ],
+    "production_environment": {
+      "PATH": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/apptainer-1.4.5/rootfs/usr/bin:/data/caoqinlu/projects/apex-takehome/artifacts/tools/fakeroot-1.25.3/rootfs/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+      "PYTHONPATH": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts",
+      "TMPDIR": "/data/caoqinlu/tg1",
+      "XDG_RUNTIME_DIR": "/run/user/1012",
+      "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1012/bus"
+    },
+    "shared_lock": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/direct_asi_grader_cpu92_95.lock",
+      "inode": 90775088,
+      "acquired": false
+    },
+    "priority_swe_drained": false,
+    "priority_asi_ready_for_grader": false,
+    "native_started": false,
+    "execution_claim_created": false,
+    "guard_created": false,
+    "model_calls": 0,
+    "new_api_calls": 0
+  },
+  "syntax_ast_passed": true,
+  "frozen_cli_help": {
+    "command": [
+      "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_repair_grade_v2.py",
+      "--help"
+    ],
+    "return_code": 0,
+    "stderr_bytes": 0,
+    "no_environment_created": true
+  },
+  "synthetic_fixture": {
+    "hardlink_preserved_green": true,
+    "ordinary_copy_rejected_red": true,
+    "stale_symlink_target_unchanged": true,
+    "managed_resolver_unchanged": true,
+    "candidate_code_or_task_tests_executed": false,
+    "timestamp_note": "Executed earlier in this preparation session; exact fixture wall-clock was not recorded."
+  },
+  "no_execution_proof": {
+    "attempt_directory_exists": false,
+    "native_directory_exists": false,
+    "execution_claim_exists": false,
+    "guard_created": false,
+    "shared_lock_acquired": false,
+    "new_model_calls": 0,
+    "new_api_calls": 0
+  },
+  "root_launch_only_after_review": true
+}

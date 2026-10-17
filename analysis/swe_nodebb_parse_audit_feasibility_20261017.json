@@ -1,0 +1,580 @@
+{
+  "affinity": [
+    10
+  ],
+  "task_id": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+  "tests_identity": {
+    "task.toml": {
+      "base_sha256": "3f5436a5acbde1ee6ce48de4c67cc8b813b727e628f886352852b484afcc46e1",
+      "expert_sha256": "3f5436a5acbde1ee6ce48de4c67cc8b813b727e628f886352852b484afcc46e1",
+      "identical": true
+    },
+    "tests/config.json": {
+      "base_sha256": "37020fb848461705272eaa28ea7ce10c1e46771e0aa091b53ffb391fd0bbc730",
+      "expert_sha256": "37020fb848461705272eaa28ea7ce10c1e46771e0aa091b53ffb391fd0bbc730",
+      "identical": true
+    },
+    "tests/parser.py": {
+      "base_sha256": "55c2418512e1f11fac1893043e2a588d6c0809071c373b989a6c3d86906cbd97",
+      "expert_sha256": "55c2418512e1f11fac1893043e2a588d6c0809071c373b989a6c3d86906cbd97",
+      "identical": true
+    },
+    "tests/test.sh": {
+      "base_sha256": "b6f26eecd87c1696a3702ee115d31f9d42f4704cf2116419cd879f66b60976d0",
+      "expert_sha256": "b6f26eecd87c1696a3702ee115d31f9d42f4704cf2116419cd879f66b60976d0",
+      "identical": true
+    },
+    "tests/run_script.sh": {
+      "base_sha256": "f7ae8ff66fd6a77a26a909b2812c84cfb5bfc3b369effc1e8bb683e7dfc56a47",
+      "expert_sha256": "f7ae8ff66fd6a77a26a909b2812c84cfb5bfc3b369effc1e8bb683e7dfc56a47",
+      "identical": true
+    },
+    "tests/test_patch.patch": {
+      "base_sha256": "e06925e85187c01f93ad6a0aee28df14ce851775fe98c9e3c60645eb844cb409",
+      "expert_sha256": "e06925e85187c01f93ad6a0aee28df14ce851775fe98c9e3c60645eb844cb409",
+      "identical": true
+    }
+  },
+  "test_config_keys": [
+    "fail_to_pass",
+    "pass_to_pass",
+    "selected_test_files_to_run"
+  ],
+  "tests/test.sh_selected_lines": [
+    {
+      "line": 7,
+      "text": "# Initialize log vars so the EXIT trap never hits set -u on early failure paths."
+    },
+    {
+      "line": 11,
+      "text": "# Ensure reward file is always created, even on early exit"
+    },
+    {
+      "line": 12,
+      "text": "cleanup_and_reward() {"
+    },
+    {
+      "line": 16,
+      "text": "        echo 1 > /logs/verifier/reward.txt"
+    },
+    {
+      "line": 18,
+      "text": "        echo 0 > /logs/verifier/reward.txt"
+    },
+    {
+      "line": 24,
+      "text": "trap cleanup_and_reward EXIT"
+    },
+    {
+      "line": 115,
+      "text": "# Get test files from config.json"
+    },
+    {
+      "line": 118,
+      "text": "with open('/tests/config.json') as f:"
+    },
+    {
+      "line": 132,
+      "text": "# Run the official run_script.sh and capture both stdout and stderr"
+    },
+    {
+      "line": 136,
+      "text": "    bash /tests/run_script.sh \"$TEST_FILES\" > \"$STDOUT_LOG\" 2> \"$STDERR_LOG\""
+    },
+    {
+      "line": 138,
+      "text": "    bash /tests/run_script.sh > \"$STDOUT_LOG\" 2> \"$STDERR_LOG\""
+    },
+    {
+      "line": 143,
+      "text": "# Run the official parser.py to generate output.json"
+    },
+    {
+      "line": 144,
+      "text": "python3 /tests/parser.py \"$STDOUT_LOG\" \"$STDERR_LOG\" /tmp/output.json"
+    },
+    {
+      "line": 147,
+      "text": "if [ ! -f /tmp/output.json ]; then"
+    },
+    {
+      "line": 148,
+      "text": "    echo \"ERROR: Parser did not generate output.json\""
+    },
+    {
+      "line": 156,
+      "text": "# Copy output.json and raw logs to /logs/verifier for debugging"
+    },
+    {
+      "line": 157,
+      "text": "cp /tmp/output.json /logs/verifier/output.json 2>/dev/null || true"
+    },
+    {
+      "line": 161,
+      "text": "# Load the test results from output.json"
+    },
+    {
+      "line": 165,
+      "text": "FAIL_TO_PASS=$(python3 -c \"import json; print(json.dumps(json.load(open('/tests/config.json')).get('fail_to_pass', [])))\")"
+    },
+    {
+      "line": 166,
+      "text": "PASS_TO_PASS=$(python3 -c \"import json; print(json.dumps(json.load(open('/tests/config.json')).get('pass_to_pass', [])))\")"
+    },
+    {
+      "line": 174,
+      "text": "# Load output.json"
+    },
+    {
+      "line": 175,
+      "text": "with open('/tmp/output.json', 'r') as f:"
+    },
+    {
+      "line": 179,
+      "text": "with open('/tests/config.json', 'r') as f:"
+    },
+    {
+      "line": 233,
+      "text": "# Exit with the evaluation result (trap will handle reward file)"
+    }
+  ],
+  "tests/run_script.sh_selected_lines": [
+    {
+      "line": 16,
+      "text": "  NODE_ENV=test TEST_ENV=development npx mocha --reporter=json --bail=false --timeout=10000"
+    },
+    {
+      "line": 36,
+      "text": "  NODE_ENV=test TEST_ENV=development npx mocha --reporter=json --bail=false --timeout=10000 ${test_files[@]}"
+    }
+  ],
+  "base": {
+    "stdout": "artifacts/eval/base_swe_gap_repair_20261017/evidence/nodebb-completed-live-stdout.txt",
+    "stdout_bytes": 231137,
+    "stdout_sha256": "767fc7ca781012910b103e3fa9a98ae36ddefaf7489284566bd19b9859322c7a",
+    "mocha_reports": 1,
+    "raw_parsed_entries": 335,
+    "unique_parsed_tests": 311,
+    "unique_status_counts": {
+      "PASSED": 307,
+      "FAILED": 4
+    },
+    "duplicate_entries": 24,
+    "duplicate_status_conflicts": 0,
+    "stats": {
+      "suites": 57,
+      "tests": 335,
+      "passes": 331,
+      "pending": 0,
+      "failures": 4,
+      "start": "2026-10-16T19:12:25.705Z",
+      "end": "2026-10-16T19:12:50.153Z",
+      "duration": 24448
+    },
+    "four_failed_tests": [
+      "test/groups.js | Groups groups cover should remove cover",
+      "test/user.js | User profile methods should remove cover image",
+      "test/user.js | User profile methods user.uploadCroppedPicture should remove uploaded picture",
+      "test/user.js | User socket methods should clean profile images after account deletion"
+    ],
+    "equals_existing_official_output": true,
+    "official_output_path": "artifacts/eval/base_swe_gap_repair_20261017/evidence/nodebb-completed-official-output.json",
+    "official_output_sha256": "0805fde98b1d8d5924a6595588d7e2b93f6ebe2d10f329814ea71f75f34e9ac3",
+    "unique_test_count": 311,
+    "required_name_set_equal": true,
+    "required_missing": [],
+    "extra_unique_tests": [],
+    "pass_to_pass_all_passed": true,
+    "pass_to_pass_passed_count": 307,
+    "fail_to_pass_failed_count": 4,
+    "all_four_failures_equal_fail_to_pass": true,
+    "fail_to_pass_mapping": [
+      {
+        "name": "test/groups.js | Groups groups cover should remove cover",
+        "status": "FAILED"
+      },
+      {
+        "name": "test/user.js | User profile methods should remove cover image",
+        "status": "FAILED"
+      },
+      {
+        "name": "test/user.js | User profile methods user.uploadCroppedPicture should remove uploaded picture",
+        "status": "FAILED"
+      },
+      {
+        "name": "test/user.js | User socket methods should clean profile images after account deletion",
+        "status": "FAILED"
+      }
+    ],
+    "official_success_condition": false,
+    "required_passed_count": 307,
+    "expected_official_criterion_outcome_if_evaluated": "FAILED"
+  },
+  "expert": {
+    "stdout": "artifacts/recovery/swe-additional-short-tmp-20261017/swe249/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/attempt1/native/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/verifier/live-run-script-stdout.txt",
+    "stdout_bytes": 230103,
+    "stdout_sha256": "469b0c76c9d4ef09055c71713e5c61b2a0ae6a918e4d78412a4c23c1425b21fa",
+    "mocha_reports": 1,
+    "raw_parsed_entries": 335,
+    "unique_parsed_tests": 311,
+    "unique_status_counts": {
+      "PASSED": 307,
+      "FAILED": 4
+    },
+    "duplicate_entries": 24,
+    "duplicate_status_conflicts": 0,
+    "stats": {
+      "suites": 57,
+      "tests": 335,
+      "passes": 331,
+      "pending": 0,
+      "failures": 4,
+      "start": "2026-10-17T01:25:03.875Z",
+      "end": "2026-10-17T01:25:29.613Z",
+      "duration": 25738
+    },
+    "four_failed_tests": [
+      "test/groups.js | Groups groups cover should remove cover",
+      "test/user.js | User profile methods should remove cover image",
+      "test/user.js | User profile methods user.uploadCroppedPicture should remove uploaded picture",
+      "test/user.js | User socket methods should clean profile images after account deletion"
+    ],
+    "unique_test_count": 311,
+    "required_name_set_equal": true,
+    "required_missing": [],
+    "extra_unique_tests": [],
+    "pass_to_pass_all_passed": true,
+    "pass_to_pass_passed_count": 307,
+    "fail_to_pass_failed_count": 4,
+    "all_four_failures_equal_fail_to_pass": true,
+    "fail_to_pass_mapping": [
+      {
+        "name": "test/groups.js | Groups groups cover should remove cover",
+        "status": "FAILED"
+      },
+      {
+        "name": "test/user.js | User profile methods should remove cover image",
+        "status": "FAILED"
+      },
+      {
+        "name": "test/user.js | User profile methods user.uploadCroppedPicture should remove uploaded picture",
+        "status": "FAILED"
+      },
+      {
+        "name": "test/user.js | User socket methods should clean profile images after account deletion",
+        "status": "FAILED"
+      }
+    ],
+    "official_success_condition": false,
+    "required_passed_count": 307,
+    "expected_official_criterion_outcome_if_evaluated": "FAILED",
+    "short_failure_metadata": [
+      {
+        "title": "Groups groups cover should remove cover",
+        "error_first_line": "Expected values to be strictly equal:",
+        "error_type": "AssertionError"
+      },
+      {
+        "title": "User profile methods should remove cover image",
+        "error_first_line": "User.getLocalCoverPath is not a function",
+        "error_type": null
+      },
+      {
+        "title": "User profile methods user.uploadCroppedPicture should remove uploaded picture",
+        "error_first_line": "User.getLocalAvatarPath is not a function",
+        "error_type": null
+      },
+      {
+        "title": "User socket methods should clean profile images after account deletion",
+        "error_first_line": "Expected values to be strictly equal:",
+        "error_type": "AssertionError"
+      }
+    ]
+  },
+  "expert_result_exists": true,
+  "base_original_result": {
+    "path": "artifacts/eval/base_swe_v2_20261016_clean28/replay/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/result.json",
+    "sha256": "47c55566d017da8580f45eeb831de2e0da8ee34db42611a4136c6d948ebdc7ff",
+    "task_checksum": "5a0f72620934384e3fa05780c8a124d3a9aaa94ef70109ed3ddad7e67b9e011e",
+    "native_reward": null,
+    "exception_type": "VerifierTimeoutError",
+    "verifier": {
+      "started_at": "2026-10-16T12:26:46.878794Z",
+      "finished_at": "2026-10-16T13:16:46.965725Z"
+    },
+    "finished_at": "2026-10-16T13:16:49.061351Z"
+  },
+  "base_evidence_result": {
+    "path": "artifacts/eval/base_swe_gap_repair_20261017/replay/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/result.json",
+    "sha256": "1061d090be2b0f2cb1148b33a1cc0210521fbee6815f7806f50a42d8716bfd1a",
+    "task_checksum": "5a0f72620934384e3fa05780c8a124d3a9aaa94ef70109ed3ddad7e67b9e011e",
+    "native_reward": null,
+    "exception_type": "RemoteProtocolError",
+    "verifier": {
+      "started_at": "2026-10-16T19:12:16.901984Z",
+      "finished_at": "2026-10-16T19:16:20.407610Z"
+    },
+    "finished_at": "2026-10-16T19:16:20.805336Z"
+  },
+  "base_patch": {
+    "path": "artifacts/eval/base_swe_v2_20261016_clean28/generation/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/agent/model.patch",
+    "bytes": 198102,
+    "sha256": "d8656fdc4b624ec685abe11846660803b4ce85b7233f986757fa8a322efcf276"
+  },
+  "expert_patch": {
+    "path": "artifacts/eval/swe249_hard51_20261016/generation/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/agent/model.patch",
+    "bytes": 7422,
+    "sha256": "aff1970c0bf1d670854f4a268ae4172d83574a9fff6f6db12d82e4fc0817ff77"
+  },
+  "required_tests": {
+    "count": 311,
+    "fail_to_pass": 4,
+    "pass_to_pass": 307,
+    "selected_test_files": 2,
+    "config_decode": "Official test.sh187-204 JSON-first/Python-literal fallback for string-valued config test arrays"
+  },
+  "native_configs": {
+    "base": {
+      "path": "artifacts/eval/base_swe_gap_repair_20261017/replay/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/config.json",
+      "sha256": "b066cf4e5a66319d2df961dac3c603f7dc92eee9f9d55587012f810acb3ce3fb",
+      "agent": {
+        "import_path": "patch_replay:PatchReplayAgent",
+        "source_job": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/generation",
+        "timeout": 1800
+      },
+      "environment": {
+        "import_path": "repair_base_swe_gaps_20261017:BaseGlibcRepair",
+        "override_cpus": 1,
+        "override_memory_mb": 4096,
+        "override_gpus": 0,
+        "kwargs": {
+          "singularity_image_cache_dir": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif",
+          "baseline_cpu_offset": 11,
+          "baseline_cpu_slots": 1,
+          "singularity_startup_timeout_sec": 300
+        }
+      },
+      "verifier": {
+        "override_timeout_sec": 3000
+      }
+    },
+    "expert": {
+      "path": "artifacts/recovery/swe-additional-short-tmp-20261017/swe249/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/attempt1/native/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/config.json",
+      "sha256": "79067eb2a0639e1715bc42f7fb16ead29dedb32a4118971a037dd7e33671d5a0",
+      "agent": {
+        "import_path": "patch_replay:PatchReplayAgent",
+        "source_job": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_hard51_20261016/generation",
+        "timeout": 1800
+      },
+      "environment": {
+        "import_path": "run_swe_additional_grade_only_20261017:AdditionalGlibcRepair",
+        "override_cpus": 1,
+        "override_memory_mb": 4096,
+        "override_gpus": 0,
+        "kwargs": {
+          "singularity_image_cache_dir": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif",
+          "baseline_cpu_offset": 0,
+          "baseline_cpu_slots": 1,
+          "singularity_startup_timeout_sec": 300
+        }
+      },
+      "verifier": {
+        "override_timeout_sec": 3000
+      }
+    }
+  },
+  "observation_window_utc": [
+    "2026-10-17T02:13:07.234679+00:00",
+    "2026-10-17T02:16:43.906342+00:00"
+  ],
+  "scope": {
+    "native_runs": 0,
+    "candidate_executions": 0,
+    "model_or_judge_calls": 0,
+    "production_parser_cli_runs": 1,
+    "collector_runs_on_real_data": 0,
+    "original_native_source_changes": false,
+    "main_manifest_changes": false,
+    "score_acceptance": false
+  },
+  "base_precedent": {
+    "collector": "scripts/collect_base_gap_completion_20261017.py",
+    "branch_lines": "98-116",
+    "audit": "artifacts/eval/base_swe_gap_repair_20261017/candidate-failure-audits.json",
+    "kind": "complete_official_test_report_with_failures",
+    "audited_reward": 0,
+    "raw_native_reward": null,
+    "original_clean28_exception": "VerifierTimeoutError",
+    "fresh_evidence_exception": "RemoteProtocolError",
+    "complete_report": true,
+    "complete_required_name_set": true,
+    "report_end_utc": "2026-10-16T19:12:50.153Z",
+    "cleanup_authorized_at_utc": "2026-10-16T19:16:20.370844+00:00",
+    "cleanup_scope": "apex-baseline-b52c8ab6295b.scope",
+    "cleanup_receipt": "analysis/source_snapshots/base_swe_nodebb_cleanup_20261017.json",
+    "cleanup_completed_utc": "2026-10-16T19:16:51.851091+00:00",
+    "difference": "Base fresh evidence was intentionally cleaned after the full failed test report, before its 3000s limit; expert must preserve the current natural deadline/cleanup. The Base original timeout and fresh evidence cleanup exception are separate results.",
+    "collector_limit": "Existing Base branch checks 311/307/4 counts; the saved evidence plus this read-only recheck verifies exact required test names. Counts alone are insufficient for the proposed expert audit."
+  },
+  "conditional_recommendation": {
+    "feasible": true,
+    "ready_to_accept_now": false,
+    "condition": "The exact expert attempt has now ended naturally at 3000.006s and the cohort has drained. A separate parsed-official-tests audited0 is prepared, subject to root's explicit approval.",
+    "exact_report_case_only": true,
+    "never_generic_timeout_zero": true,
+    "never_exit_trap_one_success": true,
+    "native_zero_branch_reuse": false,
+    "required_bindings": [
+      "Original source/result and generation model/config/checkpoint identity",
+      "Exact model-specific patch SHA/bytes and replay apply_rc0",
+      "Accepted terminal timeout result/config/replay identity and original 1CPU/4096MiB/3000s budget",
+      "Unchanged parser/config/test.sh/run_script/test_patch/task checksum and SIF metadata",
+      "Durable stdout/stderr SHA plus raw complete Mocha JSON with 335/331/4/0 and no duplicate status conflicts",
+      "Independent original-parser parse-only output/returncode and exact unique311=F2P4+P2P307 sets, 307PASS/4FAIL",
+      "Cohort natural terminal receipt, two native-empty samples, guard stopped, two whole-pool empty samples and unlock"
+    ],
+    "not_yet_observed": [
+      "Root approval and main-manifest connection; neither performed by this agent."
+    ],
+    "proposed_next_step": "A separate approved_official_test_reports collector branch may be prepared; no entry is added to the main manifest by this feasibility audit.",
+    "ready_for_root_review": true,
+    "pending_root_approval": true
+  },
+  "initial_mapping_note": "The 10:13 in-memory comparison preceded the separately authorized parse-only CLI below; initial expert_result_exists=false remains a timestamped observation.",
+  "actual_read_only_parser": {
+    "receipt": {
+      "schema": "swe_nodebb_official_parser_read_only_v1",
+      "at_utc": "2026-10-17T02:16:43.906342+00:00",
+      "task_id": "instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+      "affinity": [
+        10
+      ],
+      "command": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_hard51_20261016/tasks/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/tests/parser.py",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-nodebb-parsed-official-audit-20261017/raw-stdout.txt",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-nodebb-parsed-official-audit-20261017/raw-stderr.txt",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-nodebb-parsed-official-audit-20261017/official-output.json"
+      ],
+      "returncode": 0,
+      "official_parser": "artifacts/eval/swe249_hard51_20261016/tasks/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/tests/parser.py",
+      "parser_sha256": "55c2418512e1f11fac1893043e2a588d6c0809071c373b989a6c3d86906cbd97",
+      "raw_stdout_source": "artifacts/recovery/swe-additional-short-tmp-20261017/swe249/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/attempt1/native/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/verifier/live-run-script-stdout.txt",
+      "raw_stderr_source": "artifacts/recovery/swe-additional-short-tmp-20261017/swe249/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/attempt1/native/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/verifier/live-run-script-stderr.txt",
+      "raw_stdout": "artifacts/recovery/swe-nodebb-parsed-official-audit-20261017/raw-stdout.txt",
+      "raw_stdout_sha256": "469b0c76c9d4ef09055c71713e5c61b2a0ae6a918e4d78412a4c23c1425b21fa",
+      "raw_stderr": "artifacts/recovery/swe-nodebb-parsed-official-audit-20261017/raw-stderr.txt",
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_mocha_report": "artifacts/recovery/swe-nodebb-parsed-official-audit-20261017/raw-mocha.json",
+      "raw_mocha_sha256": "418749726ffa285e2193ad010deed7822e05e1f2e16bfb734e7908b55786e886",
+      "parsed_report": "artifacts/recovery/swe-nodebb-parsed-official-audit-20261017/official-output.json",
+      "parsed_report_sha256": "0805fde98b1d8d5924a6595588d7e2b93f6ebe2d10f329814ea71f75f34e9ac3",
+      "frozen_parser_copy_sha256": "55c2418512e1f11fac1893043e2a588d6c0809071c373b989a6c3d86906cbd97",
+      "frozen_test_config_copy_sha256": "37020fb848461705272eaa28ea7ce10c1e46771e0aa091b53ffb391fd0bbc730",
+      "accepted_result": "artifacts/recovery/swe-additional-short-tmp-20261017/swe249/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/attempt1/native/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/result.json",
+      "accepted_result_sha256": "a7109bb07f12df026f91786b2b8a83e4146da398c9449be5c3ab9cf5b4669e36",
+      "cohort_state": "artifacts/recovery/swe-additional-short-tmp-20261017/cohort-attempt1/parent-state.json",
+      "cohort_state_sha256": "4f73ae362e0343617c26e2ff17ba19294049f11b61f5786bde955e20336018e2",
+      "candidate_calls": 0,
+      "test_runs": 0,
+      "model_calls": 0,
+      "native_reward_modified": false,
+      "collector_executed": false,
+      "root_acceptance": false
+    },
+    "native_result": {
+      "exception_type": "VerifierTimeoutError",
+      "native_reward": null,
+      "verifier": {
+        "started_at": "2026-10-17T01:24:56.267900Z",
+        "finished_at": "2026-10-17T02:14:56.273806Z"
+      },
+      "finished_at": "2026-10-17T02:14:58.362696Z",
+      "task_checksum": "5a0f72620934384e3fa05780c8a124d3a9aaa94ef70109ed3ddad7e67b9e011e"
+    },
+    "parsed_counts": {
+      "total": 311,
+      "passed": 307,
+      "failed": 4
+    },
+    "cohort_finished": true,
+    "source_bindings_checked": 38,
+    "source_bindings_match": true
+  },
+  "cohort_cleanup_before_parser": {
+    "source": "artifacts/recovery/swe-additional-short-tmp-20261017/cohort-attempt1/parent-state.json",
+    "source_sha256": "4f73ae362e0343617c26e2ff17ba19294049f11b61f5786bde955e20336018e2",
+    "parent_absent": true,
+    "state": "finished_pending_root_review",
+    "lock_held": false,
+    "guard_stopped": true,
+    "native_empty_samples": 2,
+    "whole_pool_empty_samples_after_guard_stop": 2,
+    "all_recorded_empty": true
+  },
+  "implementation_prepared": {
+    "collector": "scripts/collect_swe249_audited.py",
+    "collector_sha256": "f9f1fd17cca4dad714614ffb5a9c51faa21415054734b0f5adf8eacc78d2cf6b",
+    "fixtures": "scripts/check_swe249_audited_examples.py",
+    "fixtures_sha256": "5c74bac278c930f6bb1101ad62cd144ca65ab1aed85ae9013008b0aae0f4140c",
+    "optional_field": "approved_official_test_reports",
+    "main_manifest_modified": false,
+    "old_native_zero_function_modified": false,
+    "real_data_collector_executed": false,
+    "fixture_result": {
+      "passed": true,
+      "total_checks": 26,
+      "existing_checks": 19,
+      "new_checks": 7,
+      "coverage": [
+        "Raw null remains null with separate audited0",
+        "Native-zero and parsed-report integration stay separate",
+        "Missing one test rejected with updated matching digests",
+        "Conflicting duplicate test status rejected",
+        "Wrong patch path rejected",
+        "Wrong generation source rejected with updated matching digests",
+        "EXIT-trap reward.txt=1 retained, raw result null retained, never treated as success"
+      ],
+      "model_calls": 0,
+      "native_or_test_executions": 0
+    },
+    "proposal": {
+      "proposal": "artifacts/proposals/swe249_nodebb_official_report_20261017.json",
+      "sha256": "cda861188e59047ecf247c065c3d07569381aad5aa0fbecd0539ec5285d128a9",
+      "binding_count": 29,
+      "raw_reward_file": {
+        "path": "artifacts/recovery/swe-additional-short-tmp-20261017/swe249/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/attempt1/native/instance_NodeBB__NodeBB-8168c6c40707478f71b8af60300830fe554c778c-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e/verifier/reward.txt",
+        "value": "1"
+      },
+      "raw_reward_file_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "accepted_result_sha256": "a7109bb07f12df026f91786b2b8a83e4146da398c9449be5c3ab9cf5b4669e36",
+      "approved": false,
+      "collector_executed": false
+    },
+    "ignored_by_gitignore_rule": "/artifacts/",
+    "note": "Proposal is not connected to the approved manifest; root alone decides whether to add the exact entry."
+  },
+  "initial_expert_result_exists": false,
+  "initial_expert_reward_files": [],
+  "expert_reward_files_current": {
+    "reward.txt": {
+      "exists": true,
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "numeric_text": "1"
+    },
+    "reward.json": {
+      "exists": false
+    }
+  },
+  "initial_mapping_method": "Read-only in-memory reproduction of unchanged official parser canonicalization + last-wins name dedup, checked against existing Base official parsed output. No parser CLI/output write or native/test execution.",
+  "exit_trap_evidence": {
+    "raw_result_native_reward": null,
+    "raw_result_sha256": "a7109bb07f12df026f91786b2b8a83e4146da398c9449be5c3ab9cf5b4669e36",
+    "raw_reward_file_value": "1",
+    "raw_reward_file_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "used_as_score": false,
+    "file_modified": false,
+    "proposal_binds_file": true
+  }
+}
