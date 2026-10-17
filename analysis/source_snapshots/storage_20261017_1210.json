@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "scope": "Read-only filesystem free-space snapshots; no deletion, large tree/hash scan or quota/inode query. Aliases on the same filesystem must not be summed.",
+  "remote_80": {
+    "at_utc": "2026-10-17T04:08:07.098544+00:00",
+    "volumes": [
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome",
+        "total_bytes": 11430169911296,
+        "used_bytes": 8858977738752,
+        "free_bytes": 1995067125760
+      },
+      {
+        "path": "/data",
+        "total_bytes": 11430169911296,
+        "used_bytes": 8858977738752,
+        "free_bytes": 1995067125760
+      },
+      {
+        "path": "/",
+        "total_bytes": 907619250176,
+        "used_bytes": 830462140416,
+        "free_bytes": 30977142784
+      },
+      {
+        "path": "/tmp",
+        "total_bytes": 907619250176,
+        "used_bytes": 830462140416,
+        "free_bytes": 30977142784
+      }
+    ]
+  },
+  "local": {
+    "at_utc": "2026-10-17T04:07:12.325304+00:00",
+    "volumes": [
+      {
+        "path": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试",
+        "total_bytes": 494384795648,
+        "used_bytes": 463466778624,
+        "free_bytes": 30918017024
+      },
+      {
+        "path": "/Users/caoqinlu",
+        "total_bytes": 494384795648,
+        "used_bytes": 463466778624,
+        "free_bytes": 30918017024
+      },
+      {
+        "path": "/tmp",
+        "total_bytes": 494384795648,
+        "used_bytes": 463466778624,
+        "free_bytes": 30918017024
+      }
+    ]
+  },
+  "summary": {
+    "remote_data_free_bytes": 1995067125760,
+    "remote_data_free_tib": 1.8145029805600643,
+    "remote_system_tmp_free_bytes": 30977142784,
+    "remote_system_tmp_free_gib": 28.849712371826172,
+    "local_free_bytes": 30918017024,
+    "local_free_gib": 28.794647216796875,
+    "no_storage_exhaustion_observed": true,
+    "quota_and_inode_capacity": "not queried"
+  }
+}

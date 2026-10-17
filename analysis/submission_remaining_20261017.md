@@ -1,5 +1,7 @@
 # 最终交付的最小剩余清单
 
+**12:10自动化已按用户要求删除**；现有队列继续运行，不再定时检查/推进。最新coverage为Terminal专家219/445、AVG200/445，AVG ASI86/240；完整主分/总宏平均仍空，reshard输入供应异常继续null。[最新状态](current_status_20261017.md)。
+
 **11:27补评在途**：reshard专家seed1一次原答案官方补评parent2394544已在124–127独立4CPU/8GiB/900秒运行，3条restore/19845项严格校验通过，pytest已启动1item；尚非有效成绩，不重试或提前改summary。SWE完整10/0/4与11:14双视图、11:15阶段PDF保持；Terminal/AVG ASI未齐及两项无archive原null仍是最终交付未决项。
 
 

@@ -1,5 +1,17 @@
 # 当前进展与未决事项
 
+**12:10用户取消自动化，状态汇报**：每小时“笔试评测持续推进”已由App确认删除，见[取消收据](source_snapshots/automation_cancelled_20261017_1210.json)。不会再定时检查或推进；现有持久评测/科学评分及原STOP准入守护继续按冻结预算自然运行，没有取消GPU作业或缩减在途预算。
+
+[12:08最新严格/预算双视图](source_snapshots/formal_aggregation_20261017_1210.json)按三collector顺序刷新：SWE Base/专家/AVG全51，19.607843%/0%/7.843137%；HLE三组全2500，3.96%/6.92%/4.68%。ASI专家全240为0.378991%、Base1.570988%，AVG86/240有效，0error、154科学评分待完成。Terminal专家219/445有效另5invalid，AVG200/445另5invalid，完整主分/四项macro仍null。没有重生答卷、评分API调用或新增训练，固定ASI审计仅核验。
+
+reshard原答案唯一补评已11:33:21自然结束、11:33:28完整排空/停guard/解锁，原raw reward0/noHarbor不自动有效：官方pytest在session fixture获取固定allenai/c4输入时HEAD报Network is unreachable，fallback缺所需config缓存；压缩/解压候选尚未进入测试，属输入供应infra unknown，继续null，不重试/换输入/联网修候选，也不扩collector接受范围。原19845项恢复通过不等于测试输入供应成功。
+
+12:07实时仅727912/727913普通acd_u共4H100（Nice1000为最近已核值，本轮未另改优先级）。AVG科学评分仍唯一1126014/2282159；当前TSP b3原3600s/1CPU3GiB在CPU92计算，采样OOM0，无新增工程错误，原workers1/396calls/20CNY不变，API journal未落盘仍unknown。Terminal stage2继续等待实际ASI allCPU marker，不能凭生成已结束伪造评分完成。存储80/data余约1.81TiB、系统/tmp28.85GiB、本机28.79GiB，未耗尽。
+
+训练/五个公开HF模型/完整SWE与HLE及专家ASI、20失败案例和一页阶段PDF均已有；最终尚缺Terminal全范围有效结果、AVG ASI全量判分、TIES唯一格式缺口及最终report.pdf/完整macro与正式提交。已有负面结果如实保留，不承诺合版提升。最后阶段PDF仍是11:15版本，没有因本轮仅coverage变化重复生成。
+
+以下保留历史，以12:10取消状态和时点快照为准。
+
 **11:27单项补评已实际运行**：[reshard准备](terminal_reshard_saved_grade_preparation_20261017.md)经root/独立审阅后，11:25:41只启动一次parent**2394544/start870656591**（child2394547/start870656770），新root `artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017`。parent**2a2f31efc4d175f37ec2c3105c801d622da797a08eb29afde9cc9717b97f1df9**、manifest**92af3fc0d2d809c168fd1177608b2ade81e2c41ab07c030f1219f4f3390e759b**、preparer**3ed35de941195c0a248299a053d64c310584e9f9c426424d38d11bdf8972fa55**及42小文件绑定已冻结；不能重跑preparer写manifest或同步截断这些live文件。
 
 真实AVG240生成关闭/T774原guard排空后，使用同一124–127锁inode90780234，独立visible guard，child词法Harbor解释器、taskset124–127/relative offset0，保留原4CPU/8GiB/900秒、minimum_runway3600，不碰科学grader92–95或Terminal既有stage2。原reshard journal精确绑定旧scope af8481795ec4及namespace/host keeper，确认当前已清；捕获的namespace PID不冒充host PID。恢复原app19831、10精确etc差分与4外部uv原状态，dpkg/default旧symlink先仅移除该点再恢复，排除resolver，没有git-leak特殊模式或候选修补。

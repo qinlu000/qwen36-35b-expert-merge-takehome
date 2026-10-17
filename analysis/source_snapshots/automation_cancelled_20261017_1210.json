@@ -1,0 +1,11 @@
+{
+  "automation_id": "automation",
+  "name": "笔试评测持续推进",
+  "requested_action": "取消这个自动化",
+  "result": "deleted",
+  "confirmed_at_utc": "2026-10-17T04:07:42Z",
+  "scheduled_advancement_stopped": true,
+  "existing_evaluation_jobs_cancelled": false,
+  "existing_jobs_continue_under_frozen_contract": true,
+  "new_model_or_judge_calls_for_status_report": 0
+}

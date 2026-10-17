@@ -1,5 +1,7 @@
 # Qwen3.6 多专家训练与参数合版实验
 
+**2026-10-17 12:10：每小时自动推进已按用户要求取消；现有评测队列继续按原预算运行，最新进度见[统一状态](analysis/current_status_20261017.md)。**
+
 研究问题：在相同基座和一轮监督训练下，按代码修复、终端交互、学术推理、科研编程划分专家，再平均参数更新，能否比 Base 和同数据 Mixed 训练更好地兼顾四项任务？重点观察专精收益、跨域冲突、压缩损失和合版退化。
 
 候选人仓库：[qinlu000/qwen36-35b-expert-merge-takehome](https://github.com/qinlu000/qwen36-35b-expert-merge-takehome)，由[官方模板](https://github.com/apexin-ai/qwen36-35b-takehome)实际创建，当前为 Private。实验代码已推送到默认分支 `master`，模板 `main` 保留来源。本实验依据最初的多专家题面，需求转录见 [EXPERIMENT_REQUIREMENTS.md](EXPERIMENT_REQUIREMENTS.md)；后续线上模板的 SFT→stage2 路线不覆盖该题面。

@@ -1,0 +1,2548 @@
+{
+  "strict": {
+    "as_of_utc": "2026-10-17T04:08:15.144609+00:00",
+    "models": {
+      "base": {
+        "label": "Base",
+        "artifact": "Qwen/Qwen3.6-35B-A3B@995ad96eacd98c81ed38be0c5b274b04031597b0",
+        "required_benchmarks": [
+          "swe",
+          "hle",
+          "asi",
+          "terminal"
+        ],
+        "benchmarks": {
+          "swe": {
+            "expected": 51,
+            "valid_scored": 51,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 19.607843137254903,
+            "score_numerator_observed": 10.0,
+            "max_score_observed": 51.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017/swe51_summary.json",
+              "adapter": "swe_tasks",
+              "notes": [
+                "Owner grade-only completion of frozen clean28+native23 answers: explicit native-zero audits and same-patch infrastructure replays. Historical canonical artifacts/eval/base_swe_v2_20261016_clean28/corrected51_summary.json is preserved; no new Base answers or reward-based selection."
+              ],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-16T19:29:32.246691+00:00",
+              "owner_expected": 51,
+              "owner_primary": 19.607843137254903,
+              "provenance": {
+                "selection": "Preserve first valid frozen answer grades, including zeros; original patch replay only"
+              }
+            },
+            "primary_ci95_percent": {
+              "lower": 9.803921568627452,
+              "upper": 31.372549019607842,
+              "method": "percentile cluster bootstrap"
+            },
+            "correct": 10,
+            "wrong": 41
+          },
+          "hle": {
+            "expected": 2500,
+            "valid_scored": 2500,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 3.96,
+            "score_numerator_observed": 99.0,
+            "max_score_observed": 2500.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/summary.json",
+              "adapter": "hle_results",
+              "notes": [
+                "Read frozen scoring results only. Existing input references are821 retained original and1679 original infra1 selection; no newly authorized answer selection.",
+                "DeepSeek-V4-Flash experimental replacement Judge; historical serving4/20/50 and queue-time budget confounds retained."
+              ],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-16T18:56:55.996921+00:00",
+              "owner_expected": 2500,
+              "owner_primary": 3.96,
+              "provenance": {
+                "official": false,
+                "provider": "DeepSeek-V4-Flash",
+                "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+              },
+              "selection_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_infra1/manual_retry_manifest.json",
+              "selection_rule": "Retain original309 responses and512 genuine budget timeouts; same ID/seed/budget; first terminal result in retry order; no answer selection.",
+              "selection_counts": {
+                "retained": 821,
+                "selected": 1679
+              },
+              "records_directory": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/results"
+            },
+            "primary_ci95_percent": {
+              "lower": 3.2,
+              "upper": 4.76,
+              "method": "percentile cluster bootstrap"
+            },
+            "correct": 99,
+            "wrong": 2401,
+            "subgroups": {
+              "image": {
+                "expected": 342,
+                "valid_scored": 342,
+                "correct": 13.0,
+                "accuracy_percent": 3.801169590643275
+              },
+              "text": {
+                "expected": 2158,
+                "valid_scored": 2158,
+                "correct": 86.0,
+                "accuracy_percent": 3.985171455050973
+              }
+            }
+          },
+          "asi": {
+            "expected": 240,
+            "valid_scored": 240,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 1.5709884069083986,
+            "score_numerator_observed": 377.03721765801566,
+            "max_score_observed": 24000.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016/local_score_seed31415.json",
+              "adapter": "asi_native",
+              "notes": [
+                "Official native local aggregation after frozen formal parameter and soil hard-gate repairs. Public seed31415/open/local, not Portal-certified; preserve all partial scores and zero scores."
+              ],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-16T07:50:52.394665+00:00",
+              "owner_expected": 240,
+              "owner_primary": 1.5709884069083986,
+              "provenance": {
+                "official": false,
+                "score_scope": "public_local_replacement_judge",
+                "mode": "paid",
+                "scorer_error_count": 0,
+                "local_gate_repairs": [
+                  "soil_empty_prediction_repair/receipt.json"
+                ]
+              },
+              "scoring_config": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016/scoring_config.json",
+              "generation_results_root": "/data/caoqinlu/projects/apex-takehome/artifacts/eval"
+            },
+            "primary_ci95_percent": {
+              "lower": 0.6570874151070668,
+              "upper": 2.725587842137692,
+              "method": "percentile cluster bootstrap"
+            },
+            "valid_zero_score": 217,
+            "valid_partial_score": 23,
+            "valid_full_score": 0,
+            "metric": "100 * native sum(final_score) / sum(max_score); local seed31415, not Portal-certified"
+          },
+          "terminal": {
+            "expected": 445,
+            "valid_scored": 442,
+            "invalid": 3,
+            "pending": 0,
+            "missing": 0,
+            "complete": false,
+            "primary_score_percent": null,
+            "score_numerator_observed": 90.0,
+            "max_score_observed": 442.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json",
+              "adapter": "terminal_accepted",
+              "notes": [
+                "Owner strict summary includes accepted_first_valid grade-only recoveries of the same frozen answers. The original187-row repair checkpoint supplies absent-key failure status only, never another answer or score.",
+                "Native null remains invalid in this strict view, including separately audited computation timeouts. Optional audited fixed-budget aggregation is saved in a separate output view, never as fabricated native rewards.",
+                "Full89x5 constrained protocol; independent repaired Base experiment and original outputs remain traceable."
+              ],
+              "available": true,
+              "owner_complete": false,
+              "summary_mtime_utc": "2026-10-16T19:29:32.240691+00:00",
+              "owner_expected": 445,
+              "owner_primary": null,
+              "provenance": {
+                "selection": "Retain 436 original valid results and accept only native grades of the six frozen archived answers."
+              },
+              "status_only_source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/checkpoint.json"
+            },
+            "primary_ci95_percent": null,
+            "correct": 90,
+            "wrong": 352,
+            "per_seed": [
+              {
+                "seed": 0,
+                "expected": 89,
+                "valid_scored": 88,
+                "correct": 16.0,
+                "score_percent": null
+              },
+              {
+                "seed": 1,
+                "expected": 89,
+                "valid_scored": 89,
+                "correct": 20.0,
+                "score_percent": 22.471910112359552
+              },
+              {
+                "seed": 2,
+                "expected": 89,
+                "valid_scored": 89,
+                "correct": 17.0,
+                "score_percent": 19.10112359550562
+              },
+              {
+                "seed": 3,
+                "expected": 89,
+                "valid_scored": 89,
+                "correct": 21.0,
+                "score_percent": 23.59550561797753
+              },
+              {
+                "seed": 4,
+                "expected": 89,
+                "valid_scored": 87,
+                "correct": 16.0,
+                "score_percent": null
+              }
+            ],
+            "sample_sd_percent_ddof1": null,
+            "five_seed_mean_percent": null
+          }
+        },
+        "required_scope_complete": false,
+        "macro_primary_percent": null,
+        "macro_ci95_percent": null,
+        "macro_eligible": true
+      },
+      "swe249": {
+        "label": "SWE249专家",
+        "artifact": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+        "required_benchmarks": [
+          "swe"
+        ],
+        "benchmarks": {
+          "swe": {
+            "expected": 51,
+            "valid_scored": 51,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 0.0,
+            "score_numerator_observed": 0.0,
+            "max_score_observed": 51.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_audited_hard51_20261017/summary.json",
+              "adapter": "swe_tasks",
+              "notes": [
+                "Read-only frozen SWE249 overlay: eight exact native-zero audits plus one complete official NodeBB report audit. All311 required tests parsed,307P2P pass and4F2P fail; natural3000s rawtimeout/null and EXIT-trap reward file1 remain unchanged. Original queue preserved; no general timeout-to-zero rule or answer regeneration."
+              ],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-17T04:08:10.719554+00:00",
+              "owner_expected": 51,
+              "owner_primary": 0.0,
+              "provenance": {
+                "model": "apex-val-swe249",
+                "checkpoint": "artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+                "selection_policy": "8 exact approved native-zero results; all other original validity retained; no reward search; 1 explicit complete official-test report audit"
+              }
+            },
+            "primary_ci95_percent": {
+              "lower": 0.0,
+              "upper": 0.0,
+              "method": "percentile cluster bootstrap"
+            },
+            "correct": 0,
+            "wrong": 51
+          }
+        },
+        "required_scope_complete": true,
+        "macro_primary_percent": null,
+        "macro_ci95_percent": null,
+        "macro_eligible": false
+      },
+      "hle250": {
+        "label": "HLE250专家",
+        "artifact": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-250",
+        "required_benchmarks": [
+          "hle"
+        ],
+        "benchmarks": {
+          "hle": {
+            "expected": 2500,
+            "valid_scored": 2500,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 6.92,
+            "score_numerator_observed": 173.0,
+            "max_score_observed": 2500.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/scoring/summary.json",
+              "adapter": "hle_results",
+              "notes": [],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-16T21:16:38.183046+00:00",
+              "owner_expected": 2500,
+              "owner_primary": 6.92,
+              "provenance": {
+                "official": false,
+                "provider": "DeepSeek-V4-Flash",
+                "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+              },
+              "selection_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/manual_retry_manifest.json",
+              "selection_rule": "One frozen terminal result per ID; no retries or score selection",
+              "selection_counts": {
+                "retained": 2500,
+                "selected": 0
+              },
+              "records_directory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/scoring/results"
+            },
+            "primary_ci95_percent": {
+              "lower": 5.96,
+              "upper": 7.92,
+              "method": "percentile cluster bootstrap"
+            },
+            "correct": 173,
+            "wrong": 2327,
+            "subgroups": {
+              "image": {
+                "expected": 342,
+                "valid_scored": 342,
+                "correct": 23.0,
+                "accuracy_percent": 6.7251461988304095
+              },
+              "text": {
+                "expected": 2158,
+                "valid_scored": 2158,
+                "correct": 150.0,
+                "accuracy_percent": 6.950880444856349
+              }
+            }
+          }
+        },
+        "required_scope_complete": true,
+        "macro_primary_percent": null,
+        "macro_ci95_percent": null,
+        "macro_eligible": false
+      },
+      "asi128": {
+        "label": "ASI128专家",
+        "artifact": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128",
+        "required_benchmarks": [
+          "asi"
+        ],
+        "benchmarks": {
+          "asi": {
+            "expected": 240,
+            "valid_scored": 240,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 0.37899138191421416,
+            "score_numerator_observed": 90.95793165941141,
+            "max_score_observed": 24000.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/audited/local_score_seed31415.json",
+              "adapter": "asi_native",
+              "notes": [
+                "Read-only exact CMOS b1 import-recovery overlay: one native grade of the unchanged saved candidate, nine existing Judge cache responses and zero new paid calls. Other239 rows and the original239+1-invalid report are preserved; public/local replacement-Judge scope remains unchanged."
+              ],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-16T23:23:26.827507+00:00",
+              "owner_expected": 240,
+              "owner_primary": 0.37899138191421416,
+              "provenance": {
+                "official": false,
+                "score_scope": "public_local_replacement_judge",
+                "mode": "paid",
+                "scorer_error_count": 0
+              },
+              "scoring_config": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/scoring/scoring_config.json",
+              "generation_results_root": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017"
+            },
+            "primary_ci95_percent": {
+              "lower": 0.05902777777777777,
+              "upper": 0.807530052286455,
+              "method": "percentile cluster bootstrap"
+            },
+            "valid_zero_score": 232,
+            "valid_partial_score": 8,
+            "valid_full_score": 0,
+            "metric": "100 * native sum(final_score) / sum(max_score); local seed31415, not Portal-certified"
+          }
+        },
+        "required_scope_complete": true,
+        "macro_primary_percent": null,
+        "macro_ci95_percent": null,
+        "macro_eligible": false
+      },
+      "terminal250": {
+        "label": "Terminal250专家",
+        "artifact": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/terminal-retry-sft-r16-726665/training/checkpoint-250",
+        "required_benchmarks": [
+          "terminal"
+        ],
+        "benchmarks": {
+          "terminal": {
+            "expected": 445,
+            "valid_scored": 219,
+            "invalid": 5,
+            "pending": 221,
+            "missing": 0,
+            "complete": false,
+            "primary_score_percent": null,
+            "score_numerator_observed": 31.0,
+            "max_score_observed": 219.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_audited_20261017/summary.json",
+              "adapter": "terminal_scores",
+              "notes": [
+                "Read-only exact nginx/seed0 native0 and git-leak-recovery/seed1 native1 saved-candidate grade-only overlays; original archives, answers and raw invalid records preserved. The git-leak first official verifier passed all 5 tests after exact hardlink-header validation correction; no candidate chmod, link split, installation, service start or model call. Refresh collect_terminal250_audited.py before aggregation; all nonapproved score rows remain unchanged."
+              ],
+              "available": true,
+              "owner_complete": false,
+              "summary_mtime_utc": "2026-10-17T04:08:10.848550+00:00",
+              "owner_expected": 445,
+              "owner_primary": null,
+              "provenance": {
+                "model": "apex-terminal250",
+                "selection_policy": "Exact explicitly root-approved saved-candidate native grades; no reward search or cross-model reuse."
+              }
+            },
+            "primary_ci95_percent": null,
+            "correct": 31,
+            "wrong": 188,
+            "per_seed": [
+              {
+                "seed": 0,
+                "expected": 89,
+                "valid_scored": 87,
+                "correct": 13.0,
+                "score_percent": null
+              },
+              {
+                "seed": 1,
+                "expected": 89,
+                "valid_scored": 86,
+                "correct": 12.0,
+                "score_percent": null
+              },
+              {
+                "seed": 2,
+                "expected": 89,
+                "valid_scored": 46,
+                "correct": 6.0,
+                "score_percent": null
+              },
+              {
+                "seed": 3,
+                "expected": 89,
+                "valid_scored": 0,
+                "correct": 0,
+                "score_percent": null
+              },
+              {
+                "seed": 4,
+                "expected": 89,
+                "valid_scored": 0,
+                "correct": 0,
+                "score_percent": null
+              }
+            ],
+            "sample_sd_percent_ddof1": null,
+            "five_seed_mean_percent": null
+          }
+        },
+        "required_scope_complete": false,
+        "macro_primary_percent": null,
+        "macro_ci95_percent": null,
+        "macro_eligible": false
+      },
+      "mixed883": {
+        "label": "Mixed883任务对照",
+        "artifact": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/mixed-existing2k-sft-r16-726666/training/checkpoint-883",
+        "required_benchmarks": [
+          "hle"
+        ],
+        "benchmarks": {
+          "hle": {
+            "expected": 2500,
+            "valid_scored": 2500,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 5.84,
+            "score_numerator_observed": 146.0,
+            "max_score_observed": 2500.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/scoring/summary.json",
+              "adapter": "hle_results",
+              "notes": [],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-16T21:16:51.199621+00:00",
+              "owner_expected": 2500,
+              "owner_primary": 5.84,
+              "provenance": {
+                "official": false,
+                "provider": "DeepSeek-V4-Flash",
+                "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+              },
+              "selection_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/manual_retry_manifest.json",
+              "selection_rule": "One fixed terminal result per task ID; no score selection or retries",
+              "selection_counts": {
+                "retained": 2500,
+                "selected": 0
+              },
+              "records_directory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/scoring/results"
+            },
+            "primary_ci95_percent": {
+              "lower": 4.92,
+              "upper": 6.8,
+              "method": "percentile cluster bootstrap"
+            },
+            "correct": 146,
+            "wrong": 2354,
+            "subgroups": {
+              "image": {
+                "expected": 342,
+                "valid_scored": 342,
+                "correct": 19.0,
+                "accuracy_percent": 5.555555555555555
+              },
+              "text": {
+                "expected": 2158,
+                "valid_scored": 2158,
+                "correct": 127.0,
+                "accuracy_percent": 5.885078776645042
+              }
+            }
+          }
+        },
+        "required_scope_complete": true,
+        "macro_primary_percent": null,
+        "macro_ci95_percent": null,
+        "macro_eligible": false
+      },
+      "avg16": {
+        "label": "AVG16辅助压缩对照",
+        "artifact": "/data/caoqinlu/projects/apex-takehome/artifacts/merges/four-experts-avg-v1-20261017/avg-svd-r16",
+        "required_benchmarks": [
+          "hle"
+        ],
+        "benchmarks": {
+          "hle": {
+            "expected": 2500,
+            "valid_scored": 2500,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 4.04,
+            "score_numerator_observed": 101.0,
+            "max_score_observed": 2500.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017/scoring/summary.json",
+              "adapter": "hle_results",
+              "notes": [],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-16T23:26:02.922296+00:00",
+              "owner_expected": 2500,
+              "owner_primary": 4.04,
+              "provenance": {
+                "official": false,
+                "provider": "DeepSeek-V4-Flash",
+                "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+              },
+              "selection_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017/manual_retry_manifest.json",
+              "selection_rule": "One fixed terminal result per task ID; no score selection or retries",
+              "selection_counts": {
+                "retained": 2500,
+                "selected": 0
+              },
+              "records_directory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017/scoring/results"
+            },
+            "primary_ci95_percent": {
+              "lower": 3.32,
+              "upper": 4.84,
+              "method": "percentile cluster bootstrap"
+            },
+            "correct": 101,
+            "wrong": 2399,
+            "subgroups": {
+              "image": {
+                "expected": 342,
+                "valid_scored": 342,
+                "correct": 19.0,
+                "accuracy_percent": 5.555555555555555
+              },
+              "text": {
+                "expected": 2158,
+                "valid_scored": 2158,
+                "correct": 82.0,
+                "accuracy_percent": 3.799814643188137
+              }
+            }
+          }
+        },
+        "required_scope_complete": true,
+        "macro_primary_percent": null,
+        "macro_ci95_percent": null,
+        "macro_eligible": false
+      },
+      "ties_dense": {
+        "label": "TIES-Dense方法对照",
+        "artifact": "/data/caoqinlu/projects/apex-takehome/artifacts/merges/four-experts-ties-dense-v1-20261017",
+        "required_benchmarks": [
+          "hle"
+        ],
+        "benchmarks": {
+          "hle": {
+            "expected": 2500,
+            "valid_scored": 2499,
+            "invalid": 1,
+            "pending": 0,
+            "missing": 0,
+            "complete": false,
+            "primary_score_percent": null,
+            "score_numerator_observed": 131.0,
+            "max_score_observed": 2499.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/summary.json",
+              "adapter": "hle_results",
+              "notes": [
+                "Fixed PEFT0.20 per-module true-delta TIES density0.2/total/ones/lambda1, no SVD. Same35B architecture; dense full-BF16 storage differs from AVG64 rank64 adapter parameterization and runtime addition order. Measured global storage deviation relative to TIES delta10.531%; source735 non-target tensors bitwise preserved.",
+                "HLE-only method comparison under the same frozen2500/342image/50/300s/64K8K/nonthinking protocol, not final-model selection or a four-benchmark macro. Primary AVG64 remains unchanged."
+              ],
+              "available": true,
+              "owner_complete": false,
+              "summary_mtime_utc": "2026-10-16T23:08:15.398283+00:00",
+              "owner_expected": 2500,
+              "owner_primary": null,
+              "provenance": {
+                "official": false,
+                "provider": "DeepSeek-V4-Flash",
+                "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+              },
+              "selection_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/manual_retry_manifest.json",
+              "selection_rule": "One fixed terminal result per task ID; no score selection or retries",
+              "selection_counts": {
+                "retained": 2500,
+                "selected": 0
+              },
+              "records_directory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/results"
+            },
+            "primary_ci95_percent": null,
+            "correct": 131,
+            "wrong": 2368,
+            "subgroups": {
+              "image": {
+                "expected": 342,
+                "valid_scored": 342,
+                "correct": 14.0,
+                "accuracy_percent": 4.093567251461988
+              },
+              "text": {
+                "expected": 2158,
+                "valid_scored": 2157,
+                "correct": 117.0,
+                "accuracy_percent": null
+              }
+            }
+          }
+        },
+        "required_scope_complete": false,
+        "macro_primary_percent": null,
+        "macro_ci95_percent": null,
+        "macro_eligible": false
+      },
+      "avg64": {
+        "label": "AVG64合版",
+        "artifact": "/data/caoqinlu/projects/apex-takehome/artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+        "required_benchmarks": [
+          "swe",
+          "hle",
+          "asi",
+          "terminal"
+        ],
+        "benchmarks": {
+          "swe": {
+            "expected": 51,
+            "valid_scored": 51,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 7.8431372549019605,
+            "score_numerator_observed": 4.0,
+            "max_score_observed": 51.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_audited_hard51_20261017/summary.json",
+              "adapter": "swe_tasks",
+              "notes": [
+                "Read-only overlay accepts independently reviewed exact AVG native-zero replays c1f2, OpenLibrary630, Qutebrowser3e21 and its own same-patch Vuls/T2 disk-scratch recoveries with task-required product behavior omitted. Original source validity and pending rows remain; no expert audit whitelist is inherited. Refresh collect_avg64_swe_audited.py after collect_swe249_audited.py before aggregation.",
+                "Final own T774 grade-only native0 accepted after original-URL TLS recovery and independent instruction line79 explicit netlink v1.6.0 requirement/empty-patch audit. TestSendEvent compilation-blocked before assertions; original timeout remains. Six exact native-zero approvals, no cross-model grade, answer regeneration or dependency repair."
+              ],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-17T04:08:10.772552+00:00",
+              "owner_expected": 51,
+              "owner_primary": 7.8431372549019605,
+              "provenance": {
+                "model": "apex-avg64",
+                "checkpoint": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+                "selection_policy": "Explicit exact root-approved AVG64 native-zero audits; all other rows copied unchanged; no reward search."
+              }
+            },
+            "primary_ci95_percent": {
+              "lower": 1.9607843137254901,
+              "upper": 15.686274509803921,
+              "method": "percentile cluster bootstrap"
+            },
+            "correct": 4,
+            "wrong": 47
+          },
+          "hle": {
+            "expected": 2500,
+            "valid_scored": 2500,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 4.68,
+            "score_numerator_observed": 117.0,
+            "max_score_observed": 2500.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
+              "adapter": "hle_results",
+              "notes": [],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-16T23:11:54.216287+00:00",
+              "owner_expected": 2500,
+              "owner_primary": 4.68,
+              "provenance": {
+                "official": false,
+                "provider": "DeepSeek-V4-Flash",
+                "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+              },
+              "selection_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/manual_retry_manifest.json",
+              "selection_rule": "One frozen terminal result per ID; no retries or score selection",
+              "selection_counts": {
+                "retained": 2500,
+                "selected": 0
+              },
+              "records_directory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/results"
+            },
+            "primary_ci95_percent": {
+              "lower": 3.88,
+              "upper": 5.52,
+              "method": "percentile cluster bootstrap"
+            },
+            "correct": 117,
+            "wrong": 2383,
+            "subgroups": {
+              "image": {
+                "expected": 342,
+                "valid_scored": 342,
+                "correct": 17.0,
+                "accuracy_percent": 4.970760233918129
+              },
+              "text": {
+                "expected": 2158,
+                "valid_scored": 2158,
+                "correct": 100.0,
+                "accuracy_percent": 4.633920296570899
+              }
+            }
+          },
+          "asi": {
+            "expected": 240,
+            "valid_scored": 86,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 154,
+            "complete": false,
+            "primary_score_percent": null,
+            "score_numerator_observed": 2.5,
+            "max_score_observed": 8600.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_asi240_20261017/scoring/local_score_seed31415.json",
+              "adapter": "asi_native",
+              "notes": [],
+              "available": true,
+              "owner_complete": false,
+              "summary_mtime_utc": "2026-10-17T03:58:43.502937+00:00",
+              "owner_expected": 240,
+              "owner_primary": null,
+              "provenance": {
+                "official": false,
+                "score_scope": "public_local_replacement_judge",
+                "mode": "paid",
+                "scorer_error_count": 0
+              },
+              "scoring_config": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_asi240_20261017/scoring/scoring_config.json",
+              "generation_results_root": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_asi240_20261017"
+            },
+            "primary_ci95_percent": null,
+            "valid_zero_score": 85,
+            "valid_partial_score": 1,
+            "valid_full_score": 0,
+            "metric": "100 * native sum(final_score) / sum(max_score); local seed31415, not Portal-certified"
+          },
+          "terminal": {
+            "expected": 445,
+            "valid_scored": 200,
+            "invalid": 5,
+            "pending": 240,
+            "missing": 0,
+            "complete": false,
+            "primary_score_percent": null,
+            "score_numerator_observed": 27.0,
+            "max_score_observed": 200.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+              "adapter": "terminal_scores",
+              "notes": [],
+              "available": true,
+              "owner_complete": false,
+              "summary_mtime_utc": "2026-10-17T04:08:11.370535+00:00",
+              "owner_expected": 445,
+              "owner_primary": null,
+              "provenance": {
+                "model": "apex-avg64"
+              }
+            },
+            "primary_ci95_percent": null,
+            "correct": 27,
+            "wrong": 173,
+            "per_seed": [
+              {
+                "seed": 0,
+                "expected": 89,
+                "valid_scored": 86,
+                "correct": 13.0,
+                "score_percent": null
+              },
+              {
+                "seed": 1,
+                "expected": 89,
+                "valid_scored": 87,
+                "correct": 11.0,
+                "score_percent": null
+              },
+              {
+                "seed": 2,
+                "expected": 89,
+                "valid_scored": 27,
+                "correct": 3.0,
+                "score_percent": null
+              },
+              {
+                "seed": 3,
+                "expected": 89,
+                "valid_scored": 0,
+                "correct": 0,
+                "score_percent": null
+              },
+              {
+                "seed": 4,
+                "expected": 89,
+                "valid_scored": 0,
+                "correct": 0,
+                "score_percent": null
+              }
+            ],
+            "sample_sd_percent_ddof1": null,
+            "five_seed_mean_percent": null
+          }
+        },
+        "required_scope_complete": false,
+        "macro_primary_percent": null,
+        "macro_ci95_percent": null,
+        "macro_eligible": true
+      }
+    },
+    "comparisons": {
+      "swe249_vs_base": {
+        "benchmarks": {
+          "swe": {
+            "complete_pair": true,
+            "expected_observations": 51,
+            "valid_paired_observations": 51,
+            "expected_clusters": 51,
+            "complete_paired_clusters": 51,
+            "delta_percent_points": -19.607843137254903,
+            "delta_ci95_percent_points": {
+              "lower": -31.372549019607842,
+              "upper": -9.803921568627452,
+              "method": "percentile cluster bootstrap"
+            }
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "hle250_vs_base": {
+        "benchmarks": {
+          "hle": {
+            "complete_pair": true,
+            "expected_observations": 2500,
+            "valid_paired_observations": 2500,
+            "expected_clusters": 2500,
+            "complete_paired_clusters": 2500,
+            "delta_percent_points": 2.96,
+            "delta_ci95_percent_points": {
+              "lower": 1.8000000000000007,
+              "upper": 4.119999999999999,
+              "method": "percentile cluster bootstrap"
+            }
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "asi128_vs_base": {
+        "benchmarks": {
+          "asi": {
+            "complete_pair": true,
+            "expected_observations": 240,
+            "valid_paired_observations": 240,
+            "expected_clusters": 60,
+            "complete_paired_clusters": 60,
+            "delta_percent_points": -1.1919970249941845,
+            "delta_ci95_percent_points": {
+              "lower": -2.278709642549218,
+              "upper": -0.30302291762722916,
+              "method": "percentile cluster bootstrap"
+            }
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "terminal250_vs_base": {
+        "benchmarks": {
+          "terminal": {
+            "complete_pair": false,
+            "expected_observations": 445,
+            "valid_paired_observations": 218,
+            "expected_clusters": 89,
+            "complete_paired_clusters": 0,
+            "delta_percent_points": null,
+            "delta_ci95_percent_points": null
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "mixed883_vs_base": {
+        "benchmarks": {
+          "hle": {
+            "complete_pair": true,
+            "expected_observations": 2500,
+            "valid_paired_observations": 2500,
+            "expected_clusters": 2500,
+            "complete_paired_clusters": 2500,
+            "delta_percent_points": 1.88,
+            "delta_ci95_percent_points": {
+              "lower": 0.7999999999999998,
+              "upper": 2.9999999999999996,
+              "method": "percentile cluster bootstrap"
+            }
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "avg16_vs_base": {
+        "benchmarks": {
+          "hle": {
+            "complete_pair": true,
+            "expected_observations": 2500,
+            "valid_paired_observations": 2500,
+            "expected_clusters": 2500,
+            "complete_paired_clusters": 2500,
+            "delta_percent_points": 0.08000000000000007,
+            "delta_ci95_percent_points": {
+              "lower": -0.8000000000000003,
+              "upper": 0.9609999999999859,
+              "method": "percentile cluster bootstrap"
+            }
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "ties_dense_vs_base": {
+        "benchmarks": {
+          "hle": {
+            "complete_pair": false,
+            "expected_observations": 2500,
+            "valid_paired_observations": 2499,
+            "expected_clusters": 2500,
+            "complete_paired_clusters": 2499,
+            "delta_percent_points": null,
+            "delta_ci95_percent_points": null
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "avg64_vs_base": {
+        "benchmarks": {
+          "swe": {
+            "complete_pair": true,
+            "expected_observations": 51,
+            "valid_paired_observations": 51,
+            "expected_clusters": 51,
+            "complete_paired_clusters": 51,
+            "delta_percent_points": -11.764705882352942,
+            "delta_ci95_percent_points": {
+              "lower": -23.52941176470588,
+              "upper": 0.0,
+              "method": "percentile cluster bootstrap"
+            }
+          },
+          "hle": {
+            "complete_pair": true,
+            "expected_observations": 2500,
+            "valid_paired_observations": 2500,
+            "expected_clusters": 2500,
+            "complete_paired_clusters": 2500,
+            "delta_percent_points": 0.7199999999999998,
+            "delta_ci95_percent_points": {
+              "lower": -0.20000000000000018,
+              "upper": 1.6399999999999997,
+              "method": "percentile cluster bootstrap"
+            }
+          },
+          "asi": {
+            "complete_pair": false,
+            "expected_observations": 240,
+            "valid_paired_observations": 86,
+            "expected_clusters": 60,
+            "complete_paired_clusters": 21,
+            "delta_percent_points": null,
+            "delta_ci95_percent_points": null
+          },
+          "terminal": {
+            "complete_pair": false,
+            "expected_observations": 445,
+            "valid_paired_observations": 199,
+            "expected_clusters": 89,
+            "complete_paired_clusters": 0,
+            "delta_percent_points": null,
+            "delta_ci95_percent_points": null
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "avg64_vs_mixed883": {
+        "benchmarks": {
+          "hle": {
+            "complete_pair": true,
+            "expected_observations": 2500,
+            "valid_paired_observations": 2500,
+            "expected_clusters": 2500,
+            "complete_paired_clusters": 2500,
+            "delta_percent_points": -1.1600000000000001,
+            "delta_ci95_percent_points": {
+              "lower": -2.2399999999999993,
+              "upper": -0.1200000000000001,
+              "method": "percentile cluster bootstrap"
+            }
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "avg64_vs_avg16": {
+        "benchmarks": {
+          "hle": {
+            "complete_pair": true,
+            "expected_observations": 2500,
+            "valid_paired_observations": 2500,
+            "expected_clusters": 2500,
+            "complete_paired_clusters": 2500,
+            "delta_percent_points": 0.6399999999999997,
+            "delta_ci95_percent_points": {
+              "lower": -0.23999999999999932,
+              "upper": 1.4809999999999859,
+              "method": "percentile cluster bootstrap"
+            }
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "ties_dense_vs_avg64": {
+        "benchmarks": {
+          "hle": {
+            "complete_pair": false,
+            "expected_observations": 2500,
+            "valid_paired_observations": 2499,
+            "expected_clusters": 2500,
+            "complete_paired_clusters": 2499,
+            "delta_percent_points": null,
+            "delta_ci95_percent_points": null
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      }
+    },
+    "interpretation_notes": [
+      "All four primary percentages have equal weight1/4; targeted experts have no four-benchmark macro score.",
+      "Any missing/invalid/pending observation or incompatible ID/owner status blocks that benchmark primary and CI; no valid-subset mean.",
+      "Paired CIs require full same-ID observations, not complete-case intersection after dropping invalid entries.",
+      "Terminal1800s/4CPU/8GiB/64K/8K differs from original3h/32CPU/48GiB/256K/80K setting.",
+      "Service replicas, global concurrency and scheduling differ between historical Base and later models; paired task resampling does not remove those confounds.",
+      "HLE/ASI replacement Judge and public local ASI scope must remain disclosed.",
+      "Explicit HLE Judge-format recovery exception: after two original HTTP200 length-truncated unparseable grades, the fixed reviewed expert2/Mixed6/AVG64two/TIESsix/AVG16one items receive at most one compact-wrapper grade-only request, matching the existing Base precedent. Original criteria, answer, Judge identity, parser, seed and budgets are retained; original ledgers/results are backed up. This exceeds the original two-attempt cap and is disclosed, not answer regeneration. TIES missing-correct schema failure is outside this exception and remains invalid.",
+      "Root-audited full300s HTTP ReadTimeout boundary records in AVG64 and AVG16 use the existing native-no-answer rule after idle original graders exit. Original solver records and frozen scoring sources are preserved; no model or Judge calls are needed for this collection compatibility fix."
+    ],
+    "statistics": {
+      "repetitions": 10000,
+      "seed": 20261015,
+      "confidence_level": 0.95,
+      "numpy_version": "2.5.4",
+      "bit_generator": "PCG64",
+      "benchmark_stream_order": [
+        "swe",
+        "hle",
+        "asi",
+        "terminal"
+      ],
+      "stream_rule": "SeedSequence(20261015).spawn(4); independent benchmark streams",
+      "resampling_units": {
+        "swe": "51 task IDs",
+        "hle": "2500 question IDs",
+        "asi": "60 project IDs retaining all four conditions",
+        "terminal": "89 task IDs retaining all five seeds"
+      },
+      "interpretation": "Conditional on fixed task versions, resource budgets, evaluated runs and disclosed scheduling/judge differences"
+    },
+    "source_manifests": {
+      "swe": "/data/caoqinlu/projects/apex-takehome/analysis/source_snapshots/protocol/swe_hard_task_ids.json",
+      "hle": "/data/caoqinlu/projects/apex-takehome/analysis/source_snapshots/protocol/hle_task_ids.json",
+      "asi": "/data/caoqinlu/projects/apex-takehome/analysis/source_snapshots/protocol/asi_task_ids.json",
+      "terminal": "/data/caoqinlu/projects/apex-takehome/analysis/source_snapshots/protocol/terminal_task_ids.json"
+    },
+    "protocol": "/data/caoqinlu/projects/apex-takehome/configs/eval/protocol_v2_unified64k8k.json",
+    "complete_primary_comparison": false,
+    "partial_results_policy": "No subset primary means or intervals; missing/invalid/pending remain distinct from valid wrong/zero scores",
+    "path_config": "/data/caoqinlu/projects/apex-takehome/configs/eval/final_results_20261017.json",
+    "additional_views": {
+      "audited_terminal_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/final_aggregation_20261017/audited_terminal_budget/summary.json"
+    }
+  },
+  "audited_terminal_budget": {
+    "as_of_utc": "2026-10-17T04:08:19.993288+00:00",
+    "models": {
+      "base": {
+        "label": "Base",
+        "artifact": "Qwen/Qwen3.6-35B-A3B@995ad96eacd98c81ed38be0c5b274b04031597b0",
+        "required_benchmarks": [
+          "swe",
+          "hle",
+          "asi",
+          "terminal"
+        ],
+        "benchmarks": {
+          "swe": {
+            "expected": 51,
+            "valid_scored": 51,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 19.607843137254903,
+            "score_numerator_observed": 10.0,
+            "max_score_observed": 51.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017/swe51_summary.json",
+              "adapter": "swe_tasks",
+              "notes": [
+                "Owner grade-only completion of frozen clean28+native23 answers: explicit native-zero audits and same-patch infrastructure replays. Historical canonical artifacts/eval/base_swe_v2_20261016_clean28/corrected51_summary.json is preserved; no new Base answers or reward-based selection."
+              ],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-16T19:29:32.246691+00:00",
+              "owner_expected": 51,
+              "owner_primary": 19.607843137254903,
+              "provenance": {
+                "selection": "Preserve first valid frozen answer grades, including zeros; original patch replay only"
+              }
+            },
+            "primary_ci95_percent": {
+              "lower": 9.803921568627452,
+              "upper": 31.372549019607842,
+              "method": "percentile cluster bootstrap"
+            },
+            "correct": 10,
+            "wrong": 41
+          },
+          "hle": {
+            "expected": 2500,
+            "valid_scored": 2500,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 3.96,
+            "score_numerator_observed": 99.0,
+            "max_score_observed": 2500.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/summary.json",
+              "adapter": "hle_results",
+              "notes": [
+                "Read frozen scoring results only. Existing input references are821 retained original and1679 original infra1 selection; no newly authorized answer selection.",
+                "DeepSeek-V4-Flash experimental replacement Judge; historical serving4/20/50 and queue-time budget confounds retained."
+              ],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-16T18:56:55.996921+00:00",
+              "owner_expected": 2500,
+              "owner_primary": 3.96,
+              "provenance": {
+                "official": false,
+                "provider": "DeepSeek-V4-Flash",
+                "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+              },
+              "selection_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/base_hle_v2_724196_infra1/manual_retry_manifest.json",
+              "selection_rule": "Retain original309 responses and512 genuine budget timeouts; same ID/seed/budget; first terminal result in retry order; no answer selection.",
+              "selection_counts": {
+                "retained": 821,
+                "selected": 1679
+              },
+              "records_directory": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/results"
+            },
+            "primary_ci95_percent": {
+              "lower": 3.2,
+              "upper": 4.76,
+              "method": "percentile cluster bootstrap"
+            },
+            "correct": 99,
+            "wrong": 2401,
+            "subgroups": {
+              "image": {
+                "expected": 342,
+                "valid_scored": 342,
+                "correct": 13.0,
+                "accuracy_percent": 3.801169590643275
+              },
+              "text": {
+                "expected": 2158,
+                "valid_scored": 2158,
+                "correct": 86.0,
+                "accuracy_percent": 3.985171455050973
+              }
+            }
+          },
+          "asi": {
+            "expected": 240,
+            "valid_scored": 240,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 1.5709884069083986,
+            "score_numerator_observed": 377.03721765801566,
+            "max_score_observed": 24000.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016/local_score_seed31415.json",
+              "adapter": "asi_native",
+              "notes": [
+                "Official native local aggregation after frozen formal parameter and soil hard-gate repairs. Public seed31415/open/local, not Portal-certified; preserve all partial scores and zero scores."
+              ],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-16T07:50:52.394665+00:00",
+              "owner_expected": 240,
+              "owner_primary": 1.5709884069083986,
+              "provenance": {
+                "official": false,
+                "score_scope": "public_local_replacement_judge",
+                "mode": "paid",
+                "scorer_error_count": 0,
+                "local_gate_repairs": [
+                  "soil_empty_prediction_repair/receipt.json"
+                ]
+              },
+              "scoring_config": "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_v2_formal_params_20261016/scoring_config.json",
+              "generation_results_root": "/data/caoqinlu/projects/apex-takehome/artifacts/eval"
+            },
+            "primary_ci95_percent": {
+              "lower": 0.6570874151070668,
+              "upper": 2.725587842137692,
+              "method": "percentile cluster bootstrap"
+            },
+            "valid_zero_score": 217,
+            "valid_partial_score": 23,
+            "valid_full_score": 0,
+            "metric": "100 * native sum(final_score) / sum(max_score); local seed31415, not Portal-certified"
+          },
+          "terminal": {
+            "expected": 445,
+            "valid_scored": 445,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 20.224719101123597,
+            "score_numerator_observed": 90.0,
+            "max_score_observed": 445.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json",
+              "adapter": "terminal_accepted",
+              "notes": [
+                "Owner strict summary includes accepted_first_valid grade-only recoveries of the same frozen answers. The original187-row repair checkpoint supplies absent-key failure status only, never another answer or score.",
+                "Native null remains invalid in this strict view, including separately audited computation timeouts. Optional audited fixed-budget aggregation is saved in a separate output view, never as fabricated native rewards.",
+                "Full89x5 constrained protocol; independent repaired Base experiment and original outputs remain traceable."
+              ],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-16T19:29:32.240691+00:00",
+              "owner_expected": 445,
+              "owner_primary": 20.224719101123597,
+              "provenance": {
+                "selection": "Retain 436 original valid results and accept only native grades of the six frozen archived answers."
+              },
+              "status_only_source": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/checkpoint.json",
+              "strict_native_owner_complete": false,
+              "score_view": "audited_terminal_budget",
+              "policy_id": "audited-terminal-fixed900-budget-v1-20261017",
+              "audit_files": [
+                "/data/caoqinlu/projects/apex-takehome/analysis/source_snapshots/terminal_three_compute_timeout_audit_20261017.json"
+              ],
+              "owner_budget_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-gap-completion-20261017/terminal_budget_summary.json",
+              "native_valid": 442,
+              "derived_timeout": 3,
+              "accounted": 445,
+              "native_grade_unchanged": true
+            },
+            "primary_ci95_percent": {
+              "lower": 13.03370786516854,
+              "upper": 27.865168539325843,
+              "method": "percentile cluster bootstrap"
+            },
+            "correct": 90,
+            "wrong": 355,
+            "per_seed": [
+              {
+                "seed": 0,
+                "expected": 89,
+                "valid_scored": 89,
+                "correct": 16.0,
+                "score_percent": 17.97752808988764,
+                "native_valid": 88,
+                "derived_timeout": 1,
+                "accounted": 89
+              },
+              {
+                "seed": 1,
+                "expected": 89,
+                "valid_scored": 89,
+                "correct": 20.0,
+                "score_percent": 22.471910112359552,
+                "native_valid": 89,
+                "derived_timeout": 0,
+                "accounted": 89
+              },
+              {
+                "seed": 2,
+                "expected": 89,
+                "valid_scored": 89,
+                "correct": 17.0,
+                "score_percent": 19.10112359550562,
+                "native_valid": 89,
+                "derived_timeout": 0,
+                "accounted": 89
+              },
+              {
+                "seed": 3,
+                "expected": 89,
+                "valid_scored": 89,
+                "correct": 21.0,
+                "score_percent": 23.59550561797753,
+                "native_valid": 89,
+                "derived_timeout": 0,
+                "accounted": 89
+              },
+              {
+                "seed": 4,
+                "expected": 89,
+                "valid_scored": 89,
+                "correct": 16.0,
+                "score_percent": 17.97752808988764,
+                "native_valid": 87,
+                "derived_timeout": 2,
+                "accounted": 89
+              }
+            ],
+            "sample_sd_percent_ddof1": 2.6350650336086683,
+            "five_seed_mean_percent": 20.224719101123597,
+            "score_view": "audited_terminal_budget",
+            "native_valid": 442,
+            "derived_timeout": 3,
+            "accounted": 445,
+            "strict_native_complete": false,
+            "native_grade_unchanged": true
+          }
+        },
+        "required_scope_complete": true,
+        "macro_primary_percent": 11.340887661321725,
+        "macro_ci95_percent": {
+          "lower": 8.151227527734882,
+          "upper": 14.751880620615474,
+          "method": "percentile cluster bootstrap"
+        },
+        "macro_eligible": true
+      },
+      "swe249": {
+        "label": "SWE249专家",
+        "artifact": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+        "required_benchmarks": [
+          "swe"
+        ],
+        "benchmarks": {
+          "swe": {
+            "expected": 51,
+            "valid_scored": 51,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 0.0,
+            "score_numerator_observed": 0.0,
+            "max_score_observed": 51.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_audited_hard51_20261017/summary.json",
+              "adapter": "swe_tasks",
+              "notes": [
+                "Read-only frozen SWE249 overlay: eight exact native-zero audits plus one complete official NodeBB report audit. All311 required tests parsed,307P2P pass and4F2P fail; natural3000s rawtimeout/null and EXIT-trap reward file1 remain unchanged. Original queue preserved; no general timeout-to-zero rule or answer regeneration."
+              ],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-17T04:08:10.719554+00:00",
+              "owner_expected": 51,
+              "owner_primary": 0.0,
+              "provenance": {
+                "model": "apex-val-swe249",
+                "checkpoint": "artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+                "selection_policy": "8 exact approved native-zero results; all other original validity retained; no reward search; 1 explicit complete official-test report audit"
+              }
+            },
+            "primary_ci95_percent": {
+              "lower": 0.0,
+              "upper": 0.0,
+              "method": "percentile cluster bootstrap"
+            },
+            "correct": 0,
+            "wrong": 51
+          }
+        },
+        "required_scope_complete": true,
+        "macro_primary_percent": null,
+        "macro_ci95_percent": null,
+        "macro_eligible": false
+      },
+      "hle250": {
+        "label": "HLE250专家",
+        "artifact": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-250",
+        "required_benchmarks": [
+          "hle"
+        ],
+        "benchmarks": {
+          "hle": {
+            "expected": 2500,
+            "valid_scored": 2500,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 6.92,
+            "score_numerator_observed": 173.0,
+            "max_score_observed": 2500.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/scoring/summary.json",
+              "adapter": "hle_results",
+              "notes": [],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-16T21:16:38.183046+00:00",
+              "owner_expected": 2500,
+              "owner_primary": 6.92,
+              "provenance": {
+                "official": false,
+                "provider": "DeepSeek-V4-Flash",
+                "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+              },
+              "selection_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/manual_retry_manifest.json",
+              "selection_rule": "One frozen terminal result per ID; no retries or score selection",
+              "selection_counts": {
+                "retained": 2500,
+                "selected": 0
+              },
+              "records_directory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/scoring/results"
+            },
+            "primary_ci95_percent": {
+              "lower": 5.96,
+              "upper": 7.92,
+              "method": "percentile cluster bootstrap"
+            },
+            "correct": 173,
+            "wrong": 2327,
+            "subgroups": {
+              "image": {
+                "expected": 342,
+                "valid_scored": 342,
+                "correct": 23.0,
+                "accuracy_percent": 6.7251461988304095
+              },
+              "text": {
+                "expected": 2158,
+                "valid_scored": 2158,
+                "correct": 150.0,
+                "accuracy_percent": 6.950880444856349
+              }
+            }
+          }
+        },
+        "required_scope_complete": true,
+        "macro_primary_percent": null,
+        "macro_ci95_percent": null,
+        "macro_eligible": false
+      },
+      "asi128": {
+        "label": "ASI128专家",
+        "artifact": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128",
+        "required_benchmarks": [
+          "asi"
+        ],
+        "benchmarks": {
+          "asi": {
+            "expected": 240,
+            "valid_scored": 240,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 0.37899138191421416,
+            "score_numerator_observed": 90.95793165941141,
+            "max_score_observed": 24000.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/audited/local_score_seed31415.json",
+              "adapter": "asi_native",
+              "notes": [
+                "Read-only exact CMOS b1 import-recovery overlay: one native grade of the unchanged saved candidate, nine existing Judge cache responses and zero new paid calls. Other239 rows and the original239+1-invalid report are preserved; public/local replacement-Judge scope remains unchanged."
+              ],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-16T23:23:26.827507+00:00",
+              "owner_expected": 240,
+              "owner_primary": 0.37899138191421416,
+              "provenance": {
+                "official": false,
+                "score_scope": "public_local_replacement_judge",
+                "mode": "paid",
+                "scorer_error_count": 0
+              },
+              "scoring_config": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/scoring/scoring_config.json",
+              "generation_results_root": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017"
+            },
+            "primary_ci95_percent": {
+              "lower": 0.05902777777777777,
+              "upper": 0.807530052286455,
+              "method": "percentile cluster bootstrap"
+            },
+            "valid_zero_score": 232,
+            "valid_partial_score": 8,
+            "valid_full_score": 0,
+            "metric": "100 * native sum(final_score) / sum(max_score); local seed31415, not Portal-certified"
+          }
+        },
+        "required_scope_complete": true,
+        "macro_primary_percent": null,
+        "macro_ci95_percent": null,
+        "macro_eligible": false
+      },
+      "terminal250": {
+        "label": "Terminal250专家",
+        "artifact": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/terminal-retry-sft-r16-726665/training/checkpoint-250",
+        "required_benchmarks": [
+          "terminal"
+        ],
+        "benchmarks": {
+          "terminal": {
+            "expected": 445,
+            "valid_scored": 219,
+            "invalid": 5,
+            "pending": 221,
+            "missing": 0,
+            "complete": false,
+            "primary_score_percent": null,
+            "score_numerator_observed": 31.0,
+            "max_score_observed": 219.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_audited_20261017/summary.json",
+              "adapter": "terminal_scores",
+              "notes": [
+                "Read-only exact nginx/seed0 native0 and git-leak-recovery/seed1 native1 saved-candidate grade-only overlays; original archives, answers and raw invalid records preserved. The git-leak first official verifier passed all 5 tests after exact hardlink-header validation correction; no candidate chmod, link split, installation, service start or model call. Refresh collect_terminal250_audited.py before aggregation; all nonapproved score rows remain unchanged."
+              ],
+              "available": true,
+              "owner_complete": false,
+              "summary_mtime_utc": "2026-10-17T04:08:10.848550+00:00",
+              "owner_expected": 445,
+              "owner_primary": null,
+              "provenance": {
+                "model": "apex-terminal250",
+                "selection_policy": "Exact explicitly root-approved saved-candidate native grades; no reward search or cross-model reuse."
+              },
+              "strict_native_owner_complete": false,
+              "score_view": "audited_terminal_budget",
+              "policy_id": "audited-terminal-fixed900-budget-v1-20261017",
+              "audit_files": [],
+              "queue_all445_terminal_and_drained": false,
+              "native_valid": 219,
+              "derived_timeout": 0,
+              "accounted": 219,
+              "native_grade_unchanged": true
+            },
+            "primary_ci95_percent": null,
+            "correct": 31,
+            "wrong": 188,
+            "per_seed": [
+              {
+                "seed": 0,
+                "expected": 89,
+                "valid_scored": 87,
+                "correct": 13.0,
+                "score_percent": null,
+                "native_valid": 87,
+                "derived_timeout": 0,
+                "accounted": 87
+              },
+              {
+                "seed": 1,
+                "expected": 89,
+                "valid_scored": 86,
+                "correct": 12.0,
+                "score_percent": null,
+                "native_valid": 86,
+                "derived_timeout": 0,
+                "accounted": 86
+              },
+              {
+                "seed": 2,
+                "expected": 89,
+                "valid_scored": 46,
+                "correct": 6.0,
+                "score_percent": null,
+                "native_valid": 46,
+                "derived_timeout": 0,
+                "accounted": 46
+              },
+              {
+                "seed": 3,
+                "expected": 89,
+                "valid_scored": 0,
+                "correct": 0,
+                "score_percent": null,
+                "native_valid": 0,
+                "derived_timeout": 0,
+                "accounted": 0
+              },
+              {
+                "seed": 4,
+                "expected": 89,
+                "valid_scored": 0,
+                "correct": 0,
+                "score_percent": null,
+                "native_valid": 0,
+                "derived_timeout": 0,
+                "accounted": 0
+              }
+            ],
+            "sample_sd_percent_ddof1": null,
+            "five_seed_mean_percent": null,
+            "score_view": "audited_terminal_budget",
+            "native_valid": 219,
+            "derived_timeout": 0,
+            "accounted": 219,
+            "strict_native_complete": false,
+            "native_grade_unchanged": true
+          }
+        },
+        "required_scope_complete": false,
+        "macro_primary_percent": null,
+        "macro_ci95_percent": null,
+        "macro_eligible": false
+      },
+      "mixed883": {
+        "label": "Mixed883任务对照",
+        "artifact": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/mixed-existing2k-sft-r16-726666/training/checkpoint-883",
+        "required_benchmarks": [
+          "hle"
+        ],
+        "benchmarks": {
+          "hle": {
+            "expected": 2500,
+            "valid_scored": 2500,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 5.84,
+            "score_numerator_observed": 146.0,
+            "max_score_observed": 2500.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/scoring/summary.json",
+              "adapter": "hle_results",
+              "notes": [],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-16T21:16:51.199621+00:00",
+              "owner_expected": 2500,
+              "owner_primary": 5.84,
+              "provenance": {
+                "official": false,
+                "provider": "DeepSeek-V4-Flash",
+                "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+              },
+              "selection_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/manual_retry_manifest.json",
+              "selection_rule": "One fixed terminal result per task ID; no score selection or retries",
+              "selection_counts": {
+                "retained": 2500,
+                "selected": 0
+              },
+              "records_directory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/scoring/results"
+            },
+            "primary_ci95_percent": {
+              "lower": 4.92,
+              "upper": 6.8,
+              "method": "percentile cluster bootstrap"
+            },
+            "correct": 146,
+            "wrong": 2354,
+            "subgroups": {
+              "image": {
+                "expected": 342,
+                "valid_scored": 342,
+                "correct": 19.0,
+                "accuracy_percent": 5.555555555555555
+              },
+              "text": {
+                "expected": 2158,
+                "valid_scored": 2158,
+                "correct": 127.0,
+                "accuracy_percent": 5.885078776645042
+              }
+            }
+          }
+        },
+        "required_scope_complete": true,
+        "macro_primary_percent": null,
+        "macro_ci95_percent": null,
+        "macro_eligible": false
+      },
+      "avg16": {
+        "label": "AVG16辅助压缩对照",
+        "artifact": "/data/caoqinlu/projects/apex-takehome/artifacts/merges/four-experts-avg-v1-20261017/avg-svd-r16",
+        "required_benchmarks": [
+          "hle"
+        ],
+        "benchmarks": {
+          "hle": {
+            "expected": 2500,
+            "valid_scored": 2500,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 4.04,
+            "score_numerator_observed": 101.0,
+            "max_score_observed": 2500.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017/scoring/summary.json",
+              "adapter": "hle_results",
+              "notes": [],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-16T23:26:02.922296+00:00",
+              "owner_expected": 2500,
+              "owner_primary": 4.04,
+              "provenance": {
+                "official": false,
+                "provider": "DeepSeek-V4-Flash",
+                "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+              },
+              "selection_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017/manual_retry_manifest.json",
+              "selection_rule": "One fixed terminal result per task ID; no score selection or retries",
+              "selection_counts": {
+                "retained": 2500,
+                "selected": 0
+              },
+              "records_directory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017/scoring/results"
+            },
+            "primary_ci95_percent": {
+              "lower": 3.32,
+              "upper": 4.84,
+              "method": "percentile cluster bootstrap"
+            },
+            "correct": 101,
+            "wrong": 2399,
+            "subgroups": {
+              "image": {
+                "expected": 342,
+                "valid_scored": 342,
+                "correct": 19.0,
+                "accuracy_percent": 5.555555555555555
+              },
+              "text": {
+                "expected": 2158,
+                "valid_scored": 2158,
+                "correct": 82.0,
+                "accuracy_percent": 3.799814643188137
+              }
+            }
+          }
+        },
+        "required_scope_complete": true,
+        "macro_primary_percent": null,
+        "macro_ci95_percent": null,
+        "macro_eligible": false
+      },
+      "ties_dense": {
+        "label": "TIES-Dense方法对照",
+        "artifact": "/data/caoqinlu/projects/apex-takehome/artifacts/merges/four-experts-ties-dense-v1-20261017",
+        "required_benchmarks": [
+          "hle"
+        ],
+        "benchmarks": {
+          "hle": {
+            "expected": 2500,
+            "valid_scored": 2499,
+            "invalid": 1,
+            "pending": 0,
+            "missing": 0,
+            "complete": false,
+            "primary_score_percent": null,
+            "score_numerator_observed": 131.0,
+            "max_score_observed": 2499.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/summary.json",
+              "adapter": "hle_results",
+              "notes": [
+                "Fixed PEFT0.20 per-module true-delta TIES density0.2/total/ones/lambda1, no SVD. Same35B architecture; dense full-BF16 storage differs from AVG64 rank64 adapter parameterization and runtime addition order. Measured global storage deviation relative to TIES delta10.531%; source735 non-target tensors bitwise preserved.",
+                "HLE-only method comparison under the same frozen2500/342image/50/300s/64K8K/nonthinking protocol, not final-model selection or a four-benchmark macro. Primary AVG64 remains unchanged."
+              ],
+              "available": true,
+              "owner_complete": false,
+              "summary_mtime_utc": "2026-10-16T23:08:15.398283+00:00",
+              "owner_expected": 2500,
+              "owner_primary": null,
+              "provenance": {
+                "official": false,
+                "provider": "DeepSeek-V4-Flash",
+                "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+              },
+              "selection_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/manual_retry_manifest.json",
+              "selection_rule": "One fixed terminal result per task ID; no score selection or retries",
+              "selection_counts": {
+                "retained": 2500,
+                "selected": 0
+              },
+              "records_directory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/results"
+            },
+            "primary_ci95_percent": null,
+            "correct": 131,
+            "wrong": 2368,
+            "subgroups": {
+              "image": {
+                "expected": 342,
+                "valid_scored": 342,
+                "correct": 14.0,
+                "accuracy_percent": 4.093567251461988
+              },
+              "text": {
+                "expected": 2158,
+                "valid_scored": 2157,
+                "correct": 117.0,
+                "accuracy_percent": null
+              }
+            }
+          }
+        },
+        "required_scope_complete": false,
+        "macro_primary_percent": null,
+        "macro_ci95_percent": null,
+        "macro_eligible": false
+      },
+      "avg64": {
+        "label": "AVG64合版",
+        "artifact": "/data/caoqinlu/projects/apex-takehome/artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+        "required_benchmarks": [
+          "swe",
+          "hle",
+          "asi",
+          "terminal"
+        ],
+        "benchmarks": {
+          "swe": {
+            "expected": 51,
+            "valid_scored": 51,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 7.8431372549019605,
+            "score_numerator_observed": 4.0,
+            "max_score_observed": 51.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_audited_hard51_20261017/summary.json",
+              "adapter": "swe_tasks",
+              "notes": [
+                "Read-only overlay accepts independently reviewed exact AVG native-zero replays c1f2, OpenLibrary630, Qutebrowser3e21 and its own same-patch Vuls/T2 disk-scratch recoveries with task-required product behavior omitted. Original source validity and pending rows remain; no expert audit whitelist is inherited. Refresh collect_avg64_swe_audited.py after collect_swe249_audited.py before aggregation.",
+                "Final own T774 grade-only native0 accepted after original-URL TLS recovery and independent instruction line79 explicit netlink v1.6.0 requirement/empty-patch audit. TestSendEvent compilation-blocked before assertions; original timeout remains. Six exact native-zero approvals, no cross-model grade, answer regeneration or dependency repair."
+              ],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-17T04:08:10.772552+00:00",
+              "owner_expected": 51,
+              "owner_primary": 7.8431372549019605,
+              "provenance": {
+                "model": "apex-avg64",
+                "checkpoint": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+                "selection_policy": "Explicit exact root-approved AVG64 native-zero audits; all other rows copied unchanged; no reward search."
+              }
+            },
+            "primary_ci95_percent": {
+              "lower": 1.9607843137254901,
+              "upper": 15.686274509803921,
+              "method": "percentile cluster bootstrap"
+            },
+            "correct": 4,
+            "wrong": 47
+          },
+          "hle": {
+            "expected": 2500,
+            "valid_scored": 2500,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 0,
+            "complete": true,
+            "primary_score_percent": 4.68,
+            "score_numerator_observed": 117.0,
+            "max_score_observed": 2500.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
+              "adapter": "hle_results",
+              "notes": [],
+              "available": true,
+              "owner_complete": true,
+              "summary_mtime_utc": "2026-10-16T23:11:54.216287+00:00",
+              "owner_expected": 2500,
+              "owner_primary": 4.68,
+              "provenance": {
+                "official": false,
+                "provider": "DeepSeek-V4-Flash",
+                "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed"
+              },
+              "selection_manifest": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/manual_retry_manifest.json",
+              "selection_rule": "One frozen terminal result per ID; no retries or score selection",
+              "selection_counts": {
+                "retained": 2500,
+                "selected": 0
+              },
+              "records_directory": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/results"
+            },
+            "primary_ci95_percent": {
+              "lower": 3.88,
+              "upper": 5.52,
+              "method": "percentile cluster bootstrap"
+            },
+            "correct": 117,
+            "wrong": 2383,
+            "subgroups": {
+              "image": {
+                "expected": 342,
+                "valid_scored": 342,
+                "correct": 17.0,
+                "accuracy_percent": 4.970760233918129
+              },
+              "text": {
+                "expected": 2158,
+                "valid_scored": 2158,
+                "correct": 100.0,
+                "accuracy_percent": 4.633920296570899
+              }
+            }
+          },
+          "asi": {
+            "expected": 240,
+            "valid_scored": 86,
+            "invalid": 0,
+            "pending": 0,
+            "missing": 154,
+            "complete": false,
+            "primary_score_percent": null,
+            "score_numerator_observed": 2.5,
+            "max_score_observed": 8600.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_asi240_20261017/scoring/local_score_seed31415.json",
+              "adapter": "asi_native",
+              "notes": [],
+              "available": true,
+              "owner_complete": false,
+              "summary_mtime_utc": "2026-10-17T03:58:43.502937+00:00",
+              "owner_expected": 240,
+              "owner_primary": null,
+              "provenance": {
+                "official": false,
+                "score_scope": "public_local_replacement_judge",
+                "mode": "paid",
+                "scorer_error_count": 0
+              },
+              "scoring_config": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_asi240_20261017/scoring/scoring_config.json",
+              "generation_results_root": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_asi240_20261017"
+            },
+            "primary_ci95_percent": null,
+            "valid_zero_score": 85,
+            "valid_partial_score": 1,
+            "valid_full_score": 0,
+            "metric": "100 * native sum(final_score) / sum(max_score); local seed31415, not Portal-certified"
+          },
+          "terminal": {
+            "expected": 445,
+            "valid_scored": 200,
+            "invalid": 5,
+            "pending": 240,
+            "missing": 0,
+            "complete": false,
+            "primary_score_percent": null,
+            "score_numerator_observed": 27.0,
+            "max_score_observed": 200.0,
+            "unexpected_IDs": [],
+            "duplicate_IDs": [],
+            "source_issues": [],
+            "source": {
+              "summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+              "adapter": "terminal_scores",
+              "notes": [],
+              "available": true,
+              "owner_complete": false,
+              "summary_mtime_utc": "2026-10-17T04:08:12.041515+00:00",
+              "owner_expected": 445,
+              "owner_primary": null,
+              "provenance": {
+                "model": "apex-avg64"
+              },
+              "strict_native_owner_complete": false,
+              "score_view": "audited_terminal_budget",
+              "policy_id": "audited-terminal-fixed900-budget-v1-20261017",
+              "audit_files": [],
+              "queue_all445_terminal_and_drained": false,
+              "native_valid": 200,
+              "derived_timeout": 0,
+              "accounted": 200,
+              "native_grade_unchanged": true
+            },
+            "primary_ci95_percent": null,
+            "correct": 27,
+            "wrong": 173,
+            "per_seed": [
+              {
+                "seed": 0,
+                "expected": 89,
+                "valid_scored": 86,
+                "correct": 13.0,
+                "score_percent": null,
+                "native_valid": 86,
+                "derived_timeout": 0,
+                "accounted": 86
+              },
+              {
+                "seed": 1,
+                "expected": 89,
+                "valid_scored": 87,
+                "correct": 11.0,
+                "score_percent": null,
+                "native_valid": 87,
+                "derived_timeout": 0,
+                "accounted": 87
+              },
+              {
+                "seed": 2,
+                "expected": 89,
+                "valid_scored": 27,
+                "correct": 3.0,
+                "score_percent": null,
+                "native_valid": 27,
+                "derived_timeout": 0,
+                "accounted": 27
+              },
+              {
+                "seed": 3,
+                "expected": 89,
+                "valid_scored": 0,
+                "correct": 0,
+                "score_percent": null,
+                "native_valid": 0,
+                "derived_timeout": 0,
+                "accounted": 0
+              },
+              {
+                "seed": 4,
+                "expected": 89,
+                "valid_scored": 0,
+                "correct": 0,
+                "score_percent": null,
+                "native_valid": 0,
+                "derived_timeout": 0,
+                "accounted": 0
+              }
+            ],
+            "sample_sd_percent_ddof1": null,
+            "five_seed_mean_percent": null,
+            "score_view": "audited_terminal_budget",
+            "native_valid": 200,
+            "derived_timeout": 0,
+            "accounted": 200,
+            "strict_native_complete": false,
+            "native_grade_unchanged": true
+          }
+        },
+        "required_scope_complete": false,
+        "macro_primary_percent": null,
+        "macro_ci95_percent": null,
+        "macro_eligible": true
+      }
+    },
+    "comparisons": {
+      "swe249_vs_base": {
+        "benchmarks": {
+          "swe": {
+            "complete_pair": true,
+            "expected_observations": 51,
+            "valid_paired_observations": 51,
+            "expected_clusters": 51,
+            "complete_paired_clusters": 51,
+            "delta_percent_points": -19.607843137254903,
+            "delta_ci95_percent_points": {
+              "lower": -31.372549019607842,
+              "upper": -9.803921568627452,
+              "method": "percentile cluster bootstrap"
+            }
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "hle250_vs_base": {
+        "benchmarks": {
+          "hle": {
+            "complete_pair": true,
+            "expected_observations": 2500,
+            "valid_paired_observations": 2500,
+            "expected_clusters": 2500,
+            "complete_paired_clusters": 2500,
+            "delta_percent_points": 2.96,
+            "delta_ci95_percent_points": {
+              "lower": 1.8000000000000007,
+              "upper": 4.119999999999999,
+              "method": "percentile cluster bootstrap"
+            }
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "asi128_vs_base": {
+        "benchmarks": {
+          "asi": {
+            "complete_pair": true,
+            "expected_observations": 240,
+            "valid_paired_observations": 240,
+            "expected_clusters": 60,
+            "complete_paired_clusters": 60,
+            "delta_percent_points": -1.1919970249941845,
+            "delta_ci95_percent_points": {
+              "lower": -2.278709642549218,
+              "upper": -0.30302291762722916,
+              "method": "percentile cluster bootstrap"
+            }
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "terminal250_vs_base": {
+        "benchmarks": {
+          "terminal": {
+            "complete_pair": false,
+            "expected_observations": 445,
+            "valid_paired_observations": 219,
+            "expected_clusters": 89,
+            "complete_paired_clusters": 0,
+            "delta_percent_points": null,
+            "delta_ci95_percent_points": null
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "mixed883_vs_base": {
+        "benchmarks": {
+          "hle": {
+            "complete_pair": true,
+            "expected_observations": 2500,
+            "valid_paired_observations": 2500,
+            "expected_clusters": 2500,
+            "complete_paired_clusters": 2500,
+            "delta_percent_points": 1.88,
+            "delta_ci95_percent_points": {
+              "lower": 0.7999999999999998,
+              "upper": 2.9999999999999996,
+              "method": "percentile cluster bootstrap"
+            }
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "avg16_vs_base": {
+        "benchmarks": {
+          "hle": {
+            "complete_pair": true,
+            "expected_observations": 2500,
+            "valid_paired_observations": 2500,
+            "expected_clusters": 2500,
+            "complete_paired_clusters": 2500,
+            "delta_percent_points": 0.08000000000000007,
+            "delta_ci95_percent_points": {
+              "lower": -0.8000000000000003,
+              "upper": 0.9609999999999859,
+              "method": "percentile cluster bootstrap"
+            }
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "ties_dense_vs_base": {
+        "benchmarks": {
+          "hle": {
+            "complete_pair": false,
+            "expected_observations": 2500,
+            "valid_paired_observations": 2499,
+            "expected_clusters": 2500,
+            "complete_paired_clusters": 2499,
+            "delta_percent_points": null,
+            "delta_ci95_percent_points": null
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "avg64_vs_base": {
+        "benchmarks": {
+          "swe": {
+            "complete_pair": true,
+            "expected_observations": 51,
+            "valid_paired_observations": 51,
+            "expected_clusters": 51,
+            "complete_paired_clusters": 51,
+            "delta_percent_points": -11.764705882352942,
+            "delta_ci95_percent_points": {
+              "lower": -23.52941176470588,
+              "upper": 0.0,
+              "method": "percentile cluster bootstrap"
+            }
+          },
+          "hle": {
+            "complete_pair": true,
+            "expected_observations": 2500,
+            "valid_paired_observations": 2500,
+            "expected_clusters": 2500,
+            "complete_paired_clusters": 2500,
+            "delta_percent_points": 0.7199999999999998,
+            "delta_ci95_percent_points": {
+              "lower": -0.20000000000000018,
+              "upper": 1.6399999999999997,
+              "method": "percentile cluster bootstrap"
+            }
+          },
+          "asi": {
+            "complete_pair": false,
+            "expected_observations": 240,
+            "valid_paired_observations": 86,
+            "expected_clusters": 60,
+            "complete_paired_clusters": 21,
+            "delta_percent_points": null,
+            "delta_ci95_percent_points": null
+          },
+          "terminal": {
+            "complete_pair": false,
+            "expected_observations": 445,
+            "valid_paired_observations": 200,
+            "expected_clusters": 89,
+            "complete_paired_clusters": 0,
+            "delta_percent_points": null,
+            "delta_ci95_percent_points": null
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "avg64_vs_mixed883": {
+        "benchmarks": {
+          "hle": {
+            "complete_pair": true,
+            "expected_observations": 2500,
+            "valid_paired_observations": 2500,
+            "expected_clusters": 2500,
+            "complete_paired_clusters": 2500,
+            "delta_percent_points": -1.1600000000000001,
+            "delta_ci95_percent_points": {
+              "lower": -2.2399999999999993,
+              "upper": -0.1200000000000001,
+              "method": "percentile cluster bootstrap"
+            }
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "avg64_vs_avg16": {
+        "benchmarks": {
+          "hle": {
+            "complete_pair": true,
+            "expected_observations": 2500,
+            "valid_paired_observations": 2500,
+            "expected_clusters": 2500,
+            "complete_paired_clusters": 2500,
+            "delta_percent_points": 0.6399999999999997,
+            "delta_ci95_percent_points": {
+              "lower": -0.23999999999999932,
+              "upper": 1.4809999999999859,
+              "method": "percentile cluster bootstrap"
+            }
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      },
+      "ties_dense_vs_avg64": {
+        "benchmarks": {
+          "hle": {
+            "complete_pair": false,
+            "expected_observations": 2500,
+            "valid_paired_observations": 2499,
+            "expected_clusters": 2500,
+            "complete_paired_clusters": 2499,
+            "delta_percent_points": null,
+            "delta_ci95_percent_points": null
+          }
+        },
+        "macro_delta_percent_points": null,
+        "macro_delta_ci95_percent_points": null
+      }
+    },
+    "score_view": "audited_terminal_budget",
+    "terminal_budget_policy": {
+      "policy_id": "audited-terminal-fixed900-budget-v1-20261017",
+      "metric": "Audited fixed-budget success rate using Harbor Mean's None-to-zero mapping; native grades remain unchanged",
+      "expected_scope": "89 fixed tasks x seeds0..4 =445; every ID unique, no unresolved infrastructure or unadmitted trials",
+      "eligibility": "Only exact reviewed original results with null verifier result, matching900s verifier phase/log, official test entry and complete pre-verifier snapshot; top-level exception alone is neither sufficient nor required",
+      "models": {
+        "base": {
+          "model_id": "base",
+          "served_model": "apex-qwen",
+          "owner_kind": "base_owner",
+          "source_summary": "artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json",
+          "owner_budget_summary": "artifacts/results/base-gap-completion-20261017/terminal_budget_summary.json",
+          "result_root": "artifacts/results/base-terminal-independent-repair32-20261016/trials",
+          "audit_files": [
+            "analysis/source_snapshots/terminal_three_compute_timeout_audit_20261017.json"
+          ]
+        },
+        "terminal250": {
+          "model_id": "terminal250",
+          "served_model": "apex-terminal250",
+          "owner_kind": "trial_queue",
+          "source_summary": "artifacts/eval/terminal250_audited_20261017/summary.json",
+          "result_root": "artifacts/eval/terminal250_full445_20261017/trials",
+          "audit_files": []
+        },
+        "avg64": {
+          "model_id": "avg64",
+          "served_model": "apex-avg64",
+          "owner_kind": "trial_queue",
+          "source_summary": "artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+          "result_root": "artifacts/eval/avg64_terminal_full445_20261017/trials",
+          "audit_files": []
+        }
+      },
+      "disclosures": [
+        "Harbor itself maps all supplied None reward dicts to zero; excluding infrastructure failures here is an explicit audit policy, not a native verifier reward.",
+        "Audit records belong only to their configured model and exact original path; no Base task whitelist is transferred to experts or AVG64.",
+        "The default strict outputs, native coverage and raw results remain unchanged. Complete means full policy-accounted coverage only in this parallel view.",
+        "This resource-constrained900s verifier/30min solver experiment still differs from the original takehome Terminal resource requirements."
+      ]
+    },
+    "native_grade_unchanged": true,
+    "interpretation_notes": [
+      "All four primary percentages have equal weight1/4; targeted experts have no four-benchmark macro score.",
+      "Any missing/invalid/pending observation or incompatible ID/owner status blocks that benchmark primary and CI; no valid-subset mean.",
+      "Paired CIs require full same-ID observations, not complete-case intersection after dropping invalid entries.",
+      "Terminal1800s/4CPU/8GiB/64K/8K differs from original3h/32CPU/48GiB/256K/80K setting.",
+      "Service replicas, global concurrency and scheduling differ between historical Base and later models; paired task resampling does not remove those confounds.",
+      "HLE/ASI replacement Judge and public local ASI scope must remain disclosed.",
+      "Explicit HLE Judge-format recovery exception: after two original HTTP200 length-truncated unparseable grades, the fixed reviewed expert2/Mixed6/AVG64two/TIESsix/AVG16one items receive at most one compact-wrapper grade-only request, matching the existing Base precedent. Original criteria, answer, Judge identity, parser, seed and budgets are retained; original ledgers/results are backed up. This exceeds the original two-attempt cap and is disclosed, not answer regeneration. TIES missing-correct schema failure is outside this exception and remains invalid.",
+      "Root-audited full300s HTTP ReadTimeout boundary records in AVG64 and AVG16 use the existing native-no-answer rule after idle original graders exit. Original solver records and frozen scoring sources are preserved; no model or Judge calls are needed for this collection compatibility fix.",
+      "Harbor itself maps all supplied None reward dicts to zero; excluding infrastructure failures here is an explicit audit policy, not a native verifier reward.",
+      "Audit records belong only to their configured model and exact original path; no Base task whitelist is transferred to experts or AVG64.",
+      "The default strict outputs, native coverage and raw results remain unchanged. Complete means full policy-accounted coverage only in this parallel view.",
+      "This resource-constrained900s verifier/30min solver experiment still differs from the original takehome Terminal resource requirements."
+    ],
+    "statistics": {
+      "repetitions": 10000,
+      "seed": 20261015,
+      "confidence_level": 0.95,
+      "numpy_version": "2.5.4",
+      "bit_generator": "PCG64",
+      "benchmark_stream_order": [
+        "swe",
+        "hle",
+        "asi",
+        "terminal"
+      ],
+      "stream_rule": "SeedSequence(20261015).spawn(4); independent benchmark streams",
+      "resampling_units": {
+        "swe": "51 task IDs",
+        "hle": "2500 question IDs",
+        "asi": "60 project IDs retaining all four conditions",
+        "terminal": "89 task IDs retaining all five seeds"
+      },
+      "interpretation": "Conditional on fixed task versions, resource budgets, evaluated runs and disclosed scheduling/judge differences"
+    },
+    "source_manifests": {
+      "swe": "/data/caoqinlu/projects/apex-takehome/analysis/source_snapshots/protocol/swe_hard_task_ids.json",
+      "hle": "/data/caoqinlu/projects/apex-takehome/analysis/source_snapshots/protocol/hle_task_ids.json",
+      "asi": "/data/caoqinlu/projects/apex-takehome/analysis/source_snapshots/protocol/asi_task_ids.json",
+      "terminal": "/data/caoqinlu/projects/apex-takehome/analysis/source_snapshots/protocol/terminal_task_ids.json"
+    },
+    "protocol": "/data/caoqinlu/projects/apex-takehome/configs/eval/protocol_v2_unified64k8k.json",
+    "complete_primary_comparison": false,
+    "partial_results_policy": "Native states/rewards remain unchanged. Only exact audited computation timeouts add derived budget zeros; all fixed IDs and completed queues are required; unresolved infrastructure/missing/pending blocks primary and CI.",
+    "path_config": "/data/caoqinlu/projects/apex-takehome/configs/eval/final_results_20261017.json",
+    "terminal_budget_policy_path": "/data/caoqinlu/projects/apex-takehome/configs/eval/terminal_budget_policy_20261017.json",
+    "strict_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/final_aggregation_20261017/summary.json"
+  }
+}

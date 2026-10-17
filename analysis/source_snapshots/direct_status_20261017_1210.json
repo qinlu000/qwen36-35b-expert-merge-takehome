@@ -1,0 +1,877 @@
+{
+  "schema_version": 1,
+  "at_utc": "2026-10-17T04:08:06.895929+00:00",
+  "scope": "Read-only metadata/source/process/lock/cgroup/Slurm/storage inspection. No model/API, metrics, native or collector execution; no process, queue, marker or configuration changes.",
+  "processes": [
+    {
+      "pid": 1126014,
+      "present": true,
+      "state": "S",
+      "startticks": "868932987",
+      "affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127
+      ],
+      "children": [
+        2282159
+      ]
+    },
+    {
+      "pid": 1126055,
+      "present": false
+    },
+    {
+      "pid": 2282159,
+      "present": true,
+      "state": "S",
+      "startticks": "870467612",
+      "affinity": [
+        92,
+        93,
+        94,
+        95
+      ],
+      "children": []
+    },
+    {
+      "pid": 3321991,
+      "present": false
+    }
+  ],
+  "unique_consumers": [
+    {
+      "pid": 1126014,
+      "role": "coordinator",
+      "state": "S",
+      "startticks": "868932987"
+    },
+    {
+      "pid": 2282159,
+      "role": "scientific_grader",
+      "state": "S",
+      "startticks": "870467612"
+    }
+  ],
+  "generation": {
+    "global_saved": 240,
+    "saved_states": {
+      "failed": 222,
+      "completed": 18
+    },
+    "progress": {
+      "completed_conditions": 240,
+      "expected_conditions": 240,
+      "updated_at": "2026-10-17T02:54:09.286191+00:00",
+      "scored": false,
+      "state": "completed",
+      "reason": null,
+      "admitted_this_session": 240,
+      "completed_this_session": 240,
+      "active": [],
+      "unsubmitted_this_session": 0
+    },
+    "generation_cpu_finished": {
+      "state": "finished",
+      "completed_conditions": 240,
+      "cpu_sets": [
+        [
+          96,
+          97,
+          98,
+          99
+        ],
+        [
+          100,
+          101,
+          102,
+          103
+        ],
+        [
+          104,
+          105,
+          106,
+          107
+        ],
+        [
+          108,
+          109,
+          110,
+          111
+        ],
+        [
+          112,
+          113,
+          114,
+          115
+        ],
+        [
+          116,
+          117,
+          118,
+          119
+        ],
+        [
+          120,
+          121,
+          122,
+          123
+        ],
+        [
+          124,
+          125,
+          126,
+          127
+        ]
+      ],
+      "owned_scope_count": 240,
+      "active_owned_scopes": [],
+      "worker_pool_shutdown": true,
+      "at_utc": "2026-10-17T02:54:11.242275+00:00"
+    },
+    "all_cpu_consumers_finished": null
+  },
+  "scientific_scoring": {
+    "report_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_asi240_20261017/scoring/local_score_seed31415.json",
+    "report_sha256": "2042d3dfe25f3f8530f6db8658c463c510d5e836302a746572e2a654f951d8c5",
+    "report_metadata": {
+      "schema_version": 2,
+      "repo": "seed31415",
+      "official": false,
+      "score_scope": "public_local_replacement_judge",
+      "mode": "paid",
+      "expected_instance_count": 240,
+      "instance_count": 86,
+      "scored_instance_count": 86,
+      "complete": false,
+      "prepared_instance_count": 0,
+      "scorer_error_count": 0,
+      "pending_count": 154,
+      "total_score": 2.5,
+      "total_max_score": 8600.0,
+      "mean_percent": null,
+      "native_valid_subset_mean_percent": 0.029069767441860465,
+      "expected_total_max_score": 24000,
+      "auxiliary_zero_fill_mean_percent": 0.010416666666666666,
+      "synthetic_calibration": false
+    },
+    "condition_files": 86,
+    "condition_status_counts": {
+      "completed": 86
+    },
+    "scorer_internal_errors": 0,
+    "latest_condition_mtime_utc": "2026-10-17T03:58:43.494937+00:00",
+    "launch": {
+      "command": [
+        "taskset",
+        "-c",
+        "92-95",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/asi-py312/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_asi240_20261017/scoring/runtime/scripts/score_asi_baseline_v2.py",
+        "--project",
+        "/data/caoqinlu/projects/apex-takehome",
+        "--results",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_asi240_20261017",
+        "--instances",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_seed31415/instances",
+        "--output",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_asi240_20261017/scoring",
+        "--judge-identity",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/preflight/asi-real-calibration-20261016/judge_identity.json",
+        "--ngspice-runtime",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/asi/scoring_ngspice_20261016/rootfs",
+        "--credentials",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/private/deepseek.env",
+        "--max-generation-calls",
+        "396",
+        "--max-cny",
+        "20",
+        "--allow-paid-api",
+        "--skip-hashes",
+        "--workers",
+        "1",
+        "--condition-timeout",
+        "7200"
+      ],
+      "pid": 2282159,
+      "at_utc": "2026-10-17T02:54:12.105311+00:00",
+      "source_runtime": "artifacts/asi/scoring_v2_formal_params_20261016/runtime",
+      "cpu_lease": "92–95"
+    },
+    "invocation": {
+      "max_generation_calls": 396,
+      "max_cny": 20.0,
+      "prepare_only": false,
+      "retry_invalid": false,
+      "allow_paid_api": true,
+      "mode": "paid",
+      "workers": 1
+    },
+    "frozen_config": {
+      "judge_requested_model": "deepseek-flash",
+      "thinking": "disabled",
+      "temperature": 0,
+      "mode": "paid",
+      "official": false,
+      "hard_budget": {
+        "max_generation_calls": 396,
+        "max_cny": 20.0
+      },
+      "condition_timeout_seconds": 7200.0,
+      "all_parse_failed_policy": "Retain native detail but mark evaluator invalid, never a valid scored zero"
+    },
+    "api_ledger": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_asi240_20261017/scoring/judge_calls.jsonl",
+      "exists": false,
+      "calls": null,
+      "cost_cny": null,
+      "status": "not_yet_materialized; missing is not zero"
+    },
+    "blocking_markers": [],
+    "latest_attempt_directories": [
+      {
+        "name": "computer_science.euclidean_tsp_tour_optimization__seed31415__b3.grading1",
+        "mtime_utc": "2026-10-17T03:58:46.401863+00:00"
+      },
+      {
+        "name": "computer_science.euclidean_tsp_tour_optimization__seed31415__b2.grading1",
+        "mtime_utc": "2026-10-17T02:58:33.435189+00:00"
+      },
+      {
+        "name": "computer_science.euclidean_tsp_tour_optimization__seed31415__b1.grading1",
+        "mtime_utc": "2026-10-17T02:58:30.035270+00:00"
+      }
+    ]
+  },
+  "locks": {
+    "global": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/direct_asi_grader_cpu92_95.lock",
+      "inode": 90775088,
+      "kernel_rows": [
+        "130: FLOCK  ADVISORY  WRITE 1126014 08:11:90775088 0 EOF"
+      ]
+    },
+    "run": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_asi240_20261017/scoring/.run.lock",
+      "inode": 91570849,
+      "kernel_rows": [
+        "110: FLOCK  ADVISORY  WRITE 2282159 08:11:91570849 0 EOF"
+      ]
+    }
+  },
+  "project_scopes_92_127": {
+    "0::/user.slice/user-1012.slice/user@1012.service/app.slice/ai4sci-submission-d78952a44cfd.scope": {
+      "processes": [
+        {
+          "pid": 2518939,
+          "state": "S",
+          "startticks": "870855045",
+          "affinity": [
+            92
+          ],
+          "elapsed_seconds": 560.59,
+          "cpu_seconds": 0.04,
+          "executable": "bwrap",
+          "safe_input_paths": [
+            "/input/instance.tsp",
+            "/input/instance.tsp"
+          ]
+        },
+        {
+          "pid": 2518965,
+          "state": "S",
+          "startticks": "870855052",
+          "affinity": [
+            92
+          ],
+          "elapsed_seconds": 560.52,
+          "cpu_seconds": 0.01,
+          "executable": "bwrap",
+          "safe_input_paths": [
+            "/input/instance.tsp",
+            "/input/instance.tsp"
+          ]
+        },
+        {
+          "pid": 2518971,
+          "state": "R",
+          "startticks": "870855053",
+          "affinity": [
+            92
+          ],
+          "elapsed_seconds": 560.51,
+          "cpu_seconds": 560.55,
+          "executable": "python",
+          "safe_input_paths": [
+            "/input/instance.tsp"
+          ]
+        }
+      ],
+      "resources": {
+        "memory.max": "3221225472",
+        "memory.swap.max": "0",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+      }
+    }
+  },
+  "runtime_identity": {
+    "installation_receipt": "artifacts/eval/asi-import-fix-installation-20261017/receipt.json",
+    "install_state": "installed",
+    "install_time_utc": "2026-10-16T23:20:25.896274+00:00",
+    "added_only": "sitecustomize.py",
+    "shim_matches_receipt": true,
+    "main_script_matches_installation": true,
+    "transport_matches_installation": true,
+    "no_import_or_native_probe": true
+  },
+  "gpu_release": {
+    "receipt": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/normal_hle_service_release_20261017/state.json",
+    "receipt_sha256": "cac5afb7de7a5312108d8d05d10d0b0eceffabc839b221bb818de40d0051f7ab",
+    "merged": {
+      "job_id": 727856,
+      "gpus": 2,
+      "at_utc": "2026-10-17T02:54:16.889806+00:00",
+      "marker": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_asi240_20261017/generation_cpu_finished.json",
+      "marker_observed": {
+        "state": "finished",
+        "completed_conditions": 240,
+        "cpu_sets": [
+          [
+            96,
+            97,
+            98,
+            99
+          ],
+          [
+            100,
+            101,
+            102,
+            103
+          ],
+          [
+            104,
+            105,
+            106,
+            107
+          ],
+          [
+            108,
+            109,
+            110,
+            111
+          ],
+          [
+            112,
+            113,
+            114,
+            115
+          ],
+          [
+            116,
+            117,
+            118,
+            119
+          ],
+          [
+            120,
+            121,
+            122,
+            123
+          ],
+          [
+            124,
+            125,
+            126,
+            127
+          ]
+        ],
+        "owned_scope_count": 240,
+        "active_owned_scopes": [],
+        "worker_pool_shutdown": true,
+        "at_utc": "2026-10-17T02:54:11.242275+00:00"
+      },
+      "running_and_waiting_requests": 0,
+      "external_judges_continue": true
+    },
+    "released_profiles": [
+      "expert",
+      "controls",
+      "merged"
+    ]
+  },
+  "pipeline_state": {
+    "state": "asi_generation",
+    "pid": 1126055,
+    "at_utc": "2026-10-16T22:38:25.985909+00:00"
+  },
+  "fixed_asi_expert": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/audited/local_score_seed31415.json",
+    "sha256": "625510f2df933e22d3c25ab18ac96b570952270b7674ecd5bca536bfa270816b",
+    "matches_frozen_sha": true,
+    "collector_executed": false
+  },
+  "fixed_hle_checks": {
+    "base": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/summary.json",
+      "sha256": "c117d82d6a2ecef05891bad07e19da5dc65cec293edcaab3671976956f744dc9",
+      "expected_valid": 2500,
+      "expected_correct": 99,
+      "summary_metadata": {
+        "complete": true,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 1055,
+        "native_no_answer": 1445,
+        "evaluation_invalid": 0,
+        "scored": 2500,
+        "pending": 0,
+        "correct": 99,
+        "accuracy_percent": 3.96,
+        "score": 3.96,
+        "partial_correct_over_full_denominator_percent": 3.96,
+        "judge_generation_calls": 1057,
+        "accounted_cost_cny": 1.6010295,
+        "budget_halted": false,
+        "max_cny": 10,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T18:56:55.997197+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed",
+        "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/single-judge-recovery-20261017",
+        "recovery_judge_calls": 1,
+        "original_budget_ledger_unchanged": true,
+        "recovery_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/single-judge-recovery-20261017/budget.json"
+      },
+      "original_budget_sha256": "2c73927c11c6888c3ae529992256d65c4c023a6e0ef3d136c3bf856b22f6a1dc",
+      "original_budget_matches_frozen_sha": true,
+      "no_collector_or_judge_execution": true
+    },
+    "hle250": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/scoring/summary.json",
+      "sha256": "1590629f85efa8c8333170b9d2059fa6310cb12e6c0b87a61df02fc8a411cc69",
+      "expected_valid": 2500,
+      "expected_correct": 173,
+      "summary_metadata": {
+        "complete": true,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 2470,
+        "native_no_answer": 30,
+        "evaluation_invalid": 0,
+        "scored": 2500,
+        "pending": 0,
+        "correct": 173,
+        "accuracy_percent": 6.92,
+        "score": 6.92,
+        "partial_correct_over_full_denominator_percent": 6.92,
+        "judge_generation_calls": 2475,
+        "accounted_cost_cny": 1.9527705,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T21:16:38.182806+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed",
+        "recovery_judge_calls": 2,
+        "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/scoring/compact-recovery-20261017",
+        "recovery_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "original_budget_ledger_unchanged": true,
+        "protocol_exception": "Original two attempts plus at most one explicit compact-wrapper recovery for listed length-truncated grades"
+      },
+      "original_budget_sha256": "5de92ac884734dabb72ec1ae54a7a3f4c090fbb19c70004d8f3eb40706de849d",
+      "original_budget_matches_frozen_sha": true,
+      "no_collector_or_judge_execution": true
+    },
+    "mixed883": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/scoring/summary.json",
+      "sha256": "c9902303eb3d95eaabbe25c3dc7c057b71b18a2f50439cafeb0077c2a65b35d7",
+      "expected_valid": 2500,
+      "expected_correct": 146,
+      "summary_metadata": {
+        "complete": true,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 2459,
+        "native_no_answer": 41,
+        "evaluation_invalid": 0,
+        "scored": 2500,
+        "pending": 0,
+        "correct": 146,
+        "accuracy_percent": 5.84,
+        "score": 5.84,
+        "partial_correct_over_full_denominator_percent": 5.84,
+        "judge_generation_calls": 2473,
+        "accounted_cost_cny": 2.0788830000000003,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T21:16:51.199883+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed",
+        "recovery_judge_calls": 6,
+        "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/scoring/compact-recovery-20261017",
+        "recovery_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "original_budget_ledger_unchanged": true,
+        "protocol_exception": "Original two attempts plus at most one explicit compact-wrapper recovery for listed length-truncated grades"
+      },
+      "original_budget_sha256": "cca288dc54fee37be5e5f7a862057262bdc4761b2ea938d33ef0ecd41a89644a",
+      "original_budget_matches_frozen_sha": true,
+      "no_collector_or_judge_execution": true
+    },
+    "avg64": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
+      "sha256": "57aaed6dde6a71239e6e0dec337d075fd108a746059b184739b8cf73e871f38a",
+      "expected_valid": 2500,
+      "expected_correct": 117,
+      "summary_metadata": {
+        "complete": true,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 1304,
+        "native_no_answer": 1196,
+        "evaluation_invalid": 0,
+        "scored": 2500,
+        "pending": 0,
+        "correct": 117,
+        "accuracy_percent": 4.68,
+        "score": 4.68,
+        "partial_correct_over_full_denominator_percent": 4.68,
+        "judge_generation_calls": 1309,
+        "accounted_cost_cny": 1.4265622500000001,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T23:11:54.216388+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed",
+        "recovery_judge_calls": 2,
+        "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/compact-recovery-20261017",
+        "recovery_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "original_budget_ledger_unchanged": true,
+        "protocol_exception": "Original two attempts plus at most one explicit compact-wrapper recovery for listed length-truncated grades"
+      },
+      "original_budget_sha256": "4574f5ae14c4882bfd8d32f9d3ae54b2bf28c2bbd341056939a15bbb67a53f85",
+      "original_budget_matches_frozen_sha": true,
+      "no_collector_or_judge_execution": true
+    },
+    "avg16": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017/scoring/summary.json",
+      "sha256": "abecd2a4d86541deddf1be051187fba7763ee48e4f1ff222e674181adf47560f",
+      "expected_valid": 2500,
+      "expected_correct": 101,
+      "summary_metadata": {
+        "complete": true,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 1198,
+        "native_no_answer": 1302,
+        "evaluation_invalid": 0,
+        "scored": 2500,
+        "pending": 0,
+        "correct": 101,
+        "accuracy_percent": 4.04,
+        "score": 4.04,
+        "partial_correct_over_full_denominator_percent": 4.04,
+        "judge_generation_calls": 1200,
+        "accounted_cost_cny": 1.2537705,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T23:26:02.922665+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed",
+        "recovery_judge_calls": 1,
+        "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017/scoring/compact-recovery-20261017",
+        "recovery_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "original_budget_ledger_unchanged": true,
+        "protocol_exception": "Original two attempts plus at most one explicit compact-wrapper recovery for listed length-truncated grades"
+      },
+      "original_budget_sha256": "c3b8f9e4cea62a97baaa47409d00ab5290918c090a6c8b804f5b67bb0a30ed3d",
+      "original_budget_matches_frozen_sha": true,
+      "no_collector_or_judge_execution": true
+    },
+    "ties_dense": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/summary.json",
+      "sha256": "a8b1d889eac327971342666727cc977078dfe8c3ab0496ad238c442b91243760",
+      "expected_valid": 2499,
+      "expected_correct": 131,
+      "summary_metadata": {
+        "complete": false,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 2431,
+        "native_no_answer": 68,
+        "evaluation_invalid": 1,
+        "scored": 2499,
+        "pending": 1,
+        "correct": 131,
+        "accuracy_percent": null,
+        "score": null,
+        "partial_correct_over_full_denominator_percent": 5.24,
+        "judge_generation_calls": 2445,
+        "accounted_cost_cny": 2.1614145,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T23:08:15.397656+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed",
+        "recovery_judge_calls": 6,
+        "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/compact-recovery-20261017",
+        "recovery_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "original_budget_ledger_unchanged": true,
+        "protocol_exception": "Original two attempts plus at most one explicit compact-wrapper recovery for listed length-truncated grades"
+      },
+      "original_budget_sha256": "ca16362aec84b5b3462a7578013484b052129f9577f3568eaae23a4ac60e4006",
+      "original_budget_matches_frozen_sha": true,
+      "no_collector_or_judge_execution": true
+    }
+  },
+  "storage_80": {
+    "at_utc": "2026-10-17T04:08:07.098544+00:00",
+    "volumes": [
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome",
+        "total_bytes": 11430169911296,
+        "used_bytes": 8858977738752,
+        "free_bytes": 1995067125760
+      },
+      {
+        "path": "/data",
+        "total_bytes": 11430169911296,
+        "used_bytes": 8858977738752,
+        "free_bytes": 1995067125760
+      },
+      {
+        "path": "/",
+        "total_bytes": 907619250176,
+        "used_bytes": 830462140416,
+        "free_bytes": 30977142784
+      },
+      {
+        "path": "/tmp",
+        "total_bytes": 907619250176,
+        "used_bytes": 830462140416,
+        "free_bytes": 30977142784
+      }
+    ]
+  },
+  "capture_finished_at_utc": "2026-10-17T04:08:07.098628+00:00",
+  "slurm": {
+    "squeue_capture_minute_utc_approximate": "2026-10-17T04:07Z",
+    "squeue": [
+      "727912|apex-term-acdu-20261017|RUNNING|acd_u|gres/gpu:2|ACD1-22",
+      "727913|apex-avgexec-acdu-20261017|RUNNING|acd_u|gres/gpu:2|ACD1-22"
+    ],
+    "active_project_gpus": 4,
+    "current_partition_verified": "acd_u",
+    "nice_and_endtime_last_verified_source": "analysis/source_snapshots/direct_status_20261017_1110.json",
+    "nice_and_endtime_last_verified_at_utc": "2026-10-17T03:13:47.204801+00:00",
+    "last_verified_job_details": [
+      {
+        "JobId": "727912",
+        "JobName": "apex-term-acdu-20261017",
+        "JobState": "RUNNING",
+        "Partition": "acd_u",
+        "Nice": "1000",
+        "NodeList": "ACD1-22",
+        "StartTime": "2026-10-17T04:26:28",
+        "EndTime": "2026-10-18T02:01:28",
+        "AllocTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+        "TresPerNode": "gres/gpu:2"
+      },
+      {
+        "JobId": "727913",
+        "JobName": "apex-avgexec-acdu-20261017",
+        "JobState": "RUNNING",
+        "Partition": "acd_u",
+        "Nice": "1000",
+        "NodeList": "ACD1-22",
+        "StartTime": "2026-10-17T04:26:28",
+        "EndTime": "2026-10-18T02:09:28",
+        "AllocTRES": "cpu=16,mem=128G,node=1,billing=16,gres/gpu=2",
+        "TresPerNode": "gres/gpu:2"
+      }
+    ],
+    "fresh_scontrol_not_queried_after_user_cancelled_automation": true
+  },
+  "native_current_contract": {
+    "task_family": "computer_science.euclidean_tsp_tour_optimization",
+    "condition_from_latest_attempt_directory": "computer_science.euclidean_tsp_tour_optimization__seed31415__b3.grading1",
+    "original_task_eval": "artifacts/benchmarks/asi/tasks/computer_science/euclidean_tsp_tour_optimization/task_eval.yaml",
+    "source_lines": {
+      "time_limit_seconds": 18,
+      "termination_grace_seconds": 19,
+      "cpu_limit": 20,
+      "memory_limit": 21
+    },
+    "time_limit_seconds": 3600,
+    "termination_grace_seconds": 10,
+    "cpu_limit": 1,
+    "memory_limit": "3g",
+    "contract_reused_from_previous_read_only_audit": true,
+    "current_pid": 2518971,
+    "current_elapsed_seconds": 560.51,
+    "current_cpu_seconds": 560.55,
+    "current_state": "R",
+    "affinity": [
+      92
+    ],
+    "interpretation": "Native TSP b3 is actively computing within its original budget; valid conditions increased from85 to86. No engineering deadlock or scorer error observed."
+  },
+  "derived": {
+    "generation_complete": true,
+    "scientific_valid_conditions": 86,
+    "scientific_pending_conditions": 154,
+    "scientific_errors": 0,
+    "scientific_complete": false,
+    "scientific_primary_score_percent": null,
+    "valid_increase_since_1110": 1,
+    "generator_gone": true,
+    "coordinator_and_grader_unique": true,
+    "no_future_model_consumer": true,
+    "gpu727856_remains_released": true,
+    "all_cpu_marker_still_absent": true,
+    "fixed_asi_expert_sha_matches": true,
+    "six_original_hle_budget_files_match_fixed_receipt": true,
+    "no_new_recovery_or_collector_run": true,
+    "no_engineering_repair_needed_from_observation": true
+  },
+  "observation_limits": [
+    "No metrics or model/API requests. Original stale asi_generation phase is not used to infer restart needs.",
+    "Current squeue verifies four GPUs and ordinary partitions; Nice1000/EndTime are carried explicitly from last verified11:13 scontrol snapshot because further inspection stopped at user cancellation.",
+    "Journal absence remains unknown calls/cost, not zero.",
+    "The user cancelled hourly automation; root reports deletion. This agent stops after the already-promised metadata receipts."
+  ]
+}
