@@ -1,5 +1,11 @@
 # 最终交付的最小剩余清单
 
+**11:27补评在途**：reshard专家seed1一次原答案官方补评parent2394544已在124–127独立4CPU/8GiB/900秒运行，3条restore/19845项严格校验通过，pytest已启动1item；尚非有效成绩，不重试或提前改summary。SWE完整10/0/4与11:14双视图、11:15阶段PDF保持；Terminal/AVG ASI未齐及两项无archive原null仍是最终交付未决项。
+
+
+**11:15更新**：SWE Base/专家/AVG64全51有效，10/0/4resolved，[T774原答案审核](avg64_teleport7744_grade_review_20261017_1110.md)已接受exact native0；原instruction79要求的v1.6.0依赖遗漏导致编译阻断，未运行TestSendEvent，旧timeout/null不改。Mac专用route在原生完整排空/无消费者后已关闭，[释放收据](source_snapshots/avg64_t774_route_release_20261017_1115.json)保存38444/control socket消失，原route收据保留，不重建。新[完整任务对照](swe_task_comparison_20261017.md)和[双视图](source_snapshots/formal_aggregation_20261017_1115.json)及11:15阶段PDF已更新。AVG ASI全240生成/727856释放，科学评分85/240尚未齐，Terminal专家190/AVG178也只是部分coverage，完整macro/最终提交仍缺。
+
+
 **10:42唯一等待器已启动**：root与独立审阅通过新版fb5a/8cff及真实route receipt后，10:40:56只启动一次T774 parent**2223041/start870388084**；10:41:47仍waiting_source_or_route、lock_held=false、0native。它只在原AVG ASI全240/pool shutdown/源scope空marker与124–127实际scope排空后领取独立未来租约，native仅124/1CPU4GiB3000s，不碰92–95或Terminal到123的原扩容。当前232保存、8在途，不能释放生成核。route依赖Mac专用84416/control socket，结束无消费者后只关自身route，不能因中途断路自动重跑未知原生结果。
 
 
@@ -30,11 +36,11 @@
 
 ## 真正还缺的交付
 
-1. **完成剩余正式范围及有效判分，再生成最终结果包。** Base固定答案补评分已完成：SWE51/51、HLE2500/2500、ASI240/240；Terminal442native，另3计算超时仅在独立预算视图派生0，raw null保留。HLE专家/Mixed/AVG64/AVG16已全2500有效，6.92%/5.84%/4.68%/4.04%；ASI专家全240有效，公开local原生0.378991%低于Base1.570988%，如实保留。两SWE各48/51仍各3评分未决；Terminal专家92/445、AVG90/445，AVG ASI生成正在复用28095接续。每次先刷新专家/AVG两SWE collector及Terminal只读审计collector，再执行strict+独立预算`summarize_experiment.py`。只交付完整有效范围的主分/paired CI，未齐备保持null，不用有效子集估最终提升。最新[固定快照](source_snapshots/formal_aggregation_20261017_0727.json)。
+1. **完成剩余正式范围及有效判分，再生成最终结果包。** Base固定答案补评分已完成：SWE51/51、HLE2500/2500、ASI240/240；Terminal442native，另3计算超时仅在独立预算视图派生0，raw null保留。HLE专家/Mixed/AVG64/AVG16已全2500有效，6.92%/5.84%/4.68%/4.04%；ASI专家全240有效，公开local原生0.378991%低于Base1.570988%，如实保留。SWE现已Base/专家/AVG各51/51有效，10/0/4通过；11:14统计Terminal专家190/445、AVG178/445，AVG ASI已全240生成、科学评分85/240有效。11:25唯一reshard原答案补评仍在途，不提前接分。每次先刷新专家/AVG两SWE collector及Terminal只读审计collector，再执行strict+独立预算`summarize_experiment.py`。只交付完整有效范围的主分/paired CI，未齐备保持null，不用有效子集估最终提升。最新[固定快照](source_snapshots/formal_aggregation_20261017_1115.json)。
 
 2. **失败材料已完成，收尾时同步最终索引。** [20个真实AVG64有效wrong与三项后续实验](avg64_failure_cases_20261017.md)已有原始输出/评分路径及短证据；同ID Base也全失败，不能称合版引入退化。没有把环境invalid或pending充作20例，不需再凑占位案例。最终只需把已成文材料和完整矩阵/资产索引关联。
 
-3. **一页`report.pdf`。** 根目录最终`report.pdf`尚无；[07:28一页阶段稿](progress_report_20261017.md)及重画源脚本已生成并目视验收。原题固定结构为摘要（150–200个中文字符）、过程、结果，总计不超过一页。结果至少包含四项×{Base、目标专家、AVG64}分数矩阵、专家范围标注、宏平均提升、失败率和成本，详细曲线/20案例/CI留仓库链接。若截止仍不完整，表格需明确null/未完成及真实coverage，不能将报告排版完成冒称实验全部完成。需要实际生成PDF、核对页数并目视检查可读性；保留生成源稿便于后续更新。
+3. **一页`report.pdf`。** 根目录最终`report.pdf`尚无；[11:15一页阶段稿](progress_report_20261017.md)及重画源脚本已生成并目视验收。原题固定结构为摘要（150–200个中文字符）、过程、结果，总计不超过一页。结果至少包含四项×{Base、目标专家、AVG64}分数矩阵、专家范围标注、宏平均提升、失败率和成本，详细曲线/20案例/CI留仓库链接。若截止仍不完整，表格需明确null/未完成及真实coverage，不能将报告排版完成冒称实验全部完成。需要实际生成PDF、核对页数并目视检查可读性；保留生成源稿便于后续更新。
 
 4. **补齐原题明确的合版方法/配置对照，并收束训练对照。** 用户指出压缩不在原题合版示例中，AVG64/AVG16仅为辅助压缩对照，Mixed属于另一条训练对照；不能据此称该项完成。任务算术改系数草稿又被用户撤回，未启动新评测/GPU。真实TIES六shape pilot已通过，但SVD64残差30%-57%，未导出该近似；现[完整Dense导出](source_snapshots/ties_dense_export_728007_20261017.json)728007已验收：1045tensor/310目标/735非目标，BF16相对更新误差10.531%；普通TP2服务728016已全2500生成并释放，TIES2499有效、131correct，另1项缺correct且不符合已批准截断恢复例外，保留null；完整方法比较尚缺。该表示不再是同r64参数化容量，需要披露dense-vs-LoRA舍入差异。主AVG64保持冻结，不按正式成绩换主模型、不恢复独立task-val；已有CE仅作诊断，不新增loss-only工作。新方法导出验证、实际任务成绩、配对区间与方法指标图齐备后才可称完成对照。
 

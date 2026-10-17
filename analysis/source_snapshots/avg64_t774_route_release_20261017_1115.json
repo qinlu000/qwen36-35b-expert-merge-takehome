@@ -1,0 +1,16 @@
+{
+  "at_utc": "2026-10-17T03:14:00.931522+00:00",
+  "released_mac_pid": 84416,
+  "control_socket": "/tmp/apex-t774-route-20261017.ctl",
+  "shutdown_action": "ssh -S own_control_socket -O exit after actual original-grade parent/child/relay gone, private socket removed, pool124–127 scopes empty and full drained/unlocked state",
+  "mac_ps_returncode": 1,
+  "mac_ps": "",
+  "control_socket_exists": false,
+  "host80_listener_after_release": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+  "host80_listener_absent": true,
+  "original_route_receipt_sha256_unchanged": "6d8f90eb63ba0104c2ff8782511ec9f22aa101b5dc8fe955413e9227cdfd0a7d",
+  "frozen_original_route_receipt_not_modified": true,
+  "native_answer_or_result_not_modified": true,
+  "no_new_network_probe": true,
+  "new_model_calls": 0
+}

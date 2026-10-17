@@ -1,0 +1,3096 @@
+{
+  "captured_at_utc": "2026-10-17T03:11:28.018959+00:00",
+  "configuration": {
+    "since": "2026-10-15T00:00:00",
+    "hpc_host": "hpc3",
+    "hpc_socket": "/tmp/apex-baseline-hpc-ctl",
+    "hpc_project": "/data/user/qinlucao/projects/apex-takehome",
+    "runner_host": "10.123.4.80",
+    "runner_project": "/data/caoqinlu/projects/apex-takehome",
+    "account": "qinlucao",
+    "extra_jobs": {
+      "727689": "analysis/source_snapshots/sft_loss_only_execution_20261017.json; scripts/evaluate_sft_loss_only.py; merge owner confirmed 4-GPU loss-only job",
+      "727948": "artifacts/merges/ties-pilot-submit-20261017/receipt.json; one-GPU fixed six-shape TIES pilot",
+      "727967": "analysis/source_snapshots/ties_pilot_727967_20261017.json; successful six-shape pilot,10 seconds",
+      "728007": "analysis/source_snapshots/ties_dense_export_728007_20261017.json; full HF TIES-Dense export,129 seconds",
+      "728016": "analysis/source_snapshots/ties_dense_hle_execution_20261017.json; ordinaryTP2 full-model HLE-only method comparison"
+    },
+    "api_ledgers": [
+      {
+        "name": "HLE teacher data",
+        "path": "artifacts/data/candidates/night_hle_20261016/teacher_api_ledger.jsonl",
+        "kind": "usd_rows"
+      },
+      {
+        "name": "SciCode teacher data",
+        "path": "artifacts/data/candidates/night_scicode_20261016/scicode_api_ledger.jsonl",
+        "kind": "usd_rows"
+      },
+      {
+        "name": "Science quality review",
+        "path": "artifacts/data/candidates/night_hle_20261016/science_quality_review.jsonl",
+        "kind": "usd_rows"
+      },
+      {
+        "name": "Terminal data classification",
+        "path": "artifacts/data/candidates/new_terminal_horizon_20261016/annotations/ledger.jsonl",
+        "kind": "terminal_rows"
+      },
+      {
+        "name": "Base formal HLE Judge",
+        "path": "artifacts/runs/hle_judge_v2_20261016/budget.json",
+        "kind": "budget"
+      },
+      {
+        "name": "Base HLE single Judge recovery",
+        "path": "artifacts/runs/hle_judge_v2_20261016/single-judge-recovery-20261017/budget.json",
+        "kind": "single_budget"
+      },
+      {
+        "name": "Cancelled independent HLE validation Judge",
+        "path": "artifacts/eval/validation_direct_20261016/hle_scores/budget.json",
+        "kind": "budget"
+      },
+      {
+        "name": "Cancelled independent SAB validation Judge",
+        "path": "artifacts/eval/validation_direct_20261016/sab_scores/judge_calls.jsonl",
+        "kind": "journal"
+      },
+      {
+        "name": "ASI Judge calibration",
+        "path": "artifacts/preflight/asi-real-calibration-20261016/judge_calls.jsonl",
+        "kind": "journal"
+      },
+      {
+        "name": "Base formal ASI Judge",
+        "path": "artifacts/asi/scoring_v2_formal_params_20261016/judge_calls.jsonl",
+        "kind": "journal"
+      },
+      {
+        "name": "HLE expert formal Judge",
+        "path": "artifacts/eval/hle250_hle2500_20261017/scoring/budget.json",
+        "kind": "budget"
+      },
+      {
+        "name": "HLE expert compact Judge recovery",
+        "path": "artifacts/eval/hle250_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "kind": "budget"
+      },
+      {
+        "name": "AVG64 HLE formal Judge",
+        "path": "artifacts/eval/avg64_hle2500_20261017/scoring/budget.json",
+        "kind": "budget"
+      },
+      {
+        "name": "Mixed HLE task control Judge",
+        "path": "artifacts/eval/mixed883_hle2500_20261017/scoring/budget.json",
+        "kind": "budget"
+      },
+      {
+        "name": "Mixed HLE compact Judge recovery",
+        "path": "artifacts/eval/mixed883_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "kind": "budget"
+      },
+      {
+        "name": "AVG16 HLE compression control Judge",
+        "path": "artifacts/eval/avg16_hle2500_20261017/scoring/budget.json",
+        "kind": "budget"
+      },
+      {
+        "name": "TIES-Dense HLE method Judge",
+        "path": "artifacts/eval/ties_dense_hle2500_20261017/scoring/budget.json",
+        "kind": "budget"
+      },
+      {
+        "name": "ASI expert formal Judge",
+        "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls.jsonl",
+        "kind": "journal"
+      },
+      {
+        "name": "AVG64 ASI formal Judge",
+        "path": "artifacts/eval/avg64_asi240_20261017/scoring/judge_calls.jsonl",
+        "kind": "journal"
+      },
+      {
+        "name": "AVG64 HLE compact Judge recovery",
+        "path": "artifacts/eval/avg64_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "kind": "budget"
+      },
+      {
+        "name": "TIES-Dense HLE compact Judge recovery",
+        "path": "artifacts/eval/ties_dense_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "kind": "budget"
+      },
+      {
+        "name": "AVG16 HLE compact Judge recovery",
+        "path": "artifacts/eval/avg16_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "kind": "budget"
+      }
+    ],
+    "journal_price_source": "scripts/asi_score_transport.py; scripts/run_sab_validation_queue.py: prompt*0.3 USD/M + completion*1.2 USD/M, multiplied by budget safety factor 8; cache savings deliberately ignored",
+    "raw_summaries": [
+      "artifacts/results/base-gap-completion-20261017/swe51_summary.json",
+      "artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json",
+      "artifacts/eval/swe249_audited_hard51_20261017/summary.json",
+      "artifacts/eval/avg64_swe_audited_hard51_20261017/summary.json",
+      "artifacts/results/base-terminal-independent-repair32-20261016/corrected445_summary.json",
+      "artifacts/eval/base_swe_v2_20261016_clean28/corrected51_summary.json",
+      "artifacts/runs/hle_judge_v2_20261016/summary.json",
+      "artifacts/asi/scoring_v2_formal_params_20261016/local_score_seed31415.json",
+      "artifacts/eval/validation_direct_20261016/hle_scores/summary.json",
+      "artifacts/eval/validation_direct_20261016/sab_scores/summary.json",
+      "artifacts/eval/terminal250_full445_20261017/summary.json",
+      "artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+      "artifacts/eval/swe249_hard51_20261016/summary.json",
+      "artifacts/eval/avg64_swe_hard51_20261017/summary.json",
+      "artifacts/eval/asi128_asi240_20261017/scoring/local_score_seed31415.json",
+      "artifacts/eval/avg64_asi240_20261017/scoring/local_score_seed31415.json",
+      "artifacts/eval/hle250_hle2500_20261017/scoring/summary.json",
+      "artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
+      "artifacts/eval/mixed883_hle2500_20261017/scoring/summary.json",
+      "artifacts/eval/avg16_hle2500_20261017/scoring/summary.json",
+      "artifacts/eval/ties_dense_hle2500_20261017/scoring/summary.json"
+    ]
+  },
+  "slurm": {
+    "captured_at": "2026-10-17T11:11:26.633805+08:00",
+    "jobs": [
+      {
+        "job_id": "723418",
+        "job_name": "apex-container-smoke",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "acd_u",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-15T23:25:44",
+        "end": "2026-10-15T23:26:10",
+        "elapsed_seconds": 26,
+        "alloc_tres": "billing=2,cpu=2,gres/gpu=1,mem=4G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 1,
+        "gpu_hours": 0.007222222222222222,
+        "active_at_capture": false,
+        "category": "smoke"
+      },
+      {
+        "job_id": "723633",
+        "job_name": "apex-base-smoke",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "acd_ue",
+        "state": "CANCELLED by 14348",
+        "start": "None",
+        "end": "2026-10-16T00:35:47",
+        "elapsed_seconds": 0,
+        "alloc_tres": "",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 0,
+        "gpu_hours": 0.0,
+        "active_at_capture": false,
+        "category": "smoke"
+      },
+      {
+        "job_id": "723673",
+        "job_name": "apex-base-smoke",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "acd_ue",
+        "state": "FAILED",
+        "start": "2026-10-16T00:38:55",
+        "end": "2026-10-16T00:38:57",
+        "elapsed_seconds": 2,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "1:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 2,
+        "gpu_hours": 0.0011111111111111111,
+        "active_at_capture": false,
+        "category": "smoke"
+      },
+      {
+        "job_id": "723693",
+        "job_name": "apex-base-smoke",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "acd_ue",
+        "state": "FAILED",
+        "start": "2026-10-16T00:41:26",
+        "end": "2026-10-16T00:44:21",
+        "elapsed_seconds": 175,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "1:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 2,
+        "gpu_hours": 0.09722222222222222,
+        "active_at_capture": false,
+        "category": "smoke"
+      },
+      {
+        "job_id": "723706",
+        "job_name": "apex-base-smoke",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "acd_ue",
+        "state": "FAILED",
+        "start": "2026-10-16T00:47:26",
+        "end": "2026-10-16T00:53:15",
+        "elapsed_seconds": 349,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "1:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 2,
+        "gpu_hours": 0.1938888888888889,
+        "active_at_capture": false,
+        "category": "smoke"
+      },
+      {
+        "job_id": "723727",
+        "job_name": "apex-base-smoke",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "acd_ue",
+        "state": "FAILED",
+        "start": "2026-10-16T00:56:16",
+        "end": "2026-10-16T01:07:10",
+        "elapsed_seconds": 654,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "1:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 2,
+        "gpu_hours": 0.36333333333333334,
+        "active_at_capture": false,
+        "category": "smoke"
+      },
+      {
+        "job_id": "723784",
+        "job_name": "apex-base-smoke",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "FAILED",
+        "start": "2026-10-16T01:07:37",
+        "end": "2026-10-16T01:13:20",
+        "elapsed_seconds": 343,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "1:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 2,
+        "gpu_hours": 0.19055555555555556,
+        "active_at_capture": false,
+        "category": "smoke"
+      },
+      {
+        "job_id": "723821",
+        "job_name": "apex-base-smoke",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "COMPLETED",
+        "start": "2026-10-16T01:15:03",
+        "end": "2026-10-16T01:20:10",
+        "elapsed_seconds": 307,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 2,
+        "gpu_hours": 0.17055555555555554,
+        "active_at_capture": false,
+        "category": "smoke"
+      },
+      {
+        "job_id": "723993",
+        "job_name": "apex-base-smoke",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "COMPLETED",
+        "start": "2026-10-16T02:02:59",
+        "end": "2026-10-16T02:11:43",
+        "elapsed_seconds": 524,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 2,
+        "gpu_hours": 0.2911111111111111,
+        "active_at_capture": false,
+        "category": "smoke"
+      },
+      {
+        "job_id": "724196",
+        "job_name": "apex-base-night",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "TIMEOUT",
+        "start": "2026-10-16T03:25:54",
+        "end": "2026-10-16T11:26:00",
+        "elapsed_seconds": 28806,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/deployment_tp2_blocks_v1.json:.workers[0].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 16.003333333333334,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "724241",
+        "job_name": "apex-base-asi",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "TIMEOUT",
+        "start": "2026-10-16T03:30:57",
+        "end": "2026-10-16T11:31:00",
+        "elapsed_seconds": 28803,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/baseline_tunnels_20261016.json:.workers[0].job_id",
+          "configs/eval/deployment_tp2_blocks_v1.json:.workers[1].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 16.001666666666665,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "724242",
+        "job_name": "apex-base-terminal",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "TIMEOUT",
+        "start": "2026-10-16T03:31:29",
+        "end": "2026-10-16T11:31:30",
+        "elapsed_seconds": 28801,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/baseline_tunnels_20261016.json:.workers[1].job_id",
+          "configs/eval/deployment_tp2_blocks_v1.json:.workers[2].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 16.000555555555554,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "724254",
+        "job_name": "apex-base-swe",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "TIMEOUT",
+        "start": "2026-10-16T03:52:47",
+        "end": "2026-10-16T11:53:00",
+        "elapsed_seconds": 28813,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/baseline_tunnels_20261016.json:.workers[2].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 16.00722222222222,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "724276",
+        "job_name": "apex-swe-dev-env",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "debug",
+        "state": "COMPLETED",
+        "start": "2026-10-16T03:58:56",
+        "end": "2026-10-16T04:00:27",
+        "elapsed_seconds": 91,
+        "alloc_tres": "billing=4,cpu=4,mem=12G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 0,
+        "gpu_hours": 0.0,
+        "active_at_capture": false,
+        "category": "cpu_environment"
+      },
+      {
+        "job_id": "724277",
+        "job_name": "apex-sft-smoke",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "FAILED",
+        "start": "2026-10-16T04:16:05",
+        "end": "2026-10-16T04:21:30",
+        "elapsed_seconds": 325,
+        "alloc_tres": "billing=24,cpu=24,gres/gpu=4,mem=256G,node=1",
+        "exit_code": "1:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 4,
+        "gpu_hours": 0.3611111111111111,
+        "active_at_capture": false,
+        "category": "smoke"
+      },
+      {
+        "job_id": "725511",
+        "job_name": "apex-sft-smoke",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "FAILED",
+        "start": "2026-10-16T13:30:37",
+        "end": "2026-10-16T13:35:10",
+        "elapsed_seconds": 273,
+        "alloc_tres": "billing=24,cpu=24,gres/gpu=4,mem=256G,node=1",
+        "exit_code": "1:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 4,
+        "gpu_hours": 0.30333333333333334,
+        "active_at_capture": false,
+        "category": "smoke"
+      },
+      {
+        "job_id": "725539",
+        "job_name": "apex-hle-infra1",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-16T13:35:18",
+        "end": "2026-10-16T19:10:44",
+        "elapsed_seconds": 20126,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/deployment_direct_hpc_v2.json:.workers[0].job_id",
+          "configs/eval/direct_hpc_tunnels_20261016.json:.workers[0].job_id",
+          "configs/eval/remote_gpu_release_20261016.json:.workers[0].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 11.181111111111111,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "725545",
+        "job_name": "apex-terminal-infra1",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-16T13:36:08",
+        "end": "2026-10-16T16:05:25",
+        "elapsed_seconds": 8957,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/deployment_concurrency_x2_v3.json:.terminal_production.source_job_id",
+          "configs/eval/deployment_direct_hpc_v2.json:.workers[1].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 4.976111111111111,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "725561",
+        "job_name": "apex-base-swe-r1",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-16T13:41:34",
+        "end": "2026-10-16T15:44:16",
+        "elapsed_seconds": 7362,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/deployment_concurrency_x2_v3.json:.initial_production.source_job_id",
+          "configs/eval/deployment_direct_hpc_v2.json:.workers[2].job_id",
+          "configs/eval/direct_hpc_tunnels_20261016.json:.workers[2].job_id",
+          "configs/eval/remote_gpu_release_20261016.json:.workers[2].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 4.09,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "725568",
+        "job_name": "apex-sft-smoke",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "None",
+        "end": "2026-10-16T13:53:22",
+        "elapsed_seconds": 0,
+        "alloc_tres": "",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 0,
+        "gpu_hours": 0.0,
+        "active_at_capture": false,
+        "category": "smoke"
+      },
+      {
+        "job_id": "725630",
+        "job_name": "apex-hle-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "FAILED",
+        "start": "2026-10-16T13:55:12",
+        "end": "2026-10-16T14:00:38",
+        "elapsed_seconds": 326,
+        "alloc_tres": "billing=12,cpu=12,gres/gpu=1,mem=128G,node=1",
+        "exit_code": "1:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 1,
+        "gpu_hours": 0.09055555555555556,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "725704",
+        "job_name": "apex-hle-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "COMPLETED",
+        "start": "2026-10-16T14:22:41",
+        "end": "2026-10-16T15:06:15",
+        "elapsed_seconds": 2614,
+        "alloc_tres": "billing=12,cpu=12,gres/gpu=1,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 1,
+        "gpu_hours": 0.7261111111111112,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "725705",
+        "job_name": "apex-base-x2",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-16T14:30:50",
+        "end": "2026-10-16T19:53:31",
+        "elapsed_seconds": 19361,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/deployment_concurrency_x2_v3.json:.initial_production.target_job_id",
+          "configs/eval/deployment_concurrency_x2_v3.json:.terminal_secondary_after_swe.job_id",
+          "configs/eval/direct_hpc_tunnels_20261016.json:.workers[3].job_id",
+          "configs/eval/remote_gpu_release_20261016.json:.workers[3].job_id",
+          "configs/eval/terminal_model_route_targets_20261016.json:.old_targets[1].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 10.75611111111111,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "725962",
+        "job_name": "apex-swe-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "None",
+        "end": "2026-10-16T15:31:53",
+        "elapsed_seconds": 0,
+        "alloc_tres": "",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 0,
+        "gpu_hours": 0.0,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "725969",
+        "job_name": "apex-execution-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "None",
+        "end": "2026-10-16T15:32:33",
+        "elapsed_seconds": 0,
+        "alloc_tres": "",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 0,
+        "gpu_hours": 0.0,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "725970",
+        "job_name": "apex-swe-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "None",
+        "end": "2026-10-16T15:34:22",
+        "elapsed_seconds": 0,
+        "alloc_tres": "",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 0,
+        "gpu_hours": 0.0,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "725976",
+        "job_name": "apex-execution-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "None",
+        "end": "2026-10-16T15:34:49",
+        "elapsed_seconds": 0,
+        "alloc_tres": "",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 0,
+        "gpu_hours": 0.0,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "725982",
+        "job_name": "apex-swe-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "FAILED",
+        "start": "2026-10-16T15:34:51",
+        "end": "2026-10-16T15:41:12",
+        "elapsed_seconds": 381,
+        "alloc_tres": "billing=24,cpu=24,gres/gpu=2,mem=256G,node=1",
+        "exit_code": "1:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 2,
+        "gpu_hours": 0.21166666666666667,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "725984",
+        "job_name": "apex-mixed-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "FAILED",
+        "start": "2026-10-16T15:39:04",
+        "end": "2026-10-16T15:42:50",
+        "elapsed_seconds": 226,
+        "alloc_tres": "billing=24,cpu=24,gres/gpu=2,mem=256G,node=1",
+        "exit_code": "1:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 2,
+        "gpu_hours": 0.12555555555555556,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "725987",
+        "job_name": "apex-execution-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "FAILED",
+        "start": "2026-10-16T15:34:52",
+        "end": "2026-10-16T15:40:43",
+        "elapsed_seconds": 351,
+        "alloc_tres": "billing=24,cpu=24,gres/gpu=2,mem=256G,node=1",
+        "exit_code": "1:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 2,
+        "gpu_hours": 0.195,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "726017",
+        "job_name": "apex-swe-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "FAILED",
+        "start": "2026-10-16T15:52:41",
+        "end": "2026-10-16T15:59:08",
+        "elapsed_seconds": 387,
+        "alloc_tres": "billing=24,cpu=24,gres/gpu=4,mem=256G,node=1",
+        "exit_code": "1:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 4,
+        "gpu_hours": 0.43,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "726065",
+        "job_name": "apex-execution-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "FAILED",
+        "start": "2026-10-16T15:59:08",
+        "end": "2026-10-16T16:03:21",
+        "elapsed_seconds": 253,
+        "alloc_tres": "billing=24,cpu=24,gres/gpu=4,mem=256G,node=1",
+        "exit_code": "1:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 4,
+        "gpu_hours": 0.2811111111111111,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "726129",
+        "job_name": "apex-terminal-x2",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-16T16:04:25",
+        "end": "2026-10-16T19:53:30",
+        "elapsed_seconds": 13745,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/deployment_concurrency_x2_v3.json:.terminal_production.target_job_id",
+          "configs/eval/direct_hpc_tunnels_20261016.json:.workers[1].job_id",
+          "configs/eval/remote_gpu_release_20261016.json:.workers[1].job_id",
+          "configs/eval/terminal_model_route_targets_20261016.json:.old_targets[0].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 7.636111111111111,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "726164",
+        "job_name": "apex-execution-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "None",
+        "end": "2026-10-16T16:12:27",
+        "elapsed_seconds": 0,
+        "alloc_tres": "",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 0,
+        "gpu_hours": 0.0,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "726172",
+        "job_name": "apex-asi-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "FAILED",
+        "start": "2026-10-16T16:13:02",
+        "end": "2026-10-16T16:15:24",
+        "elapsed_seconds": 142,
+        "alloc_tres": "billing=12,cpu=12,gres/gpu=1,mem=128G,node=1",
+        "exit_code": "1:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 1,
+        "gpu_hours": 0.03944444444444444,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "726260",
+        "job_name": "apex-swe2k-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "FAILED",
+        "start": "2026-10-16T16:40:52",
+        "end": "2026-10-16T16:40:55",
+        "elapsed_seconds": 3,
+        "alloc_tres": "billing=24,cpu=24,gres/gpu=4,mem=256G,node=1",
+        "exit_code": "127:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 4,
+        "gpu_hours": 0.0033333333333333335,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "726335",
+        "job_name": "apex-swe2k-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "COMPLETED",
+        "start": "2026-10-16T17:52:24",
+        "end": "2026-10-16T19:55:24",
+        "elapsed_seconds": 7380,
+        "alloc_tres": "billing=24,cpu=24,gres/gpu=4,mem=256G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/train/four_experts_v1.json:.experts[0].job_id"
+        ],
+        "gpus": 4,
+        "gpu_hours": 8.2,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "726336",
+        "job_name": "apex-asi-expanded-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "COMPLETED",
+        "start": "2026-10-16T16:56:09",
+        "end": "2026-10-16T17:47:45",
+        "elapsed_seconds": 3096,
+        "alloc_tres": "billing=12,cpu=12,gres/gpu=2,mem=180G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/train/four_experts_v1.json:.experts[3].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 1.72,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "726344",
+        "job_name": "apex-hle2k-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "None",
+        "end": "2026-10-16T17:43:14",
+        "elapsed_seconds": 0,
+        "alloc_tres": "",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/train/four_experts_v1.json:.experts[2].cancelled_expansion_job_id"
+        ],
+        "gpus": 0,
+        "gpu_hours": 0.0,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "726345",
+        "job_name": "apex-terminal2k-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "FAILED",
+        "start": "2026-10-16T18:07:48",
+        "end": "2026-10-16T18:29:14",
+        "elapsed_seconds": 1286,
+        "alloc_tres": "billing=24,cpu=24,gres/gpu=4,mem=256G,node=1",
+        "exit_code": "1:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/train/four_experts_v1.json:.experts[1].failed_previous_job_id"
+        ],
+        "gpus": 4,
+        "gpu_hours": 1.4288888888888889,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "726346",
+        "job_name": "apex-mixed-expanded-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "None",
+        "end": "2026-10-16T19:13:14",
+        "elapsed_seconds": 0,
+        "alloc_tres": "",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/train/four_experts_v1.json:.mixed_control.cancelled_previous_job_id"
+        ],
+        "gpus": 0,
+        "gpu_hours": 0.0,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "726629",
+        "job_name": "apex-hle-seq20",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-16T19:02:51",
+        "end": "2026-10-17T01:21:49",
+        "elapsed_seconds": 22738,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/direct_hpc_tunnels_20261016.json:.workers[5].job_id",
+          "configs/eval/hle_seq20_route_20261016.json:.job_id",
+          "configs/eval/remote_gpu_release_20261016.json:.workers[4].job_id",
+          "configs/eval/terminal_model_route_targets_20261016.json:.new_targets[1].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 12.632222222222222,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "726635",
+        "job_name": "apex-terminal-seq20",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-16T19:08:32",
+        "end": "2026-10-17T01:21:49",
+        "elapsed_seconds": 22397,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/direct_hpc_tunnels_20261016.json:.workers[6].job_id",
+          "configs/eval/remote_gpu_release_20261016.json:.workers[5].job_id",
+          "configs/eval/terminal_model_route_targets_20261016.json:.new_targets[0].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 12.442777777777778,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "726645",
+        "job_name": "apex-terminal-b-seq20",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-16T19:18:48",
+        "end": "2026-10-16T19:20:50",
+        "elapsed_seconds": 122,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/remote_gpu_release_20261016.json:.workers[6].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 0.06777777777777778,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "726647",
+        "job_name": "apex-hle-existing2k-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "FAILED",
+        "start": "2026-10-16T19:20:53",
+        "end": "2026-10-16T19:20:55",
+        "elapsed_seconds": 2,
+        "alloc_tres": "billing=12,cpu=12,gres/gpu=2,mem=180G,node=1",
+        "exit_code": "1:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/train/four_experts_v1.json:.experts[2].failed_initial_job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 0.0011111111111111111,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "726648",
+        "job_name": "apex-terminal-retry-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "None",
+        "end": "2026-10-16T19:22:05",
+        "elapsed_seconds": 0,
+        "alloc_tres": "",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/train/four_experts_v1.json:.experts[1].superseded_pending_job_id"
+        ],
+        "gpus": 0,
+        "gpu_hours": 0.0,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "726649",
+        "job_name": "apex-mixed-existing2k-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "None",
+        "end": "2026-10-16T19:22:05",
+        "elapsed_seconds": 0,
+        "alloc_tres": "",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/train/four_experts_v1.json:.mixed_control.superseded_pending_job_id"
+        ],
+        "gpus": 0,
+        "gpu_hours": 0.0,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "726663",
+        "job_name": "apex-hle-seq50",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-16T19:24:18",
+        "end": "2026-10-16T20:47:34",
+        "elapsed_seconds": 4996,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/deployment_hle_asi_seq50_v5.json:.hle.service_job_id",
+          "configs/eval/direct_hpc_tunnels_20261016.json:.workers[7].job_id",
+          "configs/eval/hle_seq50_route_20261016.json:.job_id",
+          "configs/eval/remote_gpu_release_20261016.json:.workers[7].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 2.7755555555555556,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "726664",
+        "job_name": "apex-hle-existing2k-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "COMPLETED",
+        "start": "2026-10-16T19:53:32",
+        "end": "2026-10-16T21:28:29",
+        "elapsed_seconds": 5697,
+        "alloc_tres": "billing=12,cpu=12,gres/gpu=2,mem=180G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/train/four_experts_v1.json:.experts[2].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 3.165,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "726665",
+        "job_name": "apex-terminal-retry-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "COMPLETED",
+        "start": "2026-10-16T21:24:28",
+        "end": "2026-10-16T23:26:42",
+        "elapsed_seconds": 7334,
+        "alloc_tres": "billing=24,cpu=24,gres/gpu=4,mem=256G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/train/four_experts_v1.json:.experts[1].job_id"
+        ],
+        "gpus": 4,
+        "gpu_hours": 8.148888888888889,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "726666",
+        "job_name": "apex-mixed-existing2k-sft",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "COMPLETED",
+        "start": "2026-10-16T19:55:24",
+        "end": "2026-10-17T02:22:08",
+        "elapsed_seconds": 23204,
+        "alloc_tres": "billing=24,cpu=24,gres/gpu=4,mem=256G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/train/four_experts_v1.json:.mixed_control.job_id"
+        ],
+        "gpus": 4,
+        "gpu_hours": 25.782222222222224,
+        "active_at_capture": false,
+        "category": "training"
+      },
+      {
+        "job_id": "727113",
+        "job_name": "apex-validation-lora",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-16T22:05:32",
+        "end": "2026-10-17T03:47:02",
+        "elapsed_seconds": 20490,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/swe249_hard51_20261016.json:.service_job",
+          "configs/eval/validation_direct_hpc_tunnel_20261016.json:.workers[0].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 11.383333333333333,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "727640",
+        "job_name": "apex-terminal250",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-17T02:01:37",
+        "end": "2026-10-17T04:25:56",
+        "elapsed_seconds": 8659,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/terminal250_full445_20261017.json:.service_job",
+          "configs/eval/terminal250_hpc_tunnel_20261017.json:.workers[0].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 4.810555555555555,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "727643",
+        "job_name": "apex-direct-experts",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-17T02:04:31",
+        "end": "2026-10-17T04:15:15",
+        "elapsed_seconds": 7844,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 2,
+        "gpu_hours": 4.357777777777778,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "727654",
+        "job_name": "apex-merged-direct",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-17T02:08:48",
+        "end": "2026-10-17T03:53:05",
+        "elapsed_seconds": 6257,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/merged_direct_formal_20261017.json:.service_job_id",
+          "configs/eval/merged_direct_tunnel_20261017.json:.workers[0].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 3.476111111111111,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "727660",
+        "job_name": "apex-avg64-execution",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-17T02:09:48",
+        "end": "2026-10-17T04:25:56",
+        "elapsed_seconds": 8168,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/avg64_execution_hpc_tunnel_20261017.json:.workers[0].job_id",
+          "configs/eval/avg64_swe_hard51_20261017.json:.service_job",
+          "configs/eval/avg64_terminal_full445_20261017.json:.service_job"
+        ],
+        "gpus": 2,
+        "gpu_hours": 4.5377777777777775,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "727689",
+        "job_name": "apex-sft-loss249-only",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "COMPLETED",
+        "start": "2026-10-17T02:27:22",
+        "end": "2026-10-17T02:56:31",
+        "elapsed_seconds": 1749,
+        "alloc_tres": "billing=24,cpu=24,gres/gpu=4,mem=256G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "analysis/source_snapshots/sft_loss_only_execution_20261017.json; scripts/evaluate_sft_loss_only.py; merge owner confirmed 4-GPU loss-only job"
+        ],
+        "gpus": 4,
+        "gpu_hours": 1.9433333333333334,
+        "active_at_capture": false,
+        "category": "loss_only_validation"
+      },
+      {
+        "job_id": "727821",
+        "job_name": "apex-hle250-direct",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-17T03:38:26",
+        "end": "2026-10-17T04:01:40",
+        "elapsed_seconds": 1394,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 2,
+        "gpu_hours": 0.7744444444444445,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "727822",
+        "job_name": "apex-avg64-hle",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-17T03:38:26",
+        "end": "2026-10-17T04:02:02",
+        "elapsed_seconds": 1416,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 2,
+        "gpu_hours": 0.7866666666666666,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "727831",
+        "job_name": "apex-hle-controls",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "emergency_acd",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-17T03:40:21",
+        "end": "2026-10-17T04:02:02",
+        "elapsed_seconds": 1301,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 2,
+        "gpu_hours": 0.7227777777777777,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "727855",
+        "job_name": "apex-hle-normal-expert",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "acd_u",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-17T04:02:03",
+        "end": "2026-10-17T04:26:42",
+        "elapsed_seconds": 1479,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/expert_direct_formal_20261017.json:.hle.service_job_id",
+          "configs/eval/hle_dedicated_formal_20261017.json:.expert.service_job_id",
+          "configs/eval/hle_dedicated_tunnels_20261017.json:.workers[0].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 0.8216666666666667,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "727856",
+        "job_name": "apex-hle-normal-merged",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "acd_u",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-17T04:02:33",
+        "end": "2026-10-17T10:54:16",
+        "elapsed_seconds": 24703,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/hle_dedicated_formal_20261017.json:.merged.service_job_id",
+          "configs/eval/hle_dedicated_tunnels_20261017.json:.workers[1].job_id",
+          "configs/eval/merged_direct_formal_20261017.json:.hle.service_job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 13.723888888888888,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "727857",
+        "job_name": "apex-hle-normal-controls",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "acd_u",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-17T04:02:33",
+        "end": "2026-10-17T07:19:59",
+        "elapsed_seconds": 11846,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/hle_controls_tunnel_20261017.json:.workers[0].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 6.581111111111111,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "727879",
+        "job_name": "apex-asi-acdu-migrate-20261017",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "acd_u",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-17T04:15:55",
+        "end": "2026-10-17T05:45:26",
+        "elapsed_seconds": 5371,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "configs/eval/expert_direct_formal_20261017.json:.service_job_id",
+          "configs/eval/expert_direct_tunnel_20261017.json:.workers[0].job_id"
+        ],
+        "gpus": 2,
+        "gpu_hours": 2.983888888888889,
+        "active_at_capture": false,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "727912",
+        "job_name": "apex-term-acdu-20261017",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "acd_u",
+        "state": "RUNNING",
+        "start": "2026-10-17T04:26:28",
+        "end": "Unknown",
+        "elapsed_seconds": 24298,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 2,
+        "gpu_hours": 13.498888888888889,
+        "active_at_capture": true,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "727913",
+        "job_name": "apex-avgexec-acdu-20261017",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "acd_u",
+        "state": "RUNNING",
+        "start": "2026-10-17T04:26:28",
+        "end": "Unknown",
+        "elapsed_seconds": 24298,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome"
+        ],
+        "gpus": 2,
+        "gpu_hours": 13.498888888888889,
+        "active_at_capture": true,
+        "category": "inference_service"
+      },
+      {
+        "job_id": "727948",
+        "job_name": "apex-ties-pilot",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "acd_u",
+        "state": "FAILED",
+        "start": "2026-10-17T05:16:34",
+        "end": "2026-10-17T05:17:03",
+        "elapsed_seconds": 29,
+        "alloc_tres": "billing=8,cpu=8,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "1:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "artifacts/merges/ties-pilot-submit-20261017/receipt.json; one-GPU fixed six-shape TIES pilot"
+        ],
+        "gpus": 1,
+        "gpu_hours": 0.008055555555555555,
+        "active_at_capture": false,
+        "category": "merge"
+      },
+      {
+        "job_id": "727967",
+        "job_name": "apex-ties-pilot2",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "acd_u",
+        "state": "COMPLETED",
+        "start": "2026-10-17T05:20:04",
+        "end": "2026-10-17T05:20:14",
+        "elapsed_seconds": 10,
+        "alloc_tres": "billing=8,cpu=8,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "analysis/source_snapshots/ties_pilot_727967_20261017.json; successful six-shape pilot,10 seconds"
+        ],
+        "gpus": 1,
+        "gpu_hours": 0.002777777777777778,
+        "active_at_capture": false,
+        "category": "merge"
+      },
+      {
+        "job_id": "728007",
+        "job_name": "apex-ties-dense",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "acd_u",
+        "state": "COMPLETED",
+        "start": "2026-10-17T05:28:34",
+        "end": "2026-10-17T05:30:43",
+        "elapsed_seconds": 129,
+        "alloc_tres": "billing=8,cpu=8,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "analysis/source_snapshots/ties_dense_export_728007_20261017.json; full HF TIES-Dense export,129 seconds"
+        ],
+        "gpus": 1,
+        "gpu_hours": 0.035833333333333335,
+        "active_at_capture": false,
+        "category": "merge"
+      },
+      {
+        "job_id": "728016",
+        "job_name": "apex-hle-ties-dense-20261017",
+        "user": "qinlucao",
+        "account": "qinlucao",
+        "partition": "acd_u",
+        "state": "CANCELLED by 14348",
+        "start": "2026-10-17T05:33:34",
+        "end": "2026-10-17T06:10:55",
+        "elapsed_seconds": 2241,
+        "alloc_tres": "billing=16,cpu=16,gres/gpu=2,mem=128G,node=1",
+        "exit_code": "0:0",
+        "workdir": "/data/user/qinlucao/projects/apex-takehome",
+        "ownership_evidence": [
+          "sacct WorkDir=/data/user/qinlucao/projects/apex-takehome",
+          "analysis/source_snapshots/ties_dense_hle_execution_20261017.json; ordinaryTP2 full-model HLE-only method comparison"
+        ],
+        "gpus": 2,
+        "gpu_hours": 1.245,
+        "active_at_capture": false,
+        "category": "inference_service"
+      }
+    ],
+    "excluded": [
+      {
+        "job_id": "721216",
+        "reason": "different or missing project WorkDir",
+        "explicit_config_reference": []
+      },
+      {
+        "job_id": "721236",
+        "reason": "different or missing project WorkDir",
+        "explicit_config_reference": []
+      },
+      {
+        "job_id": "721245",
+        "reason": "different or missing project WorkDir",
+        "explicit_config_reference": []
+      },
+      {
+        "job_id": "721246",
+        "reason": "different or missing project WorkDir",
+        "explicit_config_reference": []
+      },
+      {
+        "job_id": "721390",
+        "reason": "different or missing project WorkDir",
+        "explicit_config_reference": []
+      },
+      {
+        "job_id": "722089",
+        "reason": "different or missing project WorkDir",
+        "explicit_config_reference": []
+      },
+      {
+        "job_id": "722434",
+        "reason": "different or missing project WorkDir",
+        "explicit_config_reference": []
+      },
+      {
+        "job_id": "726100",
+        "reason": "different or missing project WorkDir",
+        "explicit_config_reference": []
+      },
+      {
+        "job_id": "727162",
+        "reason": "different or missing project WorkDir",
+        "explicit_config_reference": []
+      }
+    ],
+    "known_jobs_not_returned": [],
+    "squeue_project_rows": [
+      "727912|apex-term-acdu-20261017|RUNNING|6:44:58|gres/gpu:2|/data/user/qinlucao/projects/apex-takehome",
+      "727913|apex-avgexec-acdu-20261017|RUNNING|6:44:58|gres/gpu:2|/data/user/qinlucao/projects/apex-takehome"
+    ]
+  },
+  "totals": {
+    "ended_gpu_hours": 241.29388888888883,
+    "active_provisional_gpu_hours": 26.997777777777777,
+    "active_gpu_count": 4,
+    "unknown_gpu_hours_jobs": [],
+    "five_final_trainer_run_gpu_hours_subset": 46.54142504726834,
+    "by_state": {
+      "CANCELLED by 14348": {
+        "jobs": 34,
+        "gpu_hours": 122.77
+      },
+      "COMPLETED": {
+        "jobs": 12,
+        "gpu_hours": 50.18583333333334
+      },
+      "FAILED": {
+        "jobs": 18,
+        "gpu_hours": 4.325277777777778
+      },
+      "RUNNING": {
+        "jobs": 2,
+        "gpu_hours": 26.997777777777777
+      },
+      "TIMEOUT": {
+        "jobs": 4,
+        "gpu_hours": 64.01277777777777
+      }
+    },
+    "by_category": {
+      "cpu_environment": {
+        "jobs": 1,
+        "gpu_hours": 0
+      },
+      "inference_service": {
+        "jobs": 28,
+        "gpu_hours": 213.77333333333334
+      },
+      "loss_only_validation": {
+        "jobs": 1,
+        "gpu_hours": 1.9433333333333334
+      },
+      "merge": {
+        "jobs": 3,
+        "gpu_hours": 0.04666666666666667
+      },
+      "smoke": {
+        "jobs": 12,
+        "gpu_hours": 1.9794444444444443
+      },
+      "training": {
+        "jobs": 25,
+        "gpu_hours": 50.54888888888889
+      }
+    }
+  },
+  "training": [
+    {
+      "name": "swe",
+      "job_id": 726335,
+      "source": "artifacts/runs/swe2k-sft-r16-726335",
+      "world_size": 4,
+      "wall_seconds": 7286.073950213962,
+      "native_metrics": {
+        "train_runtime": 6939.1646,
+        "train_samples_per_second": 0.287,
+        "train_steps_per_second": 0.036,
+        "total_flos": 723216107700224.0,
+        "train_loss": 0.35189275,
+        "epoch": 1.0,
+        "memory(GiB)": 61.42,
+        "train_speed(s/it)": 27.868107
+      },
+      "run_gpu_hours": 8.095637722459958
+    },
+    {
+      "name": "terminal",
+      "job_id": 726665,
+      "source": "artifacts/runs/terminal-retry-sft-r16-726665",
+      "world_size": 4,
+      "wall_seconds": 7178.446272909641,
+      "native_metrics": {
+        "train_runtime": 6845.7417,
+        "train_samples_per_second": 0.292,
+        "train_steps_per_second": 0.037,
+        "total_flos": 789372698492928.0,
+        "train_loss": 0.3091923,
+        "epoch": 1.0,
+        "memory(GiB)": 55.35,
+        "train_speed(s/it)": 27.382944
+      },
+      "run_gpu_hours": 7.976051414344046
+    },
+    {
+      "name": "hle",
+      "job_id": 726664,
+      "source": "artifacts/runs/hle-existing2k-sft-r16-726664",
+      "world_size": 2,
+      "wall_seconds": 5571.416432565078,
+      "native_metrics": {
+        "train_runtime": 5400.2912,
+        "train_samples_per_second": 0.37,
+        "train_steps_per_second": 0.046,
+        "total_flos": 12384422934528.0,
+        "train_loss": 0.50811242,
+        "epoch": 1.0,
+        "memory(GiB)": 42.38,
+        "train_speed(s/it)": 21.601137
+      },
+      "run_gpu_hours": 3.0952313514250434
+    },
+    {
+      "name": "asi",
+      "job_id": 726336,
+      "source": "artifacts/runs/asi-expanded-sft-r16-726336",
+      "world_size": 2,
+      "wall_seconds": 2945.78616404254,
+      "native_metrics": {
+        "train_runtime": 2803.1355,
+        "train_samples_per_second": 0.383,
+        "train_steps_per_second": 0.048,
+        "total_flos": 6264515051520.0,
+        "train_loss": 0.44704132,
+        "epoch": 1.0,
+        "memory(GiB)": 43.26,
+        "train_speed(s/it)": 20.918875
+      },
+      "run_gpu_hours": 1.6365478689125221
+    },
+    {
+      "name": "mixed",
+      "job_id": 726666,
+      "source": "artifacts/runs/mixed-existing2k-sft-r16-726666",
+      "world_size": 4,
+      "wall_seconds": 23164.161021114094,
+      "native_metrics": {
+        "train_runtime": 22623.3418,
+        "train_samples_per_second": 0.312,
+        "train_steps_per_second": 0.039,
+        "total_flos": 1551120336942080.0,
+        "train_loss": 0.39760734,
+        "epoch": 1.0,
+        "memory(GiB)": 55.34,
+        "train_speed(s/it)": 25.620991
+      },
+      "run_gpu_hours": 25.737956690126772
+    }
+  ],
+  "api": [
+    {
+      "name": "HLE teacher data",
+      "path": "artifacts/data/candidates/night_hle_20261016/teacher_api_ledger.jsonl",
+      "kind": "usd_rows",
+      "exists": true,
+      "bytes": 379373,
+      "mtime_utc": "2026-10-15T19:51:56.902593+00:00",
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 362,
+      "calls": 362,
+      "completed_calls": 362,
+      "currency": "USD",
+      "price_basis": "recorded per-row conservative rates",
+      "status_counts": {
+        "gold_mismatch": 65,
+        "accepted": 296,
+        "request_or_protocol_error": 1
+      },
+      "usage": {
+        "prompt_tokens": 96772,
+        "completion_tokens": 47785,
+        "total_tokens": 144557
+      },
+      "observed_usage_estimate": 0.3169676400000002,
+      "unresolved_or_failure_reservation": 0.0,
+      "accounted_total": 0.3169676400000002,
+      "missing_usage_calls": 0,
+      "calls_with_usage": 362,
+      "recorded_pricing": [
+        {
+          "budget_conversion_safety_factor": 8.0,
+          "peak_usd_per_million": {
+            "input_cache_miss": 1.32,
+            "output": 3.96
+          }
+        }
+      ]
+    },
+    {
+      "name": "SciCode teacher data",
+      "path": "artifacts/data/candidates/night_scicode_20261016/scicode_api_ledger.jsonl",
+      "kind": "usd_rows",
+      "exists": true,
+      "bytes": 2056,
+      "mtime_utc": "2026-10-15T20:06:10.328584+00:00",
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 2,
+      "calls": 2,
+      "completed_calls": 2,
+      "currency": "USD",
+      "price_basis": "recorded per-row conservative rates",
+      "status_counts": {
+        "generated_ungraded": 2
+      },
+      "usage": {
+        "prompt_tokens": 1569,
+        "completion_tokens": 885,
+        "total_tokens": 2454
+      },
+      "observed_usage_estimate": 0.0055756799999999995,
+      "unresolved_or_failure_reservation": 0.0,
+      "accounted_total": 0.0055756799999999995,
+      "missing_usage_calls": 0,
+      "calls_with_usage": 2,
+      "recorded_pricing": [
+        {
+          "budget_factor": 8,
+          "peak_usd_per_million": {
+            "input_cache_miss": 1.32,
+            "output": 3.96
+          }
+        }
+      ]
+    },
+    {
+      "name": "Science quality review",
+      "path": "artifacts/data/candidates/night_hle_20261016/science_quality_review.jsonl",
+      "kind": "usd_rows",
+      "exists": true,
+      "bytes": 22698,
+      "mtime_utc": "2026-10-15T19:46:20.236719+00:00",
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 12,
+      "calls": 12,
+      "completed_calls": 12,
+      "currency": "USD",
+      "price_basis": "recorded per-row conservative rates",
+      "status_counts": {
+        "unspecified": 12
+      },
+      "usage": {
+        "prompt_tokens": 8187,
+        "completion_tokens": 2773,
+        "total_tokens": 10960
+      },
+      "observed_usage_estimate": 0.005783699999999999,
+      "unresolved_or_failure_reservation": 0.0,
+      "accounted_total": 0.005783699999999999,
+      "missing_usage_calls": 0,
+      "calls_with_usage": 12,
+      "recorded_pricing": [
+        {
+          "pricing": {
+            "cny_budget_safety_factor": 8,
+            "input_usd_per_million_peak_uncached": 0.3,
+            "output_usd_per_million_peak": 1.2
+          }
+        }
+      ]
+    },
+    {
+      "name": "Terminal data classification",
+      "path": "artifacts/data/candidates/new_terminal_horizon_20261016/annotations/ledger.jsonl",
+      "kind": "terminal_rows",
+      "exists": true,
+      "bytes": 146162,
+      "mtime_utc": "2026-10-15T19:35:48.851920+00:00",
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 64,
+      "calls": 64,
+      "completed_calls": 64,
+      "currency": "CNY",
+      "price_basis": "recorded cost_upper_cny; budget coefficient 8",
+      "status_counts": {
+        "unspecified": 64
+      },
+      "usage": {
+        "prompt_tokens": 1510022,
+        "completion_tokens": 71233,
+        "total_tokens": 1581255
+      },
+      "observed_usage_estimate": 4.269956544,
+      "unresolved_or_failure_reservation": 0.0,
+      "accounted_total": 4.269956544,
+      "missing_usage_calls": 0,
+      "calls_with_usage": 64,
+      "recorded_pricing": [
+        {
+          "price_note": "Peak USD 0.3/miss, 0.006/hit, 1.2/output per M; multiplied by conservative 8 CNY/USD. Not an invoice."
+        }
+      ]
+    },
+    {
+      "name": "Base formal HLE Judge",
+      "path": "artifacts/runs/hle_judge_v2_20261016/budget.json",
+      "kind": "budget",
+      "exists": true,
+      "bytes": 457727,
+      "mtime_utc": "2026-10-16T12:46:53.693549+00:00",
+      "prices_cny_per_million": {
+        "input": 0.75,
+        "output": 2.25
+      },
+      "original_budget_sha256": null,
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 1056,
+      "calls": 1056,
+      "completed_calls": 1054,
+      "currency": "CNY",
+      "price_basis": "recorded charged_cny; ledger rates when present, recovery original-budget reference otherwise",
+      "status_counts": {
+        "completed": 1054,
+        "failed_full_reservation": 2
+      },
+      "usage": {
+        "prompt_tokens": 1868095,
+        "completion_tokens": 84552,
+        "total_tokens": 1952647
+      },
+      "observed_usage_estimate": 1.5707857500000002,
+      "unresolved_or_failure_reservation": 0.0290175,
+      "accounted_total": 1.5998032500000001,
+      "missing_usage_calls": 0,
+      "calls_with_usage": 1056,
+      "recorded_pricing": []
+    },
+    {
+      "name": "Base HLE single Judge recovery",
+      "path": "artifacts/runs/hle_judge_v2_20261016/single-judge-recovery-20261017/budget.json",
+      "kind": "single_budget",
+      "exists": true,
+      "bytes": 621,
+      "mtime_utc": "2026-10-16T18:56:55.922922+00:00",
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 1,
+      "calls": 1,
+      "completed_calls": 1,
+      "currency": "CNY",
+      "price_basis": "recorded standalone recovery charged_cny",
+      "status_counts": {
+        "completed": 1
+      },
+      "usage": {
+        "prompt_tokens": 1449,
+        "completion_tokens": 62,
+        "total_tokens": 1511
+      },
+      "observed_usage_estimate": 0.00122625,
+      "unresolved_or_failure_reservation": 0.0,
+      "accounted_total": 0.00122625,
+      "missing_usage_calls": 0,
+      "calls_with_usage": 1,
+      "recorded_pricing": []
+    },
+    {
+      "name": "Cancelled independent HLE validation Judge",
+      "path": "artifacts/eval/validation_direct_20261016/hle_scores/budget.json",
+      "kind": "budget",
+      "exists": true,
+      "bytes": 121916,
+      "mtime_utc": "2026-10-16T15:27:22.061517+00:00",
+      "prices_cny_per_million": {
+        "input": 0.75,
+        "output": 2.25
+      },
+      "original_budget_sha256": null,
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 252,
+      "calls": 252,
+      "completed_calls": 252,
+      "currency": "CNY",
+      "price_basis": "recorded charged_cny; ledger rates when present, recovery original-budget reference otherwise",
+      "status_counts": {
+        "completed": 252
+      },
+      "usage": {
+        "prompt_tokens": 213182,
+        "completion_tokens": 16454,
+        "total_tokens": 229636
+      },
+      "observed_usage_estimate": 0.19690799999999994,
+      "unresolved_or_failure_reservation": 0.0,
+      "accounted_total": 0.19690799999999994,
+      "missing_usage_calls": 0,
+      "calls_with_usage": 252,
+      "recorded_pricing": []
+    },
+    {
+      "name": "Cancelled independent SAB validation Judge",
+      "path": "artifacts/eval/validation_direct_20261016/sab_scores/judge_calls.jsonl",
+      "kind": "journal",
+      "exists": true,
+      "bytes": 1341,
+      "mtime_utc": "2026-10-16T17:21:57.799843+00:00",
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 6,
+      "calls": 3,
+      "completed_calls": 3,
+      "cache_reuses": 0,
+      "currency": "CNY",
+      "price_basis": "USD 0.3/M input + 1.2/M output, budget coefficient 8; no cache discount",
+      "status_counts": {
+        "started": 3,
+        "completed": 3
+      },
+      "usage": {
+        "prompt_tokens": 4347,
+        "completion_tokens": 990,
+        "total_tokens": 5337
+      },
+      "observed_usage_estimate": 0.0199368,
+      "unresolved_or_failure_reservation": 0.0,
+      "accounted_total": 0.0199368,
+      "missing_usage_calls": 0,
+      "calls_with_usage": 3,
+      "recorded_pricing": []
+    },
+    {
+      "name": "ASI Judge calibration",
+      "path": "artifacts/preflight/asi-real-calibration-20261016/judge_calls.jsonl",
+      "kind": "journal",
+      "exists": true,
+      "bytes": 15155,
+      "mtime_utc": "2026-10-16T05:35:58.010030+00:00",
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 29,
+      "calls": 14,
+      "completed_calls": 14,
+      "cache_reuses": 1,
+      "currency": "CNY",
+      "price_basis": "USD 0.3/M input + 1.2/M output, budget coefficient 8; no cache discount",
+      "status_counts": {
+        "started": 14,
+        "completed": 14,
+        "cache_reused": 1
+      },
+      "usage": {
+        "prompt_tokens": 9031,
+        "completion_tokens": 854,
+        "total_tokens": 9885
+      },
+      "observed_usage_estimate": 0.029872799999999994,
+      "unresolved_or_failure_reservation": 0.0,
+      "accounted_total": 0.029872799999999994,
+      "missing_usage_calls": 0,
+      "calls_with_usage": 14,
+      "recorded_pricing": []
+    },
+    {
+      "name": "Base formal ASI Judge",
+      "path": "artifacts/asi/scoring_v2_formal_params_20261016/judge_calls.jsonl",
+      "kind": "journal",
+      "exists": false,
+      "invoice_amount": null,
+      "invoice_status": "not provided"
+    },
+    {
+      "name": "HLE expert formal Judge",
+      "path": "artifacts/eval/hle250_hle2500_20261017/scoring/budget.json",
+      "kind": "budget",
+      "exists": true,
+      "bytes": 1068430,
+      "mtime_utc": "2026-10-16T20:54:12.109972+00:00",
+      "prices_cny_per_million": {
+        "input": 0.75,
+        "output": 2.25
+      },
+      "original_budget_sha256": null,
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 2473,
+      "calls": 2473,
+      "completed_calls": 2468,
+      "currency": "CNY",
+      "price_basis": "recorded charged_cny; ledger rates when present, recovery original-budget reference otherwise",
+      "status_counts": {
+        "completed": 2468,
+        "failed_full_reservation": 5
+      },
+      "usage": {
+        "prompt_tokens": 1993066,
+        "completion_tokens": 193118,
+        "total_tokens": 2186184
+      },
+      "observed_usage_estimate": 1.8903899999999974,
+      "unresolved_or_failure_reservation": 0.060997499999999996,
+      "accounted_total": 1.9513874999999974,
+      "missing_usage_calls": 1,
+      "calls_with_usage": 2472,
+      "recorded_pricing": []
+    },
+    {
+      "name": "HLE expert compact Judge recovery",
+      "path": "artifacts/eval/hle250_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+      "kind": "budget",
+      "exists": true,
+      "bytes": 1039,
+      "mtime_utc": "2026-10-16T21:16:37.924054+00:00",
+      "prices_cny_per_million": null,
+      "original_budget_sha256": "5de92ac884734dabb72ec1ae54a7a3f4c090fbb19c70004d8f3eb40706de849d",
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 2,
+      "calls": 2,
+      "completed_calls": 2,
+      "currency": "CNY",
+      "price_basis": "recorded charged_cny; ledger rates when present, recovery original-budget reference otherwise",
+      "status_counts": {
+        "completed": 2
+      },
+      "usage": {
+        "prompt_tokens": 1478,
+        "completion_tokens": 122,
+        "total_tokens": 1600
+      },
+      "observed_usage_estimate": 0.0013830000000000001,
+      "unresolved_or_failure_reservation": 0.0,
+      "accounted_total": 0.0013830000000000001,
+      "missing_usage_calls": 0,
+      "calls_with_usage": 2,
+      "recorded_pricing": []
+    },
+    {
+      "name": "AVG64 HLE formal Judge",
+      "path": "artifacts/eval/avg64_hle2500_20261017/scoring/budget.json",
+      "kind": "budget",
+      "exists": true,
+      "bytes": 565470,
+      "mtime_utc": "2026-10-16T22:38:23.826441+00:00",
+      "prices_cny_per_million": {
+        "input": 0.75,
+        "output": 2.25
+      },
+      "original_budget_sha256": null,
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 1307,
+      "calls": 1307,
+      "completed_calls": 1302,
+      "currency": "CNY",
+      "price_basis": "recorded charged_cny; ledger rates when present, recovery original-budget reference otherwise",
+      "status_counts": {
+        "completed": 1302,
+        "failed_full_reservation": 5
+      },
+      "usage": {
+        "prompt_tokens": 1531156,
+        "completion_tokens": 110288,
+        "total_tokens": 1641444
+      },
+      "observed_usage_estimate": 1.3541355,
+      "unresolved_or_failure_reservation": 0.06941775,
+      "accounted_total": 1.4235532499999999,
+      "missing_usage_calls": 1,
+      "calls_with_usage": 1306,
+      "recorded_pricing": []
+    },
+    {
+      "name": "Mixed HLE task control Judge",
+      "path": "artifacts/eval/mixed883_hle2500_20261017/scoring/budget.json",
+      "kind": "budget",
+      "exists": true,
+      "bytes": 1065784,
+      "mtime_utc": "2026-10-16T20:56:37.331397+00:00",
+      "prices_cny_per_million": {
+        "input": 0.75,
+        "output": 2.25
+      },
+      "original_budget_sha256": null,
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 2467,
+      "calls": 2467,
+      "completed_calls": 2453,
+      "currency": "CNY",
+      "price_basis": "recorded charged_cny; ledger rates when present, recovery original-budget reference otherwise",
+      "status_counts": {
+        "completed": 2453,
+        "failed_full_reservation": 14
+      },
+      "usage": {
+        "prompt_tokens": 1997366,
+        "completion_tokens": 224511,
+        "total_tokens": 2221877
+      },
+      "observed_usage_estimate": 1.8822037499999995,
+      "unresolved_or_failure_reservation": 0.19053599999999998,
+      "accounted_total": 2.0727397499999993,
+      "missing_usage_calls": 2,
+      "calls_with_usage": 2465,
+      "recorded_pricing": []
+    },
+    {
+      "name": "Mixed HLE compact Judge recovery",
+      "path": "artifacts/eval/mixed883_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+      "kind": "budget",
+      "exists": true,
+      "bytes": 2801,
+      "mtime_utc": "2026-10-16T21:16:51.143623+00:00",
+      "prices_cny_per_million": null,
+      "original_budget_sha256": "cca288dc54fee37be5e5f7a862057262bdc4761b2ea938d33ef0ecd41a89644a",
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 6,
+      "calls": 6,
+      "completed_calls": 6,
+      "currency": "CNY",
+      "price_basis": "recorded charged_cny; ledger rates when present, recovery original-budget reference otherwise",
+      "status_counts": {
+        "completed": 6
+      },
+      "usage": {
+        "prompt_tokens": 7231,
+        "completion_tokens": 320,
+        "total_tokens": 7551
+      },
+      "observed_usage_estimate": 0.006143249999999999,
+      "unresolved_or_failure_reservation": 0.0,
+      "accounted_total": 0.006143249999999999,
+      "missing_usage_calls": 0,
+      "calls_with_usage": 6,
+      "recorded_pricing": []
+    },
+    {
+      "name": "AVG16 HLE compression control Judge",
+      "path": "artifacts/eval/avg16_hle2500_20261017/scoring/budget.json",
+      "kind": "budget",
+      "exists": true,
+      "bytes": 518718,
+      "mtime_utc": "2026-10-16T23:18:30.598516+00:00",
+      "prices_cny_per_million": {
+        "input": 0.75,
+        "output": 2.25
+      },
+      "original_budget_sha256": null,
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 1199,
+      "calls": 1199,
+      "completed_calls": 1197,
+      "currency": "CNY",
+      "price_basis": "recorded charged_cny; ledger rates when present, recovery original-budget reference otherwise",
+      "status_counts": {
+        "completed": 1197,
+        "failed_full_reservation": 2
+      },
+      "usage": {
+        "prompt_tokens": 1380439,
+        "completion_tokens": 94841,
+        "total_tokens": 1475280
+      },
+      "observed_usage_estimate": 1.2294975000000015,
+      "unresolved_or_failure_reservation": 0.02373,
+      "accounted_total": 1.2532275000000015,
+      "missing_usage_calls": 0,
+      "calls_with_usage": 1199,
+      "recorded_pricing": []
+    },
+    {
+      "name": "TIES-Dense HLE method Judge",
+      "path": "artifacts/eval/ties_dense_hle2500_20261017/scoring/budget.json",
+      "kind": "budget",
+      "exists": true,
+      "bytes": 1054127,
+      "mtime_utc": "2026-10-16T22:46:16.846169+00:00",
+      "prices_cny_per_million": {
+        "input": 0.75,
+        "output": 2.25
+      },
+      "original_budget_sha256": null,
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 2439,
+      "calls": 2439,
+      "completed_calls": 2425,
+      "currency": "CNY",
+      "price_basis": "recorded charged_cny; ledger rates when present, recovery original-budget reference otherwise",
+      "status_counts": {
+        "completed": 2425,
+        "failed_full_reservation": 14
+      },
+      "usage": {
+        "prompt_tokens": 2139664,
+        "completion_tokens": 221719,
+        "total_tokens": 2361383
+      },
+      "observed_usage_estimate": 1.9839322500000003,
+      "unresolved_or_failure_reservation": 0.17276100000000005,
+      "accounted_total": 2.1566932500000005,
+      "missing_usage_calls": 0,
+      "calls_with_usage": 2439,
+      "recorded_pricing": []
+    },
+    {
+      "name": "ASI expert formal Judge",
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/judge_calls.jsonl",
+      "kind": "journal",
+      "exists": true,
+      "bytes": 19273,
+      "mtime_utc": "2026-10-16T23:20:32.082228+00:00",
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 39,
+      "calls": 15,
+      "completed_calls": 15,
+      "cache_reuses": 9,
+      "currency": "CNY",
+      "price_basis": "USD 0.3/M input + 1.2/M output, budget coefficient 8; no cache discount",
+      "status_counts": {
+        "started": 15,
+        "completed": 15,
+        "cache_reused": 9
+      },
+      "usage": {
+        "prompt_tokens": 13482,
+        "completion_tokens": 591,
+        "total_tokens": 14073
+      },
+      "observed_usage_estimate": 0.03803039999999999,
+      "unresolved_or_failure_reservation": 0.0,
+      "accounted_total": 0.03803039999999999,
+      "missing_usage_calls": 0,
+      "calls_with_usage": 15,
+      "recorded_pricing": []
+    },
+    {
+      "name": "AVG64 ASI formal Judge",
+      "path": "artifacts/eval/avg64_asi240_20261017/scoring/judge_calls.jsonl",
+      "kind": "journal",
+      "exists": false,
+      "invoice_amount": null,
+      "invoice_status": "not provided"
+    },
+    {
+      "name": "AVG64 HLE compact Judge recovery",
+      "path": "artifacts/eval/avg64_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+      "kind": "budget",
+      "exists": true,
+      "bytes": 1045,
+      "mtime_utc": "2026-10-16T23:11:54.167289+00:00",
+      "prices_cny_per_million": null,
+      "original_budget_sha256": "4574f5ae14c4882bfd8d32f9d3ae54b2bf28c2bbd341056939a15bbb67a53f85",
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 2,
+      "calls": 2,
+      "completed_calls": 2,
+      "currency": "CNY",
+      "price_basis": "recorded charged_cny; ledger rates when present, recovery original-budget reference otherwise",
+      "status_counts": {
+        "completed": 2
+      },
+      "usage": {
+        "prompt_tokens": 3781,
+        "completion_tokens": 77,
+        "total_tokens": 3858
+      },
+      "observed_usage_estimate": 0.003009,
+      "unresolved_or_failure_reservation": 0.0,
+      "accounted_total": 0.003009,
+      "missing_usage_calls": 0,
+      "calls_with_usage": 2,
+      "recorded_pricing": []
+    },
+    {
+      "name": "TIES-Dense HLE compact Judge recovery",
+      "path": "artifacts/eval/ties_dense_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+      "kind": "budget",
+      "exists": true,
+      "bytes": 2799,
+      "mtime_utc": "2026-10-16T23:08:15.318285+00:00",
+      "prices_cny_per_million": null,
+      "original_budget_sha256": "ca16362aec84b5b3462a7578013484b052129f9577f3568eaae23a4ac60e4006",
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 6,
+      "calls": 6,
+      "completed_calls": 6,
+      "currency": "CNY",
+      "price_basis": "recorded charged_cny; ledger rates when present, recovery original-budget reference otherwise",
+      "status_counts": {
+        "completed": 6
+      },
+      "usage": {
+        "prompt_tokens": 5314,
+        "completion_tokens": 327,
+        "total_tokens": 5641
+      },
+      "observed_usage_estimate": 0.00472125,
+      "unresolved_or_failure_reservation": 0.0,
+      "accounted_total": 0.00472125,
+      "missing_usage_calls": 0,
+      "calls_with_usage": 6,
+      "recorded_pricing": []
+    },
+    {
+      "name": "AVG16 HLE compact Judge recovery",
+      "path": "artifacts/eval/avg16_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+      "kind": "budget",
+      "exists": true,
+      "bytes": 600,
+      "mtime_utc": "2026-10-16T23:26:02.874297+00:00",
+      "prices_cny_per_million": null,
+      "original_budget_sha256": "c3b8f9e4cea62a97baaa47409d00ab5290918c090a6c8b804f5b67bb0a30ed3d",
+      "invoice_amount": null,
+      "invoice_status": "not provided",
+      "event_rows": 1,
+      "calls": 1,
+      "completed_calls": 1,
+      "currency": "CNY",
+      "price_basis": "recorded charged_cny; ledger rates when present, recovery original-budget reference otherwise",
+      "status_counts": {
+        "completed": 1
+      },
+      "usage": {
+        "prompt_tokens": 580,
+        "completion_tokens": 48,
+        "total_tokens": 628
+      },
+      "observed_usage_estimate": 0.000543,
+      "unresolved_or_failure_reservation": 0.0,
+      "accounted_total": 0.000543,
+      "missing_usage_calls": 0,
+      "calls_with_usage": 1,
+      "recorded_pricing": []
+    }
+  ],
+  "runner_captured_at": "2026-10-17T03:11:27.366595+00:00",
+  "raw_summaries": [
+    {
+      "path": "artifacts/results/base-gap-completion-20261017/swe51_summary.json",
+      "exists": true,
+      "scalars": {
+        "as_of": "2026-10-16T19:29:32.247455+00:00",
+        "expected": 51,
+        "valid_scored": 51,
+        "unscored": 0,
+        "resolved": 10,
+        "invalid_pending": 0,
+        "awaiting_generation_or_replay": 0,
+        "complete": true,
+        "primary_score_percent": 19.607843137254903,
+        "manual_retry_task_count": 3,
+        "manual_retry_planned_task_count": 3,
+        "clean28_valid_scored": 28,
+        "retained_native23": 23,
+        "selection": "Preserve first valid frozen answer grades, including zeros; original patch replay only",
+        "historical_source": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/base_swe_v2_20261016_clean28/corrected51_summary.json",
+        "new_model_calls": 0,
+        "grade_only_replays_active": 0,
+        "audited_candidate_failures": 3,
+        "raw_native_reward_present_count": 50,
+        "complete_official_test_report_audits": 1
+      }
+    },
+    {
+      "path": "artifacts/results/base-gap-completion-20261017/terminal_strict_summary.json",
+      "exists": true,
+      "scalars": {
+        "updated_at_utc": "2026-10-16T19:19:01.754380+00:00",
+        "expected": 445,
+        "expected_trials": 445,
+        "valid_scored": 442,
+        "valid_covered": 442,
+        "active_trials": 0,
+        "pending_not_admitted": 0,
+        "infrastructure_unscored": 3,
+        "complete": false,
+        "original_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-independent-repair32-20261016/corrected445_summary.json",
+        "new_model_calls": 0,
+        "primary_mean_percent": null,
+        "mean_percent": null,
+        "sample_sd_percent_ddof1": null,
+        "selection": "Retain 436 original valid results and accept only native grades of the six frozen archived answers.",
+        "source_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-native-gaps-20261017/corrected445_summary.json",
+        "strict_native_complete": false
+      }
+    },
+    {
+      "path": "artifacts/eval/swe249_audited_hard51_20261017/summary.json",
+      "exists": true,
+      "scalars": {
+        "as_of": "2026-10-17T02:38:31.598592+00:00",
+        "state": "complete",
+        "model": "apex-val-swe249",
+        "checkpoint": "artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+        "expected": 51,
+        "valid_scored": 51,
+        "unscored": 0,
+        "resolved": 0,
+        "complete": true,
+        "primary_score_percent": 0.0,
+        "conservative_resolved_percent": 0.0,
+        "invalid_pending": 0,
+        "awaiting_generation_or_replay": 0,
+        "source_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_hard51_20261016/summary.json",
+        "source_summary_sha256": "0e03f27a3d7f05fd708c7c0d623c837cf68f8b003f6aab0047e8db720565fb80",
+        "source_as_of": "2026-10-16T19:43:49.855593+00:00",
+        "original_valid_scored": 42,
+        "audit_source": "/data/caoqinlu/projects/apex-takehome/configs/eval/swe249_audited_hard51_20261017.json",
+        "audit_manifest_sha256": "65f369f4cd38a46a7c08ee43ad825af98e5c39e6692b920bd13aa12a5eb4241f",
+        "audited_native_zero_count": 8,
+        "audited_official_test_report_count": 1,
+        "resource_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_hard51_20261016/model-consumer-finished.json",
+        "source_cpu_handoff": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/admission-opened.json",
+        "source_cpu_handoff_valid": true,
+        "source_specific_cpu_handoff": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/source-expert-consumers-finished.json",
+        "source_specific_cpu_handoff_valid": true,
+        "new_model_calls": 0,
+        "new_replays": 0,
+        "selection_policy": "8 exact approved native-zero results; all other original validity retained; no reward search; 1 explicit complete official-test report audit"
+      }
+    },
+    {
+      "path": "artifacts/eval/avg64_swe_audited_hard51_20261017/summary.json",
+      "exists": true,
+      "scalars": {
+        "as_of": "2026-10-17T02:38:31.650051+00:00",
+        "state": "audited_snapshot_incomplete",
+        "model": "apex-avg64",
+        "checkpoint": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+        "expected": 51,
+        "valid_scored": 50,
+        "unscored": 1,
+        "resolved": 4,
+        "complete": false,
+        "primary_score_percent": null,
+        "invalid_pending": 1,
+        "awaiting_generation_or_replay": 0,
+        "source_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/summary.json",
+        "source_summary_sha256": "7b9e64d4d0a8ecdbf1ff72ba179ac2113eda423ca1d9cf002d6695e9329460ed",
+        "source_as_of": "2026-10-16T22:47:28.255004+00:00",
+        "original_valid_scored": 45,
+        "original_complete": false,
+        "audit_source": "/data/caoqinlu/projects/apex-takehome/configs/eval/avg64_swe_audited_hard51_20261017.json",
+        "audit_manifest_sha256": "d093969c5828de2a4f190652924dcde381be62462ff61e5be17e6e78f45054a4",
+        "audited_native_zero_count": 5,
+        "model_consumer_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/model-consumer-finished.json",
+        "all_cpu_consumers_marker": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/all_cpu_consumers_finished.json",
+        "new_model_calls": 0,
+        "new_replays": 0,
+        "selection_policy": "Explicit exact root-approved AVG64 native-zero audits; all other rows copied unchanged; no reward search."
+      }
+    },
+    {
+      "path": "artifacts/results/base-terminal-independent-repair32-20261016/corrected445_summary.json",
+      "exists": true,
+      "scalars": {
+        "updated_at_utc": "2026-10-16T17:20:42.317544+00:00",
+        "expected": 445,
+        "expected_trials": 445,
+        "valid_scored": 436,
+        "valid_covered": 436,
+        "active_trials": 0,
+        "pending_not_admitted": 0,
+        "infrastructure_unscored": 9,
+        "complete": false,
+        "primary_mean_percent": null,
+        "mean_percent": null,
+        "sample_sd_percent_ddof1": null,
+        "selection": "Replace every frozen repair-cohort row; keep other original first-valid rows",
+        "original_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-recovery-20261016/final_summary.json"
+      }
+    },
+    {
+      "path": "artifacts/eval/base_swe_v2_20261016_clean28/corrected51_summary.json",
+      "exists": true,
+      "scalars": {
+        "as_of": "2026-10-16T17:23:15.194804+00:00",
+        "expected": 51,
+        "complete": false,
+        "clean28_valid_scored": 23,
+        "retained_native23": 23,
+        "resolved": 10,
+        "primary_score_percent": null,
+        "selection": "Replace all fixed legacy28, retain all native23, no reward selection"
+      }
+    },
+    {
+      "path": "artifacts/runs/hle_judge_v2_20261016/summary.json",
+      "exists": true,
+      "scalars": {
+        "complete": true,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 1055,
+        "native_no_answer": 1445,
+        "evaluation_invalid": 0,
+        "scored": 2500,
+        "pending": 0,
+        "correct": 99,
+        "accuracy_percent": 3.96,
+        "score": 3.96,
+        "partial_correct_over_full_denominator_percent": 3.96,
+        "judge_generation_calls": 1057,
+        "accounted_cost_cny": 1.6010295,
+        "budget_halted": false,
+        "max_cny": 10,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T18:56:55.997197+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed",
+        "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/single-judge-recovery-20261017",
+        "recovery_judge_calls": 1,
+        "original_budget_ledger_unchanged": true,
+        "recovery_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/runs/hle_judge_v2_20261016/single-judge-recovery-20261017/budget.json"
+      }
+    },
+    {
+      "path": "artifacts/asi/scoring_v2_formal_params_20261016/local_score_seed31415.json",
+      "exists": true,
+      "scalars": {
+        "schema_version": 2,
+        "repo": "seed31415",
+        "official": false,
+        "score_scope": "public_local_replacement_judge",
+        "mode": "paid",
+        "expected_instance_count": 240,
+        "instance_count": 240,
+        "scored_instance_count": 240,
+        "complete": true,
+        "prepared_instance_count": 0,
+        "scorer_error_count": 0,
+        "pending_count": 0,
+        "total_score": 377.03721765801566,
+        "total_max_score": 24000.0,
+        "mean_percent": 1.5709884069083986,
+        "native_valid_subset_mean_percent": 1.5709884069083986,
+        "expected_total_max_score": 24000,
+        "auxiliary_zero_fill_mean_percent": 1.5709884069083986,
+        "synthetic_calibration": false
+      }
+    },
+    {
+      "path": "artifacts/eval/validation_direct_20261016/hle_scores/summary.json",
+      "exists": true,
+      "scalars": {
+        "metric": "held-out proxy accuracy; not official HLE2500",
+        "judge": "DeepSeek-V4-Flash",
+        "judge_calls": 252,
+        "accounted_cny": 0.196908,
+        "max_cny": 10.0,
+        "updated_at_utc": "2026-10-16T15:30:07.256638+00:00"
+      }
+    },
+    {
+      "path": "artifacts/eval/validation_direct_20261016/sab_scores/summary.json",
+      "exists": false
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/summary.json",
+      "exists": true,
+      "scalars": {
+        "updated_at_utc": "2026-10-17T03:11:26.031235+00:00",
+        "pid": 489933,
+        "state": "running",
+        "model": "apex-terminal250",
+        "expected": 445,
+        "valid_scored": 188,
+        "complete": false,
+        "resolved": 24.0,
+        "primary_mean_percent": null,
+        "sample_sd_percent_ddof1": null,
+        "infrastructure_unscored_finished": 7,
+        "max_parallel_tasks": 12
+      }
+    },
+    {
+      "path": "artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+      "exists": true,
+      "scalars": {
+        "updated_at_utc": "2026-10-17T03:11:27.077064+00:00",
+        "pid": 489934,
+        "state": "running",
+        "model": "apex-avg64",
+        "expected": 445,
+        "valid_scored": 177,
+        "complete": false,
+        "resolved": 24.0,
+        "primary_mean_percent": null,
+        "sample_sd_percent_ddof1": null,
+        "infrastructure_unscored_finished": 5,
+        "max_parallel_tasks": 11
+      }
+    },
+    {
+      "path": "artifacts/eval/swe249_hard51_20261016/summary.json",
+      "exists": true,
+      "scalars": {
+        "as_of": "2026-10-16T19:43:49.855593+00:00",
+        "state": "all51_attempts_finished",
+        "model": "apex-val-swe249",
+        "expected": 51,
+        "valid_scored": 42,
+        "resolved": 0,
+        "complete": false,
+        "primary_score_percent": null,
+        "base_generation_tasks": 0,
+        "checkpoint": "artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249"
+      }
+    },
+    {
+      "path": "artifacts/eval/avg64_swe_hard51_20261017/summary.json",
+      "exists": true,
+      "scalars": {
+        "as_of": "2026-10-16T22:47:28.255004+00:00",
+        "state": "all51_attempts_finished",
+        "model": "apex-avg64",
+        "expected": 51,
+        "valid_scored": 45,
+        "resolved": 4,
+        "complete": false,
+        "primary_score_percent": null,
+        "base_generation_tasks": 0,
+        "checkpoint": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+        "max_parallel_tasks": 10
+      }
+    },
+    {
+      "path": "artifacts/eval/asi128_asi240_20261017/scoring/local_score_seed31415.json",
+      "exists": true,
+      "scalars": {
+        "schema_version": 2,
+        "repo": "seed31415",
+        "official": false,
+        "score_scope": "public_local_replacement_judge",
+        "mode": "paid",
+        "expected_instance_count": 240,
+        "instance_count": 240,
+        "scored_instance_count": 239,
+        "complete": false,
+        "prepared_instance_count": 0,
+        "scorer_error_count": 1,
+        "pending_count": 0,
+        "total_score": 79.95793165941141,
+        "total_max_score": 23900.0,
+        "mean_percent": null,
+        "native_valid_subset_mean_percent": 0.3345520153113448,
+        "expected_total_max_score": 24000,
+        "auxiliary_zero_fill_mean_percent": 0.3331580485808809,
+        "synthetic_calibration": false
+      }
+    },
+    {
+      "path": "artifacts/eval/avg64_asi240_20261017/scoring/local_score_seed31415.json",
+      "exists": true,
+      "scalars": {
+        "schema_version": 2,
+        "repo": "seed31415",
+        "official": false,
+        "score_scope": "public_local_replacement_judge",
+        "mode": "paid",
+        "expected_instance_count": 240,
+        "instance_count": 85,
+        "scored_instance_count": 85,
+        "complete": false,
+        "prepared_instance_count": 0,
+        "scorer_error_count": 0,
+        "pending_count": 155,
+        "total_score": 2.5,
+        "total_max_score": 8500.0,
+        "mean_percent": null,
+        "native_valid_subset_mean_percent": 0.029411764705882353,
+        "expected_total_max_score": 24000,
+        "auxiliary_zero_fill_mean_percent": 0.010416666666666666,
+        "synthetic_calibration": false
+      }
+    },
+    {
+      "path": "artifacts/eval/hle250_hle2500_20261017/scoring/summary.json",
+      "exists": true,
+      "scalars": {
+        "complete": true,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 2470,
+        "native_no_answer": 30,
+        "evaluation_invalid": 0,
+        "scored": 2500,
+        "pending": 0,
+        "correct": 173,
+        "accuracy_percent": 6.92,
+        "score": 6.92,
+        "partial_correct_over_full_denominator_percent": 6.92,
+        "judge_generation_calls": 2475,
+        "accounted_cost_cny": 1.9527705,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T21:16:38.182806+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed",
+        "recovery_judge_calls": 2,
+        "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/scoring/compact-recovery-20261017",
+        "recovery_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/hle250_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "original_budget_ledger_unchanged": true,
+        "protocol_exception": "Original two attempts plus at most one explicit compact-wrapper recovery for listed length-truncated grades"
+      }
+    },
+    {
+      "path": "artifacts/eval/avg64_hle2500_20261017/scoring/summary.json",
+      "exists": true,
+      "scalars": {
+        "complete": true,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 1304,
+        "native_no_answer": 1196,
+        "evaluation_invalid": 0,
+        "scored": 2500,
+        "pending": 0,
+        "correct": 117,
+        "accuracy_percent": 4.68,
+        "score": 4.68,
+        "partial_correct_over_full_denominator_percent": 4.68,
+        "judge_generation_calls": 1309,
+        "accounted_cost_cny": 1.4265622500000001,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T23:11:54.216388+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed",
+        "recovery_judge_calls": 2,
+        "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/compact-recovery-20261017",
+        "recovery_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "original_budget_ledger_unchanged": true,
+        "protocol_exception": "Original two attempts plus at most one explicit compact-wrapper recovery for listed length-truncated grades"
+      }
+    },
+    {
+      "path": "artifacts/eval/mixed883_hle2500_20261017/scoring/summary.json",
+      "exists": true,
+      "scalars": {
+        "complete": true,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 2459,
+        "native_no_answer": 41,
+        "evaluation_invalid": 0,
+        "scored": 2500,
+        "pending": 0,
+        "correct": 146,
+        "accuracy_percent": 5.84,
+        "score": 5.84,
+        "partial_correct_over_full_denominator_percent": 5.84,
+        "judge_generation_calls": 2473,
+        "accounted_cost_cny": 2.0788830000000003,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T21:16:51.199883+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed",
+        "recovery_judge_calls": 6,
+        "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/scoring/compact-recovery-20261017",
+        "recovery_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/mixed883_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "original_budget_ledger_unchanged": true,
+        "protocol_exception": "Original two attempts plus at most one explicit compact-wrapper recovery for listed length-truncated grades"
+      }
+    },
+    {
+      "path": "artifacts/eval/avg16_hle2500_20261017/scoring/summary.json",
+      "exists": true,
+      "scalars": {
+        "complete": true,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 1198,
+        "native_no_answer": 1302,
+        "evaluation_invalid": 0,
+        "scored": 2500,
+        "pending": 0,
+        "correct": 101,
+        "accuracy_percent": 4.04,
+        "score": 4.04,
+        "partial_correct_over_full_denominator_percent": 4.04,
+        "judge_generation_calls": 1200,
+        "accounted_cost_cny": 1.2537705,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T23:26:02.922665+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed",
+        "recovery_judge_calls": 1,
+        "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017/scoring/compact-recovery-20261017",
+        "recovery_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg16_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "original_budget_ledger_unchanged": true,
+        "protocol_exception": "Original two attempts plus at most one explicit compact-wrapper recovery for listed length-truncated grades"
+      }
+    },
+    {
+      "path": "artifacts/eval/ties_dense_hle2500_20261017/scoring/summary.json",
+      "exists": true,
+      "scalars": {
+        "complete": false,
+        "expected": 2500,
+        "frozen_terminal_results": 2500,
+        "judged_answers": 2431,
+        "native_no_answer": 68,
+        "evaluation_invalid": 1,
+        "scored": 2499,
+        "pending": 1,
+        "correct": 131,
+        "accuracy_percent": null,
+        "score": null,
+        "partial_correct_over_full_denominator_percent": 5.24,
+        "judge_generation_calls": 2445,
+        "accounted_cost_cny": 2.1614145,
+        "budget_halted": false,
+        "max_cny": 20.0,
+        "max_calls": 5000,
+        "updated_at_utc": "2026-10-16T23:08:15.397656+00:00",
+        "provider": "DeepSeek-V4-Flash",
+        "official": false,
+        "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed",
+        "recovery_judge_calls": 6,
+        "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/compact-recovery-20261017",
+        "recovery_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+        "original_budget_ledger_unchanged": true,
+        "protocol_exception": "Original two attempts plus at most one explicit compact-wrapper recovery for listed length-truncated grades"
+      }
+    }
+  ],
+  "limitations": {
+    "human_active_work_hours": null,
+    "school_hpc_currency_price": null,
+    "host80_cpu_hours": null,
+    "unledgered_api_calls": "unknown",
+    "memory_metric": "rank0 current CUDA device PyTorch peak_reserved GiB; not cross-rank peak"
+  }
+}

@@ -42,7 +42,7 @@ def render(output, font):
     assert 150 <= han_count <= 200
     pdfmetrics.registerFont(TTFont('Chinese', str(font)))
     training = load('configs/train/four_experts_v1.json')
-    formal_receipt = load('analysis/source_snapshots/formal_aggregation_20261017_1027.json')
+    formal_receipt = load('analysis/source_snapshots/formal_aggregation_20261017_1115.json')
     formal = formal_receipt['views']['strict']
     budget_terminal = formal_receipt['views']['audited_terminal_budget']['models']['base']['benchmarks']['terminal']
     merge = load('analysis/source_snapshots/merge_export_20261017.json')
@@ -146,9 +146,9 @@ def render(output, font):
                 row.append('待齐备')
         matrix.append(row)
     table(matrix, [96] + [(width - 96) / 6] * 6, row_height=23)
-    swe_ci = formal['comparisons']['swe249_vs_base']['benchmarks']['swe']['delta_ci95_percent_points']
-    paragraph(f'SWE专家0/51，Base10/51；差-19.608pp，95%CI[{swe_ci["lower"]:.3f},{swe_ci["upper"]:.3f}]。'
-              '专家50份原生判分及1份完整官方测试解析审计；原timeout/null与trap reward1保留。',
+    swe_ci = formal['comparisons']['avg64_vs_base']['benchmarks']['swe']['delta_ci95_percent_points']
+    paragraph(f'SWE完整：Base10/51、专家0/51、AVG4/51；AVG较Base -11.765pp，95%CI[{swe_ci["lower"]:.3f},{swe_ci["upper"]:.3f}]。'
+              '专家50 native+1官方报告审计；AVG45 native+6逐项native审计。原invalid不覆盖。',
               size=8.1, leading=11.7, color=GRAY, after=2)
     asi_ci = formal['comparisons']['asi128_vs_base']['benchmarks']['asi']['delta_ci95_percent_points']
     paragraph(f'ASI专家0.379%低于Base1.571%，差-1.192pp，配对95%CI[{asi_ci["lower"]:.3f},{asi_ci["upper"]:.3f}]；'
@@ -178,7 +178,7 @@ def render(output, font):
     paragraph('实际统一64K/8K、非thinking；Terminal为30min/4CPU/8GiB，低于原题3h/32CPU/48GB/256K/80K，'
               '尚无例外批准。SWE为30min；HLE/ASI使用披露的替代Judge，ASI为公开local，服务并发差异仍保留。',
               size=8.5, leading=12.3, after=4)
-    paragraph('10:10资源账本：结束227.570 GPUh，在跑6卡暂计35.191 GPUh；API核算15.0291 CNY另0.3283 USD，'
+    paragraph('11:11资源账本：结束241.294 GPUh，在跑4卡暂计26.998 GPUh；API核算15.0291 CNY另0.3283 USD，'
               '含保留reservation、非发票，HPC单价未知。', size=8.1, leading=11.7, color=GRAY, after=3)
     paragraph('已交付：五个Public HF adapter已匿名完整下载核对；Private GitHub已创建并推送默认master。'
               '模型链接与不可变revision见models/README.md。', size=8.5, leading=12.3, after=4)
@@ -190,7 +190,7 @@ def render(output, font):
     pdf.line(margin, 79, page_w - margin, 79)
     footer = [
         '阶段性草稿，不是最终 report.pdf；生成 ' + generated.strftime('%Y-%m-%d %H:%M:%S CST') + '  |  1 / 1',
-        '结果收据：analysis/source_snapshots/formal_aggregation_20261017_1027.json（10:26 CST，strict与预算分开）',
+        '结果收据：analysis/source_snapshots/formal_aggregation_20261017_1115.json（11:14 CST，strict与预算分开）',
         '方法：analysis/merge_method_decision_20261017.md；失败：analysis/avg64_failure_cases_20261017.md',
         '发布收据：analysis/source_snapshots/hf_publication_20261017.json；github_repository_20261017.json',
     ]

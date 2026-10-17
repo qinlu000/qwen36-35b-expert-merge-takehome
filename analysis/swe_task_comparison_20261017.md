@@ -1,20 +1,20 @@
 # SWE固定51任务对照与生成退出元数据
 
-只读采集于**2026-10-17 10:29:31 CST**，按冻结51个task ID字典序列出全部任务。Base **10/51=19.607843%**，SWE249专家 **0/51=0%**，两者均51有效；**Base原通过的10题在专家中全部退化为有效0**。负面结果保留，不改变checkpoint、训练配方或主AVG64身份。
+只读更新于**2026-10-17 11:14:44 CST**，来源canonical汇总时点为**11:14:04 CST**，按冻结51个task ID字典序列出全部任务。Base **10/51=19.607843%**，SWE249专家 **0/51=0%**，两者均51有效；**Base原通过的10题在专家中全部退化为有效0**。负面结果保留，不改变checkpoint、训练配方或主AVG64身份。
 
-AVG目前**50有效、4通过、1项null**，完整主分仍null；不把4/50当主成绩，也不把未判项填0。机器可读数据见[JSON](swe_task_comparison_20261017.json)与[CSV](swe_task_comparison_20261017.csv)。
+AVG现为**51/51有效、4通过、0项null，完整主分4/51=7.843137%**。最后T7744仅使用root批准的同原答案native0，未借用专家结果或重新生成。机器可读数据见[JSON](swe_task_comparison_20261017.json)与[CSV](swe_task_comparison_20261017.csv)。
 
 ## 配对结果
 
 |比较|双方通过|仅参考通过|仅候选通过|双方未通过|有效配对/未配对|
 |---|---:|---:|---:|---:|---|
 |专家（候选）vs Base|0|10|0|41|51/0，完整|
-|AVG（候选）vs Base|2|8|2|38|50/1，部分描述|
-|AVG（候选）vs 专家|0|0|4|46|50/1，部分描述|
+|AVG（候选）vs Base|2|8|2|39|51/0，完整|
+|AVG（候选）vs 专家|0|0|4|47|51/0，完整|
 
-AVG与Base共同通过的是Ansible e9e60012、Qutebrowser e70f5b03；新增通过的是Navidrome bf2bcb12、Qutebrowser c09e1439。Base其余8个通过项在AVG为0。尚未配对的是Teleport7744（完整ID见下表），其AVG保持null。
+AVG与Base共同通过的是Ansible e9e60012、Qutebrowser e70f5b03；新增通过的是Navidrome bf2bcb12、Qutebrowser c09e1439。Base其余8个通过项在AVG为0。Teleport7744现为root核审的有效0，故全部51题均完成配对。该题通过原TLS通路后，空候选未声明原题要求的netlinkv1.6.0，动态依赖解析至v1.11.2并因原Go缺少iter而编译阻断；TestSendEvent未执行，不能称功能断言失败。
 
-专家−Base **-19.607843个百分点，95% CI [-31.372549,-9.803922]**。直接引用80已有`artifacts/eval/final_aggregation_20261017/summary.json`（02:26:35 UTC，`comparisons.swe249_vs_base.benchmarks.swe`），本轮**不重跑bootstrap**。固定任务的配对CI不消除历史环境、并发、排程及已披露评分恢复差异，不能据此认定纯权重因果。
+专家−Base **-19.607843个百分点，95% CI [-31.372549,-9.803922]**；AVG−Base **-11.764706个百分点，95% CI [-23.529412,0]**。均直接引用80已有`artifacts/eval/final_aggregation_20261017/summary.json`（03:14:04.716305 UTC，即11:14:04 CST；各自`comparisons.<模型>_vs_base.benchmarks.swe`），本轮**不重跑bootstrap**。固定任务的配对CI不消除历史环境、并发、排程及已披露评分恢复差异，不能据此认定纯权重因果。
 
 ## 专家生成元数据
 
@@ -63,7 +63,7 @@ AVG与Base共同通过的是Ansible e9e60012、Qutebrowser e70f5b03；新增通�
 |instance_gravitational__teleport-1316e6728a3ee2fc124e2ea0cc6a02044c87a144-v626ec2a48416b10a88641359a169d99e935ff037|1|0|0|降|26655|unknown|
 |instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d|0|0|0|同为0|0|BadRequestError|
 |instance_gravitational__teleport-65438e6e44b6ce51458d09b7bb028a2797cfb0ea-vce94f93ad1030e3136852817f2423c1b3ac37bc4|1|0|0|降|0|unknown|
-|instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4|0|0|null|null|0|BadRequestError|
+|instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4|0|0|0|同为0|0|BadRequestError|
 |instance_gravitational__teleport-eda668c30d9d3b56d9c69197b120b01013611186|0|0|0|同为0|0|unknown|
 |instance_gravitational__teleport-f432a71a13e698b6e1c4672a2e9e9c1f32d35c12|0|0|0|同为0|87741142|BadRequestError|
 |instance_internetarchive__openlibrary-0dc5b20fa186f9714f8a838178597e69f549d026-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59|0|0|0|同为0|0|BadRequestError|
@@ -94,6 +94,8 @@ AVG与Base共同通过的是Ansible e9e60012、Qutebrowser e70f5b03；新增通�
 - swe249：`artifacts/eval/swe249_audited_hard51_20261017/summary.json`，逐题score仅使用该owner有效行；各summary SHA与as_of记录于JSON。
 - avg64：`artifacts/eval/avg64_swe_audited_hard51_20261017/summary.json`，逐题score仅使用该owner有效行；各summary SHA与as_of记录于JSON。
 
-固定ID manifest为`analysis/source_snapshots/protocol/swe_hard_task_ids.json`。逐题原生/审计结果路径在JSON/CSV；Base/专家完整性和AVG的1null均与source summary一致。NodeBB显式parsed-report审定与raw timeout/null、EXIT-trap文件1分开保留，本表不重判它。
+固定ID manifest为`analysis/source_snapshots/protocol/swe_hard_task_ids.json`。逐题原生/审计结果路径在JSON/CSV；Base/专家/AVG均51有效、0null，与各source summary一致。NodeBB显式parsed-report审定与raw timeout/null、EXIT-trap文件1分开保留，本表不重判它。
 
 本轮0生成、测试/native、Judge/API、collector及bootstrap；不改来源评分、原轨迹、模型、checkpoint或主模型。
+
+10:29的50有效/1null历史由Git版本保留。本次仅更新最后AVG T7744的有效性、原生结果/审定来源与完整配对汇总；51项专家patch字节数、退出诊断和其余逐题行保持不变。来源owner summary和canonical的当前时点/SHA记于JSON，CSV固定LF行尾。

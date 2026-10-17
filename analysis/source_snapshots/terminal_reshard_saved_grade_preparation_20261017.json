@@ -1,0 +1,91 @@
+{
+  "at_utc": "2026-10-17T03:23:31.584186+00:00",
+  "mode": "prepare_only",
+  "key": "reshard-c4-data/seed1",
+  "manifest": "/data/caoqinlu/projects/apex-takehome/configs/eval/terminal_reshard_saved_grade_20261017.json",
+  "manifest_sha256": "92af3fc0d2d809c168fd1177608b2ade81e2c41ab07c030f1219f4f3390e759b",
+  "source_bindings": 42,
+  "large_source_stat_bindings": {
+    "artifacts/eval/terminal250_full445_20261017/trials/reshard-c4-data__seed1/artifacts/logs/artifacts/final-task-state.tar": {
+      "size": 1650954240,
+      "mtime_ns": "1792202207775490193"
+    },
+    "artifacts/benchmarks/sif/sha256-92d209e704785e17ad6b3f740e813dd72bc7ac33982ce435d197ab9d890eac2a.sif": {
+      "size": 1441583104,
+      "mtime_ns": "1792083059366707455"
+    }
+  },
+  "archive_or_sif_full_hash_recomputed": false,
+  "archive_member_count": 20311,
+  "app_members": 19831,
+  "strict_restore_member_count": 19845,
+  "external_members": [
+    {
+      "path": "root/.cache/uv/interpreter-v4/85046238252ff06c/4a442d62a8d6ade5.msgpack",
+      "mode": "0o600",
+      "bytes": 888,
+      "sha256": "5a0054bda2d301a2f9e124d11bff0cbb1162c5972104c53f27e41eea882118ba",
+      "role": "uv interpreter-discovery metadata; original paths /usr/local or /app/.venv"
+    },
+    {
+      "path": "root/.cache/uv/interpreter-v4/85046238252ff06c/5242bf85c8a339f7.msgpack",
+      "mode": "0o600",
+      "bytes": 896,
+      "sha256": "63d8b967fe9cb714f9cf86a59d22a84ca05d5b705067c99de7d2d8b62f7c4378",
+      "role": "uv interpreter-discovery metadata; original paths /usr/local or /app/.venv"
+    },
+    {
+      "path": "root/.cache/uv/interpreter-v4/85046238252ff06c/a6ff54ed077d5bdd.msgpack",
+      "mode": "0o600",
+      "bytes": 899,
+      "sha256": "b03c3f5bd27e6c467c9e13d36e2ddf55168e2d9ba2c831b3dd352f4eec8d000c",
+      "role": "uv interpreter-discovery metadata; original paths /usr/local or /app/.venv"
+    },
+    {
+      "path": "tmp/uv-1c83b73deef05048.lock",
+      "mode": "0o777",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "empty uv advisory-lock file; no process/held lock restored"
+    }
+  ],
+  "etc_delta_members": 10,
+  "restore_path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017/prepared/restore.json",
+  "restore_sha256": "5fb8f561f70316be01629c992e26d562866f016978531e21c0d1b7cf39a0c0f4",
+  "delta_sha256": "0da2b5909e02bd9f131dd10456a2fa3659186413a63fed5a58008e6a99cbfc68",
+  "pid_source_sha256": "5c774e505d0979ec7bd59fea46d407d3932ab609c94c57111955ad85349c3572",
+  "claim_created": false,
+  "lock_acquired": false,
+  "guard_created": false,
+  "native_started": false,
+  "model_calls": 0,
+  "original_public_phase_and_cache_supply_retained": true,
+  "original_uv_cache_map_entry": {
+    "group": 20,
+    "python": "/data/caoqinlu/projects/apex-takehome/artifacts/cache/terminal-v2-native/python/cpython-3.13.9-linux-x86_64-gnu/bin/python3.13",
+    "uv_cache_dir": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/terminal_verifier_offline_20261016/group-caches/group-20",
+    "ready": true,
+    "missing_cache_entries": []
+  },
+  "local_static_checks": {
+    "restore_command_count": 3,
+    "etc_tar_members": 10,
+    "resolver_not_extracted": true,
+    "strict_restore_checker_compiles": true,
+    "captured_namespace_startticks_not_treated_as_host_startticks": true,
+    "candidate_or_native_executed": false
+  },
+  "independent_parent_prepare": {
+    "source": "merge_implementation actual metadata-only defaultprepare report",
+    "script_sha_prefix": "2a2f31ef",
+    "manifest_sha256": "92af3fc0d2d809c168fd1177608b2ade81e2c41ab07c030f1219f4f3390e759b",
+    "result": "GREEN",
+    "source_bindings": 42,
+    "large_stat_bindings": 2,
+    "busy_scopes": [],
+    "claim_created": false,
+    "lock_acquired": false,
+    "guard_created": false,
+    "native_started": false
+  }
+}

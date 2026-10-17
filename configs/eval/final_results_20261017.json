@@ -187,7 +187,8 @@
           "adapter": "swe_tasks",
           "summary": "artifacts/eval/avg64_swe_audited_hard51_20261017/summary.json",
           "notes": [
-            "Read-only overlay accepts independently reviewed exact AVG native-zero replays c1f2, OpenLibrary630, Qutebrowser3e21 and its own same-patch Vuls/T2 disk-scratch recoveries with task-required product behavior omitted. Original source validity and pending rows remain; no expert audit whitelist is inherited. Refresh collect_avg64_swe_audited.py after collect_swe249_audited.py before aggregation."
+            "Read-only overlay accepts independently reviewed exact AVG native-zero replays c1f2, OpenLibrary630, Qutebrowser3e21 and its own same-patch Vuls/T2 disk-scratch recoveries with task-required product behavior omitted. Original source validity and pending rows remain; no expert audit whitelist is inherited. Refresh collect_avg64_swe_audited.py after collect_swe249_audited.py before aggregation.",
+            "Final own T774 grade-only native0 accepted after original-URL TLS recovery and independent instruction line79 explicit netlink v1.6.0 requirement/empty-patch audit. TestSendEvent compilation-blocked before assertions; original timeout remains. Six exact native-zero approvals, no cross-model grade, answer regeneration or dependency repair."
           ]
         },
         "hle": {

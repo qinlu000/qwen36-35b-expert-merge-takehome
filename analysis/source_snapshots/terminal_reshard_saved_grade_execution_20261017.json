@@ -1,0 +1,484 @@
+{
+  "captured_at_utc": "2026-10-17T03:27:11.450504+00:00",
+  "mode": "read_only_execution_audit",
+  "key": "reshard-c4-data/seed1",
+  "model": "apex-terminal250",
+  "root_launch": {
+    "file": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017/root-launch-20261017.json",
+      "bytes": 1360,
+      "sha256": "70bf8c3d0c46a6fd15a0d0473505c368e73de18d03c9d0c3bfadd056ae3480d8"
+    },
+    "record": {
+      "at_utc": "2026-10-17T03:25:41.894535+00:00",
+      "state": "spawned_unique_parent",
+      "command": [
+        "taskset",
+        "-c",
+        "10",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/scripts/run_terminal_saved_grade_cpu124_20261017.py",
+        "--manifest",
+        "/data/caoqinlu/projects/apex-takehome/configs/eval/terminal_reshard_saved_grade_20261017.json",
+        "--execute"
+      ],
+      "root_and_independent_review_passed": true,
+      "key": "reshard-c4-data/seed1",
+      "model": "apex-terminal250",
+      "script_sha256": "2a2f31efc4d175f37ec2c3105c801d622da797a08eb29afde9cc9717b97f1df9",
+      "manifest_sha256": "92af3fc0d2d809c168fd1177608b2ade81e2c41ab07c030f1219f4f3390e759b",
+      "preparer_sha256": "3ed35de941195c0a248299a053d64c310584e9f9c426424d38d11bdf8972fa55",
+      "small_source_bindings": 42,
+      "large_stat_bindings": 2,
+      "cpu_ids": [
+        124,
+        125,
+        126,
+        127
+      ],
+      "logical_offset": 0,
+      "memory_mib": 8192,
+      "verifier_seconds": 900,
+      "minimum_runway_seconds": 3600,
+      "new_model_calls": 0,
+      "no_candidate_or_dependency_repair": true,
+      "original_public_verifier_and_hf_input_preserved": true,
+      "all_future_terminal_stages_stop_at_cpu123": true,
+      "does_not_take_asi_grader_92_95_lock": true,
+      "score_pending_root_review": true,
+      "pid": 2394544,
+      "startticks": "870656591"
+    }
+  },
+  "parent_state": {
+    "pid": 2394544,
+    "startticks": "870656591",
+    "state": "native_running",
+    "lock_held": true,
+    "model_calls": 0,
+    "accepted_into_formal_summary": false,
+    "at_utc": "2026-10-17T03:25:43.686382+00:00",
+    "child_pid": 2394547,
+    "child_startticks": "870656770",
+    "command": [
+      "taskset",
+      "-c",
+      "124-127",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_repair_grade_v2.py",
+      "--original-result",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/reshard-c4-data__seed1/result.json",
+      "--restore-manifest",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017/prepared/restore.json",
+      "--output",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017/attempt1/native",
+      "--cpu-offset",
+      "0"
+    ]
+  },
+  "parent_state_file": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017/attempt1/parent-state.json",
+    "bytes": 1033,
+    "sha256": "aa920b25c50a26729def9f166adbbbd3cf36f2622e8e27030ddbbc6cc27c17b7"
+  },
+  "admission_file": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017/attempt1/admission.json",
+    "bytes": 9382,
+    "sha256": "92489f93fd088f8758031c858b046d76f2a011ba618b939822359b0fe4d1ca38"
+  },
+  "claim_file": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017/attempt1/execution-claim.json",
+    "bytes": 10413,
+    "sha256": "81553a062b25ef344568ee17509113bfc5155076295b105f18c647421ea45286"
+  },
+  "native_result_file": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017/attempt1/native/result.json",
+    "exists": false
+  },
+  "restore_commands": [
+    {
+      "file": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017/attempt1/native/restore-command-0.json",
+        "bytes": 59,
+        "sha256": "64c4c7e2304e1cafc0e4d2ccc791a94c8520cdc24c86cbe593c602941c8d8812"
+      },
+      "return_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "file": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017/attempt1/native/restore-command-1.json",
+        "bytes": 77,
+        "sha256": "e261af0168cc578b48588414eae761ee4554e244f1e0f55818fb2510e3e979ee"
+      },
+      "return_code": 0,
+      "stdout": "/etc/resolv.conf: OK",
+      "stderr": ""
+    },
+    {
+      "file": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017/attempt1/native/restore-command-2.json",
+        "bytes": 316,
+        "sha256": "edc1ff1a98dc059099895013cc736fc8b134281c19787d976915defbcd70b06b"
+      },
+      "return_code": 0,
+      "stdout": "{\"strict_restored_members\": 19845, \"app_members\": 19831, \"external_members\": 4, \"etc_delta_members\": 10, \"app_inventory_same\": true, \"content_mode_type_symlinks_same\": true, \"managed_resolver_unchanged\": true, \"candidate_code_executed\": false}",
+      "stderr": ""
+    }
+  ],
+  "processes": [
+    {
+      "pid": 2394544,
+      "startticks": "870656591",
+      "state": "S",
+      "affinity": [
+        10
+      ],
+      "scope": "session-48060.scope",
+      "comm": "python"
+    },
+    {
+      "pid": 2394547,
+      "startticks": "870656770",
+      "state": "S",
+      "affinity": [
+        124,
+        125,
+        126,
+        127
+      ],
+      "scope": "session-48060.scope",
+      "comm": "python"
+    }
+  ],
+  "cpu124_127_scopes": [
+    {
+      "scope": "apex-baseline-terminal-saved124-2394544.scope",
+      "cpu_sets": [
+        [
+          124,
+          125,
+          126,
+          127
+        ]
+      ],
+      "pids": [
+        2394545
+      ],
+      "memory.max": "33554432",
+      "memory.swap.max": "0",
+      "memory.current": "208896",
+      "memory.peak": "724992",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    },
+    {
+      "scope": "apex-baseline-bee473b7e72b.scope",
+      "cpu_sets": [
+        [
+          124,
+          125,
+          126,
+          127
+        ]
+      ],
+      "pids": [
+        2394569,
+        2394607,
+        2394621,
+        2394628,
+        2394650,
+        2394658,
+        2394665,
+        2397428,
+        2397429,
+        2397430,
+        2397431,
+        2397469
+      ],
+      "memory.max": "8589934592",
+      "memory.swap.max": "0",
+      "memory.current": "8027099136",
+      "memory.peak": "8066863104",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+    }
+  ],
+  "private_lock": {
+    "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_teleport7744_cpu124_127.lock",
+    "inode": 90780234,
+    "proc_locks_matching_inode": [
+      "13: FLOCK  ADVISORY  WRITE 2394544 08:11:90780234 0 EOF"
+    ]
+  },
+  "source_checks": [
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/trials/reshard-c4-data__seed1/result.json",
+      "sha256_expected": "2f9e2d3309329c6bb26d6c0dbc9116e365b9990f822df562967c7d74834137bb",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/trials/reshard-c4-data__seed1/config.json",
+      "sha256_expected": "5339ca73fa74d91766c71fbd1ed2805d3945cf6801375e4eaa4e2bd44c913419",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/trials/reshard-c4-data__seed1/trial.log",
+      "sha256_expected": "493c272ac2663a522168725d4b5bec4f24afeebe9925e68bed5a35a8994b96e0",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/trials/reshard-c4-data__seed1/artifacts/logs/artifacts/final-task-state.json",
+      "sha256_expected": "99802ef9380ba91a9d0db473c4d706241a958df5cda7bc8d7449af237571f29f",
+      "matches": true
+    },
+    {
+      "path": "artifacts/results/base-terminal-v2-724242-r2/tasks/reshard-c4-data/task.toml",
+      "sha256_expected": "504c50d2df483a01012c5fa89e1a21cfeba4757c22c6aa9d71591cbdd9e39633",
+      "matches": true
+    },
+    {
+      "path": "artifacts/results/base-terminal-v2-724242-r2/tasks/reshard-c4-data/environment/Dockerfile",
+      "sha256_expected": "2ca4a0e68628b8160f5e4296f779a204f51e3a70a8d4239be30e845e1565b39d",
+      "matches": true
+    },
+    {
+      "path": "artifacts/results/base-terminal-v2-724242-r2/tasks/reshard-c4-data/tests/test.sh",
+      "sha256_expected": "833c89a17fb238b0da378566d648a6f978963f5ed9f4dd120ab6366d9cf7c35f",
+      "matches": true
+    },
+    {
+      "path": "artifacts/results/base-terminal-v2-724242-r2/tasks/reshard-c4-data/tests/test_outputs.py",
+      "sha256_expected": "7c3e934692e274d798d90e213a0f733a1d1ef08464245e17b9531335ea78ae0a",
+      "matches": true
+    },
+    {
+      "path": "scripts/prepare_terminal_reshard_restore_20261017.py",
+      "sha256_expected": "3ed35de941195c0a248299a053d64c310584e9f9c426424d38d11bdf8972fa55",
+      "matches": true
+    },
+    {
+      "path": "artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017/prepared/etc-delta.tar",
+      "sha256_expected": "0da2b5909e02bd9f131dd10456a2fa3659186413a63fed5a58008e6a99cbfc68",
+      "matches": true
+    },
+    {
+      "path": "artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017/prepared/restore.json",
+      "sha256_expected": "5fb8f561f70316be01629c992e26d562866f016978531e21c0d1b7cf39a0c0f4",
+      "matches": true
+    },
+    {
+      "path": "artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017/prepared/pid-source.json",
+      "sha256_expected": "5c774e505d0979ec7bd59fea46d407d3932ab609c94c57111955ad85349c3572",
+      "matches": true
+    },
+    {
+      "path": "artifacts/tools/terminal_verifier_offline_20261016/task_cache_map.json",
+      "sha256_expected": "7d9624f74f84b799e1865d7a920bfecbedc245291a4f1401fdf99bcb8fcbcb6d",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/accept_terminal_expert.py",
+      "sha256_expected": "d9935a1d66926a79ce3550e0056da26082f98e9a541c058e2d86f50269607322",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/apex_rootmap_bootstrap.sh",
+      "sha256_expected": "25a411f52e31ac53529bb0a0c642e26b72c51bf8d6238edf5d7e179c16653e1e",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/asi_baseline_limits.py",
+      "sha256_expected": "1a32b603cb4ff3594f32d16560045ab3b462b15cccf6d08b1eaa9e2c7db9279f",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/baseline_exec_limits.py",
+      "sha256_expected": "540f46a4b2b2b0d5a417f4b7ff99c309c6d2417c3e463f44b7df2af17d605757",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/baseline_netns.py",
+      "sha256_expected": "09303db588a5b15f95116a679140af7eb4ad0b7dfb24d52d033c1d81e3990a23",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/baseline_singularity.py",
+      "sha256_expected": "4c01b92729d94cb4ea700edd2dc79dc857ec378374459930aba00e53907b6532",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/release_validation_cpus.py",
+      "sha256_expected": "41d80bbee16c84bf3ac32c6b976c282964998132d707f719adb176cfca4c587e",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_baseline_v2.py",
+      "sha256_expected": "cb662792e221bf997b650461cebc67bf1a50fd5bf3abc8a36f3b0df23e2cff8d",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py",
+      "sha256_expected": "20fbbfd02e77c24d4bbffcb6e8f74e85757bdd715f6cae2b6c1296f68b267b5c",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_independent_repair32.py",
+      "sha256_expected": "c5e0b784e447af4af7e3b91e49c170e7eb39e7ac1c1473c30c749d47ddb1085e",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_native7.py",
+      "sha256_expected": "d36f0b8a2c0eeefbe530df4ea6a3ebe4479dca5de676f5574558e29033dc990e",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_recovery_v2.py",
+      "sha256_expected": "aadca0f525d1095a7ede2433535e7493257c9a5b6978519a12196a800bbd221d",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_repair_grade_v2.py",
+      "sha256_expected": "a65c7868a2455b0dec80c33c6b5d3552310dc829b4789314d8be0cbe92dc8439",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_routing_v2.py",
+      "sha256_expected": "1d4d92fd28587d0f5882ed0b482cafd8822102cdae4f23450c11bd8dc6ca2feb",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/smoke_terminal_recovery_v2.py",
+      "sha256_expected": "7a4f5f839d073c0841634503e8cca7382628f38cdcee6ed83db7659ac8da779c",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_admission_rolling_v2.py",
+      "sha256_expected": "114fbea427284309bc77f8e4e6356dcee2961acc208257d3ef8f9d83db762ba8",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_admission_v2.py",
+      "sha256_expected": "92eb0d1688842b6aa45693abffa4b43cb12b45d53eee89f1534ad43b2b2b1a5a",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_baseline_v2.py",
+      "sha256_expected": "b5248e3c54fc75cc416626410dcdff238415aa94d9ae1fe2a4f803d7690e6d80",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_endpoint_routing_v2.py",
+      "sha256_expected": "1162ec766d05af591b9a9b5639e4b6ec0fc51c37308e68826c9c9fb72ad86549",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_native_environment.py",
+      "sha256_expected": "a0f92b41f9c834927bfb50a32265b2262dcab53fab117ce5b00695e00c927b1f",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_recovery_v2.py",
+      "sha256_expected": "1490a87bad544b69ee6cb9fbb12e611080888bd51323b1f3369a7d8cd8866379",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_repair_agent_v2.py",
+      "sha256_expected": "a206fe07f07ec9578bdaaafb1b64dfccdeb4ffe8147bef6c137857cd081b6b95",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_repair_environment_v2.py",
+      "sha256_expected": "3f436e877a1fd4019a39d4ea33a4f24f10fd3f9c25d6ec30c2fabac0b7194450",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_repair_takeover_v2.py",
+      "sha256_expected": "c5ac22079ee902af484eb7d8df744439268b63f28b6676377f7f811f06d68ff7",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_rolling_environment.py",
+      "sha256_expected": "f387bccdd56762c1e76471a617860309b64f0f155c1fa7a338d15af855d86d5e",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_verifier_apt_environment.py",
+      "sha256_expected": "c04e8e789f4effb9b6b623938b245bd1448c2e8e8b0a0ed02ff5291f122adfd0",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_verifier_curl.py",
+      "sha256_expected": "3a7baeed1cb848b8657de3745bf4aae13ecb810d171c2bfecd411edeef4ae9e8",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_verifier_environment.py",
+      "sha256_expected": "e8761afcdedf1fdcbd14e02281de1f91fa2960d7de1675fdac65e4e21efe72fc",
+      "matches": true
+    },
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_verifier_evidence.py",
+      "sha256_expected": "942b7e2e8aedec5e00c3ab394f57f03b99223704cffd98b89bf6351ecb32707c",
+      "matches": true
+    }
+  ],
+  "source_stat_checks": [
+    {
+      "path": "artifacts/eval/terminal250_full445_20261017/trials/reshard-c4-data__seed1/artifacts/logs/artifacts/final-task-state.tar",
+      "size": 1650954240,
+      "mtime_ns": "1792202207775490193",
+      "matches": true
+    },
+    {
+      "path": "artifacts/benchmarks/sif/sha256-92d209e704785e17ad6b3f740e813dd72bc7ac33982ce435d197ab9d890eac2a.sif",
+      "size": 1441583104,
+      "mtime_ns": "1792083059366707455",
+      "matches": true
+    }
+  ],
+  "all42_small_sources_unchanged": true,
+  "all2_large_source_stats_unchanged": true,
+  "source_manifest": {
+    "path": "/data/caoqinlu/projects/apex-takehome/configs/eval/terminal_reshard_saved_grade_20261017.json",
+    "bytes": 9262,
+    "sha256": "92af3fc0d2d809c168fd1177608b2ade81e2c41ab07c030f1219f4f3390e759b"
+  },
+  "frozen_parent": {
+    "path": "/data/caoqinlu/projects/apex-takehome/scripts/run_terminal_saved_grade_cpu124_20261017.py",
+    "bytes": 13374,
+    "sha256": "2a2f31efc4d175f37ec2c3105c801d622da797a08eb29afde9cc9717b97f1df9"
+  },
+  "verifier": {
+    "test_stdout_file": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017/attempt1/native/verifier/test-stdout.txt",
+      "bytes": 269,
+      "sha256": "394732326151de5848a778e9a1a35bdfca3a36032d43d380672ed45d852f4092"
+    },
+    "collected_one_item": true,
+    "official_pytest_started": true,
+    "safe_bootstrap_evidence": "Installed 41 packages in 36ms\n============================= test session starts ==============================\nplatform linux -- Python 3.13.9, pytest-8.4.1, pluggy-1.7.0\nrootdir: /tests\nplugins: anyio-4.15.1, json-ctrf-0.3.5\ncollected 1 item\n\n../tests/test_outputs.py ",
+    "ctrf_file": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017/attempt1/native/verifier/ctrf.json",
+      "exists": false
+    },
+    "ctrf_summary": null,
+    "resource_contract": {
+      "cpu_ids": [
+        124,
+        125,
+        126,
+        127
+      ],
+      "memory_max": 8589934592,
+      "verifier_timeout_sec_from_original_bound_config": 900,
+      "original_public_phase": "frozen grade CLI after all3 restore rc0; official pytest started",
+      "cache_map_sha256": "7d9624f74f84b799e1865d7a920bfecbedc245291a4f1401fdf99bcb8fcbcb6d",
+      "hf_input_unchanged": true
+    }
+  },
+  "native_result": null,
+  "accepted_into_formal_summary": false,
+  "new_native_calls_by_auditor": 0,
+  "new_model_calls_by_auditor": 0,
+  "large_archive_or_sif_hash_recomputed": false
+}

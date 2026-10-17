@@ -1,0 +1,2248 @@
+{
+  "captured_at_utc": "2026-10-17T03:16:42.569831+00:00",
+  "queues": [
+    {
+      "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017",
+      "model": "apex-terminal250",
+      "summary": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/summary.json",
+        "bytes": 93711,
+        "sha256": "6ebbc034c0647b96c45d973abbf6a3a6238c60089608a3d20716458184668a43"
+      },
+      "updated_at_utc": "2026-10-17T03:16:42.518065+00:00",
+      "controller": {
+        "pid": 489933,
+        "startticks": "868194930",
+        "state": "R",
+        "affinity": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127
+        ],
+        "argv": [
+          "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+          "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py",
+          "--output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017"
+        ]
+      },
+      "state": "running",
+      "expected": 445,
+      "terminal_count": 199,
+      "raw_valid_scored": 192,
+      "raw_invalid_count": 7,
+      "active_count": 12,
+      "pending_count": 234,
+      "active": {
+        "dna-assembly/seed2": {
+          "cpu_offset": 20,
+          "started_at": "2026-10-17T02:48:51.618842+00:00",
+          "pid": 2252328
+        },
+        "dna-insert/seed2": {
+          "cpu_offset": 48,
+          "started_at": "2026-10-17T02:52:03.662613+00:00",
+          "pid": 2272545
+        },
+        "extract-elf/seed2": {
+          "cpu_offset": 12,
+          "started_at": "2026-10-17T02:52:27.602076+00:00",
+          "pid": 2274713
+        },
+        "extract-moves-from-video/seed2": {
+          "cpu_offset": 44,
+          "started_at": "2026-10-17T02:54:18.655842+00:00",
+          "pid": 2282585
+        },
+        "feal-differential-cryptanalysis/seed2": {
+          "cpu_offset": 4,
+          "started_at": "2026-10-17T02:56:58.117064+00:00",
+          "pid": 2293170
+        },
+        "feal-linear-cryptanalysis/seed2": {
+          "cpu_offset": 24,
+          "started_at": "2026-10-17T02:59:22.721696+00:00",
+          "pid": 2300430
+        },
+        "financial-document-processor/seed2": {
+          "cpu_offset": 0,
+          "started_at": "2026-10-17T03:07:59.950112+00:00",
+          "pid": 2332392
+        },
+        "fix-code-vulnerability/seed2": {
+          "cpu_offset": 32,
+          "started_at": "2026-10-17T03:08:20.971723+00:00",
+          "pid": 2333337
+        },
+        "fix-git/seed2": {
+          "cpu_offset": 36,
+          "started_at": "2026-10-17T03:14:23.174095+00:00",
+          "pid": 2351467
+        },
+        "fix-ocaml-gc/seed2": {
+          "cpu_offset": 40,
+          "started_at": "2026-10-17T03:15:09.303645+00:00",
+          "pid": 2352434
+        },
+        "gcode-to-text/seed2": {
+          "cpu_offset": 16,
+          "started_at": "2026-10-17T03:15:57.461925+00:00",
+          "pid": 2356679
+        },
+        "git-leak-recovery/seed2": {
+          "cpu_offset": 28,
+          "started_at": "2026-10-17T03:16:11.100432+00:00",
+          "pid": 2357410
+        }
+      },
+      "leased_cpu_offsets": [
+        0,
+        4,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48
+      ],
+      "expansion_files": [
+        "cpu-expansion-swe_finished.json"
+      ],
+      "stop_admission_exists": false,
+      "invalids": [
+        {
+          "key": "nginx-request-logging/seed0",
+          "raw_row": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/result.json",
+            "valid": false,
+            "reward": null,
+            "exception": "RuntimeError",
+            "verifier_issue": null
+          },
+          "original_result": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/result.json",
+            "bytes": 128241,
+            "sha256": "bc3df94fa93163edb3aef4066615771911db06fe3e5afde32f8900d58b368004"
+          },
+          "finished_at": "2026-10-16T20:13:16.207670Z",
+          "raw_verifier_result": null,
+          "exception_type": "RuntimeError",
+          "cleanup_guard_refusal": true,
+          "safe_exception_message": "Refusing public network after unconfirmed solver cleanup",
+          "archive": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/artifacts/logs/artifacts/final-task-state.tar",
+            "exists": true,
+            "bytes": 727040,
+            "mtime_ns": "1792181594104740951"
+          },
+          "snapshot_exists": true,
+          "verifier_stdout_exists": false,
+          "verifier_stdout_bytes": 0,
+          "ctrf_exists": false,
+          "already_root_approved_native_reward": 0,
+          "snapshot": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/artifacts/logs/artifacts/final-task-state.json",
+            "complete_prefixes": [
+              "app",
+              "etc"
+            ],
+            "external_changed_count": 2,
+            "capture_return_code": 0,
+            "captured_before_verifier": true
+          }
+        },
+        {
+          "key": "torch-tensor-parallelism/seed0",
+          "raw_row": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/torch-tensor-parallelism__seed0/result.json",
+            "valid": false,
+            "reward": null,
+            "exception": "AgentTimeoutError",
+            "verifier_issue": null
+          },
+          "original_result": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/torch-tensor-parallelism__seed0/result.json",
+            "bytes": 133505,
+            "sha256": "90eecfec685a0a9109194b34d9cd4a667d4b2087a25dd90055621fec603b5ea7"
+          },
+          "finished_at": "2026-10-16T23:05:48.268717Z",
+          "raw_verifier_result": null,
+          "exception_type": "AgentTimeoutError",
+          "cleanup_guard_refusal": false,
+          "safe_exception_message": "Agent execution timed out after 1800.0 seconds",
+          "archive": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/torch-tensor-parallelism__seed0/artifacts/logs/artifacts/final-task-state.tar",
+            "exists": true,
+            "bytes": 686080,
+            "mtime_ns": "1792191163615997417"
+          },
+          "snapshot_exists": true,
+          "verifier_stdout_exists": true,
+          "verifier_stdout_bytes": 12421,
+          "ctrf_exists": false,
+          "already_root_approved_native_reward": null,
+          "snapshot": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/torch-tensor-parallelism__seed0/artifacts/logs/artifacts/final-task-state.json",
+            "complete_prefixes": [
+              "app",
+              "etc"
+            ],
+            "external_changed_count": 0,
+            "capture_return_code": 0,
+            "captured_before_verifier": true
+          },
+          "verifier_error_tokens": {}
+        },
+        {
+          "key": "train-fasttext/seed0",
+          "raw_row": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/train-fasttext__seed0/result.json",
+            "valid": false,
+            "reward": null,
+            "exception": "AgentTimeoutError",
+            "verifier_issue": "pytest wrapper returned zero reward without evidence that tests executed"
+          },
+          "original_result": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/train-fasttext__seed0/result.json",
+            "bytes": 94085,
+            "sha256": "a345568d34820158fed842a2d426e6b7b7daf556176fd8f36a11947202b73aa1"
+          },
+          "finished_at": "2026-10-16T23:08:40.748371Z",
+          "raw_verifier_result": {
+            "rewards": {
+              "reward": 0.0
+            }
+          },
+          "exception_type": "AgentTimeoutError",
+          "cleanup_guard_refusal": false,
+          "safe_exception_message": "Agent execution timed out after 1800.0 seconds",
+          "archive": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/train-fasttext__seed0/artifacts/logs/artifacts/final-task-state.tar",
+            "exists": true,
+            "bytes": 305029120,
+            "mtime_ns": "1792192111368843532"
+          },
+          "snapshot_exists": true,
+          "verifier_stdout_exists": true,
+          "verifier_stdout_bytes": 8960,
+          "ctrf_exists": false,
+          "already_root_approved_native_reward": null,
+          "snapshot": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/train-fasttext__seed0/artifacts/logs/artifacts/final-task-state.json",
+            "complete_prefixes": [
+              "app",
+              "etc"
+            ],
+            "external_changed_count": 2,
+            "capture_return_code": 0,
+            "captured_before_verifier": true
+          },
+          "verifier_error_tokens": {}
+        },
+        {
+          "key": "git-leak-recovery/seed1",
+          "raw_row": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/result.json",
+            "valid": false,
+            "reward": null,
+            "exception": "RuntimeError",
+            "verifier_issue": null
+          },
+          "original_result": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/result.json",
+            "bytes": 117585,
+            "sha256": "cb48b18ec0d4df51783385f475970120cc3a43932afbc6e7660dfc42314440ca"
+          },
+          "finished_at": "2026-10-17T00:28:03.689213Z",
+          "raw_verifier_result": null,
+          "exception_type": "RuntimeError",
+          "cleanup_guard_refusal": true,
+          "safe_exception_message": "Refusing public network after unconfirmed solver cleanup",
+          "archive": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/artifacts/logs/artifacts/final-task-state.tar",
+            "exists": true,
+            "bytes": 829440,
+            "mtime_ns": "1792196881585669658"
+          },
+          "snapshot_exists": true,
+          "verifier_stdout_exists": false,
+          "verifier_stdout_bytes": 0,
+          "ctrf_exists": false,
+          "already_root_approved_native_reward": 1,
+          "snapshot": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/git-leak-recovery__seed1/artifacts/logs/artifacts/final-task-state.json",
+            "complete_prefixes": [
+              "app",
+              "etc"
+            ],
+            "external_changed_count": 1,
+            "capture_return_code": 0,
+            "captured_before_verifier": true
+          }
+        },
+        {
+          "key": "reshard-c4-data/seed1",
+          "raw_row": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/reshard-c4-data__seed1/result.json",
+            "valid": false,
+            "reward": null,
+            "exception": "RuntimeError",
+            "verifier_issue": null
+          },
+          "original_result": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/reshard-c4-data__seed1/result.json",
+            "bytes": 107361,
+            "sha256": "2f9e2d3309329c6bb26d6c0dbc9116e365b9990f822df562967c7d74834137bb"
+          },
+          "finished_at": "2026-10-17T01:56:49.870903Z",
+          "raw_verifier_result": null,
+          "exception_type": "RuntimeError",
+          "cleanup_guard_refusal": true,
+          "safe_exception_message": "Refusing public network after unconfirmed solver cleanup",
+          "archive": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/reshard-c4-data__seed1/artifacts/logs/artifacts/final-task-state.tar",
+            "exists": true,
+            "bytes": 1650954240,
+            "mtime_ns": "1792202207775490193"
+          },
+          "snapshot_exists": true,
+          "verifier_stdout_exists": false,
+          "verifier_stdout_bytes": 0,
+          "ctrf_exists": false,
+          "already_root_approved_native_reward": null,
+          "snapshot": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/reshard-c4-data__seed1/artifacts/logs/artifacts/final-task-state.json",
+            "complete_prefixes": [
+              "app",
+              "etc"
+            ],
+            "external_changed_count": 4,
+            "capture_return_code": 0,
+            "captured_before_verifier": true
+          }
+        },
+        {
+          "key": "sanitize-git-repo/seed1",
+          "raw_row": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/sanitize-git-repo__seed1/result.json",
+            "valid": false,
+            "reward": null,
+            "exception": "RuntimeError",
+            "verifier_issue": null
+          },
+          "original_result": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/sanitize-git-repo__seed1/result.json",
+            "bytes": 111576,
+            "sha256": "03504b43eb3499ac8ed32c21c3d141fb6eddedfb946d5bf7e9ee9475999c86c6"
+          },
+          "finished_at": "2026-10-17T01:49:44.138938Z",
+          "raw_verifier_result": null,
+          "exception_type": "RuntimeError",
+          "cleanup_guard_refusal": true,
+          "safe_exception_message": "Refusing public network after unconfirmed solver cleanup",
+          "archive": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/sanitize-git-repo__seed1/artifacts/logs/artifacts/final-task-state.tar",
+            "exists": false,
+            "bytes": null,
+            "mtime_ns": null
+          },
+          "snapshot_exists": false,
+          "verifier_stdout_exists": false,
+          "verifier_stdout_bytes": 0,
+          "ctrf_exists": false,
+          "already_root_approved_native_reward": null
+        },
+        {
+          "key": "train-fasttext/seed1",
+          "raw_row": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/train-fasttext__seed1/result.json",
+            "valid": false,
+            "reward": null,
+            "exception": "AgentTimeoutError",
+            "verifier_issue": "pytest wrapper returned zero reward without evidence that tests executed"
+          },
+          "original_result": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/train-fasttext__seed1/result.json",
+            "bytes": 84645,
+            "sha256": "9d71063828152adc43befc7b9fcb69052bcb6d0fee04a5e137a04c03c6efc93e"
+          },
+          "finished_at": "2026-10-17T02:21:13.255808Z",
+          "raw_verifier_result": {
+            "rewards": {
+              "reward": 0.0
+            }
+          },
+          "exception_type": "AgentTimeoutError",
+          "cleanup_guard_refusal": false,
+          "safe_exception_message": "Agent execution timed out after 1800.0 seconds",
+          "archive": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/train-fasttext__seed1/artifacts/logs/artifacts/final-task-state.tar",
+            "exists": true,
+            "bytes": 305018880,
+            "mtime_ns": "1792203663655247087"
+          },
+          "snapshot_exists": true,
+          "verifier_stdout_exists": true,
+          "verifier_stdout_bytes": 8960,
+          "ctrf_exists": false,
+          "already_root_approved_native_reward": null,
+          "snapshot": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/train-fasttext__seed1/artifacts/logs/artifacts/final-task-state.json",
+            "complete_prefixes": [
+              "app",
+              "etc"
+            ],
+            "external_changed_count": 4,
+            "capture_return_code": 0,
+            "captured_before_verifier": true
+          },
+          "verifier_error_tokens": {}
+        }
+      ],
+      "last_hour": {
+        "window_start_utc": "2026-10-17T02:16:42.569831+00:00",
+        "window_end_utc": "2026-10-17T03:16:42.569831+00:00",
+        "terminal_count": 26,
+        "admissions_observable_from_current_active_and_terminal": null,
+        "note": "Completed-per-hour counts are exact terminal ledger timestamps. Current active timestamps do not reconstruct all past admissions."
+      },
+      "active_age_seconds": [
+        1670.951,
+        1478.907,
+        1454.968,
+        1343.914,
+        1184.453,
+        1039.848,
+        522.62,
+        501.598,
+        139.396,
+        93.266,
+        45.108,
+        31.469
+      ],
+      "configuration_contracts": [
+        {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/config.json",
+          "sha256": "24fb4d5200001279ddde81898690f8c1b5b4add99f75b8e6db7da3a140dc22a1",
+          "initial_cpu_offsets": [
+            12,
+            16,
+            20,
+            24,
+            28,
+            32,
+            36,
+            40,
+            44,
+            48
+          ],
+          "cpu_offsets": [
+            0,
+            4,
+            12,
+            16,
+            20,
+            24,
+            28,
+            32,
+            36,
+            40,
+            44,
+            48,
+            92,
+            96,
+            100,
+            104
+          ],
+          "expansion_stages": [
+            {
+              "name": "swe_finished",
+              "cpu_offsets": [
+                0,
+                4
+              ],
+              "release_markers": [
+                "artifacts/eval/avg64_swe_hard51_20261017/all_cpu_consumers_finished.json"
+              ]
+            },
+            {
+              "name": "asi_finished",
+              "cpu_offsets": [
+                92,
+                96,
+                100,
+                104
+              ],
+              "release_markers": [
+                "artifacts/eval/asi128_asi240_20261017/all_cpu_consumers_finished.json",
+                "artifacts/eval/avg64_asi240_20261017/all_cpu_consumers_finished.json"
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/experiment.json",
+          "sha256": "713bc824935a3a39e9b1f8601015982f03c9c61a5445fba8fefc162af2fdacfe",
+          "initial_cpu_offsets": [
+            12,
+            16,
+            20,
+            24,
+            28,
+            32,
+            36,
+            40,
+            44,
+            48
+          ],
+          "cpu_offsets": [
+            0,
+            4,
+            12,
+            16,
+            20,
+            24,
+            28,
+            32,
+            36,
+            40,
+            44,
+            48,
+            92,
+            96,
+            100,
+            104
+          ],
+          "expansion_stages": [
+            {
+              "name": "swe_finished",
+              "cpu_offsets": [
+                0,
+                4
+              ],
+              "release_markers": [
+                "artifacts/eval/avg64_swe_hard51_20261017/all_cpu_consumers_finished.json"
+              ]
+            },
+            {
+              "name": "asi_finished",
+              "cpu_offsets": [
+                92,
+                96,
+                100,
+                104
+              ],
+              "release_markers": [
+                "artifacts/eval/asi128_asi240_20261017/all_cpu_consumers_finished.json",
+                "artifacts/eval/avg64_asi240_20261017/all_cpu_consumers_finished.json"
+              ]
+            }
+          ]
+        }
+      ],
+      "deadline_risk": {
+        "core_deadline": "2026-10-18T02:20:00+08:00",
+        "hours_remaining_at_capture": 15.054841713611111,
+        "unterminal": 246,
+        "required_average_terminal_per_hour": 16.3402581494823,
+        "linear_eta_claimed": false
+      }
+    },
+    {
+      "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017",
+      "model": "apex-avg64",
+      "summary": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/summary.json",
+        "bytes": 88052,
+        "sha256": "4162d94e2d55b936e4861dbdd9504973b21b55e181059010622d1f16cc57022c"
+      },
+      "updated_at_utc": "2026-10-17T03:16:41.866701+00:00",
+      "controller": {
+        "pid": 489934,
+        "startticks": "868194945",
+        "state": "S",
+        "affinity": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127
+        ],
+        "argv": [
+          "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+          "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py",
+          "--output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017"
+        ]
+      },
+      "state": "running",
+      "expected": 445,
+      "terminal_count": 183,
+      "raw_valid_scored": 178,
+      "raw_invalid_count": 5,
+      "active_count": 11,
+      "pending_count": 251,
+      "active": {
+        "build-pov-ray/seed2": {
+          "cpu_offset": 72,
+          "started_at": "2026-10-17T02:48:20.093065+00:00",
+          "pid": 2250597
+        },
+        "caffe-cifar-10/seed2": {
+          "cpu_offset": 88,
+          "started_at": "2026-10-17T02:51:45.911786+00:00",
+          "pid": 2268624
+        },
+        "cancel-async-tasks/seed2": {
+          "cpu_offset": 76,
+          "started_at": "2026-10-17T02:52:21.722786+00:00",
+          "pid": 2273646
+        },
+        "chess-best-move/seed2": {
+          "cpu_offset": 8,
+          "started_at": "2026-10-17T02:57:54.219723+00:00",
+          "pid": 2295247
+        },
+        "circuit-fibsqrt/seed2": {
+          "cpu_offset": 64,
+          "started_at": "2026-10-17T02:59:14.000880+00:00",
+          "pid": 2299827
+        },
+        "cobol-modernization/seed2": {
+          "cpu_offset": 68,
+          "started_at": "2026-10-17T03:02:10.386014+00:00",
+          "pid": 2308002
+        },
+        "code-from-image/seed2": {
+          "cpu_offset": 80,
+          "started_at": "2026-10-17T03:05:46.834785+00:00",
+          "pid": 2315371
+        },
+        "compile-compcert/seed2": {
+          "cpu_offset": 52,
+          "started_at": "2026-10-17T03:06:01.956190+00:00",
+          "pid": 2316671
+        },
+        "configure-git-webserver/seed2": {
+          "cpu_offset": 84,
+          "started_at": "2026-10-17T03:10:33.609671+00:00",
+          "pid": 2340826
+        },
+        "constraints-scheduling/seed2": {
+          "cpu_offset": 60,
+          "started_at": "2026-10-17T03:10:38.562614+00:00",
+          "pid": 2341041
+        },
+        "count-dataset-tokens/seed2": {
+          "cpu_offset": 56,
+          "started_at": "2026-10-17T03:13:19.297942+00:00",
+          "pid": 2349852
+        }
+      },
+      "leased_cpu_offsets": [
+        8,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88
+      ],
+      "expansion_files": [
+        "cpu-expansion-swe_finished.json"
+      ],
+      "stop_admission_exists": false,
+      "invalids": [
+        {
+          "key": "torch-pipeline-parallelism/seed0",
+          "raw_row": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/torch-pipeline-parallelism__seed0/result.json",
+            "valid": false,
+            "reward": null,
+            "exception": "AgentTimeoutError",
+            "verifier_issue": null
+          },
+          "original_result": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/torch-pipeline-parallelism__seed0/result.json",
+            "bytes": 100553,
+            "sha256": "3324894073c15fd47cd05c1ec0f3b21835cf910491dcca8fb38c82d3ef6ba895"
+          },
+          "finished_at": "2026-10-16T23:06:40.027259Z",
+          "raw_verifier_result": null,
+          "exception_type": "AgentTimeoutError",
+          "cleanup_guard_refusal": false,
+          "safe_exception_message": "Agent execution timed out after 1800.0 seconds",
+          "archive": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/torch-pipeline-parallelism__seed0/artifacts/logs/artifacts/final-task-state.tar",
+            "exists": true,
+            "bytes": 10690560,
+            "mtime_ns": "1792191529250154949"
+          },
+          "snapshot_exists": true,
+          "verifier_stdout_exists": true,
+          "verifier_stdout_bytes": 12475,
+          "ctrf_exists": false,
+          "already_root_approved_native_reward": null,
+          "snapshot": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/torch-pipeline-parallelism__seed0/artifacts/logs/artifacts/final-task-state.json",
+            "complete_prefixes": [
+              "app",
+              "etc"
+            ],
+            "external_changed_count": 743,
+            "capture_return_code": 0,
+            "captured_before_verifier": true
+          },
+          "verifier_error_tokens": {}
+        },
+        {
+          "key": "torch-tensor-parallelism/seed0",
+          "raw_row": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/torch-tensor-parallelism__seed0/result.json",
+            "valid": false,
+            "reward": null,
+            "exception": "RemoteProtocolError",
+            "verifier_issue": null
+          },
+          "original_result": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/torch-tensor-parallelism__seed0/result.json",
+            "bytes": 70315,
+            "sha256": "b4dd7241dd125aa90612976d42bfcb245b6fe2c76f1f85781fa592c5db7ad41d"
+          },
+          "finished_at": "2026-10-16T23:06:25.011400Z",
+          "raw_verifier_result": null,
+          "exception_type": "RemoteProtocolError",
+          "cleanup_guard_refusal": false,
+          "safe_exception_message": null,
+          "archive": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/torch-tensor-parallelism__seed0/artifacts/logs/artifacts/final-task-state.tar",
+            "exists": true,
+            "bytes": 686080,
+            "mtime_ns": "1792191335111822271"
+          },
+          "snapshot_exists": true,
+          "verifier_stdout_exists": true,
+          "verifier_stdout_bytes": 12358,
+          "ctrf_exists": false,
+          "already_root_approved_native_reward": null,
+          "snapshot": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/torch-tensor-parallelism__seed0/artifacts/logs/artifacts/final-task-state.json",
+            "complete_prefixes": [
+              "app",
+              "etc"
+            ],
+            "external_changed_count": 0,
+            "capture_return_code": 0,
+            "captured_before_verifier": true
+          },
+          "verifier_error_tokens": {}
+        },
+        {
+          "key": "train-fasttext/seed0",
+          "raw_row": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/train-fasttext__seed0/result.json",
+            "valid": false,
+            "reward": null,
+            "exception": "AgentTimeoutError",
+            "verifier_issue": "pytest wrapper returned zero reward without evidence that tests executed"
+          },
+          "original_result": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/train-fasttext__seed0/result.json",
+            "bytes": 73423,
+            "sha256": "3c49b94318057e724f33ed257f86fc529a1671bccf30e2b523c13b229aa344b4"
+          },
+          "finished_at": "2026-10-16T23:09:30.552782Z",
+          "raw_verifier_result": {
+            "rewards": {
+              "reward": 0.0
+            }
+          },
+          "exception_type": "AgentTimeoutError",
+          "cleanup_guard_refusal": false,
+          "safe_exception_message": "Agent execution timed out after 1800.0 seconds",
+          "archive": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/train-fasttext__seed0/artifacts/logs/artifacts/final-task-state.tar",
+            "exists": true,
+            "bytes": 305039360,
+            "mtime_ns": "1792192161071478261"
+          },
+          "snapshot_exists": true,
+          "verifier_stdout_exists": true,
+          "verifier_stdout_bytes": 8960,
+          "ctrf_exists": false,
+          "already_root_approved_native_reward": null,
+          "snapshot": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/train-fasttext__seed0/artifacts/logs/artifacts/final-task-state.json",
+            "complete_prefixes": [
+              "app",
+              "etc"
+            ],
+            "external_changed_count": 6,
+            "capture_return_code": 0,
+            "captured_before_verifier": true
+          },
+          "verifier_error_tokens": {}
+        },
+        {
+          "key": "qemu-alpine-ssh/seed1",
+          "raw_row": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/qemu-alpine-ssh__seed1/result.json",
+            "valid": false,
+            "reward": null,
+            "exception": "RuntimeError",
+            "verifier_issue": null
+          },
+          "original_result": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/qemu-alpine-ssh__seed1/result.json",
+            "bytes": 73618,
+            "sha256": "499dcbce2037848de1df97f25d4c6e9f2428c8a48026cfe38c78e98ae8ea70b1"
+          },
+          "finished_at": "2026-10-17T02:00:50.819658Z",
+          "raw_verifier_result": null,
+          "exception_type": "RuntimeError",
+          "cleanup_guard_refusal": true,
+          "safe_exception_message": "Refusing public network after unconfirmed solver cleanup",
+          "archive": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/qemu-alpine-ssh__seed1/artifacts/logs/artifacts/final-task-state.tar",
+            "exists": false,
+            "bytes": null,
+            "mtime_ns": null
+          },
+          "snapshot_exists": false,
+          "verifier_stdout_exists": false,
+          "verifier_stdout_bytes": 0,
+          "ctrf_exists": false,
+          "already_root_approved_native_reward": null
+        },
+        {
+          "key": "train-fasttext/seed1",
+          "raw_row": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/train-fasttext__seed1/result.json",
+            "valid": false,
+            "reward": null,
+            "exception": "AgentTimeoutError",
+            "verifier_issue": "pytest wrapper returned zero reward without evidence that tests executed"
+          },
+          "original_result": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/train-fasttext__seed1/result.json",
+            "bytes": 100598,
+            "sha256": "0ce148d31d60886c60b4e0833bc41b3497df92f68f722492bf6ccaa746337a7d"
+          },
+          "finished_at": "2026-10-17T02:48:19.403719Z",
+          "raw_verifier_result": {
+            "rewards": {
+              "reward": 0.0
+            }
+          },
+          "exception_type": "AgentTimeoutError",
+          "cleanup_guard_refusal": false,
+          "safe_exception_message": "Agent execution timed out after 1800.0 seconds",
+          "archive": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/train-fasttext__seed1/artifacts/logs/artifacts/final-task-state.tar",
+            "exists": true,
+            "bytes": 305008640,
+            "mtime_ns": "1792205278438344386"
+          },
+          "snapshot_exists": true,
+          "verifier_stdout_exists": true,
+          "verifier_stdout_bytes": 8960,
+          "ctrf_exists": false,
+          "already_root_approved_native_reward": null,
+          "snapshot": {
+            "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/train-fasttext__seed1/artifacts/logs/artifacts/final-task-state.json",
+            "complete_prefixes": [
+              "app",
+              "etc"
+            ],
+            "external_changed_count": 0,
+            "capture_return_code": 0,
+            "captured_before_verifier": true
+          },
+          "verifier_error_tokens": {}
+        }
+      ],
+      "last_hour": {
+        "window_start_utc": "2026-10-17T02:16:42.569831+00:00",
+        "window_end_utc": "2026-10-17T03:16:42.569831+00:00",
+        "terminal_count": 23,
+        "admissions_observable_from_current_active_and_terminal": null,
+        "note": "Completed-per-hour counts are exact terminal ledger timestamps. Current active timestamps do not reconstruct all past admissions."
+      },
+      "active_age_seconds": [
+        1702.477,
+        1496.658,
+        1460.847,
+        1128.35,
+        1048.569,
+        872.184,
+        655.735,
+        640.614,
+        368.96,
+        364.007,
+        203.272
+      ],
+      "configuration_contracts": [
+        {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/config.json",
+          "sha256": "9642b90d128f3c9febae58115b4c20d967618f0785d8c859993a59653dd915cb",
+          "initial_cpu_offsets": [
+            52,
+            56,
+            60,
+            64,
+            68,
+            72,
+            76,
+            80,
+            84,
+            88
+          ],
+          "cpu_offsets": [
+            8,
+            52,
+            56,
+            60,
+            64,
+            68,
+            72,
+            76,
+            80,
+            84,
+            88,
+            108,
+            112,
+            116,
+            120
+          ],
+          "expansion_stages": [
+            {
+              "name": "swe_finished",
+              "cpu_offsets": [
+                8
+              ],
+              "release_markers": [
+                "artifacts/eval/avg64_swe_hard51_20261017/all_cpu_consumers_finished.json"
+              ]
+            },
+            {
+              "name": "asi_finished",
+              "cpu_offsets": [
+                108,
+                112,
+                116,
+                120
+              ],
+              "release_markers": [
+                "artifacts/eval/asi128_asi240_20261017/all_cpu_consumers_finished.json",
+                "artifacts/eval/avg64_asi240_20261017/all_cpu_consumers_finished.json"
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/experiment.json",
+          "sha256": "05b60487a554420cbf8172e331e0418e7f30cea44834637281b239e184630360",
+          "initial_cpu_offsets": [
+            52,
+            56,
+            60,
+            64,
+            68,
+            72,
+            76,
+            80,
+            84,
+            88
+          ],
+          "cpu_offsets": [
+            8,
+            52,
+            56,
+            60,
+            64,
+            68,
+            72,
+            76,
+            80,
+            84,
+            88,
+            108,
+            112,
+            116,
+            120
+          ],
+          "expansion_stages": [
+            {
+              "name": "swe_finished",
+              "cpu_offsets": [
+                8
+              ],
+              "release_markers": [
+                "artifacts/eval/avg64_swe_hard51_20261017/all_cpu_consumers_finished.json"
+              ]
+            },
+            {
+              "name": "asi_finished",
+              "cpu_offsets": [
+                108,
+                112,
+                116,
+                120
+              ],
+              "release_markers": [
+                "artifacts/eval/asi128_asi240_20261017/all_cpu_consumers_finished.json",
+                "artifacts/eval/avg64_asi240_20261017/all_cpu_consumers_finished.json"
+              ]
+            }
+          ]
+        }
+      ],
+      "deadline_risk": {
+        "core_deadline": "2026-10-18T02:20:00+08:00",
+        "hours_remaining_at_capture": 15.054841713611111,
+        "unterminal": 262,
+        "required_average_terminal_per_hour": 17.403039167334803,
+        "linear_eta_claimed": false
+      }
+    }
+  ],
+  "controller_owners": [
+    {
+      "pid": 489933,
+      "startticks": "868194930",
+      "argv": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py",
+        "--output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017"
+      ]
+    },
+    {
+      "pid": 489934,
+      "startticks": "868194945",
+      "argv": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py",
+        "--output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017"
+      ]
+    }
+  ],
+  "cutoff_guard_owners": [
+    {
+      "pid": 1508852,
+      "startticks": "869510981",
+      "argv": [
+        "/usr/bin/python3",
+        "/data/caoqinlu/projects/apex-takehome/scripts/terminal_core_admission_guard_20261017.py",
+        "--project",
+        "/data/caoqinlu/projects/apex-takehome",
+        "--execute"
+      ]
+    }
+  ],
+  "cutoff_guard_process": {
+    "pid": 1508852,
+    "startticks": "869510981",
+    "state": "S",
+    "affinity": [
+      10
+    ],
+    "argv": [
+      "/usr/bin/python3",
+      "/data/caoqinlu/projects/apex-takehome/scripts/terminal_core_admission_guard_20261017.py",
+      "--project",
+      "/data/caoqinlu/projects/apex-takehome",
+      "--execute"
+    ]
+  },
+  "cutoff_guard_state": {
+    "at_utc": "2026-10-17T03:16:26.550864+00:00",
+    "state": "waiting_cutoff",
+    "pid": 1508852,
+    "terminal_counts": [
+      199,
+      183
+    ],
+    "active_counts": [
+      12,
+      11
+    ],
+    "pending_counts": [
+      234,
+      251
+    ]
+  },
+  "all_relevant_native_scopes": {
+    "apex-baseline-5b3636eaeb5c.scope": {
+      "sample_pids": [
+        2251349,
+        2251387,
+        2251401
+      ],
+      "affinities": [
+        [
+          72,
+          73,
+          74,
+          75
+        ]
+      ],
+      "process_count": 16
+    },
+    "apex-baseline-7494382e502c.scope": {
+      "sample_pids": [
+        2252410,
+        2252447,
+        2252461
+      ],
+      "affinities": [
+        [
+          20,
+          21,
+          22,
+          23
+        ]
+      ],
+      "process_count": 16
+    },
+    "apex-baseline-ef3ede56569c.scope": {
+      "sample_pids": [
+        2269452,
+        2269501,
+        2269519
+      ],
+      "affinities": [
+        [
+          88,
+          89,
+          90,
+          91
+        ]
+      ],
+      "process_count": 16
+    },
+    "apex-baseline-85fe01f21102.scope": {
+      "sample_pids": [
+        2272783,
+        2272820,
+        2272835
+      ],
+      "affinities": [
+        [
+          48,
+          49,
+          50,
+          51
+        ]
+      ],
+      "process_count": 16
+    },
+    "apex-baseline-eae82eaeaacb.scope": {
+      "sample_pids": [
+        2273847,
+        2273885,
+        2273899
+      ],
+      "affinities": [
+        [
+          76,
+          77,
+          78,
+          79
+        ]
+      ],
+      "process_count": 11
+    },
+    "apex-baseline-42b520a5558f.scope": {
+      "sample_pids": [
+        2274759,
+        2274797,
+        2274811
+      ],
+      "affinities": [
+        [
+          12,
+          13,
+          14,
+          15
+        ]
+      ],
+      "process_count": 16
+    },
+    "apex-baseline-2a32c49aa0eb.scope": {
+      "sample_pids": [
+        2282646,
+        2282683,
+        2282697
+      ],
+      "affinities": [
+        [
+          44,
+          45,
+          46,
+          47
+        ]
+      ],
+      "process_count": 16
+    },
+    "apex-baseline-1af647900149.scope": {
+      "sample_pids": [
+        2293207,
+        2293244,
+        2293258
+      ],
+      "affinities": [
+        [
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "process_count": 11
+    },
+    "apex-baseline-a2c1053042fd.scope": {
+      "sample_pids": [
+        2295944,
+        2295981,
+        2295996
+      ],
+      "affinities": [
+        [
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "process_count": 16
+    },
+    "ai4sci-submission-87782d306679.scope": {
+      "sample_pids": [
+        2298273,
+        2298278,
+        2298279
+      ],
+      "affinities": [
+        [
+          92
+        ]
+      ],
+      "process_count": 3
+    },
+    "apex-baseline-c0d5ce37a6fc.scope": {
+      "sample_pids": [
+        2299878,
+        2299915,
+        2299929
+      ],
+      "affinities": [
+        [
+          64,
+          65,
+          66,
+          67
+        ]
+      ],
+      "process_count": 11
+    },
+    "apex-baseline-3c9b53da9a1d.scope": {
+      "sample_pids": [
+        2300460,
+        2300498,
+        2300512
+      ],
+      "affinities": [
+        [
+          24,
+          25,
+          26,
+          27
+        ]
+      ],
+      "process_count": 11
+    },
+    "apex-baseline-05abe520c663.scope": {
+      "sample_pids": [
+        2308039,
+        2308077,
+        2308092
+      ],
+      "affinities": [
+        [
+          68,
+          69,
+          70,
+          71
+        ]
+      ],
+      "process_count": 11
+    },
+    "apex-baseline-ffc85c1beaf5.scope": {
+      "sample_pids": [
+        2315809,
+        2315861,
+        2315875
+      ],
+      "affinities": [
+        [
+          80,
+          81,
+          82,
+          83
+        ]
+      ],
+      "process_count": 11
+    },
+    "apex-baseline-c36a8b5753f4.scope": {
+      "sample_pids": [
+        2316829,
+        2316874,
+        2316888
+      ],
+      "affinities": [
+        [
+          52,
+          53,
+          54,
+          55
+        ]
+      ],
+      "process_count": 16
+    },
+    "apex-baseline-1f8e770d106d.scope": {
+      "sample_pids": [
+        2332431,
+        2332471,
+        2332486
+      ],
+      "affinities": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "process_count": 16
+    },
+    "apex-baseline-21608b3a84c9.scope": {
+      "sample_pids": [
+        2333379,
+        2333416,
+        2333430
+      ],
+      "affinities": [
+        [
+          32,
+          33,
+          34,
+          35
+        ]
+      ],
+      "process_count": 16
+    },
+    "apex-baseline-ef32ad3de06c.scope": {
+      "sample_pids": [
+        2340916,
+        2340953,
+        2340969
+      ],
+      "affinities": [
+        [
+          84,
+          85,
+          86,
+          87
+        ]
+      ],
+      "process_count": 16
+    },
+    "apex-baseline-41a1ad28cf5d.scope": {
+      "sample_pids": [
+        2341139,
+        2341176,
+        2341191
+      ],
+      "affinities": [
+        [
+          60,
+          61,
+          62,
+          63
+        ]
+      ],
+      "process_count": 16
+    },
+    "apex-baseline-7be507faf02c.scope": {
+      "sample_pids": [
+        2349896,
+        2349934,
+        2349948
+      ],
+      "affinities": [
+        [
+          56,
+          57,
+          58,
+          59
+        ]
+      ],
+      "process_count": 11
+    },
+    "apex-baseline-778b030f174c.scope": {
+      "sample_pids": [
+        2351503,
+        2351542,
+        2351557
+      ],
+      "affinities": [
+        [
+          36,
+          37,
+          38,
+          39
+        ]
+      ],
+      "process_count": 13
+    },
+    "apex-baseline-b3e0c05d5db2.scope": {
+      "sample_pids": [
+        2352475,
+        2352512,
+        2352526
+      ],
+      "affinities": [
+        [
+          40,
+          41,
+          42,
+          43
+        ]
+      ],
+      "process_count": 16
+    },
+    "apex-baseline-354c75351e3f.scope": {
+      "sample_pids": [
+        2356827,
+        2356864,
+        2356879
+      ],
+      "affinities": [
+        [
+          16,
+          17,
+          18,
+          19
+        ]
+      ],
+      "process_count": 11
+    },
+    "apex-baseline-b0a5d3953d37.scope": {
+      "sample_pids": [
+        2358182,
+        2358220,
+        2358234
+      ],
+      "affinities": [
+        [
+          28,
+          29,
+          30,
+          31
+        ]
+      ],
+      "process_count": 15
+    }
+  },
+  "asi_stage2_markers": {
+    "asi128_asi240_20261017": {
+      "generation_cpu_finished.json": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/generation_cpu_finished.json",
+        "exists": true,
+        "content": {
+          "state": "finished",
+          "completed_conditions": 240,
+          "cpu_sets": [
+            [
+              96,
+              97,
+              98,
+              99
+            ],
+            [
+              100,
+              101,
+              102,
+              103
+            ],
+            [
+              104,
+              105,
+              106,
+              107
+            ],
+            [
+              108,
+              109,
+              110,
+              111
+            ],
+            [
+              112,
+              113,
+              114,
+              115
+            ],
+            [
+              116,
+              117,
+              118,
+              119
+            ],
+            [
+              120,
+              121,
+              122,
+              123
+            ],
+            [
+              124,
+              125,
+              126,
+              127
+            ]
+          ],
+          "owned_scope_count": 240,
+          "active_owned_scopes": [],
+          "worker_pool_shutdown": true,
+          "at_utc": "2026-10-16T21:38:35.929286+00:00"
+        }
+      },
+      "all_cpu_consumers_finished.json": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/asi128_asi240_20261017/all_cpu_consumers_finished.json",
+        "exists": true,
+        "content": {
+          "state": "finished",
+          "at_utc": "2026-10-16T22:21:42.083374+00:00",
+          "generation_conditions": 240,
+          "generation_cpu_sets": [
+            [
+              96,
+              97,
+              98,
+              99
+            ],
+            [
+              100,
+              101,
+              102,
+              103
+            ],
+            [
+              104,
+              105,
+              106,
+              107
+            ],
+            [
+              108,
+              109,
+              110,
+              111
+            ],
+            [
+              112,
+              113,
+              114,
+              115
+            ],
+            [
+              116,
+              117,
+              118,
+              119
+            ],
+            [
+              120,
+              121,
+              122,
+              123
+            ],
+            [
+              124,
+              125,
+              126,
+              127
+            ]
+          ],
+          "grader_cpus": [
+            92,
+            93,
+            94,
+            95
+          ],
+          "grader_process_exitcode": 0,
+          "grader_complete": false,
+          "scorer_error_count": 1,
+          "generation_worker_pool_shutdown": true,
+          "grader_process_finished": true,
+          "active_program_scopes": [],
+          "all_cpu_consumers_finished": true,
+          "normalized_at": "2026-10-16T22:21:50.506207+00:00",
+          "normalization_source": {
+            "script": "scripts/normalize_asi_cpu_markers.py",
+            "reason": "Derived synonymous bool for already-running Terminal expansion gates.",
+            "required_original_fields": {
+              "state": "finished",
+              "generation_worker_pool_shutdown": true,
+              "grader_process_finished": true,
+              "active_program_scopes": [],
+              "generation_conditions": 240
+            },
+            "original_snapshot": "artifacts/eval/asi-cpu-marker-normalization-20261017/asi128_asi240_20261017.original.json"
+          }
+        }
+      }
+    },
+    "avg64_asi240_20261017": {
+      "generation_cpu_finished.json": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_asi240_20261017/generation_cpu_finished.json",
+        "exists": true,
+        "content": {
+          "state": "finished",
+          "completed_conditions": 240,
+          "cpu_sets": [
+            [
+              96,
+              97,
+              98,
+              99
+            ],
+            [
+              100,
+              101,
+              102,
+              103
+            ],
+            [
+              104,
+              105,
+              106,
+              107
+            ],
+            [
+              108,
+              109,
+              110,
+              111
+            ],
+            [
+              112,
+              113,
+              114,
+              115
+            ],
+            [
+              116,
+              117,
+              118,
+              119
+            ],
+            [
+              120,
+              121,
+              122,
+              123
+            ],
+            [
+              124,
+              125,
+              126,
+              127
+            ]
+          ],
+          "owned_scope_count": 240,
+          "active_owned_scopes": [],
+          "worker_pool_shutdown": true,
+          "at_utc": "2026-10-17T02:54:11.242275+00:00"
+        }
+      },
+      "all_cpu_consumers_finished.json": {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_asi240_20261017/all_cpu_consumers_finished.json",
+        "exists": false,
+        "content": null
+      }
+    }
+  },
+  "root_accepted_terminal_overlay_manifest": {
+    "path": "/data/caoqinlu/projects/apex-takehome/configs/eval/terminal250_audited_20261017.json",
+    "bytes": 6881,
+    "sha256": "f1d44f708e4916fedaf542bd6a724b90831d8b45c54016bbd55ec569810035fc"
+  },
+  "reshard_preparation": {
+    "key": "reshard-c4-data/seed1",
+    "model": "apex-terminal250",
+    "source_bindings": [
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/reshard-c4-data__seed1/result.json",
+        "bytes": 107361,
+        "sha256": "2f9e2d3309329c6bb26d6c0dbc9116e365b9990f822df562967c7d74834137bb"
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/reshard-c4-data__seed1/config.json",
+        "bytes": 1738,
+        "sha256": "5339ca73fa74d91766c71fbd1ed2805d3945cf6801375e4eaa4e2bd44c913419"
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/reshard-c4-data__seed1/trial.log",
+        "bytes": 3894,
+        "sha256": "493c272ac2663a522168725d4b5bec4f24afeebe9925e68bed5a35a8994b96e0"
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/reshard-c4-data__seed1/artifacts/logs/artifacts/final-task-state.json",
+        "bytes": 10300,
+        "sha256": "99802ef9380ba91a9d0db473c4d706241a958df5cda7bc8d7449af237571f29f"
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/reshard-c4-data/task.toml",
+        "bytes": 479,
+        "sha256": "504c50d2df483a01012c5fa89e1a21cfeba4757c22c6aa9d71591cbdd9e39633"
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/reshard-c4-data/environment/Dockerfile",
+        "bytes": 277,
+        "sha256": "2ca4a0e68628b8160f5e4296f779a204f51e3a70a8d4239be30e845e1565b39d"
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/reshard-c4-data/tests/test.sh",
+        "bytes": 499,
+        "sha256": "833c89a17fb238b0da378566d648a6f978963f5ed9f4dd120ab6366d9cf7c35f"
+      },
+      {
+        "path": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/reshard-c4-data/tests/test_outputs.py",
+        "bytes": 6615,
+        "sha256": "7c3e934692e274d798d90e213a0f733a1d1ef08464245e17b9531335ea78ae0a"
+      }
+    ],
+    "archive": {
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/reshard-c4-data__seed1/artifacts/logs/artifacts/final-task-state.tar",
+      "bytes": 1650954240,
+      "mtime_ns": "1792202207775490193",
+      "sha256_computed_once_during_initial_read": "ae06863c34e29cacf08f2339b37e3249d90e9a4966f640b3c60d30541b04cf19",
+      "hash_rescan_afterwards": false,
+      "members": 20311,
+      "app_members": 19831,
+      "etc_members": 476,
+      "hardlinks": 0,
+      "special_types": 0,
+      "app_regular_bytes": 1634962393,
+      "largest_regular_member_bytes": 307834,
+      "app_symlinks": [
+        {
+          "path": "/app/.venv/lib64",
+          "target": "lib"
+        },
+        {
+          "path": "/app/.venv/bin/python3",
+          "target": "python"
+        },
+        {
+          "path": "/app/.venv/bin/python3.13",
+          "target": "python"
+        },
+        {
+          "path": "/app/.venv/bin/python",
+          "target": "/usr/local/bin/python3.13"
+        }
+      ],
+      "candidate_scripts": [
+        {
+          "path": "/app/compress.py",
+          "bytes": 2958,
+          "sha256": "440921e6447a58c5b8c8659308bd9816c4ac1bfbd6b968092a8554064b6b0e7c"
+        },
+        {
+          "path": "/app/decompress.py",
+          "bytes": 2429,
+          "sha256": "e9cd7e80a6a4d74b34718c3e452b1868e6113137ac59784e3315debb2f8a0381"
+        }
+      ]
+    },
+    "snapshot": {
+      "workdir": "/app",
+      "complete_prefixes": [
+        "app",
+        "etc"
+      ],
+      "changed_external_files": [
+        "root/.cache/uv/interpreter-v4/85046238252ff06c/4a442d62a8d6ade5.msgpack",
+        "root/.cache/uv/interpreter-v4/85046238252ff06c/5242bf85c8a339f7.msgpack",
+        "root/.cache/uv/interpreter-v4/85046238252ff06c/a6ff54ed077d5bdd.msgpack",
+        "tmp/uv-1c83b73deef05048.lock"
+      ],
+      "return_code": 0,
+      "stderr": "",
+      "captured_before_verifier": true,
+      "live_service_state_is_not_reconstructed_by_tar": true
+    },
+    "cleanup_reason_only_read_processes_recorded": true,
+    "required_task_paths": [
+      "/app/compress.py",
+      "/app/decompress.py"
+    ],
+    "official_input_dependency": {
+      "dataset": "allenai/c4",
+      "data_files": {
+        "train": [
+          "en/c4-train.00009-of-01024.json.gz"
+        ]
+      },
+      "cache_presence_does_not_prove_required_shard_availability": true
+    },
+    "candidate_code_static_imports": [
+      "json",
+      "os",
+      "shutil",
+      "sys"
+    ],
+    "candidate_absolute_path_literals": [],
+    "static_comparison": {
+      "output_root": "/data/caoqinlu/projects/apex-takehome/artifacts/tmp/terminal-reshard-seed1-static-20261017-1110",
+      "same_sif_offset": 40960,
+      "unsquashfs_exit_code": 0,
+      "archive_etc_members": 476,
+      "same_sif_etc_entries": 474,
+      "managed_resolver_excluded": "/etc/resolv.conf",
+      "differences": [
+        {
+          "path": "/etc/apt/apt.conf.d/99-apex-rootmap",
+          "candidate_kind": "file",
+          "candidate_mode": "0o600",
+          "candidate_bytes": 27,
+          "same_sif_present": false,
+          "mode_same": null,
+          "content_or_type_same": null,
+          "candidate_link_target": null
+        },
+        {
+          "path": "/etc/dpkg",
+          "candidate_kind": "dir",
+          "candidate_mode": "0o700",
+          "candidate_bytes": 0,
+          "same_sif_present": true,
+          "mode_same": false,
+          "content_or_type_same": true,
+          "candidate_link_target": null
+        },
+        {
+          "path": "/etc/dpkg/dpkg.cfg",
+          "candidate_kind": "file",
+          "candidate_mode": "0o600",
+          "candidate_bytes": 446,
+          "same_sif_present": true,
+          "mode_same": false,
+          "content_or_type_same": true,
+          "candidate_link_target": null
+        },
+        {
+          "path": "/etc/dpkg/dpkg.cfg.d",
+          "candidate_kind": "dir",
+          "candidate_mode": "0o700",
+          "candidate_bytes": 0,
+          "same_sif_present": true,
+          "mode_same": false,
+          "content_or_type_same": true,
+          "candidate_link_target": null
+        },
+        {
+          "path": "/etc/dpkg/dpkg.cfg.d/docker",
+          "candidate_kind": "file",
+          "candidate_mode": "0o600",
+          "candidate_bytes": 3733,
+          "same_sif_present": true,
+          "mode_same": false,
+          "content_or_type_same": true,
+          "candidate_link_target": null
+        },
+        {
+          "path": "/etc/dpkg/dpkg.cfg.d/docker-apt-speedup",
+          "candidate_kind": "file",
+          "candidate_mode": "0o600",
+          "candidate_bytes": 259,
+          "same_sif_present": true,
+          "mode_same": false,
+          "content_or_type_same": true,
+          "candidate_link_target": null
+        },
+        {
+          "path": "/etc/dpkg/dpkg.cfg.d/singularity-compat",
+          "candidate_kind": "file",
+          "candidate_mode": "0o600",
+          "candidate_bytes": 52,
+          "same_sif_present": false,
+          "mode_same": null,
+          "content_or_type_same": null,
+          "candidate_link_target": null
+        },
+        {
+          "path": "/etc/dpkg/origins",
+          "candidate_kind": "dir",
+          "candidate_mode": "0o700",
+          "candidate_bytes": 0,
+          "same_sif_present": true,
+          "mode_same": false,
+          "content_or_type_same": true,
+          "candidate_link_target": null
+        },
+        {
+          "path": "/etc/dpkg/origins/debian",
+          "candidate_kind": "file",
+          "candidate_mode": "0o600",
+          "candidate_bytes": 83,
+          "same_sif_present": true,
+          "mode_same": false,
+          "content_or_type_same": true,
+          "candidate_link_target": null
+        },
+        {
+          "path": "/etc/dpkg/origins/default",
+          "candidate_kind": "file",
+          "candidate_mode": "0o600",
+          "candidate_bytes": 83,
+          "same_sif_present": true,
+          "mode_same": false,
+          "content_or_type_same": false,
+          "candidate_link_target": null
+        }
+      ],
+      "dataset_calls": [
+        {
+          "line": 34,
+          "literal_args": [
+            "allenai/c4"
+          ],
+          "keywords": {
+            "data_files": "Dict",
+            "split": "train"
+          }
+        }
+      ],
+      "sif_required_paths_static_listing": {
+        "return_code": 0,
+        "matching_entries_count": 53,
+        "python3_13_entries": [
+          "-rwxr-xr-x root/root             14480 2025-08-16 06:16 squashfs-root/usr/local/bin/python3.13"
+        ],
+        "huggingface_cache_present": true,
+        "listing_sha256": "79c522db4294e3a1d8004a45a04133dd8391298880a35cfb8dbda9846e6b9037"
+      },
+      "containers_tests_candidates_executed": false
+    },
+    "sif": {
+      "tag": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/alexgshaw_reshard-c4-data_20251031.sif",
+      "resolved": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif/sha256-92d209e704785e17ad6b3f740e813dd72bc7ac33982ce435d197ab9d890eac2a.sif",
+      "bytes": 1441583104,
+      "mtime_ns": "1792083059366707455"
+    },
+    "no_candidate_archive_extraction_or_code_execution": true,
+    "no_solver_or_verifier_or_service_run": true
+  },
+  "no_changes": {
+    "queues": true,
+    "markers": true,
+    "claims": true,
+    "network": true,
+    "sources": true,
+    "native_runs": 0,
+    "api_calls": 0,
+    "new_driver": false,
+    "shared_docs_or_git": true
+  },
+  "inventory_interpretation": {
+    "expert_raw_invalid": 7,
+    "expert_already_root_approved_overlay": 2,
+    "expert_unresolved": 5,
+    "avg_raw_invalid": 5,
+    "avg_unresolved": 5,
+    "new_since_1030": [
+      "apex-avg64:train-fasttext/seed1"
+    ],
+    "raw_invalid_is_not_wrong": true,
+    "no_collector_refresh_this_turn": true
+  },
+  "peer_resource_evidence": {
+    "at_cst": "2026-10-17 11:12:54",
+    "source": "direct_expert_eval read-only audit message",
+    "global_asi_lock_inode": 90775088,
+    "global_asi_lock_owner": 1126014,
+    "scorer_pid": 2282159,
+    "scorer_run_lock_inode": 91570849,
+    "scientific_completed": 85,
+    "scientific_expected": 240,
+    "scientific_error": 0,
+    "hpc_service727856_released_cst": "2026-10-17 10:54:16",
+    "not_independently_rescanned": true
+  },
+  "root_resource_handoff": {
+    "source": "root independent audit and instruction this turn",
+    "cpu124_127_permanently_removed_from_avg_generation": true,
+    "terminal_all_stages_end_at_cpu123": true,
+    "t774_native_double_drain_unlock_cst": "2026-10-17 10:55:39",
+    "future_reshard_grade_only_requires_new_root_lease": true,
+    "no_claim_or_execute_by_this_audit": true
+  }
+}

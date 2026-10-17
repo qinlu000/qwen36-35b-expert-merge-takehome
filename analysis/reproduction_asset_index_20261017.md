@@ -1,5 +1,15 @@
 # 复现资产索引（2026-10-17）
 
+**11:27单项补评已实际运行**：[reshard准备](terminal_reshard_saved_grade_preparation_20261017.md)经root/独立审阅后，11:25:41只启动一次parent**2394544/start870656591**（child2394547/start870656770），新root `artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017`。parent**2a2f31efc4d175f37ec2c3105c801d622da797a08eb29afde9cc9717b97f1df9**、manifest**92af3fc0d2d809c168fd1177608b2ade81e2c41ab07c030f1219f4f3390e759b**、preparer**3ed35de941195c0a248299a053d64c310584e9f9c426424d38d11bdf8972fa55**及42小文件绑定已冻结；不能重跑preparer写manifest或同步截断这些live文件。
+
+真实AVG240生成关闭/T774原guard排空后，使用同一124–127锁inode90780234，独立visible guard，child词法Harbor解释器、taskset124–127/relative offset0，保留原4CPU/8GiB/900秒、minimum_runway3600，不碰科学grader92–95或Terminal既有stage2。原reshard journal精确绑定旧scope af8481795ec4及namespace/host keeper，确认当前已清；捕获的namespace PID不冒充host PID。恢复原app19831、10精确etc差分与4外部uv原状态，dpkg/default旧symlink先仅移除该点再恢复，排除resolver，没有git-leak特殊模式或候选修补。
+
+root实际读3条restore均rc0，严格**19845**项content/mode/type/link和app名单/resolver全同，官方pytest已collected1 item运行；当前仍native_running/lockheld、0模型调用。原PUBLIC verifier/UV group20/HF `allenai/c4/en/c4-train.00009-of-01024.json.gz`输入保持，下载供应异常继续infra unknown，不替换输入或自动填0。结果尚待root完整native/资源/原bytes/两次scope排空→停guard→两次全scope空→解锁独立审核，不依reward自动接分/重试，原raw null保持。
+
+
+**11:15更新**：SWE Base/专家/AVG64全51有效，10/0/4resolved，[T774原答案审核](avg64_teleport7744_grade_review_20261017_1110.md)已接受exact native0；原instruction79要求的v1.6.0依赖遗漏导致编译阻断，未运行TestSendEvent，旧timeout/null不改。Mac专用route在原生完整排空/无消费者后已关闭，[释放收据](source_snapshots/avg64_t774_route_release_20261017_1115.json)保存38444/control socket消失，原route收据保留，不重建。新[完整任务对照](swe_task_comparison_20261017.md)和[双视图](source_snapshots/formal_aggregation_20261017_1115.json)及11:15阶段PDF已更新。AVG ASI全240生成/727856释放，科学评分85/240尚未齐，Terminal专家190/AVG178也只是部分coverage，完整macro/最终提交仍缺。
+
+
 [T774等待器实际启动收据](avg64_teleport7744_grade_execution_20261017.md)已补齐：10:43:31独立metadata复核2223041/start870388084、43绑定保持、lockfalse、无guard/native/admission、原生成marker尚缺。它是等待状态，不是分数或CPU已交接。
 
 **10:42唯一等待器已启动**：root与独立审阅通过新版fb5a/8cff及真实route receipt后，10:40:56只启动一次T774 parent**2223041/start870388084**；10:41:47仍waiting_source_or_route、lock_held=false、0native。它只在原AVG ASI全240/pool shutdown/源scope空marker与124–127实际scope排空后领取独立未来租约，native仅124/1CPU4GiB3000s，不碰92–95或Terminal到123的原扩容。当前232保存、8在途，不能释放生成核。route依赖Mac专用84416/control socket，结束无消费者后只关自身route，不能因中途断路自动重跑未知原生结果。

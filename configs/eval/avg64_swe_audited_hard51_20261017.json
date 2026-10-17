@@ -1,6 +1,6 @@
 {
-  "scope": "Five independently reviewed exact AVG64 native-zero results only",
-  "approval": "Root independently read and approved each listed exact AVG64 task, frozen patch, model identity and native-zero evidence on 2026-10-17",
+  "scope": "Six independently reviewed exact AVG64 native-zero results only",
+  "approval": "Root independently read and approved each listed exact AVG64 task, frozen patch, model identity and native-zero evidence on 2026-10-17; final T774 approved 2026-10-17 after11:12 CST following independent original-task/native/source/resource/drain review",
   "model": "apex-avg64",
   "generation_model": "openai/apex-avg64",
   "checkpoint": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
@@ -83,6 +83,24 @@
       "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "original_invalid_reason": "harbor_replay_exception:RewardFileNotFoundError",
       "reason": "Root independently read this own frozen task and official test patch: Complete must return three values; NewAsynchronousTokenCounter/defaultTokenizer are required. Its own empty patch leaves two returns and missing symbols, as its actual official compile errors show. Same-source fresh native0/no Harbor exception; required14/parsed0 compilation-blocked, not14 executed failed tests. Original Go cache copy/workspace prep0; original1CPU/4GiB/3000s retained, memory OOM/OOMkill0, 38 bindings/SIF stat unchanged. Whole cohort naturally finished, two native-empty samples then guard stop/two full-empty samples/unlock verified. Original invalid record unchanged; no cross-model grade or reward selection."
+    },
+    {
+      "task_id": "instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "original_result": "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
+      "accepted_result": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/native/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
+      "original_result_sha256": "1d68a5172d9c0835f69b654f6ec2ae5dcf30fde9db14d6b3692815e40f9c7b27",
+      "accepted_result_sha256": "33323a42a03336eb6e12f2faa97d544c793f3df8cf67fe6008cf8d4da3a93e5e",
+      "source_patch": "artifacts/eval/avg64_swe_hard51_20261017/generation/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/agent/model.patch",
+      "patch_bytes": 0,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_invalid_reason": "verifier_public_go_dependency_timeout",
+      "reason": "Root independently reviewed exact AVG original task instruction line79 requiring netlink v1.6.0 as a direct go.mod require; own saved patch is empty and does not declare it. One original-answer replay after restoring only its original proxy host/IP/URI/TLS route passed HTTP200 with certificate validation; native test setup resolves unpinned netlink v1.11.2 and fails on iter missing from the unchanged Go toolchain. Native0/no Harbor exception; TestSendEvent compilation-blocked, not an executed assertion failure. No dependency/toolchain/candidate/test repair, no model call or reward retry. Original43/admission45 bindings and SIF stat unchanged, source240/poolshutdown real handoff before CPU124/1CPU4GiB3000s, double native drain then guard stop and double full drain before unlock. Original timeout/null preserved; independently reviewed without borrowing expert result.",
+      "evidence_audit": "analysis/avg64_teleport7744_grade_review_20261017_1110.md",
+      "parent_pid": 2223041,
+      "parent_startticks": "870388084",
+      "source_generation_marker_sha256": "293770fa0c13369dac961b1cf8255fc68f0b13068947773a5845f90aef8eb404",
+      "execution_claim_sha256": "e65b6940f57e3d66421f1f4fd78d1dd0043e6a8ce2efceb365653e7d30bbc23b",
+      "admission_sha256": "f0e6c119652a84f521e7bce1583ad4f89f766cd9c730343febed127ff483edfe"
     }
   ],
   "no_reward_search": true,

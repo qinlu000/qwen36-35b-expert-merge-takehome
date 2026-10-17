@@ -1,0 +1,399 @@
+{
+  "schema": "avg64_teleport7744_grade_review_v1",
+  "collected_at_utc": "2026-10-17T03:11:30.874943+00:00",
+  "collected_at_cst": "2026-10-17T11:11:30.874943+08:00",
+  "final_scope_observation_at_utc": "2026-10-17T03:12:09.895458+00:00",
+  "task_key": "avg64/teleport7744",
+  "outcome": "finished_pending_root_review",
+  "accepted_into_formal_summary": false,
+  "raw_native_reward": 0,
+  "native_exception": null,
+  "conclusion": {
+    "original_network_blocker_recovered": true,
+    "official_test_ran": false,
+    "observed_failure": "Go package setup failed: unpinned dependency resolved netlink v1.11.2; conn.go imports iter absent from the original GOROOT.",
+    "candidate_omission_evidence": "Original task instruction.md:79 requires netlink v1.6.0 as a normal go.mod require; original saved model.patch is empty and replay applied nothing.",
+    "classification": "Concrete candidate dependency-contract omission; native functional test has no executed result. Root must independently decide audited acceptance.",
+    "no_claim_that_test_assertion_failed": true,
+    "no_new_grade_retry_or_dependency_repair_recommended_by_this_audit": true,
+    "required_root_action": "Review the original instruction requirement, empty patch and captured Go setup failure before accepting any overlay. This audit leaves the formal score unaccepted.",
+    "route_not_modified_or_closed": true,
+    "model_calls_by_attempt": 0,
+    "model_or_api_calls_by_this_audit": 0,
+    "new_network_probes_by_this_audit": 0
+  },
+  "root_launch": {
+    "at_utc": "2026-10-17T02:40:56.818251+00:00",
+    "state": "spawned_unique_waiter",
+    "script_sha256": "fb5a495bc3fceab502ce6983a905a846b58cf26ba885282849ec938b617292ce",
+    "manifest_sha256": "8cff408195321efd151b16eaeb42eae0bb55cf4c78670cebd2b6d9addb4f2abd",
+    "route_receipt_sha256": "6d8f90eb63ba0104c2ff8782511ec9f22aa101b5dc8fe955413e9227cdfd0a7d",
+    "root_and_independent_review_passed": true,
+    "admission_policy": "Wait for original AVG ASI complete240/pool shutdown marker and actual124-127 scopes empty; do not reclaim source generation CPU",
+    "future_native_cpu": 124,
+    "future_lease_cpu_ids": [
+      124,
+      125,
+      126,
+      127
+    ],
+    "logical_offset": 0,
+    "memory_mib": 4096,
+    "verifier_seconds": 3000,
+    "new_model_calls": 0,
+    "accepted_into_formal_summary": false,
+    "pid": 2223041,
+    "startticks": "870388084"
+  },
+  "execution_claim": {
+    "pid": 2223041,
+    "startticks": "870388084",
+    "state": "waiting_source_handoff",
+    "lock_held": false,
+    "model_calls": 0,
+    "accepted_into_formal_summary": false,
+    "at_utc": "2026-10-17T02:40:57.229510+00:00"
+  },
+  "source_and_frozen_identity": {
+    "script_sha256": "fb5a495bc3fceab502ce6983a905a846b58cf26ba885282849ec938b617292ce",
+    "manifest_sha256": "8cff408195321efd151b16eaeb42eae0bb55cf4c78670cebd2b6d9addb4f2abd",
+    "execution_claim_bindings": {
+      "count": 43,
+      "all_match": true,
+      "mismatches": []
+    },
+    "admission_bindings": {
+      "count": 45,
+      "all_match": true,
+      "mismatches": []
+    },
+    "original_source_bindings": {
+      "count": 41,
+      "all_match": true,
+      "mismatches": []
+    },
+    "sif_path": "artifacts/benchmarks/sif/sha256-83645a1c5565267675a19af0916ba1eed14131c315d92cedb05abea398a03527.sif",
+    "sif_stat": {
+      "actual_size": 1659310080,
+      "actual_mtime_ns": "1792093481285011650",
+      "matches": true
+    },
+    "task_checksum": "793a666f549694b8319137e9fbc9f09fd81137c5d336431bde4a086782140194",
+    "task_lock_digest": "sha256:35f99fdbbb131413895964e11819b5dbb3fc93291fad16ebae9fcc165d7ffac4",
+    "patch_bytes": 0,
+    "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "replay_patch": null,
+    "original_sources_unchanged_recorded_by_parent": true,
+    "original_task_dependency_requirement": {
+      "file": "instruction.md",
+      "line": 79,
+      "module": "github.com/mdlayher/netlink",
+      "version": "v1.6.0",
+      "normal_go_mod_require": true,
+      "source_and_nlenc_from_module_proxy": true
+    }
+  },
+  "source_handoff": {
+    "marker": {
+      "state": "finished",
+      "completed_conditions": 240,
+      "cpu_sets": [
+        [
+          96,
+          97,
+          98,
+          99
+        ],
+        [
+          100,
+          101,
+          102,
+          103
+        ],
+        [
+          104,
+          105,
+          106,
+          107
+        ],
+        [
+          108,
+          109,
+          110,
+          111
+        ],
+        [
+          112,
+          113,
+          114,
+          115
+        ],
+        [
+          116,
+          117,
+          118,
+          119
+        ],
+        [
+          120,
+          121,
+          122,
+          123
+        ],
+        [
+          124,
+          125,
+          126,
+          127
+        ]
+      ],
+      "owned_scope_count": 240,
+      "active_owned_scopes": [],
+      "worker_pool_shutdown": true,
+      "at_utc": "2026-10-17T02:54:11.242275+00:00"
+    },
+    "marker_sha256": "293770fa0c13369dac961b1cf8255fc68f0b13068947773a5845f90aef8eb404",
+    "latest_saved_progress": {
+      "completed_conditions": 240,
+      "expected_conditions": 240,
+      "updated_at": "2026-10-17T02:54:09.286191+00:00",
+      "scored": false,
+      "state": "completed",
+      "unsubmitted_this_session": 0
+    },
+    "admission_at_utc": "2026-10-17T02:54:14.159197+00:00",
+    "guard_observed": {
+      "unit": "apex-baseline-avg-t7744-2223041.scope",
+      "affinities": {
+        "2282170": [
+          124,
+          125,
+          126,
+          127
+        ]
+      },
+      "memory_max": 33554432,
+      "memory_swap_max": 0
+    },
+    "native_child_pid": 2282331,
+    "native_child_startticks": "870467818",
+    "native_command_cpu": 124,
+    "native_child_entry_asserts_affinity_exactly_124": true,
+    "note": "Admission is later than original finished/240/poolshutdown marker; recorded guard is124-127 and source scopes were rechecked by the frozen parent before spawn."
+  },
+  "native_proxy_probe": {
+    "at_utc": "2026-10-17T02:54:46.235517+00:00",
+    "url": "https://proxy.golang.org/github.com/mdlayher/netlink/@v/list",
+    "return_code": 0,
+    "http_status": "200",
+    "stderr": null,
+    "origin_ip": "142.250.73.145",
+    "scope": "apex-baseline-887e6b4fe9e2",
+    "tls_verification_disabled": false,
+    "model_calls": 0,
+    "official_verifier_started": false,
+    "passed": true
+  },
+  "native_verifier": {
+    "started_receipt": {
+      "at_utc": "2026-10-17T02:55:17.807047+00:00",
+      "original_test_command": "(/tests/test.sh) > /logs/verifier/test-stdout.txt 2>&1",
+      "verifier_seconds": 3000,
+      "model_calls": 0
+    },
+    "result": {
+      "task_checksum": "793a666f549694b8319137e9fbc9f09fd81137c5d336431bde4a086782140194",
+      "agent_info": {
+        "name": "patch-replay-agent",
+        "version": "1.0.0",
+        "model_info": {
+          "name": "replay",
+          "provider": null
+        }
+      },
+      "verifier_result": {
+        "rewards": {
+          "reward": 0
+        }
+      },
+      "exception_info": null,
+      "started_at": "2026-10-17T02:54:14.609599Z",
+      "finished_at": "2026-10-17T02:55:34.626310Z",
+      "environment_setup": {
+        "started_at": "2026-10-17T02:54:14.610133Z",
+        "finished_at": "2026-10-17T02:54:46.235826Z"
+      },
+      "agent_execution": {
+        "started_at": "2026-10-17T02:54:46.236005Z",
+        "finished_at": "2026-10-17T02:54:46.366305Z"
+      },
+      "verifier": {
+        "started_at": "2026-10-17T02:54:46.367487Z",
+        "finished_at": "2026-10-17T02:55:32.526137Z"
+      }
+    },
+    "parser_output": {
+      "tests": []
+    },
+    "test_log_summary": {
+      "required_tests": 1,
+      "passed_tests": 0,
+      "required_tests_that_passed": 0,
+      "missing_test": "TestSendEvent",
+      "result": "FAILED"
+    },
+    "go_resolution": {
+      "selected_netlink_version": "v1.11.2",
+      "selected_other_versions": {
+        "github.com/mdlayher/socket": "v0.6.0",
+        "golang.org/x/net": "v0.53.0",
+        "golang.org/x/sys": "v0.43.0",
+        "golang.org/x/sync": "v0.20.0"
+      },
+      "error": "package iter is not in GOROOT (/usr/local/go/src/iter)",
+      "output": "FAIL github.com/gravitational/teleport/lib/auditd [setup failed]"
+    },
+    "existing_go_workspace_preparation": {
+      "command": "cd /app 2>/dev/null || cd /testbed; export GOPROXY=file:///opt/apex-swe-score-go/gopath/pkg/mod/cache/download,https://goproxy.cn,direct; export GOSUMDB=sum.golang.org GOTOOLCHAIN=local; if [ -f go.work ]; then go work sync; fi; go mod download all",
+      "cache_preseed": {
+        "copied_files": 185,
+        "kept_existing_files": 42,
+        "target": "/tmp/apex-native-go-module-cache/cache/download"
+      },
+      "return_code": 0,
+      "elapsed_seconds": 31.412964038550854,
+      "stdout": null,
+      "stderr": null,
+      "original_test_command_unchanged": true
+    },
+    "existing_native_go_disk_cache": {
+      "original_caches": [
+        "/root/.cache/go-build",
+        "/go/pkg/mod"
+      ],
+      "disk_caches": [
+        "/tmp/apex-native-go-build-cache",
+        "/tmp/apex-native-go-module-cache"
+      ],
+      "return_code": 0,
+      "stderr": null,
+      "original_cache_contents_preserved": true
+    },
+    "memory_resource_events": {
+      "memory.max": "4294967296\n",
+      "memory.swap.max": "0\n",
+      "memory.events": "low 0\nhigh 0\nmax 9994\noom 0\noom_kill 0\noom_group_kill 0\n",
+      "memory.current": "4214185984\n",
+      "memory.peak": "4295393280\n",
+      "cpu.stat": "usage_usec 48364444\nuser_usec 27393455\nsystem_usec 20970989\ncore_sched.force_idle_usec 0\n"
+    },
+    "resources": {
+      "native_cpu": 124,
+      "logical_offset": 0,
+      "cpus": 1,
+      "memory_mib": 4096,
+      "memory_swap_max": 0,
+      "verifier_seconds": 3000,
+      "patch_replay_seconds": 1800
+    },
+    "no_go_upgrade_or_dependency_change_performed_by_recovery": true,
+    "connect_request_count": 4,
+    "all_connect_requests_original_host_only": true
+  },
+  "natural_cleanup": {
+    "parent_final_state": "finished_pending_root_review",
+    "child_returncode": 0,
+    "native_finished_at": "2026-10-17T02:55:34.626310Z",
+    "native_scope_empty_samples": [
+      {
+        "at_utc": "2026-10-17T02:55:34.874660+00:00",
+        "remaining_scopes": []
+      },
+      {
+        "at_utc": "2026-10-17T02:55:37.031129+00:00",
+        "remaining_scopes": []
+      }
+    ],
+    "guard_stopped": true,
+    "full_scope_empty_samples_after_guard_stop": [
+      {
+        "at_utc": "2026-10-17T02:55:37.192189+00:00",
+        "remaining_scopes": []
+      },
+      {
+        "at_utc": "2026-10-17T02:55:39.346386+00:00",
+        "remaining_scopes": []
+      }
+    ],
+    "lock_held": false,
+    "released_at_utc": "2026-10-17T02:55:39.346851+00:00",
+    "known_processes": {
+      "2223041": {
+        "exists": false
+      },
+      "2282170": {
+        "exists": false
+      },
+      "2282331": {
+        "exists": false
+      },
+      "2283237": {
+        "exists": false
+      }
+    },
+    "exact_native_processes": [],
+    "current_project_scopes_on_124_127": {},
+    "current_private_kernel_lock_rows": [],
+    "private_lock_inode": 90780234,
+    "no_current_cpu_consumer_observed": true
+  },
+  "evidence_paths": {
+    "root_launch": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/root-launch-20261017.json",
+    "parent_state": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/parent-state.json",
+    "execution_claim": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/execution-claim.json",
+    "admission": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/admission.json",
+    "native_probe": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/native-proxy-probe.json",
+    "native_result": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/native/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
+    "native_stderr": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/native/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/verifier/run-script-stderr.txt",
+    "native_stdout": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/native/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/verifier/run-script-stdout.txt",
+    "official_test_stdout": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/native/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/verifier/test-stdout.txt",
+    "official_output": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/native/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/verifier/output.json",
+    "resource_events": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/native/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/verifier/repair-resource-events.json",
+    "original_input_manifest": "configs/eval/avg64_teleport7744_grade_only_20261017.json"
+  },
+  "small_file_sha256": {
+    "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/parent-state.json": "99d39e8e81572b14fd0e6d5681818d5b6171b64267c8c0cf0123fdc216effbba",
+    "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/admission.json": "f0e6c119652a84f521e7bce1583ad4f89f766cd9c730343febed127ff483edfe",
+    "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/execution-claim.json": "e65b6940f57e3d66421f1f4fd78d1dd0043e6a8ce2efceb365653e7d30bbc23b",
+    "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/native-proxy-probe.json": "7667e88163b75f201ac4d852990673967eb93ef9a4911d73d5a58e2129e4eab4",
+    "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/native/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json": "33323a42a03336eb6e12f2faa97d544c793f3df8cf67fe6008cf8d4da3a93e5e",
+    "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/native/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/verifier/output.json": "58e3a5c3daba970fc031b9e24d27bc107c18ca7c30e77371752d833e6b79d141",
+    "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/native/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/verifier/test-stdout.txt": "a09344950639d440ef296af65457bb81ee0f505c3ffa0cfe2b0dcfcd20413a50",
+    "configs/eval/avg64_teleport7744_grade_only_20261017.json": "8cff408195321efd151b16eaeb42eae0bb55cf4c78670cebd2b6d9addb4f2abd",
+    "scripts/run_avg64_teleport7744_grade_only_20261017.py": "fb5a495bc3fceab502ce6983a905a846b58cf26ba885282849ec938b617292ce"
+  },
+  "limitations": [
+    "No new native command, HTTP/TLS probe or model/API request was issued; this is an audit of the one completed root-approved attempt.",
+    "Native reward0 and exceptionnull do not alone prove a functional assertion failure; the parser has no executed tests.",
+    "The original Go executable version was not freshly probed. Its missing iter package is direct captured compiler output.",
+    "No source, route, canonical summary, marker, queue or budget was modified.",
+    "Route remains under root control; this audit does not close it."
+  ],
+  "post_capture_root_decision": {
+    "source": "Root message after this read-only collection",
+    "decision": "accepted_exact_native_zero",
+    "accepted_native_result_sha256": "33323a42a03336eb6e12f2faa97d544c793f3df8cf67fe6008cf8d4da3a93e5e",
+    "root_independently_verified": [
+      "native result/state",
+      "claim43 and admission45 bindings unchanged",
+      "original TLS200",
+      "original instruction79 requires netlinkv1.6.0",
+      "original empty patch",
+      "TestSendEvent not executed; iter setup failure"
+    ],
+    "root_reported_avg_manifest_item_count": 6,
+    "collected_pending_state_preserved": true,
+    "canonical_or_manifest_edited_by_this_agent": false,
+    "route_lifecycle": "Root will independently prove no consumers before closing its own Mac84416; this agent did not close it."
+  }
+}

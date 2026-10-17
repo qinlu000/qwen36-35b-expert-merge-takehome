@@ -1,0 +1,153 @@
+{
+  "schema": "terminal_saved_grade_cpu124_parent_preparation_v1",
+  "prepared_at_utc": "2026-10-17T03:22:36+00:00",
+  "scope": "New independent lease parent; no candidate restoration logic imported or executed.",
+  "script": "scripts/run_terminal_saved_grade_cpu124_20261017.py",
+  "script_sha256": "2a2f31efc4d175f37ec2c3105c801d622da797a08eb29afde9cc9717b97f1df9",
+  "status": "prepared_for_root_review; actual metadata-only prepare passed; parent now frozen",
+  "validation": {
+    "ast_passed": true,
+    "stdlib_import_passed": true,
+    "gate_fixtures": [
+      {
+        "fixture": "valid marker/contracts/T774 drains; namespace PID identity explicitly unknown",
+        "accepted": true,
+        "expected": true,
+        "passed": true
+      },
+      {
+        "fixture": "239-condition source rejected",
+        "accepted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "fixture": "Terminal stage overlapping124 rejected",
+        "accepted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "fixture": "T774 only one native-empty sample rejected",
+        "accepted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "fixture": "original trial scope alive outside124 also rejected",
+        "accepted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "fixture": "same captured hostPID/startticks alive rejected",
+        "accepted": false,
+        "expected": false,
+        "passed": true
+      }
+    ],
+    "new_native": 0,
+    "claims": 0,
+    "locks": 0,
+    "guards": 0
+  },
+  "cli_help_passed": true,
+  "runtime_child_python": "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+  "runtime_child_python_path_lexical_not_resolved": true,
+  "copied_pure_helpers": [
+    "now",
+    "save",
+    "ticks",
+    "effective_cpus"
+  ],
+  "imports": "Python standard library only",
+  "fixed_gates": {
+    "generation_marker": "artifacts/eval/avg64_asi240_20261017/generation_cpu_finished.json",
+    "required_generation_state": "finished/240/owned_scope_count240/worker_pool_shutdown/active_owned_scopes[]/original8CPUsets96-127",
+    "terminal_contract": "Both existing config.json and experiment.json: every initial/full/stage offset plus4CPU stays within0-123; leased offsets subset.",
+    "t774_final_state": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/parent-state.json",
+    "t774_final_state_sha256": "99d39e8e81572b14fd0e6d5681818d5b6171b64267c8c0cf0123fdc216effbba",
+    "t774_required_cleanup": "Original parent/child gone by PID/startticks, finished state, unchanged sources, childrc0, guard_stopped, lockfalse, native2empty then full2empty",
+    "existing_lock": "artifacts/eval/avg64_teleport7744_cpu124_127.lock",
+    "existing_lock_inode": 90780234,
+    "no_global_grader_92_95_lock": true,
+    "old_trial_source": "Frozen pid_source receipt; true namespace-clear evidence plus original scope currently absent; exact captured hostPID/startticks must not remain alive. Missing captureticks stay unknown."
+  },
+  "manifest_interface": {
+    "original_result": "project-relative saved source result",
+    "restore_manifest": "project-relative already-prepared frozen restore JSON",
+    "output": "project-relative new package root; only execute creates attempt1/native",
+    "runtime": "project-relative frozen runtime root; child script is scripts/run_terminal_repair_grade_v2.py within it",
+    "host_tmpdir": "absolute short dedicated TMPDIR",
+    "pid_source": "project-relative selection/preparation small receipt",
+    "source_sha256": "only small source/config/runtime/receipt file path -> SHA256",
+    "source_stat": "large archive and resolved SIF path -> {size,mtime_ns}; no new payload hash",
+    "minimum_runway_seconds": ">=2400",
+    "core_deadline": "original core deadline"
+  },
+  "execution_contract": {
+    "default_mode": "prepare_only",
+    "fixed_native_cpu_range": "124-127",
+    "logical_cpu_offset": 0,
+    "original_resources": {
+      "cpus": 4,
+      "memory_mib": 8192,
+      "verifier_seconds": 900
+    },
+    "exclusive_claim": "output/attempt1 mkdir(exist_ok=False), then execution-claim.json; no retry",
+    "private_lease": "existing r+ lock sameinode -> scopeempty -> visible32MiB/swap0 guard with inheritedFD -> allgates/frozeninputs recheck",
+    "child": "taskset -c124-127 <lexical Harbor Python> <frozen runtime repair grade v2> --cpu-offset0",
+    "cleanup": "child natural exit -> two native-empty samples ignoring only own guard -> stopguard -> two full-pool-empty samples -> unlock",
+    "output_policy": "pending_root_review, no automatic validity or canonical change"
+  },
+  "actions": {
+    "execute": 0,
+    "native": 0,
+    "model_or_api_calls": 0,
+    "claims": 0,
+    "flock_acquisitions": 0,
+    "guards": 0,
+    "new_gpu_allocations": 0,
+    "bound_existing_files_modified": false
+  },
+  "actual_prepare_receipt_recorded_at_utc": "2026-10-17T03:24:09+00:00",
+  "actual_prepare": {
+    "mode": "prepare_only",
+    "generation_marker_sha256": "293770fa0c13369dac961b1cf8255fc68f0b13068947773a5845f90aef8eb404",
+    "t774_state_sha256": "99d39e8e81572b14fd0e6d5681818d5b6171b64267c8c0cf0123fdc216effbba",
+    "old_scope": "apex-baseline-af8481795ec4.scope",
+    "busy_scopes": [],
+    "script_sha256": "2a2f31efc4d175f37ec2c3105c801d622da797a08eb29afde9cc9717b97f1df9",
+    "manifest_sha256": "92af3fc0d2d809c168fd1177608b2ade81e2c41ab07c030f1219f4f3390e759b",
+    "claim_created": false,
+    "lock_acquired": false,
+    "guard_created": false,
+    "native_started": false,
+    "model_calls": 0
+  },
+  "actual_prepare_command": [
+    "taskset",
+    "-c",
+    "10",
+    "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+    "scripts/run_terminal_saved_grade_cpu124_20261017.py",
+    "--manifest",
+    "configs/eval/terminal_reshard_saved_grade_20261017.json"
+  ],
+  "actual_prepare_exit_code": 0,
+  "fixed_selection": {
+    "key": "reshard-c4-data/seed1",
+    "model": "apex-terminal250",
+    "manifest": "configs/eval/terminal_reshard_saved_grade_20261017.json",
+    "manifest_sha256": "92af3fc0d2d809c168fd1177608b2ade81e2c41ab07c030f1219f4f3390e759b",
+    "verified_small_source_count": 42,
+    "verified_large_file_stat_count": 2,
+    "old_trial_scope": "apex-baseline-af8481795ec4.scope",
+    "minimum_runway_seconds": 3600,
+    "core_deadline": "2026-10-18T02:20:00+08:00",
+    "runtime": "artifacts/eval/terminal250_full445_20261017/runtime",
+    "output": "artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017",
+    "host_tmpdir": "/data/caoqinlu/trs1"
+  },
+  "independent_review_note": "Direct agent read draft lease/gates/finally and requested explicit lexical Harbor child Python; that change is in the frozen SHA. Root and terminal selection review required before execute."
+}

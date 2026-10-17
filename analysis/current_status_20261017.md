@@ -1,5 +1,27 @@
 # 当前进展与未决事项
 
+**11:27单项补评已实际运行**：[reshard准备](terminal_reshard_saved_grade_preparation_20261017.md)经root/独立审阅后，11:25:41只启动一次parent**2394544/start870656591**（child2394547/start870656770），新root `artifacts/recovery/terminal250-reshard-c4-seed1-grade-only-20261017`。parent**2a2f31efc4d175f37ec2c3105c801d622da797a08eb29afde9cc9717b97f1df9**、manifest**92af3fc0d2d809c168fd1177608b2ade81e2c41ab07c030f1219f4f3390e759b**、preparer**3ed35de941195c0a248299a053d64c310584e9f9c426424d38d11bdf8972fa55**及42小文件绑定已冻结；不能重跑preparer写manifest或同步截断这些live文件。
+
+真实AVG240生成关闭/T774原guard排空后，使用同一124–127锁inode90780234，独立visible guard，child词法Harbor解释器、taskset124–127/relative offset0，保留原4CPU/8GiB/900秒、minimum_runway3600，不碰科学grader92–95或Terminal既有stage2。原reshard journal精确绑定旧scope af8481795ec4及namespace/host keeper，确认当前已清；捕获的namespace PID不冒充host PID。恢复原app19831、10精确etc差分与4外部uv原状态，dpkg/default旧symlink先仅移除该点再恢复，排除resolver，没有git-leak特殊模式或候选修补。
+
+root实际读3条restore均rc0，严格**19845**项content/mode/type/link和app名单/resolver全同，官方pytest已collected1 item运行；当前仍native_running/lockheld、0模型调用。原PUBLIC verifier/UV group20/HF `allenai/c4/en/c4-train.00009-of-01024.json.gz`输入保持，下载供应异常继续infra unknown，不替换输入或自动填0。结果尚待root完整native/资源/原bytes/两次scope排空→停guard→两次全scope空→解锁独立审核，不依reward自动接分/重试，原raw null保持。
+
+
+**11:15历史快照（以下计数截至11:14）**：SWE Base/专家/AVG64均已全51有效，分别**10/51=19.607843%、0/51=0%、4/51=7.843137%**。AVG−Base差−11.764706pp、配对95%CI[−23.529412,0]；不以正式分数换冻结AVG64/专家。[完整51题对照](swe_task_comparison_20261017.md)为Base/AVG都对2、仅Base对8、仅AVG对2、都错39，不再有null；专家43空patch/34项context guard等原诊断保持。
+
+[AVG最后T774独立审核](avg64_teleport7744_grade_review_20261017_1110.md)：原ASI生成marker于10:54:11真实全240/poolshutdown/源scope空后才交接CPU124，原musl环境原站TLSprobe HTTP200/证书校验开启；原空patch没有完成instruction79明确要求的netlink v1.6.0 direct require，官方setup自动取v1.11.2后缺iter编译阻断。root独立读自身任务/日志/43原与45准入绑定/资源/原生0/noHarbor及10:55:39完整排空解锁，接受exact native0，**TestSendEvent未执行，不能称断言测试失败**。未改Go、依赖、答案或预算；原timeout/null保留，manifest现6项独立native0审计。原Mac84416专用路由已在确认父子/relaygone、私有socketgone、124–127无scope后关闭，38444和control socket均已消失；故意关闭不重建，原route/admission收据字节保持。
+
+[11:14:04 strict/预算双视图](source_snapshots/formal_aggregation_20261017_1115.json)已按三collector顺序刷新，source issues空。Terminal专家**190/445有效另5invalid**、AVG**178/445另5invalid**，为coverage而非完整成功率；AVG ASI**85/240有效、0error**，完整score与四项macro仍null。HLE五组完整结果、固定ASI专家240和TIES2499/1缺correct保持，不扩规则或重生答卷。
+
+[Direct实际核查](direct_status_20261017_1110.md)：AVG ASI全240于10:54:09保存、10:54:11源生成池真实关闭；727856于10:54:16由既有watcher验证原metrics0/归属后自动释放，现仅**727912/727913普通acd_u/Nice1000共4H100**。唯一科学grader2282159/start870467612及coordinator1126014持原run/global92–95锁；当前TSP native solver CPU92持续计算，原3600s/1CPU3GiB，所见OOM0，无工程卡死证据，不人为截预算。原runtime182项身份保持、workers1/396calls/20CNY；API journal未materialize，calls/cost unknown。AVG allCPU marker仍缺，因此Terminal stage2按原门继续等，不能伪造完成或拿回已交接核。
+
+Terminal最新只读库存新增AVG train-fasttext/seed1，未审计评分继续null；原专家sanitize-git-repo/seed1、AVG qemu-alpine-ssh/seed1仍缺最终archive，不重建候选。reshard seed1在11:15快照时只有约1.65GB app/etc归档及只读恢复准备；11:25后已唯一启动原答案补评，见本文顶部11:27收据，不套nginx/git-leak特殊规则。
+
+[11:11账本](resource_ledger_20261017.md)结束241.293889GPUh、4卡active暂计26.997778，总268.291667；API已核算15.029134794CNY另.328327020USD，未有账本仍unknown。新[存储快照](source_snapshots/storage_20261017_1115.json)：80/data余约1.84TiB、系统/tmp余30.72GiB，本机余28.67GiB，未耗尽；未删原件。**11:15一页阶段PDF**已加入AVG完整SWE分数/区间及新成本，1页/181汉字199总字符/嵌入字形完整/底y98.09，PNG已目视通过，仍非最终report.pdf。
+
+以下10:43及更早记录保留历史，以本轮更新为准。
+
+
 [T774等待器实际启动收据](avg64_teleport7744_grade_execution_20261017.md)已补齐：10:43:31独立metadata复核2223041/start870388084、43绑定保持、lockfalse、无guard/native/admission、原生成marker尚缺。它是等待状态，不是分数或CPU已交接。
 
 **10:42唯一等待器已启动**：root与独立审阅通过新版fb5a/8cff及真实route receipt后，10:40:56只启动一次T774 parent**2223041/start870388084**；10:41:47仍waiting_source_or_route、lock_held=false、0native。它只在原AVG ASI全240/pool shutdown/源scope空marker与124–127实际scope排空后领取独立未来租约，native仅124/1CPU4GiB3000s，不碰92–95或Terminal到123的原扩容。当前232保存、8在途，不能释放生成核。route依赖Mac专用84416/control socket，结束无消费者后只关自身route，不能因中途断路自动重跑未知原生结果。

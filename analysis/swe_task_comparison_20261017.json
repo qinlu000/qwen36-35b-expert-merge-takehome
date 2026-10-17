@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "observed_at_utc": "2026-10-17T02:29:31.380042+00:00",
+  "observed_at_utc": "2026-10-17T03:14:44.870036+00:00",
   "source_manifest": "analysis/source_snapshots/protocol/swe_hard_task_ids.json",
   "source_manifest_sha256": "f94ded30b3dcdb453525f95ca908527eb677567600dabff9bb6360b7f8af2bdc",
   "task_count": 51,
@@ -19,25 +19,25 @@
     },
     "swe249": {
       "path": "artifacts/eval/swe249_audited_hard51_20261017/summary.json",
-      "sha256": "2247d53a4329171687039cfd7c5f8ce564c29193dbecff583f4c7af0e14316a6",
-      "as_of": "2026-10-17T02:26:31.579063+00:00",
+      "sha256": "069fd6c30bfb02af67819aba3c5171b3f03e3dfe7317616a0961005f0f0497fe",
+      "as_of": "2026-10-17T03:14:01.702549+00:00",
       "expected": 51,
       "valid_scored": 51,
       "resolved": 0,
       "complete": true,
-      "primary_score_percent": 0.0,
+      "primary_score_percent": 0,
       "invalid_pending": 0
     },
     "avg64": {
       "path": "artifacts/eval/avg64_swe_audited_hard51_20261017/summary.json",
-      "sha256": "14009bfdb4c646a5dfa2853cfa916c330e8fad8d218eac758dde44532473d177",
-      "as_of": "2026-10-17T02:26:31.646507+00:00",
+      "sha256": "531970721d9227731d7d671e844d8d2829f699e5df8a791339b275ccbba9e909",
+      "as_of": "2026-10-17T03:14:01.749014+00:00",
       "expected": 51,
-      "valid_scored": 50,
+      "valid_scored": 51,
       "resolved": 4,
-      "complete": false,
-      "primary_score_percent": null,
-      "invalid_pending": 1
+      "complete": true,
+      "primary_score_percent": 7.8431372549019605,
+      "invalid_pending": 0
     }
   },
   "resolved_task_ids": {
@@ -75,30 +75,26 @@
       "unpaired_task_ids": []
     },
     "avg64_vs_base": {
-      "valid_pairs": 50,
-      "complete_pair": false,
+      "valid_pairs": 51,
+      "complete_pair": true,
       "counts": {
         "both_resolved": 2,
         "reference_only_resolved": 8,
         "candidate_only_resolved": 2,
-        "both_unresolved": 38
+        "both_unresolved": 39
       },
-      "unpaired_task_ids": [
-        "instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4"
-      ]
+      "unpaired_task_ids": []
     },
     "avg64_vs_swe249": {
-      "valid_pairs": 50,
-      "complete_pair": false,
+      "valid_pairs": 51,
+      "complete_pair": true,
       "counts": {
         "both_resolved": 0,
         "reference_only_resolved": 0,
         "candidate_only_resolved": 4,
-        "both_unresolved": 46
+        "both_unresolved": 47
       },
-      "unpaired_task_ids": [
-        "instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4"
-      ]
+      "unpaired_task_ids": []
     }
   },
   "expert_generation_sources": {
@@ -184,8 +180,8 @@
   },
   "existing_paired_ci_reference": {
     "path": "artifacts/eval/final_aggregation_20261017/summary.json",
-    "sha256": "ed90f37c0065327515c875d8ecaca56298375f7b913ee9e4c70cac3010cdcf9d",
-    "as_of_utc": "2026-10-17T02:26:35.058790+00:00",
+    "sha256": "7a74a7f5c1e56cf470a358d13f4bae0c5527e5c6316aac9317d0519ac65f2c79",
+    "as_of_utc": "2026-10-17T03:14:04.716305+00:00",
     "json_path": "$.comparisons.swe249_vs_base.benchmarks.swe",
     "cell": {
       "complete_pair": true,
@@ -200,7 +196,25 @@
         "method": "percentile cluster bootstrap"
       }
     },
-    "recomputed": false
+    "recomputed": false,
+    "additional_cells": {
+      "avg64_vs_base": {
+        "json_path": "$.comparisons.avg64_vs_base.benchmarks.swe",
+        "cell": {
+          "complete_pair": true,
+          "expected_observations": 51,
+          "valid_paired_observations": 51,
+          "expected_clusters": 51,
+          "complete_paired_clusters": 51,
+          "delta_percent_points": -11.764705882352942,
+          "delta_ci95_percent_points": {
+            "lower": -23.52941176470588,
+            "upper": 0,
+            "method": "percentile cluster bootstrap"
+          }
+        }
+      }
+    }
   },
   "rows": [
     {
@@ -1080,11 +1094,11 @@
       "swe249_status": "valid_scored",
       "swe249_invalid_reason": null,
       "swe249_result": "artifacts/eval/swe249_teleport7744_proxy_repair_20261017/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
-      "avg64_valid": false,
-      "avg64_score": null,
-      "avg64_status": "invalid_requires_audit",
-      "avg64_invalid_reason": "verifier_public_go_dependency_timeout",
-      "avg64_result": "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
+      "avg64_valid": true,
+      "avg64_score": 0,
+      "avg64_status": "valid_scored",
+      "avg64_invalid_reason": null,
+      "avg64_result": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/native/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/result.json",
       "expert_patch_bytes": 0,
       "expert_patch_kind": "empty",
       "expert_original_generation_trial_exception_type": "none",
@@ -1097,7 +1111,10 @@
       "expert_last_request_prompt_tokens": 57559,
       "expert_last_request_record": "artifacts/eval/swe249_hard51_20261016/requests/instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4/00070.json",
       "expert_vs_base": "both_unresolved",
-      "avg64_vs_base": "unpaired_null"
+      "avg64_vs_base": "both_unresolved",
+      "avg64_score_source": "root_approved_exact_same_answer_native_zero",
+      "avg64_audit_source": "configs/eval/avg64_swe_audited_hard51_20261017.json",
+      "avg64_accepted_result_sha256": "33323a42a03336eb6e12f2faa97d544c793f3df8cf67fe6008cf8d4da3a93e5e"
     },
     {
       "task_id": "instance_gravitational__teleport-eda668c30d9d3b56d9c69197b120b01013611186",
@@ -1845,9 +1862,10 @@
   },
   "interpretation_notes": [
     "The complete SWE249 result is0/51=0%; no checkpoint or main model is changed in response.",
-    "AVG has50 valid and1null; its full primary score and paired CI remain null. Partial pair counts are descriptive, not a subset primary score.",
+    "AVG is complete51/51 with4 resolved and0null, primary7.8431372549019605%; its complete paired CI is copied from the canonical11:14:04 CST summary.",
     "The task-paired CI is copied from the existing canonical summary; no bootstrap was run.",
     "Historical environment/concurrency/scheduling and approved scoring-recovery differences remain; this comparison does not identify a pure weight effect.",
-    "Captured patch emptiness/nonemptiness and termination metadata do not establish the cause of task failure or prove provenance of every captured diff."
+    "Captured patch emptiness/nonemptiness and termination metadata do not establish the cause of task failure or prove provenance of every captured diff.",
+    "The final AVG T7744 exact native0 was independently accepted by root for the unchanged empty candidate missing the task-required direct dependency; TestSendEvent was compilation-blocked, not an executed assertion failure."
   ]
 }

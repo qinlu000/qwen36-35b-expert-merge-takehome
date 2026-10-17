@@ -8,9 +8,9 @@
 
 当前队列快照、已完成项、未决问题和后续交付见 [进展文档](analysis/current_status_20261017.md)；[一页阶段报告](output/pdf/progress_report_20261017.pdf)及其[生成说明](analysis/progress_report_20261017.md)已保存，正式评分尚未齐备。
 
-10:33完整结果：SWE专家**0/51=0%**，Base10/51=19.607843%，专家−Base配对95%CI[−31.372549,−9.803922]pp；50份native判分+1份完整官方报告解析审计，原timeout/null和trap reward1保留。完整HLE为Base3.96%、专家6.92%、Mixed5.84%、AVG644.68%、AVG164.04%；TIES-Dense2499/2500有效，余1项缺`correct`仍null。ASI专家240/240有效，公开local原生聚合0.378991%，Base1.570988%。[逐题对照与生成退出元数据](analysis/swe_task_comparison_20261017.md)、[双视图](analysis/source_snapshots/formal_aggregation_20261017_1027.json)如实记录退化、限制与区间，不据正式结果更换冻结主模型。AVG SWE50/51有效、4resolved，最后1项未决；Terminal及AVG ASI评分仍在推进，四项宏平均尚不可报告。
+11:15完整结果：SWE为Base**10/51=19.607843%**、专家**0/51=0%**、AVG64**4/51=7.843137%**；AVG−Base配对差−11.764706pp，95%CI[−23.529412,0]。SWE专家含1份完整官方报告解析审计，AVG含6份逐项批准native0审计，原invalid不覆盖。完整HLE为Base3.96%、专家6.92%、Mixed5.84%、AVG644.68%、AVG164.04%；TIES-Dense2499/2500有效，余1项缺`correct`仍null。ASI专家240/240有效，公开local原生0.378991%，Base1.570988%；AVG已全240生成、科学判分85/240。详见[逐题对照](analysis/swe_task_comparison_20261017.md)和[双视图](analysis/source_snapshots/formal_aggregation_20261017_1115.json)。不据正式结果改冻结主模型；Terminal尚未全量有效，四项宏平均不可报告。
 
-当前资源为三个普通`acd_u/Nice1000`TP2、共6H100：Terminal专家、AVG64共享SWE/Terminal服务、AVG64 HLE后复用ASI服务。TIES生成和Mixed/AVG16生成均已结束并释放自身GPU，离线端点不重建；AVG64 ASI已自动接续，不需另申请卡。SWE结束释放的12CPU已真实交接，Terminal专家12槽、AVG11槽；后续扩容仍等ASI实际CPU完成标记。[20个真实合版失败案例及三项后续实验](analysis/avg64_failure_cases_20261017.md)已整理；同ID Base也失败，不能称合版独有退化。
+当前资源为两个普通`acd_u/Nice1000`TP2、共4H100：Terminal专家与AVG64执行服务。AVG64 ASI全240生成/worker关闭/metrics0后727856已10:54:16自动释放，后续只CPU/外部API科学评分，不重建离线端点。Terminal仍专家12槽、AVG11槽，后续扩容继续等ASI原实际allCPU marker；原预算不变。[20个真实合版失败及三项后续实验](analysis/avg64_failure_cases_20261017.md)和[20个Base对/AVG错的HLE有答案例](analysis/hle_base_avg_disagreements_20261017.md)均已整理，后者仍有服务混杂，不能直接作权重因果结论。
 
 ## 实验设计与数据
 
@@ -59,7 +59,7 @@ Terminal保留全89×5范围，但 **30min/4CPU/8GiB/64K/8K低于原题3h/32CPU/
 
 默认汇总保持上述严格原生口径；另可显式生成[审计固定预算视图](analysis/terminal_budget_aggregation_20261017.md)。它沿用Harbor将None映为失败的均值语义，但只接受精确逐结果审查通过的计算超时，保留原native null、原生覆盖及审计来源，未决环境故障继续留空。03:25的Base Terminal为442份原生有效＋3个审计超时，独立预算分**20.224719%**、五seed sample SD **2.635065个百分点**；严格主分仍为空。此规则对专家/AVG64同样适用，不能套用Base的task白名单；两种视图和宏平均分别保存，不混称全445份原生reward。
 
-原统一Base审计曾有5 SWE＋1 HLE＋9 TB判分缺口；其owner已03:29仅用原答案补评分收尾，SWE51/51有效、10正确、19.607843%，HLE2500/2500有效、99正确、**3.96%**，ASI240/240、1.570988%，TB442native另3审计超时派生0仅进独立预算视图，见[补评记录](analysis/base_gap_completion_20261017.md)。三个进入官方测试后耗尽900秒的TB结果仍保留native null，另有逐结果计算超时审计，不能与环境故障混算。SWE专家四个已核审native0另存[独立汇总](analysis/swe249_audited_summary_20261017.md)，未改原队列。专家目标项和AVG64四项正式运行仍未收齐，完整矩阵、宏平均提升及其CI尚未齐备，未声明达到3pp/5pp目标。动态结果以 [显式结果路径清单](configs/eval/final_results_20261017.json) 指向的owner输出及其更新时间为准。
+原统一Base审计曾有5 SWE＋1 HLE＋9 TB判分缺口；其owner已03:29仅用原答案补评分收尾，SWE51/51有效、10正确、19.607843%，HLE2500/2500有效、99正确、**3.96%**，ASI240/240、1.570988%，TB442native另3审计超时派生0仅进独立预算视图，见[补评记录](analysis/base_gap_completion_20261017.md)。三个进入官方测试后耗尽900秒的TB结果仍保留native null，另有逐结果计算超时审计，不能与环境故障混算。SWE专家当前8项exact native0与1项完整官方报告审计另存[独立汇总](analysis/swe249_audited_summary_20261017.md)，未改原队列。专家目标项和AVG64四项正式运行仍未收齐，完整矩阵、宏平均提升及其CI尚未齐备，未声明达到3pp/5pp目标。动态结果以 [显式结果路径清单](configs/eval/final_results_20261017.json) 指向的owner输出及其更新时间为准。
 
 ## 在原环境复现
 
