@@ -1841,3 +1841,12 @@
 [LoRA静态诊断](swe_lora_serving_diagnosis_20261017.md)未见明显映射/缩放故障，但数值和长程状态尚未证实。六固定前缀entropy/KL/backend探针准备完，HPC提交预检因默认Python3.6的capture_output失败，发生在claim/sbatch之前；没有jobID/新GPU/forward，用户转向TensorBoard后未重试。当前仅原727912/727913两TP2共4H100普通acd_u/Nice1000，未重建释放端点。下一版若推进，先统一编码，再在同一模板下1e-4 vs2e-5单变量对照，尚未执行。
 
 正式分数、checkpoint、主AVG64、ASI128和原每题预算冻结；没有新训练、模型/Judge调用、补评分或改collector。TensorBoard是本机查看已有日志，不是恢复定时自动化。浏览器已读到scalars且task58完成keeptrue，截图超时不冒称目视验收；Codex面板仅queued。此次不重跑正式统计/PDF。仅提交本轮18份owned及共享日志追加，保留foreign WIP，无coauthor；同步仅本轮静态新文件，不覆盖其他live/bound执行源码。
+
+
+## 2026-10-17 13:40 CST：公开后训练方案调研与SWE补救建议
+
+用户追问效果不好如何补救、前沿实验室如何训练。本轮使用research技能核查Qwen3、DeepSeek-R1/V3.2、Kimi K2、Thinking Machines的主源，区分公开实验事实与本项目推论，写analysis/frontier_posttraining_sources_20261017.md及swe_recovery_plan_20261017.md。重点是专门thinking/non-thinking数据/模板、真实环境反馈、成功教师状态与学生错误状态偏移、能力保留；SFT可行，完整RL不是短期急救前提，论文RL entropy控制不可直接套SFT。
+
+建议顺序为扩大真实编码parity→固定输入HF/vLLM/LoRA数值诊断→同一修正模板下1e-4对2e-5受控SWE候选→兼容harness的non-thinking/纠错覆盖→正式测试外的真实任务证据。2e-5只是候选；单样本28token空壳修正仍不证明0/51根因，正常CE/gradnorm不证明质量。正式分数不用于循环挑超参或删专家；若要重新开展可信任务效果比较，需要先明确独立开发任务范围，未擅自恢复此前取消的task-val。
+
+本轮仅调研/文档，未新训练、模型/Judge/API推理、评分、GPU作业、服务改动、正式统计重算、checkpoint/主AVG64/ASI128替换或自动化恢复。所有冻结64K/8K/nonthinking/预算和既有在途保持。仅提交两份owned笔记及本共享日志追加、保留foreign WIP，无coauthor。前一轮fa8fde7已push并同步；TensorBoard本机6006原日志查看继续。
