@@ -32,3 +32,12 @@
 - [首个失败收据](source_snapshots/swe_lr2e5_max32k_launch_20261017.json)、[唯一重提收据](source_snapshots/swe_lr2e5_max32k_resubmit_20261017.json)。
 
 已经存在claim与作业，**不要再次运行sbatch**。复现时先用全新输出目录运行filter脚本，再审计资源/现有claim后提交新作业。原有持久评测、冻结四专家/主AVG64/ASI128、64K/8K正式协议和已取消自动化保持。本轮没有重生正式答卷、追加Judge或按正式成绩选checkpoint。
+
+
+## 2026-10-17 13:58 CST：SWE候选首批真实更新已完成
+
+728713普通acd_u/Nice1000、ACD1-19同节点4H100已完成真实optimizer更新，13:58:11原生logging.jsonl为**3/128**，实际加载**1025 train/87历史teacher-forced held-out**；原两条角色格式错误整条删除，导出1027不冒称全部参与。首步loss0.51078051/gradnorm0.33788907/LR5e-6；第3步loss0.55829525/gradnorm0.37195792/LR1.5e-5均有限，peak仍2e-5、4步warmup。这里仅说明训练在运行，不作为质量分或选模证据。
+
+原生日志已生成TensorBoard event文件；本机6006尚未同步新run，不声称自动实时可见。首步137秒含冷启动，后两步合计约59秒；当前原生含首步均速65.30秒/步，剩余2h16m仅初步滚动估计，不能当完成承诺。GPU已实际有4个本rank进程、约46GiB/卡分配、Triton缓存增长；未重启/截断/新增服务，当前仍原4卡+新4=8卡。
+
+独立新收据analysis/source_snapshots/swe_lr2e5_max32k_native_start_20261017.json保存实际配置diff、squeue/scontrol、原生metrics、TB路径和实际加载数，candidate尚未完成。run/plan/源文件已bound，HPC同步只更新静态文档，不重写它们。33d1da8已push两remote并同步静态；本轮仅补实际进展与claud追加，保留foreign WIP，无coauthor。自动化保持删除，不新增loss-only/task-val或正式生成/评分，不更换冻结主AVG64/ASI128；新候选会按原生一epoch自然完成并释放其4GPU。

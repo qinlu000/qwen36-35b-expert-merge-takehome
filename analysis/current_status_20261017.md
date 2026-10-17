@@ -1,3 +1,12 @@
+## 2026-10-17 13:58 CST：SWE候选首批真实更新已完成
+
+728713普通acd_u/Nice1000、ACD1-19同节点4H100已完成真实optimizer更新，13:58:11原生logging.jsonl为**3/128**，实际加载**1025 train/87历史teacher-forced held-out**；原两条角色格式错误整条删除，导出1027不冒称全部参与。首步loss0.51078051/gradnorm0.33788907/LR5e-6；第3步loss0.55829525/gradnorm0.37195792/LR1.5e-5均有限，peak仍2e-5、4步warmup。这里仅说明训练在运行，不作为质量分或选模证据。
+
+原生日志已生成TensorBoard event文件；本机6006尚未同步新run，不声称自动实时可见。首步137秒含冷启动，后两步合计约59秒；当前原生含首步均速65.30秒/步，剩余2h16m仅初步滚动估计，不能当完成承诺。GPU已实际有4个本rank进程、约46GiB/卡分配、Triton缓存增长；未重启/截断/新增服务，当前仍原4卡+新4=8卡。
+
+独立新收据analysis/source_snapshots/swe_lr2e5_max32k_native_start_20261017.json保存实际配置diff、squeue/scontrol、原生metrics、TB路径和实际加载数，candidate尚未完成。run/plan/源文件已bound，HPC同步只更新静态文档，不重写它们。33d1da8已push两remote并同步静态；本轮仅补实际进展与claud追加，保留foreign WIP，无coauthor。自动化保持删除，不新增loss-only/task-val或正式生成/评分，不更换冻结主AVG64/ASI128；新候选会按原生一epoch自然完成并释放其4GPU。
+
+
 ## 2026-10-17 13:50 CST：已启动低LR＋完整长轨迹过滤的SWE候选
 
 用户明确授权降低LR重训，随后允许筛掉过长轨迹。新候选从原Base重新初始化，峰值LR **2e-5**，整条保留原HF完整序列≤32768的**1027条/23,353,670完整token/5,034,955 assistant输出token**，排除973条；原行bytes/顺序/工具观察/最终提交全部保留，不截断，不把训练max_length从65536调小。原87条held-out仅teacher-forced诊断；没有恢复task-val。源角色错误223/279仍在，实际加载数/步数以后续原生日志为准，预计可能1025。

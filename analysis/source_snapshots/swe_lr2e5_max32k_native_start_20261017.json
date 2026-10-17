@@ -1,0 +1,82 @@
+{
+  "observed_at_utc": "2026-10-17T05:58:11.427853+00:00",
+  "job_id": "728713",
+  "run_directory": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe-lr2e5-max32k-728713",
+  "native_loaded_train_rows": 1025,
+  "native_loaded_val_rows": 87,
+  "selected_export_rows": 1027,
+  "filtered_by_native_role_check": 2,
+  "first_training_metrics": {
+    "loss": 0.51078051,
+    "grad_norm": 0.33788907,
+    "learning_rate": 5e-06,
+    "epoch": 0.0078125,
+    "global_step/max_steps": "1/128",
+    "elapsed_time": "2m 17s",
+    "remaining_time": "4h 50m 34s",
+    "memory(GiB)": 36.94,
+    "train_speed(s/it)": 137.278684
+  },
+  "latest_training_metrics": {
+    "loss": 0.55829525,
+    "grad_norm": 0.37195792,
+    "learning_rate": 1.5e-05,
+    "epoch": 0.0234375,
+    "global_step/max_steps": "3/128",
+    "elapsed_time": "3m 16s",
+    "remaining_time": "2h 16m 3s",
+    "memory(GiB)": 36.94,
+    "train_speed(s/it)": 65.301561
+  },
+  "native_metric_rows": 3,
+  "native_tensorboard_event_files": [
+    "artifacts/runs/swe-lr2e5-max32k-728713/tensorboard/events.out.tfevents.1792216492.ACD1-19.21.0"
+  ],
+  "squeue": "728713|apex-swe-lr2e5-32k|acd_u|RUNNING|gres/gpu:4\n727912|apex-term-acdu-20261017|acd_u|RUNNING|gres/gpu:2\n727913|apex-avgexec-acdu-20261017|acd_u|RUNNING|gres/gpu:2\n",
+  "scontrol_job": "JobId=728713 JobName=apex-swe-lr2e5-32k UserId=qinlucao(14348) GroupId=formal(10034) MCS_label=N/A Priority=2366 Nice=1000 Account=qinlucao QOS=formal-user JobState=RUNNING Reason=None Dependency=(null) Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=00:09:38 TimeLimit=04:00:00 TimeMin=N/A SubmitTime=2026-10-17T13:48:28 EligibleTime=2026-10-17T13:48:28 AccrueTime=2026-10-17T13:48:28 StartTime=2026-10-17T13:48:33 EndTime=2026-10-17T17:48:33 Deadline=N/A SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-17T13:48:33 Scheduler=Backfill Partition=acd_u AllocNode:Sid=ACD-Login-3:3994020 ReqNodeList=(null) ExcNodeList=ACD1-59 NodeList=ACD1-19 BatchHost=ACD1-19 NumNodes=1 NumCPUs=24 NumTasks=1 CPUs/Task=24 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=24,mem=256G,node=1,billing=24,gres/gpu=4 AllocTRES=cpu=24,mem=256G,node=1,billing=24,gres/gpu=4 Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=24 MinMemoryNode=256G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null) Command=/data/user/qinlucao/projects/apex-takehome/scripts/run_swe_low_lr.slurm WorkDir=/data/user/qinlucao/projects/apex-takehome StdErr=/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe-lr2e5-max32k-728713.log StdIn=/dev/null StdOut=/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe-lr2e5-max32k-728713.log Power= TresPerNode=gres/gpu:4 TresPerTask=cpu:24 \n",
+  "config_changes": {
+    "learning_rate": {
+      "original": 0.0001,
+      "candidate": 2e-05
+    },
+    "report_to": {
+      "original": [
+        "none"
+      ],
+      "candidate": [
+        "tensorboard"
+      ]
+    },
+    "dataset": {
+      "original": [
+        "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.messages.jsonl"
+      ],
+      "candidate": [
+        "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/swe_low_lr32k_20261017/train.messages.jsonl"
+      ]
+    },
+    "val_dataset": {
+      "original": [
+        "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/val.messages.jsonl"
+      ],
+      "candidate": [
+        "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/swe_low_lr32k_20261017/val.messages.jsonl"
+      ]
+    },
+    "output_dir": {
+      "original": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training",
+      "candidate": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe-lr2e5-max32k-728713/training"
+    },
+    "logging_dir": {
+      "original": null,
+      "candidate": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe-lr2e5-max32k-728713/tensorboard"
+    },
+    "run_name": {
+      "original": null,
+      "candidate": "swe-lr2e5-max32k-728713"
+    }
+  },
+  "log_file_bytes": 443452,
+  "interpretation": "Native optimizer has run; metrics are diagnostics, not task quality or checkpoint selection. First iteration includes cold-start compilation.",
+  "complete": false
+}
