@@ -1,0 +1,81 @@
+[
+  {
+    "trajectory": "artifacts/eval/swe249_hard51_20261016/generation/instance_ansible__ansible-d62496fe416623e88b90139dc7917080cb04ce70-v0f01c69f1e2528b935359cfe578530722bca2c59/agent/mini-swe-agent.trajectory.json",
+    "bytes": 537048,
+    "assistant_steps": 115,
+    "bash_calls": 121,
+    "tool_returncodes": {
+      "0": 118,
+      "1": 2,
+      "2": 1
+    },
+    "tool_json_parse_failures": 0,
+    "testbed_commands": 0,
+    "patch_txt_commands": 0,
+    "most_frequent_command": "cd /app && cat test/units/ansible_test/ci/__init__.py | head -30 && echo \"=== conftest root ===\" && ls test/units/module_utils/common/text/formatters/ && ls test/units/module_utils/common/text/ && echo \"=== conftest dirs ===\" && ls test/units/module_utils/common/ | head",
+    "most_frequent_command_count": 106,
+    "max_consecutive_identical_commands": 106,
+    "generation_exit_status": "",
+    "new_model_or_native_calls": 0,
+    "most_frequent_command_observation": [
+      {
+        "returncode": 0,
+        "output_preview": "=== conftest root ===\ntest_bytes_to_human.py\ntest_human_to_bytes.py\ntest_lenient_lowercase.py\nconverters\nformatters\n=== conftest dirs ===\n__init__.py\narg_spec\nparameters\nprocess\ntest_collections.py\ntest_dict_transformations.py\ntest_locale.py\ntest_network.py\ntest_sys_info.py\ntest_utils.py\n",
+        "has_no_such_file": false,
+        "has_cannot_access": false
+      }
+    ]
+  },
+  {
+    "trajectory": "artifacts/eval/swe249_hard51_20261016/generation/instance_gravitational__teleport-65438e6e44b6ce51458d09b7bb028a2797cfb0ea-vce94f93ad1030e3136852817f2423c1b3ac37bc4/agent/mini-swe-agent.trajectory.json",
+    "bytes": 637279,
+    "assistant_steps": 168,
+    "bash_calls": 175,
+    "tool_returncodes": {
+      "0": 175
+    },
+    "tool_json_parse_failures": 0,
+    "testbed_commands": 0,
+    "patch_txt_commands": 0,
+    "most_frequent_command": "cd /app && grep -rn \"touchid.Register\\|touchid.Login\\|touchid.DeleteCredential\\|touchid.ListCredentials\" -- -r --include=\"*.go\" | head -40",
+    "most_frequent_command_count": 162,
+    "max_consecutive_identical_commands": 160,
+    "generation_exit_status": "",
+    "new_model_or_native_calls": 0,
+    "most_frequent_command_observation": [
+      {
+        "returncode": 0,
+        "output_preview": "grep: -r: No such file or directory\ngrep: --include=*.go: No such file or directory\n",
+        "has_no_such_file": true,
+        "has_cannot_access": false
+      }
+    ]
+  },
+  {
+    "trajectory": "artifacts/eval/swe249_hard51_20261016/generation/instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6/agent/mini-swe-agent.trajectory.json",
+    "bytes": 694596,
+    "assistant_steps": 221,
+    "bash_calls": 232,
+    "tool_returncodes": {
+      "0": 228,
+      "1": 3,
+      "2": 1
+    },
+    "tool_json_parse_failures": 0,
+    "testbed_commands": 0,
+    "patch_txt_commands": 0,
+    "most_frequent_command": "ls -la /app/infogami/infogami 2>&1 | head -20",
+    "most_frequent_command_count": 205,
+    "max_consecutive_identical_commands": 205,
+    "generation_exit_status": "",
+    "new_model_or_native_calls": 0,
+    "most_frequent_command_observation": [
+      {
+        "returncode": 0,
+        "output_preview": "ls: cannot access '/app/infogami/infogami': No such file or directory\n",
+        "has_no_such_file": true,
+        "has_cannot_access": true
+      }
+    ]
+  }
+]

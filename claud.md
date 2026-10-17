@@ -1813,3 +1813,13 @@
 - AVG ASI仍唯一1126014/2282159，86有效是相较11:13增加1；当前TSP b3 solver2518971实际CPU92/R，12:08采样约560.5CPU秒，原3600s/1CPU3GiB、scope3GiB/swap0/OOM0，属于原生科学计算，无新工程错误，不缩预算/重启/加worker。原runtime主要文件/transport/shim与安装收据相同，API journal未materialize继续unknown。AVG allCPU marker仍合法缺，Terminal stage2不能伪造或抢已交接核。
 - 12:07 squeue仅727912/727913普通acd_u共4H100；Nice1000/EndTime为11:13最近已核值，没有为本轮汇报额外修改或冒称再次scontrol核验。Terminal仍23个4CPU scope（12+11）0–91，另ASI评分CPU92，唯一metadata STOP guard1508852等待01:10、两STOP无；本轮没有新增driver/claim/native/GPU。两项其他archive只确认存在，外部状态/SIF/旧scope尚未核全，不能声称已可安全恢复，停止进一步调研。无archive两项原null保持，不重建。
 - 存储80/data余1,995,067,125,760B约1.81TiB、系统/tmp约28.85GiB、本机约28.79GiB，未耗尽。四专家/Mixed训练、五HF公开产物、20真实失败案例、完整SWE/HLE/专家ASI及一页阶段PDF均已有；尚缺Terminal/AVG ASI完整评分、TIES唯一格式缺口、最终macro/report.pdf/正式提交。阶段PDF仍11:15已验收稿，本轮仅coverage变化不重复生成。更新统一状态/README/剩余清单和取消收据，保留负面结果及原预算偏离，不承诺达成提升。
+
+
+## 2026-10-17 12:33 CST：只读解释SWE大幅退化
+
+- 用户询问SWE为何下降。本轮只读已有训练/服务配置、全153份生成退出元数据与3个代表轨迹，未重生、补评分、调用模型/Judge、训练或修改冻结评分/权重/协议；小时自动化继续删除，不新增调度。先读Git/claud/current_status，保留foreign WIP，代码KISS、无coauthor。
+- Base/专家/AVG全51保存空patch分别3/43/34；明确context guard分别18/34/11，全部153条trial.log未见patch capture failed。Base原通过10题在专家8题空patch；Base自身有3题guard后靠非空patch仍通过，不能把guard等同必然失败，或将全部0改标infra。专家0/51在合版前已出现，AVG4/51反而恢复4题；本次下降不能主要归因合版或rank压缩。
+- 三个empty+unknown代表：Ansible d624为115assistant/121bash、118rc0；Teleport654为168/175且175rc0；OpenLibrary630为221/232、228rc0。同一只读cat/ls、grep、ls分别重复106（连续106）、162（最大连续160）、205（连续205）次；都实际在/app，0/testbed或patch.txt、0工具JSON解析失败、原log明确model.patch bytes0，无已观察捕获错误。这是交互策略陷入只读循环、未形成有效修改的强行为证据；不能据3例断言所有任务同一根因，也不把unknown退出自动当1800超时。
+- 实际guard固定65536总context/8192输出预留，prompt最多57344；34个专家溢出末prompt57360–63207、median57698.5。Root以AST提取实际SweModelBridge.validate、仅stub保存tokenize计数离线重放：57344通过/57345拒绝，34真实计数全部重现拒绝，0网络/模型调用；仅验证边界机制，不证明扩大上下文会修复学习行为。DeadlineEnvironment把捕获也受solver时钟限制是代码风险，但本轮全153条日志未见capturefailed，3重点空patch明确捕获0，不能把代码风险当已发生原因。
+- SFT协议检查未见已证实的last_round/工具未监督/反向thinking错误；真实Swift验收assistant正文+工具命令+后续assistant均监督，system/user/tool观察masked。实际1993行/249步一epoch、r16alpha32/LR1e-4；训练loss不作质量/选模证据。已证分布偏差包括源patch.txt流程、训练2000首user含/testbed及88445工具命令中82857含该路径、目标默认/app；但3重点退化例正确用/app，因此没有确证错路径是这些例的直接原因。教师Qwen3.8-Flash-Next的隐藏reasoning按已授权策略清理；清理、学习率、样本量或过拟合是否导致循环均未做因果实验，不能下定论。
+- 新增诊断总述、全153条context/patch/退出及3重复命令小收据、训练协议诊断，更新current_status和本日志。最有证据的结论是SWE专家在真实交互任务里出现严重只读复读和空补丁，尚未确定训练内部根因；历史Base/专家/AVG服务并发差异继续披露。未因本次诊断换checkpoint/主AVG64或按正式成绩调参，无新增loss-only/task-val/资源申请。

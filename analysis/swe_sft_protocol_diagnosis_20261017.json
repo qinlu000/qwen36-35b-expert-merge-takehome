@@ -1,0 +1,430 @@
+{
+  "schema": "swe_sft_protocol_diagnosis_v1",
+  "review_date_cst": "2026-10-17",
+  "first_data_capture_utc": "2026-10-17T04:28:03.286217+00:00",
+  "scope": "Read-only preserved SFT JSONL/manifests, builder, native training records and installed template/mask source. No new training, model, generation, scoring, API or automatic scheduling.",
+  "overall_conclusion": "No demonstrated last-round-only mask, missing tool-action supervision, reversed thinking flag or incompatible tool serialization. Confirmed partial protocol adaptation and seven role-preprocessing exclusions; their contribution to0/51 is unmeasured.",
+  "verified": {
+    "actual_source": {
+      "dataset": "nvidia/Open-SWE-Traces",
+      "revision": "1db674173119d71df45c22007af99e214600711a",
+      "teacher": "Qwen3.8-Flash-Next",
+      "teacher_mode": {
+        "enable_thinking": true,
+        "name": "Qwen3.8-Flash-Next",
+        "reasoning_effort": "xhigh"
+      },
+      "all_exported_train_rows_same_teacher": 2000,
+      "old_qwen36_teacher_not_selected": true,
+      "publisher_success_not_independent_local_replay": true
+    },
+    "native_training": {
+      "passed": true,
+      "name": "swe2k",
+      "world_size": 4,
+      "global_batch_size": 8,
+      "global_steps": 249,
+      "final_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+      "best_model_checkpoint": "/data/user/qinlucao/projects/apex-takehome/artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+      "wall_seconds": 7286.073950213962,
+      "loaded_train_rows": 1993,
+      "exported_train_rows": 2000,
+      "loaded_val_rows": 87,
+      "epochs": 1,
+      "lr": 0.0001,
+      "rank": 16,
+      "alpha": 32,
+      "max_length": 65536,
+      "truncation_strategy": "delete",
+      "packing": false,
+      "padding_free": false,
+      "dataloader_drop_last": false,
+      "loss_scale": "default+ignore_empty_think",
+      "template": "qwen3_5",
+      "use_chat_template": true,
+      "enable_thinking": false,
+      "preserve_thinking": false,
+      "add_non_thinking_prefix": true
+    },
+    "supervision": {
+      "default_strategy_is_all_assistant_rounds_not_last_round": true,
+      "prior_actual_swift_cpu_fixture_passed": true,
+      "masks_system_user_and_tool_observation": true,
+      "supervises_assistant_visible_text_tool_action_and_following_assistant": true,
+      "ignores_empty_think_wrapper": true,
+      "fixture_is_synthetic_not_every_training_batch": true,
+      "no_saved_per_batch_source_id_or_exact_label_token_export": true,
+      "source_locations": [
+        "HPC artifacts/envs/sft/lib/python3.12/site-packages/swift/loss_scale/base.py:114-130",
+        "HPC artifacts/envs/sft/lib/python3.12/site-packages/swift/template/templates/qwen.py:709-717",
+        "scripts/check_sft_runtime.py:67-98",
+        "analysis/source_snapshots/sft_runtime_cpu_20261016.json"
+      ]
+    },
+    "exported_structure": {
+      "note": "These aggregate counts describe the2000 exported train rows before native filtering7rows.",
+      "train": {
+        "counts": {
+          "rows": 2000,
+          "user_with_patch_txt": 2000,
+          "completion_marker_commands": 2002
+        },
+        "roles": {
+          "system": 2000,
+          "user": 2009,
+          "assistant": 69611,
+          "tool": 86445
+        },
+        "assistant_turns": 69611,
+        "assistant_empty_content": 39443,
+        "patterns": {
+          "assistant_with_tool": 69611,
+          "calls_per_assistant_2": 18814,
+          "tool_bash": 88445,
+          "argument_keys_command": 88445,
+          "calls_per_assistant_1": 50791,
+          "calls_per_assistant_7": 1,
+          "calls_per_assistant_3": 3,
+          "calls_per_assistant_4": 1,
+          "calls_per_assistant_6": 1
+        },
+        "tool_observations": {
+          "json_dict": 86445
+        },
+        "unique_systems": 1,
+        "system_text": "You are a helpful assistant that can interact with a computer.\n",
+        "unique_tool_schemas": 1,
+        "tool_schema_counts": [
+          2000
+        ],
+        "last_message": {
+          "assistant|echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT": 2000
+        },
+        "role_correction_rows_1based": [
+          223,
+          239,
+          279,
+          1256,
+          1462,
+          1530,
+          1972
+        ],
+        "first_row_metadata": {
+          "system_sha256": "6fb54145bbb1724ce77430ff3852887acbd4a5cce10c86cd8dfbf4c7d55f1091",
+          "tool_schema": [
+            {
+              "type": "function",
+              "function": {
+                "name": "bash",
+                "description": "Execute a bash command",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "command": {
+                      "type": "string",
+                      "description": "The bash command to execute"
+                    }
+                  },
+                  "required": [
+                    "command"
+                  ]
+                }
+              }
+            }
+          ],
+          "first_user_heading_lines": [
+            "Step 1: Create the patch file",
+            "Run `git diff -- path/to/file1 path/to/file2 > patch.txt` listing only the source files you modified.",
+            "Step 2: Verify your patch",
+            "Inspect patch.txt to confirm it only contains your intended changes and headers show `--- a/` and `+++ b/` paths.",
+            "Step 3: Submit (EXACT command required)",
+            "Submit your changes and finish your work by issuing this command:",
+            "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+            "- If you modify patch.txt after verifying, you SHOULD verify again before submitting."
+          ]
+        }
+      },
+      "val": {
+        "counts": {
+          "rows": 87,
+          "user_with_patch_txt": 87,
+          "completion_marker_commands": 87
+        },
+        "roles": {
+          "system": 87,
+          "user": 87,
+          "assistant": 3206,
+          "tool": 4020
+        },
+        "assistant_turns": 3206,
+        "assistant_empty_content": 2124,
+        "patterns": {
+          "assistant_with_tool": 3206,
+          "calls_per_assistant_2": 899,
+          "tool_bash": 4107,
+          "argument_keys_command": 4107,
+          "calls_per_assistant_1": 2306,
+          "calls_per_assistant_3": 1
+        },
+        "tool_observations": {
+          "json_dict": 4020
+        },
+        "unique_systems": 1,
+        "system_text": "You are a helpful assistant that can interact with a computer.\n",
+        "unique_tool_schemas": 1,
+        "tool_schema_counts": [
+          87
+        ],
+        "last_message": {
+          "assistant|echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT": 87
+        },
+        "role_correction_rows_1based": [],
+        "first_row_metadata": {
+          "system_sha256": "6fb54145bbb1724ce77430ff3852887acbd4a5cce10c86cd8dfbf4c7d55f1091",
+          "tool_schema": [
+            {
+              "type": "function",
+              "function": {
+                "name": "bash",
+                "description": "Execute a bash command",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "command": {
+                      "type": "string",
+                      "description": "The bash command to execute"
+                    }
+                  },
+                  "required": [
+                    "command"
+                  ]
+                }
+              }
+            }
+          ],
+          "first_user_heading_lines": [
+            "Step 1: Create the patch file",
+            "Run `git diff -- path/to/file1 path/to/file2 > patch.txt` listing only the source files you modified.",
+            "Step 2: Verify your patch",
+            "Inspect patch.txt to confirm it only contains your intended changes and headers show `--- a/` and `+++ b/` paths.",
+            "Step 3: Submit (EXACT command required)",
+            "Submit your changes and finish your work by issuing this command:",
+            "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+            "- If you modify patch.txt after verifying, you SHOULD verify again before submitting."
+          ]
+        }
+      }
+    },
+    "role_preprocessing_gap": {
+      "filtered_rows": 7,
+      "input_lines_1based": [
+        223,
+        239,
+        279,
+        1256,
+        1462,
+        1530,
+        1972
+      ],
+      "issue": "Mid-trajectory user format-correction feedback after a tool observation creates consecutive query roles; native Swift response_role=user assertion deletes the complete sample.",
+      "not_overlength_or_partial_token_truncation": true,
+      "mixed_drops_same7": true,
+      "lost_format_recovery_examples": true,
+      "impact_on_formal_task_score_unknown": true,
+      "source": "analysis/source_snapshots/sft_actual_loaded_rows_20261016.json"
+    },
+    "partial_user_protocol_adaptation": {
+      "exporter_changes": [
+        "short target system",
+        "known Step3 submit instruction",
+        "last echo+cat command to standalone echo"
+      ],
+      "exporter_does_not_change": [
+        "earlier Step1/2 patch.txt creation/verification guidance",
+        "source /testbed references",
+        "earlier saved tool commands and observations"
+      ],
+      "training_counts": {
+        "rows_user_contains_/testbed": 2000,
+        "rows_user_contains_patch.txt": 2000,
+        "rows_user_contains_Step 1: Create the patch file": 2000,
+        "rows_user_contains_git diff --": 2000,
+        "rows_user_contains_reasoning": 2000,
+        "rows_user_contains_test files": 2000,
+        "tool_commands": 88445,
+        "commands_contains_/testbed": 82857,
+        "commands_contains_git diff": 5455,
+        "commands_contains_patch.txt": 2849,
+        "commands_contains_COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT": 2002,
+        "rows_user_contains_not allowed to": 2
+      },
+      "val_counts": {
+        "rows_user_contains_/testbed": 87,
+        "rows_user_contains_patch.txt": 87,
+        "rows_user_contains_Step 1: Create the patch file": 87,
+        "rows_user_contains_git diff --": 87,
+        "rows_user_contains_reasoning": 87,
+        "rows_user_contains_test files": 87,
+        "tool_commands": 4107,
+        "commands_contains_/testbed": 3773,
+        "commands_contains_git diff": 243,
+        "commands_contains_patch.txt": 116,
+        "commands_contains_COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT": 87
+      },
+      "eval_instance_template": "Recommended workflow modifies worktree and finishes with standalone echo; does not require patch.txt or /testbed.",
+      "formal_workdir": {
+        "staged_dockerfiles_without_explicit_WORKDIR": 51,
+        "harbor_default": "/app",
+        "source": "80 artifacts/benchmarks/harbor/src/harbor/environments/singularity/singularity.py:180-193",
+        "testbed_absence_or_symlink_status_not_checked": true
+      },
+      "not_proven_cause": "Independent representative real trajectories below contain no wrong-path/testbed or patch.txt commands."
+    },
+    "thinking_cleanup": {
+      "teacher_hidden_reasoning_nonempty_messages_removed": 69610,
+      "exported_assistant_turns": 69611,
+      "exported_assistant_empty_visible_content": 39443,
+      "all_exported_assistant_turns_still_have_tool_calls": true,
+      "visible_content_and_tool_actions_not_blindly_deleted": true,
+      "source": "scripts/audit_new_swe_cpu.py:121-149",
+      "interpretation": "Behavior cloning retains actions/observations after removing published hidden reasoning for the fixed nonthinking protocol. This is a changed supervision distribution; it is not evidence that no labels or no tool actions were learned."
+    },
+    "length_policy": {
+      "exported_max_full_sequence_tokens": 65424,
+      "exported_max_single_assistant_output_tokens": 4702,
+      "manifest_counts": {
+        "train": {
+          "rows": 2000,
+          "full_sequence_gt57344": 134,
+          "full_sequence_gt62046": 42,
+          "max": 65424
+        },
+        "val": {
+          "rows": 87,
+          "full_sequence_gt57344": 10,
+          "full_sequence_gt62046": 2,
+          "max": 65497
+        }
+      },
+      "token_count_scope": "Original fixed Qwen template estimates; not exact native Swift per-batch labels.",
+      "native_uses_whole_sample_delete_not_truncate": true,
+      "native_7_exclusions_are_role_errors_not_length": true,
+      "eval_guard": "Exact served tokenizer requires prompt_tokens+8192<=65536, so prompt<=57344; no sliding-window truncation.",
+      "interpretation": "Training permits complete histories near64K while generation reserves a full8K output budget. Long-prefix supervision is not guaranteed reachable during this evaluation; counts above concern exported complete sequences, not observed failed tasks."
+    },
+    "final_submit_and_tools": {
+      "terminal_train_rows_standalone_echo": 2000,
+      "terminal_val_rows_standalone_echo": 87,
+      "train_bash_calls": 88445,
+      "train_tool_observations": 86445,
+      "difference_is_one_unanswered_terminal_submit_per_row": true,
+      "one_tool_schema": "bash(command:string)",
+      "all_tool_argument_key_sets_command_only": true,
+      "observation_conversion": "XML visible returncode/output/exception/head-tail fields mapped to target JSON with source-render roundtrip assertions; no reconstructed elided middle.",
+      "train_agent_template": "qwen3_5",
+      "service_tool_parser": "qwen3_coder",
+      "service_reasoning_parser": "qwen3",
+      "service_thinking_flags": {
+        "enable_thinking": false,
+        "preserve_thinking": false
+      },
+      "serialized_function_and_parameter_tags_consistent_with_preserved_cpu_label_fixture": true,
+      "full_all_row_train_service_byte_parity_not_tested_here": true
+    },
+    "native_loss": {
+      "first_saved_eval_step": 16,
+      "first_saved_eval_loss": 0.38588187098503113,
+      "final_eval_step": 249,
+      "final_eval_loss": 0.3176804780960083,
+      "task_validation_not_implied": true,
+      "interpretation": "Held-out teacher-forced loss improved on the same adapted source distribution; no proof of task success or of overfitting."
+    }
+  },
+  "independent_real_behavior_counterevidence": {
+    "source": "Root message relaying direct agent's independent read-only audit of preserved actual trajectories; not independently rescanned by this agent.",
+    "samples": [
+      {
+        "task": "Ansible d624",
+        "assistant_turns": 115,
+        "bash_actions": 121,
+        "returncode_zero_actions": 118,
+        "cwd": "/app",
+        "commands_containing_testbed": 0,
+        "commands_containing_patch_txt": 0
+      },
+      {
+        "task": "Teleport654",
+        "assistant_turns": 168,
+        "bash_actions": 175,
+        "returncode_zero_actions": 175,
+        "cwd": "/app",
+        "commands_containing_testbed": 0,
+        "commands_containing_patch_txt": 0
+      },
+      {
+        "task": "OpenLibrary630",
+        "assistant_turns": 221,
+        "bash_actions": 232,
+        "returncode_zero_actions": 228,
+        "cwd": "/app",
+        "commands_containing_testbed": 0,
+        "commands_containing_patch_txt": 0
+      }
+    ],
+    "trailing_behavior": "Repeated cat/grep/ls; no patch-capture-failed evidence in these samples.",
+    "inference_limit": "These three samples do not support wrong-path or patch.txt behavior as the immediate cause. They do not establish behavior for the other48 tasks."
+  },
+  "unverified_hypotheses": [
+    "Learning-rate/update size, sample volume, restricted LoRA module set or loss of prior behavior may affect performance; no controlled ablation isolates them.",
+    "Removing xhigh hidden reasoning while retaining resulting actions may reduce explicit plan supervision; no generated comparison isolates that effect.",
+    "Successful source bug-fix trajectories differ in task distribution and environment from HARD51; source success was not independently replayed here.",
+    "Partial prompt/path adaptation and long-history exposure may affect interaction style, but no causal score attribution is available.",
+    "Overfitting is unproved: one epoch and improving source validation loss neither establish nor rule out task-distribution over-specialization.",
+    "Teacher inadequacy is unproved; the actual selected teacher is Qwen3.8-Flash-Next, not the older Qwen3.6-27B pool."
+  ],
+  "source_identity": {
+    "data_dir": "80/HPC artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k",
+    "base_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "hf_chat_template_sha256": "e84f32a23fdda27689f868aa4a1a5621f41133e51a48d7f3efcbea2839574259",
+    "mini_toolcall_yaml_sha256": "7275afa9920a6fb1b9ec66ab74cee44121db9b0276bb9fa90f5ec0597e523a45",
+    "hpc_small_records": {
+      "artifacts/runs/swe2k-sft-r16-726335/training_config.json": {
+        "sha256": "d84cd6e2bd6f16542f3e1e7da82e80def986df8596158a192bd7c6ae867773ba",
+        "size": 2343
+      },
+      "artifacts/runs/swe2k-sft-r16-726335/training/args.json": {
+        "sha256": "dbfb693fd09cfadeb59dd983bd0c2c949a09075627ff4f6dddc6c943404c0aac",
+        "size": 21307
+      },
+      "artifacts/runs/swe2k-sft-r16-726335/summary.json": {
+        "sha256": "5e577578d1754b6802c877737b78b516bc7400fb51eb1d863a81f5fa5f36ecd3",
+        "size": 50757
+      },
+      "artifacts/preflight/sft-runtime/cpu_check.json": {
+        "sha256": "4449b28ab20411debd21a4119365067816746286f3229eabe8371e02efdf98de",
+        "size": 174472
+      }
+    },
+    "installed_packages": {
+      "torch": "2.11.0+cu130",
+      "transformers": "5.15.1",
+      "peft": "0.20.0",
+      "accelerate": "1.14.0",
+      "ms-swift": "4.7.0.dev0",
+      "deepspeed": "0.19.6",
+      "flash-linear-attention": "0.5.2",
+      "fla-core": "0.5.2",
+      "trl": "0.29.1",
+      "datasets": "4.8.4"
+    }
+  },
+  "actions": {
+    "new_training": 0,
+    "new_model_or_api_calls": 0,
+    "new_scoring": 0,
+    "new_generations": 0,
+    "new_tokenization_experiments": 0,
+    "source_or_protocol_changes": false,
+    "automation_reenabled": false
+  }
+}
