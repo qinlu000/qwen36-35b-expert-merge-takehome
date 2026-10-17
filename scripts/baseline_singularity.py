@@ -148,24 +148,50 @@ print(json.dumps({'killed':events,'remaining_pids':remaining,'confirmed':not rem
         cpus = self._effective_cpus
         memory = self._effective_memory_mb * 1024**2
         self._scope_unit = "apex-baseline-" + secrets.token_hex(6)
-        command = ["systemd-run", "--user", "--scope", "--quiet",
-                   "--unit", self._scope_unit, "-p", f"MemoryMax={memory}",
-                   "-p", "MemorySwapMax=0", "-p", "TasksMax=4096",
-                   sys.executable, str(Path(__file__).with_name("baseline_exec_limits.py")),
-                   "--cpus", str(cpus), "--memory-bytes", str(memory),
-                   "--cpu-offset", str(self._baseline_cpu_offset + self._cpu_slot * cpus), "--",
-                   *self._namespace.command("singularity", "exec", "--cleanenv",
-                       "--no-mount", "home,tmp,bind-paths,hostfs,cwd,sys",
-                       "--pwd", self._workdir, "--writable-tmpfs", "--fakeroot",
-                       "--drop-caps", "CAP_NET_ADMIN,CAP_NET_RAW,CAP_SYS_ADMIN",
-                       "--containall", "--pid", *bind, self._sif_path,
+        singularity_config = (self._namespace.root /
+                              "artifacts/tools/singularity-config-oneproc")
+        singularity_command = ["singularity"]
+        if singularity_config.is_dir():
+            singularity_command += ["--config", str(singularity_config / "singularity.conf")]
+        singularity_command += ["exec"]
+        singularity_options = ["--cleanenv", "--no-mount", "home,tmp,bind-paths,hostfs,cwd,sys",
+                              "--pwd", self._workdir, "--writable-tmpfs"]
+        if os.environ.get("APEX_HPC_NO_FAKEROOT") != "1":
+            singularity_options.append("--fakeroot")
+        singularity_options += ["--drop-caps", "CAP_NET_ADMIN,CAP_NET_RAW,CAP_SYS_ADMIN",
+                                "--containall", "--pid", *bind]
+        image_path = self._sif_path
+        rootfs_dir = os.environ.get("APEX_ROOTFS_DIR")
+        if rootfs_dir:
+            candidate = Path(rootfs_dir) / Path(self._sif_path).stem
+            if candidate.is_dir():
+                image_path = candidate
+        limited_command = [sys.executable,
+                           str(Path(__file__).with_name("baseline_exec_limits.py")),
+                           "--cpus", str(cpus), "--memory-bytes", str(memory),
+                           "--cpu-offset", str(self._baseline_cpu_offset + self._cpu_slot * cpus), "--",
+                           *self._namespace.command(*singularity_command, *singularity_options,
+                       image_path,
                        "bash", "-c", 'exec /staging/bootstrap.sh "$@"', "bash",
                        self._workdir, "/staging/_hbexec.py", "--port", self._server_port,
                        "--workdir", self._workdir, "--instance-token", self._server_token)]
+        if os.environ.get("APEX_NO_SYSTEMD_LIMITS") == "1":
+            command = limited_command
+        else:
+            command = ["systemd-run", "--user", "--scope", "--quiet",
+                       "--unit", self._scope_unit, "-p", f"MemoryMax={memory}",
+                       "-p", "MemorySwapMax=0", "-p", "TasksMax=4096",
+                       *limited_command]
         allowed = {"PATH", "HOME", "USER", "LOGNAME", "XDG_RUNTIME_DIR",
                    "DBUS_SESSION_BUS_ADDRESS", "APPTAINER_IGNORE_SUBUID", "LANG"}
         environment = {key: value for key, value in os.environ.items() if key in allowed}
         environment["APPTAINER_IGNORE_SUBUID"] = "1"
+        if os.environ.get("APEX_NO_SYSTEMD_LIMITS") == "1":
+            environment["APEX_NO_SYSTEMD_LIMITS"] = "1"
+        if os.environ.get("APEX_HPC_NO_FAKEROOT") == "1":
+            environment["APEX_HPC_NO_FAKEROOT"] = "1"
+        if singularity_config.is_dir():
+            environment["SINGULARITY_CONFIGDIR"] = str(singularity_config)
         with self._server_log_path.open("wb") as log:
             self._server_process = await asyncio.create_subprocess_exec(
                 *map(str, command), stdout=log, stderr=asyncio.subprocess.STDOUT,
@@ -186,7 +212,14 @@ print(json.dumps({'killed':events,'remaining_pids':remaining,'confirmed':not rem
                 break
             await asyncio.sleep(0.5)
         self._preserve_startup_log = True
-        raise RuntimeError(f"Baseline bootstrap failed; see {self._server_log_path}")
+        debug_dir = os.environ.get("APEX_BASELINE_DEBUG_DIR")
+        if debug_dir and self._server_log_path.exists():
+            destination = Path(debug_dir)
+            destination.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(self._server_log_path,
+                         destination / f"server-{os.getpid()}-{self._server_port}.log")
+        details = self._server_log_path.read_text(errors="replace")[-4000:]
+        raise RuntimeError(f"Baseline bootstrap failed; see {self._server_log_path}\n{details}")
 
     async def _stop_server_process(self):
         confirmed = await super()._stop_server_process()

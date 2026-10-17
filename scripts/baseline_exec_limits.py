@@ -15,7 +15,8 @@ def main():
     parser.add_argument("--cpu-offset", type=int, default=0)
     parser.add_argument("command", nargs=argparse.REMAINDER)
     args = parser.parse_args()
-    verify_memory_limit(args.memory_bytes)
+    if os.environ.get("APEX_NO_SYSTEMD_LIMITS") != "1":
+        verify_memory_limit(args.memory_bytes)
     if args.cpu_offset:
         available = sorted(os.sched_getaffinity(0))
         os.sched_setaffinity(0, available[args.cpu_offset:])

@@ -2,6 +2,7 @@
 import asyncio
 import hashlib
 import json
+import os
 from pathlib import Path
 import shlex
 import socket
@@ -164,10 +165,21 @@ class SweBaselineV2(LockedMiniSwe):
         self._timeout_sec = 1800
 
     async def install(self, environment):
-        await environment.exec(command='mkdir -p /tmp/apex-mini-lock', user='root')
+        install_user = None if os.environ.get('APEX_HPC_NO_FAKEROOT') == '1' else 'root'
+        await environment.exec(command='mkdir -p /tmp/apex-mini-lock', user=install_user)
         await environment.upload_file(ROOT / 'configs/envs/mini-swe-py312.txt',
                                       '/tmp/apex-mini-lock/constraints.txt')
+        if os.environ.get('APEX_HPC_NO_FAKEROOT') == '1':
+            await self.exec_as_agent(environment, command=(
+                'set -euo pipefail; export PATH="/opt/apex-swe-tools:$HOME/.local/bin:$PATH"; '
+                'uv tool install --python 3.12 mini-swe-agent==2.4.6 '
+                '--with litellm --with orjson --with fastapi && mini-swe-agent --help'))
+            await self._verify_mini_runtime(environment)
+            return
         await super().install(environment)
+        await self._verify_mini_runtime(environment)
+
+    async def _verify_mini_runtime(self, environment):
         # Freeze actual installed versions as well as the requested constraints.
         code = ('import importlib.metadata as m,json; '
                 'print(json.dumps({d.metadata["Name"]:d.version for d in m.distributions()},sort_keys=True))')

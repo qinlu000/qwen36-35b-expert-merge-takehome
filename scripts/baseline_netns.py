@@ -63,10 +63,22 @@ class NetworkNamespace:
             raise RuntimeError("Network namespace did not start")
         self.owner.stdout.close()
         tools = self.root / "artifacts/tools/slirp4netns/rootfs/usr"
+        compat = self.root / "artifacts/tools/slirp4netns/compat_glibc235"
+        if all((compat / name).exists() for name in
+               ("ld-linux-x86-64.so.2", "slirp4netns")):
+            slirp_command = [
+                str(compat / "ld-linux-x86-64.so.2"),
+                "--library-path",
+                ":".join((str(compat), str(tools / "lib/x86_64-linux-gnu"),
+                           "/lib64", "/lib/x86_64-linux-gnu")),
+                str(compat / "slirp4netns"),
+            ]
+        else:
+            slirp_command = [str(tools / "bin/slirp4netns")]
         read_fd, write_fd = os.pipe()
         self.log = (self.directory / "network.log").open("w")
         self.slirp = subprocess.Popen(
-            [str(tools / "bin/slirp4netns"), "--configure", "--disable-host-loopback",
+            [*slirp_command, "--configure", "--disable-host-loopback",
              "--enable-seccomp", "--ready-fd", str(write_fd), "--userns-path",
              f"/proc/{self.owner.pid}/ns/user", str(self.owner.pid), "tap0"],
             env=dict(os.environ, LD_LIBRARY_PATH=str(tools / "lib/x86_64-linux-gnu")),

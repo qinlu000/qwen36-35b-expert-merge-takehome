@@ -1,0 +1,1 @@
+{"job_id": "728938", "health": "", "queue_before": "728866|apex-swe-candidate|acd_u|RUNNING|gres/gpu:2\n727912|apex-term-acdu-20261017|acd_u|RUNNING|gres/gpu:2\n727913|apex-avgexec-acdu-20261017|acd_u|RUNNING|gres/gpu:2\n", "partition": "acd_u", "nice": 1000, "requested_gpu": 1, "service_job": "728866", "model": "apex-val-swe-lr2e5-max32k"}

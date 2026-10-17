@@ -1,0 +1,1 @@
+{"job_id": "728866", "queue_before": "727912|apex-term-acdu-20261017|acd_u|RUNNING|gres/gpu:2\n727913|apex-avgexec-acdu-20261017|acd_u|RUNNING|gres/gpu:2\n", "gpus_before": 4, "requested_gpus": 2, "partition": "acd_u", "nice": 1000, "alias": "apex-val-swe-lr2e5-max32k", "port": 18004, "checkpoint": "artifacts/runs/swe-lr2e5-max32k-728713/training/checkpoint-128"}
