@@ -1,0 +1,593 @@
+{
+  "schema": "swe_real_sample_serialization_parity_v1",
+  "captured_at": "2026-10-17T13:04:23.092566+08:00",
+  "scope": "CPU-only exact native real-row encoding and offline served-HF-template comparison; no weights, forward, requests, training or evaluation.",
+  "original_red": {
+    "scope": "One real preserved row; tokenizer/template/labels only; no weights, forward, model/API, training or task execution.",
+    "script_sha256": "212a61b61c5922012853bc7f3893d2b61b042ab31e6bd5b0e17e96cebf9e82ae",
+    "source_jsonl": "/data/user/qinlucao/projects/apex-takehome/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.messages.jsonl",
+    "source_line_1based": 681,
+    "source_line_sha256": "b57a903b794dcf9a97a8fa7ce0858cfd88925bf1c57da05fc7dd3f09ab8ba2bd",
+    "source_line_bytes": 21331,
+    "provenance": {
+      "family_key": "a0195b694e25c30c0cc714c2a961fd974fcb7d56d1eaa542fd60086a1c84bf7f",
+      "instance_id": "katex__katex-2459",
+      "trajectory_id": "1825108d-a10a-488e-98f8-0424a249e991",
+      "file": "data/minisweagent/qwen38_flash_next/swe-rebench-v2/train-00001-of-00009.parquet",
+      "row": 263,
+      "teacher": {
+        "enable_thinking": true,
+        "name": "Qwen3.8-Flash-Next",
+        "reasoning_effort": "xhigh"
+      },
+      "full_sequence_tokens": 5959,
+      "message_count": 20,
+      "multi_call_assistant_turns": 3
+    },
+    "cpu_affinity": [
+      127
+    ],
+    "cuda_initialized": false,
+    "model_weights_loaded": false,
+    "packages": {
+      "torch": "2.11.0+cu130",
+      "transformers": "5.15.1",
+      "ms-swift": "4.7.0.dev0",
+      "tokenizers": "0.22.2"
+    },
+    "tokenizer_class": "Qwen2Tokenizer",
+    "chat_template_sha256": "e84f32a23fdda27689f868aa4a1a5621f41133e51a48d7f3efcbea2839574259",
+    "template_flags": {
+      "enable_thinking": false,
+      "preserve_thinking": false,
+      "add_non_thinking_prefix": true
+    },
+    "swift_loss_scale": "default+ignore_empty_think",
+    "vllm_wire_normalizer": {
+      "source": "/data/user/qinlucao/projects/apex-takehome/artifacts/envs/base-inference/lib/python3.12/site-packages/vllm/entrypoints/chat_utils.py",
+      "name": "_postprocess_messages",
+      "line_start": 1583,
+      "line_end": 1606,
+      "source_sha256": "8b0ccbe78ce66376f99b6cefa813ba6a29d614b0916e3a7292dafbb84033e978",
+      "wire_json_arguments_recovered_identically": true
+    },
+    "hf_renderer": "Original model tokenizer.apply_chat_template; same HF rendering backend used by vLLM. No live endpoint was called.",
+    "full_text": {
+      "equal": false,
+      "first_difference": 6441,
+      "left_length": 19676,
+      "right_length": 19809,
+      "swift_sha256": "e21fb5d6646415f64f2f7372697426210ec4cc10b6d056926150f89225e71ac0",
+      "hf_sha256": "74dbd9d5214954a6a358f0ba13d8bb8f8c229d8106c9066e67bc8ea759f5ae53"
+    },
+    "full_tokens": {
+      "equal": false,
+      "first_difference": 1461,
+      "left_length": 5931,
+      "right_length": 5959
+    },
+    "label_target_identity": true,
+    "expected_all_assistant_target_mask": null,
+    "negative_controls": {
+      "removed_real_tool_observation_detected": true,
+      "one_token_shifted_label_targets_detected": true,
+      "tool_observation_supervision_leak_detected": true
+    },
+    "history_tool_observations": 10,
+    "assistant_tool_calls": 11,
+    "supervised_tokens": 940,
+    "empty_think_blocks_in_hf_text": 8,
+    "im_end_tokens_in_hf_text": 17,
+    "elapsed_seconds": 84.65989842300769,
+    "passed": false
+  },
+  "original_red_aligned_audit": {
+    "native_report_sha256": "5279ee50dd861152b89cd2cafda436e78a4d43601eb0756e84ee3f50694198cd",
+    "audit_script_sha256": "376b28e5647bb486e7ece4c6d4857d765627c86243bdbd158ce027ba043c931a",
+    "method": "Exact equal-token runs; compare HF assistant-body+EOS mask in native coordinates. Raw round mask checks use different coordinates and are not verdicts.",
+    "edits": [
+      {
+        "operation": "insert",
+        "swift_span": [
+          1461,
+          1461
+        ],
+        "hf_span": [
+          1461,
+          1465
+        ],
+        "swift_ids": [],
+        "hf_ids": [
+          248068,
+          271,
+          248069,
+          271
+        ],
+        "hf_tokens_masked": true
+      },
+      {
+        "operation": "insert",
+        "swift_span": [
+          2018,
+          2018
+        ],
+        "hf_span": [
+          2022,
+          2026
+        ],
+        "swift_ids": [],
+        "hf_ids": [
+          248068,
+          271,
+          248069,
+          271
+        ],
+        "hf_tokens_masked": true
+      },
+      {
+        "operation": "insert",
+        "swift_span": [
+          3115,
+          3115
+        ],
+        "hf_span": [
+          3123,
+          3127
+        ],
+        "swift_ids": [],
+        "hf_ids": [
+          248068,
+          271,
+          248069,
+          271
+        ],
+        "hf_tokens_masked": true
+      },
+      {
+        "operation": "insert",
+        "swift_span": [
+          4093,
+          4093
+        ],
+        "hf_span": [
+          4105,
+          4109
+        ],
+        "swift_ids": [],
+        "hf_ids": [
+          248068,
+          271,
+          248069,
+          271
+        ],
+        "hf_tokens_masked": true
+      },
+      {
+        "operation": "insert",
+        "swift_span": [
+          4375,
+          4375
+        ],
+        "hf_span": [
+          4391,
+          4395
+        ],
+        "swift_ids": [],
+        "hf_ids": [
+          248068,
+          271,
+          248069,
+          271
+        ],
+        "hf_tokens_masked": true
+      },
+      {
+        "operation": "insert",
+        "swift_span": [
+          5211,
+          5211
+        ],
+        "hf_span": [
+          5231,
+          5235
+        ],
+        "swift_ids": [],
+        "hf_ids": [
+          248068,
+          271,
+          248069,
+          271
+        ],
+        "hf_tokens_masked": true
+      },
+      {
+        "operation": "insert",
+        "swift_span": [
+          5490,
+          5490
+        ],
+        "hf_span": [
+          5514,
+          5518
+        ],
+        "swift_ids": [],
+        "hf_ids": [
+          248068,
+          271,
+          248069,
+          271
+        ],
+        "hf_tokens_masked": true
+      }
+    ],
+    "only_seven_omitted_empty_think_blocks": true,
+    "every_native_token_mapped": true,
+    "aligned_full_label_mask_equal": true,
+    "removed_hf_tokens_all_masked": true,
+    "expected_supervised_tokens": 940,
+    "actual_supervised_tokens": 940,
+    "rounds": [
+      {
+        "message_index": 2,
+        "hf_generation_prefix_tokens": 1465,
+        "native_training_prefix_tokens": 1461,
+        "hf_prefix_extra_empty_think_blocks": 1,
+        "target_tokens": 111,
+        "all_target_tokens_mapped": true,
+        "target_labels_match": true,
+        "native_target_span": [
+          1461,
+          1572
+        ]
+      },
+      {
+        "message_index": 5,
+        "hf_generation_prefix_tokens": 2026,
+        "native_training_prefix_tokens": 2018,
+        "hf_prefix_extra_empty_think_blocks": 2,
+        "target_tokens": 58,
+        "all_target_tokens_mapped": true,
+        "target_labels_match": true,
+        "native_target_span": [
+          2018,
+          2076
+        ]
+      },
+      {
+        "message_index": 7,
+        "hf_generation_prefix_tokens": 3127,
+        "native_training_prefix_tokens": 3115,
+        "hf_prefix_extra_empty_think_blocks": 3,
+        "target_tokens": 166,
+        "all_target_tokens_mapped": true,
+        "target_labels_match": true,
+        "native_target_span": [
+          3115,
+          3281
+        ]
+      },
+      {
+        "message_index": 10,
+        "hf_generation_prefix_tokens": 4109,
+        "native_training_prefix_tokens": 4093,
+        "hf_prefix_extra_empty_think_blocks": 4,
+        "target_tokens": 136,
+        "all_target_tokens_mapped": true,
+        "target_labels_match": true,
+        "native_target_span": [
+          4093,
+          4229
+        ]
+      },
+      {
+        "message_index": 12,
+        "hf_generation_prefix_tokens": 4395,
+        "native_training_prefix_tokens": 4375,
+        "hf_prefix_extra_empty_think_blocks": 5,
+        "target_tokens": 219,
+        "all_target_tokens_mapped": true,
+        "target_labels_match": true,
+        "native_target_span": [
+          4375,
+          4594
+        ]
+      },
+      {
+        "message_index": 15,
+        "hf_generation_prefix_tokens": 5235,
+        "native_training_prefix_tokens": 5211,
+        "hf_prefix_extra_empty_think_blocks": 6,
+        "target_tokens": 86,
+        "all_target_tokens_mapped": true,
+        "target_labels_match": true,
+        "native_target_span": [
+          5211,
+          5297
+        ]
+      },
+      {
+        "message_index": 17,
+        "hf_generation_prefix_tokens": 5518,
+        "native_training_prefix_tokens": 5490,
+        "hf_prefix_extra_empty_think_blocks": 7,
+        "target_tokens": 80,
+        "all_target_tokens_mapped": true,
+        "target_labels_match": true,
+        "native_target_span": [
+          5490,
+          5570
+        ]
+      },
+      {
+        "message_index": 19,
+        "hf_generation_prefix_tokens": 5875,
+        "native_training_prefix_tokens": 5847,
+        "hf_prefix_extra_empty_think_blocks": 7,
+        "target_tokens": 84,
+        "all_target_tokens_mapped": true,
+        "target_labels_match": true,
+        "native_target_span": [
+          5847,
+          5931
+        ]
+      }
+    ]
+  },
+  "counterfactual_green": {
+    "script_sha256": "faa534513f8896bc530ccf2bb832b204d473079d43aa81094e52ea2d75fe0830",
+    "source_line_1based": 681,
+    "source_line_sha256": "b57a903b794dcf9a97a8fa7ce0858cfd88925bf1c57da05fc7dd3f09ab8ba2bd",
+    "cpu_affinity": [
+      127
+    ],
+    "cuda_initialized": false,
+    "model_weights_loaded": false,
+    "template_flags": {
+      "enable_thinking": false,
+      "preserve_thinking": true,
+      "add_non_thinking_prefix": true
+    },
+    "hf_reference_flags": {
+      "enable_thinking": false,
+      "preserve_thinking": false
+    },
+    "swift_loss_scale": "default+ignore_empty_think",
+    "full_text": {
+      "equal": true,
+      "first_difference": null,
+      "left_length": 19809,
+      "right_length": 19809,
+      "swift_sha256": "74dbd9d5214954a6a358f0ba13d8bb8f8c229d8106c9066e67bc8ea759f5ae53",
+      "hf_sha256": "74dbd9d5214954a6a358f0ba13d8bb8f8c229d8106c9066e67bc8ea759f5ae53"
+    },
+    "full_tokens": {
+      "equal": true,
+      "first_difference": null,
+      "left_length": 5959,
+      "right_length": 5959
+    },
+    "label_target_identity": true,
+    "expected_all_assistant_target_mask": {
+      "equal": true,
+      "first_difference": null,
+      "left_length": 5959,
+      "right_length": 5959
+    },
+    "rounds": [
+      {
+        "message_index": 2,
+        "history_tool_observations": 0,
+        "tool_calls_this_round": 2,
+        "prefix_token_and_text_match": true,
+        "through_assistant_match": true,
+        "observed_labels_match_this_target": true,
+        "preceding_query_and_empty_think_masked": true
+      },
+      {
+        "message_index": 5,
+        "history_tool_observations": 2,
+        "tool_calls_this_round": 1,
+        "prefix_token_and_text_match": true,
+        "through_assistant_match": true,
+        "observed_labels_match_this_target": true,
+        "preceding_query_and_empty_think_masked": true
+      },
+      {
+        "message_index": 7,
+        "history_tool_observations": 3,
+        "tool_calls_this_round": 2,
+        "prefix_token_and_text_match": true,
+        "through_assistant_match": true,
+        "observed_labels_match_this_target": true,
+        "preceding_query_and_empty_think_masked": true
+      },
+      {
+        "message_index": 10,
+        "history_tool_observations": 5,
+        "tool_calls_this_round": 1,
+        "prefix_token_and_text_match": true,
+        "through_assistant_match": true,
+        "observed_labels_match_this_target": true,
+        "preceding_query_and_empty_think_masked": true
+      },
+      {
+        "message_index": 12,
+        "history_tool_observations": 6,
+        "tool_calls_this_round": 2,
+        "prefix_token_and_text_match": true,
+        "through_assistant_match": true,
+        "observed_labels_match_this_target": true,
+        "preceding_query_and_empty_think_masked": true
+      },
+      {
+        "message_index": 15,
+        "history_tool_observations": 8,
+        "tool_calls_this_round": 1,
+        "prefix_token_and_text_match": true,
+        "through_assistant_match": true,
+        "observed_labels_match_this_target": true,
+        "preceding_query_and_empty_think_masked": true
+      },
+      {
+        "message_index": 17,
+        "history_tool_observations": 9,
+        "tool_calls_this_round": 1,
+        "prefix_token_and_text_match": true,
+        "through_assistant_match": true,
+        "observed_labels_match_this_target": true,
+        "preceding_query_and_empty_think_masked": true
+      },
+      {
+        "message_index": 19,
+        "history_tool_observations": 10,
+        "tool_calls_this_round": 1,
+        "prefix_token_and_text_match": true,
+        "through_assistant_match": true,
+        "observed_labels_match_this_target": true,
+        "preceding_query_and_empty_think_masked": true
+      }
+    ],
+    "negative_controls": {
+      "removed_real_tool_observation_detected": true,
+      "one_token_shifted_label_targets_detected": true,
+      "tool_observation_supervision_leak_detected": true
+    },
+    "history_tool_observations": 10,
+    "assistant_tool_calls": 11,
+    "supervised_tokens": 940,
+    "empty_think_blocks_in_hf_text": 8,
+    "im_end_tokens_in_hf_text": 17,
+    "elapsed_seconds": 77.7057385488879,
+    "passed": true
+  },
+  "counterfactual_changed_only_swift_preserve_thinking": {
+    "from": false,
+    "to": true,
+    "enable_thinking": false,
+    "hf_preserve_thinking": false,
+    "loss_scale": "default+ignore_empty_think",
+    "same_source_line_sha256": true,
+    "no_live_configuration_changed": true
+  },
+  "normalized_text_exactly_equal_after_removing_first_seven_hf_empty_shells": true,
+  "input_hidden_field_precheck": {
+    "receipt": "analysis/source_snapshots/swe_training_repetition_audit_20261017.json",
+    "receipt_sha256": "793e803dc22a9720d56654f796f9cf475d3fd72e73b8242c616df28978056a52",
+    "audit": {
+      "captured_at_utc": "2026-10-17T05:02:15.874130+00:00",
+      "mode": "stdlib_all_messages_text_only_no_render_encoding_or_raw_parquet",
+      "splits": {
+        "train": {
+          "path": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/train.messages.jsonl",
+          "counts": {
+            "rows": 2000,
+            "think_open_tags": 0,
+            "think_close_tags": 0,
+            "complete_think_blocks": 0,
+            "empty_think_blocks": 0,
+            "nonempty_think_blocks": 0,
+            "unpaired_open_tags": 0,
+            "unpaired_close_tags": 0,
+            "hidden_fields_present": 0,
+            "hidden_fields_nonempty": 0,
+            "nonstring_content": 0
+          },
+          "roles": {
+            "system": 2000,
+            "user": 2009,
+            "assistant": 69611,
+            "tool": 86445
+          },
+          "message_fields": {
+            "role": 160065,
+            "content": 160065,
+            "tool_calls": 69611,
+            "tool_call_id": 86445
+          },
+          "hidden_field_names": {}
+        },
+        "val": {
+          "path": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试/artifacts/data/candidates/new_swe_20261016/expanded_2k/swift_ready64k/val.messages.jsonl",
+          "counts": {
+            "rows": 87,
+            "think_open_tags": 0,
+            "think_close_tags": 0,
+            "complete_think_blocks": 0,
+            "empty_think_blocks": 0,
+            "nonempty_think_blocks": 0,
+            "unpaired_open_tags": 0,
+            "unpaired_close_tags": 0,
+            "hidden_fields_present": 0,
+            "hidden_fields_nonempty": 0,
+            "nonstring_content": 0
+          },
+          "roles": {
+            "system": 87,
+            "user": 87,
+            "assistant": 3206,
+            "tool": 4020
+          },
+          "message_fields": {
+            "role": 7400,
+            "content": 7400,
+            "tool_calls": 3206,
+            "tool_call_id": 4020
+          },
+          "hidden_field_names": {}
+        }
+      },
+      "existing_export_does_not_contain_hidden_reasoning_to_revive": true,
+      "rendered_empty_think_shells_are_not_stored_export_content": true,
+      "new_model_calls": 0
+    }
+  },
+  "installed_source_sha256": {
+    "swift/template/base.py": "a2d14012e37058ad392c1f242e220fd69bb654f29887baffb04aa552f3dfbc16",
+    "swift/template/utils.py": "3ea4206ea33268eebb4e70fa0e5056ae2bee91477472c12783dea94d74ee39d9",
+    "swift/template/templates/qwen.py": "600a230bbe1b55ebbfc97c2d366d7aa4bd0b5ab3da5219816958d1e1363e5707",
+    "swift/model/register.py": "67c1d21141ab02ef80e37060e1226d1c2d0d2d25da8bed80cb255d93412de388"
+  },
+  "source_locations": {
+    "swift_root": "HPC artifacts/envs/sft/lib/python3.12/site-packages/",
+    "hf_template": "artifacts/models/Qwen3.6-35B-A3B/995ad96eacd98c81ed38be0c5b274b04031597b0/chat_template.jinja",
+    "diagnostic_artifact_root": "artifacts/preflight/swe-serialization-parity-20261017",
+    "native_red_report_sha256": "5279ee50dd861152b89cd2cafda436e78a4d43601eb0756e84ee3f50694198cd",
+    "native_green_report_sha256": "96803e90b78181e0879453b6100cde0b7426cac2f6c0ac552c59e0158a3f5bd0"
+  },
+  "limits": [
+    "One selected genuine multi-call training row, not whole-dataset encoding parity or a task score.",
+    "No separate Swift re-encoding of each truncated history; per-round comparison uses prefixes of the native full-row training sequence.",
+    "Same original HF renderer and installed vLLM pure wire-normalizer; no live vLLM response was requested.",
+    "Source multiple-call execution ordering remains independently unverified in the source manifest.",
+    "Original RED raw round label checks use different HF/Swift coordinates; the aligned mask audit is the valid comparison.",
+    "This does not establish the cause of 0/51 or demonstrate task improvement."
+  ],
+  "run_history": [
+    {
+      "kind": "initial_cpu_native",
+      "outcome": "120s timeout before encode/report; unknown parity"
+    },
+    {
+      "kind": "failed_sync_bootstrap",
+      "outcome": "plain rsync proxy failed; stale-script own process stopped and no own diagnostic remained before next launch"
+    },
+    {
+      "kind": "original_red_native_instrumented",
+      "outcome": "completed",
+      "elapsed_seconds": 84.65989842300769,
+      "script_sha256": "212a61b61c5922012853bc7f3893d2b61b042ab31e6bd5b0e17e96cebf9e82ae"
+    },
+    {
+      "kind": "authorized_counterfactual_cpu",
+      "outcome": "completed",
+      "elapsed_seconds": 77.7057385488879,
+      "script_sha256": "faa534513f8896bc530ccf2bb832b204d473079d43aa81094e52ea2d75fe0830"
+    }
+  ],
+  "owned_files": [
+    "scripts/check_swe_serialization_parity.py",
+    "analysis/swe_serialization_parity_20261017.md",
+    "analysis/swe_serialization_parity_20261017.json"
+  ],
+  "frozen_diagnostic_final_script_sha256": "faa534513f8896bc530ccf2bb832b204d473079d43aa81094e52ea2d75fe0830"
+}

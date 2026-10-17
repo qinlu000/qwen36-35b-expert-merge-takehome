@@ -1,0 +1,465 @@
+{
+  "scope": "Existing local published four FP32 adapters only; Gram identity exact Frobenius, no base weights/forward/training/scoring. Norm is diagnostic, not quality or checkpoint selection.",
+  "adapters": {
+    "apex-swe-r16": {
+      "scale_alpha_over_r": 2.0,
+      "modules": 310,
+      "total_delta_frobenius": 6.482907443005629,
+      "groups": {
+        "linear_attn.in_proj_a": {
+          "modules": 30,
+          "delta_frobenius_squared": 0.05605960627181137,
+          "factor_elements": 998400,
+          "nonfinite": 0,
+          "a_absmax": 0.02854248508810997,
+          "b_absmax": 0.007727663032710552,
+          "delta_frobenius": 0.2367690990644923
+        },
+        "linear_attn.in_proj_b": {
+          "modules": 30,
+          "delta_frobenius_squared": 0.04605623182863428,
+          "factor_elements": 998400,
+          "nonfinite": 0,
+          "a_absmax": 0.027086744084954262,
+          "b_absmax": 0.006866321433335543,
+          "delta_frobenius": 0.21460715698371824
+        },
+        "linear_attn.in_proj_qkv": {
+          "modules": 30,
+          "delta_frobenius_squared": 14.436915757230464,
+          "factor_elements": 4915200,
+          "nonfinite": 0,
+          "a_absmax": 0.03108142502605915,
+          "b_absmax": 0.00894702784717083,
+          "delta_frobenius": 3.79959415691077
+        },
+        "linear_attn.in_proj_z": {
+          "modules": 30,
+          "delta_frobenius_squared": 9.098547611996445,
+          "factor_elements": 2949120,
+          "nonfinite": 0,
+          "a_absmax": 0.031148763373494148,
+          "b_absmax": 0.00887746550142765,
+          "delta_frobenius": 3.016379885226071
+        },
+        "linear_attn.out_proj": {
+          "modules": 30,
+          "delta_frobenius_squared": 4.295055908732691,
+          "factor_elements": 2949120,
+          "nonfinite": 0,
+          "a_absmax": 0.02437734045088291,
+          "b_absmax": 0.007725877687335014,
+          "delta_frobenius": 2.0724516661994055
+        },
+        "mlp.shared_expert.down_proj": {
+          "modules": 40,
+          "delta_frobenius_squared": 4.6266139557270245,
+          "factor_elements": 1638400,
+          "nonfinite": 0,
+          "a_absmax": 0.05159267038106918,
+          "b_absmax": 0.007150264456868172,
+          "delta_frobenius": 2.1509565211149724
+        },
+        "mlp.shared_expert.gate_proj": {
+          "modules": 40,
+          "delta_frobenius_squared": 1.381555317185444,
+          "factor_elements": 1638400,
+          "nonfinite": 0,
+          "a_absmax": 0.02998674102127552,
+          "b_absmax": 0.008543356321752071,
+          "delta_frobenius": 1.1753958129861803
+        },
+        "mlp.shared_expert.up_proj": {
+          "modules": 40,
+          "delta_frobenius_squared": 1.2452441023033154,
+          "factor_elements": 1638400,
+          "nonfinite": 0,
+          "a_absmax": 0.02906224876642227,
+          "b_absmax": 0.008088198490440845,
+          "delta_frobenius": 1.1159050597175888
+        },
+        "self_attn.k_proj": {
+          "modules": 10,
+          "delta_frobenius_squared": 0.22531406577014534,
+          "factor_elements": 409600,
+          "nonfinite": 0,
+          "a_absmax": 0.02813073806464672,
+          "b_absmax": 0.006312778685241938,
+          "delta_frobenius": 0.4746725879700084
+        },
+        "self_attn.o_proj": {
+          "modules": 10,
+          "delta_frobenius_squared": 1.5744184466320619,
+          "factor_elements": 983040,
+          "nonfinite": 0,
+          "a_absmax": 0.023815566673874855,
+          "b_absmax": 0.007651764899492264,
+          "delta_frobenius": 1.2547583220015166
+        },
+        "self_attn.q_proj": {
+          "modules": 10,
+          "delta_frobenius_squared": 4.785260573721622,
+          "factor_elements": 1638400,
+          "nonfinite": 0,
+          "a_absmax": 0.03126281499862671,
+          "b_absmax": 0.008120818994939327,
+          "delta_frobenius": 2.18752384529212
+        },
+        "self_attn.v_proj": {
+          "modules": 10,
+          "delta_frobenius_squared": 0.2570473371781101,
+          "factor_elements": 409600,
+          "nonfinite": 0,
+          "a_absmax": 0.028235672041773796,
+          "b_absmax": 0.006919569801539183,
+          "delta_frobenius": 0.5069983601335513
+        }
+      }
+    },
+    "apex-terminal-r16": {
+      "scale_alpha_over_r": 2.0,
+      "modules": 310,
+      "total_delta_frobenius": 5.647544279447633,
+      "groups": {
+        "linear_attn.in_proj_a": {
+          "modules": 30,
+          "delta_frobenius_squared": 0.044359974806119036,
+          "factor_elements": 998400,
+          "nonfinite": 0,
+          "a_absmax": 0.027921127155423164,
+          "b_absmax": 0.007249262649565935,
+          "delta_frobenius": 0.21061807806102267
+        },
+        "linear_attn.in_proj_b": {
+          "modules": 30,
+          "delta_frobenius_squared": 0.03939087252301468,
+          "factor_elements": 998400,
+          "nonfinite": 0,
+          "a_absmax": 0.027666833251714706,
+          "b_absmax": 0.0064255897887051105,
+          "delta_frobenius": 0.19847133929868735
+        },
+        "linear_attn.in_proj_qkv": {
+          "modules": 30,
+          "delta_frobenius_squared": 11.585262834301101,
+          "factor_elements": 4915200,
+          "nonfinite": 0,
+          "a_absmax": 0.030511077493429184,
+          "b_absmax": 0.008862265385687351,
+          "delta_frobenius": 3.403713095180189
+        },
+        "linear_attn.in_proj_z": {
+          "modules": 30,
+          "delta_frobenius_squared": 6.434681871200952,
+          "factor_elements": 2949120,
+          "nonfinite": 0,
+          "a_absmax": 0.030756713822484016,
+          "b_absmax": 0.008929157629609108,
+          "delta_frobenius": 2.536667473517361
+        },
+        "linear_attn.out_proj": {
+          "modules": 30,
+          "delta_frobenius_squared": 3.2146790841739867,
+          "factor_elements": 2949120,
+          "nonfinite": 0,
+          "a_absmax": 0.02499239146709442,
+          "b_absmax": 0.006883904803544283,
+          "delta_frobenius": 1.7929526162656912
+        },
+        "mlp.shared_expert.down_proj": {
+          "modules": 40,
+          "delta_frobenius_squared": 3.6047504666862697,
+          "factor_elements": 1638400,
+          "nonfinite": 0,
+          "a_absmax": 0.05084344372153282,
+          "b_absmax": 0.00701399240642786,
+          "delta_frobenius": 1.8986180412832565
+        },
+        "mlp.shared_expert.gate_proj": {
+          "modules": 40,
+          "delta_frobenius_squared": 0.9877299800636582,
+          "factor_elements": 1638400,
+          "nonfinite": 0,
+          "a_absmax": 0.02972240559756756,
+          "b_absmax": 0.008020085282623768,
+          "delta_frobenius": 0.9938460545092777
+        },
+        "mlp.shared_expert.up_proj": {
+          "modules": 40,
+          "delta_frobenius_squared": 0.9257460406595265,
+          "factor_elements": 1638400,
+          "nonfinite": 0,
+          "a_absmax": 0.02921220101416111,
+          "b_absmax": 0.007449215278029442,
+          "delta_frobenius": 0.962156972982853
+        },
+        "self_attn.k_proj": {
+          "modules": 10,
+          "delta_frobenius_squared": 0.18039522551436704,
+          "factor_elements": 409600,
+          "nonfinite": 0,
+          "a_absmax": 0.027090761810541153,
+          "b_absmax": 0.005973639898002148,
+          "delta_frobenius": 0.4247295910510204
+        },
+        "self_attn.o_proj": {
+          "modules": 10,
+          "delta_frobenius_squared": 1.0480235987261461,
+          "factor_elements": 983040,
+          "nonfinite": 0,
+          "a_absmax": 0.023032035678625107,
+          "b_absmax": 0.006303794216364622,
+          "delta_frobenius": 1.0237302372823351
+        },
+        "self_attn.q_proj": {
+          "modules": 10,
+          "delta_frobenius_squared": 3.6353825544029306,
+          "factor_elements": 1638400,
+          "nonfinite": 0,
+          "a_absmax": 0.029053539037704468,
+          "b_absmax": 0.007627499755471945,
+          "delta_frobenius": 1.9066679192777463
+        },
+        "self_attn.v_proj": {
+          "modules": 10,
+          "delta_frobenius_squared": 0.19435388526360975,
+          "factor_elements": 409600,
+          "nonfinite": 0,
+          "a_absmax": 0.027673285454511642,
+          "b_absmax": 0.005964894779026508,
+          "delta_frobenius": 0.440855855426249
+        }
+      }
+    },
+    "apex-hle-r16": {
+      "scale_alpha_over_r": 2.0,
+      "modules": 310,
+      "total_delta_frobenius": 4.66147059451665,
+      "groups": {
+        "linear_attn.in_proj_a": {
+          "modules": 30,
+          "delta_frobenius_squared": 0.03100291549153768,
+          "factor_elements": 998400,
+          "nonfinite": 0,
+          "a_absmax": 0.027262413874268532,
+          "b_absmax": 0.005391057580709457,
+          "delta_frobenius": 0.1760764478615402
+        },
+        "linear_attn.in_proj_b": {
+          "modules": 30,
+          "delta_frobenius_squared": 0.02763515108560178,
+          "factor_elements": 998400,
+          "nonfinite": 0,
+          "a_absmax": 0.025919778272509575,
+          "b_absmax": 0.004883418790996075,
+          "delta_frobenius": 0.16623823593145404
+        },
+        "linear_attn.in_proj_qkv": {
+          "modules": 30,
+          "delta_frobenius_squared": 7.7129491894523845,
+          "factor_elements": 4915200,
+          "nonfinite": 0,
+          "a_absmax": 0.0277817752212286,
+          "b_absmax": 0.006609724368900061,
+          "delta_frobenius": 2.7772196869265464
+        },
+        "linear_attn.in_proj_z": {
+          "modules": 30,
+          "delta_frobenius_squared": 3.9584427419601256,
+          "factor_elements": 2949120,
+          "nonfinite": 0,
+          "a_absmax": 0.027677392587065697,
+          "b_absmax": 0.00647061737254262,
+          "delta_frobenius": 1.9895835599341198
+        },
+        "linear_attn.out_proj": {
+          "modules": 30,
+          "delta_frobenius_squared": 2.6992804726597504,
+          "factor_elements": 2949120,
+          "nonfinite": 0,
+          "a_absmax": 0.02259676717221737,
+          "b_absmax": 0.00567968562245369,
+          "delta_frobenius": 1.6429487127295697
+        },
+        "mlp.shared_expert.down_proj": {
+          "modules": 40,
+          "delta_frobenius_squared": 2.6029428466722178,
+          "factor_elements": 1638400,
+          "nonfinite": 0,
+          "a_absmax": 0.04922644793987274,
+          "b_absmax": 0.005360336042940617,
+          "delta_frobenius": 1.6133638296032975
+        },
+        "mlp.shared_expert.gate_proj": {
+          "modules": 40,
+          "delta_frobenius_squared": 0.5845551417468772,
+          "factor_elements": 1638400,
+          "nonfinite": 0,
+          "a_absmax": 0.027408726513385773,
+          "b_absmax": 0.005814098287373781,
+          "delta_frobenius": 0.7645620587937104
+        },
+        "mlp.shared_expert.up_proj": {
+          "modules": 40,
+          "delta_frobenius_squared": 0.6108938577280418,
+          "factor_elements": 1638400,
+          "nonfinite": 0,
+          "a_absmax": 0.028003346174955368,
+          "b_absmax": 0.00520265381783247,
+          "delta_frobenius": 0.7815969918877899
+        },
+        "self_attn.k_proj": {
+          "modules": 10,
+          "delta_frobenius_squared": 0.12381199859376789,
+          "factor_elements": 409600,
+          "nonfinite": 0,
+          "a_absmax": 0.025935444980859756,
+          "b_absmax": 0.004485759884119034,
+          "delta_frobenius": 0.35186929191642724
+        },
+        "self_attn.o_proj": {
+          "modules": 10,
+          "delta_frobenius_squared": 0.9336775471556011,
+          "factor_elements": 983040,
+          "nonfinite": 0,
+          "a_absmax": 0.021702773869037628,
+          "b_absmax": 0.005204698536545038,
+          "delta_frobenius": 0.9662699142349415
+        },
+        "self_attn.q_proj": {
+          "modules": 10,
+          "delta_frobenius_squared": 2.2823340072430702,
+          "factor_elements": 1638400,
+          "nonfinite": 0,
+          "a_absmax": 0.02726798690855503,
+          "b_absmax": 0.006133442744612694,
+          "delta_frobenius": 1.5107395563905348
+        },
+        "self_attn.v_proj": {
+          "modules": 10,
+          "delta_frobenius_squared": 0.16178223375443443,
+          "factor_elements": 409600,
+          "nonfinite": 0,
+          "a_absmax": 0.02717052772641182,
+          "b_absmax": 0.004687695298343897,
+          "delta_frobenius": 0.40222162268385625
+        }
+      }
+    },
+    "apex-asi-r16": {
+      "scale_alpha_over_r": 2.0,
+      "modules": 310,
+      "total_delta_frobenius": 3.7499893013447076,
+      "groups": {
+        "linear_attn.in_proj_a": {
+          "modules": 30,
+          "delta_frobenius_squared": 0.01852778647984078,
+          "factor_elements": 998400,
+          "nonfinite": 0,
+          "a_absmax": 0.025538234040141106,
+          "b_absmax": 0.0037108331453055143,
+          "delta_frobenius": 0.13611681189272976
+        },
+        "linear_attn.in_proj_b": {
+          "modules": 30,
+          "delta_frobenius_squared": 0.018510912572292784,
+          "factor_elements": 998400,
+          "nonfinite": 0,
+          "a_absmax": 0.02532113343477249,
+          "b_absmax": 0.003496988909319043,
+          "delta_frobenius": 0.13605481458696264
+        },
+        "linear_attn.in_proj_qkv": {
+          "modules": 30,
+          "delta_frobenius_squared": 4.958584010973505,
+          "factor_elements": 4915200,
+          "nonfinite": 0,
+          "a_absmax": 0.02586423233151436,
+          "b_absmax": 0.0041656699031591415,
+          "delta_frobenius": 2.226787823519229
+        },
+        "linear_attn.in_proj_z": {
+          "modules": 30,
+          "delta_frobenius_squared": 2.604911715069209,
+          "factor_elements": 2949120,
+          "nonfinite": 0,
+          "a_absmax": 0.026129571720957756,
+          "b_absmax": 0.004149320535361767,
+          "delta_frobenius": 1.6139738892154387
+        },
+        "linear_attn.out_proj": {
+          "modules": 30,
+          "delta_frobenius_squared": 1.4211193058374434,
+          "factor_elements": 2949120,
+          "nonfinite": 0,
+          "a_absmax": 0.019798213616013527,
+          "b_absmax": 0.004048282280564308,
+          "delta_frobenius": 1.19210708656456
+        },
+        "mlp.shared_expert.down_proj": {
+          "modules": 40,
+          "delta_frobenius_squared": 1.774210337584557,
+          "factor_elements": 1638400,
+          "nonfinite": 0,
+          "a_absmax": 0.048442330211400986,
+          "b_absmax": 0.004125301260501146,
+          "delta_frobenius": 1.3319948714558014
+        },
+        "mlp.shared_expert.gate_proj": {
+          "modules": 40,
+          "delta_frobenius_squared": 0.4235036722562715,
+          "factor_elements": 1638400,
+          "nonfinite": 0,
+          "a_absmax": 0.025805380195379257,
+          "b_absmax": 0.0038765722420066595,
+          "delta_frobenius": 0.6507715976103071
+        },
+        "mlp.shared_expert.up_proj": {
+          "modules": 40,
+          "delta_frobenius_squared": 0.41582820644193763,
+          "factor_elements": 1638400,
+          "nonfinite": 0,
+          "a_absmax": 0.026204323396086693,
+          "b_absmax": 0.003992609214037657,
+          "delta_frobenius": 0.6448474288092786
+        },
+        "self_attn.k_proj": {
+          "modules": 10,
+          "delta_frobenius_squared": 0.0971258557713116,
+          "factor_elements": 409600,
+          "nonfinite": 0,
+          "a_absmax": 0.025261107832193375,
+          "b_absmax": 0.0039014467038214207,
+          "delta_frobenius": 0.31165021381560387
+        },
+        "self_attn.o_proj": {
+          "modules": 10,
+          "delta_frobenius_squared": 0.5154860193562905,
+          "factor_elements": 983040,
+          "nonfinite": 0,
+          "a_absmax": 0.019585218280553818,
+          "b_absmax": 0.004037019796669483,
+          "delta_frobenius": 0.7179735505966013
+        },
+        "self_attn.q_proj": {
+          "modules": 10,
+          "delta_frobenius_squared": 1.7030125715290607,
+          "factor_elements": 1638400,
+          "nonfinite": 0,
+          "a_absmax": 0.025745974853634834,
+          "b_absmax": 0.00405503436923027,
+          "delta_frobenius": 1.3049952381250518
+        },
+        "self_attn.v_proj": {
+          "modules": 10,
+          "delta_frobenius_squared": 0.11159936632805073,
+          "factor_elements": 409600,
+          "nonfinite": 0,
+          "a_absmax": 0.025505410507321358,
+          "b_absmax": 0.0037668715231120586,
+          "delta_frobenius": 0.33406491334477306
+        }
+      }
+    }
+  }
+}

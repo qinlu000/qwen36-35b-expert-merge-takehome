@@ -758,3 +758,14 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - 实际guard固定65536总context/8192输出预留，prompt最多57344；34个专家溢出末prompt57360–63207、median57698.5。Root以AST提取实际SweModelBridge.validate、仅stub保存tokenize计数离线重放：57344通过/57345拒绝，34真实计数全部重现拒绝，0网络/模型调用；仅验证边界机制，不证明扩大上下文会修复学习行为。DeadlineEnvironment把捕获也受solver时钟限制是代码风险，但本轮全153条日志未见capturefailed，3重点空patch明确捕获0，不能把代码风险当已发生原因。
 - SFT协议检查未见已证实的last_round/工具未监督/反向thinking错误；真实Swift验收assistant正文+工具命令+后续assistant均监督，system/user/tool观察masked。实际1993行/249步一epoch、r16alpha32/LR1e-4；训练loss不作质量/选模证据。已证分布偏差包括源patch.txt流程、训练2000首user含/testbed及88445工具命令中82857含该路径、目标默认/app；但3重点退化例正确用/app，因此没有确证错路径是这些例的直接原因。教师Qwen3.8-Flash-Next的隐藏reasoning按已授权策略清理；清理、学习率、样本量或过拟合是否导致循环均未做因果实验，不能下定论。
 - 新增诊断总述、全153条context/patch/退出及3重复命令小收据、训练协议诊断，更新current_status和本日志。最有证据的结论是SWE专家在真实交互任务里出现严重只读复读和空补丁，尚未确定训练内部根因；历史Base/专家/AVG服务并发差异继续披露。未因本次诊断换checkpoint/主AVG64或按正式成绩调参，无新增loss-only/task-val/资源申请。
+
+
+## 2026-10-17 13:15 CST：手动深诊断、真实编码对照和TensorBoard
+
+小时自动化已删除，保持取消。按用户要求查看LR/entropy并优先TensorBoard；[五组训练标量与实际收据](swe_tensorboard_diagnosis_20261017.md)已导入本机127.0.0.1:6006，session75430保留运行。SWE峰值LR1e-4/第8步/249步，gradnorm最大0.53184且全有限，无明显梯度爆炸；entropy原本未记录，不能由loss反推熵塌缩。标量wall_time为导出时间，用step轴；loss仍只诊断，不复活task-val或选checkpoint。
+
+[真实训练模板诊断](swe_serialization_parity_20261017.md)发现Swift比HF少7个空think壳/28tokens；同一输入仅CPU实例preserve_thinking=True即5959tokens/全部8轮前缀及完整labels一致，940监督token不变。全2000+87输入已核无隐藏reasoning/think标签。原配置、数据、服务不变，未重训；单样本编码修正尚未证明任务改善。[数据审计](swe_training_repetition_audit_20261017.md)最长相同命令连续3次，未见已有100次复读直接混进训练；来源抽核3条边界如实保留。
+
+[LoRA静态诊断](swe_lora_serving_diagnosis_20261017.md)未见明显映射/缩放故障，但数值和长程状态尚未证实。六固定前缀entropy/KL/backend探针准备完，HPC提交预检因默认Python3.6的capture_output失败，发生在claim/sbatch之前；没有jobID/新GPU/forward，用户转向TensorBoard后未重试。当前仅原727912/727913两TP2共4H100普通acd_u/Nice1000，未重建释放端点。下一版若推进，先统一编码，再在同一模板下1e-4 vs2e-5单变量对照，尚未执行。
+
+正式分数、checkpoint、主AVG64、ASI128和原每题预算冻结；没有新训练、模型/Judge调用、补评分或改collector。TensorBoard是本机查看已有日志，不是恢复定时自动化。浏览器已读到scalars且task58完成keeptrue，截图超时不冒称目视验收；Codex面板仅queued。此次不重跑正式统计/PDF。仅提交本轮18份owned及共享日志追加，保留foreign WIP，无coauthor；同步仅本轮静态新文件，不覆盖其他live/bound执行源码。

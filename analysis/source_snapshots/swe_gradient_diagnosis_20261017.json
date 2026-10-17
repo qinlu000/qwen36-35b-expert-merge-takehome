@@ -1,0 +1,45 @@
+{
+  "scope": "Native saved grad_norm diagnostics only, not validation/quality/checkpoint selection; no new forward/training.",
+  "runs": {
+    "hle_loss.json": {
+      "observed_grad_norm_steps": 250,
+      "nonfinite": 0,
+      "min": 0.1686476798284307,
+      "median": 0.42156314367181946,
+      "max": 2.296127110055635,
+      "zero_steps": 0
+    },
+    "mixed_loss.json": {
+      "observed_grad_norm_steps": 883,
+      "nonfinite": 0,
+      "min": 0.07122745986150762,
+      "median": 0.18256783062706738,
+      "max": 2.853884298529018,
+      "zero_steps": 0
+    },
+    "swe_loss.json": {
+      "observed_grad_norm_steps": 249,
+      "nonfinite": 0,
+      "min": 0.08517183356105242,
+      "median": 0.15027556294537292,
+      "max": 0.5318429215309286,
+      "zero_steps": 0
+    },
+    "terminal_loss.json": {
+      "observed_grad_norm_steps": 250,
+      "nonfinite": 0,
+      "min": 0.06337665735872333,
+      "median": 0.09124866699802697,
+      "max": 0.3260048038895118,
+      "zero_steps": 0
+    },
+    "asi_loss.json": {
+      "observed_grad_norm_steps": 134,
+      "nonfinite": 0,
+      "min": 0.21852005596263854,
+      "median": 0.8646409923205687,
+      "max": 5.896367766702384,
+      "zero_steps": 0
+    }
+  }
+}

@@ -1830,3 +1830,14 @@
 - 用户询问专家目标benchmark低于Base时能否不合并。核原题需求：专家数量自定，没有要求所有已训练专家必须进入最终合版；技术上可把对应参数更新权重设0。目标项成绩低不自动证明该专家对其他领域或合版宏平均有负贡献，留一专家消融才直接检验此问题。
 - 题目同时要求用独立开发集选最终配方，正式反馈不能用于反复选系数/最终模型。当前已看SWE/ASI正式成绩且AVG64已冻结；剔除专家只能明确列作测试反馈后的探索/消融，不能暗中替换主结果或称独立开发集选定。用户此前取消task-val/自动化的决定保持，不恢复。
 - 本轮仅核要求并讨论，没有改merge配置、权重、final_model、评测、GPU或启动新消融；未重训/重生/调用API。是否剔除及如何比较尚待进一步明确，不把概念问句记成已执行方案。
+
+
+## 2026-10-17 13:15 CST：手动深诊断、真实编码对照和TensorBoard
+
+小时自动化已删除，保持取消。按用户要求查看LR/entropy并优先TensorBoard；[五组训练标量与实际收据](swe_tensorboard_diagnosis_20261017.md)已导入本机127.0.0.1:6006，session75430保留运行。SWE峰值LR1e-4/第8步/249步，gradnorm最大0.53184且全有限，无明显梯度爆炸；entropy原本未记录，不能由loss反推熵塌缩。标量wall_time为导出时间，用step轴；loss仍只诊断，不复活task-val或选checkpoint。
+
+[真实训练模板诊断](swe_serialization_parity_20261017.md)发现Swift比HF少7个空think壳/28tokens；同一输入仅CPU实例preserve_thinking=True即5959tokens/全部8轮前缀及完整labels一致，940监督token不变。全2000+87输入已核无隐藏reasoning/think标签。原配置、数据、服务不变，未重训；单样本编码修正尚未证明任务改善。[数据审计](swe_training_repetition_audit_20261017.md)最长相同命令连续3次，未见已有100次复读直接混进训练；来源抽核3条边界如实保留。
+
+[LoRA静态诊断](swe_lora_serving_diagnosis_20261017.md)未见明显映射/缩放故障，但数值和长程状态尚未证实。六固定前缀entropy/KL/backend探针准备完，HPC提交预检因默认Python3.6的capture_output失败，发生在claim/sbatch之前；没有jobID/新GPU/forward，用户转向TensorBoard后未重试。当前仅原727912/727913两TP2共4H100普通acd_u/Nice1000，未重建释放端点。下一版若推进，先统一编码，再在同一模板下1e-4 vs2e-5单变量对照，尚未执行。
+
+正式分数、checkpoint、主AVG64、ASI128和原每题预算冻结；没有新训练、模型/Judge调用、补评分或改collector。TensorBoard是本机查看已有日志，不是恢复定时自动化。浏览器已读到scalars且task58完成keeptrue，截图超时不冒称目视验收；Codex面板仅queued。此次不重跑正式统计/PDF。仅提交本轮18份owned及共享日志追加，保留foreign WIP，无coauthor；同步仅本轮静态新文件，不覆盖其他live/bound执行源码。

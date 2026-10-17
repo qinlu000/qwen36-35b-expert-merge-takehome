@@ -1,0 +1,348 @@
+{
+  "recorded_at_utc": "2026-10-17T05:00:40.121144+00:00",
+  "scope": "Read-only saved launch/log, safetensors header, small config, installed-source audit; diagnostic scripts prepared, not submitted or run on a model.",
+  "conclusion": "No demonstrated serving-side loading/scaling/parser/cache fault explaining the repeated commands. Static coverage and adapter activation are supported; numerical parity remains untested.",
+  "operations": {
+    "new_model_requests": 0,
+    "new_judge_requests": 0,
+    "gpu_jobs_submitted": 0,
+    "services_restarted": 0,
+    "large_tensor_reads": 0,
+    "production_files_changed": 0
+  },
+  "roots": {
+    "hpc": "HPC project root",
+    "server80": "80 project root",
+    "installed_vllm": "artifacts/envs/base-inference/lib/python3.12/site-packages/vllm"
+  },
+  "base_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "services": [
+    {
+      "job": "727113",
+      "node": "ACD1-24",
+      "alias": "apex-val-swe249",
+      "launch": "artifacts/validation/lora-service-727113/launch.json",
+      "log": "artifacts/validation/lora-service-727113.log",
+      "engine_line": 26,
+      "punica_line": 119,
+      "loaded_alias_line": 150,
+      "max_lora_rank": 16,
+      "max_loras": 1,
+      "max_cpu_loras": 4
+    },
+    {
+      "job": "727660",
+      "node": "ACD1-50",
+      "alias": "apex-avg64",
+      "launch": "artifacts/eval/merged-execution-service-727660/launch.json",
+      "log": "artifacts/eval/merged-execution-service-727660.log",
+      "engine_line": 26,
+      "punica_line": 113,
+      "loaded_alias_line": 144,
+      "max_lora_rank": 64,
+      "max_loras": 1,
+      "max_cpu_loras": 1
+    },
+    {
+      "job": "727913",
+      "node": "ACD1-22",
+      "alias": "apex-avg64",
+      "launch": "artifacts/eval/merged-execution-service-727913/launch.json",
+      "log": "artifacts/eval/merged-execution-service-727913.log",
+      "engine_line": 26,
+      "punica_line": 113,
+      "loaded_alias_line": 144,
+      "max_lora_rank": 64,
+      "max_loras": 1,
+      "max_cpu_loras": 1,
+      "migration_state80": "artifacts/eval/execution_partition_migration_20261017/avg64_execution/state.json"
+    }
+  ],
+  "common_actual_engine": {
+    "vllm": "0.20.2",
+    "architecture": "Qwen3_5MoeForConditionalGeneration",
+    "dtype": "bfloat16",
+    "lora_dtype": "bfloat16",
+    "tensor_parallel_size": 2,
+    "pipeline_parallel_size": 1,
+    "data_parallel_size": 1,
+    "distributed_executor_backend": "mp",
+    "max_model_len": 65536,
+    "max_num_seqs": 20,
+    "max_num_batched_tokens": 8192,
+    "enable_chunked_prefill": true,
+    "enable_prefix_caching": false,
+    "enforce_eager": true,
+    "gdn_prefill_backend": "triton",
+    "moe_backend": "triton",
+    "observed_full_attention_backend": "FlashAttention 3",
+    "tool_call_parser": "qwen3_coder",
+    "reasoning_parser": "qwen3",
+    "chat_template_kwargs": {
+      "enable_thinking": false,
+      "preserve_thinking": false
+    }
+  },
+  "warning_audit": {
+    "all_three_logs_counts_each": {
+      "These parameters will be ignored": 0,
+      "no matching PunicaWrapper": 0,
+      "While loading ": 0,
+      "does not support LoRA": 0,
+      "not supported for LoRA": 0,
+      "not in the deployment-time target_modules": 0
+    },
+    "other_observed": [
+      "NIXL unavailable",
+      "enforce-eager disables compile/CUDAGraphs",
+      "video min_frames/max_frames documentation errors",
+      "symmetric-memory multicast unsupported",
+      "default MoE/LoRA kernel configs (performance warnings)",
+      "base tokenizer used for LoRA (deprecated per-LoRA tokenizer support)",
+      "generation_config changes default sampling values"
+    ],
+    "interpretation": "These are not evidence of ignored trained LoRA targets. No numerical-correctness guarantee follows from warning absence."
+  },
+  "adapters": {
+    "swe249": {
+      "path": "artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249",
+      "r": 16,
+      "alpha": 32,
+      "standard_scaling": 2,
+      "stored_dtype": "F32",
+      "serving_dtype": "BF16",
+      "modules": 310,
+      "tensors": 620,
+      "config_sha256": "fabd2237f2dcf68d6b9a4637770bed14d6e60eca7604ec55ed945ce22348a06b",
+      "canonical_header_json_sha256": "93d609b675ccaccda1e93a4eeba6134b10e6d1ed0cf1c80629ca84052754b79a",
+      "revision_config": null,
+      "revision_binding": "launch points to frozen base snapshot directory"
+    },
+    "avg64": {
+      "path": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+      "r": 64,
+      "alpha": 64,
+      "standard_scaling": 1,
+      "stored_dtype": "F32",
+      "serving_dtype": "BF16",
+      "modules": 310,
+      "tensors": 620,
+      "config_sha256": "784e1ccecb0bc3a8f2f2db6acca32e57ae1d46e652e1292f032f586312049c6e",
+      "canonical_header_json_sha256": "dee9bf3c926a0b8d36d78da57516bc86e2df97475a543ea9d4aeec477598d973",
+      "revision_config": "995ad96eacd98c81ed38be0c5b274b04031597b0"
+    }
+  },
+  "common_adapter_features": {
+    "use_rslora": false,
+    "use_dora": false,
+    "fan_in_fan_out": false,
+    "bias": "none",
+    "lora_bias": false,
+    "rank_pattern": {},
+    "alpha_pattern": {},
+    "modules_to_save": [],
+    "target_regex_fullmatch_real_hf_name": true,
+    "no_router_or_routed_expert_or_vision_tensors": true
+  },
+  "static_projection_coverage_each": {
+    "source_modules": 310,
+    "runtime_wrappers_expected": 220,
+    "disallowed": [],
+    "families_source_modules": {
+      "linear_attn": 150,
+      "shared_expert": 120,
+      "full_attn": 40
+    },
+    "runtime_suffix_counts": {
+      "in_proj_qkv": 30,
+      "in_proj_z": 30,
+      "in_proj_ba": 30,
+      "out_proj": 30,
+      "gate_up_proj": 40,
+      "down_proj": 40,
+      "qkv_proj": 10,
+      "o_proj": 10
+    },
+    "method": "Header names only; source prefix mapper and packed suffix mapping, not an instantiated 35B runtime wrapper inventory."
+  },
+  "installed_source_evidence": {
+    "prefix_mapper": {
+      "path": "model_executor/models/qwen3_vl.py",
+      "lines": "1619-1624",
+      "sha256": "f6dd717d4e0a428ca773346ec721880acd5111dd09b38756caad0c84bf1afbac"
+    },
+    "qwen35": {
+      "path": "model_executor/models/qwen3_5.py",
+      "lines": "135-141,276-303,488-495,617-626,811-835",
+      "sha256": "95013496de9ca5357acd1e72f35347ed8d8d6b2b4af7ea1cb907a1afeebe05e5",
+      "mtime_utc": "2026-10-15T15:23:18.384966+00:00"
+    },
+    "gdn": {
+      "path": "model_executor/layers/mamba/gdn_linear_attn.py",
+      "lines": "290-325,419-439,533-540,948-971",
+      "sha256": "572cd124d28b770e5958e5bab6416b01d2c38731911c5b57511cd7eceedae43f"
+    },
+    "gdn_request_state": {
+      "path": "v1/attention/backends/gdn_attn.py",
+      "lines": "167-170,207,336-339",
+      "sha256": "3c60cde9b0ef4bb6e4c105491afa50d96cad368399d36bfbed81e47a6e1b4b68"
+    },
+    "shared_expert_class": {
+      "path": "model_executor/models/qwen3_next.py",
+      "lines": "56,130-147",
+      "sha256": "e11614eb71f86ab217dd671c377bcdf4f808b5b392cc9b9d62d32da5bc6c2e45",
+      "implementation": "Qwen2MoeMLP gate_up/down standard TP linears; qwen2_moe.py77-122"
+    },
+    "shared_expert_execution": {
+      "path": "model_executor/layers/fused_moe/runner/shared_experts.py",
+      "lines": "135-176",
+      "sha256": "d5fd0309f928449006a2ff5fdd0d199aeb83bedcd6e96d98eb8bba554e194859"
+    },
+    "wrapper_registration": {
+      "path": "lora/model_manager.py",
+      "lines": "363-455,621-641,674-714",
+      "sha256": "1d16dafe25c66d744248db5c84cbac5802b7aa42b99d2d6a88305b5e81e821fb"
+    },
+    "load_validation": {
+      "path": "lora/worker_manager.py",
+      "lines": "103-175",
+      "sha256": "dfd13c94f8f6764d684b08649ece5e73ee52a85646576840cb2bef04c99ead12"
+    },
+    "target_filter": {
+      "path": "lora/utils.py",
+      "lines": "155-190,208-300",
+      "sha256": "04603c79bfb93438fb96fcd01dba535896acbd27766d64cddf9684f8f6ef73f2"
+    },
+    "rank_alpha": {
+      "path": "lora/peft_helper.py",
+      "lines": "53-58,114-128",
+      "sha256": "acb6c22e3f94b235c50f6c170f5f21380b733ffdfcf45c1ca68cde22dce046f9"
+    },
+    "single_scaling_absorption": {
+      "path": "lora/lora_weights.py",
+      "lines": "31-41,128-149,230-236",
+      "sha256": "885dcf1f38d5bad2b362e94640da0e626b8bb0950c0df2e3537fba538bbb1268"
+    },
+    "qkv_variable_slice": {
+      "path": "lora/layers/column_parallel_linear.py",
+      "lines": "620-691",
+      "sha256": "051278a4998a4adca7ccbe30350b3979a9803cec57d78ccc6da729cc12494352"
+    },
+    "prefix_cache_lora_salt": {
+      "path": "v1/core/kv_cache_utils.py",
+      "lines": "460-472,501-536",
+      "sha256": "03641434424a3facf3609ed2cc3a1c69d75ddde981016fd508f04a9122bac6a4"
+    },
+    "explicit_sampling_precedence": {
+      "path": "entrypoints/openai/chat_completion/protocol.py",
+      "lines": "469-491",
+      "finding": "Only None request values fall back to generation_config defaults"
+    }
+  },
+  "saved_activation_acceptance": {
+    "source_hpc": "artifacts/validation/lora-service-727113/acceptance.json",
+    "sha256": "208c4b8c965f0aa6d17025fabe6f8981d223746b211eb31e9c385f96827fb4fc",
+    "at_utc": "2026-10-16T14:18:06.306224+00:00",
+    "ready": true,
+    "identical_synthetic_prompt_tokens": 26,
+    "base_first_token_logprob": -4.029192859889008e-05,
+    "swe_first_token_logprob": -0.0007479969062842429,
+    "both_generated_text": "323",
+    "tool_probe": {
+      "model": "apex-val-swe249",
+      "function": "bash",
+      "arguments": "echo validation-ready",
+      "finish_reason": "tool_calls",
+      "prompt_tokens": 289,
+      "completion_tokens": 28
+    },
+    "meaning": "Shows adapter changes some logits and the parser accepts a tool call; not 310-layer numerical parity."
+  },
+  "avg_saved_acceptance": "analysis/source_snapshots/merged_execution_queue_deployment_20261017.json native_acceptance; existing native echo/read fixture3modelcalls, not repeated this turn",
+  "actual_request_scalar_check": {
+    "task_id": "instance_ansible__ansible-d62496fe416623e88b90139dc7917080cb04ce70-v0f01c69f1e2528b935359cfe578530722bca2c59",
+    "record": "requests/<task_id>/00001.json under expert/avg formal outputs",
+    "both_status": "accepted",
+    "both_prompt_tokens_exact": 1645,
+    "max_tokens": 8192,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "min_p": 0,
+    "presence_penalty": 0,
+    "repetition_penalty": 1,
+    "seed": 0,
+    "n": 1,
+    "stream": false,
+    "thinking": false,
+    "preserve_thinking": false
+  },
+  "unresolved": [
+    "No HF/PEFT versus vLLM numerical parity receipt yet.",
+    "Current installed-source hashes are not a per-job frozen runtime inventory; checked file mtimes precede launches.",
+    "Static310→220 mapping does not prove every runtime activation is numerically correct.",
+    "GDN request-state reset is supported by code, not verified by a differential GPU state-contamination test.",
+    "BF16 factor casting, TP reductions, FlashAttention/Triton versus HF kernels can introduce backend differences."
+  ],
+  "prepared_probe": {
+    "python": "scripts/diagnose_swe_backend_parity.py",
+    "python_sha256": "cb0b2b5bea52dcb3f823d3744c15c9b17dd2f34ecc9c38aa8d652e12f7bb289a",
+    "slurm": "scripts/diagnose_swe_backend_parity.slurm",
+    "slurm_sha256": "7e6461a16870a2c4cd0923b182cb7765ad4f8c1bd88dd0b76dd2bc56ea105fe3",
+    "state": "prepared_not_submitted_by_this_agent",
+    "partition": "acd_u",
+    "nice": 1000,
+    "gpus": 2,
+    "walltime_minutes": 45,
+    "memory_gib": 128,
+    "fixture_ids": [
+      "bash_typo_correction",
+      "missing_ls_observation",
+      "two_prior_tool_calls"
+    ],
+    "fixture_definition_sha256": "c0769ba252305e2ab70d2112d11fa6f1eb853a543cf90f941bf0d0c4599a42a3",
+    "hf_forwards": 18,
+    "vllm_one_token_requests": 12,
+    "external_api_calls": 0,
+    "native_tool_commands_executed": 0,
+    "HF_raw_full_vocab_metrics": [
+      "Shannon entropy at temperature1 no truncation",
+      "top1 probability",
+      "KL(Base||SWE)",
+      "KL(SWE||Base)",
+      "JS(Base,SWE)"
+    ],
+    "not_validation_or_checkpoint_selection": true,
+    "full_logp_storage": "ignored job output hf_full_logprobs.npz, 12 FP32 vocabulary vectors; no 35B weight export",
+    "interpretation": "Compare HF-vLLM Base drift before interpreting adapter-specific differential drift. No arbitrary numeric pass threshold.",
+    "positions": {
+      "assistant_start": "",
+      "command_start": "<tool_call>\n<function=bash>\n<parameter=command>\n"
+    },
+    "prefixes": 6,
+    "history2_and_3_end_with_tool": true
+  },
+  "dependency_metadata": {
+    "same_in_both_envs": {
+      "torch": "2.11.0+cu130",
+      "transformers": "5.15.1",
+      "safetensors": "0.8.0",
+      "huggingface_hub": "1.28.0"
+    },
+    "sft_only": {
+      "peft": "0.20.0",
+      "accelerate": "1.14.0"
+    },
+    "hf_moe_source_sha256_both": "16ef7b0dc6e26eae26a6ffd0ad11d93f85424f90ffb85fbcc9eecc0759cc930d",
+    "hf_qwen35_source_sha256_both": "67cf849081143a998f0e189c551e4b5f532365a055805570747385e400372abb",
+    "method": "Read METADATA/source; no production installation or model import."
+  },
+  "checks": [
+    "plan CLI",
+    "stdlib self-test: top20 intersection + uniform/one-hot entropy/KL/JS identity/infinite-KL/symmetry",
+    "py_compile",
+    "bash -n"
+  ],
+  "entropy_boundary": "Old training logs do not contain this entropy. Teacher-forced cross-entropy loss is not Shannon entropy of the model next-token distribution.",
+  "not_causal_claim": "Serving fault absence is not proof SFT alone caused SWE degradation. Existing repeated-command observations are behavioral evidence, not a controlled causal experiment."
+}

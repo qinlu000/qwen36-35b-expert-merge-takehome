@@ -1,5 +1,19 @@
 # SWE下降：已证实的行为与尚未证实的训练原因
 
+## 13:15 手动深诊断与TensorBoard更新
+
+用户要求先看LR、entropy，随后明确“直接用tensorboard诊断”。已导入五组原生日志并启动[本机TensorBoard](http://127.0.0.1:6006/#scalars)，只看训练诊断，不用loss选择checkpoint。SWE峰值LR1e-4、第8步到峰、249总步；梯度范数最大0.53184、中位0.15028，无NaN/Inf或明显爆炸。**原训练未记录entropy，无法由CE曲线证明熵塌缩。** [来源/用法](swe_tensorboard_diagnosis_20261017.md)。
+
+新增已复现的训练输入差异：[真实第681行](swe_serialization_parity_20261017.md)原Swift5931tokens、HF5959tokens，唯一差异为7个空think壳（28tokens）；其余工具动作、观察与940监督token一致。原因是两模板对最后tool与最后真实user的历史划分不同。只在独立CPU诊断实例将Swift preserve_thinking=True后，两端5959tokens/全部8轮前缀/labels完全一致；没有启用thinking、加载权重或重训。原全2000训练/87历史val输入隐藏reasoning字段和think标签均0，因此这批输入没有隐藏推理被该候选参数恢复。**单样本编码修正不是成功率修复证明**；原配置/数据/正式模型保持。
+
+[数据重复审计](swe_training_repetition_audit_20261017.md)：2000条88445次bash调用，完全相同命令最长连续3次，主要是等待日志；没有直接训练出100次以上复读的样本。3条原源代表的动作和观察在既定格式正规化后匹配，不能外推全量原执行顺序已证明。原153轨迹的只读复读和43空patch事实保持。
+
+[LoRA静态审计](swe_lora_serving_diagnosis_20261017.md)未发现明确丢目标层/缩放错误，实际prefix caching关闭；Loaded日志不等于数值一致。准备了HF/vLLM六固定前缀的完整词表entropy/KL与数值探针，但提交前HPC默认Python3.6不支持capture_output导致预检失败，发生于sbatch/claim之前，**没有新GPU作业或forward**。用户转向TensorBoard后未重试。短前缀诊断也无法单独排除长程GDN状态问题。
+
+SWE适配器更新Frobenius总范数6.483高于另外三专家，但缺少相对Base归一化，不作为质量或LR过高证明。若继续实验，先验证模板一致性，再在同一修正模板下比较1e-4与保守候选2e-5；不同时改warmup/target/data来混淆LR归因，不盲加entropy奖励，不按正式成绩调参换冻结主AVG64。自动化继续删除，已有评测不变。
+
+以下为12:20已保存的首轮行为诊断，保留历史结论与边界。
+
 2026-10-17，用户要求解释SWE大幅下降。本轮仅只读检查已有轨迹、训练/评测源码与统计；没有重生成、调用模型/Judge、补评分、改变原分数/配置/权重或恢复已取消的自动化。
 
 SWE Base10/51=19.607843%、专家0/51、AVG64 4/51=7.843137%。主要异常已经存在于SWE专家，不能把本次下降主要解释为合版或rank压缩；AVG64反而比专家多4题通过，且本身没有SVD压缩。

@@ -1,0 +1,125 @@
+{
+  "exported_at_utc": "2026-10-17T05:04:33.555156+00:00",
+  "logdir": "/Users/caoqinlu/Documents/ChatGPT/apex 笔试/artifacts/diagnostics/tensorboard-native-training-20261017-1305",
+  "runs": {
+    "asi": {
+      "source": "curves/training_20261017/source/asi_loss.json",
+      "native_run": "asi-expanded-sft-r16-726336",
+      "scalar_counts": {
+        "train/cross_entropy": 134,
+        "train/learning_rate": 134,
+        "train/gradient_norm": 134,
+        "progress/epoch": 143,
+        "diagnostic/teacher_forced_eval_cross_entropy": 9,
+        "diagnostic/teacher_forced_token_accuracy": 9
+      }
+    },
+    "hle": {
+      "source": "curves/training_20261017/source/hle_loss.json",
+      "native_run": "hle-existing2k-sft-r16-726664",
+      "scalar_counts": {
+        "train/cross_entropy": 250,
+        "train/learning_rate": 250,
+        "train/gradient_norm": 250,
+        "progress/epoch": 266,
+        "diagnostic/teacher_forced_eval_cross_entropy": 16
+      }
+    },
+    "mixed": {
+      "source": "curves/training_20261017/source/mixed_loss.json",
+      "native_run": "mixed-existing2k-sft-r16-726666",
+      "scalar_counts": {
+        "train/cross_entropy": 883,
+        "train/learning_rate": 883,
+        "train/gradient_norm": 883,
+        "progress/epoch": 939,
+        "diagnostic/teacher_forced_eval_cross_entropy": 56
+      }
+    },
+    "swe": {
+      "source": "curves/training_20261017/source/swe_loss.json",
+      "native_run": "swe2k-sft-r16-726335",
+      "scalar_counts": {
+        "train/cross_entropy": 249,
+        "train/learning_rate": 249,
+        "train/gradient_norm": 249,
+        "progress/epoch": 265,
+        "diagnostic/teacher_forced_eval_cross_entropy": 16,
+        "diagnostic/teacher_forced_token_accuracy": 16
+      }
+    },
+    "terminal": {
+      "source": "curves/training_20261017/source/terminal_loss.json",
+      "native_run": "terminal-retry-sft-r16-726665",
+      "scalar_counts": {
+        "train/cross_entropy": 250,
+        "train/learning_rate": 250,
+        "train/gradient_norm": 250,
+        "progress/epoch": 266,
+        "diagnostic/teacher_forced_eval_cross_entropy": 16
+      }
+    }
+  },
+  "entropy_recorded": false,
+  "new_training_or_forward_calls": 0,
+  "limitations": [
+    "All event wall_time values are export time; use the step axis, not elapsed time.",
+    "Cross-entropy and teacher-forced token accuracy are training diagnostics, not benchmark scores or checkpoint selection criteria.",
+    "Entropy was not logged and is not synthesized or set to zero."
+  ],
+  "tensorboard_version": "2.20.0",
+  "url": "http://127.0.0.1:6006/#scalars&tagFilter=%5Etrain%2F&regexInput=%5Eswe%24&_smoothingWeight=0",
+  "session_id": 75430,
+  "swe_tags": [
+    "train/cross_entropy",
+    "train/learning_rate",
+    "train/gradient_norm",
+    "progress/epoch",
+    "diagnostic/teacher_forced_eval_cross_entropy",
+    "diagnostic/teacher_forced_token_accuracy"
+  ],
+  "entropy_logged": false,
+  "swe_summary": {
+    "train/learning_rate": {
+      "count": 249,
+      "first_step": 1,
+      "last_step": 249,
+      "first": 1.249999968422344e-05,
+      "last": 0.0,
+      "max": 9.999999747378752e-05,
+      "median": 4.999999873689376e-05
+    },
+    "train/gradient_norm": {
+      "count": 249,
+      "first_step": 1,
+      "last_step": 249,
+      "first": 0.25854068994522095,
+      "last": 0.2801578640937805,
+      "max": 0.5318429470062256,
+      "median": 0.1502755582332611
+    },
+    "train/cross_entropy": {
+      "count": 249,
+      "first_step": 1,
+      "last_step": 249,
+      "first": 0.44774699211120605,
+      "last": 0.36871618032455444,
+      "max": 0.478919118642807,
+      "median": 0.3487967550754547
+    },
+    "diagnostic/teacher_forced_eval_cross_entropy": {
+      "count": 16,
+      "first_step": 16,
+      "last_step": 249,
+      "first": 0.38588187098503113,
+      "last": 0.3176804780960083,
+      "max": 0.38588187098503113,
+      "median": 0.3216124624013901
+    }
+  },
+  "browser_check": "ego task58 rendered TensorBoard/scalar names and charts; screenshot timed out, no visual screenshot acceptance claimed",
+  "new_gpu_jobs_submitted": 0,
+  "backend_probe": "Prepared only. Submission preflight failed before sbatch on login Python3.6 subprocess.capture_output; not retried after user redirected to TensorBoard.",
+  "browser_task_completed_keep_open": true,
+  "codex_panel_status": "queued, visibility not confirmed"
+}
