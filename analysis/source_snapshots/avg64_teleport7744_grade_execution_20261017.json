@@ -1,0 +1,147 @@
+{
+  "schema": "avg64_teleport7744_grade_execution_v1",
+  "collected_at_utc": "2026-10-17T02:43:31.046944+00:00",
+  "metadata_affinity": [
+    10
+  ],
+  "root_launch": {
+    "at_utc": "2026-10-17T02:40:56.818251+00:00",
+    "state": "spawned_unique_waiter",
+    "command": [
+      "taskset",
+      "-c",
+      "10",
+      "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+      "/data/caoqinlu/projects/apex-takehome/scripts/run_avg64_teleport7744_grade_only_20261017.py",
+      "--manifest",
+      "/data/caoqinlu/projects/apex-takehome/configs/eval/avg64_teleport7744_grade_only_20261017.json",
+      "--execute"
+    ],
+    "script_sha256": "fb5a495bc3fceab502ce6983a905a846b58cf26ba885282849ec938b617292ce",
+    "manifest_sha256": "8cff408195321efd151b16eaeb42eae0bb55cf4c78670cebd2b6d9addb4f2abd",
+    "route_receipt_sha256": "6d8f90eb63ba0104c2ff8782511ec9f22aa101b5dc8fe955413e9227cdfd0a7d",
+    "root_and_independent_review_passed": true,
+    "admission_policy": "Wait for original AVG ASI complete240/pool shutdown marker and actual124-127 scopes empty; do not reclaim source generation CPU",
+    "future_native_cpu": 124,
+    "future_lease_cpu_ids": [
+      124,
+      125,
+      126,
+      127
+    ],
+    "logical_offset": 0,
+    "memory_mib": 4096,
+    "verifier_seconds": 3000,
+    "new_model_calls": 0,
+    "accepted_into_formal_summary": false,
+    "pid": 2223041,
+    "startticks": "870388084"
+  },
+  "state": {
+    "pid": 2223041,
+    "startticks": "870388084",
+    "state": "waiting_source_or_route",
+    "lock_held": false,
+    "model_calls": 0,
+    "accepted_into_formal_summary": false,
+    "at_utc": "2026-10-17T02:43:27.311241+00:00"
+  },
+  "claim": {
+    "pid": 2223041,
+    "startticks": "870388084",
+    "state": "waiting_source_handoff",
+    "lock_held": false,
+    "model_calls": 0,
+    "accepted_into_formal_summary": false,
+    "at_utc": "2026-10-17T02:40:57.229510+00:00"
+  },
+  "claim_bound_file_count": 43,
+  "claim_all_bound_file_hashes_match": true,
+  "parent_actual": {
+    "pid": 2223041,
+    "state": "S",
+    "ppid": 1,
+    "startticks": "870388084",
+    "comm": "python",
+    "affinity": [
+      10
+    ],
+    "cgroup": "/user.slice/user-1012.slice/session-47931.scope"
+  },
+  "source_progress": {
+    "completed_conditions": 232,
+    "expected_conditions": 240,
+    "updated_at": "2026-10-17T02:39:57.137600+00:00",
+    "state": "running",
+    "scored": false,
+    "active_count": 8
+  },
+  "source_generation_marker": null,
+  "source_generation_marker_exists": false,
+  "actual_project_scopes_intersecting_124_127": [],
+  "private_lease_file_exists": true,
+  "private_lease_inode": 90780234,
+  "private_kernel_lock_rows": [],
+  "native_directory_exists": false,
+  "native_result_exists": false,
+  "admission_receipt_exists": false,
+  "guard_log_exists": false,
+  "source_binding_count": 41,
+  "all_source_hashes_match": true,
+  "sif_stat_matches": true,
+  "script_sha256": "fb5a495bc3fceab502ce6983a905a846b58cf26ba885282849ec938b617292ce",
+  "manifest_sha256": "8cff408195321efd151b16eaeb42eae0bb55cf4c78670cebd2b6d9addb4f2abd",
+  "route_receipt_sha256": "6d8f90eb63ba0104c2ff8782511ec9f22aa101b5dc8fe955413e9227cdfd0a7d",
+  "route_connection": {
+    "pid": 2206906,
+    "state": "S",
+    "ppid": 322000,
+    "startticks": "870351829",
+    "comm": "sshd",
+    "cgroup": "/user.slice/user-1012.slice/session-47907.scope",
+    "affinity_ranges": "0-127"
+  },
+  "listener_metadata": {
+    "return_code": 0,
+    "stdout": "State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess\nLISTEN 0      128        127.0.0.1:38444      0.0.0.0:*          \n",
+    "stderr": ""
+  },
+  "collected_at_cst": "2026-10-17T10:43:31.046944+08:00",
+  "interpretation": {
+    "state": "waiting_normally_no_native_admission",
+    "source_progress_is_saved_at": "2026-10-17T10:39:57.137600+08:00",
+    "source_progress_is_not_a_fresh_directory_count": true,
+    "missing_generation_marker_prevents_handoff": true,
+    "empty_cpu_scopes_alone_do_not_authorize_handoff": true,
+    "private_lock_file_existence_is_not_lease_acquisition": true,
+    "no_cpu_lease_or_guard_or_native_observed": true,
+    "no_model_calls_or_new_network_probe_by_this_audit": true,
+    "route_listener_fd_owner_observed": false,
+    "route_evidence_limit": "Unique loopback listener plus live recorded same-connection sshd PID/startticks; no direct listener FD ownership claim.",
+    "scoring_status": "not_started; no result accepted",
+    "no_runtime_or_source_modified": true
+  },
+  "paths": {
+    "root_launch": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/root-launch-20261017.json",
+    "parent_state": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/parent-state.json",
+    "execution_claim": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/attempt1/execution-claim.json",
+    "route_receipt": "artifacts/recovery/avg64-teleport7744-original-proxy-20261017/route-receipt.json",
+    "source_progress": "artifacts/eval/avg64_asi240_20261017/progress.json",
+    "source_generation_marker": "artifacts/eval/avg64_asi240_20261017/generation_cpu_finished.json",
+    "private_lease_file": "artifacts/eval/avg64_teleport7744_cpu124_127.lock",
+    "script": "scripts/run_avg64_teleport7744_grade_only_20261017.py",
+    "manifest": "configs/eval/avg64_teleport7744_grade_only_20261017.json"
+  },
+  "frozen_resource_contract": {
+    "required_source": "Original AVG ASI finished/240/worker_pool_shutdown with original source scope evidence, then actual124-127 scopes empty",
+    "lease_cpu_range": "124-127",
+    "native_cpu": 124,
+    "logical_cpu_offset": 0,
+    "native_memory_mib": 4096,
+    "verifier_seconds": 3000,
+    "original_patch_replay_agent_seconds": 1800,
+    "global_grader_92_95_lock_used": false,
+    "terminal_declared_initial_and_expansion_native_cpu_upper_bound": 123,
+    "original_answers_patch_sif_tests_and_budgets_unchanged": true
+  }
+}

@@ -716,3 +716,10 @@ API小量调用已启动，按10/20元硬上限逐支累计，最终账待汇总
 - 当前727912/727913/727856三普通acd_u/Nice1000 TP2共6H100，无新卡/emergency，旧已释放端点不重建。01:10 metadata STOP guard1508852仍唯一，core10/18 02:20及最后12h保留，不压在途原预算。
 - 10:10成本结束227.570GPUh/active6卡35.190556/总262.760556；现存API15.029134794CNY另.328327020USD，缺账本unknown。10:18 /data余2,060,775,186,432B、未耗尽。PDF按技能编辑marker一次，10:33加入SWE负面结果/CI及50native+1parsed区分，摘要181汉字/199总字符、1页A4/嵌入字形完整/底y98.09/PNG目视通过，仍非最终report.pdf。
 - 已更新current_status/统一日志/资产索引/剩余清单/README；本轮自有代码AST/JSON/diff及必要人工检查通过。原automation保持ACTIVE，收据/精确PID及剩余null交后续小时继续；Git只提交本轮owned并同步两remote，80/HPC静态同步跳过所有live/bound执行文件，claud/overnight仅追加。
+
+
+## 2026-10-17 10:45 CST：运行收据和版本收尾
+
+- T774等待器10:43:31独立审核已落analysis/avg64_teleport7744_grade_execution_20261017.md/json，43绑定及SIF stat不变、future lease未持/无native，原240生成marker仍缺；不重复等待器或接分。
+- ad8af2a已push lab和origin；56份自有静态材料已同步80/HPC，80跳过全部已核一致的16份script/config（另同步报告渲染源），不截断live fb5a/8cff及bound文件；两共享日志仅追加。提交检查中CSV默认CRLF被Git标空白，仅将本轮任务对照CSV改LF，数值未变后通过，未绕过检查。
+- 本补充只加独立执行收据及索引，不重新运行统计、模型、verifier或API。每小时automation已实际更新ACTIVE并含2223041/84416精确claim、CPU门/不可重试/自动GPU释放链；core截止与全部协议保持。

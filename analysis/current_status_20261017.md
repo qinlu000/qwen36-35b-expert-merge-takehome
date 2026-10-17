@@ -1,5 +1,7 @@
 # 当前进展与未决事项
 
+[T774等待器实际启动收据](avg64_teleport7744_grade_execution_20261017.md)已补齐：10:43:31独立metadata复核2223041/start870388084、43绑定保持、lockfalse、无guard/native/admission、原生成marker尚缺。它是等待状态，不是分数或CPU已交接。
+
 **10:42唯一等待器已启动**：root与独立审阅通过新版fb5a/8cff及真实route receipt后，10:40:56只启动一次T774 parent**2223041/start870388084**；10:41:47仍waiting_source_or_route、lock_held=false、0native。它只在原AVG ASI全240/pool shutdown/源scope空marker与124–127实际scope排空后领取独立未来租约，native仅124/1CPU4GiB3000s，不碰92–95或Terminal到123的原扩容。当前232保存、8在途，不能释放生成核。route依赖Mac专用84416/control socket，结束无消费者后只关自身route，不能因中途断路自动重跑未知原生结果。
 
 
