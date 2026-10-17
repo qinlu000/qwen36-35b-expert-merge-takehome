@@ -1,5 +1,17 @@
 # 当前进展与未决事项
 
+**08:20接续（最新）**：[08:08双视图](source_snapshots/formal_aggregation_20261017_0810.json)依指定顺序刷新三份collector后生成，Terminal专家110/445有效另2invalid、AVG103/445另3invalid；完整主分、AVG四项macro仍null，source issues空。08:09独立队列更新AVG到104有效，所有当前invalid均早于07:26、未新增。两SWE各48/51，HLE/ASI完整单项与配对区间不变。
+
+**实际推进了两项SWE补评分**：[Vuls执行记录](swe_remaining_grade_only_execution_20261017.md) root已08:18唯一提交专家1520240与AVG1520241（startticks均869530503），只重放各自原空patch/测试/SIF，1CPU/4GiB/3000s、0新模型调用；同global92–95锁串行，专家child1520253已运行、AVG尚等锁。守护scope实际92–95/32MiB、真实native只92/4GiB/swap0，原29source bindings/镜像元数据保持。结果未出/未审不能变主分；旧RemoteProtocolError/OOM归因未决，磁盘scratch+durable logs只提供可验证的环境修复候选。两父结束前冻结新script/manifest，不扩4项disabled，不重启或重复submit。08:23 workspace准备53.93秒/rc0、原cache磁盘复制rc0，测试仍在跑，未报新分。后续清理必须先等child自然结束与双native空，再清guard、双全scope空、最后解锁；不能只凭guard不见或helper reward0就接分。
+
+**Terminal尾部准入已加保护**：旧35min GPU gate未覆盖最大环境600s+Agent setup360s+solver1800s=46min。root已独立复核后08:14:45启动唯一metadata guard1508852/start869510981，当前waiting_cutoff、两STOP均不存在。它在10/18 **01:10 CST**只创建两队列既有STOP_ADMISSION门；不改live父、每题预算或在途，不kill/release GPU/写CPU完成marker。已知完整链3660s在02:11后仍留9min cleanup，未知其他阶段不作保证；若两队列提前445/activepending空则自行退出。详见[运行审计](execution_status_20261017_0810.md)及[启动收据](source_snapshots/terminal_core_admission_guard_launch_20261017.json)。
+
+[Direct08:10核查](direct_status_20261017_0810.md)：AVG ASI81/240保存、8在途、151未准入，科学评分尚0，latest08:10:11在推进；79failed/2completed是生成状态，不能当科学分。仍复用727856/28095，实际8running/0waiting。当前727912/727913/727856三普通acd_u/Nice1000 TP2共6H100，无新GPU申请/重建。真实Terminal23个4核scope并集0–91；AVG allCPU/生成完成marker均缺，stage2仍合法等后续32CPU交接。新SWE临时租约只占共享92–95，不碰96–127；未来AVG科学评分仍workers1、同global锁。固定ASI audited已只读复核28输入/239其他行与总分，不重复一次性collector。
+
+08:12账本结束227.570GPUh、6卡active暂计23.388889GPUh，总250.958889；API预算仍15.029134794CNY另.328327020USD，无新paid。08:14 metadata确认80/data可用2,176,642,637,824B、/tmp33,756,135,424B，未耗尽；new scratch在/data。阶段PDF完整单项未变化，无需重复重画，仍保留07:28验收稿。
+
+以下07:28及更早保留历史过程，最新运行阶段以上述08:20为准。
+
 **07:28收尾更新（最新）**：完整HLE为Base **99/2500=3.96%**、专家 **173/2500=6.92%**、Mixed **146/2500=5.84%**、AVG64 **117/2500=4.68%**、AVG16 **101/2500=4.04%**。AVG64较Base +0.72pp，配对95%CI[-0.20,1.64]；较Mixed -1.16pp[-2.24,-0.12]；较AVG16 +0.64pp[-0.24,1.481]。历史native-no-answer为Base1445/专家30/Mixed41/AVG1196/AVG161302，服务和排队混杂仍在，不能把差异全部归因权重。来源[07:26:42完整双视图](source_snapshots/formal_aggregation_20261017_0727.json)。
 
 **ASI专家已全240有效**：唯一CMOS b1导入故障经冻结原候选一次native补评分，复用9条原Judge cache、0新增付费调用，原239行不变；新[只读汇总](../configs/eval/asi128_audited_recovery_20261017.json)累计90.9579316594/24000，即 **0.378991%**，低于Base1.570988%，差 **-1.191997pp，60任务簇配对95%CI[-2.278710,-0.303023]**。已核原native公式/score_divisor，无汇总缩放错误；只代表公开local/替代Judge实验。保留原报告的invalid与历史ASI128选择，不据此更换权重。[执行证据](asi_cmos_import_recovery_execution_20261017.md)。未来AVG评分runtime提前追加冻结ASI源码根，完整原代码和symlink保留、import验收通过，workers仍1。[60任务逐项对照](asi_base_expert_task_comparison_20261017.md)为3任务上升/11下降/46持平，前5下降贡献净降幅82.04%；多数对应专家未形成所需科学产物或未过hard gate，原因尚不能归为训练或环境。

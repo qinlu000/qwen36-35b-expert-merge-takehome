@@ -1,0 +1,40 @@
+{
+  "state": "launched_pending_claim_observation",
+  "at_utc": "2026-10-17T00:14:45.787106+00:00",
+  "pid": 1508852,
+  "startticks": "869510981",
+  "command": [
+    "taskset",
+    "-c",
+    "10",
+    "/usr/bin/python3",
+    "/data/caoqinlu/projects/apex-takehome/scripts/terminal_core_admission_guard_20261017.py",
+    "--project",
+    "/data/caoqinlu/projects/apex-takehome",
+    "--execute"
+  ],
+  "script_sha256": "91b262ff2798739ca5c0dabd30050815cfdac7e30f4cef4cc2e8df1f8227eaac",
+  "cutoff": "2026-10-18T01:10:00+08:00",
+  "root_reviewed": true,
+  "native_or_model_calls": 0,
+  "scope": "Only existing STOP_ADMISSION gates; in-flight native budgets unchanged",
+  "root_later_observation": {
+    "at_cst": "2026-10-17 08:14:46",
+    "same_claim_pid_and_startticks": true,
+    "state": "waiting_cutoff",
+    "stop_gates_absent": true,
+    "queue_counts_at_claim": {
+      "terminal250": {
+        "terminal": 116,
+        "active": 12,
+        "pending": 317
+      },
+      "avg64": {
+        "terminal": 112,
+        "active": 11,
+        "pending": 322
+      }
+    },
+    "new_native_or_model_calls": 0
+  }
+}

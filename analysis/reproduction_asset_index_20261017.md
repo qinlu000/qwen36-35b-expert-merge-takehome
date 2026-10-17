@@ -1,5 +1,9 @@
 # 复现资产索引（2026-10-17）
 
+**08:20新增运行资产**：[SWE六项manifest](../configs/eval/swe_remaining_grade_only_20261017.json)仅开启两Vuls，原代码/patch/tests/SIF身份及各自attempt1独立保存于80 `artifacts/recovery/swe-remaining-grade-only-20261017/{swe249,avg64}/<VulsID>/attempt1/`，shared root-launch-20261017.json记录两唯一parent。新[grade-only脚本](../scripts/run_swe_remaining_grade_only_20261017.py)在已运行两父结束前冻结，原始invalid/summary不覆盖；磁盘scratch及cache复制、live日志/资源收据均随原件移交。未完成判分不能把目录存在当有效成绩。
+
+新[Terminal核心准入guard](../scripts/terminal_core_admission_guard_20261017.py)只在01:10向既有两正式队列写STOP_ADMISSION，不更改native协议；80 `artifacts/eval/terminal-core-admission-guard-20261017/{claim,state,log.jsonl}`为当前唯一进程1508852的审计原件，另launch receipt在同eval根。它不是新的模型/评测运行，不写完成marker，也不能代替shared92–95资源guard。
+
 本索引只读核查仓库文件、80/HPC目录存在性、少量stat和既有manifest/revision；未执行模型、容器、评测、API调用、发布或大权重哈希扫描。公开可取性依据既有来源/发布验收，不是本轮重新联网承诺。这里只指出取用位置，不打包数据、密钥、参考答案或隐藏测试。
 
 位置约定：**R80**=`/data/caoqinlu/projects/apex-takehome`（10.123.4.80）；**RHPC**=`/data/user/qinlucao/projects/apex-takehome`（hpc3）；下文`artifacts/...`按所在主机根展开。工作站checkout只包含Git跟踪的代码/配置/分析材料，不能据此推定ignored artifacts随clone存在。训练/服务的绝对路径、Slurm账户和模块路径需在新站点显式适配。

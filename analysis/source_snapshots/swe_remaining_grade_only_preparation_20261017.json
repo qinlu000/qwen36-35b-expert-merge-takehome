@@ -1,0 +1,201 @@
+{
+  "captured_at_utc": "2026-10-17T00:15:49.415875+00:00",
+  "status": "prepared_not_executed",
+  "script": "scripts/run_swe_remaining_grade_only_20261017.py",
+  "script_sha256": "a0eb0e252e27b56d3c615324c83a3fe0831ba1c85565ce9413c4782c27edfd10",
+  "manifest": "configs/eval/swe_remaining_grade_only_20261017.json",
+  "manifest_sha256": "19f6c69a335d68fcc75369f962daaf8c0fabe49f265db8939aab324287311717",
+  "enabled_items": [
+    {
+      "item": "swe249/vuls",
+      "input_bindings_verified": 29,
+      "native_directory_exists": false,
+      "model_calls": 0,
+      "cpus": 1,
+      "memory_mib": 4096,
+      "verifier_seconds": 3000,
+      "physical_cpu_ids": [
+        92
+      ],
+      "logical_cpu_offset": 0
+    },
+    {
+      "item": "avg64/vuls",
+      "input_bindings_verified": 29,
+      "native_directory_exists": false,
+      "model_calls": 0,
+      "cpus": 1,
+      "memory_mib": 4096,
+      "verifier_seconds": 3000,
+      "physical_cpu_ids": [
+        92
+      ],
+      "logical_cpu_offset": 0
+    }
+  ],
+  "disabled_items": [
+    "swe249/nodebb",
+    "swe249/teleport2b",
+    "avg64/teleport2b",
+    "avg64/teleport7744"
+  ],
+  "actual_checks": [
+    {
+      "name": "resolved_python_help_red",
+      "command": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/bin/python3.12",
+        "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_remaining_grade_only_20261017.py",
+        "--help"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "passed": true,
+      "safe_error_tail": "  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/importlib/metadata/__init__.py\", line 399, in from_name\n    raise PackageNotFoundError(name)\nimportlib.metadata.PackageNotFoundError: No package metadata was found for harbor"
+    },
+    {
+      "name": "venv_help_green",
+      "command": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_remaining_grade_only_20261017.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "passed": true,
+      "safe_error_tail": ""
+    },
+    {
+      "name": "disabled_nodebb_red",
+      "command": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_remaining_grade_only_20261017.py",
+        "--item",
+        "swe249/nodebb"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "passed": true,
+      "safe_error_tail": "    assert set(row['key'] for row in selected) <= ALLOWED\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError"
+    },
+    {
+      "name": "wrong_source_binding_red",
+      "command": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_remaining_grade_only_20261017.py",
+        "--manifest",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-remaining-grade-only-20261017/preflight-probes/wrong-binding-manifest.json",
+        "--item",
+        "swe249/vuls"
+      ],
+      "returncode": 1,
+      "expected_success": false,
+      "passed": true,
+      "safe_error_tail": "    assert all(sha(ROOT / path) == expected for path, expected in bindings.items()), 'Frozen input changed'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Frozen input changed"
+    },
+    {
+      "name": "default_prepare_green",
+      "command": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_remaining_grade_only_20261017.py"
+      ],
+      "returncode": 0,
+      "expected_success": true,
+      "passed": true,
+      "safe_error_tail": ""
+    }
+  ],
+  "kernel_metadata_affinity_probe": [
+    {
+      "offset": 92,
+      "available": [
+        10
+      ],
+      "errno": 22
+    },
+    {
+      "offset": 0,
+      "available": [
+        10
+      ],
+      "after": [
+        10
+      ],
+      "errno": null
+    }
+  ],
+  "kernel_probe_cpu": 10,
+  "native_cpu92_not_probed": true,
+  "main_named_module_binding": {
+    "checked": true,
+    "origin": "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_remaining_grade_only_20261017.py",
+    "scratch_binding_checked": true
+  },
+  "source_stat_precision_red_then_green": [
+    {
+      "key": "swe249/nodebb",
+      "actual_mtime_ns": "1792084933856016545",
+      "manifest_mtime": "1792084933856016600",
+      "difference_ns": -55
+    },
+    {
+      "key": "swe249/vuls",
+      "actual_mtime_ns": "1792092180910585109",
+      "manifest_mtime": "1792092180910585000",
+      "difference_ns": 109
+    },
+    {
+      "key": "swe249/teleport2b",
+      "actual_mtime_ns": "1792094053180944806",
+      "manifest_mtime": "1792094053180945000",
+      "difference_ns": -194
+    },
+    {
+      "key": "avg64/vuls",
+      "actual_mtime_ns": "1792092180910585109",
+      "manifest_mtime": "1792092180910585000",
+      "difference_ns": 109
+    },
+    {
+      "key": "avg64/teleport2b",
+      "actual_mtime_ns": "1792094053180944806",
+      "manifest_mtime": "1792094053180945000",
+      "difference_ns": -194
+    },
+    {
+      "key": "avg64/teleport7744",
+      "actual_mtime_ns": "1792093481285011650",
+      "manifest_mtime": "1792093481285011700",
+      "difference_ns": -50
+    }
+  ],
+  "production_environment": {
+    "PATH": "/data/caoqinlu/projects/apex-takehome/artifacts/tools/apptainer-1.4.5/rootfs/usr/bin:/data/caoqinlu/projects/apex-takehome/artifacts/tools/fakeroot-1.25.3/rootfs/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "PYTHONPATH": "/data/caoqinlu/projects/apex-takehome/scripts:/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/swe-bench-pro/v2/tooling:/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/harbor/src",
+    "TMPDIR": "/data/caoqinlu/apex-swe-grade-only-20261017-tmp",
+    "XDG_RUNTIME_DIR": "/run/user/1012",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1012/bus",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "python_lexical": "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+  "parent_effective_cgroup_cpus": "0-127",
+  "terminal_has_92_95_lease": false,
+  "actual_scopes92_95_at_prepare": [],
+  "execution_claims_created": 0,
+  "shared_lock_acquired": false,
+  "visible_guards_created": 0,
+  "native_environments_started": 0,
+  "model_calls": 0,
+  "all_attempt_dirs_absent": true,
+  "oom_or_transport_repair_proven": false,
+  "formal_results_modified": false,
+  "root_execution_review_required": true,
+  "raw_probe_receipt_80": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/swe-remaining-grade-only-20261017/preflight-probes.json",
+  "captured_original_red_trace_sources": [
+    "analysis/source_snapshots/swe_remaining_scoring_audit_20261017.json",
+    "artifacts/eval/swe249_hard51_20261016/replay/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/result.json",
+    "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/result.json"
+  ],
+  "interpretation": "The real CLI, imports, immutable metadata and relative-affinity seam passed. No native sandbox was started; 1CPU/4GiB native enforcement and the OOM/transport repair are not yet empirically demonstrated."
+}

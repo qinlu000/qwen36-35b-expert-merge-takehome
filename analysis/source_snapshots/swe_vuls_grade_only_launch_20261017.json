@@ -1,0 +1,63 @@
+{
+  "root_reviewed": true,
+  "created_at_utc": "2026-10-17T00:18:01.012820+00:00",
+  "state": "parents_submitted_pending_claim_observation",
+  "script_sha256": "a0eb0e252e27b56d3c615324c83a3fe0831ba1c85565ce9413c4782c27edfd10",
+  "manifest_sha256": "19f6c69a335d68fcc75369f962daaf8c0fabe49f265db8939aab324287311717",
+  "scope": "Only exact two Vuls saved patches, one native attempt each; serial shared92-95 lease, native1CPU4GiB3000s; no model calls or automatic acceptance",
+  "parents": [
+    {
+      "item": "swe249/vuls",
+      "pid": 1520240,
+      "startticks": "869530503",
+      "command": [
+        "taskset",
+        "-c",
+        "10",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_remaining_grade_only_20261017.py",
+        "--manifest",
+        "/data/caoqinlu/projects/apex-takehome/configs/eval/swe_remaining_grade_only_20261017.json",
+        "--item",
+        "swe249/vuls",
+        "--execute"
+      ],
+      "output": "artifacts/recovery/swe-remaining-grade-only-20261017/swe249/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1"
+    },
+    {
+      "item": "avg64/vuls",
+      "pid": 1520241,
+      "startticks": "869530503",
+      "command": [
+        "taskset",
+        "-c",
+        "10",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/scripts/run_swe_remaining_grade_only_20261017.py",
+        "--manifest",
+        "/data/caoqinlu/projects/apex-takehome/configs/eval/swe_remaining_grade_only_20261017.json",
+        "--item",
+        "avg64/vuls",
+        "--execute"
+      ],
+      "output": "artifacts/recovery/swe-remaining-grade-only-20261017/avg64/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1"
+    }
+  ],
+  "root_later_observation": {
+    "at_utc": "2026-10-17T00:23:29.174923+00:00",
+    "swe249": {
+      "state": "native_running",
+      "lock_held": true,
+      "child_pid": 1520253,
+      "workspace_preparation_returncode": 0,
+      "workspace_preparation_elapsed_seconds": 53.93304022960365,
+      "original_go_cache_disk_copy_returncode": 0,
+      "score_not_yet_accepted": true
+    },
+    "avg64": {
+      "state": "waiting_shared_lease",
+      "native_started": false
+    },
+    "model_calls": 0
+  }
+}

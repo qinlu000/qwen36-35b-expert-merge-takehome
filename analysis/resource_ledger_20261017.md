@@ -1,5 +1,9 @@
 # 资源与 API 账本：2026-10-17 快照
 
+## 08:12 CST快照（0815目录标签）
+
+[固定账本](source_snapshots/resource_ledger_20261017_0815/snapshot.json)实际采集于08:12:25 CST：仍为3个普通acd_u/Nice1000 TP2共6H100，没有新GPU申请/释放；已结束227.570000GPUh、active暂计23.388889GPUh，合计250.958889GPUh。CNY现存11307calls、预算核算15.029134794，USD另0.328327020，与07:26一致；本轮未发新模型/Judge请求。ASI专家9次cache仍不重复计费，Base/未来AVG ASI缺失账本保留unknown，不回写历史。这里是allocation和记录预算，非发票/最终成本。
+
 ## 07:26 CST 新快照（0730目录标签）
 
 [新固定账本](source_snapshots/resource_ledger_20261017_0730/snapshot.json)的Slurm实际采集于07:26:43 CST，API元数据07:26:44，目录0730是标签。70个本项目顶层作业，排除9个其他WorkDir；已结束 **227.570000 GPUh**，在跑暂计 **18.822778 GPUh**，截至本时点合计 **246.392778 GPUh**。当前仅727856/727912/727913三个普通`acd_u` TP2服务，共**6 H100、emergency 0**；727857/728016/727879均已释放，没有重建。五trainer46.541425 GPUh是总数内子集，不能再累加。等待、加载、失败和空闲均占allocation，计入GPUh；在跑部分不是最终值。

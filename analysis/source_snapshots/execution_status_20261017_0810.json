@@ -1,0 +1,662 @@
+{
+  "collected_at_utc": "2026-10-17T00:09:14.099568+00:00",
+  "queues": {
+    "terminal250_full445_20261017": {
+      "updated_at_utc": "2026-10-17T00:09:14.028012+00:00",
+      "pid": 489933,
+      "parent_state": "S",
+      "parent_starttime_ticks": 868194930,
+      "state": "running",
+      "expected": 445,
+      "raw_valid": 109,
+      "raw_invalid": 3,
+      "terminal": 112,
+      "active": 12,
+      "pending": 321,
+      "resolved_so_far": 15.0,
+      "leased_cpu_offsets": [
+        0,
+        4,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48
+      ],
+      "max_parallel_tasks": 12,
+      "active_offsets": [
+        0,
+        4,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48
+      ],
+      "invalid": {
+        "nginx-request-logging/seed0": {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/nginx-request-logging__seed0/result.json",
+          "valid": false,
+          "reward": null,
+          "exception": "RuntimeError",
+          "verifier_issue": null,
+          "finished_at": "2026-10-16T20:13:16.670484+00:00"
+        },
+        "torch-tensor-parallelism/seed0": {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/torch-tensor-parallelism__seed0/result.json",
+          "valid": false,
+          "reward": null,
+          "exception": "AgentTimeoutError",
+          "verifier_issue": null,
+          "finished_at": "2026-10-16T23:05:48.715265+00:00"
+        },
+        "train-fasttext/seed0": {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/trials/train-fasttext__seed0/result.json",
+          "valid": false,
+          "reward": null,
+          "exception": "AgentTimeoutError",
+          "verifier_issue": "pytest wrapper returned zero reward without evidence that tests executed",
+          "finished_at": "2026-10-16T23:08:41.260766+00:00"
+        }
+      },
+      "service": {
+        "service_job": "727912",
+        "service_node": "ACD1-22",
+        "service_ends": "2026-10-18T02:01:28+08:00",
+        "service_partition": "acd_u",
+        "service_nice": 1000,
+        "endpoint": "http://127.0.0.1:28091"
+      },
+      "fixed_budget": {
+        "cpus_per_task": 4,
+        "memory_mib": 8192,
+        "solver_seconds": 1800,
+        "verifier_seconds": 900,
+        "context_tokens": 65536,
+        "max_output_tokens_per_request": 8192
+      },
+      "cpu-expansion-swe_finished.json": {
+        "at": "2026-10-16T22:47:29.633333+00:00",
+        "stage": "swe_finished",
+        "additional_cpu_offsets": [
+          0,
+          4
+        ],
+        "checked_new_cpu_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "remaining_new_cpu_scopes": [],
+        "release_markers": [
+          "artifacts/eval/avg64_swe_hard51_20261017/all_cpu_consumers_finished.json"
+        ],
+        "leased_cpu_offsets": [
+          0,
+          4,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48
+        ],
+        "max_parallel_tasks": 12,
+        "other_stage_required": false
+      },
+      "cpu-expansion-asi_finished.json": null,
+      "existing_audited_view": {
+        "source_updated_at_utc": "2026-10-17T00:08:04.420085+00:00",
+        "valid_scored": 110,
+        "infrastructure_unscored_finished": 2,
+        "audited_native_zero_count": 1
+      },
+      "health_status": 200,
+      "native_metrics": [
+        "vllm:num_requests_running{engine=\"0\",model_name=\"apex-terminal-base\"} 12.0",
+        "vllm:num_requests_waiting{engine=\"0\",model_name=\"apex-terminal-base\"} 0.0",
+        "vllm:kv_cache_usage_perc{engine=\"0\",model_name=\"apex-terminal-base\"} 0.08631972577126834",
+        "vllm:prompt_tokens_total{engine=\"0\",model_name=\"apex-terminal-base\"} 3.6165873e+07",
+        "vllm:generation_tokens_total{engine=\"0\",model_name=\"apex-terminal-base\"} 848923.0"
+      ],
+      "invalid_all_finished_before_previous_snapshot": true,
+      "throughput": {
+        "reference_snapshot": "analysis/source_snapshots/formal_aggregation_20261017_0727.json",
+        "reference_as_of_utc": "2026-10-16T23:26:42.402305+00:00",
+        "reference_valid": 92,
+        "reference_invalid": 2,
+        "reference_terminal": 94,
+        "window_hours": 0.7088047952777777,
+        "new_terminal": 18,
+        "completed_trials_per_hour": 25.394862054997628,
+        "remaining_trials": 333,
+        "hours_until_gpu_end": 17.870527897777777,
+        "required_terminal_rate_to_gpu_end_per_hour": 18.634032632097508,
+        "constant_rate_completion_utc": "2026-10-17T13:16:00.498933+00:00",
+        "not_a_completion_guarantee": true
+      },
+      "deadline_boundary": {
+        "deployed_runtime": {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py",
+          "sha256": "20fbbfd02e77c24d4bbffcb6e8f74e85757bdd715f6cae2b6c1296f68b267b5c",
+          "deadline_lines": [
+            {
+              "line": 142,
+              "text": "    def service_safe():"
+            },
+            {
+              "line": 143,
+              "text": "        return (datetime.fromisoformat(config['service_ends']) - datetime.now(timezone.utc)).total_seconds() >= 2100"
+            },
+            {
+              "line": 147,
+              "text": "        if not service_safe() or (output / 'STOP_ADMISSION').exists():"
+            },
+            {
+              "line": 148,
+              "text": "            checkpoint('service_expiring' if not service_safe() else 'stopped_admission')"
+            },
+            {
+              "line": 172,
+              "text": "                if not service_safe() or (output / 'STOP_ADMISSION').exists():"
+            },
+            {
+              "line": 238,
+              "text": "    checkpoint('service_expiring' if pending and not service_safe() else"
+            }
+          ],
+          "stop_file_exists": false,
+          "native_budget_fields": {
+            "agent": {
+              "override_timeout_sec": 1800.0,
+              "override_setup_timeout_sec": null,
+              "max_timeout_sec": null
+            },
+            "verifier": {
+              "override_timeout_sec": 900.0,
+              "max_timeout_sec": null
+            },
+            "environment": {
+              "kwargs": {
+                "singularity_image_cache_dir": "artifacts/benchmarks/sif",
+                "baseline_cpu_offset": 0,
+                "baseline_cpu_slots": 1
+              }
+            }
+          }
+        },
+        "latest_admission_by_gpu_gate": "2026-10-18T01:26:28+08:00",
+        "gpu_gate_seconds": 2100,
+        "solver_seconds": 1800,
+        "verifier_seconds": 900,
+        "environment_start_build_budget_seconds": 600,
+        "agent_setup_seconds": 360,
+        "single_start_setup_solver_seconds": 2760,
+        "single_start_setup_solver_verifier_seconds": 3660,
+        "hypothetical_last_trial_single_chain_end_without_cleanup": "2026-10-18T02:27:28+08:00",
+        "core_total_deadline_policy": "At core expiry stop scheduled advancement; admitted attempts keep original budgets. Post-core draining is possible and is not a reason to shorten solver.",
+        "core_specific_admission_gate_found": false,
+        "cleanup_total_bound": "not proven",
+        "gpu_stage_note": "Verifier runs onhost80 and does not require model GPU.2100 covers1800 solver plus300 overhead, but does not cover all600+360 setup maxima; long setup is conditional risk."
+      },
+      "new_invalid_vs_previous_snapshot": 0
+    },
+    "avg64_terminal_full445_20261017": {
+      "updated_at_utc": "2026-10-17T00:09:12.184979+00:00",
+      "pid": 489934,
+      "parent_state": "S",
+      "parent_starttime_ticks": 868194945,
+      "state": "running",
+      "expected": 445,
+      "raw_valid": 104,
+      "raw_invalid": 3,
+      "terminal": 107,
+      "active": 11,
+      "pending": 327,
+      "resolved_so_far": 14.0,
+      "leased_cpu_offsets": [
+        8,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88
+      ],
+      "max_parallel_tasks": 11,
+      "active_offsets": [
+        8,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88
+      ],
+      "invalid": {
+        "torch-pipeline-parallelism/seed0": {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/torch-pipeline-parallelism__seed0/result.json",
+          "valid": false,
+          "reward": null,
+          "exception": "AgentTimeoutError",
+          "verifier_issue": null,
+          "finished_at": "2026-10-16T23:06:40.377696+00:00"
+        },
+        "torch-tensor-parallelism/seed0": {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/torch-tensor-parallelism__seed0/result.json",
+          "valid": false,
+          "reward": null,
+          "exception": "RemoteProtocolError",
+          "verifier_issue": null,
+          "finished_at": "2026-10-16T23:06:25.487352+00:00"
+        },
+        "train-fasttext/seed0": {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/train-fasttext__seed0/result.json",
+          "valid": false,
+          "reward": null,
+          "exception": "AgentTimeoutError",
+          "verifier_issue": "pytest wrapper returned zero reward without evidence that tests executed",
+          "finished_at": "2026-10-16T23:09:30.892921+00:00"
+        }
+      },
+      "service": {
+        "service_job": "727913",
+        "service_node": "ACD1-22",
+        "service_ends": "2026-10-18T02:09:28+08:00",
+        "service_partition": "acd_u",
+        "service_nice": 1000,
+        "endpoint": "http://127.0.0.1:28092"
+      },
+      "fixed_budget": {
+        "cpus_per_task": 4,
+        "memory_mib": 8192,
+        "solver_seconds": 1800,
+        "verifier_seconds": 900,
+        "context_tokens": 65536,
+        "max_output_tokens_per_request": 8192
+      },
+      "cpu-expansion-swe_finished.json": {
+        "at": "2026-10-16T22:47:29.833953+00:00",
+        "stage": "swe_finished",
+        "additional_cpu_offsets": [
+          8
+        ],
+        "checked_new_cpu_ids": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "remaining_new_cpu_scopes": [],
+        "release_markers": [
+          "artifacts/eval/avg64_swe_hard51_20261017/all_cpu_consumers_finished.json"
+        ],
+        "leased_cpu_offsets": [
+          8,
+          52,
+          56,
+          60,
+          64,
+          68,
+          72,
+          76,
+          80,
+          84,
+          88
+        ],
+        "max_parallel_tasks": 11,
+        "other_stage_required": false
+      },
+      "cpu-expansion-asi_finished.json": null,
+      "health_status": 200,
+      "native_metrics": [
+        "vllm:num_requests_running{engine=\"0\",model_name=\"apex-avg64-base\"} 10.0",
+        "vllm:num_requests_waiting{engine=\"0\",model_name=\"apex-avg64-base\"} 0.0",
+        "vllm:kv_cache_usage_perc{engine=\"0\",model_name=\"apex-avg64-base\"} 0.05908096280087527",
+        "vllm:prompt_tokens_total{engine=\"0\",model_name=\"apex-avg64-base\"} 1.75635963e+08",
+        "vllm:generation_tokens_total{engine=\"0\",model_name=\"apex-avg64-base\"} 1.094178e+06"
+      ],
+      "invalid_all_finished_before_previous_snapshot": true,
+      "throughput": {
+        "reference_snapshot": "analysis/source_snapshots/formal_aggregation_20261017_0727.json",
+        "reference_as_of_utc": "2026-10-16T23:26:42.402305+00:00",
+        "reference_valid": 90,
+        "reference_invalid": 3,
+        "reference_terminal": 93,
+        "window_hours": 0.7088047952777777,
+        "new_terminal": 14,
+        "completed_trials_per_hour": 19.751559376109267,
+        "remaining_trials": 338,
+        "hours_until_gpu_end": 18.003861231111113,
+        "required_terminal_rate_to_gpu_end_per_hour": 18.773750567235417,
+        "constant_rate_completion_utc": "2026-10-17T17:15:59.362060+00:00",
+        "not_a_completion_guarantee": true
+      },
+      "deadline_boundary": {
+        "deployed_runtime": {
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py",
+          "sha256": "20fbbfd02e77c24d4bbffcb6e8f74e85757bdd715f6cae2b6c1296f68b267b5c",
+          "deadline_lines": [
+            {
+              "line": 142,
+              "text": "    def service_safe():"
+            },
+            {
+              "line": 143,
+              "text": "        return (datetime.fromisoformat(config['service_ends']) - datetime.now(timezone.utc)).total_seconds() >= 2100"
+            },
+            {
+              "line": 147,
+              "text": "        if not service_safe() or (output / 'STOP_ADMISSION').exists():"
+            },
+            {
+              "line": 148,
+              "text": "            checkpoint('service_expiring' if not service_safe() else 'stopped_admission')"
+            },
+            {
+              "line": 172,
+              "text": "                if not service_safe() or (output / 'STOP_ADMISSION').exists():"
+            },
+            {
+              "line": 238,
+              "text": "    checkpoint('service_expiring' if pending and not service_safe() else"
+            }
+          ],
+          "stop_file_exists": false,
+          "native_budget_fields": {
+            "agent": {
+              "override_timeout_sec": 1800.0,
+              "override_setup_timeout_sec": null,
+              "max_timeout_sec": null
+            },
+            "verifier": {
+              "override_timeout_sec": 900.0,
+              "max_timeout_sec": null
+            },
+            "environment": {
+              "kwargs": {
+                "singularity_image_cache_dir": "artifacts/benchmarks/sif",
+                "baseline_cpu_offset": 0,
+                "baseline_cpu_slots": 1
+              }
+            }
+          }
+        },
+        "latest_admission_by_gpu_gate": "2026-10-18T01:34:28+08:00",
+        "gpu_gate_seconds": 2100,
+        "solver_seconds": 1800,
+        "verifier_seconds": 900,
+        "environment_start_build_budget_seconds": 600,
+        "agent_setup_seconds": 360,
+        "single_start_setup_solver_seconds": 2760,
+        "single_start_setup_solver_verifier_seconds": 3660,
+        "hypothetical_last_trial_single_chain_end_without_cleanup": "2026-10-18T02:35:28+08:00",
+        "core_total_deadline_policy": "At core expiry stop scheduled advancement; admitted attempts keep original budgets. Post-core draining is possible and is not a reason to shorten solver.",
+        "core_specific_admission_gate_found": false,
+        "cleanup_total_bound": "not proven",
+        "gpu_stage_note": "Verifier runs onhost80 and does not require model GPU.2100 covers1800 solver plus300 overhead, but does not cover all600+360 setup maxima; long setup is conditional risk."
+      },
+      "new_invalid_vs_previous_snapshot": 0
+    }
+  },
+  "markers": {
+    "artifacts/eval/avg64_swe_hard51_20261017/all_cpu_consumers_finished.json": {
+      "state": "finished",
+      "at": "2026-10-16T22:47:28.256252+00:00",
+      "all_cpu_consumers_finished": true,
+      "model_consumer_finished": true,
+      "attempted": 51,
+      "expected": 51,
+      "active": {},
+      "pending": [],
+      "remaining_cpu_scopes": []
+    },
+    "artifacts/eval/asi128_asi240_20261017/all_cpu_consumers_finished.json": {
+      "state": "finished",
+      "at_utc": "2026-10-16T22:21:42.083374+00:00",
+      "all_cpu_consumers_finished": true,
+      "generation_conditions": 240,
+      "generation_worker_pool_shutdown": true,
+      "grader_process_finished": true,
+      "active_program_scopes": []
+    },
+    "artifacts/eval/avg64_asi240_20261017/all_cpu_consumers_finished.json": null,
+    "artifacts/eval/avg64_asi240_20261017/generation_cpu_finished.json": null
+  },
+  "scopes": [
+    {
+      "scope": "apex-baseline-4c8962c5536e.scope",
+      "process_count": 16,
+      "actual_cpu_union": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "pid_examples": [
+        1360202,
+        1360239
+      ]
+    },
+    {
+      "scope": "apex-baseline-c5eda0f7619f.scope",
+      "process_count": 146,
+      "actual_cpu_union": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "pid_examples": [
+        1465767,
+        1465828
+      ]
+    },
+    {
+      "scope": "apex-baseline-d13e2758251e.scope",
+      "process_count": 16,
+      "actual_cpu_union": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "pid_examples": [
+        1358314,
+        1358353
+      ]
+    }
+  ],
+  "avg_asi_progress": {
+    "expected_conditions": 240,
+    "updated_at": "2026-10-17T00:08:58.201339+00:00",
+    "state": "running",
+    "active": 8
+  },
+  "avg_asi_pipeline_state": {
+    "state": "asi_generation",
+    "pid": 1126055,
+    "at_utc": "2026-10-16T22:38:25.985909+00:00"
+  },
+  "deadline_review_at_utc": "2026-10-17T00:10:14.058504+00:00",
+  "agent_timeout_inheritance": [
+    {
+      "class": "TerminalRepairAgent",
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_repair_agent_v2.py",
+      "line": 8,
+      "bases": [
+        "RecoveryTerminalBaselineV2"
+      ],
+      "default_definitions": []
+    },
+    {
+      "class": "RecoveryTerminalBaselineV2",
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_recovery_v2.py",
+      "line": 43,
+      "bases": [
+        "TerminalBaselineV2"
+      ],
+      "default_definitions": []
+    },
+    {
+      "class": "TerminalBaselineV2",
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/terminal_baseline_v2.py",
+      "line": 160,
+      "bases": [
+        "Terminus2"
+      ],
+      "default_definitions": []
+    },
+    {
+      "class": "Terminus2",
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/harbor/agents/terminus_2/terminus_2.py",
+      "line": 182,
+      "bases": [
+        "BaseAgent"
+      ],
+      "default_definitions": []
+    },
+    {
+      "class": "BaseAgent",
+      "path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/harbor/agents/base.py",
+      "line": 29,
+      "bases": [
+        "ABC"
+      ],
+      "default_definitions": [
+        "DEFAULT_SETUP_TIMEOUT_SEC: ClassVar[float] = 360.0"
+      ]
+    }
+  ],
+  "manifest_timeout_checks": {
+    "terminal250_full445_20261017": {
+      "agent_classes": {
+        "('terminal_repair_agent_v2:TerminalRepairAgent', None)": 445
+      },
+      "timeout_multiplier_configs": {
+        "{'timeout_multiplier': 1.0, 'agent_timeout_multiplier': None, 'verifier_timeout_multiplier': None, 'agent_setup_timeout_multiplier': None, 'environment_build_timeout_multiplier': None}": 445
+      },
+      "unique_task_configs": 89,
+      "environment_build_timeout_sec_counts": {
+        "600.0": 89
+      }
+    },
+    "avg64_terminal_full445_20261017": {
+      "agent_classes": {
+        "('terminal_repair_agent_v2:TerminalRepairAgent', None)": 445
+      },
+      "timeout_multiplier_configs": {
+        "{'timeout_multiplier': 1.0, 'agent_timeout_multiplier': None, 'verifier_timeout_multiplier': None, 'agent_setup_timeout_multiplier': None, 'environment_build_timeout_multiplier': None}": 445
+      },
+      "unique_task_configs": 89,
+      "environment_build_timeout_sec_counts": {
+        "600.0": 89
+      }
+    }
+  },
+  "new_model_or_judge_calls": 0,
+  "new_native_runs": 0,
+  "source_summary_refresh_performed": false,
+  "root_aggregation_not_refreshed_by_this_audit": true,
+  "snapshot_note": "0810 is filename label; queue/metrics actual08:09CST and deadline source review08:10CST. Partial coverage is not a full score.",
+  "later_root_authorized_admission_guard_preparation": {
+    "mode": "prepare_only",
+    "cutoff": "2026-10-18T01:10:00+08:00",
+    "selection": [
+      {
+        "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017",
+        "model": "apex-terminal250",
+        "checkpoint": "artifacts/runs/terminal-retry-sft-r16-726665/training/checkpoint-250",
+        "service_job": "727912",
+        "service_ends": "2026-10-18T02:01:28+08:00",
+        "config_sha256": "24fb4d5200001279ddde81898690f8c1b5b4add99f75b8e6db7da3a140dc22a1",
+        "manifest_sha256": "78dd5cda85a782f72f3b995b463bd65eb49b3c0653c98cd81a73250d68176fd3",
+        "existing_stop_gate": false
+      },
+      {
+        "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017",
+        "model": "apex-avg64",
+        "checkpoint": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+        "service_job": "727913",
+        "service_ends": "2026-10-18T02:09:28+08:00",
+        "config_sha256": "9642b90d128f3c9febae58115b4c20d967618f0785d8c859993a59653dd915cb",
+        "manifest_sha256": "bb214b58f8aac849d129c04f6233610b2165aa978181f056c7966676db1acb49",
+        "existing_stop_gate": false
+      }
+    ],
+    "gates_written": 0,
+    "new_native_runs": 0,
+    "checked_at_utc": "2026-10-17T00:13:56.426829+00:00",
+    "ast_passed": true,
+    "claim_created": false,
+    "owned_directory_exists": false,
+    "script_sha256": "91b262ff2798739ca5c0dabd30050815cfdac7e30f4cef4cc2e8df1f8227eaac",
+    "bytes": 5041,
+    "offline_deadline_fixtures": {
+      "passed": true,
+      "cases": [
+        "before_cutoff_wait",
+        "at_cutoff_stop",
+        "after_cutoff_one_complete_stop_other",
+        "both445_no_active_pending_early_no_consumers"
+      ],
+      "native_runs": 0,
+      "gates_written": 0
+    },
+    "execute_performed_by_this_agent": false,
+    "root_review_pending": true,
+    "owned_claim_path": "artifacts/eval/terminal-core-admission-guard-20261017/claim.json",
+    "sigterm_policy": "Default SIGTERM terminates only this metadata-only process; it launches no children and sends no queue signals."
+  },
+  "root_later_unique_guard_execution": {
+    "root_authorized_and_executed": true,
+    "launch_at_utc": "2026-10-17T00:14:45.787106+00:00",
+    "pid": 1508852,
+    "starttime_ticks": 869510981,
+    "script_sha256": "91b262ff2798739ca5c0dabd30050815cfdac7e30f4cef4cc2e8df1f8227eaac",
+    "launch_receipt_host80": "artifacts/eval/terminal_core_admission_guard_launch_20261017.json",
+    "launch_receipt_local": {
+      "path": "analysis/source_snapshots/terminal_core_admission_guard_launch_20261017.json",
+      "sha256": "60520b60f34a4f487448afbe97780e3f81c67ef13a8e75f57900c83ac8dbc984"
+    },
+    "claim_path_host80": "artifacts/eval/terminal-core-admission-guard-20261017/claim.json",
+    "canonical_state_path_host80": "artifacts/eval/terminal-core-admission-guard-20261017/state.json",
+    "root_followup_verified_state": "waiting_cutoff",
+    "root_followup_verified_stop_gates_exist": [
+      false,
+      false
+    ],
+    "new_native_runs": 0,
+    "new_model_calls": 0,
+    "agent_execute_or_launch_count": 0,
+    "preparation_history_preserved": true,
+    "observation_source": "Root explicitly reported actual claim/state verification after the earlier launch receipt state launched_pending_claim_observation; no new remote query by this documentation update."
+  }
+}

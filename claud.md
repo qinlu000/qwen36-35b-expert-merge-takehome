@@ -1735,3 +1735,17 @@
 - 07:26资源结束227.570GPUh、6卡active暂计18.8228GPUh；CNY11307calls预算核算15.029134794另USD.328327020，9缓存不重复算paid，未知发票/CPU工时保留unknown。存储本机余30.14GiB、80项目1.99TiB/系统31.54GiB（97%），HPC共享11.04PiB/quota未知，无耗尽；未大树扫描/删除旧原件。阶段PDF07:28已更新完整HLE与ASI退化/CI，摘要181中文字符/含标点199字符，一页/字体/PNG目视通过，仍非最终report.pdf。
 - 新SWE剩6项grade-only仅做只读可行性准备，不原样跑Base硬编码脚本、不改patch、不加测试时限。CPU92–95须同global锁且实际仍属grader池，Terminal扩容不拿该flock，不能凭锁空或瞬空scope抢已交接核。每小时automation沿用ID保持ACTIVE，已更新实际6卡/claims/有意释放/完整结果/未决项；核心截止仍10月18日02:20，保留最后12小时。
 - 补充真实ASI Base/专家60任务×4condition的CSV及B1–B4/11领域对照：3任务上升、11下降、46持平，前5下降约占净降幅82.04%；max/divisor逐对相同且不重复归一化。原failed记录/产物/hard gate差异只说明可观察结果，错误/退出字段缺失，监督不匹配或遗忘仍假设，不把配对CI当因果证明。
+
+
+## 2026-10-17 08:24 CST：SWE原答案补评准入与Terminal截止保护
+
+- 先读claud/current_status/Git，保留其他会话WIP，仅明确owned提交，无coauthor。未新增训练、loss-only/task-val或Base新作答；已有HLE/ASI完整结果和主AVG64身份保持，TIES缺correct继续null，不扩parser/恢复规则。
+- 按diagnosing-bugs检查已捕获RemoteProtocolError/OOM、假说和真实CLI反馈；新SWE脚本/六项manifest仅允许两Vuls，其余4项硬disabled。真实venv/错误SHA/disabled项/relative offset RED与词法venv/defaultprepare GREEN；没有据此宣称OOM已修好。各29source bindings+原SIF metadata保持，manifest mtime精度问题只修新metadata字符串，不改SIF。
+- root独立源码/实际资源审阅并defaultprepare后，于08:18:01唯一启动swe2491520240与avg641520241（startticks均869530503），两独立attempt1，同global92–95锁串行。源码a0eb0e…与manifest19f6c69a…在两父全终态前冻结，不能编辑/重复submit。专家child1520253已运行、AVG等锁无child；独立/proc/locks确认90775088由1520240持有，真实guard92–95/32MiB/swap0、native仅92/4GiB/swap0，无重复parent或Terminal/ASI交接冲突。采样内存近cap但OOM0，不能推断之后无OOM。08:23原Go workspace prep rc0/53.93秒、原cache磁盘复制rc0，尚无新有效分。
+- 只重放各自原patch/tests/SIF，保留原1CPU/4GiB/verifier3000、prep仍在verifier timer内；Go cache仅原内容移到独立/data scratch，live logs/server/cgroup事件供后续审核，不改Go版本/依赖/候选。任何新native结果只pending_root_review，reward0/build failed不足以自动接受；原raw null/summary不改。监控错误也等child自然结束，两native scope空→清guard→两次全scope空→解锁，不伪造allCPU marker或抢已交接CPU。
+- 08:08正式统计依专家SWE→AVG SWE→Terminal审计collector→summarize双视图：TB专家110/445另2invalid、AVG103/445另3invalid；08:09独立AVG104。没有新增invalid，所有旧例早于07:26；两SWE仍48/51（0/4resolved），完整主分/AVG四项macro null，source issues空。
+- 08:10AVG ASI81/240保存、8在途/151未准入，原1126014/1126055和28095真实8running0waiting、latest08:10:11，科学评分尚0。生成failed/completed不当分数；96–127继续保留未来生成租约，评分仍workers1并同global锁。固定ASI audited只校验28输入、239行及SHA625510f2…，240完整/.378991%，不重复一次性collector。
+- 当前三普通acd_u/Nice1000 TP2共6H100（727912/727913/727856），无新GPU申请/释放/重建。真实Terminal23个4核scope并集0–91，stage1已交接0–11，stage2继续等两ASI原生完成marker与真实CPU空；92–95是共享grader池，瞬空或flock空不是已转交Terminal资源的取用权。释放watcher当前磁盘源码mtime晚于parent启动，不能只凭现文件hash证明其内存code版本，后续按实际marker/state/metrics验服务消费者，不重启它。
+- 发现旧Terminal仅2100秒GPU准入余量，小于最坏600环境+360Agent setup+1800solver=2760；verifier900不需GPU，不能说35min一定失败，但存在尾部截断风险。root审核最小新guard后08:14:45唯一启动1508852/start869510981（91b262ff…），真实waiting_cutoff、两STOP未产生。10/18 01:10只x-create两队既有STOP_ADMISSION，留已知setup/solver/verifier/cleanup裕量，原在途全预算自然收尾；不改live父/每题预算、不kill/release服务、不写CPU完成marker，两队先全445且activepending空则早退出。未知其他phase/cleanup不作硬保证，core仍02:20停定时推进。
+- 08:12账本已结束227.570GPUh、6卡active暂计23.388889、总250.958889；API仍11307 CNYcalls预算15.029134794另USD.328327020，无新paid，缺失仍unknown。08:14只读statvfs显示80/data余2176642637824B、tmp33756135424B，未耗尽，新scratch走data。完整HLE/ASI单项与一页稿指标未变，保留07:28已验收PDF，不做重复重画。
+- 每小时原automation已更新ACTIVE，记录两Vuls唯一claim/冻结源码/排空顺序、未来01:10唯一guard、新队列进度及未决项，防下轮重复启动。进展/资产索引/成本均更新，原其他会话WIP保留；未发送邮件、邀请或其他会话消息。

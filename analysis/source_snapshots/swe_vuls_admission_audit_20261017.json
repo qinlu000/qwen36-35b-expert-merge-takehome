@@ -1,0 +1,439 @@
+{
+  "schema_version": 1,
+  "purpose": "Independent read-only admission, resource-isolation and frozen-source identity audit; no native-score validity decision.",
+  "project_root_on_80": "/data/caoqinlu/projects/apex-takehome",
+  "observation_interval_utc": [
+    "2026-10-17T00:19:03.966368+00:00",
+    "2026-10-17T00:20:41.476944+00:00"
+  ],
+  "canonical_launch_receipt": "artifacts/recovery/swe-remaining-grade-only-20261017/root-launch-20261017.json",
+  "script": "scripts/run_swe_remaining_grade_only_20261017.py",
+  "manifest": "configs/eval/swe_remaining_grade_only_20261017.json",
+  "conclusion": {
+    "admission_resource_identity_checks_passed": true,
+    "lock_owner_pid": 1520240,
+    "waiting_parent_pid": 1520241,
+    "duplicate_execute_parents_found": false,
+    "terminal_stage2_handoff_observed": false,
+    "observed_native_cpu_overlap_with_asi_generation": false,
+    "source_and_test_bindings_unchanged": true,
+    "score_validity_assessed": false,
+    "actions": "Read-only /proc, cgroup, source-file identity and existing JSON metadata inspection; wrote only this audit snapshot. No lock acquisition, model/API/native execution, process/scope/marker/config change.",
+    "notes": [
+      "The active SWE249 native scope is restricted by actual process affinity to CPU92; the 32MiB guard reserves CPUs92-95 visibly to the existing Terminal stage2 scope scanner.",
+      "AVG64 parent has claimed its unique attempt but has no native child and waits on the same global lease; the SWE249 child inherited that exact lock inode via FD4.",
+      "Terminal remains at its existing 12/11-slot allocations on CPUs0-91; both ASI stage2 expansion markers are absent. AVG ASI remains in asi_generation and its generation/all-CPU finish markers are absent.",
+      "At the second sample native memory was near the fixed 4GiB cap with memory.events max>0, oom=0 and oom_kill=0. This is an observed resource-pressure counter, not a scoring or OOM-causality judgment.",
+      "No actual CPU-quota file exists at the sampled leaf scopes; the one-CPU claim is based on every sampled native PID's sched_getaffinity=[92], not on an invented quota value.",
+      "This is a time-bounded admission snapshot, not proof of future completion or final score."
+    ]
+  },
+  "admission_snapshot": {
+    "at_utc": "2026-10-17T00:19:03.966368+00:00",
+    "script_sha256": "a0eb0e252e27b56d3c615324c83a3fe0831ba1c85565ce9413c4782c27edfd10",
+    "manifest_sha256": "19f6c69a335d68fcc75369f962daaf8c0fabe49f265db8939aab324287311717",
+    "root_sha_match": true,
+    "parents": [
+      {
+        "item": "swe249/vuls",
+        "parent": {
+          "pid": 1520240,
+          "exists": true,
+          "state": "S",
+          "startticks": "869530503",
+          "affinity": [
+            10
+          ],
+          "cgroup": "0::/user.slice/user-1012.slice/session-47574.scope",
+          "item": "swe249/vuls",
+          "execute": true,
+          "child": false,
+          "children": [
+            1520245,
+            1520253
+          ]
+        },
+        "expected_startticks": "869530503",
+        "claim": {
+          "pid": 1520240,
+          "startticks": "869530503",
+          "item": "swe249/vuls",
+          "at_utc": "2026-10-17T00:18:01.827233+00:00",
+          "script_sha256": "a0eb0e252e27b56d3c615324c83a3fe0831ba1c85565ce9413c4782c27edfd10",
+          "manifest_sha256": "19f6c69a335d68fcc75369f962daaf8c0fabe49f265db8939aab324287311717"
+        },
+        "claim_bound_count": 29,
+        "all_claim_bindings_match_manifest": true,
+        "all_frozen_bindings_unchanged": true,
+        "frozen_binding_count": 29,
+        "mismatched_paths": [],
+        "patch_bytes": 0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sif_path": "artifacts/benchmarks/sif/sha256-ce030de85a57473a9b52d493fd023ab90871959e7129b4281edb1b2e5038d078.sif",
+        "sif_size_mtime_match": true,
+        "state": {
+          "pid": 1520240,
+          "startticks": "869530503",
+          "item": "swe249/vuls",
+          "state": "native_running",
+          "lock_held": true,
+          "native_started": true,
+          "model_calls": 0,
+          "at_utc": "2026-10-17T00:18:03.018181+00:00",
+          "guard_observed": {
+            "unit": "apex-baseline-swe-grade-1520240.scope",
+            "cgroup": "/user.slice/user-1012.slice/user@1012.service/app.slice/apex-baseline-swe-grade-1520240.scope",
+            "affinities": {
+              "1520245": [
+                92,
+                93,
+                94,
+                95
+              ]
+            },
+            "memory_max_bytes": 33554432,
+            "memory_swap_max_bytes": 0
+          },
+          "guard_unit": "apex-baseline-swe-grade-1520240.scope",
+          "child_pid": 1520253,
+          "child_startticks": "869530704"
+        },
+        "native_config_files": [
+          "artifacts/recovery/swe-remaining-grade-only-20261017/swe249/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1/native/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/config.json"
+        ],
+        "child": {
+          "pid": 1520253,
+          "exists": true,
+          "state": "S",
+          "startticks": "869530704",
+          "affinity": [
+            92
+          ],
+          "cgroup": "0::/user.slice/user-1012.slice/session-47574.scope",
+          "item": "swe249/vuls",
+          "execute": false,
+          "child": true,
+          "children": [
+            1520267,
+            1520268,
+            1520271,
+            1520275
+          ]
+        },
+        "native_config": {
+          "agent_import_path": "patch_replay:PatchReplayAgent",
+          "source_job": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/swe249_hard51_20261016/generation",
+          "environment": {
+            "import_path": "run_swe_remaining_grade_only_20261017:VulsDiskLogs",
+            "cpu_enforcement_policy": "limit",
+            "memory_enforcement_policy": "limit",
+            "override_cpus": 1,
+            "override_memory_mb": 4096,
+            "override_gpus": 0,
+            "kwargs": {
+              "singularity_image_cache_dir": "/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/sif",
+              "baseline_cpu_offset": 0,
+              "baseline_cpu_slots": 1,
+              "singularity_startup_timeout_sec": 300
+            }
+          },
+          "verifier": {
+            "override_timeout_sec": 3000
+          }
+        }
+      },
+      {
+        "item": "avg64/vuls",
+        "parent": {
+          "pid": 1520241,
+          "exists": true,
+          "state": "S",
+          "startticks": "869530503",
+          "affinity": [
+            10
+          ],
+          "cgroup": "0::/user.slice/user-1012.slice/session-47574.scope",
+          "item": "avg64/vuls",
+          "execute": true,
+          "child": false,
+          "children": []
+        },
+        "expected_startticks": "869530503",
+        "claim": {
+          "pid": 1520241,
+          "startticks": "869530503",
+          "item": "avg64/vuls",
+          "at_utc": "2026-10-17T00:18:01.830231+00:00",
+          "script_sha256": "a0eb0e252e27b56d3c615324c83a3fe0831ba1c85565ce9413c4782c27edfd10",
+          "manifest_sha256": "19f6c69a335d68fcc75369f962daaf8c0fabe49f265db8939aab324287311717"
+        },
+        "claim_bound_count": 29,
+        "all_claim_bindings_match_manifest": true,
+        "all_frozen_bindings_unchanged": true,
+        "frozen_binding_count": 29,
+        "mismatched_paths": [],
+        "patch_bytes": 0,
+        "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sif_path": "artifacts/benchmarks/sif/sha256-ce030de85a57473a9b52d493fd023ab90871959e7129b4281edb1b2e5038d078.sif",
+        "sif_size_mtime_match": true,
+        "state": {
+          "pid": 1520241,
+          "startticks": "869530503",
+          "item": "avg64/vuls",
+          "state": "waiting_shared_lease",
+          "lock_held": false,
+          "native_started": false,
+          "model_calls": 0,
+          "at_utc": "2026-10-17T00:19:01.858651+00:00"
+        },
+        "native_config_files": []
+      }
+    ],
+    "matching_script_processes": [
+      {
+        "pid": 1520240,
+        "exists": true,
+        "state": "S",
+        "startticks": "869530503",
+        "affinity": [
+          10
+        ],
+        "cgroup": "0::/user.slice/user-1012.slice/session-47574.scope",
+        "item": "swe249/vuls",
+        "execute": true,
+        "child": false,
+        "children": [
+          1520245,
+          1520253
+        ]
+      },
+      {
+        "pid": 1520241,
+        "exists": true,
+        "state": "S",
+        "startticks": "869530503",
+        "affinity": [
+          10
+        ],
+        "cgroup": "0::/user.slice/user-1012.slice/session-47574.scope",
+        "item": "avg64/vuls",
+        "execute": true,
+        "child": false,
+        "children": []
+      },
+      {
+        "pid": 1520253,
+        "exists": true,
+        "state": "S",
+        "startticks": "869530704",
+        "affinity": [
+          92
+        ],
+        "cgroup": "0::/user.slice/user-1012.slice/session-47574.scope",
+        "item": "swe249/vuls",
+        "execute": false,
+        "child": true,
+        "children": [
+          1520267,
+          1520268,
+          1520271,
+          1520275
+        ]
+      }
+    ],
+    "native_scopes_92_127": [
+      {
+        "cgroup": "0::/user.slice/user-1012.slice/user@1012.service/app.slice/apex-baseline-swe-grade-1520240.scope",
+        "affinity": [
+          92,
+          93,
+          94,
+          95
+        ],
+        "pids": [
+          1520245
+        ],
+        "resource_files": {
+          "memory.max": "33554432",
+          "memory.swap.max": "0",
+          "memory.current": "208896"
+        }
+      },
+      {
+        "cgroup": "0::/user.slice/user-1012.slice/user@1012.service/app.slice/apex-baseline-fa85bb484e6b.scope",
+        "affinity": [
+          92
+        ],
+        "pids": [
+          1520275,
+          1520307,
+          1520321,
+          1520326,
+          1520339,
+          1520348,
+          1520355,
+          1521792,
+          1521793
+        ],
+        "resource_files": {
+          "memory.max": "4294967296",
+          "memory.swap.max": "0",
+          "memory.current": "4294762496"
+        }
+      }
+    ],
+    "global_lock": {
+      "inode": 90775088,
+      "device_inode": "08:11:90775088",
+      "proc_lock_lines": [
+        "21: FLOCK  ADVISORY  WRITE 1520240 08:11:90775088 0 EOF"
+      ]
+    },
+    "terminal250_full445_20261017": {
+      "asi_stage_expansion_exists": false,
+      "leased_cpu_offsets": [
+        0,
+        4,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48
+      ],
+      "max_parallel_tasks": 12,
+      "pid": 489933
+    },
+    "avg64_terminal_full445_20261017": {
+      "asi_stage_expansion_exists": false,
+      "leased_cpu_offsets": [
+        8,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88
+      ],
+      "max_parallel_tasks": 11,
+      "pid": 489934
+    },
+    "avg_asi_pipeline_state": {
+      "state": "asi_generation",
+      "pid": 1126055,
+      "at_utc": "2026-10-16T22:38:25.985909+00:00"
+    },
+    "avg_asi_markers": {
+      "generation_cpu_finished.json": false,
+      "all_cpu_consumers_finished.json": false
+    }
+  },
+  "frozen_source_bindings": {
+    "swe249/vuls": {
+      "original_result": "artifacts/eval/swe249_hard51_20261016/replay/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/result.json",
+      "original_config": "artifacts/eval/swe249_hard51_20261016/replay/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/config.json",
+      "patch": "artifacts/eval/swe249_hard51_20261016/generation/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/agent/model.patch",
+      "output": "artifacts/recovery/swe-remaining-grade-only-20261017/swe249/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1",
+      "source_file_sha256": {
+        "artifacts/eval/swe249_hard51_20261016/replay/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/config.json": "f907de18aded7a107578b6e69b74d6c24df6fabc3ae181c267258030ed7c1d4d",
+        "artifacts/eval/swe249_hard51_20261016/replay/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/result.json": "86f0aaa9099eec75842eecd7684f5c53a635ce1b4f41a1f51fb17a7335a2dfc1",
+        "artifacts/eval/swe249_hard51_20261016/replay/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/agent/replay.json": "c0f7757441a0d089938611507e98860b7d9bac480018550bd6630d6a8af1903a",
+        "artifacts/eval/swe249_hard51_20261016/generation/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/config.json": "50dcd2dc6865ed61795e233c1c52d1d4d56629e44fddb984ae1a1f33bfd35401",
+        "artifacts/eval/swe249_hard51_20261016/generation/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/result.json": "aba8f0eb28e2c69bafc36f5736215c24010913749fee7cc7cbcfe26c10da0e58",
+        "artifacts/eval/swe249_hard51_20261016/generation/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/agent/model.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "artifacts/eval/swe249_hard51_20261016/tasks/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/task.toml": "eaf062dc11deb85635af4825031934161d3a62fdc0326af99ec82a5184b8e416",
+        "artifacts/eval/swe249_hard51_20261016/tasks/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/instruction.md": "af6603b670df6eedfb4f9748597f3c13516f2c739d8c2a6a82780415d3a8ed28",
+        "artifacts/eval/swe249_hard51_20261016/tasks/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/tests/config.json": "2c6f78cbcb78692ca28cecb4236977e0f7c7041c11f72bad5ca617d36b68e748",
+        "artifacts/eval/swe249_hard51_20261016/tasks/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/tests/parser.py": "bfd3ba2ec189b525d683cfaedf80ac597395a956a3413ef1369ae49a7e830fc5",
+        "artifacts/eval/swe249_hard51_20261016/tasks/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/tests/test.sh": "b6f26eecd87c1696a3702ee115d31f9d42f4704cf2116419cd879f66b60976d0",
+        "artifacts/eval/swe249_hard51_20261016/tasks/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/tests/run_script.sh": "cbbc1f288084a4092e3c72e3739d6ab4b1d9ded323bf9a056e203bba7d3e0f2c",
+        "artifacts/eval/swe249_hard51_20261016/tasks/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/tests/test_patch.patch": "ac252058b503ce5ff70ee03bc1c2874fa6db2f12280e0ec384b31be15f6c055d"
+      }
+    },
+    "avg64/vuls": {
+      "original_result": "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/result.json",
+      "original_config": "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/config.json",
+      "patch": "artifacts/eval/avg64_swe_hard51_20261017/generation/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/agent/model.patch",
+      "output": "artifacts/recovery/swe-remaining-grade-only-20261017/avg64/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/attempt1",
+      "source_file_sha256": {
+        "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/config.json": "52a8ced417a6d8b748932439bcc8637a58326e2bb8feecd1f61983acaed6e062",
+        "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/result.json": "50a08c0202e77a93a96beb1f9f8c0e78147cb1a2088b1f22a6391d947e6e4067",
+        "artifacts/eval/avg64_swe_hard51_20261017/replay/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/agent/replay.json": "c0f7757441a0d089938611507e98860b7d9bac480018550bd6630d6a8af1903a",
+        "artifacts/eval/avg64_swe_hard51_20261017/generation/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/config.json": "e92c03c2b255e4dd731460ef6cd06c30ce0d6b23d48ac1a4fce2e462056a9c88",
+        "artifacts/eval/avg64_swe_hard51_20261017/generation/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/result.json": "1c87fe68d45dd71bb265dfc02bde9ba59e2cfe619f3a8336c9fa06016bdaae13",
+        "artifacts/eval/avg64_swe_hard51_20261017/generation/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/agent/model.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/task.toml": "eaf062dc11deb85635af4825031934161d3a62fdc0326af99ec82a5184b8e416",
+        "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/instruction.md": "af6603b670df6eedfb4f9748597f3c13516f2c739d8c2a6a82780415d3a8ed28",
+        "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/tests/config.json": "2c6f78cbcb78692ca28cecb4236977e0f7c7041c11f72bad5ca617d36b68e748",
+        "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/tests/parser.py": "bfd3ba2ec189b525d683cfaedf80ac597395a956a3413ef1369ae49a7e830fc5",
+        "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/tests/test.sh": "b6f26eecd87c1696a3702ee115d31f9d42f4704cf2116419cd879f66b60976d0",
+        "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/tests/run_script.sh": "cbbc1f288084a4092e3c72e3739d6ab4b1d9ded323bf9a056e203bba7d3e0f2c",
+        "artifacts/eval/avg64_swe_hard51_20261017/tasks/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e/tests/test_patch.patch": "ac252058b503ce5ff70ee03bc1c2874fa6db2f12280e0ec384b31be15f6c055d"
+      }
+    }
+  },
+  "followup_cgroup_and_inherited_lease_snapshot": {
+    "1520240": {
+      "exists": true,
+      "startticks": "869530503",
+      "affinity": [
+        10
+      ]
+    },
+    "1520241": {
+      "exists": true,
+      "startticks": "869530503",
+      "affinity": [
+        10
+      ]
+    },
+    "1520253": {
+      "exists": true,
+      "startticks": "869530704",
+      "affinity": [
+        92
+      ],
+      "lease_fd_target": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/direct_asi_grader_cpu92_95.lock",
+      "lease_fd_inode": 90775088,
+      "lease_fd_device": [
+        8,
+        17
+      ]
+    },
+    "observed_at": "2026-10-17T00:20:41.476944+00:00",
+    "scopes": {
+      "apex-baseline-swe-grade-1520240.scope": {
+        "exists": true,
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.peak": "966656",
+        "memory.current": "208896",
+        "memory.max": "33554432",
+        "memory.swap.max": "0",
+        "cpu.max": {
+          "error": "FileNotFoundError"
+        },
+        "cgroup.procs": "1520245"
+      },
+      "apex-baseline-fa85bb484e6b.scope": {
+        "exists": true,
+        "memory.events": "low 0\nhigh 0\nmax 22147\noom 0\noom_kill 0\noom_group_kill 0",
+        "memory.peak": "4295655424",
+        "memory.current": "4284743680",
+        "memory.max": "4294967296",
+        "memory.swap.max": "0",
+        "cpu.max": {
+          "error": "FileNotFoundError"
+        },
+        "cgroup.procs": "1520275\n1520307\n1520321\n1520326\n1520339\n1520348\n1520355\n1527467\n1527468\n1527469\n1527644\n1527648\n1534401"
+      }
+    }
+  }
+}
