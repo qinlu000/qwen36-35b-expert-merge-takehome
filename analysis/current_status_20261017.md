@@ -498,3 +498,7 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
 ## 2026-10-18 17:30 CST：最终交付审计修正与图表补齐
 
 终检修正了报告摘要长度与 AVG64/Base 结论表述，报告增加 Base Terminal/TIES invalid 的失败率和已核 API/GPU 成本。新增 HLE 合版消融 PNG、CSV 和重画脚本，以及 `results/README.md` 结果索引。历史 GitHub/model delivery 快照已显式标注最终状态，当前只保留真实协议限制和 raw artifacts 不随 clone 分发的说明。
+
+## 2026-10-18 17:50 CST：最终仓库提交审计完成
+
+最终提交 `f1cc983` 已同步到 GitHub `main`/`master` 与 `lab/master`。报告为 A4 单页，摘要/结果/失败率/成本/后续方案均通过检查；五个 HF revision 匿名核验为公开非 gated 且 SHA 一致。未暂存的其他会话 WIP 保持原样。

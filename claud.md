@@ -2217,3 +2217,10 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
 - 新增 HLE 合版消融图、CSV 源数据和重画脚本：`curves/hle_merge_ablation_20261018.png`、`curves/source/hle_merge_ablation_20261018.csv`、`scripts/plot_hle_merge_ablation_20261018.py`。
 - 新增 `results/README.md` 作为结果索引，明确 tracked compact tables、原始 per-task artifacts 的受控路径和 clone 后不可直接取得的限制。
 - 将 `github_repository_20261017.json` 和 `model_delivery_readiness_20261017.md` 标明历史快照并补充最终 main/commit/结果状态，避免旧的 master/complete_submission=false 内容被误读。
+
+## 2026-10-18 17:50 CST：最终仓库提交审计完成
+
+- 当前最终提交为 `f1cc983`，GitHub `main`/`master` 与组内 `lab/master` 三者一致；GitHub 默认分支为 `main` 且仓库 Private。
+- `report.pdf` 通过 pypdf/pdfinfo 检查为 A4 单页，摘要 198 个非空白字符、173 个中文字符，包含 SFT/Base 对比、失败率、GPU/API 成本和三项未执行后续方案。
+- 五个 HF revision 逐个匿名核验通过：`private=false`、`gated=false`、manifest SHA 一致。
+- HLE 合版消融图/CSV/脚本、数据入口、结果索引、历史快照最终状态和模型交付说明均已纳入 Git；其他会话 WIP 未暂存或提交。
