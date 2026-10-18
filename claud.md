@@ -2173,3 +2173,15 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
 - 重新核对题面与模板 README：要求是以模板为基础的独立候选人 GitHub 仓库，代码/README/分析/曲线/日志/`report.pdf`进入该仓库；模型权重进入候选人自己的公开 Hugging Face 仓库。
 - 当前 `qinlu000/qwen36-35b-expert-merge-takehome` 是独立私有候选人仓库，不是模板仓库；最终内容已同步到 GitHub `main`，并将 `main` 设置为默认分支。`master` 与组内 `lab/master` 也保留同一最终提交链。
 - 根 README 已明确候选人仓库、五个 HF URL/revision、实际目录映射、协议限制和最终 commit；没有把模型权重放进 GitHub。
+
+## 2026-10-18 15:05 CST：补充资源受限与设置变更披露
+
+- 按用户要求，根 README 新增“资源约束与实际设置变更”：明确本轮因剩余时间、GPU/CPU 沙箱和 Judge API 额度极度受限，只完成一轮 BF16 LoRA SFT，未实施 DPO/RL/第二阶段优化，也未做全参训练或正式结果驱动的 checkpoint/merge 搜索。
+- 同步列出实际协议变更：64K context、8K output、关闭 thinking/preserve_thinking；Terminal 30分钟/4CPU/8GiB/单seed2 exploratory，SWE 30分钟，HLE/ASI public/local replacement Judge，ASI open seed 本地评分。README 明确这些不能称官方配置成绩。
+- `report.pdf` 已重新生成并目视验收，仍为 A4 单页；报告摘要、过程与脚注均加入资源限制和设置偏离说明。
+
+## 2026-10-18 15:20 CST：同步模型卡与一页报告限制说明
+
+- 五个本地 `models/cards/*.md` 已移除过时的“formal scores pending”表述，改为记录冻结 SFT artifact、目标 benchmark 结果、资源受限协议、单次 Terminal exploratory、replacement/local Judge 和 null/invalid 处理。
+- `report.pdf` 摘要改为 151 个中文字符，明确只做一轮 BF16 LoRA SFT、未做全参/DPO/RL/第二阶段，并重新生成、检查为单页且目视通过。
+- HF 权重 revision 不变；当前环境未配置可写 HF token，因此没有擅自改动公开模型仓库的 revision。GitHub 中的最新模型卡和 README 是最终结果/限制的权威提交说明，HF 已发布权重身份保持冻结。

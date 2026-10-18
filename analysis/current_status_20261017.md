@@ -474,3 +474,7 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
 ## 2026-10-18 14:35 CST：最终提交仓库收口
 
 已生成并目视验收根目录 `report.pdf`（A4、1页、中文字体嵌入），并更新根 `README.md` 为最终交付说明。五个 Hugging Face 模型按 `models/release_manifest.json` 的 immutable revision 重新匿名核验，均为公开、非 gated，未重复上传或改变模型身份。最终仓库将包含代码、配置、模型卡/发布清单、结果快照、HLE 消融、失败案例、成本与复现索引；大权重、原始数据、任务缓存、SIF、完整日志和凭据继续留在 Git 忽略资产中。Terminal 五次官方口径和官方资源配置未完全复现，README、结果矩阵和 report.pdf 均明确该限制。
+
+## 2026-10-18 15:05 CST：补充资源受限与设置变更披露
+
+最终 README 和 `report.pdf` 已明确说明：由于剩余时间、可用 H100/CPU 沙箱和 Judge API 预算极度受限，本项目只完成一轮 BF16 LoRA SFT，没有 DPO/RL/第二阶段优化或全参训练；所有 checkpoint/merge 选择不由正式 benchmark 结果反复搜索。实际评测统一使用 64K context、8K output、关闭 thinking/preserve_thinking；Terminal 使用 30分钟/4CPU/8GiB/seed2 单次 exploratory，SWE 使用30分钟，HLE/ASI 使用披露的 public/local replacement Judge，ASI 使用 open seed 本地评分。上述设置偏离题面官方配置，已在最终提交中单独标注。
