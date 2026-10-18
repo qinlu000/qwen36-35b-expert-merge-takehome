@@ -2228,3 +2228,9 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
 ## 2026-10-18 18:00 CST：停止追踪自引用 SHA，固定最终审计记录
 
 最终 Git 提交会改变自身 SHA，因此 GitHub 快照不再硬编码自引用 commit，而写明以 `origin/main` 和 Git history 为准；远端 main/master 与 lab/master 已在每次收口后同步。所有内容审计已完成，后续不再新增 benchmark/GPU 工作。
+
+## 2026-10-18 18:20 CST：整理公开结果包到 repo/GitHub
+
+- 按用户要求新增 public-safe `results/` 结果包：统一矩阵 CSV、失败率/invalid CSV、manifest、SWE/ASI 逐任务表、Terminal seed2 汇总、HLE 消融源数据和结果说明。
+- 公开包不含 benchmark 题面/答案、完整原始模型请求、私有凭据、SIF 或不可公开的工具观察；完整 HLE/Terminal 原始轨迹仍在受控 HPC artifacts，并由结果 manifest 和 canonical config 索引。
+- `results/README.md` 明确 compact 结果与 raw artifacts 的边界，避免把摘要冒称全部原始轨迹。

@@ -1,0 +1,30 @@
+{
+  "captured_at_cst": "2026-10-18 12:20 CST",
+  "scope": "single-run exploratory; fixed seed 2; one attempt per task",
+  "source": "host80 historical 445-task outputs plus three independent verifier-only supplements",
+  "historical_445_untouched": true,
+  "new_model_calls": 0,
+  "models": {
+    "apex-terminal250": {
+      "expected_tasks": 89,
+      "valid_scored": 89,
+      "correct": 8,
+      "score_percent": 8.988764045,
+      "supplements": [
+        {"task": "pytorch-model-cli", "seed": 2, "reward": 0, "mode": "native_grade_only"},
+        {"task": "train-fasttext", "seed": 2, "reward": 0, "mode": "native_grade_only", "environment_note": "official offline CPython 3.11.14 supplied; pytest ran; candidate lacked /app/model.bin"}
+      ]
+    },
+    "apex-avg64": {
+      "expected_tasks": 89,
+      "valid_scored": 89,
+      "correct": 11,
+      "score_percent": 12.359550562,
+      "supplements": [
+        {"task": "train-fasttext", "seed": 2, "reward": 0, "mode": "native_grade_only", "environment_note": "official offline CPython 3.11.14 supplied; pytest ran; candidate lacked /app/model.bin"}
+      ]
+    }
+  },
+  "interpretation": "Both models have a complete 89/89 single-seed row for seed 2. This is exploratory and cannot be used as the Terminal-Bench five-seed mean/standard deviation or mixed into the historical 445-trial strict summary.",
+  "raw_result_note": "Original historical answer/result files and 445 summaries were not overwritten."
+}

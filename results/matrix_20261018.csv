@@ -1,0 +1,10 @@
+model,swe,hle,asi,terminal,note
+Base,19.607843%,3.96%,1.570988%,20.224719%,provisional Terminal budget view
+SWE expert,0%,,,,SWE target only
+Terminal expert,,,,8.988764%,seed2 exploratory
+HLE expert,,6.92%,,,HLE target only
+ASI expert,,,0.378991%,,ASI target only
+Mixed883,,5.84%,,,HLE control
+AVG16,,4.04%,,,HLE compression control
+AVG64,7.843137%,4.68%,0.460702%,12.359551%,Terminal seed2 exploratory
+TIES-Dense,,5.24%,,,HLE offline overlay

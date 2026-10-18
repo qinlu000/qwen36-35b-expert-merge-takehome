@@ -502,3 +502,7 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
 ## 2026-10-18 17:50 CST：最终仓库提交审计完成
 
 最终提交 `f1cc983` 已同步到 GitHub `main`/`master` 与 `lab/master`。报告为 A4 单页，摘要/结果/失败率/成本/后续方案均通过检查；五个 HF revision 匿名核验为公开非 gated 且 SHA 一致。未暂存的其他会话 WIP 保持原样。
+
+## 2026-10-18 18:20 CST：整理公开结果包到 repo/GitHub
+
+已新增 `results/` public-safe compact package：矩阵、失败率、manifest、SWE/ASI 逐任务表、Terminal seed2 摘要和 HLE 消融源数据。完整 HLE/Terminal 原始轨迹不公开重传，继续由受控 HPC artifacts 和 canonical config 索引；results README 明确了这一边界。

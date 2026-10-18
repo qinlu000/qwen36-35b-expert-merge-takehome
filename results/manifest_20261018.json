@@ -1,0 +1,17 @@
+{
+  "generated": "2026-10-18",
+  "scope": "Public-safe compact result package; raw benchmark answers, prompts, full trajectories, SIFs and credentials excluded.",
+  "files": {
+    "matrix": "results/matrix_20261018.csv",
+    "failure_rates": "results/failure_rates_20261018.csv",
+    "swe_task_comparison": "results/swe/task_comparison_20261017.csv",
+    "asi_task_comparison": "results/asi/task_comparison_20261017.csv",
+    "terminal_seed2": "results/terminal/seed2_summary_20261018.json",
+    "hle_ablation": "results/hle/merge_ablation_20261018.csv"
+  },
+  "raw_artifacts": "Controlled local/HPC artifacts indexed by configs/eval/final_results_20261017.json; not included in public clone.",
+  "notes": [
+    "Terminal is single-seed exploratory, not official five-seed mean.",
+    "Strict/native null and invalid entries remain separate from provisional views."
+  ]
+}
