@@ -12,6 +12,12 @@
 
 结果中的 Terminal 使用用户确认的固定 seed=2、每题一次 exploratory 口径；Base Terminal 的三条计算型 verifier timeout 按用户确认在汇报视图中记为 0，原生 `null` 仍保留。ASI/HLE 使用 public/local replacement Judge，TIES-Dense 的唯一格式缺口使用冻结 Judge body 的离线 score-only overlay 修复。所有偏离、原始证据和未纳入正式分数的项目均在 [进展文档](analysis/current_status_20261017.md)、[invalid 修复记录](analysis/invalid_repair_status_20261018.md) 与 [结果矩阵](analysis/complete_results_table_20261018.md) 中说明。
 
+## 资源约束与实际设置变更
+
+本实验的剩余窗口、可用 H100/CPU 沙箱和 Judge API 额度都非常有限，因此必须在研究范围内做取舍：最终只完成了一轮 BF16 LoRA SFT，没有实施 DPO、RL 或其他第二阶段优化；没有进行全参训练；没有用正式 benchmark 结果反复挑 checkpoint 或合版系数。这个取舍是资源约束造成的实验边界，不应解释为已经完成题面模板中的第二阶段训练。
+
+为保证在窗口内完成可复现的首轮比较，实际协议也做了固定改动：所有模型关闭 `thinking` 和 `preserve_thinking`，上下文上限为 64K、输出上限为 8K；Terminal 使用 30 分钟、4 CPU、8 GiB、单次 seed=2 exploratory，而题面配置为 3 小时、32 CPU、48 GiB、256K/80K、五组 seed；SWE 使用 30 分钟上限；HLE/ASI 使用已披露的 public/local replacement Judge，ASI 使用 open seed 的本地评分而非 protected Portal。上述设置在所有对应模型间保持一致，结果不能直接称为官方配置下的成绩。完整差异和原始凭据见 [固定协议](configs/eval/protocol_v2_unified64k8k.json)、[结果矩阵](analysis/complete_results_table_20261018.md) 和 [invalid 修复记录](analysis/invalid_repair_status_20261018.md)。
+
 ## 实验设计与数据
 
 基座为 [Qwen/Qwen3.6-35B-A3B](https://huggingface.co/Qwen/Qwen3.6-35B-A3B/tree/995ad96eacd98c81ed38be0c5b274b04031597b0)，model/tokenizer/processor 固定 revision `995ad96eacd98c81ed38be0c5b274b04031597b0`，保留多模态架构。四个专家按监督内容和工具契约划分；它们是四份独立 LoRA，不是修改基座 MoE 内部的 routed experts，也不在推理时路由或投票。
