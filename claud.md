@@ -2224,3 +2224,7 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
 - `report.pdf` 通过 pypdf/pdfinfo 检查为 A4 单页，摘要 198 个非空白字符、173 个中文字符，包含 SFT/Base 对比、失败率、GPU/API 成本和三项未执行后续方案。
 - 五个 HF revision 逐个匿名核验通过：`private=false`、`gated=false`、manifest SHA 一致。
 - HLE 合版消融图/CSV/脚本、数据入口、结果索引、历史快照最终状态和模型交付说明均已纳入 Git；其他会话 WIP 未暂存或提交。
+
+## 2026-10-18 18:00 CST：停止追踪自引用 SHA，固定最终审计记录
+
+最终 Git 提交会改变自身 SHA，因此 GitHub 快照不再硬编码自引用 commit，而写明以 `origin/main` 和 Git history 为准；远端 main/master 与 lab/master 已在每次收口后同步。所有内容审计已完成，后续不再新增 benchmark/GPU 工作。
