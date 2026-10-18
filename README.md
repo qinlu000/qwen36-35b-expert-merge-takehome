@@ -4,7 +4,7 @@
 
 研究问题：在相同基座和一轮监督训练下，按代码修复、终端交互、学术推理、科研编程划分专家，再平均参数更新，能否比 Base 和同数据 Mixed 训练更好地兼顾四项任务？重点观察专精收益、跨域冲突、压缩损失和合版退化。
 
-候选人仓库：[qinlu000/qwen36-35b-expert-merge-takehome](https://github.com/qinlu000/qwen36-35b-expert-merge-takehome)，由[官方模板](https://github.com/apexin-ai/qwen36-35b-takehome)实际创建，当前为 Private。实验代码已推送到默认分支 `master`，模板 `main` 保留来源。本实验依据最初的多专家题面，需求转录见 [EXPERIMENT_REQUIREMENTS.md](EXPERIMENT_REQUIREMENTS.md)；后续线上模板的 SFT→stage2 路线不覆盖该题面。
+候选人仓库：[qinlu000/qwen36-35b-expert-merge-takehome](https://github.com/qinlu000/qwen36-35b-expert-merge-takehome)，由[官方模板](https://github.com/apexin-ai/qwen36-35b-takehome)实际创建，当前为 Private。最终提交已推送到默认分支 `main`；模板 `main` 仅作为来源记录。本实验依据最初的多专家题面，需求转录见 [EXPERIMENT_REQUIREMENTS.md](EXPERIMENT_REQUIREMENTS.md)；后续线上模板的 SFT→stage2 路线不覆盖该题面。
 
 **当前状态（2026-10-18）：第一次 SFT、五个公开模型发布、主要 benchmark 评测和 HLE 合版消融已完成。最终面向提交的单表结果见[全部结果矩阵](analysis/complete_results_table_20261018.md)，一页摘要见 [report.pdf](report.pdf)。**
 
