@@ -482,3 +482,7 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
 ## 2026-10-18 15:35 CST：补充三项未执行的后续优化方案
 
 最终提交新增 `analysis/next_steps_20261018.md`，并在 README/report.pdf 说明三项后续方向：保持训推一致的数据重构、增加高质量数据量、在独立开发集上调试合版方法。它们都需要新增数据、训练、沙箱评测或 Judge API 资源；本轮因时间和资源极度受限未执行，不能宣称已有改进结果。
+
+## 2026-10-18 16:00 CST：补齐数据来源与清洗入口
+
+新增 `data/README.md` 作为最终提交的数据入口，汇总 SWE、Terminal、HLE、ASI、Mixed 的来源/revision、导出与原生加载条数、许可、清洗、去重、污染检查和 train/validation 划分，并链接到既有行级清单和专项报告。原始数据、答案和完整轨迹仍不进入 GitHub，只保留 Git 忽略资产路径及 provenance 索引。

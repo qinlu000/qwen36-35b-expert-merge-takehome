@@ -2193,3 +2193,9 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
   2. 在来源隔离、去重和污染检查不变的前提下增加高质量训练数据，并控制 token/配比；
   3. 在独立开发集上调试 AVG/TIES 等合版方法，控制容量并分析参数冲突后再做四项评测。
 - 三项均需新增数据、训练、沙箱评测或 Judge API 预算；受当前时间、GPU/CPU 和 API 资源限制，本轮没有执行，也没有把计划写成已完成收益。
+
+## 2026-10-18 16:00 CST：补齐数据来源与清洗入口
+
+- 核对题面后确认仓库已有 `analysis/training_data_report_20261016.md`、`analysis/source_snapshots/training_data_inventory_20261016.json`、`data_sources.json`、各模型 NOTICE 和模型来源表，覆盖来源 revision、许可、样本量、清洗、去重、污染检查、train/validation 划分和运行路径。
+- 为了让评审者有明显入口，新增 `data/README.md`：按专家列出来源/revision、导出与原生加载条数、清洗和限制，并链接到行级 provenance/manifest、数据专项报告和许可证 notice。没有把原始 benchmark 题目、答案或完整轨迹复制进 GitHub。
+- 根 README 的数据段已链接 `data/README.md`。大数据仍在 Git 忽略的本地/HPC artifacts 中，仓库保留说明和可追溯索引。

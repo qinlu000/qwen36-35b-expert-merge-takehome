@@ -40,7 +40,7 @@
 | Mixed | 相同四份训练分区，各一次 | 7073 → 7066 / 249 | 883 → 883 | 同数据一轮训练对照；HLE2500实际任务比较已提交 |
 | AVG64 / AVG16 | 四专家参数更新等权合版 / 固定 rank16 压缩 | 无新增训练数据 | 已实际导出 | AVG64四项全量；AVG16仅辅助压缩对照 |
 
-原生加载条数不是逐 batch 曝光计数。SWE的7条角色配对错误被 Swift 整条过滤，Mixed继承同7条过滤；保留原始导出与日志，没有复制样本补数。ASI的991条辅助数据多为函数/库补全，不能称1073条完整科研轨迹。HLE训练与留出集答案格式不同，最低交叉熵不等于最高任务准确率。数据来源、许可、清洗去重、来源家族隔离及已知污染风险见 [数据报告](analysis/training_data_report_20261016.md)、[行级来源清单索引](analysis/source_snapshots/training_data_inventory_20261016.json) 和 [模型来源/NOTICE索引](models/README.md)。部分公开推理数据的问题血缘不完整，不能声称已证明不存在语义污染。
+原生加载条数不是逐 batch 曝光计数。SWE的7条角色配对错误被 Swift 整条过滤，Mixed继承同7条过滤；保留原始导出与日志，没有复制样本补数。ASI的991条辅助数据多为函数/库补全，不能称1073条完整科研轨迹。HLE训练与留出集答案格式不同，最低交叉熵不等于最高任务准确率。数据来源、许可、清洗去重、来源家族隔离及已知污染风险见 [数据说明入口](data/README.md)、[数据报告](analysis/training_data_report_20261016.md)、[行级来源清单索引](analysis/source_snapshots/training_data_inventory_20261016.json) 和 [模型来源/NOTICE索引](models/README.md)。部分公开推理数据的问题血缘不完整，不能声称已证明不存在语义污染。
 
 统一训练配方为 BF16 LoRA `r16/alpha32/dropout0.05`、LR1e-4、cosine、warmup0.03、global batch8、1epoch、seed20261016、64K序列、非thinking、ZeRO-3、gradient checkpointing、SDPA与FLCE-only Liger。只训练语言 attention、linear-attention、shared-MLP投影；router、routed experts与视觉部分冻结。详见 [共享配方](configs/train/lora_r16_shared_v1.json) 和 [实际训练矩阵](configs/train/four_experts_v1.json)。
 
