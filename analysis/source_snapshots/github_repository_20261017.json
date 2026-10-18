@@ -3,13 +3,26 @@
   "repository": "qinlu000/qwen36-35b-expert-merge-takehome",
   "url": "https://github.com/qinlu000/qwen36-35b-expert-merge-takehome",
   "private": true,
-  "default_branch": "master",
   "created_at": "2026-10-16T18:39:34Z",
   "creation_source": "gh repo create --template apexin-ai/qwen36-35b-takehome --private",
   "template_repository": "apexin-ai/qwen36-35b-takehome",
-  "pushed_experiment_branch": "master",
   "pushed_commit_at_initial_check": "3748038251dee9ac619742e9eeb4d460df0858c5",
   "template_main_preserved": true,
-  "complete_submission": false,
-  "remaining": "Full valid benchmark matrix, final failure analysis/report and final commit; no email or invitation sent."
+  "snapshot_type": "historical_initial_check_with_final_state",
+  "initial_default_branch": "master",
+  "initial_pushed_experiment_branch": "master",
+  "initial_complete_submission": false,
+  "initial_remaining": "Full valid benchmark matrix, final failure analysis/report and final commit; no email or invitation sent.",
+  "final_state": {
+    "captured_at_beijing": "2026-10-18",
+    "default_branch": "main",
+    "branches": [
+      "main",
+      "master"
+    ],
+    "final_commit": "PENDING_FINAL_COMMIT",
+    "complete_submission": true,
+    "github_repository_private": true,
+    "remaining_disclosed": "Official Terminal five-seed/resource protocol is not fully reproduced; strict/native null and exploratory views remain separately reported."
+  }
 }

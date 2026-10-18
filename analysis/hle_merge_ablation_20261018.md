@@ -2,6 +2,8 @@
 
 更新时间：2026-10-18（Asia/Shanghai）。本轮只比较 HLE，不扩展 AVG16、TIES-Dense 或其他合版候选到四项 benchmark。
 
+指标图：[HLE 合版消融图](../curves/hle_merge_ablation_20261018.png)；源数据：[CSV](../curves/source/hle_merge_ablation_20261018.csv)；重画脚本：[plot_hle_merge_ablation_20261018.py](../scripts/plot_hle_merge_ablation_20261018.py)。
+
 | 模型/对照 | 有效题数 | 正确数 | HLE 分数 |
 |---|---:|---:|---:|
 | Base | 2500 | 99 | 3.96% |

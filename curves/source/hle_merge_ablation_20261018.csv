@@ -1,0 +1,7 @@
+model,correct,denominator,score_percent
+Base,99,2500,3.96
+HLE-expert,173,2500,6.92
+Mixed883,146,2500,5.84
+AVG64,117,2500,4.68
+AVG16,101,2500,4.04
+TIES-Dense,131,2500,5.24

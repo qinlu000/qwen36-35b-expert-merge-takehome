@@ -1,5 +1,7 @@
 # 模型交付就绪核对（2026-10-17）
 
+> 本文前半部分保留 2026-10-17 的发布准备历史记录。最终交付状态以 2026-10-18 的 `README.md`、`report.pdf`、`analysis/complete_results_table_20261018.md` 和 `models/release_manifest.json` 为准；五个 HF 模型仍使用本文末尾登记的 immutable revision。
+
 本分支已完成配置/来源核对、五份模型卡与许可材料，并在主线程审核和明确授权后创建、上传并验收了5个Public HF仓库；没有修改源训练产物或运行中的模型服务。原始用户HTML附件的要求优先于后来变化的线上模板README：以模板为来源建立独立GitHub仓库，并交付四专家与合版共5个Public HF模型仓库；不将现有工作改成线上后来加入的stage2。主线程计划先用Private独立GitHub仓库保护审核材料；这不改变5个模型Public的交付目标。
 
 ## 已形成的可审阅材料
@@ -59,9 +61,9 @@ AVG64实际r64/alpha64/scaling1、84,664,320 FP32参数、338,754,768字节。�
 
 HF默认cache未发现token的早期观察已被主线程对既有用户凭据的官方验证更新；当前不再把HF身份/写权限列为未知。本文不记录凭据值或其显示名。
 
-身份与scope支持独立GitHub＋五Public HF的技术步骤。主线程随后审核卡片与许可方案并明确授权本分支执行HF发布；已完成下表五仓创建、上传与匿名验收。GitHub操作仍由主线程统一负责；正式分数须等完整有效报告再补。
+身份与scope支持独立GitHub＋五Public HF的技术步骤。主线程随后审核卡片与许可方案并明确授权本分支执行HF发布；已完成下表五仓创建、上传与匿名验收。GitHub操作仍由主线程统一负责；最终结果矩阵已在 `analysis/complete_results_table_20261018.md` 收口；Terminal 单次 exploratory、timeout-derived 视图、replacement/local Judge 和其他协议限制按最终 README/report 披露。
 
-所有模型卡明确：正式分数待完成、无性能或正确性承诺；SFT loss、独立dev计数、synthetic验收与正式benchmark分开。64K/8K非思考、短solver预算、CPU/RAM限制、替代judge、ASI public-local评分与历史Base调度差异均披露，未将其冒称原榜单协议。
+最终模型卡明确 target-scoped 结果、无性能或正确性保证；SFT loss、独立dev计数、synthetic验收与正式benchmark分开。64K/8K非思考、短solver预算、CPU/RAM限制、替代judge、ASI public-local评分与历史Base调度差异均披露，未将其冒称原榜单协议。
 
 
 ## 已落实的license/NOTICE方案与具体边界
@@ -82,7 +84,7 @@ HF默认cache未发现token的早期观察已被主线程对既有用户凭据�
 
 条款事实核对仅用于区分范围：[Apache2.0第4条](https://www.apache.org/licenses/LICENSE-2.0)要求保留其适用作品的许可/修改/归属，且NOTICE不改license；[CC BY4.0](https://creativecommons.org/licenses/by/4.0/legalcode.en)与[CC BY-SA4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode.en)分别保留适用的attribution与share-alike条件。这里没有从这些原文推导“所有训练权重自动同一许可”。当前[matminer](https://github.com/hackingmaterials/matminer/blob/main/LICENSE)与[rasterio](https://github.com/rasterio/rasterio/blob/main/LICENSE.txt)链接仅补充当前上游文本，不冒充SAB参考的精确历史版本。
 
-上传严格使用manifest的6个文件白名单，已移除卡片的unpublished/draft/pending-creation描述并登记真实repo/commit。正式评测结果仍待完成，未填占位分数。
+上传严格使用manifest的6个文件白名单，已移除卡片的unpublished/draft/pending-creation描述并登记真实repo/commit。最终评测结果与未决 strict/null 项见 `analysis/complete_results_table_20261018.md`；没有用占位分数填补 native invalid。
 
 本轮检查结果：5份卡片均经已装huggingface_hub的ModelCard本地YAML解析；5个PEFT Python例子均经AST语法检查；发布清单5条均有对应README/NOTICE，标准Apache文本11358字节。检查只核文档/metadata，不运行模型、程序或评分。
 

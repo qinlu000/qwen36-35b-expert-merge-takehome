@@ -2210,3 +2210,10 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
 
 - 最终审计发现 README 中一段旧的“专家目标项和 AVG64 尚未收齐”描述与当前结果矩阵冲突，已改为实际收口结果：Base 四项、各目标专家、AVG64 及 Terminal seed2 exploratory 的当前分数和 strict/native 限制。
 - 已复查 README、data/README、models/cards、发布清单和报告，移除可见的旧 pending/尚未齐备表述；仍保留正式协议未复现、strict null 和 exploratory 的准确限制。
+
+## 2026-10-18 17:30 CST：最终交付审计修正与图表补齐
+
+- 终检发现并修正三处提交材料问题：报告摘要改为 196 个非空白字符（171 个中文字符）；报告补入运行失败率与成本；摘要不再错误声称 AVG64 在所有项低于 Base。
+- 新增 HLE 合版消融图、CSV 源数据和重画脚本：`curves/hle_merge_ablation_20261018.png`、`curves/source/hle_merge_ablation_20261018.csv`、`scripts/plot_hle_merge_ablation_20261018.py`。
+- 新增 `results/README.md` 作为结果索引，明确 tracked compact tables、原始 per-task artifacts 的受控路径和 clone 后不可直接取得的限制。
+- 将 `github_repository_20261017.json` 和 `model_delivery_readiness_20261017.md` 标明历史快照并补充最终 main/commit/结果状态，避免旧的 master/complete_submission=false 内容被误读。

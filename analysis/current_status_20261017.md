@@ -494,3 +494,7 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
 ## 2026-10-18 17:00 CST：最终提交前修正 README 过时状态
 
 最终审计修正了 README 中一段旧的未完成评测描述，改为当前 Base、目标专家、AVG64 和 Terminal seed2 exploratory 结果，并保留 Terminal 官方五次配置未复现及 strict/native null 限制。README、数据入口、模型卡、发布清单和 report.pdf 现已相互一致。
+
+## 2026-10-18 17:30 CST：最终交付审计修正与图表补齐
+
+终检修正了报告摘要长度与 AVG64/Base 结论表述，报告增加 Base Terminal/TIES invalid 的失败率和已核 API/GPU 成本。新增 HLE 合版消融 PNG、CSV 和重画脚本，以及 `results/README.md` 结果索引。历史 GitHub/model delivery 快照已显式标注最终状态，当前只保留真实协议限制和 raw artifacts 不随 clone 分发的说明。
