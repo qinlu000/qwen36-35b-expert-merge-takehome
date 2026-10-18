@@ -2185,3 +2185,11 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
 - 五个本地 `models/cards/*.md` 已移除过时的“formal scores pending”表述，改为记录冻结 SFT artifact、目标 benchmark 结果、资源受限协议、单次 Terminal exploratory、replacement/local Judge 和 null/invalid 处理。
 - `report.pdf` 摘要改为 151 个中文字符，明确只做一轮 BF16 LoRA SFT、未做全参/DPO/RL/第二阶段，并重新生成、检查为单页且目视通过。
 - HF 权重 revision 不变；当前环境未配置可写 HF token，因此没有擅自改动公开模型仓库的 revision。GitHub 中的最新模型卡和 README 是最终结果/限制的权威提交说明，HF 已发布权重身份保持冻结。
+
+## 2026-10-18 15:35 CST：补充三项未执行的后续优化方案
+
+- 根 README、`analysis/next_steps_20261018.md` 和 `report.pdf` 已加入题目要求的后续计划，并明确本轮未执行：
+  1. 重新构造与正式 harness/system/tool/environment 一致的数据，保持训推一致；
+  2. 在来源隔离、去重和污染检查不变的前提下增加高质量训练数据，并控制 token/配比；
+  3. 在独立开发集上调试 AVG/TIES 等合版方法，控制容量并分析参数冲突后再做四项评测。
+- 三项均需新增数据、训练、沙箱评测或 Judge API 预算；受当前时间、GPU/CPU 和 API 资源限制，本轮没有执行，也没有把计划写成已完成收益。

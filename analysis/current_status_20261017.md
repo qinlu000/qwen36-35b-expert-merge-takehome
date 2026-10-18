@@ -478,3 +478,7 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
 ## 2026-10-18 15:05 CST：补充资源受限与设置变更披露
 
 最终 README 和 `report.pdf` 已明确说明：由于剩余时间、可用 H100/CPU 沙箱和 Judge API 预算极度受限，本项目只完成一轮 BF16 LoRA SFT，没有 DPO/RL/第二阶段优化或全参训练；所有 checkpoint/merge 选择不由正式 benchmark 结果反复搜索。实际评测统一使用 64K context、8K output、关闭 thinking/preserve_thinking；Terminal 使用 30分钟/4CPU/8GiB/seed2 单次 exploratory，SWE 使用30分钟，HLE/ASI 使用披露的 public/local replacement Judge，ASI 使用 open seed 本地评分。上述设置偏离题面官方配置，已在最终提交中单独标注。
+
+## 2026-10-18 15:35 CST：补充三项未执行的后续优化方案
+
+最终提交新增 `analysis/next_steps_20261018.md`，并在 README/report.pdf 说明三项后续方向：保持训推一致的数据重构、增加高质量数据量、在独立开发集上调试合版方法。它们都需要新增数据、训练、沙箱评测或 Judge API 资源；本轮因时间和资源极度受限未执行，不能宣称已有改进结果。

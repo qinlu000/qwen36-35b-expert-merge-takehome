@@ -18,6 +18,14 @@
 
 为保证在窗口内完成可复现的首轮比较，实际协议也做了固定改动：所有模型关闭 `thinking` 和 `preserve_thinking`，上下文上限为 64K、输出上限为 8K；Terminal 使用 30 分钟、4 CPU、8 GiB、单次 seed=2 exploratory，而题面配置为 3 小时、32 CPU、48 GiB、256K/80K、五组 seed；SWE 使用 30 分钟上限；HLE/ASI 使用已披露的 public/local replacement Judge，ASI 使用 open seed 的本地评分而非 protected Portal。上述设置在所有对应模型间保持一致，结果不能直接称为官方配置下的成绩。完整差异和原始凭据见 [固定协议](configs/eval/protocol_v2_unified64k8k.json)、[结果矩阵](analysis/complete_results_table_20261018.md) 和 [invalid 修复记录](analysis/invalid_repair_status_20261018.md)。
 
+### 资源允许后应执行的三项优化（本轮未执行）
+
+1. **重新构造数据，保持训推一致。** 围绕正式 harness 的 system prompt、工具 schema、工作目录、依赖预置、结束动作和输出交付，重新筛选或生成可在相同环境中复现的完整轨迹；用独立开发任务比较准备失败率、交付正确率和任务成功率。
+2. **提高数据量。** 在保持来源隔离、去重和污染检查的前提下，扩充各专家的高质量完整轨迹，并控制 token、训练步数和数据配比，比较当前规模与更大规模的收益，避免把重复曝光误当成新任务覆盖。
+3. **调试合版方法。** 在固定独立开发集上比较 AVG64、等容量 Mixed、TIES-Dense 或其他明确合版配方，分析参数冲突、容量差异和各 benchmark 退化，再冻结配方做正式评测；不能用本轮 HLE-only 对照替代四项方法比较。
+
+这三项都需要新的数据准备、训练或完整评测资源，本轮因时间、GPU/CPU 沙箱和 API 预算不足未执行，不能把它们写成已完成改进。
+
 ## 实验设计与数据
 
 基座为 [Qwen/Qwen3.6-35B-A3B](https://huggingface.co/Qwen/Qwen3.6-35B-A3B/tree/995ad96eacd98c81ed38be0c5b274b04031597b0)，model/tokenizer/processor 固定 revision `995ad96eacd98c81ed38be0c5b274b04031597b0`，保留多模态架构。四个专家按监督内容和工具契约划分；它们是四份独立 LoRA，不是修改基座 MoE 内部的 routed experts，也不在推理时路由或投票。
