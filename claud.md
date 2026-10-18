@@ -2167,3 +2167,9 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
 - 已更新根 `README.md`：当前结果、Terminal 单次 exploratory 口径、Base timeout provisional zero、TIES-Dense 离线 overlay、公开模型链接和交付边界均已写明。
 - 五个 Hugging Face 仓库按 `models/release_manifest.json` 的 immutable revision 重新匿名核验：均 `private=false`、`gated=false`，revision 与 manifest 一致；不重复上传、不改变已发布模型身份。
 - 最终提交只纳入交付文档/报告/结果快照，不纳入 `artifacts/`、凭据或其他会话的 live/WIP 文件。
+
+## 2026-10-18 14:50 CST：按模板核对独立候选人仓库
+
+- 重新核对题面与模板 README：要求是以模板为基础的独立候选人 GitHub 仓库，代码/README/分析/曲线/日志/`report.pdf`进入该仓库；模型权重进入候选人自己的公开 Hugging Face 仓库。
+- 当前 `qinlu000/qwen36-35b-expert-merge-takehome` 是独立私有候选人仓库，不是模板仓库；最终内容已同步到 GitHub `main`，并将 `main` 设置为默认分支。`master` 与组内 `lab/master` 也保留同一最终提交链。
+- 根 README 已明确候选人仓库、五个 HF URL/revision、实际目录映射、协议限制和最终 commit；没有把模型权重放进 GitHub。
