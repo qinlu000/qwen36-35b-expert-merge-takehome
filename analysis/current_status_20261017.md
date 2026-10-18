@@ -490,3 +490,7 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
 ## 2026-10-18 16:25 CST：在报告结论加入 SFT 对 Base 的直接对比
 
 最终 `report.pdf` 和 README 已加入首轮 SFT 专家与 Base 的同项百分点差值：SWE -19.607843pp、HLE +2.96pp、ASI -1.191997pp、Terminal seed2 exploratory -10.112360pp。结论明确本轮 SFT 只有 HLE 目标项提升，其余目标项退化，不能用 loss 替代任务成功率。
+
+## 2026-10-18 17:00 CST：最终提交前修正 README 过时状态
+
+最终审计修正了 README 中一段旧的未完成评测描述，改为当前 Base、目标专家、AVG64 和 Terminal seed2 exploratory 结果，并保留 Terminal 官方五次配置未复现及 strict/native null 限制。README、数据入口、模型卡、发布清单和 report.pdf 现已相互一致。

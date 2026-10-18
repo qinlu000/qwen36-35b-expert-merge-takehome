@@ -75,7 +75,7 @@ Terminal保留全89×5范围，但 **30min/4CPU/8GiB/64K/8K低于原题3h/32CPU/
 
 默认汇总保持上述严格原生口径；另可显式生成[审计固定预算视图](analysis/terminal_budget_aggregation_20261017.md)。它沿用Harbor将None映为失败的均值语义，但只接受精确逐结果审查通过的计算超时，保留原native null、原生覆盖及审计来源，未决环境故障继续留空。03:25的Base Terminal为442份原生有效＋3个审计超时，独立预算分**20.224719%**、五seed sample SD **2.635065个百分点**；严格主分仍为空。此规则对专家/AVG64同样适用，不能套用Base的task白名单；两种视图和宏平均分别保存，不混称全445份原生reward。
 
-原统一Base审计曾有5 SWE＋1 HLE＋9 TB判分缺口；其owner已03:29仅用原答案补评分收尾，SWE51/51有效、10正确、19.607843%，HLE2500/2500有效、99正确、**3.96%**，ASI240/240、1.570988%，TB442native另3审计超时派生0仅进独立预算视图，见[补评记录](analysis/base_gap_completion_20261017.md)。三个进入官方测试后耗尽900秒的TB结果仍保留native null，另有逐结果计算超时审计，不能与环境故障混算。SWE专家当前8项exact native0与1项完整官方报告审计另存[独立汇总](analysis/swe249_audited_summary_20261017.md)，未改原队列。专家目标项和AVG64四项正式运行仍未收齐，完整矩阵、宏平均提升及其CI尚未齐备，未声明达到3pp/5pp目标。动态结果以 [显式结果路径清单](configs/eval/final_results_20261017.json) 指向的owner输出及其更新时间为准。
+Base 的完整结果为 SWE 19.607843%、HLE 3.96%、ASI 1.570988%；Terminal 的 442 条 native 结果加 3 条计算型 verifier timeout 仍分别保留，用户确认的 timeout-derived 0 只进入独立汇报视图。各专家只在其目标 benchmark 上主评：SWE 0/51、Terminal seed2 exploratory 8.988764%、HLE 6.92%、ASI 0.378991%；AVG64 已有 SWE 7.843137%、HLE 4.68%、ASI 0.460702% 和 Terminal seed2 exploratory 12.359551%。因此结果矩阵已按实际协议收口，但 Terminal 五次官方均值、官方资源配置和部分 native strict 项仍不能声称已复现；所有差异见 [全部结果矩阵](analysis/complete_results_table_20261018.md) 与 [invalid 修复记录](analysis/invalid_repair_status_20261018.md)。
 
 ## 在原环境复现
 
