@@ -1,0 +1,14 @@
+{
+  "created_at_cst": "2026-10-18 13:56:25 CST",
+  "policy": "user-approved provisional timeout-derived zero",
+  "scope": "Base Terminal historical 445-trial audit view only",
+  "tasks": [
+    {"task": "feal-differential-cryptanalysis", "seed": 0, "native_reward": null, "derived_reward": 0, "reason": "verifier timeout after official pytest started"},
+    {"task": "feal-differential-cryptanalysis", "seed": 4, "native_reward": null, "derived_reward": 0, "reason": "verifier timeout after official pytest started"},
+    {"task": "model-extraction-relu-logits", "seed": 4, "native_reward": null, "derived_reward": 0, "reason": "verifier timeout after official pytest started"}
+  ],
+  "accounted_result": {"expected": 445, "native_valid": 442, "derived_timeout": 3, "accounted": 445, "score_percent": 20.224719101123597, "correct": 90},
+  "strict_result_unchanged": true,
+  "new_model_calls": 0,
+  "disclosure": "Derived zeros are shown only in the separately labeled audit/budget view; original native reward/verifier_result remain null and are not rewritten."
+}

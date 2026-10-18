@@ -241,3 +241,236 @@ nginx原答案的一次native补评分parent **851972/start868587717** 已持久
 7. **Terminal网络策略已确认保持不变**：[真实探针](terminal_network_diagnosis_20261017.md)以同SIF/入口/CPU11做public→no-network→public差分，证明当前本地额外断网策略导致DNS失败；Base、专家和AVG求解阶段统一受限。独立probe已清理。用户了解既有三组均禁网后明确“那不用改了吧”，本轮沿用冻结no-network，不只修剩余题、不重生成旧答案或重标历史0；报告披露额外限制及下载依赖任务的潜在影响。迁HPC分区不改变80 sandbox网络。
 
 接下来依次收齐固定正式输出、审核评分异常、重算完整统计、整理真实失败、更新报告与资产索引，再完成最终提交。[最小交付清单](submission_remaining_20261017.md)和[持续进展日志](overnight_progress_20261016.md)保存详细证据。
+
+
+## 2026-10-17 16:30 CST：新低LR SWE候选正式评测启动与HPC沙箱修复
+
+用户要求评测新SWE候选 `checkpoint-128`。候选服务 `728866` 在 ACD1-30、普通 `acd_u/Nice1000`、TP2、别名 `apex-val-swe-lr2e5-max32k` 健康，LoRA已加载；固定HARD51评测仍使用64K上下文、8K输出、non-thinking、官方任务/测试和每题预算，不重生答案。
+
+评测入口先后保留了 retry1–retry3 的基础设施失败：HPC glibc 2.28 无法加载评测包的 glibc 2.33 `slirp4netns/libslirp`，导致51题均在任务前失败。随后在项目目录放置从已配置Ubuntu 2.35主机取得的用户态兼容loader/库，最小namespace readiness通过。继续诊断发现HPC无user-systemd、SIF FUSE挂载被禁用、默认96线程unsquashfs在4GiB任务限制下OOM、fakeroot无subuid、runtime/uv/wheels/mini约束未同步，以及runtime venv仍指向80的绝对路径；这些均分别在 retry4–retry18 留存原始日志，未将它们计为模型失败。
+
+当前HPC专用评测路径为：项目内glibc235 slirp loader；Slurm 128GiB作业中的直接CPU亲和路径（无user-systemd时）；按SIF digest的已解包rootfs；不使用fakeroot；单进程unsquashfs配置；同步的SWE runtime/wheels/uv/mini约束；修正HPC `pyvenv.cfg`。这些是评测环境适配，不改变题目镜像内容、题目代码、官方测试或模型协议。由于HPC没有systemd cgroup，直接路径不提供原systemd MemoryMax；该偏离需在报告中披露，不能冒充完全同构官方环境。
+
+retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服务连接，生成 `mini-swe-agent.trajectory.json`（约241KB，28步仍在求解）；尚无 `result.json`/replay/verifier 结果，严格SWE分数仍null。此前所有重试没有模型请求；retry19 才是首个可审计真实模型轨迹。单题按原1800秒预算自然结束后，先独立审计轨迹、patch、replay和资源清理，再决定是否把同一适配路径扩展到HARD51；不因单题未完成而手填0、重生答案或改变预算。
+
+新增/修改的HPC适配代码仅为可选路径：`baseline_netns.py`兼容loader、`baseline_singularity.py`直接限额/无fakeroot/rootfs目录、`baseline_exec_limits.py`、`swe_baseline_v2.py`的无root离线mini安装，以及对应retry配置；默认systemd/fakeroot路径保持原行为。训练分数、loss、旧SWE249/AVG64/ASI128身份均未改。
+
+## 2026-10-17 17:20 CST：ASI退化定位与Terminal单次运行口径
+
+- ASI128与Base使用同一 public/local replacement Judge、同一240条件（60任务×B1–B4），分数分别为0.3789913819%与1.5709884069%，配对差−1.191997pp，95% CI [−2.278710,−0.303023]。两侧分母、score divisor和聚合公式已核对，未发现缩放错误；服务验收也通过同一alias、64K/8K、nonthinking和direct_llm协议。
+- 逐任务方向为3升、11降、46平；最大下降五项约占净降82.04%。训练数据1073条中82条是完整SAB程序，976条DS-1000函数/片段，15条SciCode函数或主解。ASI正式direct_llm要求单次完整Python程序读取工作区并写声明产物，且只提取闭合code fence、执行一次；这使静态函数/片段监督与正式产物契约发生明显错配，是当前一级假设。
+- 观察到的失败包括12条8192截断导致未闭合fence、36条未声明import、1条pyscf子模块路径和48条其他程序/API/数据/CLI错误。它们是观察分类，不把全部失败归因训练；学习率1e−4、LoRA r16/alpha32、单epoch是待用低LR复训验证的次级因素。ASI train/val loss无发散证据，loss继续只作训练诊断。
+- 详细证据见 `analysis/asi_drop_and_terminal_one_run_20261017.md` 和 `analysis/asi_base_expert_task_comparison_20261017.md`。
+- 用户明确改口：后续新Terminal评测每个89任务只跑一个固定seed/attempt（共89次），不再启动五次重复；已有445条五seed结果、均值和SD全部保留，不覆盖、不混报。新单次结果必须使用独立manifest/结果目录并标注 `single-run exploratory`，不能称满足题面五次均值/标准差。当前不因该改口重跑已有Terminal答案。
+
+## 2026-10-17 17:30 CST：新SWE候选retry23实际开始
+
+- HPC 51 个固定SWE镜像 rootfs 已重新解包并逐目录验证 `bin/bash`/`usr/bin/bash` 均存在；retry20–22 的旧基础设施失败保留，不计入模型成绩。
+- 发现旧服务脚本固定读取通用输出目录，第一次启动未进入新目录；该路径已自然结束且未纳入新分数。随后用独立 `configs/eval/swe_lr2e5_max32k_retry23_hpc_20261017.json` 和 `artifacts/eval/swe_lr2e5_max32k_retry23_20261017` 直接启动 runner，Slurm step `728866.50`，10 CPU、复用候选服务 `728866` 的2卡端点，普通 `acd_u/Nice1000`。
+- 17:28 快照为 `running`、10 个 active、40 个 pending、0 valid scored；固定51题、64K/8K、nonthinking、每题1800秒和官方测试不变。当前没有可报告的SWE分数，完成后再独立审计。
+- 17:34 更新：服务节点 ACD1-30 发生 Slurm `NODE_FAIL`，728866 与 step 728866.50 同时终止；不是模型 reward。retry23 10 个 active 均无 generation/replay result，已保留原始目录并登记 `node_fail_recovery.json`，重新排回50个待处理项。新服务729431已按普通 `acd_u/Nice1000` 提交，但当前仍 `PENDING(Priority)`，不擅改优先级或启用emergency。
+
+## 2026-10-17 18:46 CST：SWE候选评测仍未取得分数
+
+- 低LR候选训练728713已完成，checkpoint-128可用；但retry23在服务节点ACD1-30发生NODE_FAIL，当前checkpoint为`recovered_after_node_fail`、`valid_scored=0`，没有把节点故障计为模型失败。
+- 新候选服务729431仍为普通`acd_u/Nice1000`、2 GPU/16 CPU/128G，状态`PENDING(Priority)`，预测启动时间已滚动到10月18日约14:59，不能作为保证；因此新候选尚无SWE分数。
+- 已有旧SWE专家正式结果仍为0/51，Base为10/51，AVG64为4/51；这些是旧冻结结果，不代表低LR候选。
+
+## 2026-10-17 21:46 CST：新LR SWE仍在等待GPU服务
+
+- 实时检查：服务729431仍为普通`acd_u/Nice1000`的`PENDING(Priority)`，申请2 GPU/16 CPU/128G；Slurm预测启动时间滚动到10月18日00:49，不能视为保证。
+- retry23状态仍为`recovered_after_node_fail`、0/51 valid scored、0 active、50 pending；没有把节点故障计为模型失败，也没有新的模型请求或分数。
+- 若00:49后才获得服务，按51题完整队列的历史时长，完成时间可能超过02:20核心实验窗口；不擅自改Nice、启用emergency或缩短每题预算。
+
+## 2026-10-17 21:50 CST：用户授权提高新LR SWE优先级
+
+- 按用户授权，将服务729431的Nice从1000提高到0，仍是普通`acd_u`、2 GPU/16 CPU/128G；Slurm优先级由2355升至3355。
+- 负Nice进一步提权被Slurm拒绝（权限不足），未启用emergency、未取消其他作业、未改变评测预算。GPU碎片仍可能使预计启动时间晚于核心窗口。
+
+## 2026-10-17 22:00 CST：停止新LR候选，整理第一次训练结果
+
+- 用户决定不再等待新LR SWE 候选；等待中的729431已取消。新LR checkpoint、retry23节点故障证据和配置均保留，但不纳入主结果。
+- 第一次训练结果已整理到 `analysis/first_training_results_summary_20261017.md`，涵盖Base、四专家、Mixed、AVG64、训练曲线、benchmark分数和协议限制。后续汇报以该摘要和冻结strict结果为准。
+
+## 2026-10-17 22:10 CST：Mixed与最终缺口核对
+
+- Mixed883只完成HLE正式2500题，结果146/2500=5.84%；没有SWE、Terminal或ASI正式全评。它是训练对照，不是主合版，也不要求自动扩成四项全评。
+- 题面硬性最低矩阵是：Base四项全量；每个专家至少完成自己的目标项；最终选定合版四项全量；至少一个可解释训练对照；至少两种合版方法或关键配置消融；训练曲线、宏平均/配对区间、失败案例、成本和可复现交付。
+- 当前关键缺口：Base Terminal strict仍3 invalid；Terminal专家和AVG64 Terminal未完成；AVG64 ASI未完成；因此最终AVG64四项macro仍null。AVG64已有完整SWE/HLE，Mixed已有完整HLE，AVG16也只有HLE对照。
+- 合版方法/消融已有AVG64与AVG16辅助对照及TIES-Dense HLE-only材料，但尚不能称完成四项方法比较；最终还需整理对照解释、20个失败案例、最终一页report.pdf、资源/成本和提交索引。
+
+## 2026-10-18 01:40 CST：继续全量评测的最终口径
+
+- 用户确认：继续推进正式评测；Terminal 后续每个任务只跑一次固定 seed/attempt，不再启动五 seed；合版消融先只看 HLE。
+- HLE 对照已整理：HLE专家6.92%最高，Mixed5.84%，AVG64 4.68%，AVG16 4.04%，Base3.96%；因此 AVG64 不是 HLE 最优。TIES-Dense仅2499/2500有效，保留为未完成方法对照。
+- Terminal现有服务727912/727913将在02:01/02:09左右到期，当前剩余时间不足以完成新的89题单次全量队列；不启动注定无法完成的半截队列，历史445条结果继续保留并与新single-run口径分开。
+
+## 2026-10-18 01:45 CST：invalid修复审计与每小时推进
+
+- 用户要求修复所有 invalid。已创建每小时 heartbeat automation `apex`，每轮优先处理有明确证据的 grade-only 工程恢复；未知、环境故障、缺少原件和无授权重答项继续保留 null，不伪造分数。
+- 已知可接受的修复包括部分 SWE 原答案 native0、Terminal git-leak/nginx 的精确审计 overlay、ASI CMOS import 恢复；这些不重生成答案。仍未闭合的 Terminal invalid（cleanup guard、依赖供应、缺少归档）需逐项审计，不能统一重跑。
+- 当前终端服务接近自然到期，没有新 GPU 或 benchmark 队列；自动化在核心截止前只做安全审计和已有资产整理，截止后不启动新实验。
+
+## 2026-10-18 03:18 CST：自动检查收尾
+
+- 只读核对显示 Terminal 专家服务727912和AVGExec727913已按原TimeLimit自然`TIMEOUT`，batch被Slurm正常取消，未发现新任务控制器或模型请求。
+- 截止核心窗口后不再启动新的GPU、Terminal single-run或grade-only任务；invalid继续按证据分类保留，后续仅整理报告、统计快照和复现索引。
+
+## 2026-10-18 04:22 CST：截止后只读审计
+
+- 本轮按核心窗口后的规则仅做只读核对。HPC `hpc3` 当前 `squeue` 为空；Terminal专家服务727912和AVGExec服务727913均已自然 `TIMEOUT`，分别运行21:35:28和21:43:29，未发现新的GPU、benchmark控制器或模型请求。等待中的新LR SWE服务729431已取消，不能产生新分数。
+- invalid修复状态没有安全新增项：Base Terminal 3条计算型timeout、Terminal专家7条、AVG64 Terminal 6条异常、TIES-Dense 1条缺`correct`继续保留原始证据和null；没有满足同一答卷/环境/预算/完整排空条件的grade-only恢复，不填0、不重答。
+- HLE现有消融排名保持：HLE专家6.92% > Mixed5.84% > AVG64 4.68% > AVG16 4.04% > Base3.96%；因此AVG64不是HLE最佳。主AVG64四项宏平均仍因ASI和Terminal coverage不足而不能计算。
+- 由于已超过2026-10-18 02:20核心截止，后续automation只整理报告、统计快照和复现索引，不再启动新的GPU、Terminal single-run或benchmark任务。
+
+## 2026-10-18 05:23 CST：只读状态无变化
+
+- HPC `hpc3` 队列仍为空；没有新的 GPU、benchmark controller、模型请求或 grade-only 任务。727912、727913 仍以自然 `TIMEOUT` 作为最终服务状态，729431 仍为已取消且无分数。
+- invalid 分类与 HLE 消融结果无变化。Terminal/ASI coverage不足、Base Terminal strict invalid、TIES-Dense缺失`correct`继续保留原始证据和null；AVG64四项macro仍不能发布。
+- 本轮未修改评测资产；只将状态记录于本文件和统一进展文档。后续继续保持截止后的报告整理模式。
+
+## 2026-10-18 06:18 CST：只读审计无新结果
+
+- 本地和 `hpc3` 核对均未发现新作业或新评测结果；队列为空，727912/727913 仍是自然 `TIMEOUT`。工作区保留既有其他会话 WIP，本轮没有整理或覆盖它们。
+- 当前 strict 结果、invalid 分类、HLE 消融排名和 AVG64 macro 缺口均无变化。由于核心窗口已结束，继续只做报告与复现索引整理，不发起新的 GPU、benchmark 或 grade-only 作业。
+
+## 2026-10-18 07:28 CST：只读审计无新结果
+
+- `hpc3` 用户队列和全队列均为空；近期只有已记录的727912/727913自然超时、728713训练完成、728866节点故障、729431取消，未出现新的GPU或benchmark结果。
+- 工作区仍保留既有多会话WIP，本轮不覆盖、不提交；strict结果、invalid分类、HLE消融和AVG64宏平均缺口没有变化。
+- 继续遵守截止后规则：只整理报告、成本与复现索引，不启动新任务。
+
+## 2026-10-18 08:25 CST：只读审计无新结果
+
+- `hpc3` 队列为空，未发现运行进程或新 benchmark controller。728866 的节点故障、729431 的取消和727912/727913的超时状态均与既有记录一致；retry23仍是0个有效计分，原始产物保留。
+- 本地工作区仍有既有未提交WIP，HPC项目镜像没有新的可同步Git状态。本轮不修改这些资产，不启动新的GPU、benchmark或grade-only任务。
+
+## 2026-10-18 09:33 CST：只读审计与遗留镜像同步
+
+- `hpc3` 的 Slurm 用户队列和全队列仍为空，没有运行中的评测作业或 benchmark controller。发现一个更早启动的非Slurm背景进程 `mirror_benchmark_sifs.sh`（PID 19075）仍在同步镜像；源进度为 `finished`、140个镜像中138个完成、2个 ProtonMail webclients 镜像失败。该进程不是新评测任务，本轮未停止或重启，完整性收据仍未更新为complete。
+- 728866/729431/727912/727913状态与此前记录一致，retry23没有有效计分；invalid、HLE消融和AVG64宏平均缺口没有变化。
+- 截止后仍只做报告和复现索引整理，不启动新的GPU、benchmark或grade-only任务。
+
+## 2026-10-18 10:22 CST：停止自动化并冻结项目状态
+
+- 用户要求停止每小时自动化；heartbeat `apex` 已在 Codex 自动化服务中删除，不会再按小时触发检查。
+- 当前 HPC 无 Slurm 作业；727912/727913 已自然超时，728866 为节点故障，729431 已取消，retry23 无有效分数。非Slurm的SIF镜像同步进程仍按原状态保留，未将其误认为评测服务。
+- 项目结果冻结为现有 strict/审计视图：第一次训练结果、HLE合版消融、ASI/SWE对照和已记录的Terminal覆盖均以现有文件为准；不补造AVG64四项macro、不把partial coverage或invalid填成0。
+
+## 2026-10-18 10:24 CST：按题目要求核对剩余交付项
+
+- 实验性硬缺口：Base Terminal仍有3条strict invalid；Terminal专家目标项、AVG64 Terminal和AVG64 ASI没有完整有效覆盖；因此最终合版四项全量矩阵和宏平均不能宣称完成。Terminal官方五次均值/标准差及3小时/32CPU/48GB/256K设置也未实现，已有445条历史结果必须按实际协议披露。
+- 合版消融已有AVG64/AVG16和TIES-Dense的HLE材料，但TIES有1条invalid且没有四项完整结果；应在报告中标成部分HLE-only对照，不能包装成完整两方法四项比较。
+- 可整理交付项：最终一页`report.pdf`、最终成本/GPU小时账本、README中的模型链接/revision/merge recipe、逐任务结果索引和完整复现路径仍需最后核对。20个失败案例、训练曲线和主要实验记录已经存在。
+
+## 2026-10-18 11:25 CST：AVG64 ASI 已有完整 score-only 结果
+
+- 复核 host80 远端 `artifacts/eval/avg64_asi240_20261017`：240/240 条生成、240/240 条评分、active/unsubmitted/scorer error 均为0，CPU消费者已排空。该结果不需要新生成或模型调用。
+- public local replacement Judge 的完整分数为 `110.56851907426662/24000 = 0.4607021628%`；`official=false`，Judge 为`deepseek-flash`，revision未固定。原始 answer JSON 中222/240状态为failed，但保存的轨迹/代码/outputs均存在，评分器将失败尝试作为0分保留；若要改善这些失败需要新生成，不能把它们误写成成功。
+- 因此此前“AVG64 ASI 94/240未完成”的汇总已过时，已新增 `analysis/source_snapshots/avg64_asi_complete_20261018.json` 并修正第一次训练汇报。AVG64 四项 macro 仍因Terminal coverage不完整而不能计算。
+
+## 2026-10-18 11:31 CST：开始补齐实验硬缺口的可行性审计
+
+- 用户明确要求补齐硬缺口。已先按不重生答案原则审计：AVG64 ASI 可直接采用远端已完成的 score-only 结果；Base Terminal 三条仍只有 fixed-budget 派生0，strict native reward缺失，若要补strict必须实际重跑原verifier。
+- Terminal 专家和AVG64 Terminal是否按题面五次运行重启，与用户此前“只跑一次”的口径冲突，已单独请求确认；在确认前不启动新的Terminal队列，避免产生无法归类的半截结果。
+
+## 2026-10-18 11:29 CST：补齐审计的最新阻塞
+
+- Base Terminal 三条 strict invalid 已确认原答案、原归档、原SIF和900秒timeout证据都在，但缺少三条对应的 exact frozen restore manifest；现有 manifest 明确把它们列为 excluded computation timeouts。没有 manifest 前不推测解压步骤、不运行 verifier。
+- AVG64 ASI 的240/240 score-only结果已落本地证据快照；当前真正仍依赖用户口径确认的是Terminal专家/AVG64 Terminal是否恢复为题面五次运行。
+
+## 2026-10-18 11:31 CST：Terminal 445 队列已结束，转入 grade-only 修复
+
+- 复核 host80 两个历史445 controller：两边均已 `all445_attempts_finished`、active/pending为空、CPU消费者排空。Terminal专家为 `valid_scored=428/445`、17条 infrastructure-unscored；AVG64为 `435/445`、10条 infrastructure-unscored。此前只汇报的285/263是较早中间快照。
+- 两个模型服务已结束，不能继续生成；现有答案完整保留。专家17条中已有3条独立grade-only产物待接入，另有9条具备archive；AVG64 10条中8条具备archive。下一步只对有完整archive和可复现原verifier的条目做独立grade-only，不重生答案、不启服务、不改原summary；已知依赖/输入故障继续null。
+- Terminal仍不改变用户先前的单次 exploratory 口径；本轮修复的是已经完成的历史445答案的工程性 invalid，不会把grade-only覆盖混入新的单次队列。
+
+## 2026-10-18 11:35 CST：两条专家 grade-only 仍为环境 invalid
+
+- 已执行并审计专家 `pytorch-model-cli/seed2` 与 `query-optimize/seed3` 的独立 grade-only。两条均未进入官方 verifier：前者为 `nsenter: singularity 不存在`，后者为 `baseline_exec_limits.py OSError: [Errno 22] Invalid argument`。
+- 两条均保持 `verifier_result=null`、`new_model_calls=0`，原始结果/归档/445 summary 未改；独立输出和 SHA 收据见 `analysis/source_snapshots/terminal_grade_only_execution_20261018.json`。按规则不重试、不填0。
+
+## 2026-10-18 12:10 CST：Base 三条 grade-only 修复仍被恢复环境阻塞
+
+- Base 三条 attempt3 均因归档中的 `etc/resolv.conf` 与环境预挂载文件冲突，未进入 verifier。对 FEAL seed0/seed4 做了一次最小 attempt4，仅使用 `tar --exclude='etc/resolv.conf'`，其余归档成员、SIF、依赖、候选和900秒预算不变；两条仍在restore阶段约180秒后超时，未产生测试输出或reward。model-extraction seed4保持同类恢复失败。
+- 所有 attempt 已排空，原结果和strict summary未改；三条继续保留 `null`，不再扩大排除范围或盲目重试。该硬缺口需要更完整的环境恢复方案才能安全修复，不能靠派生0闭合。
+
+## 2026-10-18 12:15 CST：历史445结果不能直接抽成完整single-run
+
+- 逐seed核对历史445：Terminal专家各seed有效数为86、85、87、85、85；AVG64各seed为86、87、88、87、87，均没有89/89完整seed。缺口主要是train-fasttext等已知环境项，以及少量独立invalid。
+- 因此不能从现有结果直接抽出两个模型都完整的single-run；只能抽出partial coverage。Base历史结果另有seed1–3达到89/89，但不能与专家/AVG64拼成完整公平矩阵。
+- 新的single-seed目录已准备但尚未提交服务；若继续，应预先固定一个seed并只补该seed的缺失任务，单独报告single-run exploratory，不改旧445结果。
+
+## 2026-10-18 12:20 CST：seed2 single-run 已补齐
+
+- 固定 seed=2 后，仅补三条缺失任务：Terminal 专家 `pytorch-model-cli/seed2`、`train-fasttext/seed2`，AVG64 `train-fasttext/seed2`。三条均取得 native reward=0，历史445结果和summary未覆盖。
+- 得到两个完整 single-run 行：Terminal专家 **8/89 = 8.988764045%**，AVG64 **11/89 = 12.359550562%**。`train-fasttext` 的官方 pytest 已在固定离线CPython3.11.14环境中运行，候选缺少`/app/model.bin`，所以0分是有效native结果。
+- 该结果只标为 `single-run exploratory`，不能替代Terminal官方五次均值/标准差，也不与历史445条混合。证据见 `analysis/source_snapshots/terminal_seed2_completion_20261018.json` 和 `analysis/terminal_seed2_completion_20261018.md`。
+
+## 2026-10-18 12:26 CST：补齐后剩余项目清单
+
+- 实验结果层面：Terminal专家/AVG64已有完整seed2 single-run；Base strict Terminal三条仍是native null；AVG64的正式四项macro仍不能发布，因为Terminal这一项采用了用户确认的single-run exploratory口径。
+- 题面协议层面：Terminal五次均值/标准差和3小时/32CPU/48GB/256K设置未实现，需在README/report中明确标注为协议偏离，不再追加五次运行。
+- 合版层面：AVG64/AVG16与TIES-Dense已有HLE对照，但TIES仍1条invalid且没有四项完整对照；只能作为部分消融披露。
+- 交付层面：剩余工作主要是最终report.pdf、结果矩阵/CI/失败率、资源/API成本账本对账、README模型revision与merge recipe、复现索引收口。训练曲线、20个失败案例和主要配置已存在。
+
+## 2026-10-18 12:43 CST：TIES-Dense invalid 已完成离线 score-only 修复
+
+- TIES-Dense HLE 唯一缺`correct`的条目已用两份冻结 HTTP200 Judge body 做独立离线解析；原文明确为 `correct:no`。新增 API/Judge/model 调用为0，原始 result/summary 不改。
+- 独立 overlay 将 disclosed complete 视图补为 **131/2500 = 5.24%**，并保留原始 invalid；这不是官方 Portal 重判。manifest/result/summary 及 SHA 位于 `artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/`。
+
+## 2026-10-18 12:45 CST：最新剩余项核对
+
+- 已完成：四专家第一次SFT、AVG64 ASI 240/240、TIES-Dense HLE离线overlay、Terminal专家/AVG64 seed2 single-run 89/89，以及HLE/训练/失败案例材料。
+- 仍需披露而非继续重跑：Base Terminal strict 3条native null；历史445 Terminal的环境型invalid；Terminal single-run与题面五次均值/资源配置的偏离；AVG64正式四项macro不能用exploratory Terminal行替代。
+- 交付收口：最终`report.pdf`、最终结果矩阵/CI/失败率、资源/API成本对账、README模型revision/merge recipe和复现索引仍需整理。
+
+## 2026-10-18 12:47 CST：加入标注后的 AVG64 exploratory macro
+
+- 按用户确认，将固定 seed=2 的 Terminal single-run 写入独立补充视图：AVG64 四项 exploratory macro **6.335847%**，Base 对齐 seed2 exploratory macro **11.059989%**，差值 **−4.724141pp**。
+- 该视图明确标注 Terminal single-run、非题面五次均值/标准差及本实验资源协议，不覆盖 strict aggregation；详情见 `analysis/exploratory_macro_20261018.md`。
+
+## 2026-10-18 13:56 CST：用户确认暂记 Base Terminal timeout 为0
+
+- 用户允许先将 Base Terminal 三条 verifier timeout 在报告审计/预算视图中记为派生0。现有 accounted 视图为 445/445、90 correct、20.224719%；新增明确快照 `analysis/source_snapshots/base_terminal_timeout_zero_overlay_20261018.json`。
+- 该处理不改原生 `reward`/`verifier_result=null`，不把派生0写入 strict native 结果；正文标注为“用户确认的 timeout-derived provisional zero”。
+
+## 2026-10-18 14:05 CST：完成全部已跑结果矩阵
+
+- 已将 Base、四专家、Mixed、AVG16、AVG64、TIES-Dense 的 SWE/HLE/ASI/Terminal 结果统一整理到 `analysis/complete_results_table_20261018.md`，同时展示 strict、audit/provisional、历史445 coverage、seed2 exploratory 和 TIES offline overlay，不隐藏非正式结果。
+
+## 2026-10-18 14:10 CST：简化对外结果表
+
+- 按用户要求，主表改为单一最终汇报口径；不在表格单元格中展开 strict/overlay/coverage 分类，协议偏离和原始证据移到表后说明与附录。
+
+## 2026-10-17 17:45 CST：Terminal当前覆盖汇报
+
+- 最新严格快照14:46：Terminal专家 `285/445` 有效、7 invalid、153 pending；AVG64 Terminal `263/445` 有效、6异常、176 pending。Base为442/445 native有效、3 invalid；独立预算视图的445 accounted不等于445 native完整。
+- 727912/727913是仍在运行的模型服务，不代表新启动了Terminal五次队列。用户改为单次89题后，新的single-run exploratory队列尚未启动。
+
+## 2026-10-17 17:50 CST：Terminal禁网限制继续冻结
+
+- 用户确认本轮继续保持 Terminal solver 沙箱禁网，不修改既有 Base/专家/AVG64 结果、不为联网问题重跑旧答案。
+- 最终报告必须明确：官方任务文件没有要求该禁网设置，这是本实验额外的环境限制；它可能阻断 PyPI/Ubuntu 域名解析和依赖下载，相关失败不能直接解释为模型能力下降，也不能在 strict 统计中手工填0。
+
+## 2026-10-17 17:55 CST：Terminal完成时间估算
+
+- 按最后一次可审计短窗吞吐（专家19.52终态/小时、AVG6418.02终态/小时）估算，Terminal专家剩余153条约7.8小时，AVG64剩余176条约9.8小时；还需预留排空、审计和invalid处理时间。
+- 以北京时间17:55粗略换算，专家约01:40、AVG64约03:35结束任务尝试；这是线性估算，不是保证。要发布strict完整分，还必须处理7/6条invalid，不能把它们自动填0或重跑。
+- 该估算针对已启动的旧445-trial队列；用户改定的单次89题新队列不启动、不与旧队列混报。
+
+## 2026-10-18 12:25 CST：seed2 Terminal 缺口完成并同步证据
+
+- host80 已完成三条独立 archived-answer grade-only：Terminal专家 `pytorch-model-cli/seed2`、Terminal专家 `train-fasttext/seed2`、AVG64 Terminal `train-fasttext/seed2`。三条均 `valid_native`、native reward `0.0`、verifier 已启动且无异常；旧445目录和summary未覆盖。
+- 两条 `train-fasttext` 使用一次性、仅作用于 verifier sandbox 的官方离线 CPython3.11 供应修复（candidate/tests/budget/network/model calls 均不变）；官方测试仍按原候选结果给出 reward 0。无 grade-only 进程、Apex scope 或锁残留。
+- 远端原始结果：`/data/caoqinlu/projects/apex-takehome/artifacts/recovery/terminal-seed2-completion-20261018/terminal250-pytorch-model-cli-seed2/native-grade/result.json`（SHA256 `acdb0c6ed088f3aec72f34f9b684317c0f75678799024ec4031f89282226c131`）；`terminal250-train-fasttext-seed2/native-grade-fix2/result.json`（`686b29e871090f7530366c159088bcd4738d474cac4284e6e5b47e38676778c3`）；`avg64-train-fasttext-seed2/native-grade-fix2/result.json`（`ceeb882052977839b9ab513506a0dd11e224598bb90afb39b03262c2b3bceb2e`）。
+- seed2 独立汇总：Terminal专家 `89/89`，8 correct，`8.98876404494382%`；AVG64 Terminal `89/89`，11 correct，`12.359550561797754%`。JSON/Markdown 已同步到本地 `analysis/source_snapshots/terminal_seed2_completion_20261018.json` 和 `analysis/terminal_seed2_completion_20261018.md`，本地 SHA 分别为 `e8e2686a32788a952ce59e4663c9d951d46fe59f47d6ebb2ae7defa88332bf7e`、`b9bd76e783fe165f252d8526bd6ba92c056e39a9bbfee4e6434a418f5bafe3d2`。
+## 2026-10-18 12:42 CST：TIES-Dense HLE 唯一 invalid 离线 overlay
+
+- 只读复核确认任务 `672d8b9b504a98f0e4799ae0` 的原始回答、criteria、两次 HTTP200 Judge request/response 均完整；两份 frozen Judge body 都显式写出 `correct: no`，只是缺少严格 parser 要求的 `correct` 字段，原结果因此是 `evaluation_invalid`。
+- 按授权仅做独立离线解析，不重发 API、不修改 parser、不重生答案，不覆盖原 `result.json`/`summary.json`。远端 overlay：`/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/`；本地镜像：`artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/`。manifest/result/summary SHA 分别为 `00a85463487dbbfa8ccbefc04d2ddfe8640fd8928d0a0ad5003e88b8ae573229`、`7dc375e8391509e20300121730a84c1b513ab97b8a9a2b99997c79dd9c43c556`、`6526b7ca9f7fb1a81acc374c6393677321c00537b334b9e31117e8d6e5ae52fc`。
+- 独立 complete 视图将 TIES-Dense 记为 `131/2500=5.24%`、overlay reward=0、new API/model calls=0，并明确这不是官方重新判分；原始 invalid 仍保留。审计 manifest 另存为 `analysis/source_snapshots/ties_dense_hle_offline_score_only_20261018.json`。
+
+## 2026-10-18 14:35 CST：最终提交仓库收口
+
+已生成并目视验收根目录 `report.pdf`（A4、1页、中文字体嵌入），并更新根 `README.md` 为最终交付说明。五个 Hugging Face 模型按 `models/release_manifest.json` 的 immutable revision 重新匿名核验，均为公开、非 gated，未重复上传或改变模型身份。最终仓库将包含代码、配置、模型卡/发布清单、结果快照、HLE 消融、失败案例、成本与复现索引；大权重、原始数据、任务缓存、SIF、完整日志和凭据继续留在 Git 忽略资产中。Terminal 五次官方口径和官方资源配置未完全复现，README、结果矩阵和 report.pdf 均明确该限制。

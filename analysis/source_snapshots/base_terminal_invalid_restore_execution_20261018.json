@@ -1,0 +1,386 @@
+{
+  "execution_id": "base-terminal-invalid-restore-execution-20261018",
+  "created_at_utc": "2026-10-18T03:55:00Z",
+  "host": "10.123.4.80",
+  "model_calls": 0,
+  "original_results_modified": false,
+  "attempts": {
+    "base-terminal-three-timeout-grade-only-20261018": {
+      "claim": {
+        "claim_id": "base-terminal-three-timeout-grade-only-20261018",
+        "cpu_offset": 92,
+        "cpus": 4,
+        "created_at_utc": "2026-10-18T03:35:15.203650+00:00",
+        "driver_sha256": "6779230f6dd7a90a864840565ece937ca7e0a0c9028c5de7164d4658dc6a9a4c",
+        "finished_at_utc": "2026-10-18T03:35:15.302935+00:00",
+        "host": "10.123.4.80",
+        "keys": [
+          "feal-differential-cryptanalysis/seed0",
+          "feal-differential-cryptanalysis/seed4",
+          "model-extraction-relu-logits/seed4"
+        ],
+        "lease_acquired_at_utc": "2026-10-18T03:35:15.203824+00:00",
+        "lock_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/direct_asi_grader_cpu92_95.lock",
+        "memory_mb": 8192,
+        "model_calls": 0,
+        "original_results_overwrite": false,
+        "output_root": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018",
+        "pid": 2741628,
+        "prep_sha256": "3cd101b117ca3302bb4e0afdb3e63f0898cadb02ea570fcfa3f710dabdc3ec44",
+        "results": {
+          "feal-differential-cryptanalysis/seed0": {
+            "finished_at_utc": "2026-10-18T03:35:15.302281+00:00",
+            "output_exists": false,
+            "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018/trials/feal-differential-cryptanalysis__seed0__grade-only/result.json",
+            "returncode": 1,
+            "started_at_utc": "2026-10-18T03:35:15.204024+00:00",
+            "stderr_tail": "Traceback (most recent call last):\n  File \"/data/caoqinlu/projects/apex-takehome/scripts/run_terminal_native_gap_grade_20261017.py\", line 10, in <module>\n    from harbor.environments.factory import EnvironmentFactory\nModuleNotFoundError: No module named 'harbor'\n",
+            "stdout_tail": ""
+          }
+        },
+        "status": "entry_failed",
+        "verifier_seconds": 900
+      },
+      "claim_exists": true,
+      "exists": true,
+      "root": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018",
+      "trials": []
+    },
+    "base-terminal-three-timeout-grade-only-20261018-attempt2": {
+      "claim": {
+        "claim_id": "base-terminal-three-timeout-grade-only-20261018",
+        "cpu_offset": 92,
+        "cpus": 4,
+        "created_at_utc": "2026-10-18T03:35:43.469780+00:00",
+        "driver_sha256": "6779230f6dd7a90a864840565ece937ca7e0a0c9028c5de7164d4658dc6a9a4c",
+        "finished_at_utc": "2026-10-18T03:35:44.404344+00:00",
+        "host": "10.123.4.80",
+        "keys": [
+          "feal-differential-cryptanalysis/seed0",
+          "feal-differential-cryptanalysis/seed4",
+          "model-extraction-relu-logits/seed4"
+        ],
+        "lease_acquired_at_utc": "2026-10-18T03:35:43.470006+00:00",
+        "lock_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/direct_asi_grader_cpu92_95.lock",
+        "memory_mb": 8192,
+        "model_calls": 0,
+        "original_results_overwrite": false,
+        "output_root": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt2",
+        "pid": 2741822,
+        "prep_sha256": "3cd101b117ca3302bb4e0afdb3e63f0898cadb02ea570fcfa3f710dabdc3ec44",
+        "results": {
+          "feal-differential-cryptanalysis/seed0": {
+            "finished_at_utc": "2026-10-18T03:35:43.787127+00:00",
+            "output_exists": true,
+            "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt2/trials/feal-differential-cryptanalysis__seed0__grade-only/result.json",
+            "returncode": 0,
+            "started_at_utc": "2026-10-18T03:35:43.470211+00:00",
+            "stderr_tail": "",
+            "stdout_tail": "{\"result\": \"/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt2/trials/feal-differential-cryptanalysis__seed0__grade-only/result.json\", \"verifier_result\": null, \"exception_type\": \"FileNotFoundError\", \"new_model_calls\": 0}\n"
+          },
+          "feal-differential-cryptanalysis/seed4": {
+            "finished_at_utc": "2026-10-18T03:35:44.099840+00:00",
+            "output_exists": true,
+            "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt2/trials/feal-differential-cryptanalysis__seed4__grade-only/result.json",
+            "returncode": 0,
+            "started_at_utc": "2026-10-18T03:35:43.787579+00:00",
+            "stderr_tail": "",
+            "stdout_tail": "{\"result\": \"/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt2/trials/feal-differential-cryptanalysis__seed4__grade-only/result.json\", \"verifier_result\": null, \"exception_type\": \"FileNotFoundError\", \"new_model_calls\": 0}\n"
+          },
+          "model-extraction-relu-logits/seed4": {
+            "finished_at_utc": "2026-10-18T03:35:44.403687+00:00",
+            "output_exists": true,
+            "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt2/trials/model-extraction-relu-logits__seed4__grade-only/result.json",
+            "returncode": 0,
+            "started_at_utc": "2026-10-18T03:35:44.100687+00:00",
+            "stderr_tail": "",
+            "stdout_tail": "{\"result\": \"/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt2/trials/model-extraction-relu-logits__seed4__grade-only/result.json\", \"verifier_result\": null, \"exception_type\": \"FileNotFoundError\", \"new_model_calls\": 0}\n"
+          }
+        },
+        "status": "completed",
+        "verifier_seconds": 900
+      },
+      "claim_exists": true,
+      "exists": true,
+      "root": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt2",
+      "trials": [
+        {
+          "exception": {
+            "exception_message": "[Errno 2] No such file or directory: 'singularity'",
+            "exception_traceback": "Traceback (most recent call last):\n  File \"/data/caoqinlu/projects/apex-takehome/scripts/run_terminal_native_gap_grade_20261017.py\", line 48, in main\n    await environment.start(force_build=False)\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/harbor/src/harbor/environments/singularity/singularity.py\", line 729, in start\n    await self._start_server()\n  File \"/data/caoqinlu/projects/apex-takehome/scripts/terminal_repair_environment_v2.py\", line 20, in _start_server\n    image_env = await asyncio.to_thread(subprocess.check_output,\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/asyncio/threads.py\", line 25, in to_thread\n    return await loop.run_in_executor(None, func_call)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/concurrent/futures/thread.py\", line 59, in run\n    result = self.fn(*self.args, **self.kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/subprocess.py\", line 466, in check_output\n    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/subprocess.py\", line 548, in run\n    with Popen(*popenargs, **kwargs) as process:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/subprocess.py\", line 1026, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/subprocess.py\", line 1955, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: 'singularity'\n",
+            "exception_type": "FileNotFoundError"
+          },
+          "files": [
+            "result.json"
+          ],
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt2/trials/model-extraction-relu-logits__seed4__grade-only/result.json",
+          "restore_command": null,
+          "result_sha256": "3e68b18df91ab4012b5df8c988ebd2fc9a7d0e2c351c04e3ebad1b6955988b7e",
+          "seed": 4,
+          "task": "model-extraction-relu-logits",
+          "verifier_result": null
+        },
+        {
+          "exception": {
+            "exception_message": "[Errno 2] No such file or directory: 'singularity'",
+            "exception_traceback": "Traceback (most recent call last):\n  File \"/data/caoqinlu/projects/apex-takehome/scripts/run_terminal_native_gap_grade_20261017.py\", line 48, in main\n    await environment.start(force_build=False)\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/harbor/src/harbor/environments/singularity/singularity.py\", line 729, in start\n    await self._start_server()\n  File \"/data/caoqinlu/projects/apex-takehome/scripts/terminal_repair_environment_v2.py\", line 20, in _start_server\n    image_env = await asyncio.to_thread(subprocess.check_output,\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/asyncio/threads.py\", line 25, in to_thread\n    return await loop.run_in_executor(None, func_call)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/concurrent/futures/thread.py\", line 59, in run\n    result = self.fn(*self.args, **self.kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/subprocess.py\", line 466, in check_output\n    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/subprocess.py\", line 548, in run\n    with Popen(*popenargs, **kwargs) as process:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/subprocess.py\", line 1026, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/subprocess.py\", line 1955, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: 'singularity'\n",
+            "exception_type": "FileNotFoundError"
+          },
+          "files": [
+            "result.json"
+          ],
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt2/trials/feal-differential-cryptanalysis__seed0__grade-only/result.json",
+          "restore_command": null,
+          "result_sha256": "3e887adc30ff368f90a13893d1344d55c076bcd9f4ddef5846a7817096cba730",
+          "seed": 0,
+          "task": "feal-differential-cryptanalysis",
+          "verifier_result": null
+        },
+        {
+          "exception": {
+            "exception_message": "[Errno 2] No such file or directory: 'singularity'",
+            "exception_traceback": "Traceback (most recent call last):\n  File \"/data/caoqinlu/projects/apex-takehome/scripts/run_terminal_native_gap_grade_20261017.py\", line 48, in main\n    await environment.start(force_build=False)\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/benchmarks/harbor/src/harbor/environments/singularity/singularity.py\", line 729, in start\n    await self._start_server()\n  File \"/data/caoqinlu/projects/apex-takehome/scripts/terminal_repair_environment_v2.py\", line 20, in _start_server\n    image_env = await asyncio.to_thread(subprocess.check_output,\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/asyncio/threads.py\", line 25, in to_thread\n    return await loop.run_in_executor(None, func_call)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/concurrent/futures/thread.py\", line 59, in run\n    result = self.fn(*self.args, **self.kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/subprocess.py\", line 466, in check_output\n    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/subprocess.py\", line 548, in run\n    with Popen(*popenargs, **kwargs) as process:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/subprocess.py\", line 1026, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/data/caoqinlu/projects/apex-takehome/artifacts/tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/subprocess.py\", line 1955, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: 'singularity'\n",
+            "exception_type": "FileNotFoundError"
+          },
+          "files": [
+            "result.json"
+          ],
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt2/trials/feal-differential-cryptanalysis__seed4__grade-only/result.json",
+          "restore_command": null,
+          "result_sha256": "7ccdaa8b6d30ab7c27bc740e34f5c17f86794a5dd77bf5684193a56d29296caf",
+          "seed": 4,
+          "task": "feal-differential-cryptanalysis",
+          "verifier_result": null
+        }
+      ]
+    },
+    "base-terminal-three-timeout-grade-only-20261018-attempt3": {
+      "claim": {
+        "claim_id": "base-terminal-three-timeout-grade-only-20261018",
+        "cpu_offset": 0,
+        "cpus": 4,
+        "created_at_utc": "2026-10-18T03:36:53.753248+00:00",
+        "driver_sha256": "6779230f6dd7a90a864840565ece937ca7e0a0c9028c5de7164d4658dc6a9a4c",
+        "finished_at_utc": "2026-10-18T03:46:06.770406+00:00",
+        "host": "10.123.4.80",
+        "keys": [
+          "feal-differential-cryptanalysis/seed0",
+          "feal-differential-cryptanalysis/seed4",
+          "model-extraction-relu-logits/seed4"
+        ],
+        "lease_acquired_at_utc": "2026-10-18T03:36:53.753427+00:00",
+        "lock_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/direct_asi_grader_cpu92_95.lock",
+        "memory_mb": 8192,
+        "model_calls": 0,
+        "original_results_overwrite": false,
+        "output_root": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt3",
+        "physical_cpu_ids": [
+          92,
+          93,
+          94,
+          95
+        ],
+        "pid": 2742409,
+        "prep_sha256": "3cd101b117ca3302bb4e0afdb3e63f0898cadb02ea570fcfa3f710dabdc3ec44",
+        "results": {
+          "feal-differential-cryptanalysis/seed0": {
+            "finished_at_utc": "2026-10-18T03:39:58.100207+00:00",
+            "output_exists": true,
+            "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt3/trials/feal-differential-cryptanalysis__seed0__grade-only/result.json",
+            "returncode": 0,
+            "started_at_utc": "2026-10-18T03:36:53.753655+00:00",
+            "stderr_tail": "",
+            "stdout_tail": "{\"result\": \"/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt3/trials/feal-differential-cryptanalysis__seed0__grade-only/result.json\", \"verifier_result\": null, \"exception_type\": \"RuntimeError\", \"new_model_calls\": 0}\n"
+          },
+          "feal-differential-cryptanalysis/seed4": {
+            "finished_at_utc": "2026-10-18T03:43:02.436835+00:00",
+            "output_exists": true,
+            "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt3/trials/feal-differential-cryptanalysis__seed4__grade-only/result.json",
+            "returncode": 0,
+            "started_at_utc": "2026-10-18T03:39:58.101297+00:00",
+            "stderr_tail": "",
+            "stdout_tail": "{\"result\": \"/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt3/trials/feal-differential-cryptanalysis__seed4__grade-only/result.json\", \"verifier_result\": null, \"exception_type\": \"RuntimeError\", \"new_model_calls\": 0}\n"
+          },
+          "model-extraction-relu-logits/seed4": {
+            "finished_at_utc": "2026-10-18T03:46:06.769401+00:00",
+            "output_exists": true,
+            "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt3/trials/model-extraction-relu-logits__seed4__grade-only/result.json",
+            "returncode": 0,
+            "started_at_utc": "2026-10-18T03:43:02.437955+00:00",
+            "stderr_tail": "",
+            "stdout_tail": "{\"result\": \"/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt3/trials/model-extraction-relu-logits__seed4__grade-only/result.json\", \"verifier_result\": null, \"exception_type\": \"RuntimeError\", \"new_model_calls\": 0}\n"
+          }
+        },
+        "status": "completed",
+        "verifier_seconds": 900
+      },
+      "claim_exists": true,
+      "exists": true,
+      "root": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt3",
+      "trials": [
+        {
+          "exception": {
+            "exception_message": "Original restore command 0 returned 124",
+            "exception_traceback": "Traceback (most recent call last):\n  File \"/data/caoqinlu/projects/apex-takehome/scripts/run_terminal_native_gap_grade_20261017.py\", line 56, in main\n    if result.return_code:raise RuntimeError(f'Original restore command {index} returned {result.return_code}')\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Original restore command 0 returned 124\n",
+            "exception_type": "RuntimeError"
+          },
+          "files": [
+            "restore-command-0.json",
+            "result.json"
+          ],
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt3/trials/model-extraction-relu-logits__seed4__grade-only/result.json",
+          "restore_command": {
+            "return_code": 124,
+            "stderr": null,
+            "stdout": "tar: etc/resolv.conf: Cannot open: File exists"
+          },
+          "result_sha256": "5b6d6ac35172f657a0fb32d3fbefcc1e8e08f07e83aae4aba2aacaa2368ec450",
+          "seed": 4,
+          "task": "model-extraction-relu-logits",
+          "verifier_result": null
+        },
+        {
+          "exception": {
+            "exception_message": "Original restore command 0 returned 124",
+            "exception_traceback": "Traceback (most recent call last):\n  File \"/data/caoqinlu/projects/apex-takehome/scripts/run_terminal_native_gap_grade_20261017.py\", line 56, in main\n    if result.return_code:raise RuntimeError(f'Original restore command {index} returned {result.return_code}')\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Original restore command 0 returned 124\n",
+            "exception_type": "RuntimeError"
+          },
+          "files": [
+            "restore-command-0.json",
+            "result.json"
+          ],
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt3/trials/feal-differential-cryptanalysis__seed0__grade-only/result.json",
+          "restore_command": {
+            "return_code": 124,
+            "stderr": null,
+            "stdout": "tar: etc/resolv.conf: Cannot open: File exists"
+          },
+          "result_sha256": "b752c32452be8e3697b4658839f2f1d8f783aa35dec7b180f661349e03ef2436",
+          "seed": 0,
+          "task": "feal-differential-cryptanalysis",
+          "verifier_result": null
+        },
+        {
+          "exception": {
+            "exception_message": "Original restore command 0 returned 124",
+            "exception_traceback": "Traceback (most recent call last):\n  File \"/data/caoqinlu/projects/apex-takehome/scripts/run_terminal_native_gap_grade_20261017.py\", line 56, in main\n    if result.return_code:raise RuntimeError(f'Original restore command {index} returned {result.return_code}')\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Original restore command 0 returned 124\n",
+            "exception_type": "RuntimeError"
+          },
+          "files": [
+            "restore-command-0.json",
+            "result.json"
+          ],
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt3/trials/feal-differential-cryptanalysis__seed4__grade-only/result.json",
+          "restore_command": {
+            "return_code": 124,
+            "stderr": null,
+            "stdout": "tar: etc/resolv.conf: Cannot open: File exists"
+          },
+          "result_sha256": "8c79ff0edcd42e1d3bb09d38717436612c630fa472ee162e4fe0ebebb96363df",
+          "seed": 4,
+          "task": "feal-differential-cryptanalysis",
+          "verifier_result": null
+        }
+      ]
+    },
+    "base-terminal-three-timeout-grade-only-20261018-attempt4": {
+      "claim": {
+        "claim_id": "base-terminal-three-timeout-grade-only-20261018",
+        "cpu_offset": 0,
+        "cpus": 4,
+        "created_at_utc": "2026-10-18T03:47:31.130070+00:00",
+        "driver_sha256": "6779230f6dd7a90a864840565ece937ca7e0a0c9028c5de7164d4658dc6a9a4c",
+        "finished_at_utc": "2026-10-18T03:53:39.815280+00:00",
+        "host": "10.123.4.80",
+        "keys": [
+          "feal-differential-cryptanalysis/seed0",
+          "feal-differential-cryptanalysis/seed4"
+        ],
+        "lease_acquired_at_utc": "2026-10-18T03:47:31.130255+00:00",
+        "lock_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/direct_asi_grader_cpu92_95.lock",
+        "memory_mb": 8192,
+        "model_calls": 0,
+        "original_results_overwrite": false,
+        "output_root": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt4",
+        "physical_cpu_ids": [
+          92,
+          93,
+          94,
+          95
+        ],
+        "pid": 2746272,
+        "prep_sha256": "1ac78da35b022aa76dc7def7234afa65d37ca523977bf76339f93134b8c090d7",
+        "results": {
+          "feal-differential-cryptanalysis/seed0": {
+            "finished_at_utc": "2026-10-18T03:50:35.471883+00:00",
+            "output_exists": true,
+            "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt4/trials/feal-differential-cryptanalysis__seed0__grade-only/result.json",
+            "returncode": 0,
+            "started_at_utc": "2026-10-18T03:47:31.130460+00:00",
+            "stderr_tail": "",
+            "stdout_tail": "{\"result\": \"/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt4/trials/feal-differential-cryptanalysis__seed0__grade-only/result.json\", \"verifier_result\": null, \"exception_type\": \"RuntimeError\", \"new_model_calls\": 0}\n"
+          },
+          "feal-differential-cryptanalysis/seed4": {
+            "finished_at_utc": "2026-10-18T03:53:39.814360+00:00",
+            "output_exists": true,
+            "result_path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt4/trials/feal-differential-cryptanalysis__seed4__grade-only/result.json",
+            "returncode": 0,
+            "started_at_utc": "2026-10-18T03:50:35.472840+00:00",
+            "stderr_tail": "",
+            "stdout_tail": "{\"result\": \"/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt4/trials/feal-differential-cryptanalysis__seed4__grade-only/result.json\", \"verifier_result\": null, \"exception_type\": \"RuntimeError\", \"new_model_calls\": 0}\n"
+          }
+        },
+        "status": "completed",
+        "verifier_seconds": 900
+      },
+      "claim_exists": true,
+      "exists": true,
+      "root": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt4",
+      "trials": [
+        {
+          "exception": {
+            "exception_message": "Original restore command 0 returned 124",
+            "exception_traceback": "Traceback (most recent call last):\n  File \"/data/caoqinlu/projects/apex-takehome/scripts/run_terminal_native_gap_grade_20261017.py\", line 56, in main\n    if result.return_code:raise RuntimeError(f'Original restore command {index} returned {result.return_code}')\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Original restore command 0 returned 124\n",
+            "exception_type": "RuntimeError"
+          },
+          "files": [
+            "restore-command-0.json",
+            "result.json"
+          ],
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt4/trials/feal-differential-cryptanalysis__seed0__grade-only/result.json",
+          "restore_command": {
+            "return_code": 124,
+            "stderr": null,
+            "stdout": null
+          },
+          "result_sha256": "5127d9f0bd3bb9a8ed056ad8e86b3ba23af915dcfd92f517dad279aa000e31a5",
+          "seed": 0,
+          "task": "feal-differential-cryptanalysis",
+          "verifier_result": null
+        },
+        {
+          "exception": {
+            "exception_message": "Original restore command 0 returned 124",
+            "exception_traceback": "Traceback (most recent call last):\n  File \"/data/caoqinlu/projects/apex-takehome/scripts/run_terminal_native_gap_grade_20261017.py\", line 56, in main\n    if result.return_code:raise RuntimeError(f'Original restore command {index} returned {result.return_code}')\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Original restore command 0 returned 124\n",
+            "exception_type": "RuntimeError"
+          },
+          "files": [
+            "restore-command-0.json",
+            "result.json"
+          ],
+          "path": "/data/caoqinlu/projects/apex-takehome/artifacts/recovery/base-terminal-three-timeout-grade-only-20261018-attempt4/trials/feal-differential-cryptanalysis__seed4__grade-only/result.json",
+          "restore_command": {
+            "return_code": 124,
+            "stderr": null,
+            "stdout": null
+          },
+          "result_sha256": "449aa87bdf4556dcb14b0fe70089dab03a518b3aee33554b82699f633294d180",
+          "seed": 4,
+          "task": "feal-differential-cryptanalysis",
+          "verifier_result": null
+        }
+      ]
+    }
+  },
+  "conclusion": "All native verifier-only attempts blocked before verifier by environment/restore infrastructure. Keep strict native null and audited fixed-budget derived zeros; do not update formal summary."
+}

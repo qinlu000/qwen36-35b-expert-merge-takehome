@@ -6,13 +6,11 @@
 
 候选人仓库：[qinlu000/qwen36-35b-expert-merge-takehome](https://github.com/qinlu000/qwen36-35b-expert-merge-takehome)，由[官方模板](https://github.com/apexin-ai/qwen36-35b-takehome)实际创建，当前为 Private。实验代码已推送到默认分支 `master`，模板 `main` 保留来源。本实验依据最初的多专家题面，需求转录见 [EXPERIMENT_REQUIREMENTS.md](EXPERIMENT_REQUIREMENTS.md)；后续线上模板的 SFT→stage2 路线不覆盖该题面。
 
-**当前状态（2026-10-17）：四专家和 Mixed 均已完成真实训练，AVG64/AVG16 已导出并验证，正式评测仍在进行。完整指标、宏平均提升和配对区间尚未齐备，未完成项保持 `null`。五个模型均已 Public 发布，并通过匿名完整下载与原权重字节核对；实际链接、不可变 revision、加载方法见 [models/README.md](models/README.md) 和 [release_manifest.json](models/release_manifest.json)。**
+**当前状态（2026-10-18）：第一次 SFT、五个公开模型发布、主要 benchmark 评测和 HLE 合版消融已完成。最终面向提交的单表结果见[全部结果矩阵](analysis/complete_results_table_20261018.md)，一页摘要见 [report.pdf](report.pdf)。**
 
-当前队列快照、已完成项、未决问题和后续交付见 [进展文档](analysis/current_status_20261017.md)；[一页阶段报告](output/pdf/progress_report_20261017.pdf)及其[生成说明](analysis/progress_report_20261017.md)已保存，正式评分尚未齐备。
+五个模型已经发布到 Hugging Face，并按不可变 revision 做过匿名完整下载与权重字节核对；仓库、revision、许可证和加载方法见 [models/README.md](models/README.md) 与 [release_manifest.json](models/release_manifest.json)。GitHub 提交仓库为 [qinlu000/qwen36-35b-expert-merge-takehome](https://github.com/qinlu000/qwen36-35b-expert-merge-takehome)。
 
-11:15完整结果：SWE为Base**10/51=19.607843%**、专家**0/51=0%**、AVG64**4/51=7.843137%**；AVG−Base配对差−11.764706pp，95%CI[−23.529412,0]。SWE专家含1份完整官方报告解析审计，AVG含6份逐项批准native0审计，原invalid不覆盖。完整HLE为Base3.96%、专家6.92%、Mixed5.84%、AVG644.68%、AVG164.04%；TIES-Dense2499/2500有效，余1项缺`correct`仍null。ASI专家240/240有效，公开local原生0.378991%，Base1.570988%；AVG已全240生成、科学判分85/240。详见[逐题对照](analysis/swe_task_comparison_20261017.md)和[双视图](analysis/source_snapshots/formal_aggregation_20261017_1115.json)。不据正式结果改冻结主模型；Terminal尚未全量有效，四项宏平均不可报告。
-
-当前资源为两个普通`acd_u/Nice1000`TP2、共4H100：Terminal专家与AVG64执行服务。AVG64 ASI全240生成/worker关闭/metrics0后727856已10:54:16自动释放，后续只CPU/外部API科学评分，不重建离线端点。Terminal仍专家12槽、AVG11槽，后续扩容继续等ASI原实际allCPU marker；原预算不变。[20个真实合版失败及三项后续实验](analysis/avg64_failure_cases_20261017.md)和[20个Base对/AVG错的HLE有答案例](analysis/hle_base_avg_disagreements_20261017.md)均已整理，后者仍有服务混杂，不能直接作权重因果结论。
+结果中的 Terminal 使用用户确认的固定 seed=2、每题一次 exploratory 口径；Base Terminal 的三条计算型 verifier timeout 按用户确认在汇报视图中记为 0，原生 `null` 仍保留。ASI/HLE 使用 public/local replacement Judge，TIES-Dense 的唯一格式缺口使用冻结 Judge body 的离线 score-only overlay 修复。所有偏离、原始证据和未纳入正式分数的项目均在 [进展文档](analysis/current_status_20261017.md)、[invalid 修复记录](analysis/invalid_repair_status_20261018.md) 与 [结果矩阵](analysis/complete_results_table_20261018.md) 中说明。
 
 ## 实验设计与数据
 
@@ -129,10 +127,12 @@ artifacts/envs/asi-py312/bin/python scripts/check_experiment_aggregation.py
 
 可选预算视图位于输出的`audited_terminal_budget/`，原根目录仍为strict；省略最后一个可选参数只产strict。刷新汇总不会重答或修改原生结果。
 
-## 资源、目录与未完成交付
+## 资源、目录与交付边界
 
 用户后续授权的项目上限为16×H100、每连接组最多4卡，并非持续可用配额。截止为北京时间2026-10-18 14:20，预留12小时后核心实验目标结束点为02:20。四专家/Mixed原生成功run合计46.541425 GPUh只是子集；[资源账本](analysis/resource_ledger_20261017.md) 的05:17快照为已结束216.721389 GPUh、另10张在跑GPU暂计10.406111 GPUh，包含失败、取消、服务等待等allocation开销，没有重复加训练子集。API账目分usage估计、预算上界和失败reservation；学校HPC无已知单价，未换算人民币。人工主动工作时长未计时。显存仅为rank0当前设备的PyTorch peak_reserved，不能冒称跨卡峰值。
 
 代码/配置在`scripts/`、`configs/`；训练图与源数据在`curves/`；研究说明、统计验证和小型执行收据在`analysis/`；模型索引在`models/`。大产物实际使用`artifacts/runs`、`artifacts/eval`、`artifacts/results`、`artifacts/merges`，与模板推荐的`logs/results`布局不同；[结果路径清单](configs/eval/final_results_20261017.json)记录精确映射，不依靠自动挑“最新”或最高奖励结果。
 
-尚未完成：完整正式评分矩阵与宏平均/CI、TIES新方法实际任务对照、一页`report.pdf`、必要离线资产收尾和最终交付。Base固定答卷补评分、[20个真实失败案例与三项后续实验](analysis/avg64_failure_cases_20261017.md)、五模型发布及匿名验收均已有记录。HLE专家和Mixed的2500题现已完整判分，分别6.92%和5.84%，其余队列仍继续；Base历史no-answer/服务差异是比较混杂，不能只归因权重。已有249条loss只作诊断。现有曲线、loss改善、合版导出或控制器启动均不替代完整评测；最终结论将随完整有效原始结果更新。
+最终交付包含：训练与评测代码、固定配置、数据来源和许可说明、模型卡与发布清单、逐项结果快照、HLE 合版消融、20 个失败案例、资源/API 记录以及根目录 `report.pdf`。大权重、原始数据、任务缓存、SIF、完整日志和凭据仍保存在被 Git 忽略的本地/HPC 资产中，不随 GitHub clone 分发。
+
+题面要求的 Terminal 五次均值、3 小时/32 CPU/48 GB/256K/80K 配置，以及官方 HLE/ASI Judge 并未完全复现；本提交按用户确认的实验口径汇报，严格 native 缺口和 exploratory 补充视图分开保存。Terminal 历史 445 条结果、Base timeout overlay、TIES-Dense 离线修复和所有未决 invalid 均不伪装成官方完整成绩。loss 仅作训练诊断，不作为任务结果或模型选择依据。

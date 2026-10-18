@@ -1,0 +1,72 @@
+{
+  "read_at_utc": "2026-10-18T03:24:30Z",
+  "read_at_cst": "2026-10-18 11:24:30 CST",
+  "remote_host": "10.123.4.80",
+  "remote_root": "/data/caoqinlu/projects/apex-takehome",
+  "eval_dir": "artifacts/eval/avg64_asi240_20261017",
+  "progress": {
+    "completed_conditions": 240,
+    "expected_conditions": 240,
+    "state": "completed",
+    "scored": false,
+    "active": [],
+    "unsubmitted_this_session": 0,
+    "updated_at": "2026-10-17T02:54:09.286191+00:00"
+  },
+  "generation_cpu_finished": {
+    "state": "finished",
+    "completed_conditions": 240,
+    "owned_scope_count": 240,
+    "active_owned_scopes": [],
+    "worker_pool_shutdown": true,
+    "at_utc": "2026-10-17T02:54:11.242275+00:00"
+  },
+  "all_cpu_consumers_finished": {
+    "state": "finished",
+    "generation_conditions": 240,
+    "grader_process_exitcode": 0,
+    "grader_complete": true,
+    "scorer_error_count": 0,
+    "generation_worker_pool_shutdown": true,
+    "grader_process_finished": true,
+    "active_program_scopes": [],
+    "all_cpu_consumers_finished": true,
+    "at_utc": "2026-10-17T07:14:45.275759+00:00",
+    "normalized_at": "2026-10-17T07:14:51.315871+00:00"
+  },
+  "local_score": {
+    "official": false,
+    "score_scope": "public_local_replacement_judge",
+    "expected_instance_count": 240,
+    "instance_count": 240,
+    "scored_instance_count": 240,
+    "complete": true,
+    "pending_count": 0,
+    "scorer_error_count": 0,
+    "total_score": 110.56851907426662,
+    "total_max_score": 24000.0,
+    "mean_percent": 0.46070216280944426,
+    "native_valid_subset_mean_percent": 0.46070216280944426,
+    "synthetic_calibration": false
+  },
+  "judge_identity": {
+    "requested_model": "deepseek-flash",
+    "reported_model": "deepseek-flash",
+    "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669",
+    "provider_revision_pinned": false
+  },
+  "answer_files": {
+    "conditions": 60,
+    "answers": 240,
+    "trajectories": 240,
+    "model_calls": 240,
+    "selected_code": 240,
+    "llm_responses": 240,
+    "agent_model_outputs": 240,
+    "audit_files": 960,
+    "output_dirs": 240,
+    "missing_canonical_answers": 0
+  },
+  "answer_status_note": "The answer JSON status is failed for 222/240 and completed for 18/240; the local replacement scorer independently scored all 240 saved outputs and preserved these failed solver attempts as scored zero outcomes. Improving them would require new generation.",
+  "decision": "AVG64 ASI coverage and local replacement scoring are complete; no new generation is required for coverage."
+}
