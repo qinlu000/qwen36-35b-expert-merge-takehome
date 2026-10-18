@@ -1,0 +1,173 @@
+Loading apptainer/1.4.5
+  Loading requirement: go/1.25
+(APIServer pid=13) INFO 10-17 02:11:37 [utils.py:299] 
+(APIServer pid=13) INFO 10-17 02:11:37 [utils.py:299]        █     █     █▄   ▄█
+(APIServer pid=13) INFO 10-17 02:11:37 [utils.py:299]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.20.2
+(APIServer pid=13) INFO 10-17 02:11:37 [utils.py:299]   █▄█▀ █     █     █     █  model   /data/user/qinlucao/projects/apex-takehome/artifacts/models/Qwen3.6-35B-A3B/995ad96eacd98c81ed38be0c5b274b04031597b0
+(APIServer pid=13) INFO 10-17 02:11:37 [utils.py:299]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=13) INFO 10-17 02:11:37 [utils.py:299] 
+(APIServer pid=13) INFO 10-17 02:11:37 [utils.py:233] non-default args: {'lora_modules': [LoRAModulePath(name='apex-avg64', path='/data/user/qinlucao/projects/apex-takehome/artifacts/merges/four-experts-avg-v1-20261017/avg-r64', base_model_name=None)], 'default_chat_template_kwargs': {'enable_thinking': False, 'preserve_thinking': False}, 'enable_auto_tool_choice': True, 'tool_call_parser': 'qwen3_coder', 'host': '0.0.0.0', 'port': 18000, 'model': '/data/user/qinlucao/projects/apex-takehome/artifacts/models/Qwen3.6-35B-A3B/995ad96eacd98c81ed38be0c5b274b04031597b0', 'dtype': 'bfloat16', 'max_model_len': 65536, 'enforce_eager': True, 'served_model_name': ['apex-avg64-base'], 'reasoning_parser': 'qwen3', 'distributed_executor_backend': 'mp', 'tensor_parallel_size': 2, 'gpu_memory_utilization': 0.85, 'enable_lora': True, 'max_lora_rank': 64, 'lora_dtype': 'bfloat16', 'max_cpu_loras': 1, 'lora_target_modules': ['qkv_proj', 'o_proj', 'in_proj_qkv', 'in_proj_z', 'in_proj_ba', 'out_proj', 'gate_up_proj', 'down_proj'], 'max_num_batched_tokens': 8192, 'max_num_seqs': 20, 'enable_chunked_prefill': True, 'moe_backend': 'triton', 'gdn_prefill_backend': 'triton'}
+(APIServer pid=13) INFO 10-17 02:12:04 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+(APIServer pid=13) WARNING 10-17 02:12:04 [nixl_utils.py:34] NIXL is not available
+(APIServer pid=13) WARNING 10-17 02:12:04 [nixl_utils.py:44] NIXL agent config is not available
+(APIServer pid=13) INFO 10-17 02:12:04 [model.py:555] Resolved architecture: Qwen3_5MoeForConditionalGeneration
+(APIServer pid=13) INFO 10-17 02:12:04 [model.py:1680] Using max model len 65536
+(APIServer pid=13) INFO 10-17 02:12:04 [scheduler.py:239] Chunked prefill is enabled with max_num_batched_tokens=8192.
+(APIServer pid=13) INFO 10-17 02:12:04 [vllm.py:840] Asynchronous scheduling is enabled.
+(APIServer pid=13) WARNING 10-17 02:12:04 [vllm.py:896] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+(APIServer pid=13) WARNING 10-17 02:12:04 [vllm.py:914] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(APIServer pid=13) INFO 10-17 02:12:04 [kernel.py:205] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'])
+(APIServer pid=13) INFO 10-17 02:12:04 [vllm.py:1089] Cudagraph is disabled under eager mode
+(APIServer pid=13) INFO 10-17 02:12:13 [compilation.py:303] Enabled custom fusions: norm_quant, act_quant, allreduce_rms
+(APIServer pid=13) [transformers] `Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+(APIServer pid=13) [transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+(APIServer pid=13) [ERROR] `min_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /data/user/qinlucao/projects/apex-takehome/artifacts/envs/base-inference/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+(APIServer pid=13) [ERROR] `max_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /data/user/qinlucao/projects/apex-takehome/artifacts/envs/base-inference/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+(EngineCore pid=70) INFO 10-17 02:12:34 [core.py:109] Initializing a V1 LLM engine (v0.20.2) with config: model='/data/user/qinlucao/projects/apex-takehome/artifacts/models/Qwen3.6-35B-A3B/995ad96eacd98c81ed38be0c5b274b04031597b0', speculative_config=None, tokenizer='/data/user/qinlucao/projects/apex-takehome/artifacts/models/Qwen3.6-35B-A3B/995ad96eacd98c81ed38be0c5b274b04031597b0', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=65536, download_dir=None, load_format=auto, tensor_parallel_size=2, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=True, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='qwen3', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=apex-avg64-base, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['all'], 'ir_enable_torch_wrap': False, 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': True}, 'max_cudagraph_capture_size': 0, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['vllm_c', 'native']), enable_flashinfer_autotune=True, moe_backend='triton')
+(EngineCore pid=70) INFO 10-17 02:12:34 [multiproc_executor.py:139] DP group leader: node_rank=0, node_rank_within_dp=0, master_addr=127.0.0.1, mq_connect_ip=10.120.47.139 (local), world_size=2, local_world_size=2
+WARNING 10-17 02:12:45 [nixl_utils.py:34] NIXL is not available
+WARNING 10-17 02:12:45 [nixl_utils.py:44] NIXL agent config is not available
+WARNING 10-17 02:12:45 [nixl_utils.py:34] NIXL is not available
+WARNING 10-17 02:12:45 [nixl_utils.py:44] NIXL agent config is not available
+[transformers] `Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+[transformers] `Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+[ERROR] `min_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /data/user/qinlucao/projects/apex-takehome/artifacts/envs/base-inference/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[ERROR] `max_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /data/user/qinlucao/projects/apex-takehome/artifacts/envs/base-inference/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+(Worker pid=85) INFO 10-17 02:12:48 [parallel_state.py:1402] world_size=2 rank=0 local_rank=0 distributed_init_method=tcp://127.0.0.1:42193 backend=nccl
+[ERROR] `min_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /data/user/qinlucao/projects/apex-takehome/artifacts/envs/base-inference/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[ERROR] `max_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /data/user/qinlucao/projects/apex-takehome/artifacts/envs/base-inference/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+(Worker pid=86) INFO 10-17 02:12:48 [parallel_state.py:1402] world_size=2 rank=1 local_rank=1 distributed_init_method=tcp://127.0.0.1:42193 backend=nccl
+(Worker pid=85) INFO 10-17 02:12:49 [pynccl.py:111] vLLM is using nccl==2.28.9
+(Worker pid=85) INFO 10-17 02:12:50 [parallel_state.py:1715] rank 0 in world size 2 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank 0, EPLB rank N/A
+(Worker pid=86) [transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+(Worker pid=85) [transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+(Worker_TP0 pid=85) INFO 10-17 02:12:58 [gpu_model_runner.py:4777] Starting to load model /data/user/qinlucao/projects/apex-takehome/artifacts/models/Qwen3.6-35B-A3B/995ad96eacd98c81ed38be0c5b274b04031597b0...
+(Worker_TP0 pid=85) INFO 10-17 02:12:59 [cuda.py:423] Using backend AttentionBackendEnum.FLASH_ATTN for vit attention
+(Worker_TP0 pid=85) INFO 10-17 02:12:59 [mm_encoder_attention.py:230] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+(Worker_TP0 pid=85) INFO 10-17 02:12:59 [gdn_linear_attn.py:153] Using Triton/FLA GDN prefill kernel
+(Worker_TP0 pid=85) INFO 10-17 02:12:59 [cuda.py:368] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(Worker_TP0 pid=85) INFO 10-17 02:12:59 [flash_attn.py:646] Using FlashAttention version 3
+(Worker_TP0 pid=85) INFO 10-17 02:12:59 [weight_utils.py:904] Filesystem type for checkpoints: DPC. Checkpoint size: 66.97 GiB. Available RAM: 1898.99 GiB.
+(Worker_TP0 pid=85) INFO 10-17 02:12:59 [weight_utils.py:927] Auto-prefetch is disabled because the filesystem (DPC) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:   0% Completed | 0/26 [00:00<?, ?it/s]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:   4% Completed | 1/26 [00:02<00:50,  2.03s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:   8% Completed | 2/26 [00:02<00:33,  1.38s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  12% Completed | 3/26 [00:05<00:42,  1.86s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  15% Completed | 4/26 [00:08<00:50,  2.30s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  19% Completed | 5/26 [00:10<00:47,  2.26s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  23% Completed | 6/26 [00:12<00:44,  2.20s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  27% Completed | 7/26 [00:13<00:35,  1.85s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  31% Completed | 8/26 [00:17<00:41,  2.31s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  35% Completed | 9/26 [00:18<00:33,  1.98s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  38% Completed | 10/26 [00:21<00:35,  2.24s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  42% Completed | 11/26 [00:22<00:29,  1.94s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  46% Completed | 12/26 [00:24<00:28,  2.06s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  50% Completed | 13/26 [00:26<00:23,  1.83s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  54% Completed | 14/26 [00:29<00:28,  2.37s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  58% Completed | 15/26 [00:31<00:23,  2.10s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  62% Completed | 16/26 [00:33<00:22,  2.24s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  65% Completed | 17/26 [00:34<00:16,  1.82s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  69% Completed | 18/26 [00:36<00:15,  1.96s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  73% Completed | 19/26 [00:37<00:11,  1.62s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  77% Completed | 20/26 [00:39<00:10,  1.69s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  81% Completed | 21/26 [00:40<00:07,  1.56s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  85% Completed | 22/26 [00:42<00:06,  1.64s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  88% Completed | 23/26 [00:44<00:04,  1.67s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  92% Completed | 24/26 [00:46<00:03,  1.84s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards:  96% Completed | 25/26 [00:48<00:01,  1.86s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards: 100% Completed | 26/26 [00:49<00:00,  1.60s/it]
+(Worker_TP0 pid=85) Loading safetensors checkpoint shards: 100% Completed | 26/26 [00:49<00:00,  1.90s/it]
+(Worker_TP0 pid=85) 
+(Worker_TP0 pid=85) INFO 10-17 02:13:49 [default_loader.py:384] Loading weights took 49.47 seconds
+(Worker_TP0 pid=85) INFO 10-17 02:13:49 [unquantized.py:343] Using MoEPrepareAndFinalizeNoDPEPModular
+(Worker_TP0 pid=85) INFO 10-17 02:13:49 [utils.py:101] MoE model detected. Using fused MoE LoRA implementation.
+(Worker_TP1 pid=86) INFO 10-17 02:13:49 [model_manager.py:176] Qwen3_5MoeForConditionalGeneration supports adding LoRA to the tower modules. If needed, please set `enable_tower_connector_lora=True`.
+(Worker_TP0 pid=85) INFO 10-17 02:13:49 [punica_selector.py:20] Using PunicaWrapperGPU.
+(Worker_TP0 pid=85) INFO 10-17 02:13:49 [model_manager.py:176] Qwen3_5MoeForConditionalGeneration supports adding LoRA to the tower modules. If needed, please set `enable_tower_connector_lora=True`.
+(Worker_TP0 pid=85) INFO 10-17 02:13:50 [gpu_model_runner.py:4879] Model loading took 32.99 GiB memory and 50.598967 seconds
+(Worker_TP0 pid=85) INFO 10-17 02:13:50 [interface.py:606] Setting attention block size to 1056 tokens to ensure that attention page size is >= mamba page size.
+(Worker_TP0 pid=85) INFO 10-17 02:13:50 [interface.py:630] Padding mamba page size by 0.76% to ensure that mamba page size and attention page size are exactly equal.
+(Worker_TP1 pid=86) INFO 10-17 02:13:50 [interface.py:606] Setting attention block size to 1056 tokens to ensure that attention page size is >= mamba page size.
+(Worker_TP1 pid=86) INFO 10-17 02:13:50 [interface.py:630] Padding mamba page size by 0.76% to ensure that mamba page size and attention page size are exactly equal.
+(Worker_TP0 pid=85) INFO 10-17 02:13:50 [gpu_model_runner.py:5820] Encoder cache will be initialized with a budget of 16384 tokens, and profiled with 1 image items of the maximum feature size.
+(EngineCore pid=70) INFO 10-17 02:14:51 [shm_broadcast.py:681] No available shared memory broadcast block found in 60 seconds. This typically happens when some processes are hanging or doing some time-consuming work (e.g. compilation, weight/kv cache quantization).
+(Worker_TP0 pid=85) WARNING 10-17 02:14:51 [fused_moe.py:1091] Using default MoE config. Performance might be sub-optimal! Config file not found at /data/user/qinlucao/projects/apex-takehome/artifacts/envs/base-inference/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/configs/E=256,N=256,device_name=NVIDIA_H100_80GB_HBM3.json
+(Worker_TP0 pid=85) INFO 10-17 02:15:00 [gpu_worker.py:440] Available KV cache memory: 32.24 GiB
+(EngineCore pid=70) INFO 10-17 02:15:00 [kv_cache_utils.py:1708] GPU KV cache size: 3,177,503 tokens
+(EngineCore pid=70) INFO 10-17 02:15:00 [kv_cache_utils.py:1709] Maximum concurrency for 65,536 tokens per request: 48.48x
+(Worker_TP0 pid=85) 2026-10-17 02:15:00,575 - INFO - autotuner.py:457 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+(Worker_TP1 pid=86) 2026-10-17 02:15:00,575 - INFO - autotuner.py:457 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+(Worker_TP0 pid=85) 2026-10-17 02:15:00,773 - INFO - autotuner.py:466 - flashinfer.jit: [Autotuner]: Autotuning process ends
+(Worker_TP1 pid=86) 2026-10-17 02:15:00,776 - INFO - autotuner.py:466 - flashinfer.jit: [Autotuner]: Autotuning process ends
+(EngineCore pid=70) INFO 10-17 02:15:01 [core.py:306] init engine (profile, create kv cache, warmup model) took 71.67 s
+(EngineCore pid=70) WARNING 10-17 02:15:04 [nixl_utils.py:34] NIXL is not available
+(EngineCore pid=70) WARNING 10-17 02:15:04 [nixl_utils.py:44] NIXL agent config is not available
+(EngineCore pid=70) [transformers] `Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+(EngineCore pid=70) [transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+(EngineCore pid=70) [ERROR] `min_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /data/user/qinlucao/projects/apex-takehome/artifacts/envs/base-inference/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+(EngineCore pid=70) [ERROR] `max_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /data/user/qinlucao/projects/apex-takehome/artifacts/envs/base-inference/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+(EngineCore pid=70) INFO 10-17 02:15:12 [vllm.py:840] Asynchronous scheduling is enabled.
+(EngineCore pid=70) WARNING 10-17 02:15:12 [vllm.py:896] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+(EngineCore pid=70) WARNING 10-17 02:15:12 [vllm.py:914] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(EngineCore pid=70) INFO 10-17 02:15:12 [kernel.py:205] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'])
+(EngineCore pid=70) INFO 10-17 02:15:12 [vllm.py:1089] Cudagraph is disabled under eager mode
+(EngineCore pid=70) INFO 10-17 02:15:13 [compilation.py:303] Enabled custom fusions: norm_quant, act_quant, allreduce_rms
+(APIServer pid=13) INFO 10-17 02:15:13 [api_server.py:598] Supported tasks: ['generate']
+(APIServer pid=13) INFO 10-17 02:15:15 [serving.py:200] Loaded new LoRA adapter: name 'apex-avg64', path '/data/user/qinlucao/projects/apex-takehome/artifacts/merges/four-experts-avg-v1-20261017/avg-r64'
+(APIServer pid=13) INFO 10-17 02:15:15 [parser_manager.py:202] "auto" tool choice has been enabled.
+(APIServer pid=13) WARNING 10-17 02:15:15 [model.py:1437] Default vLLM sampling parameters have been overridden by the model's `generation_config.json`: `{'temperature': 1.0, 'top_k': 20, 'top_p': 0.95}`. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+(APIServer pid=13) INFO 10-17 02:15:15 [hf.py:314] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+(APIServer pid=13) INFO 10-17 02:15:22 [base.py:233] Multi-modal warmup completed in 6.588s
+(APIServer pid=13) INFO 10-17 02:15:28 [base.py:233] Readonly multi-modal warmup completed in 6.332s
+(APIServer pid=13) INFO 10-17 02:15:28 [api_server.py:602] Starting vLLM server on http://0.0.0.0:18000
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:37] Available routes are:
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /openapi.json, Methods: GET, HEAD
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /docs, Methods: GET, HEAD
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /docs/oauth2-redirect, Methods: GET, HEAD
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /redoc, Methods: GET, HEAD
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /tokenize, Methods: POST
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /detokenize, Methods: POST
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /load, Methods: GET
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /version, Methods: GET
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /health, Methods: GET
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /metrics, Methods: GET
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /v1/models, Methods: GET
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /ping, Methods: GET
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /ping, Methods: POST
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /invocations, Methods: POST
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /v1/chat/completions, Methods: POST
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /v1/chat/completions/batch, Methods: POST
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /v1/responses, Methods: POST
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /v1/responses/{response_id}, Methods: GET
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /v1/responses/{response_id}/cancel, Methods: POST
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /v1/completions, Methods: POST
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /v1/messages, Methods: POST
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /v1/messages/count_tokens, Methods: POST
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /inference/v1/generate, Methods: POST
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /scale_elastic_ep, Methods: POST
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /is_scaling_elastic_ep, Methods: POST
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /generative_scoring, Methods: POST
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /v1/chat/completions/render, Methods: POST
+(APIServer pid=13) INFO 10-17 02:15:28 [launcher.py:46] Route: /v1/completions/render, Methods: POST
+(APIServer pid=13) INFO:     Started server process [13]
+(APIServer pid=13) INFO:     Waiting for application startup.
+(APIServer pid=13) INFO:     Application startup complete.
+(APIServer pid=13) INFO:     10.120.48.33:4088 - "GET /health HTTP/1.1" 200 OK
+(APIServer pid=13) INFO:     10.120.48.33:4088 - "GET /v1/models HTTP/1.1" 200 OK
+(APIServer pid=13) INFO:     10.120.48.33:11624 - "POST /tokenize HTTP/1.1" 200 OK
+(APIServer pid=13) WARNING 10-17 02:16:05 [input_processor.py:149] vLLM has deprecated support for supporting different tokenizers for different LoRAs. By default, vLLM uses base model's tokenizer. If you are using a LoRA with its own tokenizer, consider specifying `--tokenizer [lora_path]` to use the LoRA tokenizer.
+(Worker_TP0 pid=85) WARNING 10-17 02:16:34 [utils.py:267] Using default LoRA kernel configs
+(APIServer pid=13) INFO 10-17 02:16:39 [loggers.py:271] Engine 000: Avg prompt throughput: 77.2 tokens/s, Avg generation throughput: 0.1 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.1%, Prefix cache hit rate: 0.0%
+(APIServer pid=13) INFO 10-17 02:16:49 [loggers.py:271] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 3.4 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.1%, Prefix cache hit rate: 0.0%
+(APIServer pid=13) INFO 10-17 02:16:59 [loggers.py:271] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 8.1 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.1%, Prefix cache hit rate: 0.0%
+(APIServer pid=13) INFO 10-17 02:17:09 [loggers.py:271] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 7.9 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.1%, Prefix cache hit rate: 0.0%
+(APIServer pid=13) INFO:     10.120.48.33:11624 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=13) INFO:     10.120.48.33:11624 - "POST /tokenize HTTP/1.1" 200 OK
+(APIServer pid=13) INFO 10-17 02:17:19 [loggers.py:271] Engine 000: Avg prompt throughput: 112.5 tokens/s, Avg generation throughput: 7.0 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.2%, Prefix cache hit rate: 0.0%
+(APIServer pid=13) INFO:     10.120.48.33:11624 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=13) INFO:     10.120.48.33:11624 - "POST /tokenize HTTP/1.1" 200 OK
+(APIServer pid=13) INFO 10-17 02:17:29 [loggers.py:271] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 8.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(APIServer pid=13) INFO 10-17 02:17:39 [loggers.py:271] Engine 000: Avg prompt throughput: 132.7 tokens/s, Avg generation throughput: 7.8 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.2%, Prefix cache hit rate: 0.0%
+(APIServer pid=13) INFO:     10.120.48.33:11624 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=13) INFO 10-17 02:17:49 [loggers.py:271] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1.8 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(APIServer pid=13) INFO 10-17 02:17:59 [loggers.py:271] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%

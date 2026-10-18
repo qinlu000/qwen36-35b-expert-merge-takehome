@@ -1,0 +1,9 @@
+{
+  "id": "672d8b9b504a98f0e4799ae0",
+  "evaluation_status": "evaluation_invalid",
+  "correct": null,
+  "reason": "Both allowed Judge attempts failed; never a scored zero",
+  "is_image": false,
+  "source_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/questions/672d8b9b504a98f0e4799ae0.json",
+  "judge_calls": 2
+}

@@ -1,0 +1,23 @@
+{
+  "metrics": {
+    "eval_loss": 1.3579210042953491,
+    "eval_model_preparation_time": 2.0333,
+    "eval_runtime": 208.396,
+    "eval_samples_per_second": 1.195,
+    "eval_steps_per_second": 0.302,
+    "eval_token_acc": 0.8812813224983658,
+    "epoch": 0
+  },
+  "native_eval_rows": 249,
+  "global_step": 0,
+  "optimizer_created": false,
+  "scheduler_created": false,
+  "train_called": false,
+  "generate_enabled": false,
+  "checkpoint_written": false,
+  "elapsed_seconds": 263.98551721998956,
+  "completed_at": "2026-10-16T18:44:08.080304+00:00",
+  "native_config": "/data/user/qinlucao/projects/apex-takehome/artifacts/eval/sft_loss249_only_20261017-727689/avg64/native_config.json",
+  "max_length": 65536,
+  "scope": "Existing full249 SFT validation loss only; no task benchmark or generation"
+}

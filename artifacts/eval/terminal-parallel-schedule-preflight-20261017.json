@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-16T18:39:18.919517+00:00",
+  "old_waiting_parents_stopped": [
+    {
+      "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017",
+      "previous_pid": 2782415,
+      "pending": 445,
+      "active": 0,
+      "terminal": 0,
+      "formal_trial_dirs": 0
+    },
+    {
+      "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017",
+      "previous_pid": 2781816,
+      "pending": 445,
+      "active": 0,
+      "terminal": 0,
+      "formal_trial_dirs": 0
+    }
+  ],
+  "initial_scope_checks": {
+    "fixture_cpu12_15": [],
+    "expert_cpu12_51": [],
+    "avg_cpu52_91": []
+  },
+  "native_attempts_interrupted": 0,
+  "models_or_services_changed": false
+}

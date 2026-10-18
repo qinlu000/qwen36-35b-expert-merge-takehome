@@ -1,0 +1,11 @@
+[
+  "/data/user/qinlucao/projects/apex-takehome/artifacts/envs/sft/bin/python",
+  "-m",
+  "torch.distributed.run",
+  "--nproc_per_node=4",
+  "--master_addr=127.0.0.1",
+  "--master_port=50543",
+  "/data/user/qinlucao/projects/apex-takehome/scripts/evaluate_sft_loss_only.py",
+  "--worker=/data/user/qinlucao/projects/apex-takehome/artifacts/eval/sft_loss249_only_20261017-727689/avg64/native_config.json",
+  "--expected-rows=249"
+]

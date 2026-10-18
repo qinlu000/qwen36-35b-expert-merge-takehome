@@ -1,0 +1,129 @@
+{
+  "at": "2026-10-16T18:40:28.785882+00:00",
+  "state": "parallel_controllers_started",
+  "controllers": [
+    {
+      "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017",
+      "model": "apex-terminal250",
+      "new_parent_pid": 2878518,
+      "argv": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py",
+        "--output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/terminal250_full445_20261017"
+      ],
+      "initial_cpu_offsets": [
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48
+      ],
+      "final_cpu_offsets": [
+        0,
+        4,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        92,
+        96,
+        100,
+        104
+      ],
+      "initial_slots": 10,
+      "final_slots": 16,
+      "native_445_manifest_unchanged": true,
+      "protocol_unchanged": true
+    },
+    {
+      "output": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017",
+      "model": "apex-avg64",
+      "new_parent_pid": 2878519,
+      "argv": [
+        "/data/caoqinlu/projects/apex-takehome/artifacts/envs/harbor/bin/python",
+        "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/runtime/scripts/run_terminal_expert_benchmark.py",
+        "--output=/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017"
+      ],
+      "initial_cpu_offsets": [
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88
+      ],
+      "final_cpu_offsets": [
+        8,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        108,
+        112,
+        116,
+        120
+      ],
+      "initial_slots": 10,
+      "final_slots": 15,
+      "native_445_manifest_unchanged": true,
+      "protocol_unchanged": true
+    }
+  ],
+  "cpu_protocol_checks": {
+    "initial_terminal_cpus": 80,
+    "initial_total_with_swe_asi_grader": 126,
+    "after_swe_total_with_asi_grader": 128,
+    "final_terminal_cpus": 124,
+    "final_terminal_slots": 31,
+    "cross_controller_lease_overlap": false,
+    "independent_stage_tests": [
+      {
+        "mode": "neither",
+        "stages": []
+      },
+      {
+        "mode": "swe_only",
+        "stages": [
+          "swe_finished"
+        ]
+      },
+      {
+        "mode": "asi_only",
+        "stages": [
+          "asi_finished"
+        ]
+      },
+      {
+        "mode": "both",
+        "stages": [
+          "swe_finished",
+          "asi_finished"
+        ]
+      }
+    ]
+  },
+  "raw_preflight": "artifacts/eval/terminal-parallel-schedule-preflight-20261017.json",
+  "new_gpu_jobs": 0,
+  "loss_only727689_unchanged": true
+}

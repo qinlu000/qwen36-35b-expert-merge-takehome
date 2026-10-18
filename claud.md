@@ -2234,3 +2234,9 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
 - 按用户要求新增 public-safe `results/` 结果包：统一矩阵 CSV、失败率/invalid CSV、manifest、SWE/ASI 逐任务表、Terminal seed2 汇总、HLE 消融源数据和结果说明。
 - 公开包不含 benchmark 题面/答案、完整原始模型请求、私有凭据、SIF 或不可公开的工具观察；完整 HLE/Terminal 原始轨迹仍在受控 HPC artifacts，并由结果 manifest 和 canonical config 索引。
 - `results/README.md` 明确 compact 结果与 raw artifacts 的边界，避免把摘要冒称全部原始轨迹。
+
+## 2026-10-18 18:40 CST：按用户要求直接纳入评测证据包
+
+- 用户明确要求不要删除、不做额外清洗，直接把现有评测轨迹/证据放入 repo。现将本机 `artifacts/eval/` 原样强制纳入 Git：75 个文件、约 9.2MB，包含评测汇总、任务状态、SWE/HLE/TIES/Terminal/ASI 评测证据和日志。
+- 只做了读取性检查；没有修改或删除任何轨迹。扫描未发现 token/私钥值，发现的 `base_smoke_api_key` 仅是受控文件路径字段。候选人 GitHub 仓库保持 Private。
+- README 和 `results/README.md` 已更新，区分已直接提交的 `artifacts/eval` 与仍未在本机取得的完整 HLE/Terminal 原始轨迹、训练原始数据和模型权重。

@@ -1,0 +1,47 @@
+{
+  "schema": "ties_dense_hle_offline_score_only_summary_v1",
+  "generated_at_utc": "2026-10-18T05:00:00Z",
+  "source_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/summary.json",
+  "source_summary_sha256": "a8b1d889eac327971342666727cc977078dfe8c3ab0496ad238c442b91243760",
+  "original_summary_untouched": true,
+  "official": false,
+  "metric": "Official HLE fixed2500 denominator accuracy with disclosed replacement Judge plus offline score-only overlay",
+  "overlay": {
+    "result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/result.json",
+    "result_sha256": "53812b7a6596a6439ade47cd95839923c72c15408f919a44c04056bde6c527f7",
+    "id": "672d8b9b504a98f0e4799ae0",
+    "correct": false,
+    "score": 0.0,
+    "new_api_calls": 0,
+    "reused_frozen_judge_bodies": 2,
+    "offline_parse_only": true
+  },
+  "expected": 2500,
+  "frozen_terminal_results": 2500,
+  "scored": 2500,
+  "pending": 0,
+  "judged_answers": 2431,
+  "offline_score_only_overlays": 1,
+  "native_no_answer": 68,
+  "evaluation_invalid": 0,
+  "correct": 131,
+  "accuracy_percent": 5.24,
+  "score": 5.24,
+  "fraction": "131/2500",
+  "partial_correct_over_full_denominator_percent": 5.24,
+  "subgroups": {
+    "text": {
+      "denominator": 2158,
+      "scored": 2158,
+      "correct": 117,
+      "accuracy_percent": 5.42
+    },
+    "image": {
+      "denominator": 342,
+      "scored": 342,
+      "correct": 14,
+      "accuracy_percent": 4.09
+    }
+  },
+  "disclosure": "Complete only after this independent offline parse overlay; the original scoring result/summary remains evaluation_invalid and is unchanged. This is not an official new Judge decision."
+}

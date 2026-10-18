@@ -1,0 +1,42 @@
+{
+  "schema": "ties_dense_hle_offline_score_only_result_v1",
+  "id": "672d8b9b504a98f0e4799ae0",
+  "evaluation_status": "offline_score_only_overlay",
+  "correct": false,
+  "reward": 0.0,
+  "score": 0.0,
+  "official": false,
+  "new_api_calls": 0,
+  "new_model_calls": 0,
+  "reused_frozen_judge_bodies": 2,
+  "original_result_untouched": true,
+  "source_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/questions/672d8b9b504a98f0e4799ae0.json",
+  "source_result_sha256": "3dd50775c222c4f3a8c8c92e3421b7a4ab2dc68173465c62a900e7bcf9b1963d",
+  "parse_rule": "Parse each frozen HTTP200 Judge body as JSON; require extracted_final_answer=\\\"None\\\", strict=true, confidence=100, missing correct key, and reasoning containing literal `correct: no`; then set overlay correct=false. No answer generation or API replay.",
+  "attempts": [
+    {
+      "attempt": 1,
+      "http_status": 200,
+      "raw_envelope_sha256": "5c2d46256d012b7bf599707d29d505ad19b80b608a012c3c36eb4b2ea1542d27",
+      "inner_content_sha256": "80b25bdcb39e7537739efe8d89ad95ddbc8a125253e4e56e328f2bd78873931e",
+      "missing_required_key": "correct",
+      "extracted_final_answer": "None",
+      "confidence": 100,
+      "strict": true,
+      "explicit_textual_conclusion": "correct: no",
+      "reasoning_sha256": "a5086f45db0ace9bcb3e799fcb317f1deed3769bdae7982a3ea61ab53b573be4"
+    },
+    {
+      "attempt": 2,
+      "http_status": 200,
+      "raw_envelope_sha256": "0f9f29ad9f2a20f928821ab7682030cc806c707e246db4436b5646fab6e4bcc5",
+      "inner_content_sha256": "80b25bdcb39e7537739efe8d89ad95ddbc8a125253e4e56e328f2bd78873931e",
+      "missing_required_key": "correct",
+      "extracted_final_answer": "None",
+      "confidence": 100,
+      "strict": true,
+      "explicit_textual_conclusion": "correct: no",
+      "reasoning_sha256": "a5086f45db0ace9bcb3e799fcb317f1deed3769bdae7982a3ea61ab53b573be4"
+    }
+  ]
+}

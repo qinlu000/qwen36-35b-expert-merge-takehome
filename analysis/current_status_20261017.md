@@ -506,3 +506,7 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
 ## 2026-10-18 18:20 CST：整理公开结果包到 repo/GitHub
 
 已新增 `results/` public-safe compact package：矩阵、失败率、manifest、SWE/ASI 逐任务表、Terminal seed2 摘要和 HLE 消融源数据。完整 HLE/Terminal 原始轨迹不公开重传，继续由受控 HPC artifacts 和 canonical config 索引；results README 明确了这一边界。
+
+## 2026-10-18 18:40 CST：按用户要求直接纳入评测证据包
+
+按用户明确要求，现有本机 `artifacts/eval/` 75 个文件、约 9.2MB 原样纳入私有 GitHub 候选人仓库；未删除或清洗轨迹，只做了读取性 token/私钥扫描。README/results README 已标注该包边界；完整 HLE/Terminal 原始轨迹若不在本机仍不伪造。

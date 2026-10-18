@@ -1,0 +1,5 @@
+{
+  "http_status": 200,
+  "body": "{\"id\":\"chatcmpl-1a76162e-ba01-43cd-a3bd-59e7f7f4c1cf\",\"created\":1792189604,\"model\":\"DeepSeek-V4-Flash\",\"object\":\"chat.completion\",\"system_fingerprint\":\"vllm-0.25.1-dp16-ep-35b4db70\",\"choices\":[{\"finish_reason\":\"stop\",\"index\":0,\"message\":{\"content\":\"{\\\"extracted_final_answer\\\":\\\"None\\\",\\\"reasoning\\\":\\\"The response does not provide a final numerical expression matching the correct answer. It gives an asymptotic approximation and states the answer as a difference expression, not the required formula $\\\\\\\\frac{1260n^3+21n+10}{2520n}$.\\\\n\\\\ncorrect: no\\\",\\\"confidence\\\":100,\\\"strict\\\":true}\",\"role\":\"assistant\",\"provider_specific_fields\":{\"reasoning\":null,\"refusal\":null}},\"provider_specific_fields\":{\"stop_reason\":null,\"token_ids\":null,\"routed_experts\":null}}],\"usage\":{\"completion_tokens\":79,\"prompt_tokens\":822,\"total_tokens\":901}}",
+  "at_utc": "2026-10-16T22:26:47.750180+00:00"
+}

@@ -1,0 +1,182 @@
+{
+  "schema": "swe_source_cpu_handoff_v1",
+  "at": "2026-10-16T19:43:59.165415+00:00",
+  "source": "artifacts/eval/swe249_hard51_20261016",
+  "source_checkpoint_snapshot": "artifacts/eval/avg64_swe_hard51_20261017/source-cpu-release-checkpoints/full-source-finished.json",
+  "source_terminal": 51,
+  "source_active": {},
+  "source_pending": [],
+  "source_model_marker": {
+    "at": "2026-10-16T19:43:49.856645+00:00",
+    "model_consumer_finished": true,
+    "model": "apex-val-swe249",
+    "expected": 51,
+    "scoring_may_still_be_running": false
+  },
+  "source_all_cpu_and_model_consumers_finished": true,
+  "cpu_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "per_cpu_release_before_avg_admission": [
+    {
+      "cpu": 0,
+      "scope_empty_at": "2026-10-16T19:40:28.314654+00:00",
+      "source_pending": 0,
+      "source_active": 1,
+      "source_terminal": 50,
+      "source_active_cpu_ids": [
+        5
+      ],
+      "source_checkpoint_as_of": "2026-10-16T19:40:24.315048+00:00",
+      "source_checkpoint_snapshot": "artifacts/eval/avg64_swe_hard51_20261017/source-cpu-release-checkpoints/initial.json",
+      "actual_scopes_before_avg_admission": [],
+      "permanent_release": true
+    },
+    {
+      "cpu": 1,
+      "scope_empty_at": "2026-10-16T19:40:28.365664+00:00",
+      "source_pending": 0,
+      "source_active": 1,
+      "source_terminal": 50,
+      "source_active_cpu_ids": [
+        5
+      ],
+      "source_checkpoint_as_of": "2026-10-16T19:40:24.315048+00:00",
+      "source_checkpoint_snapshot": "artifacts/eval/avg64_swe_hard51_20261017/source-cpu-release-checkpoints/initial.json",
+      "actual_scopes_before_avg_admission": [],
+      "permanent_release": true
+    },
+    {
+      "cpu": 2,
+      "scope_empty_at": "2026-10-16T19:40:28.415111+00:00",
+      "source_pending": 0,
+      "source_active": 1,
+      "source_terminal": 50,
+      "source_active_cpu_ids": [
+        5
+      ],
+      "source_checkpoint_as_of": "2026-10-16T19:40:24.315048+00:00",
+      "source_checkpoint_snapshot": "artifacts/eval/avg64_swe_hard51_20261017/source-cpu-release-checkpoints/initial.json",
+      "actual_scopes_before_avg_admission": [],
+      "permanent_release": true
+    },
+    {
+      "cpu": 3,
+      "scope_empty_at": "2026-10-16T19:40:28.461870+00:00",
+      "source_pending": 0,
+      "source_active": 1,
+      "source_terminal": 50,
+      "source_active_cpu_ids": [
+        5
+      ],
+      "source_checkpoint_as_of": "2026-10-16T19:40:24.315048+00:00",
+      "source_checkpoint_snapshot": "artifacts/eval/avg64_swe_hard51_20261017/source-cpu-release-checkpoints/initial.json",
+      "actual_scopes_before_avg_admission": [],
+      "permanent_release": true
+    },
+    {
+      "cpu": 4,
+      "scope_empty_at": "2026-10-16T19:40:28.508846+00:00",
+      "source_pending": 0,
+      "source_active": 1,
+      "source_terminal": 50,
+      "source_active_cpu_ids": [
+        5
+      ],
+      "source_checkpoint_as_of": "2026-10-16T19:40:24.315048+00:00",
+      "source_checkpoint_snapshot": "artifacts/eval/avg64_swe_hard51_20261017/source-cpu-release-checkpoints/initial.json",
+      "actual_scopes_before_avg_admission": [],
+      "permanent_release": true
+    },
+    {
+      "cpu": 5,
+      "scope_empty_at": "2026-10-16T19:43:59.109289+00:00",
+      "source_pending": 0,
+      "source_active": 0,
+      "source_terminal": 51,
+      "source_active_cpu_ids": [],
+      "source_checkpoint_as_of": "2026-10-16T19:43:49.855593+00:00",
+      "source_checkpoint_snapshot": "artifacts/eval/avg64_swe_hard51_20261017/source-cpu-release-checkpoints/cpu-5.json",
+      "actual_scopes_before_avg_admission": [],
+      "permanent_release": true
+    },
+    {
+      "cpu": 6,
+      "scope_empty_at": "2026-10-16T19:40:28.554125+00:00",
+      "source_pending": 0,
+      "source_active": 1,
+      "source_terminal": 50,
+      "source_active_cpu_ids": [
+        5
+      ],
+      "source_checkpoint_as_of": "2026-10-16T19:40:24.315048+00:00",
+      "source_checkpoint_snapshot": "artifacts/eval/avg64_swe_hard51_20261017/source-cpu-release-checkpoints/initial.json",
+      "actual_scopes_before_avg_admission": [],
+      "permanent_release": true
+    },
+    {
+      "cpu": 7,
+      "scope_empty_at": "2026-10-16T19:40:28.599514+00:00",
+      "source_pending": 0,
+      "source_active": 1,
+      "source_terminal": 50,
+      "source_active_cpu_ids": [
+        5
+      ],
+      "source_checkpoint_as_of": "2026-10-16T19:40:24.315048+00:00",
+      "source_checkpoint_snapshot": "artifacts/eval/avg64_swe_hard51_20261017/source-cpu-release-checkpoints/initial.json",
+      "actual_scopes_before_avg_admission": [],
+      "permanent_release": true
+    },
+    {
+      "cpu": 8,
+      "scope_empty_at": "2026-10-16T19:40:28.644504+00:00",
+      "source_pending": 0,
+      "source_active": 1,
+      "source_terminal": 50,
+      "source_active_cpu_ids": [
+        5
+      ],
+      "source_checkpoint_as_of": "2026-10-16T19:40:24.315048+00:00",
+      "source_checkpoint_snapshot": "artifacts/eval/avg64_swe_hard51_20261017/source-cpu-release-checkpoints/initial.json",
+      "actual_scopes_before_avg_admission": [],
+      "permanent_release": true
+    },
+    {
+      "cpu": 9,
+      "scope_empty_at": "2026-10-16T19:40:28.689994+00:00",
+      "source_pending": 0,
+      "source_active": 1,
+      "source_terminal": 50,
+      "source_active_cpu_ids": [
+        5
+      ],
+      "source_checkpoint_as_of": "2026-10-16T19:40:24.315048+00:00",
+      "source_checkpoint_snapshot": "artifacts/eval/avg64_swe_hard51_20261017/source-cpu-release-checkpoints/initial.json",
+      "actual_scopes_before_avg_admission": [],
+      "permanent_release": true
+    }
+  ],
+  "current_avg_scopes_on_released_cpus": [
+    "apex-baseline-0e9665de149e.scope",
+    "apex-baseline-1b294f5e9e38.scope",
+    "apex-baseline-25565a663814.scope",
+    "apex-baseline-267311bccc8b.scope",
+    "apex-baseline-2e55b86e9fd0.scope",
+    "apex-baseline-5d32fef27fc3.scope",
+    "apex-baseline-7e5e972d55fd.scope",
+    "apex-baseline-d00739e54170.scope",
+    "apex-baseline-e1fcc47d5592.scope"
+  ],
+  "whole_pool_empty_at_this_time": false,
+  "note": "Every source CPU was actually scope-empty after permanent release, before AVG use; current AVG scopes are separate."
+}

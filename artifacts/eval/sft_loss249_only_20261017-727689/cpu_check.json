@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "raw_rows": 249,
+  "max_length": 65536,
+  "hook_events": [
+    "freeze_parameters",
+    "remove_ProgressCallbackNew",
+    "remove_PrinterCallbackNew",
+    "evaluate"
+  ],
+  "rejects_missing_validation_row": true,
+  "model_weights_loaded": false,
+  "gpu_used": false,
+  "hook_result": {
+    "metrics": {
+      "cpu_spy_only": true
+    },
+    "native_eval_rows": 249,
+    "global_step": 0,
+    "optimizer_created": false,
+    "scheduler_created": false,
+    "train_called": false,
+    "generate_enabled": false,
+    "checkpoint_written": false
+  },
+  "scope": "CPU spy trainer only; no model score or forward pass"
+}

@@ -1,0 +1,370 @@
+{
+  "collected_at_utc": "2026-10-16T21:31:19.725693+00:00",
+  "artifact_relative": "artifacts/merges/four-experts-ties-dense-v1-20261017",
+  "started_at_utc": "2026-10-16T21:28:59.868833+00:00",
+  "finished_at_utc": "2026-10-16T21:30:38.524182+00:00",
+  "elapsed_seconds": 98.65529554523528,
+  "report_state": "finished",
+  "counts": {
+    "targets_modified": 310,
+    "non_targets_verified_bitwise": 735,
+    "all_tensors": 1045,
+    "shards": 26
+  },
+  "checks": {
+    "sources_unchanged": true,
+    "reload_verified": true,
+    "real_weight_svd_calls": 0,
+    "selected_final": false,
+    "primary_avg64_modified": false,
+    "model_requests": 0,
+    "training_or_loss_evaluations": 0
+  },
+  "resource_peaks": {
+    "torch_allocator_peak_allocated_bytes": 1644167680,
+    "torch_allocator_peak_reserved_bytes": 2273312768,
+    "cpu_process_lifetime_high_water_bytes": 9574625280
+  },
+  "global_rounding": {
+    "delta_frobenius_squared": 55.47619484306039,
+    "composed_weight_frobenius_squared": 386202.30945907853,
+    "cast_error_squared": 0.6152417167759049,
+    "fp32_addition_roundoff_squared": 1.3814118857115114e-10,
+    "effective_delta_frobenius_squared": 56.248111730007516,
+    "effective_update_deviation_squared": 0.6152417179870803,
+    "cast_error_frobenius": 0.7843734549153897,
+    "cast_error_relative_to_composed_weight": 0.0012621630280071768,
+    "cast_error_relative_to_delta": 0.10530998605700695,
+    "effective_update_deviation_relative_to_delta": 0.10530998616066448,
+    "target_elements": 1409024000,
+    "numerically_unchanged_elements": 623006268,
+    "fully_numerically_unchanged_target_tensors": 0
+  },
+  "dtype_counts": {
+    "torch.bfloat16": 1045
+  },
+  "complete_marker": {
+    "passed": true,
+    "snapshot_type": "full_hf_model",
+    "source_base_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "report": "merge_report.json",
+    "targets_modified": 310,
+    "non_targets_verified_bitwise": 735,
+    "all_tensors": 1045,
+    "shards": 26,
+    "reload_verified": true,
+    "sources_unchanged": true,
+    "real_weight_svd_calls": 0,
+    "selected_final": false
+  },
+  "manifest": {
+    "snapshot_type": "full_hf_model",
+    "method": "PEFT0.20 per-module true-delta TIES, then W0FP32+D cast to original dtype; no SVD",
+    "source_base_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "selected_final": false,
+    "primary_unchanged": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+    "config": {
+      "version": "four-experts-ties-dense-v1-20261017",
+      "base_revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+      "base_path": "artifacts/models/Qwen3.6-35B-A3B/995ad96eacd98c81ed38be0c5b274b04031597b0",
+      "primary_adapter": "artifacts/merges/four-experts-avg-v1-20261017/avg-r64",
+      "output_root": "artifacts/merges/four-experts-ties-dense-v1-20261017",
+      "peft_package": "artifacts/envs/sft/lib/python3.12/site-packages/peft",
+      "peft_version": "0.20.0",
+      "merge_utils_sha256": "2b601ee37cc040d42134bf31b7b1b0bbbac4092b08f7084e64d889ae3f5f0163",
+      "method": "PEFT0.20 per-module true-delta TIES, then W0FP32+D cast to original dtype; no SVD",
+      "density": 0.2,
+      "majority_sign_method": "total",
+      "weights": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "lambda": 1,
+      "compute_dtype": "float32",
+      "storage_dtype": "preserve original; all310 target tensors BF16",
+      "cpu_threads": 8,
+      "expected_all_tensors": 1045,
+      "expected_shards": 26,
+      "copy_assets": [
+        "model.safetensors.index.json",
+        "config.json",
+        "generation_config.json",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "vocab.json",
+        "merges.txt",
+        "chat_template.jinja",
+        "preprocessor_config.json",
+        "video_preprocessor_config.json",
+        "LICENSE"
+      ],
+      "expected_shapes": [
+        {
+          "shape": [
+            32,
+            2048
+          ],
+          "modules": 60
+        },
+        {
+          "shape": [
+            512,
+            2048
+          ],
+          "modules": 100
+        },
+        {
+          "shape": [
+            2048,
+            512
+          ],
+          "modules": 40
+        },
+        {
+          "shape": [
+            2048,
+            4096
+          ],
+          "modules": 40
+        },
+        {
+          "shape": [
+            4096,
+            2048
+          ],
+          "modules": 30
+        },
+        {
+          "shape": [
+            8192,
+            2048
+          ],
+          "modules": 40
+        }
+      ],
+      "inputs": [
+        {
+          "expert": "swe",
+          "adapter": "artifacts/runs/swe2k-sft-r16-726335/training/checkpoint-249"
+        },
+        {
+          "expert": "terminal",
+          "adapter": "artifacts/runs/terminal-retry-sft-r16-726665/training/checkpoint-250"
+        },
+        {
+          "expert": "asi",
+          "adapter": "artifacts/runs/asi-expanded-sft-r16-726336/training/checkpoint-128"
+        },
+        {
+          "expert": "hle",
+          "adapter": "artifacts/runs/hle-existing2k-sft-r16-726664/training/checkpoint-250"
+        }
+      ],
+      "selected_final": false,
+      "selection_policy": "Fixed .2/total/ones/lambda1 before TIES task results. SVD64 export rejected after numerical pilot; dense removes rank truncation, with BF16 rounding disclosed. AVG64 remains primary. No task-score tuning."
+    },
+    "real_weight_svd_calls": 0,
+    "report": "merge_report.json",
+    "precision": "FP32 true deltas and sum; original BF16 target storage; rounding reported separately",
+    "representation_difference": "Dense full snapshot vs primary AVG64 adapter; no rank truncation or LoRA serving scale"
+  },
+  "finalization_mtimes_ns": {
+    "merge_manifest.json": "1792186238526767000",
+    "merge_report.json": "1792186238550488000",
+    "EXPORT_COMPLETE.json": "1792186238555573000"
+  },
+  "marker_written_after_report_manifest_shards": true,
+  "shard_files": [
+    {
+      "name": "model-00001-of-00026.safetensors",
+      "bytes": 3996199712,
+      "mtime_ns": "1792186145972296000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00002-of-00026.safetensors",
+      "bytes": 1284907696,
+      "mtime_ns": "1792186148628016000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00003-of-00026.safetensors",
+      "bytes": 3357898360,
+      "mtime_ns": "1792186151697784000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00004-of-00026.safetensors",
+      "bytes": 3370808712,
+      "mtime_ns": "1792186155636620000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00005-of-00026.safetensors",
+      "bytes": 3357898360,
+      "mtime_ns": "1792186159756284000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00006-of-00026.safetensors",
+      "bytes": 3959424904,
+      "mtime_ns": "1792186165927637000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00007-of-00026.safetensors",
+      "bytes": 1096788232,
+      "mtime_ns": "1792186168745302000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00008-of-00026.safetensors",
+      "bytes": 3946842008,
+      "mtime_ns": "1792186172942040000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00009-of-00026.safetensors",
+      "bytes": 1096460848,
+      "mtime_ns": "1792186175259686000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00010-of-00026.safetensors",
+      "bytes": 3946841992,
+      "mtime_ns": "1792186178806525000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00011-of-00026.safetensors",
+      "bytes": 1096460752,
+      "mtime_ns": "1792186181543033000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00012-of-00026.safetensors",
+      "bytes": 3409971080,
+      "mtime_ns": "1792186185023062000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00013-of-00026.safetensors",
+      "bytes": 1633331664,
+      "mtime_ns": "1792186187720881000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00014-of-00026.safetensors",
+      "bytes": 3422553872,
+      "mtime_ns": "1792186191430996000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00015-of-00026.safetensors",
+      "bytes": 1633659224,
+      "mtime_ns": "1792186194186060000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00016-of-00026.safetensors",
+      "bytes": 3946842136,
+      "mtime_ns": "1792186198726954000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00017-of-00026.safetensors",
+      "bytes": 1096460608,
+      "mtime_ns": "1792186201383562000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00018-of-00026.safetensors",
+      "bytes": 3946841992,
+      "mtime_ns": "1792186205144670000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00019-of-00026.safetensors",
+      "bytes": 1096460808,
+      "mtime_ns": "1792186208417141000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00020-of-00026.safetensors",
+      "bytes": 3409971072,
+      "mtime_ns": "1792186211623165000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00021-of-00026.safetensors",
+      "bytes": 1633331744,
+      "mtime_ns": "1792186214569423000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00022-of-00026.safetensors",
+      "bytes": 3370808752,
+      "mtime_ns": "1792186218358283000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00023-of-00026.safetensors",
+      "bytes": 3357898392,
+      "mtime_ns": "1792186223911228000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00024-of-00026.safetensors",
+      "bytes": 3370808752,
+      "mtime_ns": "1792186228676194000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00025-of-00026.safetensors",
+      "bytes": 3832888256,
+      "mtime_ns": "1792186233167183000",
+      "is_symlink": false
+    },
+    {
+      "name": "model-00026-of-00026.safetensors",
+      "bytes": 2231416848,
+      "mtime_ns": "1792186237566852000",
+      "is_symlink": false
+    }
+  ],
+  "shard_file_total_bytes": 71903776776,
+  "index_logical_tensor_bytes": 71903645408,
+  "copied_assets": [
+    "model.safetensors.index.json",
+    "config.json",
+    "generation_config.json",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "vocab.json",
+    "merges.txt",
+    "chat_template.jinja",
+    "preprocessor_config.json",
+    "video_preprocessor_config.json",
+    "LICENSE"
+  ],
+  "assets_all_regular_files": true,
+  "full_model_not_peft_adapter": true,
+  "module_rounding_ranges": {
+    "cast_error_relative_to_delta": [
+      0.0234508940470178,
+      0.20024443264735234
+    ],
+    "effective_update_deviation_relative_to_delta": [
+      0.02345089590996068,
+      0.20024445195909896
+    ],
+    "numerically_unchanged_fraction": [
+      0.42025089263916016,
+      0.5059565305709839
+    ]
+  },
+  "sacct": "728007|apex-ties-dense|acd_u|COMPLETED|0:0|00:02:09|billing=8,cpu=8,gres/gpu=1,mem=64G,node=1||2026-10-17T05:28:34|2026-10-17T05:30:43|ACD1-24\n728007.batch|batch||COMPLETED|0:0|00:02:09|cpu=8,gres/gpu=1,mem=64G,node=1||2026-10-17T05:28:34|2026-10-17T05:30:43|ACD1-24\n728007.extern|extern||COMPLETED|0:0|00:02:09|billing=8,cpu=8,gres/gpu=1,mem=64G,node=1||2026-10-17T05:28:34|2026-10-17T05:30:43|ACD1-24\n",
+  "squeue": ""
+}

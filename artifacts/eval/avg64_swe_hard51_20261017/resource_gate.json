@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-16T18:18:26.763219+00:00",
+  "expert": {
+    "ready": false,
+    "source": "artifacts/eval/swe249_hard51_20261016",
+    "pending": 21,
+    "active": 10,
+    "terminal": 20,
+    "model_consumer_finished": false
+  },
+  "busy_scopes": [
+    "apex-baseline-5a56a0ab66e8.scope",
+    "apex-baseline-6e0b1da3c0ce.scope",
+    "apex-baseline-7bb74158b5ad.scope",
+    "apex-baseline-88dcc4d43a29.scope",
+    "apex-baseline-9e9e4ae797f2.scope",
+    "apex-baseline-a8f29ea9aa5a.scope",
+    "apex-baseline-aca8a792f51b.scope",
+    "apex-baseline-bb0f231bbeb2.scope",
+    "apex-baseline-f001ee42e5c2.scope",
+    "apex-baseline-f7f972f57be6.scope"
+  ],
+  "endpoint_accepted": true
+}

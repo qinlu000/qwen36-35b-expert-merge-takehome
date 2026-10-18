@@ -1,0 +1,46 @@
+{
+  "complete": false,
+  "expected": 2500,
+  "frozen_terminal_results": 2500,
+  "judged_answers": 2431,
+  "native_no_answer": 68,
+  "evaluation_invalid": 1,
+  "scored": 2499,
+  "pending": 1,
+  "correct": 131,
+  "accuracy_percent": null,
+  "score": null,
+  "partial_correct_over_full_denominator_percent": 5.24,
+  "subgroups": {
+    "text": {
+      "denominator": 2158,
+      "scored": 2157,
+      "correct": 117,
+      "accuracy_percent": null
+    },
+    "image": {
+      "denominator": 342,
+      "scored": 342,
+      "correct": 14,
+      "accuracy_percent": 4.09
+    }
+  },
+  "selection_states": {
+    "answer": 2432,
+    "native_no_answer": 68
+  },
+  "judge_generation_calls": 2445,
+  "accounted_cost_cny": 2.1614145,
+  "budget_halted": false,
+  "max_cny": 20.0,
+  "max_calls": 5000,
+  "updated_at_utc": "2026-10-16T23:08:15.397656+00:00",
+  "provider": "DeepSeek-V4-Flash",
+  "official": false,
+  "metric": "Official HLE fixed2500 denominator accuracy; replacement Judge disclosed",
+  "recovery_judge_calls": 6,
+  "grader_only_recovery": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/compact-recovery-20261017",
+  "recovery_budget": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/compact-recovery-20261017/budget.json",
+  "original_budget_ledger_unchanged": true,
+  "protocol_exception": "Original two attempts plus at most one explicit compact-wrapper recovery for listed length-truncated grades"
+}

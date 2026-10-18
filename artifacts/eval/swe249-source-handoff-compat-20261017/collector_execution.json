@@ -1,0 +1,50 @@
+{
+  "started_at_utc": "2026-10-16T19:46:26.755499+00:00",
+  "finished_at_utc": "2026-10-16T19:46:26.889627+00:00",
+  "command": [
+    "taskset",
+    "-c",
+    "10",
+    "/usr/bin/python3",
+    "/data/caoqinlu/projects/apex-takehome/scripts/collect_swe249_audited.py",
+    "--project=/data/caoqinlu/projects/apex-takehome"
+  ],
+  "exit_code": 0,
+  "pure_collector_invocations": 1,
+  "model_calls": 0,
+  "replays": 0,
+  "task_or_verifier_executions": 0,
+  "cpu": 10,
+  "source_files_written": false,
+  "queue_or_model_changes": false,
+  "stdout": "{\"expected\": 51, \"valid_scored\": 46, \"original_valid_scored\": 42, \"audited_native_zero_count\": 4, \"resolved\": 0, \"complete\": false, \"primary_score_percent\": null}\n",
+  "stderr": "",
+  "summary_path": "artifacts/eval/swe249_audited_hard51_20261017/summary.json",
+  "result": {
+    "state": "audited_snapshot_incomplete",
+    "expected": 51,
+    "valid_scored": 46,
+    "original_valid_scored": 42,
+    "audited_native_zero_count": 4,
+    "resolved": 0,
+    "complete": false,
+    "primary_score_percent": null,
+    "completion_gates": {
+      "all51_effectively_scored": false,
+      "all51_original_attempts_terminal": true,
+      "original_active_empty": true,
+      "original_pending_empty": true,
+      "original_model_consumer_finished": true,
+      "original_scoring_explicitly_finished": true,
+      "source_cpu_drain_proven": true
+    },
+    "source_as_of": "2026-10-16T19:43:49.855593+00:00",
+    "source_cpu_handoff_valid": false,
+    "source_specific_cpu_handoff_valid": true,
+    "source_specific_cpu_handoff": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_swe_hard51_20261017/source-expert-consumers-finished.json",
+    "original_terminal": 51,
+    "original_active": 0,
+    "original_pending": 0,
+    "new_source_receipt_present": true
+  }
+}

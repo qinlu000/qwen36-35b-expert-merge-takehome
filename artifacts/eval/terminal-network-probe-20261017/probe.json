@@ -1,0 +1,308 @@
+{
+  "started_at_utc": "2026-10-16T20:11:07.786426+00:00",
+  "kind": "network_metadata_only",
+  "domains": [
+    "pypi.org",
+    "archive.ubuntu.com"
+  ],
+  "maximum_seconds_per_domain": 5,
+  "task_setup_agent_verifier_model_calls": 0,
+  "runtime": "artifacts/eval/avg64_terminal_full445_20261017/runtime/scripts",
+  "probe_cpus": [
+    11
+  ],
+  "formal_cpu_memory_protocol_modified": false,
+  "host": {
+    "cpu_affinity": [
+      11
+    ],
+    "resolv_conf": "# This is /run/systemd/resolve/stub-resolv.conf managed by man:systemd-resolved(8).\n# Do not edit.\n#\n# This file might be symlinked as /etc/resolv.conf. If you're looking at\n# /etc/resolv.conf and seeing this text, you have followed the symlink.\n#\n# This is a dynamic resolv.conf file for connecting local clients to the\n# internal DNS stub resolver of systemd-resolved. This file lists all\n# configured search domains.\n#\n# Run \"resolvectl status\" to see details about the uplink DNS servers\n# currently in use.\n#\n# Third party programs should typically not access this file directly, but only\n# through the symlink at /etc/resolv.conf. To manage man:resolv.conf(5) in a\n# different way, replace this symlink by a static file or a different symlink.\n#\n# See man:systemd-resolved.service(8) for details about the supported modes of\n# operation for /etc/resolv.conf.\n\nnameserver 127.0.0.53\noptions edns0 trust-ad\nsearch .\n",
+    "proxy_variable_names": [],
+    "domains": [
+      {
+        "host": "pypi.org",
+        "timeout": false,
+        "return_code": 0,
+        "events": [
+          {
+            "stage": "dns",
+            "host": "pypi.org",
+            "ok": true,
+            "addresses": [
+              "151.101.0.223",
+              "151.101.128.223",
+              "151.101.192.223",
+              "151.101.64.223",
+              "2a04:4e42:200::223",
+              "2a04:4e42:400::223",
+              "2a04:4e42:600::223",
+              "2a04:4e42::223"
+            ],
+            "seconds": 0.04707917757332325
+          },
+          {
+            "stage": "https_head",
+            "host": "pypi.org",
+            "ok": true,
+            "status": 200,
+            "seconds": 0.22092475555837154
+          }
+        ],
+        "stderr": ""
+      },
+      {
+        "host": "archive.ubuntu.com",
+        "timeout": false,
+        "return_code": 0,
+        "events": [
+          {
+            "stage": "dns",
+            "host": "archive.ubuntu.com",
+            "ok": true,
+            "addresses": [
+              "185.125.190.81",
+              "185.125.190.82",
+              "185.125.190.83",
+              "2620:2d:4000:1::101",
+              "2620:2d:4000:1::102",
+              "2620:2d:4000:1::103",
+              "2620:2d:4002:1::101",
+              "2620:2d:4002:1::102",
+              "2620:2d:4002:1::103",
+              "2a06:bc80:0:1000::16",
+              "2a06:bc80:0:1000::17",
+              "2a06:bc80:0:1000::18",
+              "91.189.91.81",
+              "91.189.91.82",
+              "91.189.91.83",
+              "91.189.92.22",
+              "91.189.92.23",
+              "91.189.92.24"
+            ],
+            "seconds": 0.10666288249194622
+          },
+          {
+            "stage": "https_head",
+            "host": "archive.ubuntu.com",
+            "ok": true,
+            "status": 200,
+            "seconds": 0.8636791724711657
+          }
+        ],
+        "stderr": ""
+      }
+    ]
+  },
+  "source_trial_config": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/avg64_terminal_full445_20261017/trials/bn-fit-modify__seed0/config.json",
+  "task_environment": "/data/caoqinlu/projects/apex-takehome/artifacts/results/base-terminal-v2-724242-r2/tasks/bn-fit-modify/environment",
+  "scope": "apex-baseline-4c50737e7c2d.scope",
+  "sif": "artifacts/benchmarks/sif/alexgshaw_bn-fit-modify_20251031.sif",
+  "phases": [
+    {
+      "phase": "public_before",
+      "cpu_affinity": [
+        11
+      ],
+      "resolv_conf": "nameserver 10.0.2.3\n",
+      "proxy_variable_names": [],
+      "domains": [
+        {
+          "host": "pypi.org",
+          "timeout": false,
+          "return_code": 0,
+          "events": [
+            {
+              "stage": "dns",
+              "host": "pypi.org",
+              "ok": true,
+              "addresses": [
+                "151.101.0.223",
+                "151.101.128.223",
+                "151.101.192.223",
+                "151.101.64.223",
+                "2a04:4e42:200::223",
+                "2a04:4e42:400::223",
+                "2a04:4e42:600::223",
+                "2a04:4e42::223"
+              ],
+              "seconds": 0.002170264720916748
+            },
+            {
+              "stage": "https_head",
+              "host": "pypi.org",
+              "ok": true,
+              "status": 200,
+              "seconds": 0.19593907706439495
+            }
+          ],
+          "stderr": ""
+        },
+        {
+          "host": "archive.ubuntu.com",
+          "timeout": false,
+          "return_code": 0,
+          "events": [
+            {
+              "stage": "dns",
+              "host": "archive.ubuntu.com",
+              "ok": true,
+              "addresses": [
+                "185.125.190.81",
+                "185.125.190.82",
+                "185.125.190.83",
+                "2620:2d:4000:1::101",
+                "2620:2d:4000:1::102",
+                "2620:2d:4000:1::103",
+                "2620:2d:4002:1::101",
+                "2620:2d:4002:1::102",
+                "2620:2d:4002:1::103",
+                "2a06:bc80:0:1000::16",
+                "2a06:bc80:0:1000::17",
+                "2a06:bc80:0:1000::18",
+                "91.189.91.81",
+                "91.189.91.82",
+                "91.189.91.83",
+                "91.189.92.22",
+                "91.189.92.23",
+                "91.189.92.24"
+              ],
+              "seconds": 0.10363438725471497
+            },
+            {
+              "stage": "https_head",
+              "host": "archive.ubuntu.com",
+              "ok": true,
+              "status": 200,
+              "seconds": 0.8081316314637661
+            }
+          ],
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "phase": "solver_no_network",
+      "cpu_affinity": [
+        11
+      ],
+      "resolv_conf": "nameserver 10.0.2.3\n",
+      "proxy_variable_names": [],
+      "domains": [
+        {
+          "host": "pypi.org",
+          "timeout": false,
+          "return_code": 0,
+          "events": [
+            {
+              "stage": "dns",
+              "host": "pypi.org",
+              "ok": false,
+              "error": "[Errno -3] Temporary failure in name resolution",
+              "seconds": 0.001309892162680626
+            }
+          ],
+          "stderr": ""
+        },
+        {
+          "host": "archive.ubuntu.com",
+          "timeout": false,
+          "return_code": 0,
+          "events": [
+            {
+              "stage": "dns",
+              "host": "archive.ubuntu.com",
+              "ok": false,
+              "error": "[Errno -3] Temporary failure in name resolution",
+              "seconds": 0.001305263489484787
+            }
+          ],
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "phase": "public_after",
+      "cpu_affinity": [
+        11
+      ],
+      "resolv_conf": "nameserver 10.0.2.3\n",
+      "proxy_variable_names": [],
+      "domains": [
+        {
+          "host": "pypi.org",
+          "timeout": false,
+          "return_code": 0,
+          "events": [
+            {
+              "stage": "dns",
+              "host": "pypi.org",
+              "ok": true,
+              "addresses": [
+                "151.101.0.223",
+                "151.101.128.223",
+                "151.101.192.223",
+                "151.101.64.223",
+                "2a04:4e42:200::223",
+                "2a04:4e42:400::223",
+                "2a04:4e42:600::223",
+                "2a04:4e42::223"
+              ],
+              "seconds": 0.001896711066365242
+            },
+            {
+              "stage": "https_head",
+              "host": "pypi.org",
+              "ok": true,
+              "status": 200,
+              "seconds": 0.1721706073731184
+            }
+          ],
+          "stderr": ""
+        },
+        {
+          "host": "archive.ubuntu.com",
+          "timeout": false,
+          "return_code": 0,
+          "events": [
+            {
+              "stage": "dns",
+              "host": "archive.ubuntu.com",
+              "ok": true,
+              "addresses": [
+                "185.125.190.81",
+                "185.125.190.82",
+                "185.125.190.83",
+                "2620:2d:4000:1::101",
+                "2620:2d:4000:1::102",
+                "2620:2d:4000:1::103",
+                "2620:2d:4002:1::101",
+                "2620:2d:4002:1::102",
+                "2620:2d:4002:1::103",
+                "2a06:bc80:0:1000::16",
+                "2a06:bc80:0:1000::17",
+                "2a06:bc80:0:1000::18",
+                "91.189.91.81",
+                "91.189.91.82",
+                "91.189.91.83",
+                "91.189.92.22",
+                "91.189.92.23",
+                "91.189.92.24"
+              ],
+              "seconds": 0.08277152106165886
+            },
+            {
+              "stage": "https_head",
+              "host": "archive.ubuntu.com",
+              "ok": true,
+              "status": 200,
+              "seconds": 0.7717852238565683
+            }
+          ],
+          "stderr": ""
+        }
+      ]
+    }
+  ],
+  "own_environment_stopped": true,
+  "finished_at_utc": "2026-10-16T20:11:15.583697+00:00"
+}

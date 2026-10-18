@@ -149,6 +149,6 @@ artifacts/envs/asi-py312/bin/python scripts/check_experiment_aggregation.py
 
 代码/配置在`scripts/`、`configs/`；训练图与源数据在`curves/`；研究说明、统计验证和小型执行收据在`analysis/`；模型索引在`models/`。大产物实际使用`artifacts/runs`、`artifacts/eval`、`artifacts/results`、`artifacts/merges`，与模板推荐的`logs/results`布局不同；[结果路径清单](configs/eval/final_results_20261017.json)记录精确映射，不依靠自动挑“最新”或最高奖励结果。
 
-最终交付包含：训练与评测代码、固定配置、数据来源和许可说明、模型卡与发布清单、[结果索引](results/README.md)、逐项结果快照、HLE 合版消融[图和源数据](analysis/hle_merge_ablation_20261018.md)、20 个失败案例、资源/API 记录以及根目录 `report.pdf`。大权重、原始数据、任务缓存、SIF、完整日志和凭据仍保存在被 Git 忽略的本地/HPC 资产中，不随 GitHub clone 分发。
+最终交付包含：训练与评测代码、固定配置、数据来源和许可说明、模型卡与发布清单、[结果索引](results/README.md)、`artifacts/eval/` 评测证据包、逐项结果快照、HLE 合版消融[图和源数据](analysis/hle_merge_ablation_20261018.md)、20 个失败案例、资源/API 记录以及根目录 `report.pdf`。大权重、原始数据、任务缓存、SIF、训练原始日志和凭据仍保存在被 Git 忽略的本地/HPC 资产中，不随 GitHub clone 分发。
 
 题面要求的 Terminal 五次均值、3 小时/32 CPU/48 GB/256K/80K 配置，以及官方 HLE/ASI Judge 并未完全复现；本提交按用户确认的实验口径汇报，严格 native 缺口和 exploratory 补充视图分开保存。Terminal 历史 445 条结果、Base timeout overlay、TIES-Dense 离线修复和所有未决 invalid 均不伪装成官方完整成绩。loss 仅作训练诊断，不作为任务结果或模型选择依据。

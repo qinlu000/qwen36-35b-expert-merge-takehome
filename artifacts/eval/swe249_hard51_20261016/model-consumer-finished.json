@@ -1,0 +1,7 @@
+{
+  "at": "2026-10-16T19:43:49.856645+00:00",
+  "model_consumer_finished": true,
+  "model": "apex-val-swe249",
+  "expected": 51,
+  "scoring_may_still_be_running": false
+}

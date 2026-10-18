@@ -1,0 +1,152 @@
+{
+  "schema": "ties_dense_hle_offline_score_only_manifest_v1",
+  "created_at_utc": "2026-10-18T05:00:00Z",
+  "host": "10.123.4.80",
+  "scope": "One TIES-Dense HLE evaluation_invalid item; independent offline parse only",
+  "policy": "Do not regenerate answer, do not call Judge API, do not modify original scoring result/summary/parser/budget",
+  "task_id": "672d8b9b504a98f0e4799ae0",
+  "source_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/summary.json",
+  "source_summary_sha256": "a8b1d889eac327971342666727cc977078dfe8c3ab0496ad238c442b91243760",
+  "original_invalid_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/results/672d8b9b504a98f0e4799ae0.json",
+  "original_invalid_result_sha256": "ef892ef60e2457588e731cc2802c086e6d741878d8a4de385a15085f51501d87",
+  "original_files_unchanged": true,
+  "new_api_calls": 0,
+  "new_model_calls": 0,
+  "judge_bodies_reused": 2,
+  "criteria_and_request_sha256": {
+    "criteria_prompt": "0f0023ee579b8c134f1834ed8952778b9e01460e31d47c242ee3629da9d44835",
+    "json_wrapper_prompt": "63d3450fed0f7a8def3f00cd8241f4dffd748c6f9af8405985adb0082452d007",
+    "request_attempt1": "7de481cf01f7569c96a8138c8c76936553153aa1ef55713ced48cd4ac242eb07",
+    "request_attempt2": "7de481cf01f7569c96a8138c8c76936553153aa1ef55713ced48cd4ac242eb07",
+    "scoring_input": "a5895d8dd271dd306f4fae4c8aa5521b3791f02a4608d7fce76cd7a1b96fb05b"
+  },
+  "raw_response_sha256": {
+    "attempt1": "5c2d46256d012b7bf599707d29d505ad19b80b608a012c3c36eb4b2ea1542d27",
+    "attempt2": "0f9f29ad9f2a20f928821ab7682030cc806c707e246db4436b5646fab6e4bcc5",
+    "attempt1_error": "61dfd4629fb7aa76f8cb9b038009ef1afff34696546637727d971a8785dd7078",
+    "attempt2_error": "af6dead81a56cedabfd92d0c78aeac100d30e40ff4603095dd3cec5aa6b37d2d"
+  },
+  "source_provenance": {
+    "source_result": {
+      "original_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/questions/672d8b9b504a98f0e4799ae0.json",
+      "evidence_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/evidence/source_result.json",
+      "sha256": "3dd50775c222c4f3a8c8c92e3421b7a4ab2dc68173465c62a900e7bcf9b1963d",
+      "bytes": 3519,
+      "original_sha256": "3dd50775c222c4f3a8c8c92e3421b7a4ab2dc68173465c62a900e7bcf9b1963d"
+    },
+    "scoring_input": {
+      "original_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/inputs/672d8b9b504a98f0e4799ae0.json",
+      "evidence_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/evidence/scoring_input.json",
+      "sha256": "a5895d8dd271dd306f4fae4c8aa5521b3791f02a4608d7fce76cd7a1b96fb05b",
+      "bytes": 1696,
+      "original_sha256": "a5895d8dd271dd306f4fae4c8aa5521b3791f02a4608d7fce76cd7a1b96fb05b"
+    },
+    "request_attempt1": {
+      "original_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/requests/672d8b9b504a98f0e4799ae0.1.json",
+      "evidence_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/evidence/request_attempt1.json",
+      "sha256": "7de481cf01f7569c96a8138c8c76936553153aa1ef55713ced48cd4ac242eb07",
+      "bytes": 3359,
+      "original_sha256": "7de481cf01f7569c96a8138c8c76936553153aa1ef55713ced48cd4ac242eb07"
+    },
+    "request_attempt2": {
+      "original_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/requests/672d8b9b504a98f0e4799ae0.2.json",
+      "evidence_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/evidence/request_attempt2.json",
+      "sha256": "7de481cf01f7569c96a8138c8c76936553153aa1ef55713ced48cd4ac242eb07",
+      "bytes": 3359,
+      "original_sha256": "7de481cf01f7569c96a8138c8c76936553153aa1ef55713ced48cd4ac242eb07"
+    },
+    "raw_response_attempt1": {
+      "original_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/responses/672d8b9b504a98f0e4799ae0.1.json",
+      "evidence_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/evidence/raw_response_attempt1.json",
+      "sha256": "5c2d46256d012b7bf599707d29d505ad19b80b608a012c3c36eb4b2ea1542d27",
+      "bytes": 1012,
+      "original_sha256": "5c2d46256d012b7bf599707d29d505ad19b80b608a012c3c36eb4b2ea1542d27"
+    },
+    "raw_response_attempt2": {
+      "original_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/responses/672d8b9b504a98f0e4799ae0.2.json",
+      "evidence_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/evidence/raw_response_attempt2.json",
+      "sha256": "0f9f29ad9f2a20f928821ab7682030cc806c707e246db4436b5646fab6e4bcc5",
+      "bytes": 949,
+      "original_sha256": "0f9f29ad9f2a20f928821ab7682030cc806c707e246db4436b5646fab6e4bcc5"
+    },
+    "raw_error_attempt1": {
+      "original_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/responses/672d8b9b504a98f0e4799ae0.1.error.json",
+      "evidence_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/evidence/raw_error_attempt1.json",
+      "sha256": "61dfd4629fb7aa76f8cb9b038009ef1afff34696546637727d971a8785dd7078",
+      "bytes": 85,
+      "original_sha256": "61dfd4629fb7aa76f8cb9b038009ef1afff34696546637727d971a8785dd7078"
+    },
+    "raw_error_attempt2": {
+      "original_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/responses/672d8b9b504a98f0e4799ae0.2.error.json",
+      "evidence_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/evidence/raw_error_attempt2.json",
+      "sha256": "af6dead81a56cedabfd92d0c78aeac100d30e40ff4603095dd3cec5aa6b37d2d",
+      "bytes": 85,
+      "original_sha256": "af6dead81a56cedabfd92d0c78aeac100d30e40ff4603095dd3cec5aa6b37d2d"
+    },
+    "invalid_result": {
+      "original_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/results/672d8b9b504a98f0e4799ae0.json",
+      "evidence_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/evidence/invalid_result.json",
+      "sha256": "ef892ef60e2457588e731cc2802c086e6d741878d8a4de385a15085f51501d87",
+      "bytes": 358,
+      "original_sha256": "ef892ef60e2457588e731cc2802c086e6d741878d8a4de385a15085f51501d87"
+    },
+    "scoring_summary": {
+      "original_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/summary.json",
+      "evidence_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/evidence/scoring_summary.json",
+      "sha256": "a8b1d889eac327971342666727cc977078dfe8c3ab0496ad238c442b91243760",
+      "bytes": 1491,
+      "original_sha256": "a8b1d889eac327971342666727cc977078dfe8c3ab0496ad238c442b91243760"
+    },
+    "scoring_config": {
+      "original_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/scoring_config.json",
+      "evidence_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/evidence/scoring_config.json",
+      "sha256": "c21c7fdc190af7cac48e2735d043f8a43e4fa195d5c8d25ebd59ec3e83c99c02",
+      "bytes": 2858,
+      "original_sha256": "c21c7fdc190af7cac48e2735d043f8a43e4fa195d5c8d25ebd59ec3e83c99c02"
+    },
+    "criteria_prompt": {
+      "original_path": "/data/caoqinlu/projects/apex-takehome/configs/eval/prompts/hle_judge_criteria.txt",
+      "evidence_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/evidence/criteria_prompt.txt",
+      "sha256": "0f0023ee579b8c134f1834ed8952778b9e01460e31d47c242ee3629da9d44835",
+      "bytes": 1290,
+      "original_sha256": "0f0023ee579b8c134f1834ed8952778b9e01460e31d47c242ee3629da9d44835"
+    },
+    "json_wrapper_prompt": {
+      "original_path": "/data/caoqinlu/projects/apex-takehome/configs/eval/prompts/hle_judge_json_system.txt",
+      "evidence_path": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/evidence/json_wrapper_prompt.txt",
+      "sha256": "63d3450fed0f7a8def3f00cd8241f4dffd748c6f9af8405985adb0082452d007",
+      "bytes": 420,
+      "original_sha256": "63d3450fed0f7a8def3f00cd8241f4dffd748c6f9af8405985adb0082452d007"
+    }
+  },
+  "parse_rule": "Parse each frozen HTTP200 Judge body as JSON; require extracted_final_answer=\\\"None\\\", strict=true, confidence=100, missing correct key, and reasoning containing literal `correct: no`; then set overlay correct=false. No answer generation or API replay.",
+  "attempts": [
+    {
+      "attempt": 1,
+      "http_status": 200,
+      "raw_envelope_sha256": "5c2d46256d012b7bf599707d29d505ad19b80b608a012c3c36eb4b2ea1542d27",
+      "inner_content_sha256": "80b25bdcb39e7537739efe8d89ad95ddbc8a125253e4e56e328f2bd78873931e",
+      "missing_required_key": "correct",
+      "extracted_final_answer": "None",
+      "confidence": 100,
+      "strict": true,
+      "explicit_textual_conclusion": "correct: no",
+      "reasoning_sha256": "a5086f45db0ace9bcb3e799fcb317f1deed3769bdae7982a3ea61ab53b573be4"
+    },
+    {
+      "attempt": 2,
+      "http_status": 200,
+      "raw_envelope_sha256": "0f9f29ad9f2a20f928821ab7682030cc806c707e246db4436b5646fab6e4bcc5",
+      "inner_content_sha256": "80b25bdcb39e7537739efe8d89ad95ddbc8a125253e4e56e328f2bd78873931e",
+      "missing_required_key": "correct",
+      "extracted_final_answer": "None",
+      "confidence": 100,
+      "strict": true,
+      "explicit_textual_conclusion": "correct: no",
+      "reasoning_sha256": "a5086f45db0ace9bcb3e799fcb317f1deed3769bdae7982a3ea61ab53b573be4"
+    }
+  ],
+  "overlay_result": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/result.json",
+  "overlay_summary": "/data/caoqinlu/projects/apex-takehome/artifacts/eval/ties_dense_hle2500_20261017/scoring/offline-score-only-overlay-20261018/summary.json",
+  "disclosure": "The overlay makes the fixed 2500 denominator complete as 131/2500=5.24%; this is an offline parse repair, not an official regrade or a new Judge call."
+}

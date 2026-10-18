@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-16T18:40:29.904465+00:00",
+  "key": "adaptive-rejection-sampler/seed0",
+  "model": "apex-avg64",
+  "native_trial_name": "adaptive-rejection-sampler__seed0",
+  "child_pid": 2878546,
+  "parent_pid": 2878519,
+  "cpu_offset": 52,
+  "cpu_ids": [
+    52,
+    53,
+    54,
+    55
+  ],
+  "memory_mib": 8192,
+  "solver_seconds": 1800,
+  "expected_trials": 445,
+  "context_tokens": 65536,
+  "output_tokens": 8192
+}
