@@ -486,3 +486,7 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
 ## 2026-10-18 16:00 CST：补齐数据来源与清洗入口
 
 新增 `data/README.md` 作为最终提交的数据入口，汇总 SWE、Terminal、HLE、ASI、Mixed 的来源/revision、导出与原生加载条数、许可、清洗、去重、污染检查和 train/validation 划分，并链接到既有行级清单和专项报告。原始数据、答案和完整轨迹仍不进入 GitHub，只保留 Git 忽略资产路径及 provenance 索引。
+
+## 2026-10-18 16:25 CST：在报告结论加入 SFT 对 Base 的直接对比
+
+最终 `report.pdf` 和 README 已加入首轮 SFT 专家与 Base 的同项百分点差值：SWE -19.607843pp、HLE +2.96pp、ASI -1.191997pp、Terminal seed2 exploratory -10.112360pp。结论明确本轮 SFT 只有 HLE 目标项提升，其余目标项退化，不能用 loss 替代任务成功率。

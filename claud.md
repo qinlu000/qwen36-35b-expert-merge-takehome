@@ -2199,3 +2199,9 @@ retry19 的 Vuls 单题已实际越过沙箱启动、runtime安装和模型服�
 - 核对题面后确认仓库已有 `analysis/training_data_report_20261016.md`、`analysis/source_snapshots/training_data_inventory_20261016.json`、`data_sources.json`、各模型 NOTICE 和模型来源表，覆盖来源 revision、许可、样本量、清洗、去重、污染检查、train/validation 划分和运行路径。
 - 为了让评审者有明显入口，新增 `data/README.md`：按专家列出来源/revision、导出与原生加载条数、清洗和限制，并链接到行级 provenance/manifest、数据专项报告和许可证 notice。没有把原始 benchmark 题目、答案或完整轨迹复制进 GitHub。
 - 根 README 的数据段已链接 `data/README.md`。大数据仍在 Git 忽略的本地/HPC artifacts 中，仓库保留说明和可追溯索引。
+
+## 2026-10-18 16:25 CST：在报告结论加入 SFT 对 Base 的直接对比
+
+- `report.pdf` 结论现明确给出同 benchmark 的首轮 SFT 专家对 Base 差值：SWE 0% vs 19.607843%（-19.607843pp）；HLE 6.92% vs 3.96%（+2.96pp）；ASI 0.378991% vs 1.570988%（-1.191997pp）；Terminal seed2 exploratory 8.988764% vs Base seed2 19.101124%（-10.112360pp）。
+- README 同步该结论：本轮 SFT 只在 HLE 目标项提升，SWE、ASI、Terminal 目标项退化；loss 不替代任务成功率。
+- PDF 重新生成并目视验收为单页，最新报告随本轮提交。

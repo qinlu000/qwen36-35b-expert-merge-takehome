@@ -12,6 +12,8 @@
 
 结果中的 Terminal 使用用户确认的固定 seed=2、每题一次 exploratory 口径；Base Terminal 的三条计算型 verifier timeout 按用户确认在汇报视图中记为 0，原生 `null` 仍保留。ASI/HLE 使用 public/local replacement Judge，TIES-Dense 的唯一格式缺口使用冻结 Judge body 的离线 score-only overlay 修复。所有偏离、原始证据和未纳入正式分数的项目均在 [进展文档](analysis/current_status_20261017.md)、[invalid 修复记录](analysis/invalid_repair_status_20261018.md) 与 [结果矩阵](analysis/complete_results_table_20261018.md) 中说明。
 
+首轮 SFT 专家相对 Base 的结论是：SWE `0%` 对 `19.607843%`（−19.607843pp），HLE `6.92%` 对 `3.96%`（+2.96pp），ASI `0.378991%` 对 `1.570988%`（−1.191997pp）；Terminal 在可比 seed2 exploratory 口径为 `8.988764%` 对 Base `19.101124%`（−10.112360pp）。因此本轮只在 HLE 目标项提升，SWE、ASI 和 Terminal 目标项退化；训练 loss 不能替代任务成功率。
+
 ## 资源约束与实际设置变更
 
 本实验的剩余窗口、可用 H100/CPU 沙箱和 Judge API 额度都非常有限，因此必须在研究范围内做取舍：最终只完成了一轮 BF16 LoRA SFT，没有实施 DPO、RL 或其他第二阶段优化；没有进行全参训练；没有用正式 benchmark 结果反复挑 checkpoint 或合版系数。这个取舍是资源约束造成的实验边界，不应解释为已经完成题面模板中的第二阶段训练。
